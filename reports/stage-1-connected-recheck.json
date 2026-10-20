@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-10-20T23:53:54.125822+00:00",
+  "evidenceClass": "fresh-connected-hosted-read-only-readiness-recheck",
+  "projectRef": "nuywbvlcwetqjalqvxzb",
+  "readOnlySqlResult": {
+    "checked_at": "2026-10-20T23:53:54.125822+00:00",
+    "owner_count": 0,
+    "project_ref": "nuywbvlcwetqjalqvxzb",
+    "source_count": 0,
+    "capture_count": 0,
+    "server_version": "17.11",
+    "auth_user_count": 0,
+    "occurrence_count": 0,
+    "source_run_count": 0,
+    "opportunity_count": 0,
+    "public_table_count": 12,
+    "enabled_source_count": 0,
+    "capture_bucket_exists": true,
+    "capture_bucket_private": true,
+    "public_tables_without_rls": 0,
+    "capture_storage_object_count": 0,
+    "review_inbox_security_invoker": true,
+    "anonymous_owner_bootstrap_denied": true,
+    "authenticated_owner_bootstrap_denied": true
+  },
+  "sqlQuery": "select jsonb_build_object('checked_at',clock_timestamp(),'project_ref','nuywbvlcwetqjalqvxzb','server_version',current_setting('server_version'),'auth_user_count',(select count(*) from auth.users),'owner_count',(select count(*) from public.tracker_members),'source_count',(select count(*) from public.sources),'enabled_source_count',(select count(*) from public.sources where enabled),'source_run_count',(select count(*) from public.source_runs),'opportunity_count',(select count(*) from public.opportunities),'occurrence_count',(select count(*) from public.occurrences),'capture_count',(select count(*) from public.captures),'capture_storage_object_count',(select count(*) from storage.objects where bucket_id='captures'),'capture_bucket_exists',exists(select 1 from storage.buckets where id='captures'),'capture_bucket_private',coalesce((select not public from storage.buckets where id='captures'),false),'public_table_count',(select count(*) from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='public' and c.relkind='r'),'public_tables_without_rls',(select count(*) from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='public' and c.relkind='r' and not c.relrowsecurity),'review_inbox_security_invoker',(select coalesce('security_invoker=true'=any(reloptions),false) from pg_class where oid='public.review_inbox'::regclass),'anonymous_owner_bootstrap_denied',not has_function_privilege('anon','public.configure_tracker_owner(uuid)','execute'),'authenticated_owner_bootstrap_denied',not has_function_privilege('authenticated','public.configure_tracker_owner(uuid)','execute')) as readiness;",
+  "ownerBlockerChanged": false,
+  "ownerBlocker": "Still no Supabase Auth user or registered tracker owner. Source seeding and actual hosted ingestion remain unavailable; source/run/opportunity/capture/object counts are all zero.",
+  "actions": {
+    "readOnlySqlQueries": 1,
+    "policySuiteRerun": false,
+    "accountsCreated": 0,
+    "ownersCreated": 0,
+    "schemaChanges": 0,
+    "dataChanges": 0,
+    "storageChanges": 0,
+    "keyChanges": 0,
+    "calendarWrites": 0,
+    "paidServicesEnabled": 0
+  },
+  "scope": "Single readiness snapshot only; does not repeat policy tests, create test users or exercise authenticated owner/Storage HTTP access.",
+  "documentation": {
+    "skillRead": "/Users/richarda/.codex/plugins/cache/openai-curated-remote/supabase/1.0.0/skills/supabase/SKILL.md",
+    "changelogFetched": "https://supabase.com/changelog.md",
+    "primaryLinks": [
+      "https://supabase.com/docs/guides/database/postgres/row-level-security",
+      "https://supabase.com/changelog/45329-breaking-change-tables-not-exposed-to-data-and-graphql-api-automatically",
+      "https://supabase.com/changelog/postgres-15-19-17-11-breaking-changes",
+      "https://supabase.com/changelog/cbc-tls-ciphers-deprecated"
+    ],
+    "relevantNote": "Current guidance distinguishes explicit table grants from RLS; this recheck only inspects deployed RLS/private-bucket state and current readiness counts, without changing grants."
+  },
+  "deploymentRecheck": {
+    "checkedBy": "read-only provider dashboard and GitHub connector",
+    "checkedBeforeUtc": "2026-10-20T23:54:51Z",
+    "commit": "8a29f2504f54736462cd53d53de34f367c92c57a",
+    "githubActions": {
+      "id": 39517771349,
+      "conclusion": "success",
+      "completedAt": "2026-10-20T23:52:50Z",
+      "url": "https://github.com/astromonkeyduck-coder/opptrack/actions/runs/39517771349"
+    },
+    "netlify": {
+      "state": "Published",
+      "deployId": "6ad7feab36071584d9bf927b",
+      "dashboard": "https://app.netlify.com/projects/luxury-longma-01d2fa/deploys/6ad7feab36071584d9bf927b"
+    },
+    "trigger": {
+      "state": "Deployed",
+      "deploymentId": "5ttxji5d",
+      "version": "20261020.2",
+      "deployedAt": "2026-10-20T23:52:54Z",
+      "runtime": "Node.js v24.18.0",
+      "visibleRunHistory": "One root manual test remains visible: run_06glndpqqqf43ur6djisksj5e1, Failed, version20261020.1. No new scheduled collection evidence observed."
+    },
+    "successfulScheduledIngestionVerified": false,
+    "laptopOffVerified": false
+  }
+}
