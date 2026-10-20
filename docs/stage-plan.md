@@ -1,6 +1,6 @@
 # Stage plan
 
-Only Stage 0 is authorized in the current session. Later stages are a continuation map derived from the pack, not permission to implement them.
+Stage 1 is explicitly authorized by the user on October 20, 2026. Stage 0 is preserved at Git tag stage-0-complete. Stop after Stage 1; later stages remain a continuation map, not permission to implement them.
 
 | Stage | Deliverable | Gate |
 | --- | --- | --- |
@@ -22,3 +22,7 @@ Only Stage 0 is authorized in the current session. Later stages are a continuati
 5. A basic mobile-friendly authenticated list/search displays actual collected opportunities, source links, date/location uncertainty, and source freshness. Broad catalog retention precedes ranking; no polished multi-view app is required yet. HQ/social setup-needed routes remain visible.
 6. Re-ingestion proves no duplicate versions/occurrences and no lost user decisions. Meaningful checks cover HTTP-200 login walls, malformed feeds, truncated pagination, stale sources, lease/retry behavior, ownership/RLS, private storage, and zero-event captures. Verify migrations against a local/test database, including anonymous and other-user denials; written policies alone do not pass.
 7. Record real commands, screenshots of the basic inbox, measured source counts/windows, actual costs or zero usage, remaining gaps, and a fresh-session runbook. Calendar, RSVP, purchase, and organizer messaging paths remain absent/disabled. Stop after Stage 1.
+
+## Current Stage 1 gate (October 20, 2026)
+
+Local implementation and real-source/SQL evidence are present. **Stage 1 is not yet fully accepted:** hosted credentials/project setup, Auth/Storage HTTP checks, actual Trigger run, authenticated hosted screenshot, Storage restore and safe retention/orphan cleanup remain open. Do not advance to Stage 2. See docs/status.md and the runbook for exact results and remaining steps.

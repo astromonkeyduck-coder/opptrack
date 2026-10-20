@@ -1,0 +1,26 @@
+{
+  "stage": 1,
+  "hosting": "netlify",
+  "worker": "trigger.dev-cloud",
+  "hosted_verified": false,
+  "dispatcher_cron": "*/15 * * * *",
+  "sources": {
+    "fsu-calendar-api": {
+      "enabled_when_configured": true,
+      "cadence_seconds": 3600,
+      "window_days": 7,
+      "max_pages": 16
+    },
+    "fsu-music-events": {
+      "enabled_when_configured": true,
+      "cadence_seconds": 21600,
+      "coverage": "public preview only"
+    }
+  },
+  "all_other_adapters_enabled": false,
+  "calendar_writes": false,
+  "paid_connectors": false,
+  "model_calls": false,
+  "retention_execution": "plan_only; hosted deletion/refresh race and Storage restore gate pending",
+  "cadence_basis": "Conservative Stage 1 overrides; Stage 0 registry remains historical evidence, not runtime cadence."
+}

@@ -1,0 +1,13 @@
+# Stage 1 collection boundary
+
+`collectSource(id, options)` returns a runtime-validated `CollectionBatch` (`types.ts`). The live adapters are `fsu-calendar-api` and `fsu-music-events`. Any other ID returns a blocked, unconfigured result with zero requests. Source text never supplies an action capability.
+
+Central calendar collection requests a bounded seven-day window by default, follows contiguous Localist pages and verifies stable declared row totals. Event IDs and event-instance IDs have separate identities. Sixteen pages, 3 MiB per response and a 25-second request timeout bound collection. HTTP 200 HTML, access walls, incomplete envelopes, repeated pages, shifting totals and request limits cannot become successful empty results. A genuine zero-row envelope is captured and retained.
+
+Music collection covers its current public preview only. One native detail URL identifies one preview occurrence, so a date edit changes its version while preserving decisions. Multiple different dates on one detail URL fail as ambiguous instead of collapsing performances. Local time is retained as text/date; timezone, end, location and tickets remain unknown. Both official-source adapters use `fsu_affiliated`; an on-campus venue is not assumed.
+
+Raw page bodies stay in memory until private storage persistence or the ignored `private/stage-1-live/` probe output. Public reports contain counts, URLs, hashes and failures, never raw payloads. Semantic hashes exclude attendance/view counters. Capture hashes, byte counts and JSON evidence pointers are validated before persistence.
+
+`runDispatcherHandler` is the same function registered by `trigger/source-dispatcher.ts`. SQL handles atomic leases, durable run results and provider retry floors; SDK retries handle infrastructure exceptions after lease expiration. SDK registration and local handler tests do not establish a working Trigger Cloud deployment. The Cloud key, project reference, deployed task and scheduler invocation need independent verification.
+
+Primary references consulted October 20, 2026: [Trigger scheduled tasks](https://trigger.dev/docs/tasks-scheduled), [Trigger configuration](https://trigger.dev/docs/config/config-file), [live FSU central API](https://calendar.fsu.edu/api/2/events?days=7), [Music public preview](https://music.fsu.edu/events/).

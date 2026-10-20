@@ -1,5 +1,7 @@
 # Stage 0 data model and boundaries
 
+Historical Stage 0 specification. The implemented Stage 1 subset is supabase/migrations/202610200001_stage1.sql; docs/stage-1-db-contract.md and docs/status.md distinguish it from future approval/outbox/provider designs below.
+
 Design dated 2026-10-20, America/New_York. This is a specification plus TypeScript interfaces, not a migration, database, extraction service, or working calendar integration. Stage 0 performs no external writes. Keep the proposed Next.js/TypeScript, Supabase, Trigger.dev, Resend, and Google Calendar architecture; source access findings do not justify changing it.
 
 ## Smallest durable records

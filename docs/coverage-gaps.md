@@ -40,3 +40,9 @@ The costed 39-account social pilot forecasts $41.15 incremental with a proposed,
 Primary risks are inaccessible/unpublished sources, stale archives, source/vendor changes, silent empty results, incorrect date/action interpretation, repeated billing, private evidence leakage and duplicate/unapproved external actions. Mitigate through explicit source health, bounded audited windows, field evidence/conflict review, privacy/retention, caps, durable approval/outbox identity and human review. Every mitigation still needs implementation/evidence at its relevant stage.
 
 Do not display a campus-wide coverage percentage. Report recall only for named accessible sources and manually audited time windows, with numerator, denominator, exclusions, misses and uncertainty. “Unknown,” “blocked,” “stale,” and “no eligible items observed in this validated window” are different states.
+
+## Stage 1 implemented coverage
+
+The central seven-day adapter and College of Music public preview now feed a real local SQL inbox: 293 central event IDs/332 occurrences plus ten Music cards. These are source-scoped records; cross-source matches remain separate until reviewed, so 303 records is not 303 audited unique campus opportunities. Public HQ snippets embedded in the central feed do not establish HQ member coverage. Withheld locations remain unknown, Music clock text has no verified timezone/end, and tickets/on-sale timing remain unverified.
+
+The 59-route health catalog keeps all other routes disabled or explicitly unconfigured, stale, blocked or manual. Authenticated manual intake retains all supplied files and link/notes privately; no media extraction accuracy is claimed. The application has no mock event fallback. Hosted Auth/Storage/Trigger and safe retention cleanup remain unverified, so local live ingestion is not an operating production service. Later ranking, alerts, cross-source reconciliation and social breadth remain deferred.

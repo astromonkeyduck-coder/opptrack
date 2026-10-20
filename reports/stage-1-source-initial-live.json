@@ -1,0 +1,68 @@
+{
+  "evidenceClass": "fresh-live-read-only-fetch",
+  "mocked": false,
+  "reportedAt": "2026-10-20T22:47:06.310Z",
+  "providerConnectorsInvoked": 0,
+  "modelCalls": 0,
+  "calendarWrites": 0,
+  "upstreamChargesUsd": 0,
+  "chargeBasis": "Public GET only; account invoices and tool subscriptions are not measured",
+  "results": [
+    {
+      "sourceId": "fsu-calendar-api",
+      "status": "partial",
+      "reason": "Response failed schema or parser validation; no successful empty result",
+      "startedAt": "2026-10-20T22:47:02.319Z",
+      "finishedAt": "2026-10-20T22:47:05.965Z",
+      "privateCapturePath": "private/stage-1-live/fsu-calendar-api.json",
+      "pages": 1,
+      "requests": 1,
+      "bytes": 321250,
+      "nativeRows": 0,
+      "opportunities": 0,
+      "occurrences": 0,
+      "paginationComplete": false,
+      "windowFrom": "2026-10-20",
+      "windowTo": "2026-10-27",
+      "warnings": [],
+      "sourceUrls": [
+        "https://calendar.fsu.edu/api/2/events?start=2026-10-20&days=7&pp=100&page=1"
+      ],
+      "bodyHashes": [
+        "d9264aa969f9d6a6ed64a829372f590311700115ad4312f0c2ceb30e87f32b32"
+      ]
+    },
+    {
+      "sourceId": "fsu-music-events",
+      "status": "success",
+      "reason": null,
+      "startedAt": "2026-10-20T22:47:05.969Z",
+      "finishedAt": "2026-10-20T22:47:06.306Z",
+      "privateCapturePath": "private/stage-1-live/fsu-music-events.json",
+      "pages": 1,
+      "requests": 1,
+      "bytes": 65372,
+      "nativeRows": 10,
+      "opportunities": 10,
+      "occurrences": 10,
+      "paginationComplete": true,
+      "windowFrom": null,
+      "windowTo": null,
+      "warnings": [
+        "Only current Music homepage preview cards; full calendar pagination is unverified",
+        "Local date/time retained without assuming timezone, end, location or ticket availability"
+      ],
+      "sourceUrls": [
+        "https://music.fsu.edu/events/"
+      ],
+      "bodyHashes": [
+        "f920c317d8af516e70b20c4de02568951aad21139a79d3df188ff42b88fc8d90"
+      ]
+    }
+  ],
+  "investigation": {
+    "schema_path": "events[].event.url",
+    "observed_nullable_rows_on_captured_first_page": 22,
+    "resolution": "Allow null for the optional external URL; valid localist_url, native IDs, occurrences and pagination remain required/validated. The initial failure is retained and was followed by a fresh successful run."
+  }
+}

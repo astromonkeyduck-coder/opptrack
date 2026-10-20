@@ -1,0 +1,46 @@
+{
+  "run_at": "2026-10-20T23:01:09.470Z",
+  "engine": "PGlite 0.5.10 (actual PostgreSQL WASM)",
+  "migrations": [
+    "202610200001_stage1.sql"
+  ],
+  "passed": 29,
+  "checks": [
+    "all migrations execute on actual PostgreSQL (PGlite WASM)",
+    "unconfigured authenticated account cannot claim first-owner membership",
+    "single-owner setup is idempotent and refuses replacement",
+    "migration source IDs align with registry; seeded catalog has exactly 59 routes and two enabled adapters",
+    "lease is exclusive and service-only",
+    "success atomically persists capture, run, entities, evidence and cursor",
+    "anonymous denied database/view/function access",
+    "owner reads facts and security-invoker inbox",
+    "another authenticated user cannot read facts, runs, claims, decisions or intake",
+    "owner cannot forge source facts/health/direct decisions",
+    "save works, calendar approval action is rejected, stale revision is rejected",
+    "unchanged replay creates observations but no duplicate entities/versions; decision survives",
+    "fresh replay of purged identical raw capture restores private path without duplicate versions",
+    "new content version preserves stable occurrence and user decision",
+    "cross-owner relationship is rejected even with service privileges",
+    "partial keeps cursor/last-success, records failure and retry",
+    "malformed normalized payload rolls back captures, run and cursor transaction",
+    "success cannot represent truncated pagination or an unevidenced empty response",
+    "valid zero-event capture persists as evidenced success",
+    "Retry-After is honored and failed collection is not empty success",
+    "expired lease cannot commit; recovery records abandoned attempt",
+    "private storage bucket forbids public access and preserves MIME/size limits",
+    "storage RLS permits owner prefix and denies other prefixes/traversal",
+    "other authenticated user cannot read/upload/delete owner storage",
+    "manual intake retains all supplied slides privately, dedupes submission keys, and rejects forged media",
+    "manual SQL boundary rejects oversized files/total, excess slides, long notes, credential URLs and absent MIME",
+    "retention planner is service-only, skips active shared references and recent objects, and finds aged orphans",
+    "owner can delete private object under policy; database records retain no public URL",
+    "calendar and delivery execution tables/functions are absent"
+  ],
+  "not_tested": [
+    "Hosted Supabase Auth HTTP/JWT verification",
+    "Supabase Storage HTTP upload/signing service",
+    "Hosted database backup/restore",
+    "Concurrent worker processes against hosted PostgreSQL"
+  ],
+  "fixture_data": "Synthetic SQL records only; not live event ingestion evidence"
+}

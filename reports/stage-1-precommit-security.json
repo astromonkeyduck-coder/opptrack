@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "candidateFiles": 122,
+  "trackedDotenvFiles": [
+    ".env.example",
+    ".env.netlify.production.example",
+    ".env.trigger.production.example"
+  ],
+  "privateCaptureCandidates": 0,
+  "localEnvIgnored": true,
+  "localEnvMode": "0o600",
+  "suspectedTokenFindings": [
+    {
+      "path": "tests/test_production_env.py",
+      "line": 41,
+      "classification": "synthetic_fixture"
+    }
+  ],
+  "limits": "Pattern scan and explicit path review; not a proof against all possible secret encodings. No matching values are printed."
+}

@@ -26,6 +26,56 @@ h1 { margin: 0; font: 500 clamp(44px, 6.7vw, 78px)/1.08 Georgia, "Times New Roma
 h2 { margin: 0; font-size: 16px; line-height: 1.5; }
 .setup p { margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .setup .approval { color: var(--ink); }
+.inbox-intro { padding: 48px 0 26px; }
+.inbox-intro h1 { font-size: clamp(36px, 5vw, 56px); }
+.inbox-intro .lead { margin-top: 16px; font-size: 16px; max-width: 700px; }
+.approval { font-size: 13px; color: var(--garnet); line-height: 1.6; }
+.small { font-size: 12px; color: var(--muted); line-height: 1.65; }
+button, input, select, textarea { font: inherit; }
+button { padding: 11px 18px; background: var(--garnet); color: white; border: 1px solid var(--garnet); border-radius: 6px; cursor: pointer; font-size: 13px; }
+button:disabled { opacity: .6; cursor: wait; }
+input, select, textarea { display: block; width: 100%; margin-top: 8px; padding: 11px 12px; background: #fffef9; border: 1px solid #a6ac9e; border-radius: 5px; color: var(--ink); }
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #b49550; outline-offset: 3px; }
+label { display: block; font-size: 13px; font-weight: 700; }
+.stack { display: grid; gap: 18px; margin-top: 22px; }
+.stack button { justify-self: start; }
+.stack .small { margin: 0; }
+.notice { padding: 15px 18px; background: #fff0db; border-left: 3px solid #966d28; border-radius: 4px; font-size: 14px; line-height: 1.6; }
+.notice.success { background: #e6eddf; border-color: #4b6642; }
+nav, .card-actions, .card-actions form { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; }
+.text-button { background: transparent; color: var(--garnet); padding: 6px 0; border: none; text-decoration: underline; }
+.secondary { background: transparent; color: var(--garnet); padding: 8px 12px; }
+.coverage { padding: 18px 22px; background: #eeefe7; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; line-height: 1.65; }
+.coverage p { margin: 6px 0 0; color: var(--muted); }
+.search { display: grid; grid-template-columns: minmax(0, 1fr) 190px auto; align-items: end; gap: 14px; margin: 32px 0; }
+.search button { min-height: 42px; }
+.list-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin: 24px 0 14px; }
+.list-heading a { font-size: 13px; }
+.opportunity-list { display: grid; gap: 14px; }
+.opportunity { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 26px; padding: 25px; background: #fffef9; border: 1px solid var(--line); border-radius: 10px; }
+.card-date { font-size: 14px; font-weight: 700; line-height: 1.6; color: var(--garnet); }
+.card-date span { display: block; margin-top: 6px; font-size: 11px; font-weight: 400; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 10px; }
+.tags span { padding: 4px 7px; background: #eeefe7; border-radius: 4px; font-size: 10px; color: var(--muted); }
+.tags .decision { background: #e5eddf; color: #3b5733; }
+.opportunity h3 { font: 500 23px/1.25 Georgia, serif; margin: 0; overflow-wrap: anywhere; }
+.location { margin: 9px 0; font-size: 13px; }
+.description { font-size: 13px; line-height: 1.7; color: var(--muted); white-space: pre-line; max-height: 180px; overflow: auto; overflow-wrap: anywhere; }
+.uncertainty { font-size: 11px; color: #775827; line-height: 1.65; }
+.card-actions { margin-top: 16px; gap: 20px; }
+.card-actions form { gap: 14px; }
+.pagination { justify-content: space-between; margin: 24px 0; }
+.manual-list, .source-health { margin-top: 42px; }
+.manual-item { padding: 20px; margin-top: 12px; border: 1px solid var(--line); background: #eeefe7; border-radius: 8px; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.manual-item p { white-space: pre-line; }
+.manual-item ul { padding-left: 20px; }
+details { border-bottom: 1px solid var(--line); padding: 15px 0; font-size: 13px; line-height: 1.6; }
+summary { cursor: pointer; display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap; }
+details > p { max-width: 800px; color: var(--muted); }
+.empty { padding: 24px; border: 1px dashed #a6ac9e; border-radius: 8px; color: var(--muted); line-height: 1.7; }
+.empty h3 { margin: 0; color: var(--ink); font-size: 15px; }
+.empty p { font-size: 13px; }
+.intake-panel { max-width: 750px; }
 footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 80px; padding: 24px 0 30px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 @media (max-width: 600px) {
   main { width: calc(100% - 36px); }
@@ -36,4 +86,13 @@ footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 8
   .lead { font-size: 16px; }
   .setup { padding: 22px; }
   footer { flex-direction: column; margin-top: 50px; }
+  header { flex-wrap: wrap; }
+  header nav { gap: 16px; }
+  .inbox-intro { padding-top: 34px; }
+  .search { grid-template-columns: 1fr; gap: 16px; }
+  .search button { justify-self: start; }
+  .opportunity { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
+  .card-date span { display: inline; margin-left: 9px; }
+  .opportunity h3 { font-size: 22px; }
+  summary { flex-direction: column; gap: 3px; }
 }

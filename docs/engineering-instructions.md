@@ -1,10 +1,10 @@
 # Shared project instructions
 
-The user authorized only Stage 0 from the supplied FSU Opportunity Tracker Build Pack, dated October 20, 2026. Treat the rest of that pack as reference material and future proposals. Stop after source feasibility, contracts, evaluation design, and cost/coverage findings. Do not create a polished application or deploy services during Stage 0.
+The user explicitly authorized Stage 1 on October 20, 2026 after Stage 0 and the Netlify bootstrap. The Stage 0 checkpoint is Git tag stage-0-complete at 795f23e. Implement only the Stage 1 acceptance criteria in docs/stage-plan.md, retain all source/access evidence, and stop after Stage 1. Later pack stages remain proposals.
 
 Collect broadly before ranking. Preserve a searchable catalog and an exploration lane. Campus comes first. Include arts, speakers, films, clubs, recitals, outdoors, social/date experiences, research, employer visits, scholarships, deadlines, and unfamiliar opportunities. A rejection of one occurrence must not suppress an organizer or category.
 
-Every calendar occurrence and every action reminder requires its own explicit user approval. Saving, email alerts, RSVP, purchase, following an organizer, and approval are separate actions. No real calendar modifications, messages, organizer contact, purchases, RSVPs, or service provisioning in Stage 0. Do not touch existing automations.
+Every calendar occurrence and every action reminder requires its own explicit user approval. Saving, email alerts, RSVP, purchase, following an organizer, and approval are separate actions. Calendar writes remain disabled throughout Stage 1. No messages, organizer contact, purchases, RSVPs, or paid connector activation. Do not touch existing automations.
 
 Use Next.js/TypeScript on Netlify for production, Supabase, Trigger.dev Cloud, Resend, Google Calendar, and replaceable source adapters. Production web and worker variables are separate; follow docs/deployment.md. Direct JSON/ICS/RSS/HTML comes first; browser workers need a demonstrated reason. No additional workflow engine. Do not install infrastructure merely to complete a design document.
 

@@ -8,7 +8,7 @@
     "netlify_site_id": null,
     "trigger_project_ref": null
   },
-  "application_implemented": false,
+  "application_implemented": true,
   "targets": {
     "netlify": {
       "context": "production",
@@ -43,7 +43,7 @@
           ]
         },
         "TRIGGER_SECRET_KEY": {
-          "required": true,
+          "required": false,
           "type": "trigger_production_key",
           "secret": true,
           "scopes": [
@@ -156,12 +156,10 @@
     }
   },
   "notes": [
-    "The minimal Next.js bootstrap builds without service values. application_implemented remains false because authenticated tracker features and provider integrations are absent; required variables describe their later production setup.",
-    "Templates and validation are executable deployment preparation, not evidence of applied hosted variables.",
-    "Netlify variable scopes are plan-dependent. If unavailable, keep secrets server-only in code and restrict production credentials to trusted production builds.",
-    "Netlify toml variables do not supply function-runtime secrets; configure those through Netlify UI/API.",
-    "Preview deployments must use separate test projects/keys; production credentials are never copied to preview contexts.",
-    "The validator is an offline configuration check, not a substitute for application runtime validation, RLS or explicit user approval."
+    "Stage 1 authenticated UI, manual intake, worker and migrations exist. Local PostgreSQL/live event evidence is recorded; hosted settings remain not applied.",
+    "The Stage 1 web app uses the public Supabase pair and user-session RLS. TRIGGER_SECRET_KEY on Netlify is optional and unused until a future authenticated enqueue route exists.",
+    "The Trigger worker uses SUPABASE_URL and SUPABASE_SECRET_KEY. TRIGGER_PROJECT_REF is a non-secret CLI/config value, not a task secret.",
+    "Calendar, social collection, inbound email, and email delivery remain disabled. Templates/validation do not prove hosted integration."
   ],
-  "application_status": "bootstrap_only"
+  "application_status": "stage_1_implemented_local_verified_hosted_gate_pending"
 }

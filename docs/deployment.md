@@ -1,74 +1,59 @@
 # Production deployment: Netlify + Trigger.dev Cloud
 
-Updated October 20, 2026 at the user's request. **Netlify is the production Next.js host.** Supabase remains the database/Auth/private Storage service, Trigger.dev Cloud the workflow service, and Resend the email provider. This repository contains Stage 0 probes, a minimal Next.js bootstrap page, deployment configuration and an offline environment validator. The bootstrap is public and has no login, saved captures, opportunity catalog or provider integrations. The user supplied a Netlify build log that failed because `package.json` was absent; the root package and lockfile now address that failure. No successful hosted deployment or Trigger deployment has been verified, and hosted variables have not been applied.
+Stage 1 now contains an authenticated Next.js app, Supabase migrations, manual intake and the Trigger SDK task. Local build/SQL/live-source evidence is recorded in status.md. Hosted Netlify, Supabase Auth/Storage and Trigger runs remain unverified. Keep production application and worker variables separate.
 
-## Two independent environments
+## Netlify production app
 
-`config/production-environments.json` is the machine-readable variable contract. Use separate templates:
+Use repository root as the base directory, Node 22, build `npm run build`, publish `.next`. `netlify.toml` supplies these settings; the committed package/lockfile resolves the earlier ENOENT failure. Use Netlify's automatic modern OpenNext adapter. Do not add a static export, SPA rewrite or legacy plugin. Build devDependencies must be installed; do not set NODE_ENV=production during dependency installation.
 
-| Destination | Template | Context | Responsibility |
-| --- | --- | --- | --- |
-| Netlify | `.env.netlify.production.example` | `production` | Next.js UI/SSR/server routes, authenticated review/approval intent and signed inbound webhook reception |
-| Trigger.dev Cloud | `.env.trigger.production.example` | `prod` | Due-source dispatcher, collection, extraction and later delivery/outbox workers |
+Set the keys in `.env.netlify.production.example` in the **Production** context. APP_URL is the actual HTTPS origin. The public Supabase URL/publishable key need Builds + Functions; rebuild after changing browser values. Server flags/secrets use Functions scope where available. The web app uses the signed-in user's Supabase session/RLS; **never add SUPABASE_SECRET_KEY to Netlify**. The template's Trigger production key is optional and currently unused by Stage 1 web routes. There is no web enqueue endpoint yet. Inbound email remains disabled and no Resend webhook is implemented.
 
-Netlify variables do not transfer to Trigger. Trigger variables do not transfer to Netlify. Copy shared `APP_URL` and the same Supabase project URL deliberately; only the Netlify public key goes into the browser. The privileged Supabase secret and Resend sending key belong to Trigger. Netlify server routes should use the signed-in user's Supabase session/RLS, not a worker's privileged key. The Netlify server gets a Production Trigger API key to enqueue bounded jobs; worker code must independently validate authorization/ownership. Keep privileged operations behind approved database routines.
-
-Netlify public keys/URL and `APP_URL` use Builds + Functions scopes. Server secrets and flags use Functions scope where the account plan supports scopes. Configure **Production** values explicitly, never the default all-contexts value. If scope controls are unavailable, secrets may be visible to trusted production build code; keep them out of browser code and do not run untrusted builds with production credentials. Deploy Previews/branch deploys require separate test credentials and disabled external effects. Do not copy production variables to them. Variables in `netlify.toml` do not supply function-runtime secrets.
-
-Use the current Supabase publishable (`sb_publishable_`) key on Netlify and server secret (`sb_secret_`) key on Trigger. Legacy JWT keys are intentionally rejected by this project's new configuration checker. Only the two declared `NEXT_PUBLIC_*` variables may be bundled into browser code. Set secret values in the provider UI, mark them secret where available, and never commit populated dotenv files. `NETLIFY_AUTH_TOKEN` and `TRIGGER_ACCESS_TOKEN` are deployment-tool credentials; keep them in local/CI secret storage, outside both application templates.
-
-## Prepare and validate values
-
-Copy the templates to the ignored local files, then fill values securely:
-
-```sh
-cp .env.netlify.production.example .env.netlify.production.local
-cp .env.trigger.production.example .env.trigger.production.local
-python3 scripts/validate_production_env.py --target netlify --env-file .env.netlify.production.local
-python3 scripts/validate_production_env.py --target trigger --env-file .env.trigger.production.local
-```
-
-The validator reports names/errors only, rejects wrong-target credentials, secret keys in public fields, nonproduction Trigger keys, missing required values and unsafe stage flags. It does not contact providers or authenticate keys. Template-only validation is `python3 scripts/validate_production_env.py`; this passing does **not** mean production values exist. Keep `CALENDAR_WRITES_ENABLED=false` in both targets and `SOCIAL_COLLECTION_ENABLED=false` on Trigger. Delivery/inbound flags also default false; their credentials become required only when their implemented features are enabled. No setting alone grants permission for a calendar write.
-
-## Netlify bootstrap build
-
-The root package and lockfile supply the build target referenced by `netlify.toml`. With Node 22, reproduce it from the repository root:
+The app uses password sign-in to an existing Supabase Auth account. Set the Supabase Auth Site URL to APP_URL, disable public signups, and register the intended owner through the service-only bootstrap. No OAuth callback/calendar scopes are needed in Stage 1. Keep preview/branch deploy credentials separate from production; never expose production secrets to untrusted builds.
 
 ```sh
 npm ci
+npm test
+npm run test:db
 npm run typecheck
 npm run build
+python3 scripts/validate_production_env.py
 ```
 
-The bootstrap needs no Supabase, Trigger or Resend values at build time or runtime. It performs no network collection or external actions. Keep the Netlify base directory at the repository root, build command `npm run build`, and publish directory `.next`. Rebuild the corrected commit in the intended Netlify site and verify its deploy log and homepage before claiming a successful deployment. No service credentials need to be added merely to render this page.
+Use ignored `.env.netlify.production.local` to validate actual settings with `--target netlify --env-file PATH`; the validator prints names/errors only. Do not overwrite populated files when copying templates. A successful local build is not a successful Netlify deploy. Verify the actual hosted commit, owner login, unauthorized redirects, private downloads, search/pagination, and mobile inbox before acceptance.
 
-## Netlify tracker setup and release
+## Supabase migration and ownership
 
-The following integration steps remain later-stage work; the bootstrap alone does not satisfy them.
+Apply `supabase/migrations/202610200001_stage1.sql` once through the intended project's SQL editor or an authenticated migration workflow. The three app keys alone do not supply a SQL-management channel. The migration enforces single ownership, RLS, a private captures bucket, source leases/runs/captures, separate opportunities/occurrences/milestones, claims/versions and save/reject-only decisions. Empty membership grants no first-visitor ownership.
 
-1. Link the intended repository/branch to the correct Netlify site. Repository publication is a separate action; a local `origin` does not mean code was pushed. Do not import an unrelated site or assume an existing paid plan.
-2. Use root base directory, `npm run build`, publish directory `.next`, Node 22 from `netlify.toml`. Let Netlify automatically use its modern OpenNext adapter. Do not add a static `next export`, SPA catch-all redirect or the legacy Next.js plugin. Build devDependencies must remain available; do not set `NODE_ENV=production` in Netlify's dependency-install environment.
-3. In the site's environment-variable UI, enter only the Netlify template keys, Production context and declared scopes. Mark `TRIGGER_SECRET_KEY` and optional `RESEND_WEBHOOK_SECRET` secret. Avoid bulk `env:import`: the documented command does not expose context/scope flags, so a blind import can put production values in every context. Use per-key UI/API configuration instead.
-4. Set `APP_URL` to the actual canonical HTTPS origin. Configure Supabase Auth Site URL and the implemented auth callback's exact allowed redirect URL. Do not allow arbitrary preview wildcards into production auth. Add separate test redirects/projects for previews. Register Resend's webhook only after its route and signature/replay checks exist; do not invent a currently working callback route.
-5. Run `npm ci`, `npm run typecheck`, `npm run build`, relevant feature tests and a test-context Netlify build. Verify authenticated SSR, session cookies, private evidence access and server routes. Check browser bundles do not contain privileged values. Deploy the production web artifact only after those gates; verify the actual deployed commit and a non-secret health/auth flow. Public `NEXT_PUBLIC_*` changes need a new build; rebuild/redeploy after variable updates so generated functions/assets use the intended values.
+Create/choose the existing owner account in the dashboard, then from the trusted local environment:
 
-## Trigger.dev Cloud setup and release
+```sh
+npm run setup:owner -- EXISTING_AUTH_USER_UUID
+npm run setup:sources
+```
 
-1. Select the correct Trigger project and **prod** environment. Add only the worker-template keys in its Environment Variables dashboard, marking Supabase and Resend keys secret at creation. Do not copy the Netlify file or use `syncEnvVars` to mirror Netlify variables wholesale.
-2. In Stage 1, create/pin the actual Trigger SDK/CLI and `trigger.config.ts` with the real project reference and worker task directory. No fake project reference is committed here. A single dispatcher owns due-source checks; Netlify build hooks are not the scheduler.
-3. Once dependencies/tasks exist and local checks pass, deploy separately with the pinned CLI: `npx --no-install trigger.dev deploy --env prod`. For CI, provide `TRIGGER_ACCESS_TOKEN` through the CI secret store. Deployment credentials and task runtime variables are different.
-4. Setting `--env-file` on the deploy command populates the CLI process; it does **not** upload task runtime variables. Use Trigger's dashboard or explicit environment-variable API/SDK for those values. Confirm names in the selected prod environment without printing secrets; the CLI `env list --env prod` hides values by default. Importing a local dotenv file into Netlify does not configure workers.
-5. Verify a read-only source job persists its run/capture in the intended Supabase project. Verify missing/expired credentials and budget caps produce visible failures. Keep schedules/delivery disabled until their stage's implementation and acceptance checks pass. Calendar writes remain disabled until the dedicated approval/outbox stage is verified.
+The local server secret belongs only in ignored `.env.local` for setup/direct worker commands, and in Trigger's worker runtime for production. `setup:sources` ignores existing rows and cannot reset cursors/health. Source IDs/hashes remain scoped to their actual source; cross-source duplicate matching is deferred.
 
-## Current setup requirements
+## Trigger.dev Cloud worker
 
-Netlify site ID/name/URL, Trigger project reference, Supabase production project/keys and canonical application URL have not been provided. Resend credentials/sender/domain are needed when delivery is enabled, plus a signing secret when inbound intake is enabled. No Netlify or Trigger CLI is installed in this workspace and no connected Netlify/Trigger administrative tool is available. Prepared files therefore remain **not applied**, with identifiers null in the contract. Do not replace nulls with guessed projects or blank hosted secrets. The root Next.js bootstrap can be built without any of these values. Trigger tasks and the authenticated tracker remain absent. The supplied failed Netlify build is evidence of an attempted deployment, not a successful release; verifying the corrected commit on Netlify is still required.
+Use `.env.trigger.production.example` in the intended project's **prod** environment. Worker values include SUPABASE_URL and SUPABASE_SECRET_KEY; no NEXT_PUBLIC keys or Netlify Trigger API key are needed inside the worker. Keep EMAIL_DELIVERY_ENABLED, SOCIAL_COLLECTION_ENABLED and CALENDAR_WRITES_ENABLED false. Set the non-secret TRIGGER_PROJECT_REF for CLI/config loading; no fake project reference is committed.
 
-## Primary documentation checked October 20, 2026
+The real SDK task `opportunity-source-dispatcher` runs every 15 minutes, with queue concurrency one and SQL due-source leases. Central is due hourly; Music every six hours. Only these two free public adapters are enabled after owner setup. Source failures persist retry state and respect Retry-After; infrastructure retries wait for lease recovery. SDK registration/type checks and local replay do not verify cloud scheduling.
 
-- [Netlify Next.js/OpenNext support](https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/), [build dependencies/Node selection](https://docs.netlify.com/build/configure-builds/manage-dependencies/).
-- [Netlify environment contexts/scopes/runtime limits](https://docs.netlify.com/build/environment-variables/overview/) and [CLI env command](https://cli.netlify.com/commands/env/).
-- [Trigger runtime environments](https://trigger.dev/docs/deploy-environment-variables), [deploy CLI](https://trigger.dev/docs/cli-deploy-commands), [env CLI](https://trigger.dev/docs/cli-env-commands).
-- [Supabase key separation](https://supabase.com/docs/guides/getting-started/api-keys).
+The SDK is pinned to 4.7.6. The optional matching CLI was inspected and removed because its dependency tree introduced an unpatched braces advisory and vulnerable archive dependencies. Resolve/recheck its advisories before selecting a pinned deployment CLI. No CLI login/dev/deploy succeeded here. Once a verified CLI is available, run its documented dev/deploy commands for the actual project, independently of the Netlify build. CLI --env-file supplies its local process, not uploaded runtime values. Set worker values explicitly in Trigger's dashboard; deployment account tokens stay outside app runtime templates.
 
-These establish documented deployment behavior. A successful build, hosted secret application or operational integration still requires project-specific evidence.
+Verify a real cloud run ID, source-run/capture transaction and authenticated inbox rows in the same Supabase project. Record cloud logs without credentials or raw capture bodies. No paid connector is required or enabled.
+
+## Privacy and release gate
+
+`.env.local`, populated production dotenv files, raw captures, backups, exported event rows and screenshots remain ignored. Authenticated downloads return attachments/no-store, not public Storage URLs. Manual links are retained without fetching; supplied files remain pending verification. Model/OCR extraction and Resend are optional and unused.
+
+Local database backup/restore and SQL access controls pass; hosted Auth/Storage HTTP, complete Storage backup, distributed contention and safe hosted purge/refresh are still required. Retention planning deletes nothing until those checks pass. Do not call this hosted-ready merely because the build passes. Keep calendar provider code, OAuth scopes and writes absent; stop after Stage 1.
+
+## Primary references checked October 20, 2026
+
+- [Netlify Next.js/OpenNext](https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/) and [environment contexts/scopes](https://docs.netlify.com/build/environment-variables/overview/).
+- [Supabase SSR clients](https://supabase.com/docs/guides/auth/server-side/creating-a-client), [Storage policies](https://supabase.com/docs/guides/storage/security/access-control), [standard uploads](https://supabase.com/docs/guides/storage/uploads/standard-uploads), and [Storage errors](https://supabase.com/docs/guides/storage/debugging/error-codes).
+- [Trigger scheduled tasks](https://trigger.dev/docs/tasks/scheduled), [configuration](https://trigger.dev/docs/config/config-file), and [runtime environments](https://trigger.dev/docs/deploy-environment-variables).
+
+Provider documentation describes supported behavior; project-specific hosted verification remains necessary.

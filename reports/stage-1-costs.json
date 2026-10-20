@@ -1,0 +1,46 @@
+{
+  "stage": 1,
+  "as_of": "2026-10-20",
+  "actual": {
+    "public_http_attempts": 12,
+    "public_source_provider_charges_usd": 0,
+    "trigger_cloud_runs": 0,
+    "supabase_hosted_verified_runs": 0,
+    "model_calls": 0,
+    "paid_connector_runs": 0,
+    "resend_messages": 0,
+    "calendar_writes": 0,
+    "purchases": 0,
+    "account_invoices_checked": false,
+    "coding_subscription_and_tool_costs": "unmeasured"
+  },
+  "conditional_30_day_forecast": {
+    "dispatcher_ticks": 2880,
+    "assumed_seconds_per_tick": 10,
+    "small_1x_usd_per_second": 3.38e-05,
+    "usd_per_invocation": 2.5e-05,
+    "trigger_metered_usd": 1.0454,
+    "central_collections": 720,
+    "music_collections": 120,
+    "public_http_requests_at_current_page_count": 3000,
+    "raw_bytes_if_every_fetch_changes": 769858800,
+    "raw_decimal_gb_if_every_fetch_changes": 0.7699,
+    "retention_days": 30,
+    "dedupe_may_reduce_storage": true,
+    "metadata_media_egress_backups_and_retries": "additional and unmeasured",
+    "hosted_retention_execution": "disabled pending verification",
+    "monthly_subscription_free_case": "USD 0 if provider quotas/eligibility and actual usage fit; not guaranteed",
+    "illustrative_paid_base_without_models_usd": 44,
+    "paid_base_components": {
+      "netlify_personal": 9,
+      "supabase_pro_one_micro": 25,
+      "trigger_hobby": 10
+    },
+    "approval": "no paid plan or usage approved or enabled"
+  },
+  "sources": [
+    "https://supabase.com/pricing",
+    "https://trigger.dev/pricing",
+    "https://www.netlify.com/pricing/"
+  ]
+}

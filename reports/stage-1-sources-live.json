@@ -1,0 +1,123 @@
+{
+  "evidenceClass": "fresh-live-read-only-fetch",
+  "mocked": false,
+  "reportedAt": "2026-10-20T22:50:38.359Z",
+  "providerConnectorsInvoked": 0,
+  "modelCalls": 0,
+  "calendarWrites": 0,
+  "upstreamChargesUsd": 0,
+  "chargeBasis": "Public GET only; account invoices and tool subscriptions are not measured",
+  "totalPublicHttpAttempts": 12,
+  "attemptHistory": [
+    {
+      "reportedAt": "2026-10-20T22:47:06.310Z",
+      "requests": 2,
+      "results": [
+        {
+          "sourceId": "fsu-calendar-api",
+          "status": "partial",
+          "requests": 1
+        },
+        {
+          "sourceId": "fsu-music-events",
+          "status": "success",
+          "requests": 1
+        }
+      ]
+    },
+    {
+      "reportedAt": "2026-10-20T22:47:52.490Z",
+      "requests": 5,
+      "results": [
+        {
+          "sourceId": "fsu-calendar-api",
+          "status": "success",
+          "requests": 4
+        },
+        {
+          "sourceId": "fsu-music-events",
+          "status": "success",
+          "requests": 1
+        }
+      ]
+    },
+    {
+      "reportedAt": "2026-10-20T22:50:38.359Z",
+      "requests": 5,
+      "results": [
+        {
+          "sourceId": "fsu-calendar-api",
+          "status": "success",
+          "requests": 4
+        },
+        {
+          "sourceId": "fsu-music-events",
+          "status": "success",
+          "requests": 1
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "sourceId": "fsu-calendar-api",
+      "status": "success",
+      "reason": null,
+      "startedAt": "2026-10-20T22:50:26.980Z",
+      "finishedAt": "2026-10-20T22:50:37.901Z",
+      "privateCapturePath": "private/stage-1-live/fsu-calendar-api.json",
+      "pages": 4,
+      "requests": 4,
+      "bytes": 1058353,
+      "nativeRows": 332,
+      "opportunities": 293,
+      "occurrences": 332,
+      "paginationComplete": true,
+      "windowFrom": "2026-10-20",
+      "windowTo": "2026-10-27",
+      "warnings": [
+        "Bounded public central-calendar window only; no complete campus or private HQ coverage",
+        "Ticket availability is unverified; no action milestones inferred"
+      ],
+      "sourceUrls": [
+        "https://calendar.fsu.edu/api/2/events?start=2026-10-20&days=7&pp=100&page=1",
+        "https://calendar.fsu.edu/api/2/events?start=2026-10-20&days=7&pp=100&page=2",
+        "https://calendar.fsu.edu/api/2/events?start=2026-10-20&days=7&pp=100&page=3",
+        "https://calendar.fsu.edu/api/2/events?start=2026-10-20&days=7&pp=100&page=4"
+      ],
+      "bodyHashes": [
+        "88af456cc76b0c1c6a09be92026ee84625653ab89172e67caa08e8be557f2f41",
+        "f2d86287b8724442975d70ec9b886b9b6bb7738efbc7ce3c31e6af7b4cde2d90",
+        "e7b54083a852d20b4c4c634d8c0b9625157fc1f60e69021e454502351f662afd",
+        "716f579d6f179ccf5b649e5fdbbc428dbe5d3107058bc0d49f82a7886b3baf64"
+      ]
+    },
+    {
+      "sourceId": "fsu-music-events",
+      "status": "success",
+      "reason": null,
+      "startedAt": "2026-10-20T22:50:38.182Z",
+      "finishedAt": "2026-10-20T22:50:38.357Z",
+      "privateCapturePath": "private/stage-1-live/fsu-music-events.json",
+      "pages": 1,
+      "requests": 1,
+      "bytes": 65372,
+      "nativeRows": 10,
+      "opportunities": 10,
+      "occurrences": 10,
+      "paginationComplete": true,
+      "windowFrom": null,
+      "windowTo": null,
+      "warnings": [
+        "Only current Music homepage preview cards; full calendar pagination is unverified",
+        "Local date/time retained without assuming timezone, end, location or ticket availability"
+      ],
+      "sourceUrls": [
+        "https://music.fsu.edu/events/"
+      ],
+      "bodyHashes": [
+        "72a93f16e88f71013b3b82d1b0a1817799d2b9b05c3aa5292b7dcbfd689920d4"
+      ]
+    }
+  ]
+}

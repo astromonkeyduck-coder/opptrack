@@ -1,5 +1,7 @@
 # Architecture decisions — Stage 0
 
+Stage 1 implementation now exists; see docs/status.md and docs/stage-1-db-contract.md for actual local verification and open hosted gates. The Stage 0 design below also describes future components that remain unimplemented.
+
 Decision date: October 20, 2026. These are design decisions; the services are not connected or deployed.
 
 Use Next.js + TypeScript on Netlify for production, as explicitly selected by the user. Keep Supabase Postgres/Auth/private Storage, Trigger.dev Cloud, Resend, and Google Calendar. Netlify automatically supplies its modern OpenNext adapter. Web/server routes run on Netlify; durable collection, extraction and delivery workers deploy independently to Trigger.dev Cloud. Supabase supplies relational transactions, full-text search and ownership controls without a separate search/vector service. Trigger.dev is the single workflow engine. Resend handles outbound delivery and optional signed inbound intake. Google Calendar is a later secondary-calendar adapter with optional separate free/busy consent.

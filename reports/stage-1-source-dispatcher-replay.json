@@ -1,0 +1,52 @@
+{
+  "runAt": "2026-10-20T23:01:16.856Z",
+  "evidenceClass": "production-trigger-handler-local-sql-with-explicit-http-storage-replay-adapters",
+  "hostedSupabase": false,
+  "triggerCloud": false,
+  "mockedBoundaries": [
+    "Source fetch returns previously captured fresh HTTP bodies; zero network requests",
+    "Storage client uses private local files and actual storage metadata SQL",
+    "Auth identity uses test SQL role; no hosted JWT"
+  ],
+  "realBoundaries": [
+    "Trigger runDispatcherHandler function",
+    "Production dispatchDueSources and source collectors with runtime schema validation",
+    "Production ingestCollectedBatch translation/upload/RPC ordering",
+    "Actual PostgreSQL migration, leasing, source-run transaction, versions, claims and decisions"
+  ],
+  "sourceCaptureTimes": [
+    {
+      "sourceId": "fsu-calendar-api",
+      "startedAt": "2026-10-20T22:50:26.980Z",
+      "finishedAt": "2026-10-20T22:50:37.901Z"
+    },
+    {
+      "sourceId": "fsu-music-events",
+      "startedAt": "2026-10-20T22:50:38.182Z",
+      "finishedAt": "2026-10-20T22:50:38.357Z"
+    }
+  ],
+  "beforeReplay": {
+    "opportunities": 303,
+    "occurrences": 342,
+    "captures": 5,
+    "versions": 645,
+    "runs": 2
+  },
+  "afterReplay": {
+    "opportunities": 303,
+    "occurrences": 342,
+    "captures": 5,
+    "versions": 645,
+    "runs": 4
+  },
+  "replayHttpResponses": 10,
+  "objectsUploaded": 5,
+  "confirmedExistingObjectReuses": 5,
+  "rpcCalls": 6,
+  "savedDecisionPreserved": true,
+  "calendarWrites": 0,
+  "paidConnectors": 0,
+  "modelCalls": 0,
+  "networkRequests": 0
+}

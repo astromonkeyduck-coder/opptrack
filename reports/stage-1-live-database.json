@@ -1,0 +1,80 @@
+{
+  "runAt": "2026-10-20T23:01:13.178Z",
+  "evidenceClass": "fresh-live-events-actual-local-postgresql",
+  "database": "PGlite 0.5.10 PostgreSQL WASM",
+  "migrationsExecuted": true,
+  "hostedSupabase": false,
+  "triggerCloud": false,
+  "localDispatcherLeaseRpc": true,
+  "sourceReports": [
+    {
+      "sourceId": "fsu-calendar-api",
+      "fetchStartedAt": "2026-10-20T22:50:26.980Z",
+      "fetchFinishedAt": "2026-10-20T22:50:37.901Z",
+      "opportunities": 293,
+      "occurrences": 332,
+      "captures": 4,
+      "requests": 4,
+      "windowFrom": "2026-10-20",
+      "windowTo": "2026-10-27"
+    },
+    {
+      "sourceId": "fsu-music-events",
+      "fetchStartedAt": "2026-10-20T22:50:38.182Z",
+      "fetchFinishedAt": "2026-10-20T22:50:38.357Z",
+      "opportunities": 10,
+      "occurrences": 10,
+      "captures": 1,
+      "requests": 1,
+      "windowFrom": null,
+      "windowTo": null
+    }
+  ],
+  "counts": {
+    "runs": 2,
+    "claims": 1935,
+    "captures": 5,
+    "versions": 645,
+    "occurrences": 342,
+    "opportunities": 303
+  },
+  "afterReplay": {
+    "runs": 3,
+    "claims": 1935,
+    "captures": 5,
+    "versions": 645,
+    "occurrences": 342,
+    "opportunities": 303
+  },
+  "authenticatedInboxRows": 342,
+  "registryRoutes": 59,
+  "paginationPages": 7,
+  "pageSize": 50,
+  "fullTextMusicMatches": 9,
+  "checks": [
+    "All 59 registry routes fit actual SQL constraints; only the two proven adapters are enabled",
+    "Fresh central and Music batches persist captures, versions, claims, opportunities and occurrences through production SQL RPC",
+    "Replay of complete fresh central batch adds one run and no duplicate captures/entities/versions/claims; saved occurrence decision survives",
+    "Owner SQL role reads actual inbox events; anonymous is denied and other authenticated subject sees zero rows",
+    "Actual live catalog is searchable through PostgreSQL full-text index",
+    "Actual owner inbox pagination visits all 342 rows across 7 pages without duplicate/missing IDs; parameterized title search matches real source facts",
+    "Real database dump restored into new PostgreSQL instance with live counts, decisions and other-user RLS denial intact",
+    "Expired local raw object deleted with purge marker; normalized facts, evidence hashes, claims and decisions retained"
+  ],
+  "backupRestoreVerified": true,
+  "rawObjectDeletionVerified": "Local private filesystem object and SQL storage metadata only",
+  "privateInboxRows": "private/stage-1-inbox-rows.json",
+  "costs": {
+    "publicGetChargesUsd": 0,
+    "modelCalls": 0,
+    "paidConnectors": 0,
+    "calendarWrites": 0
+  },
+  "notTested": [
+    "Hosted Supabase Auth HTTP/JWT and user login",
+    "Supabase Storage HTTP signing/upload/delete",
+    "Trigger.dev Cloud dispatch/deploy",
+    "Hosted database backup/restore and complete Storage backup",
+    "Concurrent distributed PostgreSQL processes"
+  ]
+}
