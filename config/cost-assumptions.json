@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "currency": "USD",
   "verified_on": "2026-10-20",
   "model_status": "Forecast only: quantities and runtimes assumed; no paid service or model calls were run",
@@ -8,14 +8,13 @@
     "supabase_free_database_gb": 0.5,
     "supabase_free_storage_gb": 1,
     "supabase_free_egress_gb": 5,
-    "vercel_pro_month": 20,
     "trigger_hobby_month": 10,
     "trigger_free_credit_month": 5,
     "trigger_hobby_credit_month": 10,
-    "trigger_invocation": 0.000025,
-    "trigger_micro_second": 0.0000169,
-    "trigger_small_1x_second": 0.0000338,
-    "trigger_medium_1x_second": 0.000085,
+    "trigger_invocation": 2.5e-05,
+    "trigger_micro_second": 1.69e-05,
+    "trigger_small_1x_second": 3.38e-05,
+    "trigger_medium_1x_second": 8.5e-05,
     "resend_free_month_quota": 3000,
     "resend_free_day_quota": 100,
     "resend_pro_month": 20,
@@ -30,27 +29,85 @@
     "apify_posts_bronze_details": 0.0008,
     "apify_stories_username_request": 0.003,
     "apify_stories_start_per_gb_min_one": 0.099,
-    "x_returned_post_optional": 0.005
+    "x_returned_post_optional": 0.005,
+    "netlify_free_month_credits": 300,
+    "netlify_personal_month": 9,
+    "netlify_personal_month_credits": 1000,
+    "netlify_pro_month": 20,
+    "netlify_pro_month_credits": 3000,
+    "netlify_credits_per_production_deploy": 15,
+    "netlify_credits_per_compute_gb_hour": 10,
+    "netlify_credits_per_bandwidth_gb": 20,
+    "netlify_credits_per_10000_web_requests": 2
   },
   "rate_sources": [
-    {"url": "https://supabase.com/pricing", "status": "primary_documentation_read"},
-    {"url": "https://trigger.dev/pricing", "status": "primary_documentation_read"},
-    {"url": "https://resend.com/pricing", "status": "primary_documentation_read"},
-    {"url": "https://vercel.com/pricing", "status": "primary_documentation_read"},
-    {"url": "https://apify.com/pricing", "status": "primary_documentation_read"},
-    {"url": "https://api.apify.com/v2/acts/apify~instagram-post-scraper", "status": "live_public_metadata_get_200", "evidence": "evidence/apify-posts-metadata.json"},
-    {"url": "https://api.apify.com/v2/acts/datavoyantlab~advanced-instagram-stories-scraper", "status": "live_public_metadata_get_200", "evidence": "evidence/apify-stories-metadata.json"},
-    {"url": "https://docs.x.com/x-api/getting-started/pricing", "status": "primary_documentation_read_optional_only"},
-    {"url": "https://developers.google.com/workspace/calendar/api/guides/quota", "status": "primary_documentation_read_standard_use_no_added_cost_future_threshold_billing_unpriced"}
+    {
+      "url": "https://supabase.com/pricing",
+      "status": "primary_documentation_read"
+    },
+    {
+      "url": "https://trigger.dev/pricing",
+      "status": "primary_documentation_read"
+    },
+    {
+      "url": "https://resend.com/pricing",
+      "status": "primary_documentation_read"
+    },
+    {
+      "url": "https://www.netlify.com/pricing/",
+      "status": "primary_documentation_read",
+      "verified_on": "2026-10-20"
+    },
+    {
+      "url": "https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/how-credits-work/",
+      "status": "primary_documentation_read",
+      "verified_on": "2026-10-20"
+    },
+    {
+      "url": "https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/",
+      "status": "primary_documentation_read",
+      "verified_on": "2026-10-20"
+    },
+    {
+      "url": "https://apify.com/pricing",
+      "status": "primary_documentation_read"
+    },
+    {
+      "url": "https://api.apify.com/v2/acts/apify~instagram-post-scraper",
+      "status": "live_public_metadata_get_200",
+      "evidence": "evidence/apify-posts-metadata.json"
+    },
+    {
+      "url": "https://api.apify.com/v2/acts/datavoyantlab~advanced-instagram-stories-scraper",
+      "status": "live_public_metadata_get_200",
+      "evidence": "evidence/apify-stories-metadata.json"
+    },
+    {
+      "url": "https://docs.x.com/x-api/getting-started/pricing",
+      "status": "primary_documentation_read_optional_only"
+    },
+    {
+      "url": "https://developers.google.com/workspace/calendar/api/guides/quota",
+      "status": "primary_documentation_read_standard_use_no_added_cost_future_threshold_billing_unpriced"
+    }
   ],
   "core_month": {
     "days": 30,
     "dispatcher_runs_per_day": 96,
     "dispatcher_seconds_per_run_assumed": 2,
     "http_source_groups": [
-      {"sources": 5, "checks_per_day": 96},
-      {"sources": 15, "checks_per_day": 24},
-      {"sources": 30, "checks_per_day": 1}
+      {
+        "sources": 5,
+        "checks_per_day": 96
+      },
+      {
+        "sources": 15,
+        "checks_per_day": 24
+      },
+      {
+        "sources": 30,
+        "checks_per_day": 1
+      }
     ],
     "http_seconds_per_run_assumed": 3,
     "browser_sources": 10,
@@ -75,8 +132,14 @@
     "excerpt_retention_days": 90,
     "existing_database_gb_assumed": 0,
     "egress_gb_per_month_assumed": 2,
-    "vercel_hobby_eligibility_and_quotas_assumed_fit": true,
-    "optional_domain_usd_per_year_assumed": 18
+    "optional_domain_usd_per_year_assumed": 18,
+    "netlify_credit_based_plan_assumed": true,
+    "netlify_production_deploys_per_month_assumed": 8,
+    "netlify_web_requests_per_month_assumed_includes_previews": 10000,
+    "netlify_bandwidth_gb_per_month_assumed_includes_previews": 2,
+    "netlify_compute_gb_hours_per_month_assumed_includes_previews": 1,
+    "netlify_other_team_credit_usage_per_month_assumed": 0,
+    "netlify_auto_recharge_assumed_enabled": false
   },
   "social_pilot": {
     "accounts_file": "config/social-pilot-accounts.json",

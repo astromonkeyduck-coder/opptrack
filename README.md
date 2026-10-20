@@ -12,6 +12,12 @@ Start with [current status and actual commands/results](docs/status.md), [covera
 - [Cost model](docs/cost-model.md), [explicit assumptions](config/cost-assumptions.json) and [reproducible forecast](evidence/cost-forecast.json). Prices, forecast volumes, observed usage and unknowns are separate. No budget was authorized.
 - [Architecture decisions](docs/architecture.md), [smallest durable data model](docs/data-model.md), [typed adapter contracts](contracts/adapter.ts), [45 labeled evaluation scenarios](evaluation/cases.json) and [evaluation plan](docs/evaluation-plan.md). Synthetic cases are not live captures; scenario validation is not model or calendar validation.
 
+## Production configuration code
+
+The user selected **Netlify** for the production Next.js app, with Supabase, Trigger.dev Cloud and Resend retained. [Deployment instructions](docs/deployment.md), [Netlify build config](netlify.toml), and [the machine-readable environment contract](config/production-environments.json) separate the two production runtimes. Templates: [.env.netlify.production.example](.env.netlify.production.example) and [.env.trigger.production.example](.env.trigger.production.example).
+
+Run `python3 scripts/validate_production_env.py` to verify blank templates, or use `--target netlify|trigger --env-file PATH` to validate real ignored settings without printing secrets. These are executable configuration tools; the Next.js application and hosted settings still need their later-stage setup.
+
 ## Reproduce Stage 0
 
 Python 3.10+ with an IANA timezone database; no third-party Python packages, Node installation, service credentials or application deployment are needed for offline checks.

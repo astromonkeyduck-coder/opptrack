@@ -34,6 +34,16 @@ def forecast(config, account_count):
     media_gb = core["images"] * core["image_mb_assumed"] / 1000 * core["media_retention_days"] / days
     excerpts_gb = extraction * core["raw_excerpt_kb_per_capture"] / 1_000_000 * core["excerpt_retention_days"] / days
     metadata_gb = extraction * core["metadata_kb_per_capture_assumed"] / 1_000_000
+    # Netlify meters the web app independently of Trigger.dev Cloud workers.
+    netlify_deploy_credits = core["netlify_production_deploys_per_month_assumed"] * rates["netlify_credits_per_production_deploy"]
+    netlify_compute_credits = core["netlify_compute_gb_hours_per_month_assumed_includes_previews"] * rates["netlify_credits_per_compute_gb_hour"]
+    netlify_bandwidth_credits = core["netlify_bandwidth_gb_per_month_assumed_includes_previews"] * rates["netlify_credits_per_bandwidth_gb"]
+    netlify_request_credits = core["netlify_web_requests_per_month_assumed_includes_previews"] / 10000 * rates["netlify_credits_per_10000_web_requests"]
+    netlify_credits = netlify_deploy_credits + netlify_compute_credits + netlify_bandwidth_credits + netlify_request_credits + core["netlify_other_team_credit_usage_per_month_assumed"]
+    netlify_plan_known = core["netlify_credit_based_plan_assumed"]
+    netlify_free_fits = netlify_plan_known and netlify_credits <= rates["netlify_free_month_credits"]
+    netlify_personal_fits = netlify_plan_known and netlify_credits <= rates["netlify_personal_month_credits"]
+    netlify_pro_fits = netlify_plan_known and netlify_credits <= rates["netlify_pro_month_credits"]
     free_blockers = []
     if trigger_raw > rates["trigger_free_credit_month"]:
         free_blockers.append("Trigger usage exceeds assumed unused Free credit")
@@ -45,12 +55,13 @@ def forecast(config, account_count):
         free_blockers.append("Assumed DB size exceeds Supabase Free database quota")
     if core["egress_gb_per_month_assumed"] > rates["supabase_free_egress_gb"]:
         free_blockers.append("Assumed egress exceeds Supabase Free quota")
-    if not core["vercel_hobby_eligibility_and_quotas_assumed_fit"]:
-        free_blockers.append("Vercel Hobby eligibility/quotas have not been assumed to fit")
+    if not netlify_free_fits:
+        free_blockers.append("Netlify credit-based plan is not assumed or modeled team usage exceeds Free credits")
 
     # If Free credits are exceeded, indicate setup/budget change, not automatic upgrade.
     core_hobby = rates["trigger_hobby_month"] + max(0, trigger_raw - rates["trigger_hobby_credit_month"])
-    paid_core = rates["supabase_pro_month"] + rates["vercel_pro_month"] + core_hobby + llm
+    paid_core_without_netlify = rates["supabase_pro_month"] + core_hobby + llm
+    paid_core = paid_core_without_netlify + rates["netlify_personal_month"]
     social_days = pilot["days"]
     post_checks = account_count * social_days * pilot["posts_checks_per_day"]
     billed_posts = post_checks * pilot["posts_returned_per_account_check_assumed"]
@@ -81,6 +92,18 @@ def forecast(config, account_count):
             "extraction_runs": extraction, "notification_runs": notifications,
             "trigger_raw_usage_usd": round(trigger_raw, 6),
             "trigger_free_credit_sufficient_under_assumptions": trigger_raw <= rates["trigger_free_credit_month"],
+            "netlify_credit_based_plan_assumed_not_account_verified": netlify_plan_known,
+            "netlify_production_deploy_credits_assumed": round(netlify_deploy_credits, 6),
+            "netlify_compute_credits_assumed": round(netlify_compute_credits, 6),
+            "netlify_bandwidth_credits_assumed": round(netlify_bandwidth_credits, 6),
+            "netlify_web_request_credits_assumed": round(netlify_request_credits, 6),
+            "netlify_total_team_credits_assumed": round(netlify_credits, 6),
+            "netlify_free_credit_sufficient_under_assumptions": netlify_free_fits,
+            "netlify_personal_credit_sufficient_under_assumptions": netlify_personal_fits,
+            "netlify_pro_credit_sufficient_under_assumptions": netlify_pro_fits,
+            "netlify_auto_recharge_assumed_enabled": core["netlify_auto_recharge_assumed_enabled"],
+            "netlify_credit_overage_cash_forecast_usd": None,
+            "netlify_overage_policy": "No automatic credit purchase or upgrade is modeled or authorized; budget/setup change required above included credits. Account/team plan and other-project usage remain unverified.",
             "llm_input_tokens_assumed": input_tokens, "llm_output_tokens_assumed": output_tokens,
             "llm_forecast_usd_assumed": round(llm, 6), "combined_email_count": emails, "resend_free_quota_fits": resend_free_fits,
             "storage_gb_media_plus_raw_assumed": round(media_gb + excerpts_gb, 6),
@@ -88,8 +111,9 @@ def forecast(config, account_count):
             "free_tier_known_assumed_quotas_fit": not free_blockers,
             "free_tier_setup_or_budget_blockers": free_blockers,
             "free_tier_path_cash_usd_assuming_all_quotas_fit_excludes_domain": None if free_blockers else round(llm, 6),
-            "paid_supabase_pro_vercel_pro_trigger_hobby_resend_free_usd_excludes_domain": round(paid_core, 6),
-            "paid_path_with_resend_pro_usd_excludes_domain": round(paid_core + rates["resend_pro_month"], 6),
+            "paid_supabase_pro_netlify_personal_trigger_hobby_resend_free_usd_excludes_domain": round(paid_core, 6) if netlify_personal_fits and resend_free_fits else None,
+            "paid_netlify_pro_alternative_usd_excludes_domain": round(paid_core_without_netlify + rates["netlify_pro_month"], 6) if netlify_pro_fits and resend_free_fits else None,
+            "paid_path_with_netlify_personal_resend_pro_usd_excludes_domain": round(paid_core + rates["resend_pro_month"], 6) if netlify_personal_fits and emails <= rates["resend_pro_month_quota"] else None,
             "optional_domain_monthly_equivalent_assumed": round(core["optional_domain_usd_per_year_assumed"] / 12, 6),
         },
         "social_7_day": {

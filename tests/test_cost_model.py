@@ -24,13 +24,36 @@ class CostBudgetTests(unittest.TestCase):
         self.assertEqual(result["apify_starter_cash_usd_including_plan_and_overage_assumed"], result["vendor_bronze_plus_stories_usd_with_retry_reserve"])
 
     def test_changed_usage_cannot_quote_impossible_free_path(self):
-        for key, value in (("http_seconds_per_run_assumed", 100), ("emails_received", 4000), ("images", 10000), ("egress_gb_per_month_assumed", 20)):
+        for key, value in (("http_seconds_per_run_assumed", 100), ("emails_received", 4000), ("images", 10000), ("egress_gb_per_month_assumed", 20), ("netlify_production_deploys_per_month_assumed", 100), ("netlify_credit_based_plan_assumed", False)):
             with self.subTest(key=key):
                 config = copy.deepcopy(CONFIG)
                 config["core_month"][key] = value
                 result = cost.forecast(config, 39)["core_30_day"]
                 self.assertIsNone(result["free_tier_path_cash_usd_assuming_all_quotas_fit_excludes_domain"])
                 self.assertTrue(result["free_tier_setup_or_budget_blockers"])
+
+    def test_netlify_meters_and_paid_plan_not_double_counted(self):
+        result = cost.forecast(CONFIG, 39)["core_30_day"]
+        self.assertEqual(result["netlify_total_team_credits_assumed"], 172)
+        self.assertTrue(result["netlify_free_credit_sufficient_under_assumptions"])
+        self.assertEqual(result["paid_supabase_pro_netlify_personal_trigger_hobby_resend_free_usd_excludes_domain"], 46.5)
+        self.assertEqual(result["paid_netlify_pro_alternative_usd_excludes_domain"], 57.5)
+
+    def test_netlify_paid_credit_exhaustion_does_not_assume_purchase(self):
+        config = copy.deepcopy(CONFIG)
+        config["core_month"]["netlify_other_team_credit_usage_per_month_assumed"] = 1000
+        result = cost.forecast(config, 39)["core_30_day"]
+        self.assertFalse(result["netlify_personal_credit_sufficient_under_assumptions"])
+        self.assertIsNone(result["paid_supabase_pro_netlify_personal_trigger_hobby_resend_free_usd_excludes_domain"])
+        self.assertIsNone(result["netlify_credit_overage_cash_forecast_usd"])
+        self.assertTrue(result["netlify_pro_credit_sufficient_under_assumptions"])
+
+    def test_unknown_or_legacy_netlify_plan_has_no_credit_based_quote(self):
+        config = copy.deepcopy(CONFIG)
+        config["core_month"]["netlify_credit_based_plan_assumed"] = False
+        result = cost.forecast(config, 39)["core_30_day"]
+        self.assertIsNone(result["paid_supabase_pro_netlify_personal_trigger_hobby_resend_free_usd_excludes_domain"])
+        self.assertIsNone(result["paid_netlify_pro_alternative_usd_excludes_domain"])
 
     def test_excerpt_retention_is_independent_from_media_retention(self):
         result = cost.forecast(CONFIG, 39)["core_30_day"]

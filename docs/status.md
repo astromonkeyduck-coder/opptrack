@@ -53,7 +53,7 @@ TypeScript contracts were inspected, but no TypeScript compiler is installed/con
 
 ## Costs and unresolved setup
 
-No services were bought/provisioned or paid actors/models run. Local coding/tool/subscription costs and actual invoices were not measured. The explicit core forecast is $2.50/month only if all modeled free quotas and eligibility fit, or $57.50/month for the modeled paid Supabase/Vercel/Trigger baseline plus assumed model usage. A seven-day, 39-account pilot forecasts $41.15 incremental, assumes already paid/private storage, and has an **unapproved** proposed $45 cap. These are conditional forecasts, not all-in guarantees.
+No services were bought/provisioned or paid actors/models run. Local coding/tool/subscription costs and actual invoices were not measured. The explicit core forecast is $2.50/month only if all modeled free quotas and eligibility fit, or $46.50/month for the modeled paid Supabase/Netlify Personal/Trigger baseline plus assumed model usage. A seven-day, 39-account pilot forecasts $41.15 incremental, assumes already paid/private storage, and has an **unapproved** proposed $45 cap. These are conditional forecasts, not all-in guarantees.
 
 Full permitted HQ access still needs an allowed user subscription or administrator-scoped event-only feed/secret and visibility agreement. Instagram needs current app/version/permissions and authorized account credentials; vendor collection needs permitted use, real validated accounts/build, dataset/access and a separately approved budget. Some current Meta docs returned rate limits. Yik Yak stays manual/shared-lead; private channels remain uncovered unless a supported permitted route is established.
 
@@ -62,3 +62,9 @@ Hosted Stage 1 needs Supabase/Trigger setup; `origin` now points to the user-cre
 ## Stage 1 handoff
 
 On an explicit Stage 1 request, build the smallest authenticated private review list from the verified central calendar, one independent Music/fellowship producer and a permitted flyer/manual or signed inbound input. Add migrations/RLS/private storage, leased dispatch, durable captures/source health, evidence-linked normalization and replay-safe identities. Demonstrate real ingestion, search, login-wall/stale/partial states and ownership tests. Keep HQ/social gaps visible and proceed without their missing credentials. **Calendar writes remain disabled throughout Stage 1.** Full acceptance criteria are in `docs/stage-plan.md`; do not begin now.
+
+## Netlify production configuration follow-up
+
+The user selected Netlify for the future production Next.js app, retained Supabase/Trigger.dev Cloud/Resend, and requested code plus a GitHub push. Added netlify.toml, separate production templates, config/production-environments.json, scripts/validate_production_env.py and failure tests. Updated deployment/architecture instructions and the Netlify credit-based cost forecast. Hosted environment values remain not applied: no site/project IDs or credentials were supplied and the Next.js app/tasks do not exist yet. This change prepares deployment; it does not advance the app implementation or enable external calendar/delivery actions. The user's earlier cancelled upload was not performed; the later explicit push request is being handled separately.
+
+Follow-up verification: `make check` passed 59 unit tests, registry validation, all 45 scenario contracts and the two production templates. `git diff --check` passed; Python tomllib parsed netlify.toml. No live Netlify/Trigger settings were applied and no app build was possible without the future Next.js package/tasks. The environment checker rejects privileged keys in browser fields and development Trigger keys in production.

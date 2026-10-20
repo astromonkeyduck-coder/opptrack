@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-20",
+  "status": "prepared_not_applied",
+  "web_host": "netlify",
+  "worker_host": "trigger.dev-cloud",
+  "hosted_targets": {
+    "netlify_site_id": null,
+    "trigger_project_ref": null
+  },
+  "application_implemented": false,
+  "targets": {
+    "netlify": {
+      "context": "production",
+      "template": ".env.netlify.production.example",
+      "local_values_file": ".env.netlify.production.local",
+      "variables": {
+        "APP_URL": {
+          "required": true,
+          "type": "https_url",
+          "secret": false,
+          "scopes": [
+            "builds",
+            "functions"
+          ]
+        },
+        "NEXT_PUBLIC_SUPABASE_URL": {
+          "required": true,
+          "type": "https_url",
+          "secret": false,
+          "scopes": [
+            "builds",
+            "functions"
+          ]
+        },
+        "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY": {
+          "required": true,
+          "type": "supabase_publishable_key",
+          "secret": false,
+          "scopes": [
+            "builds",
+            "functions"
+          ]
+        },
+        "TRIGGER_SECRET_KEY": {
+          "required": true,
+          "type": "trigger_production_key",
+          "secret": true,
+          "scopes": [
+            "functions"
+          ]
+        },
+        "CALENDAR_WRITES_ENABLED": {
+          "required": true,
+          "type": "disabled_flag",
+          "secret": false,
+          "scopes": [
+            "functions"
+          ],
+          "default": "false"
+        },
+        "INBOUND_EMAIL_ENABLED": {
+          "required": true,
+          "type": "boolean",
+          "secret": false,
+          "scopes": [
+            "functions"
+          ],
+          "default": "false"
+        },
+        "RESEND_WEBHOOK_SECRET": {
+          "required_when": {
+            "INBOUND_EMAIL_ENABLED": "true"
+          },
+          "type": "string",
+          "secret": true,
+          "scopes": [
+            "functions"
+          ]
+        }
+      },
+      "forbidden_variables": [
+        "SUPABASE_SECRET_KEY",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "DATABASE_URL",
+        "RESEND_API_KEY",
+        "IG_ACCESS_TOKEN",
+        "APIFY_TOKEN",
+        "GOOGLE_CLIENT_SECRET",
+        "GOOGLE_REFRESH_TOKEN",
+        "TRIGGER_ACCESS_TOKEN",
+        "NETLIFY_AUTH_TOKEN"
+      ]
+    },
+    "trigger": {
+      "context": "prod",
+      "template": ".env.trigger.production.example",
+      "local_values_file": ".env.trigger.production.local",
+      "variables": {
+        "APP_URL": {
+          "required": true,
+          "type": "https_url",
+          "secret": false
+        },
+        "SUPABASE_URL": {
+          "required": true,
+          "type": "https_url",
+          "secret": false
+        },
+        "SUPABASE_SECRET_KEY": {
+          "required": true,
+          "type": "supabase_secret_key",
+          "secret": true
+        },
+        "EMAIL_DELIVERY_ENABLED": {
+          "required": true,
+          "type": "boolean",
+          "secret": false,
+          "default": "false"
+        },
+        "RESEND_API_KEY": {
+          "required_when": {
+            "EMAIL_DELIVERY_ENABLED": "true"
+          },
+          "type": "string",
+          "secret": true
+        },
+        "RESEND_FROM_EMAIL": {
+          "required_when": {
+            "EMAIL_DELIVERY_ENABLED": "true"
+          },
+          "type": "string",
+          "secret": false
+        },
+        "CALENDAR_WRITES_ENABLED": {
+          "required": true,
+          "type": "disabled_flag",
+          "secret": false,
+          "default": "false"
+        },
+        "SOCIAL_COLLECTION_ENABLED": {
+          "required": true,
+          "type": "disabled_flag",
+          "secret": false,
+          "default": "false"
+        }
+      },
+      "forbidden_variables": [
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+        "TRIGGER_SECRET_KEY",
+        "TRIGGER_ACCESS_TOKEN",
+        "NETLIFY_AUTH_TOKEN",
+        "RESEND_WEBHOOK_SECRET"
+      ]
+    }
+  },
+  "notes": [
+    "Templates and validation are executable deployment preparation, not evidence of applied hosted variables.",
+    "Netlify variable scopes are plan-dependent. If unavailable, keep secrets server-only in code and restrict production credentials to trusted production builds.",
+    "Netlify toml variables do not supply function-runtime secrets; configure those through Netlify UI/API.",
+    "Preview deployments must use separate test projects/keys; production credentials are never copied to preview contexts.",
+    "The validator is an offline configuration check, not a substitute for application runtime validation, RLS or explicit user approval."
+  ]
+}

@@ -6,7 +6,7 @@ Collect broadly before ranking. Preserve a searchable catalog and an exploration
 
 Every calendar occurrence and every action reminder requires its own explicit user approval. Saving, email alerts, RSVP, purchase, following an organizer, and approval are separate actions. No real calendar modifications, messages, organizer contact, purchases, RSVPs, or service provisioning in Stage 0. Do not touch existing automations.
 
-Prefer Next.js/TypeScript, Supabase, Trigger.dev, Resend, Google Calendar, and replaceable source adapters. Direct JSON/ICS/RSS/HTML comes first; browser workers need a demonstrated reason. No additional workflow engine. Do not install infrastructure merely to complete a design document.
+Use Next.js/TypeScript on Netlify for production, Supabase, Trigger.dev Cloud, Resend, Google Calendar, and replaceable source adapters. Production web and worker variables are separate; follow docs/deployment.md. Direct JSON/ICS/RSS/HTML comes first; browser workers need a demonstrated reason. No additional workflow engine. Do not install infrastructure merely to complete a design document.
 
 Record actual source attempts separately from successes. A login wall, network failure, parser mismatch, truncation, empty vendor response, or expired token must never appear as “nothing new.” A page loading does not establish event ingestion. Preserve native IDs, source timestamps, field evidence, uncertainty, parser version, source health, and costs. No campus-wide completeness percentage.
 

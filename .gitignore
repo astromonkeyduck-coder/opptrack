@@ -1,6 +1,9 @@
 .env
 .env.*
 !.env.example
+!.env.netlify.production.example
+!.env.trigger.production.example
+.netlify/
 node_modules/
 .next/
 .trigger/

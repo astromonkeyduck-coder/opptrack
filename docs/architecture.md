@@ -2,7 +2,7 @@
 
 Decision date: October 20, 2026. These are design decisions; the services are not connected or deployed.
 
-Keep the proposed Next.js + TypeScript, Supabase Postgres/Auth/private Storage, Trigger.dev Cloud, Resend, and Google Calendar architecture. No measured project requirement justifies replacing it. Next.js supports a normal Node.js deployment as well as Vercel; hosting remains configurable. Supabase supplies relational transactions, full-text search and ownership controls without a separate search/vector service. Trigger.dev is the single workflow engine. Resend handles outbound delivery and optional signed inbound intake. Google Calendar is a later secondary-calendar adapter with optional separate free/busy consent.
+Use Next.js + TypeScript on Netlify for production, as explicitly selected by the user. Keep Supabase Postgres/Auth/private Storage, Trigger.dev Cloud, Resend, and Google Calendar. Netlify automatically supplies its modern OpenNext adapter. Web/server routes run on Netlify; durable collection, extraction and delivery workers deploy independently to Trigger.dev Cloud. Supabase supplies relational transactions, full-text search and ownership controls without a separate search/vector service. Trigger.dev is the single workflow engine. Resend handles outbound delivery and optional signed inbound intake. Google Calendar is a later secondary-calendar adapter with optional separate free/busy consent.
 
 Stage 0 uses Python's standard library for small portable probes and offline validation, without installing the future application. These scripts are research tools, not a competing Python runtime backend. Stage 1 should port only proven parsing behavior into typed source adapters and keep the captured evidence as parser regression inputs.
 
@@ -15,6 +15,8 @@ Use Google `calendar.app.created` when implementing secondary-calendar support; 
 Operational controls for Stage 1: RLS plus explicit grants on exposed tables, private object storage, short-lived signed evidence URLs, server-only service credentials, narrow signed webhooks, capture retention/deletion, request/body limits, allowlisted outbound adapters, and no arbitrary URL fetch privileges for an extraction model. Source access restrictions propagate into derived records. Starting retention proposal: public raw captures 30 days, minimized public evidence excerpts 90 days, and private/ephemeral intake 7 days after processing unless explicitly saved and permitted; metadata/claims retained as permitted, deletion cascades to private derived content. Confirm source terms and user retention preferences before production.
 
 No Firecrawl, Apify actor execution, RSSHub, changedetection.io, Langfuse, Kafka, Kubernetes, native app, or second workflow service is installed. Optional components need a measured gap, supported access, license review, and a budget before activation. Do not rely on GitHub Actions as the deadline-sensitive production scheduler; use it for deterministic checks.
+
+See [production deployment](deployment.md), `netlify.toml`, and `config/production-environments.json` for separate Netlify/Trigger production variable contracts. The blank templates and executable validator are prepared; no hosted values have been applied.
 
 ## Primary references checked October 20, 2026
 

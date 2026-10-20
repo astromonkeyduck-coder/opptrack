@@ -1,0 +1,12 @@
+# Production host selected by the user. Requires the future Next.js app and lockfile.
+# Netlify automatically supplies its OpenNext adapter; no legacy plugin needed.
+# Secrets and runtime variables belong in Netlify's Production environment UI/API.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Trigger.dev workers deploy separately. Never launch workers from this build.
+# Do not set NODE_ENV here: Netlify must install build devDependencies.

@@ -1,0 +1,23 @@
+{
+  "verified_on": "2026-10-20",
+  "commands": [
+    {
+      "command": "make check",
+      "exit_code": 0,
+      "unit_tests": 59,
+      "evaluation_scenarios": 45,
+      "production_templates": "valid"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "command": "Python tomllib.loads(netlify.toml)",
+      "exit_code": 0
+    }
+  ],
+  "hosted_variables_applied": false,
+  "app_build_run": false,
+  "reason": "No Next.js package/tasks or hosted target IDs/secrets are configured."
+}

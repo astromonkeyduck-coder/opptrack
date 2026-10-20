@@ -33,7 +33,7 @@ See `reports/probes/latest.json` for the full canonical source run, its preserve
 
 ## Costs and risks
 
-The core subscription subtotal can start at $35/month for Supabase Pro + Trigger Hobby, excluding hosting and all usage extras. The explicit paid scenario including Vercel Pro and assumed model work is $57.50/month before domain/tax/unmeasured overages. A constrained free-tier scenario is possible only under the modeled quotas/eligibility. None has been purchased.
+The core subscription subtotal can start at $35/month for Supabase Pro + Trigger Hobby, excluding hosting and all usage extras. The explicit paid scenario including Netlify Personal and assumed model work is $46.50/month before domain/tax/unmeasured overages. A constrained free-tier scenario is possible only under the modeled quotas/eligibility. None has been purchased.
 
 The costed 39-account social pilot forecasts $41.15 incremental with a proposed, **unapproved** $45 cap. It assumes an existing paid/private storage allocation; modeled media exceeds Supabase Free storage. Account replacements, more memory, extra billing events, failed/empty checks, retries, video or different cadence can exceed it. `scripts/cost_model.py` reproduces assumptions; no forecast is an invoice or authorization. See [cost-model.md](cost-model.md).
 

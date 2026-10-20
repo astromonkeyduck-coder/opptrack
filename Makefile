@@ -4,6 +4,7 @@ check:
 	python3 -m unittest discover -s tests -v
 	python3 scripts/validate_registry.py
 	python3 evaluation/validate_cases.py
+	python3 scripts/validate_production_env.py
 
 reconcile:
 	python3 scripts/reconcile_registry.py
