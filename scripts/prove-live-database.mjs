@@ -26,9 +26,11 @@ try {
   assert.equal(await scalar('select count(*)::integer from public.sources where enabled'),2);
   checks.push('All 59 registry routes fit actual SQL constraints; only the two proven adapters are enabled');
   const sourceReports=[];
+  const initialLeases=await role('service_role',null,()=>query('select * from public.lease_due_sources(2,600)'));
+  assert.equal(initialLeases.length,2);
   for(const batch of batches) {
-    const [lease]=await role('service_role',null,()=>query('select * from public.lease_due_sources(1,600)'));
-    assert.equal(lease.id,batch.sourceId,'Leases must match due-source sequence');
+    const lease=initialLeases.find(row=>row.id===batch.sourceId);
+    assert.ok(lease,'Each proven source must have its own lease; UTC phases may change lease order');
     const payload=toDatabaseBatch(lease,batch);
     // Test object bytes reside in ignored local private storage. Real Supabase Storage HTTP remains untested.
     for(let i=0;i<batch.pages.length;i++) {
@@ -44,7 +46,7 @@ try {
   const firstOccurrence=await role('authenticated',owner,()=>scalar('select id from public.review_inbox order by starts_at nulls last,id limit 1'));
   await role('authenticated',owner,()=>query('select public.record_decision($1,$2,1)',[firstOccurrence,'save']));
   const replay=batches[0];
-  await db.query("update public.sources set next_due_at=now()-interval '1 second' where id=$1",[replay.sourceId]);
+  await db.query("update public.sources set next_due_at=now()-interval '1 second',next_poll_at=now()-interval '1 second',retry_not_before=null where id=$1",[replay.sourceId]);
   const [lease]=await role('service_role',null,()=>query('select * from public.lease_due_sources(1,600)'));
   await role('service_role',null,()=>query('select public.complete_source_run($1,$2,$3::jsonb)',[lease.id,lease.lease_token,JSON.stringify(toDatabaseBatch(lease,replay))]));
   const afterReplay=await scalar("select jsonb_build_object('opportunities',(select count(*) from public.opportunities),'occurrences',(select count(*) from public.occurrences),'captures',(select count(*) from public.captures),'versions',(select count(*) from public.entity_versions),'claims',(select count(*) from public.field_claims),'runs',(select count(*) from public.source_runs))");

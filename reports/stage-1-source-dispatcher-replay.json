@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-10-20T23:01:16.856Z",
+  "runAt": "2026-10-20T23:27:34.685Z",
   "evidenceClass": "production-trigger-handler-local-sql-with-explicit-http-storage-replay-adapters",
   "hostedSupabase": false,
   "triggerCloud": false,
@@ -43,7 +43,15 @@
   "replayHttpResponses": 10,
   "objectsUploaded": 5,
   "confirmedExistingObjectReuses": 5,
-  "rpcCalls": 6,
+  "rpcCalls": 8,
+  "zeroOwnerSetupNeededVerified": true,
+  "configuredOwnerIdleVerified": true,
+  "localSqlSourceRunIds": [
+    "ee210da8-296a-4914-a2da-d1a606060b90",
+    "1669a5b5-2feb-4ff9-9a93-8f883125cb15"
+  ],
+  "sourceRunIdCorrelationVerified": true,
+  "invocationKind": "replay",
   "savedDecisionPreserved": true,
   "calendarWrites": 0,
   "paidConnectors": 0,

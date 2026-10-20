@@ -3,7 +3,7 @@
   "hosting": "netlify",
   "worker": "trigger.dev-cloud",
   "hosted_verified": false,
-  "dispatcher_cron": "*/15 * * * *",
+  "dispatcher_cron": "0 * * * *",
   "sources": {
     "fsu-calendar-api": {
       "enabled_when_configured": true,
@@ -22,5 +22,21 @@
   "paid_connectors": false,
   "model_calls": false,
   "retention_execution": "plan_only; hosted deletion/refresh race and Storage restore gate pending",
-  "cadence_basis": "Conservative Stage 1 overrides; Stage 0 registry remains historical evidence, not runtime cadence."
+  "cadence_basis": "Stage 1 fixed UTC slots: central3600s, Music21600s; source retry floors are separate. Stage 0 registry is historical evidence.",
+  "dispatcher_timezone": "UTC",
+  "dispatcher_window": "60m",
+  "dispatcher_plan_policy": "Free-created schedules: at most hourly, minimum 60-minute stable-offset window; no upgrade selected",
+  "polling": {
+    "slot_anchor_utc": "2000-01-01T00:00:00Z",
+    "next_poll_at": "Nominal UTC source slot, independent of processing completion",
+    "retry_not_before": "Separate Retry-After/backoff floor",
+    "next_due_at": "max(next_poll_at,retry_not_before); picked up by a later dispatcher invocation",
+    "missed_source_slots": "Coalesce missed source slots once; no catch-up burst",
+    "timing_limit": "Provider chooses a stable start offset within the hour; no minute-level alert guarantee"
+  },
+  "hosted_setup_status": "partially_applied; Netlify/Trigger production variables saved, managed worker deployment and authenticated acceptance pending",
+  "hosted_migrations_applied": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql"
+  ]
 }

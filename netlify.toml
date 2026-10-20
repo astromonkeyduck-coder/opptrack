@@ -1,6 +1,7 @@
-# Production host selected by the user. Root package/lockfile build the bootstrap.
-# The bootstrap needs no service credentials; tracker integrations remain unconfigured.
-# Netlify automatically supplies its OpenNext adapter; no legacy plugin needed.
+# Production host selected by the user. Dynamic Next.js routes require the runtime.
+# Automatic detection did not install an adapter on the existing site, producing
+# a successful static upload with 404s for every dynamic route. Explicitly invoke
+# the pinned current v5 OpenNext adapter; do not publish .next as plain files.
 # Secrets and runtime variables belong in Netlify's Production environment UI/API.
 [build]
   command = "npm run build"
@@ -8,6 +9,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 # Trigger.dev workers deploy separately. Never launch workers from this build.
 # Do not set NODE_ENV here: Netlify must install build devDependencies.

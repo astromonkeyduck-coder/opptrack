@@ -1,12 +1,15 @@
 {
   "schema_version": 1,
   "updated_on": "2026-10-20",
-  "status": "prepared_not_applied",
+  "status": "partially_applied",
   "web_host": "netlify",
   "worker_host": "trigger.dev-cloud",
   "hosted_targets": {
     "netlify_site_id": null,
-    "trigger_project_ref": null
+    "trigger_project_ref": "proj_wurjjfgxnzhkvcewuaci",
+    "supabase_project_ref": "nuywbvlcwetqjalqvxzb",
+    "netlify_site_slug": "luxury-longma-01d2fa",
+    "app_url": "https://luxury-longma-01d2fa.netlify.app"
   },
   "application_implemented": true,
   "targets": {
@@ -156,10 +159,69 @@
     }
   },
   "notes": [
-    "Stage 1 authenticated UI, manual intake, worker and migrations exist. Local PostgreSQL/live event evidence is recorded; hosted settings remain not applied.",
-    "The Stage 1 web app uses the public Supabase pair and user-session RLS. TRIGGER_SECRET_KEY on Netlify is optional and unused until a future authenticated enqueue route exists.",
-    "The Trigger worker uses SUPABASE_URL and SUPABASE_SECRET_KEY. TRIGGER_PROJECT_REF is a non-secret CLI/config value, not a task secret.",
-    "Calendar, social collection, inbound email, and email delivery remain disabled. Templates/validation do not prove hosted integration."
+    "Stage 1 local application/SQL/live-source evidence exists. Existing hosted targets are identified and settings are partially applied; authenticated production acceptance remains pending.",
+    "All five Stage 1 Netlify variables were confirmed saved in the single Production context. Existing Free plan locks variable scope to all; only public configuration and nonsecret false flags belong there. No upgrade was selected.",
+    "The Stage 1 web app uses the public Supabase pair and user-session RLS. TRIGGER_SECRET_KEY is optional and unused by Stage 1; worker Supabase secret never belongs on Netlify.",
+    "All six Trigger worker variables were confirmed saved for Production only, with Development unchecked. SUPABASE_SECRET_KEY was stored as a secret, unviewable and never printed. No worker deployment/run is verified.",
+    "The Trigger GitHub app is installed for opptrack only, but Trigger organization connection still does not recognize it; managed deployment is pending investigation. trigger.config.ts defaults to the verified nonsecret project reference and permits an explicit override.",
+    "Supabase migrations001/002 were applied to the existing project. Zero Auth users were found and none created; empty ownership continues to deny all.",
+    "Calendar, social collection, inbound email and email delivery remain disabled. Hosted flags were confirmed saved on their respective targets. No paid connector or plan upgrade was enabled."
   ],
-  "application_status": "stage_1_implemented_local_verified_hosted_gate_pending"
+  "application_status": "stage_1_implemented_local_verified_hosted_gate_pending",
+  "hosted_application_state": {
+    "netlify": {
+      "production_base_variables_confirmed": [
+        "APP_URL",
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"
+      ],
+      "disabled_flags_confirmation": "confirmed_saved; CALENDAR_WRITES_ENABLED=false and INBOUND_EMAIL_ENABLED=false",
+      "provider_variable_scope": "all scopes; narrower scopes locked on existing Free plan",
+      "production_context_only": true,
+      "scope_values": "public Supabase pair, public APP_URL and nonsecret disabled flags only",
+      "stage1_authenticated_deploy_verified": false,
+      "production_variables_confirmed": [
+        "APP_URL",
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+        "CALENDAR_WRITES_ENABLED",
+        "INBOUND_EMAIL_ENABLED"
+      ],
+      "production_context_count": 1
+    },
+    "supabase": {
+      "migrations_applied": [
+        "202610200001_stage1.sql",
+        "202610200002_hourly_cadence.sql"
+      ],
+      "auth_user_count_at_inspection": 0,
+      "owner_registered": false,
+      "owner_creation": "User declined manual account creation; no account or invitation created"
+    },
+    "trigger": {
+      "github_repository_grant": "GitHub app installation confirmed 2026-10-20 19:28 America/New_York; only astromonkeyduck-coder/opptrack",
+      "production_variables_applied": true,
+      "production_worker_verified": false,
+      "schedule": "0 * * * * UTC; 60m window",
+      "production_variables_confirmed": [
+        "APP_URL",
+        "SUPABASE_URL",
+        "SUPABASE_SECRET_KEY",
+        "EMAIL_DELIVERY_ENABLED",
+        "CALENDAR_WRITES_ENABLED",
+        "SOCIAL_COLLECTION_ENABLED"
+      ],
+      "production_disabled_flags": {
+        "EMAIL_DELIVERY_ENABLED": false,
+        "CALENDAR_WRITES_ENABLED": false,
+        "SOCIAL_COLLECTION_ENABLED": false
+      },
+      "production_context_only": true,
+      "development_values_applied": false,
+      "server_secret_status": "saved as secret; value unviewable and never printed",
+      "github_organization_connection_recognized": false,
+      "managed_deployment_status": "pending investigation; installed repository grant is not recognized by Trigger organization connection"
+    },
+    "paid_plan_change": false
+  }
 }

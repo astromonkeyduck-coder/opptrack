@@ -1,0 +1,80 @@
+{
+  "verifiedAt": "2026-10-20T23:31:29.652Z",
+  "scope": "Independent final Stage 1 hourly follow-up checks",
+  "commands": [
+    {
+      "command": "npm run test:db",
+      "exitCode": 0,
+      "wallTimeSeconds": 2.374473667,
+      "output": "\n> fsu-opportunity-tracker@0.1.0 test:db\n> node scripts/test-database.mjs && node scripts/test-hourly-database.mjs\n\nPASS all migrations execute on actual PostgreSQL (PGlite WASM)\nPASS unconfigured authenticated account cannot claim first-owner membership\nPASS single-owner setup is idempotent and refuses replacement\nPASS migration source IDs align with registry; seeded catalog has exactly 59 routes and two enabled adapters\nPASS lease is exclusive and service-only\nPASS success atomically persists capture, run, entities, evidence and cursor\nPASS anonymous denied database/view/function access\nPASS owner reads facts and security-invoker inbox\nPASS another authenticated user cannot read facts, runs, claims, decisions or intake\nPASS owner cannot forge source facts/health/direct decisions\nPASS save works, calendar approval action is rejected, stale revision is rejected\nPASS unchanged replay creates observations but no duplicate entities/versions; decision survives\nPASS fresh replay of purged identical raw capture restores private path without duplicate versions\nPASS new content version preserves stable occurrence and user decision\nPASS cross-owner relationship is rejected even with service privileges\nPASS partial keeps cursor/last-success, records failure and retry\nPASS malformed normalized payload rolls back captures, run and cursor transaction\nPASS success cannot represent truncated pagination or an unevidenced empty response\nPASS valid zero-event capture persists as evidenced success\nPASS Retry-After is honored and failed collection is not empty success\nPASS expired lease cannot commit; recovery records abandoned attempt\nPASS private storage bucket forbids public access and preserves MIME/size limits\nPASS storage RLS permits owner prefix and denies other prefixes/traversal\nPASS other authenticated user cannot read/upload/delete owner storage\nPASS manual intake retains all supplied slides privately, dedupes submission keys, and rejects forged media\nPASS manual SQL boundary rejects oversized files/total, excess slides, long notes, credential URLs and absent MIME\nPASS retention planner is service-only, skips active shared references and recent objects, and finds aged orphans\nPASS owner can delete private object under policy; database records retain no public URL\nPASS calendar and delivery execution tables/functions are absent\n29 database checks passed. Auth/Storage HTTP services and hosted infrastructure remain untested.\nPASS incremental migration preserves active lease/token/effective due time, cursors and decisions\nPASS incremental migration preserves an outstanding failed-run Retry-After floor\nPASS two hourly polls with later then earlier dispatch jitter retain exact consecutive UTC slots\nPASS processing across the next UTC boundary leaves that next nominal slot due\nPASS Music follows six-hour UTC phases despite dispatch delay, including midnight rollover\nPASS failed collection keeps its nominal poll due while an independent retry floor prevents early lease\nPASS outage recovery coalesces ten missed source hours into the latest slot without burst catch-up\nPASS delayed Music recovery selects the latest six-hour phase rather than replaying missed windows\nPASS expired lease recovery keeps the previous nominal slot in its failed-run evidence\nPASS actual run metadata is retained without treating synthetic fixture provenance as Cloud evidence\nPASS historical ingestion implementation and scheduling internals are not callable by browser/service roles\nPASS invalid provenance rolls back the entire original ingestion transaction\n12 hourly database checks passed; Cloud execution remains unverified.\n"
+    },
+    {
+      "command": "make check",
+      "exitCode": 0,
+      "wallTimeSeconds": 0.3397685,
+      "output": "python3 -m unittest discover -s tests -v\ntest_changed_usage_cannot_quote_impossible_free_path (test_cost_model.CostBudgetTests.test_changed_usage_cannot_quote_impossible_free_path) ... ok\ntest_excerpt_retention_is_independent_from_media_retention (test_cost_model.CostBudgetTests.test_excerpt_retention_is_independent_from_media_retention) ... ok\ntest_larger_pilot_cannot_claim_same_cap_fits (test_cost_model.CostBudgetTests.test_larger_pilot_cannot_claim_same_cap_fits) ... ok\ntest_netlify_meters_and_paid_plan_not_double_counted (test_cost_model.CostBudgetTests.test_netlify_meters_and_paid_plan_not_double_counted) ... ok\ntest_netlify_paid_credit_exhaustion_does_not_assume_purchase (test_cost_model.CostBudgetTests.test_netlify_paid_credit_exhaustion_does_not_assume_purchase) ... ok\ntest_starter_prepaid_credit_not_double_counted (test_cost_model.CostBudgetTests.test_starter_prepaid_credit_not_double_counted) ... ok\ntest_story_fee_includes_empty_checks_and_batched_starts (test_cost_model.CostBudgetTests.test_story_fee_includes_empty_checks_and_batched_starts) ... ok\ntest_unknown_or_legacy_netlify_plan_has_no_credit_based_quote (test_cost_model.CostBudgetTests.test_unknown_or_legacy_netlify_plan_has_no_credit_based_quote) ... ok\ntest_atom_entries_are_not_silently_empty (test_probe_sources.PublicProbeTests.test_atom_entries_are_not_silently_empty) ... ok\ntest_calendar_month_windows_do_not_drift (test_probe_sources.PublicProbeTests.test_calendar_month_windows_do_not_drift) ... ok\ntest_changed_total_during_pagination_fails (test_probe_sources.PublicProbeTests.test_changed_total_during_pagination_fails) ... ok\ntest_current_page_mismatch_fails (test_probe_sources.PublicProbeTests.test_current_page_mismatch_fails) ... ok\ntest_email_security_tracking_is_not_retained (test_probe_sources.PublicProbeTests.test_email_security_tracking_is_not_retained) ... ok\ntest_empty_positive_total_fails (test_probe_sources.PublicProbeTests.test_empty_positive_total_fails) ... ok\ntest_error_page_200_is_failure (test_probe_sources.PublicProbeTests.test_error_page_200_is_failure) ... ok\ntest_hash_ignores_counters_but_observes_changed_facts (test_probe_sources.PublicProbeTests.test_hash_ignores_counters_but_observes_changed_facts) ... ok\ntest_html_instead_of_json_fails (test_probe_sources.PublicProbeTests.test_html_instead_of_json_fails) ... ok\ntest_ics_missing_uid_is_failure (test_probe_sources.PublicProbeTests.test_ics_missing_uid_is_failure) ... ok\ntest_ics_preserves_uid_separate_occurrence_and_date_range (test_probe_sources.PublicProbeTests.test_ics_preserves_uid_separate_occurrence_and_date_range) ... ok\ntest_links_normalize_without_following_actions (test_probe_sources.PublicProbeTests.test_links_normalize_without_following_actions) ... ok\ntest_login_wall_200_is_not_empty_success (test_probe_sources.PublicProbeTests.test_login_wall_200_is_not_empty_success) ... ok\ntest_missing_occurrence_id_fails (test_probe_sources.PublicProbeTests.test_missing_occurrence_id_fails) ... ok\ntest_missing_pagination_fails (test_probe_sources.PublicProbeTests.test_missing_pagination_fails) ... ok\ntest_native_event_and_occurrence_ids_remain_distinct (test_probe_sources.PublicProbeTests.test_native_event_and_occurrence_ids_remain_distinct) ... ok\ntest_nonfeed_html_cannot_be_successful_empty (test_probe_sources.PublicProbeTests.test_nonfeed_html_cannot_be_successful_empty) ... ok\ntest_null_occurrence_fails_without_aborting_other_sources (test_probe_sources.PublicProbeTests.test_null_occurrence_fails_without_aborting_other_sources) ... ok\ntest_observed_export_allowlist_is_exact (test_probe_sources.PublicProbeTests.test_observed_export_allowlist_is_exact) ... ok\ntest_public_events_with_login_link_are_not_wall (test_probe_sources.PublicProbeTests.test_public_events_with_login_link_are_not_wall) ... ok\ntest_public_preview_links_exclude_navigation_shares_and_prefer_title (test_probe_sources.PublicProbeTests.test_public_preview_links_exclude_navigation_shares_and_prefer_title) ... ok\ntest_public_url_guard_rejects_secrets_and_local_routes (test_probe_sources.PublicProbeTests.test_public_url_guard_rejects_secrets_and_local_routes) ... ok\ntest_recurrent_rows_identified_by_occurrence (test_probe_sources.PublicProbeTests.test_recurrent_rows_identified_by_occurrence) ... ok\ntest_rss_preserves_native_guid_and_date (test_probe_sources.PublicProbeTests.test_rss_preserves_native_guid_and_date) ... ok\ntest_silent_terminal_truncation_fails (test_probe_sources.PublicProbeTests.test_silent_terminal_truncation_fails) ... ok\ntest_template_only_200_is_incomplete (test_probe_sources.PublicProbeTests.test_template_only_200_is_incomplete) ... ok\ntest_terminal_matching_total_passes (test_probe_sources.PublicProbeTests.test_terminal_matching_total_passes) ... ok\ntest_terminal_zero_is_accepted_with_pagination (test_probe_sources.PublicProbeTests.test_terminal_zero_is_accepted_with_pagination) ... ok\ntest_bad_production_origins_and_placeholders_are_rejected (test_production_env.ProductionEnvironmentTests.test_bad_production_origins_and_placeholders_are_rejected) ... ok\ntest_calendar_or_unproven_social_cannot_be_enabled (test_production_env.ProductionEnvironmentTests.test_calendar_or_unproven_social_cannot_be_enabled) ... ok\ntest_duplicate_keys_do_not_silently_override_secrets (test_production_env.ProductionEnvironmentTests.test_duplicate_keys_do_not_silently_override_secrets) ... ok\ntest_email_requires_credentials_only_when_enabled (test_production_env.ProductionEnvironmentTests.test_email_requires_credentials_only_when_enabled) ... ok\ntest_nonproduction_trigger_key_is_rejected (test_production_env.ProductionEnvironmentTests.test_nonproduction_trigger_key_is_rejected) ... ok\ntest_privileged_key_cannot_be_bundled_as_public_key (test_production_env.ProductionEnvironmentTests.test_privileged_key_cannot_be_bundled_as_public_key) ... ok\ntest_separate_target_configurations_validate (test_production_env.ProductionEnvironmentTests.test_separate_target_configurations_validate) ... ok\ntest_templates_contain_no_credentials (test_production_env.ProductionEnvironmentTests.test_templates_contain_no_credentials) ... ok\ntest_webhook_requires_secret_when_enabled (test_production_env.ProductionEnvironmentTests.test_webhook_requires_secret_when_enabled) ... ok\ntest_worker_credentials_are_rejected_on_web_even_if_empty (test_production_env.ProductionEnvironmentTests.test_worker_credentials_are_rejected_on_web_even_if_empty) ... ok\ntest_worker_public_key_is_rejected (test_production_env.ProductionEnvironmentTests.test_worker_public_key_is_rejected) ... ok\ntest_actor_starting_get_endpoints_are_rejected_before_network (test_social_probe.SocialReadSafetyTests.test_actor_starting_get_endpoints_are_rejected_before_network) ... ok\ntest_carousel_remaining_child_page_is_partial (test_social_probe.SocialReadSafetyTests.test_carousel_remaining_child_page_is_partial) ... ok\ntest_dataset_empty_remains_unverified (test_social_probe.SocialReadSafetyTests.test_dataset_empty_remains_unverified) ... ok\ntest_dataset_errors_retained_and_not_summarized_as_success (test_social_probe.SocialReadSafetyTests.test_dataset_errors_retained_and_not_summarized_as_success) ... ok\ntest_failed_request_does_not_echo_exception_url_or_token (test_social_probe.SocialReadSafetyTests.test_failed_request_does_not_echo_exception_url_or_token) ... ok\ntest_http200_login_html_is_not_json_success (test_social_probe.SocialReadSafetyTests.test_http200_login_html_is_not_json_success) ... ok\ntest_missing_credentials_make_no_request (test_social_probe.SocialReadSafetyTests.test_missing_credentials_make_no_request) ... ok\ntest_missing_dataset_setup_is_not_empty_success (test_social_probe.SocialReadSafetyTests.test_missing_dataset_setup_is_not_empty_success) ... ok\ntest_missing_native_id_or_timestamp_is_partial (test_social_probe.SocialReadSafetyTests.test_missing_native_id_or_timestamp_is_partial) ... ok\ntest_official_row_error_is_partial (test_social_probe.SocialReadSafetyTests.test_official_row_error_is_partial) ... ok\ntest_pagination_never_follows_supplied_next_url (test_social_probe.SocialReadSafetyTests.test_pagination_never_follows_supplied_next_url) ... ok\ntest_untrusted_hosts_and_insecure_schemes_rejected (test_social_probe.SocialReadSafetyTests.test_untrusted_hosts_and_insecure_schemes_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 59 tests in 0.013s\n\nOK\npython3 scripts/validate_registry.py\n{\n  \"result\": \"pass\",\n  \"sources\": 59,\n  \"statuses\": {\n    \"verified_operational\": 8,\n    \"documented_but_untested\": 44,\n    \"blocked\": 4,\n    \"manual_only\": 2,\n    \"unsupported\": 1\n  }\n}\npython3 evaluation/validate_cases.py\nPASS: 45 scenario contracts; provenance={'synthetic': 44, 'live_reference': 1}; 6 rejection checks\nPASS: DST gap/fold, recurrence exception, all-slide and evidence-reference labels\nNOT RUN: application extraction, model accuracy, live calendar/delivery, database/RLS/outbox behavior\npython3 scripts/validate_production_env.py\n{\n  \"status\": \"templates_valid\",\n  \"errors\": [],\n  \"hosted_variables_applied\": false,\n  \"values_printed\": false\n}\n"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "wallTimeSeconds": 0.000006834,
+      "output": ""
+    }
+  ],
+  "summary": {
+    "allCommandsPassed": true,
+    "baseSqlChecks": 29,
+    "hourlySqlChecks": 12,
+    "pythonTests": 59,
+    "registrySources": 59,
+    "scenarioContracts": 45,
+    "intentionalScenarioRejections": 6,
+    "productionTemplatesValid": true,
+    "diffWhitespaceClean": true
+  },
+  "hostedSqlCompatibility": {
+    "projectRef": "nuywbvlcwetqjalqvxzb",
+    "method": "Read-only pg_proc SELECT; compare SQL-body MD5, signatures and SECURITY DEFINER flags against freshly migrated local PostgreSQL",
+    "allFourFunctionBodiesMatch": true,
+    "functions": [
+      {
+        "schema": "public",
+        "function": "complete_source_run",
+        "arguments": "p_source_id text, p_lease_token uuid, p_batch jsonb",
+        "bodyMd5": "7de0082554768c50d0a8cb002e848e47",
+        "securityDefiner": true
+      },
+      {
+        "schema": "public",
+        "function": "lease_due_sources",
+        "arguments": "p_limit integer, p_lease_seconds integer",
+        "bodyMd5": "dd51e3b9633dd0e36ae4a3fcfc67371c",
+        "securityDefiner": true
+      },
+      {
+        "schema": "tracker_private",
+        "function": "complete_source_run",
+        "arguments": "p_source_id text, p_lease_token uuid, p_batch jsonb",
+        "bodyMd5": "2359b008ad30903a18bc93e4b997a9da",
+        "securityDefiner": true
+      },
+      {
+        "schema": "tracker_private",
+        "function": "poll_slot_at",
+        "arguments": "p_cadence_seconds integer, p_at timestamp with time zone",
+        "bodyMd5": "42cd08663674b90aaa5bb5116e9d9c42",
+        "securityDefiner": false
+      }
+    ],
+    "query": "select n.nspname as schema,p.proname as function_name,pg_get_function_identity_arguments(p.oid) as arguments,md5(p.prosrc) as body_md5,p.prosecdef as security_definer,p.proconfig as function_settings from pg_proc p join pg_namespace n on n.oid=p.pronamespace where (n.nspname='public' and p.proname in ('lease_due_sources','complete_source_run')) or (n.nspname='tracker_private' and p.proname in ('complete_source_run','poll_slot_at')) order by n.nspname,p.proname;",
+    "noHostedMutations": true
+  },
+  "limitations": [
+    "Local policy/scheduling test fixtures are not real Cloud scheduled runs.",
+    "Matching deployed function bodies verifies SQL deployment compatibility, not hosted ingestion or owner authentication.",
+    "Hosted deny checks are separate in reports/stage-1-hosted-sql-checks.json; no configured owner exists.",
+    "Root agent owns type checking, application tests, build and hosted service configuration; those outcomes are not claimed by this report."
+  ],
+  "calendarWrites": 0,
+  "paidServicesEnabled": 0
+}

@@ -1,0 +1,33 @@
+{
+  "runAt": "2026-10-20T23:31:37.053Z",
+  "database": "PGlite 0.5.10 actual PostgreSQL WASM",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql"
+  ],
+  "passed": 12,
+  "checks": [
+    "incremental migration preserves active lease/token/effective due time, cursors and decisions",
+    "incremental migration preserves an outstanding failed-run Retry-After floor",
+    "two hourly polls with later then earlier dispatch jitter retain exact consecutive UTC slots",
+    "processing across the next UTC boundary leaves that next nominal slot due",
+    "Music follows six-hour UTC phases despite dispatch delay, including midnight rollover",
+    "failed collection keeps its nominal poll due while an independent retry floor prevents early lease",
+    "outage recovery coalesces ten missed source hours into the latest slot without burst catch-up",
+    "delayed Music recovery selects the latest six-hour phase rather than replaying missed windows",
+    "expired lease recovery keeps the previous nominal slot in its failed-run evidence",
+    "actual run metadata is retained without treating synthetic fixture provenance as Cloud evidence",
+    "historical ingestion implementation and scheduling internals are not callable by browser/service roles",
+    "invalid provenance rolls back the entire original ingestion transaction"
+  ],
+  "fixtureClass": "Synthetic events, times and Trigger IDs; not Cloud schedule/run evidence",
+  "policy": "Central hourly and Music six-hourly on UTC slots; effective due=max(nominal poll due,retry floor); missed source slots coalesce; processing completion cannot shift the grid",
+  "calendarWrites": 0,
+  "paidServicesEnabled": 0,
+  "notTested": [
+    "Trigger Free spreading execution in Cloud",
+    "Hosted migration application",
+    "Live Supabase HTTP and distributed concurrency",
+    "A real scheduled Trigger run ID; synthetic IDs above are test-only"
+  ]
+}

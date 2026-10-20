@@ -1,0 +1,267 @@
+{
+  "checkedAt": "2026-10-20T23:27:22.994Z",
+  "projectRef": "nuywbvlcwetqjalqvxzb",
+  "evidenceClass": "actual-hosted-postgresql-role-policy-checks",
+  "database": "Hosted Supabase PostgreSQL 17.11",
+  "tools": [
+    "Supabase.execute_sql",
+    "Supabase.get_advisors"
+  ],
+  "script": "scripts/hosted-rls-check.sql",
+  "transaction": "BEGIN ... ROLLBACK; only an ON COMMIT DROP temporary results table was created",
+  "policyChecks": {
+    "checks": [
+      {
+        "test": "anon_capture_read",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "anon"
+      },
+      {
+        "test": "anon_decision_rpc",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "anon"
+      },
+      {
+        "test": "anon_inbox_read",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "anon"
+      },
+      {
+        "test": "anon_membership_helper",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "anon"
+      },
+      {
+        "test": "anon_opportunity_read",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "anon"
+      },
+      {
+        "test": "anon_owner_table_read",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "anon"
+      },
+      {
+        "test": "anon_source_fact_write",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "anon"
+      },
+      {
+        "test": "anon_storage_read",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "anon"
+      },
+      {
+        "test": "anon_worker_lease",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "anon"
+      },
+      {
+        "test": "nonowner_capture_read",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_claim_read",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_decision_rpc",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_inbox_read",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_manual_read",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_manual_rpc",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_membership_helper",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_occurrence_read",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_opportunity_read",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_owner_table_read",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_private_base",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_source_fact_write",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_source_run_read",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_storage_insert",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_storage_read",
+        "passed": true,
+        "result": "row_or_boolean_count=0",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "nonowner_worker_lease",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "authenticated"
+      },
+      {
+        "test": "worker_invalid_lease_rejected",
+        "passed": true,
+        "result": "SQLSTATE 40001 invalid/expired lease rejected",
+        "sql_role": "service_role"
+      },
+      {
+        "test": "worker_lease_empty_unconfigured_project",
+        "passed": true,
+        "result": "lease_count=0",
+        "sql_role": "service_role"
+      },
+      {
+        "test": "worker_private_base_unavailable",
+        "passed": true,
+        "result": "SQLSTATE 42501 denied",
+        "sql_role": "service_role"
+      }
+    ],
+    "failed": 0,
+    "passed": 28,
+    "check_count": 28
+  },
+  "postRollback": {
+    "sql_role": "postgres",
+    "owner_count": 0,
+    "source_count": 0,
+    "capture_count": 0,
+    "private_bucket": true,
+    "auth_user_count": 0,
+    "source_run_count": 0,
+    "opportunity_count": 0,
+    "storage_object_count": 0,
+    "view_security_invoker": true,
+    "worker_leasing_callable": true,
+    "temporary_results_absent": true,
+    "public_tables_without_rls": 0,
+    "private_base_worker_denied": true,
+    "worker_completion_callable": true,
+    "anon_owner_bootstrap_denied": true,
+    "worker_owner_bootstrap_callable": true,
+    "authenticated_owner_bootstrap_denied": true
+  },
+  "assertions": {
+    "noPersistedAuthUsersCreated": true,
+    "noOwnerCreated": true,
+    "noEventsInserted": true,
+    "noCapturesInserted": true,
+    "noStorageObjectsCreated": true,
+    "temporaryResultsRemoved": true,
+    "allPublicTablesHaveRls": true,
+    "reviewViewUsesInvokerSecurity": true,
+    "privateBucket": true
+  },
+  "securityAdvisors": [
+    {
+      "name": "rls_enabled_no_policy",
+      "level": "INFO",
+      "count": 1,
+      "objects": [
+        "public.tracker_members"
+      ],
+      "assessment": "Intentional service-only membership table; no client grants or policies. Bootstrap is denied to anon/authenticated and no first-user owner claim is possible.",
+      "remediationUrl": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+    },
+    {
+      "name": "anon_security_definer_function_executable",
+      "level": "WARN",
+      "count": 1,
+      "objects": [
+        "public.is_tracker_member()"
+      ],
+      "assessment": "Existing helper exposes only whether auth.uid() is allowlisted; no caller-supplied user ID and no table rows. Actual anonymous and non-owner calls returned false. Public helper exposure remains an advisory; no schema change was made in these read-only checks.",
+      "remediationUrl": "https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable"
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "level": "WARN",
+      "count": 3,
+      "objects": [
+        "public.is_tracker_member()",
+        "public.record_decision(uuid,text,integer)",
+        "public.submit_manual_intake(text,text,jsonb,uuid)"
+      ],
+      "assessment": "Intentional bounded membership/decision/intake RPCs use empty search_path and explicit membership/target checks. Actual non-owner decision/intake calls were denied with SQLSTATE 42501. Owner-positive behavior remains untested on this hosted project.",
+      "remediationUrl": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+    }
+  ],
+  "limits": [
+    "The hosted tracker has zero Auth users, owners, sources and events. Empty-table reads plus membership denial prove current unconfigured access gates; they do not prove isolation of another owner's populated rows.",
+    "The authenticated role used arbitrary transaction-local test claims. No real Supabase session, signed JWT or Auth HTTP login was created or verified.",
+    "Owner-positive access, populated cross-owner relationships and replay remain verified locally only, not against this hosted project.",
+    "Storage SQL policy checks do not exercise upload/download/signing HTTP or actual media objects.",
+    "No event rows were inserted by SQL; real hosted event ingestion must traverse the Trigger worker path after an explicit owner exists.",
+    "No organizer contact, purchases, messages, calendar writes, Auth account creation or persistent data mutation occurred."
+  ],
+  "operationalConclusion": "Schema and deny policies are deployed and exercised. Hosted ingestion/review remains setup-needed because no Auth user/owner exists; worker leasing correctly returned zero unconfigured sources.",
+  "documentationChecked": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/changelog/postgres-15-19-17-11-breaking-changes",
+    "https://supabase.com/changelog/cbc-tls-ciphers-deprecated",
+    "https://supabase.com/docs/guides/database/postgres/row-level-security"
+  ]
+}

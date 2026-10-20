@@ -1,12 +1,33 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { collectCentralCalendar } from "../lib/collection";
-import { ingestCollectedBatch, toDatabaseBatch } from "../lib/ingestion";
+import { dispatchDueSources, ingestCollectedBatch, toDatabaseBatch, WorkerSetupNeeded } from "../lib/ingestion";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { isDuplicateObject } from "../lib/storage/integrity";
 
 const lease = { id: "fsu-calendar-api", owner_id: "11111111-1111-4111-8111-111111111111", lease_token: "22222222-2222-4222-8222-222222222222" };
 const now = () => new Date("2026-10-20T12:00:00Z");
+
+function zeroLeaseClient(members:unknown,error:{code:string}|null=null) {
+  return {
+    rpc:async(name:string)=>{assert.equal(name,"lease_due_sources");return {data:[],error:null};},
+    from:(table:string)=>{assert.equal(table,"tracker_members");return {select:(columns:string)=>{assert.equal(columns,"user_id");return {limit:async(limit:number)=>{assert.equal(limit,1);return {data:members,error};}};}};},
+    storage:{from:()=>{throw Error("Zero-lease readiness must not upload captures");}},
+  } as unknown as SupabaseClient;
+}
+
+test("zero leases with no owner require setup and cannot become successful empty collection",async()=>{
+  await assert.rejects(dispatchDueSources(2,zeroLeaseClient([])),WorkerSetupNeeded);
+});
+
+test("zero leases with an established owner legitimately return no due work",async()=>{
+  assert.deepEqual(await dispatchDueSources(2,zeroLeaseClient([{user_id:lease.owner_id}])),[]);
+});
+
+test("owner readiness query failure or malformed response remains an infrastructure failure",async()=>{
+  await assert.rejects(dispatchDueSources(2,zeroLeaseClient(null,{code:"42501"})),/readiness check failed \(42501\)/);
+  await assert.rejects(dispatchDueSources(2,zeroLeaseClient(null)),/invalid response/);
+});
 // Deliberately synthetic empty valid feed; this is not live collection evidence.
 async function emptyBatch() {
   return collectCentralCalendar({ now, fetch: async () => new Response(JSON.stringify({ events: [], page: { current: 1, total: 0, total_items: 0, next_page: null } }), { headers: { "content-type": "application/json" } }) });

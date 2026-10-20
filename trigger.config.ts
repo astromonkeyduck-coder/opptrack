@@ -1,7 +1,8 @@
 import { defineConfig } from "@trigger.dev/sdk";
 
-const project=process.env.TRIGGER_PROJECT_REF;
-if(!project||!/^proj_[A-Za-z0-9]+$/.test(project))throw new Error("Setup needed: set the non-secret TRIGGER_PROJECT_REF from your Trigger project before running its CLI");
+// Verified existing project. This nonsecret default also supports managed GitHub builds.
+const project=process.env.TRIGGER_PROJECT_REF ?? "proj_wurjjfgxnzhkvcewuaci";
+if(!/^proj_[A-Za-z0-9]+$/.test(project))throw new Error("Set TRIGGER_PROJECT_REF to a valid non-secret Trigger project reference");
 
 export default defineConfig({
   project,

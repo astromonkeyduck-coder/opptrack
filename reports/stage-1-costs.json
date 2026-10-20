@@ -12,14 +12,21 @@
     "calendar_writes": 0,
     "purchases": 0,
     "account_invoices_checked": false,
-    "coding_subscription_and_tool_costs": "unmeasured"
+    "coding_subscription_and_tool_costs": "unmeasured",
+    "existing_hosted_plans_observed": {
+      "supabase": "Pro organization label; unchanged",
+      "netlify": "Free; unchanged",
+      "trigger": "Free schedule policy; unchanged"
+    },
+    "hosted_setup": "Supabase migrations001/002 applied; all five Netlify Production variables and six Trigger Production-only worker variables confirmed saved. Trigger GitHub app is installed for opptrack only but organization connection is not recognized. No owner account or verified cloud collection yet.",
+    "new_paid_upgrades": 0
   },
   "conditional_30_day_forecast": {
-    "dispatcher_ticks": 2880,
+    "dispatcher_ticks": 720,
     "assumed_seconds_per_tick": 10,
     "small_1x_usd_per_second": 3.38e-05,
     "usd_per_invocation": 2.5e-05,
-    "trigger_metered_usd": 1.0454,
+    "trigger_metered_usd": 0.26136,
     "central_collections": 720,
     "music_collections": 120,
     "public_http_requests_at_current_page_count": 3000,
@@ -36,7 +43,11 @@
       "supabase_pro_one_micro": 25,
       "trigger_hobby": 10
     },
-    "approval": "no paid plan or usage approved or enabled"
+    "approval": "No paid plan, paid connector or upgrade enabled by this work; existing account charges are not zeroed",
+    "dispatcher_cron": "0 * * * *",
+    "dispatcher_timezone": "UTC",
+    "dispatcher_window": "60m",
+    "schedule_plan_policy": "Free-created hourly schedule with minimum 60-minute stable-offset window; no upgrade used"
   },
   "sources": [
     "https://supabase.com/pricing",

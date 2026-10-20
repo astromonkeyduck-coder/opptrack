@@ -10,6 +10,20 @@ export interface SourceLease {
   consecutive_failures?: number;
 }
 
+export interface DispatcherProvenance {
+  triggerRunId?: string;
+  scheduledAt?: string;
+  scheduleId?: string;
+  invocationKind: "scheduled" | "manual" | "replay" | "local";
+}
+
+export class WorkerSetupNeeded extends Error {
+  constructor() {
+    super("Setup needed: tracker owner is not configured; no source collection was started");
+    this.name = "WorkerSetupNeeded";
+  }
+}
+
 export function getWorkerClient(): SupabaseClient {
   const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SECRET_KEY;
@@ -18,11 +32,15 @@ export function getWorkerClient(): SupabaseClient {
 }
 
 /** Metadata/cursor commit is one SQL transaction, after immutable private object upload. */
-export function toDatabaseBatch(lease: SourceLease, batch: CollectionBatch) {
+export function toDatabaseBatch(lease: SourceLease, batch: CollectionBatch, provenance?: DispatcherProvenance) {
   batch = validateCollectionBatch(batch);
   if (batch.sourceId !== lease.id) throw new Error("Collection source does not match lease");
   const path = (sha: string) => `${lease.owner_id}/sources/${lease.id}/${sha}.raw`;
   return {
+    trigger_run_id: provenance?.triggerRunId ?? null,
+    dispatcher_scheduled_at: provenance?.scheduledAt ?? null,
+    trigger_schedule_id: provenance?.scheduleId ?? null,
+    invocation_kind: provenance?.invocationKind ?? "local",
     outcome: batch.status,
     pagination_complete: batch.observations.paginationComplete,
     started_at: batch.startedAt,
@@ -68,8 +86,8 @@ export function toDatabaseBatch(lease: SourceLease, batch: CollectionBatch) {
   };
 }
 
-export async function ingestCollectedBatch(lease: SourceLease, batch: CollectionBatch, client = getWorkerClient()) {
-  const payload = toDatabaseBatch(lease, batch);
+export async function ingestCollectedBatch(lease: SourceLease, batch: CollectionBatch, client = getWorkerClient(), provenance?: DispatcherProvenance) {
+  const payload = toDatabaseBatch(lease, batch, provenance);
   // Paths are content addressed. A retry can reuse an existing immutable object;
   // only a confirmed duplicate is ignored, never a transport/auth failure.
   for (let i = 0; i < batch.pages.length; i++) {
@@ -89,20 +107,29 @@ export async function ingestCollectedBatch(lease: SourceLease, batch: Collection
   return data;
 }
 
-export async function runLeasedCollection(lease: SourceLease, client = getWorkerClient()) {
+export async function runLeasedCollection(lease: SourceLease, client = getWorkerClient(), provenance?: DispatcherProvenance) {
   const batch = await collectSource(lease.id);
   // A source failure is a durable run and retry time, not an infrastructure exception.
-  await ingestCollectedBatch(lease, batch, client);
-  return { sourceId: lease.id, outcome: batch.status, opportunities: batch.opportunities.length, occurrences: batch.occurrences.length, requests: batch.observations.requests };
+  const committed = await ingestCollectedBatch(lease, batch, client, provenance);
+  return { sourceId: lease.id, sourceRunId: (committed as { run_id?: string } | null)?.run_id ?? null, outcome: batch.status, opportunities: batch.opportunities.length, occurrences: batch.occurrences.length, requests: batch.observations.requests };
 }
 
-export async function dispatchDueSources(limit = 2, client = getWorkerClient()) {
+export async function dispatchDueSources(limit = 2, client = getWorkerClient(), provenance?: DispatcherProvenance) {
   const { data, error } = await client.rpc("lease_due_sources", { p_limit: Math.min(2, Math.max(1, limit)), p_lease_seconds: 600 });
   if (error) throw new Error(`Source leasing failed (${error.code ?? "database"})`);
+  if (!data?.length) {
+    // An empty owner allowlist also produces zero leases. Distinguish setup from
+    // an established private tracker with no sources currently due.
+    const { data: members, error: readinessError } = await client.from("tracker_members").select("user_id").limit(1);
+    if (readinessError) throw new Error(`Tracker owner readiness check failed (${readinessError.code ?? "database"})`);
+    if (!Array.isArray(members)) throw new Error("Tracker owner readiness check returned an invalid response");
+    if (!members.length) throw new WorkerSetupNeeded();
+    return [];
+  }
   const results = [];
   for (const lease of (data ?? []) as SourceLease[]) {
     try {
-      results.push(await runLeasedCollection(lease, client));
+      results.push(await runLeasedCollection(lease, client, provenance));
     } catch {
       // Leave the lease intact on infrastructure/storage/transaction failures. It
       // expires and is recovered; never mark a failed persistence as collection success.
