@@ -1,0 +1,14 @@
+{
+  "attachment": "FSU_Opportunity_Tracker_Build_Pack.txt",
+  "sha256": "c002ae95f6e2e6540e2117bc293d15a15e693453451f4641657237704e6b046a",
+  "request_scope": "FIRST PROMPT / Stage 0 only",
+  "read_on": "2026-10-20",
+  "later_prompts": "reference only, not executed",
+  "initial_repository": {
+    "branch": "main",
+    "commits": 0,
+    "remotes": 0,
+    "tracked_files": 0,
+    "existing_work_modified": false
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "stage": 0,
+  "evidence_class": "live-public-read-only-probe",
+  "started_at": "2026-10-20T18:37:37.979742+00:00",
+  "finished_at": "2026-10-20T18:37:39.986442+00:00",
+  "command": [
+    "python3",
+    "scripts/probe_sources.py",
+    "--only",
+    "fsu-hq-events",
+    "--output",
+    "reports/probes/hq-public-export.json",
+    "--max-requests",
+    "4"
+  ],
+  "script_sha256": "6e3c8b6b43b65347e74d87eb5d6e86bd41b7f27cffcc5e246086c61441c6896e",
+  "policy": "no credentials; public FSU HTTPS GET and exact observed public HQ CDN ICS only; no actions; untrusted source data; no completeness claim",
+  "bounds": {
+    "max_requests": 4,
+    "timeout_seconds": 25,
+    "max_response_bytes": 3145728
+  },
+  "requests_attempted": 3,
+  "blocked_or_incomplete_probe_ids": [
+    "fsu-hq-events"
+  ],
+  "requests": [
+    {
+      "request_id": "request-001",
+      "probe_id": "fsu-hq-events",
+      "url": "https://hq.fsu.edu/events",
+      "method": "GET",
+      "started_at": "2026-10-20T18:37:37.979944+00:00",
+      "transport": "python-stdlib-urllib",
+      "http_status": 200,
+      "final_url": "https://hq.fsu.edu/events",
+      "content_type": "text/html; charset=utf-8",
+      "etag": null,
+      "last_modified": null,
+      "retry_after": null,
+      "bytes": 214206,
+      "body_sha256": "003e4bb74b178097953f1e4ddb0852557e78d18e4ac2823b495f022763b74197",
+      "outcome": "fetched",
+      "finished_at": "2026-10-20T18:37:38.613604+00:00",
+      "elapsed_seconds": 0.634
+    },
+    {
+      "request_id": "request-002",
+      "probe_id": "fsu-hq-public-export",
+      "url": "https://hq.fsu.edu/ical/floridastate/ical_floridastate.ics",
+      "method": "GET",
+      "started_at": "2026-10-20T18:37:38.790128+00:00",
+      "transport": "python-stdlib-urllib",
+      "http_status": 200,
+      "final_url": "https://static-prod-us-east-1.campusgroups.com:443/ical/floridastate/ical_floridastate.ics",
+      "content_type": "text/calendar; charset=utf-8",
+      "etag": "\"00cb77ed02b6890eea84796376cf51e4\"",
+      "last_modified": "Tue, 20 Oct 2026 01:05:00 GMT",
+      "retry_after": null,
+      "bytes": 1119964,
+      "body_sha256": "b8efb564697da4756ce0a119a1f1b5f42da57b48d0748a703cda80d774a27038",
+      "outcome": "fetched",
+      "finished_at": "2026-10-20T18:37:39.174122+00:00",
+      "elapsed_seconds": 0.384
+    },
+    {
+      "request_id": "request-003",
+      "probe_id": "hq-public-export-replay",
+      "url": "https://hq.fsu.edu/ical/floridastate/ical_floridastate.ics",
+      "method": "GET",
+      "started_at": "2026-10-20T18:37:39.409126+00:00",
+      "transport": "python-stdlib-urllib",
+      "http_status": 200,
+      "final_url": "https://static-prod-us-east-1.campusgroups.com:443/ical/floridastate/ical_floridastate.ics",
+      "content_type": "text/calendar; charset=utf-8",
+      "etag": "\"00cb77ed02b6890eea84796376cf51e4\"",
+      "last_modified": "Tue, 20 Oct 2026 01:05:00 GMT",
+      "retry_after": null,
+      "bytes": 1119964,
+      "body_sha256": "b8efb564697da4756ce0a119a1f1b5f42da57b48d0748a703cda80d774a27038",
+      "outcome": "fetched",
+      "finished_at": "2026-10-20T18:37:39.730513+00:00",
+      "elapsed_seconds": 0.321
+    }
+  ],
+  "probes": [
+    {
+      "probe_id": "fsu-hq-events",
+      "source_id": "fsu-hq-events",
+      "request_ids": [
+        "request-001"
+      ],
+      "outcome": "dynamic_shell",
+      "classification": "unrendered event template; event payload not collected",
+      "visible_text_characters": 41907,
+      "event_records_extracted": 0,
+      "empty_result_is_success": false,
+      "observed_subscription_links": [
+        {
+          "url": "https://hq.fsu.edu/ics_helper?modal=true&embed=1&mode=set&width=850&height=550&TB_iframe=true&TB_context=Subscribe_To_Calendars",
+          "text": " Subscribe"
+        },
+        {
+          "url": "https://hq.fsu.edu/calendar_sync",
+          "text": " Sync"
+        }
+      ],
+      "observed_public_ics_urls": [
+        "https://hq.fsu.edu/ical/floridastate/ical_floridastate.ics"
+      ]
+    },
+    {
+      "probe_id": "fsu-hq-public-export",
+      "source_id": "fsu-hq-events",
+      "request_ids": [
+        "request-002"
+      ],
+      "outcome": "parsed",
+      "event_records_extracted": 1146,
+      "unique_uids": 1146,
+      "duplicate_uid_components": 0,
+      "uid_samples": [
+        "11c5a1a9282151d8f154a63b07e0f3d4772026_9:27:12_AM@campusgroups.com",
+        "a9a859c0c549dfc6f2c9eeabcd728c986302026_10:17:38_AM@campusgroups.com",
+        "b9ca728622e4a9f8ca9f5386f5976e2b772026_10:10:31_AM@campusgroups.com"
+      ],
+      "start_samples": [
+        "20260722T150000Z",
+        "20260722T170000Z",
+        "20260722T210000Z"
+      ],
+      "earliest_dtstart": "20260722T150000Z",
+      "latest_dtstart": "20270526T150000Z",
+      "recurrence_rule_count": 0,
+      "field_presence_counts": {
+        "DTEND": 1146,
+        "SEQUENCE": 1146,
+        "LAST-MODIFIED": 1146,
+        "DTSTAMP": 1146,
+        "STATUS": 0,
+        "RECURRENCE-ID": 0
+      },
+      "status_values": [],
+      "latest_dtstamp_or_modified": "20261020T010458Z",
+      "limitation": "successful export of observed URL only; scope, private events, truncation, freshness, and completeness not established",
+      "replay_request_ids": [
+        "request-003"
+      ],
+      "replay": {
+        "outcome": "parsed",
+        "same_body_sha256": true,
+        "event_records_extracted": 1146,
+        "interpretation": "unchanged replay only; forced upstream edits not tested"
+      }
+    }
+  ],
+  "exit_code": 2
+}

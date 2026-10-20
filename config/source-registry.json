@@ -1,0 +1,3918 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-20",
+  "timezone": "America/New_York",
+  "scope": "Stage 0 source feasibility; no scheduled runtime enabled",
+  "status_vocabulary": [
+    "verified_operational",
+    "documented_but_untested",
+    "blocked",
+    "manual_only",
+    "unsupported"
+  ],
+  "status_policy": "verified_operational means this bounded read-only route parsed genuine payloads in this environment; it does not mean production, full coverage, or an authenticated integration. Documentation/landing pages alone never qualify. A negative access result is blocked, not empty.",
+  "sources": [
+    {
+      "source_id": "fsu-calendar",
+      "organizer": "FSU Calendar",
+      "url": "https://calendar.fsu.edu/",
+      "platform": "localist",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://calendar.fsu.edu/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "calendar"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 0,
+      "cadence_minutes": 30,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-calendar-main",
+      "organizer": "FSU Calendar main",
+      "url": "https://calendar.fsu.edu/main",
+      "platform": "localist",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://calendar.fsu.edu/main",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "calendar"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 0,
+      "cadence_minutes": 30,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-calendar-api",
+      "organizer": "FSU Calendar API",
+      "url": "https://calendar.fsu.edu/api/2/events?days=7",
+      "platform": "localist",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://calendar.fsu.edu/api/2/events?days=7",
+        "evidence_kind": "institutional_domain",
+        "checked_at": "2026-10-20T18:36:26.407064+00:00"
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "calendar"
+      ],
+      "adapter": {
+        "route": "localist_json",
+        "implementation": "read_only_probe",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "json",
+        "parser_version": "stage0-probe-v1"
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "verified_operational",
+      "status_reason": "Genuine relevant content parsed by a bounded read-only probe; scope is limited to the recorded route/window.",
+      "enabled": false,
+      "probe_enabled": true,
+      "priority": 0,
+      "cadence_minutes": 15,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:36:18.604552+00:00",
+      "last_success_at": "2026-10-20T18:36:18.604552+00:00",
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:36:26.407064+00:00",
+        "outcome": "success",
+        "evidence_path": "reports/probes/latest.json",
+        "probe_ids": [
+          "calendar-seven-day-pagination",
+          "calendar-after-terminal",
+          "calendar-month-01",
+          "calendar-month-02",
+          "calendar-month-03",
+          "calendar-month-04",
+          "calendar-month-05",
+          "calendar-month-06",
+          "calendar-month-07",
+          "calendar-month-08",
+          "calendar-month-09",
+          "calendar-month-10",
+          "calendar-month-11",
+          "calendar-month-12",
+          "calendar-replay",
+          "calendar-native-id-recurrence"
+        ],
+        "observed_outcomes": [
+          "parsed"
+        ],
+        "limitations": [
+          [
+            "recurrence exception/cancellation semantics",
+            "forced upstream edit propagation",
+            "unpublished events"
+          ]
+        ]
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 33,
+        "basis": "Public GETs only; no billable service invoked or invoice measured. Local compute/network not priced."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-hq-public-calendar",
+      "organizer": "HQ public calendar subset",
+      "url": "https://calendar.fsu.edu/department/fsu-hq",
+      "platform": "localist",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://calendar.fsu.edu/department/fsu-hq",
+        "evidence_kind": "institutional_domain",
+        "checked_at": "2026-10-20T18:39:16.965965+00:00"
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "clubs"
+      ],
+      "adapter": {
+        "route": "localist_html",
+        "implementation": "read_only_probe",
+        "coverage_scope": "Public preview event links and displayed dates only; some locations restricted; full HQ coverage unknown.",
+        "expected_format": "html",
+        "parser_version": "stage0-probe-v1"
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "verified_operational",
+      "status_reason": "Genuine relevant content parsed by a bounded read-only probe; scope is limited to the recorded route/window.",
+      "enabled": false,
+      "probe_enabled": true,
+      "priority": 0,
+      "cadence_minutes": 30,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:39:16.802658+00:00",
+      "last_success_at": "2026-10-20T18:39:16.802658+00:00",
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:39:16.965965+00:00",
+        "outcome": "success",
+        "evidence_path": "reports/probes/hq-public-calendar-live.json",
+        "probe_ids": [
+          "fsu-hq-public-calendar"
+        ],
+        "observed_outcomes": [
+          "parsed"
+        ],
+        "limitations": [
+          "public HQ department preview only; no evidence of complete HQ mirror or location access"
+        ]
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 1,
+        "basis": "Public GETs only; no billable service invoked or invoice measured. Local compute/network not priced."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-hq-events",
+      "organizer": "FSU HQ events",
+      "url": "https://hq.fsu.edu/events",
+      "platform": "campusgroups",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://hq.fsu.edu/events",
+        "evidence_kind": "institutional_domain",
+        "checked_at": "2026-10-20T18:38:34.931150+00:00"
+      },
+      "access_class": "member",
+      "visibility": "owner_private",
+      "source_role": "collection_candidate",
+      "categories": [
+        "clubs"
+      ],
+      "adapter": {
+        "route": "permissioned_export_if_available",
+        "implementation": "planned",
+        "coverage_scope": "landing page public; underlying access requires permission",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": true,
+        "reference": "HQ_APPROVED_FEED_OR_INSTITUTIONAL_EVENT_ONLY_API",
+        "setup_state": "needed"
+      },
+      "status": "blocked",
+      "status_reason": "Recorded collection is blocked/incomplete: dynamic_shell. See individual request evidence; never an empty-success result.",
+      "enabled": false,
+      "probe_enabled": true,
+      "priority": 0,
+      "cadence_minutes": 30,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:38:33.471546+00:00",
+      "last_success_at": null,
+      "consecutive_failures": 1,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:38:34.931150+00:00",
+        "outcome": "blocked",
+        "evidence_path": "reports/probes/hq-export-live.json",
+        "probe_ids": [
+          "fsu-hq-events"
+        ],
+        "observed_outcomes": [
+          "dynamic_shell"
+        ],
+        "limitations": []
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": null,
+        "basis": "Unknown until permitted route is provisioned."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 1,
+        "basis": "Public GETs only; no billable service invoked or invoice measured. Local compute/network not priced."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "private_7_days_unless_saved_and_permitted"
+    },
+    {
+      "source_id": "fsu-hq-groups",
+      "organizer": "FSU HQ organization directory",
+      "url": "https://hq.fsu.edu/club_signup",
+      "platform": "campusgroups",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://hq.fsu.edu/club_signup",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "member",
+      "visibility": "owner_private",
+      "source_role": "discovery_seed",
+      "categories": [
+        "discovery"
+      ],
+      "adapter": {
+        "route": "permissioned_directory",
+        "implementation": "planned",
+        "coverage_scope": "landing page public; underlying access requires permission",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": true,
+        "reference": "HQ_APPROVED_FEED_OR_INSTITUTIONAL_EVENT_ONLY_API",
+        "setup_state": "needed"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 0,
+      "cadence_minutes": 10080,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": null,
+        "basis": "Unknown until permitted route is provisioned."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "private_7_days_unless_saved_and_permitted"
+    },
+    {
+      "source_id": "fsu-cdu",
+      "organizer": "Club Downunder",
+      "url": "https://cdu.union.fsu.edu/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://cdu.union.fsu.edu/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "concerts_social"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 0,
+      "cadence_minutes": 30,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-union",
+      "organizer": "Student Union",
+      "url": "https://union.fsu.edu/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://union.fsu.edu/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "social"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 0,
+      "cadence_minutes": 30,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-golden-torch",
+      "organizer": "Golden Torch Lecture Series",
+      "url": "https://sga.fsu.edu/projects-and-initiatives/golden-torch-lecture-series",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://sga.fsu.edu/projects-and-initiatives/golden-torch-lecture-series",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "speakers"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 0,
+      "cadence_minutes": 30,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-tickets",
+      "organizer": "FSU Ticketing",
+      "url": "https://tickets.fsu.edu/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://tickets.fsu.edu/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": "2026-10-20T18:36:26.407064+00:00"
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "tickets"
+      ],
+      "adapter": {
+        "route": "html_event_links",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "HTML reached, but event/ticket record ingestion was not demonstrated; reachability is not operational collection.",
+      "enabled": false,
+      "probe_enabled": true,
+      "priority": 0,
+      "cadence_minutes": 15,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:36:26.242937+00:00",
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:36:26.407064+00:00",
+        "outcome": "reachable_only",
+        "evidence_path": "reports/probes/latest.json",
+        "probe_ids": [
+          "fsu-tickets",
+          "ticket-observed-information-page",
+          "calendar-observed-ticket-link",
+          "calendar-observed-ticket-link"
+        ],
+        "observed_outcomes": [
+          "reachable"
+        ],
+        "limitations": [
+          "guest ticket shell only; no ticket availability extracted",
+          "observed Golden Torch information page; tokens alone are not verified ticket milestones",
+          "tokens/page reachability do not prove ticket availability or on-sale dates",
+          "tokens/page reachability do not prove ticket availability or on-sale dates"
+        ]
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 4,
+        "basis": "Public GETs only; no billable service invoked or invoice measured. Local compute/network not priced."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-aslc",
+      "organizer": "ASLC and Cinema",
+      "url": "https://aslc.union.fsu.edu/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://aslc.union.fsu.edu/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "films_social"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-music-events",
+      "organizer": "College of Music events",
+      "url": "https://music.fsu.edu/events/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://music.fsu.edu/events/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": "2026-10-20T18:36:26.407064+00:00"
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "concerts_recitals"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "read_only_probe",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": "stage0-probe-v1"
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "verified_operational",
+      "status_reason": "Genuine relevant content parsed by a bounded read-only probe; scope is limited to the recorded route/window.",
+      "enabled": false,
+      "probe_enabled": true,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:36:20.981580+00:00",
+      "last_success_at": "2026-10-20T18:36:20.981580+00:00",
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:36:26.407064+00:00",
+        "outcome": "success",
+        "evidence_path": "reports/probes/latest.json",
+        "probe_ids": [
+          "fsu-music-events",
+          "music-observed-detail"
+        ],
+        "observed_outcomes": [
+          "parsed",
+          "reachable"
+        ],
+        "limitations": [
+          "current homepage event preview only; full calendar pagination and detail-date consistency untested; timezone/end not assumed",
+          "detail reachability only; no RSVP or ticket action"
+        ]
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 2,
+        "basis": "Public GETs only; no billable service invoked or invoice measured. Local compute/network not priced."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-music-tickets",
+      "organizer": "Music tickets",
+      "url": "https://tickets.music.fsu.edu/Online/default.asp",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://tickets.music.fsu.edu/Online/default.asp",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "tickets"
+      ],
+      "adapter": {
+        "route": "html_event_links",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-theatre",
+      "organizer": "Theatre season",
+      "url": "https://theatre.fsu.edu/2026-2027-season/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://theatre.fsu.edu/2026-2027-season/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "theatre"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-theatre-tickets",
+      "organizer": "Theatre tickets",
+      "url": "https://tickets.theatre.fsu.edu/Online/default.asp",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://tickets.theatre.fsu.edu/Online/default.asp",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "tickets"
+      ],
+      "adapter": {
+        "route": "html_event_links",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-opening-nights",
+      "organizer": "Opening Nights",
+      "url": "https://www.openingnights.fsu.edu/events",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://www.openingnights.fsu.edu/events",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "arts_concerts"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-opening-nights-tickets",
+      "organizer": "Opening Nights tickets",
+      "url": "https://my.openingnights.fsu.edu/events",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://my.openingnights.fsu.edu/events",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "tickets"
+      ],
+      "adapter": {
+        "route": "html_event_links",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-mofa",
+      "organizer": "Museum of Fine Arts",
+      "url": "https://mofa.fsu.edu/events-calendar/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://mofa.fsu.edu/events-calendar/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "arts"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-outdoor-pursuits",
+      "organizer": "Outdoor Pursuits",
+      "url": "https://campusrec.fsu.edu/outdoors/outdoor-pursuits/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://campusrec.fsu.edu/outdoors/outdoor-pursuits/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "outdoors_trips"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-campus-rec",
+      "organizer": "Campus Recreation",
+      "url": "https://campusrec.fsu.edu/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://campusrec.fsu.edu/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "outdoors_social"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-career",
+      "organizer": "Career Center events",
+      "url": "https://career.fsu.edu/events/job-fairs-and-events",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://career.fsu.edu/events/job-fairs-and-events",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "employer_visits"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-nolenetwork",
+      "organizer": "NoleNetwork landing and authorized access",
+      "url": "https://career.fsu.edu/nolenetwork",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://career.fsu.edu/nolenetwork",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "member",
+      "visibility": "owner_private",
+      "source_role": "collection_candidate",
+      "categories": [
+        "career"
+      ],
+      "adapter": {
+        "route": "authorized_subscription",
+        "implementation": "planned",
+        "coverage_scope": "landing page public; underlying access requires permission",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": true,
+        "reference": "NOLENETWORK_AUTHORIZED_EXPORT",
+        "setup_state": "needed"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": null,
+        "basis": "Unknown until permitted route is provisioned."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "private_7_days_unless_saved_and_permitted"
+    },
+    {
+      "source_id": "fsu-honors",
+      "organizer": "Honors",
+      "url": "https://honors.fsu.edu/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://honors.fsu.edu/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "academic_exploration"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-cre-urop",
+      "organizer": "CRE and UROP",
+      "url": "https://cre.fsu.edu/undergradresearch/urop",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://cre.fsu.edu/undergradresearch/urop",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "research"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-cre-links",
+      "organizer": "CRE link directory",
+      "url": "https://linktr.ee/fsucre",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://cre.fsu.edu/undergradresearch/urop",
+        "evidence_kind": "pack_seed_pending_link_verification",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "discovery_seed",
+      "categories": [
+        "research_discovery"
+      ],
+      "adapter": {
+        "route": "html_links",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-onf-dates",
+      "organizer": "National Fellowships dates",
+      "url": "https://onf.fsu.edu/important-dates",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://onf.fsu.edu/important-dates",
+        "evidence_kind": "institutional_domain",
+        "checked_at": "2026-10-20T18:36:26.407064+00:00"
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "scholarships"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "read_only_probe",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": "stage0-probe-v1"
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "verified_operational",
+      "status_reason": "Genuine relevant content parsed by a bounded read-only probe; scope is limited to the recorded route/window.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:36:24.764515+00:00",
+      "last_success_at": "2026-10-20T18:36:24.764515+00:00",
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:36:26.407064+00:00",
+        "outcome": "success",
+        "evidence_path": "reports/probes/latest.json",
+        "probe_ids": [
+          "fsu-onf-dates"
+        ],
+        "observed_outcomes": [
+          "parsed"
+        ],
+        "limitations": [
+          "date-bearing producer evidence; TBA/missing time and misleading EST labels require field-level review; no application or registration actions executed"
+        ]
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 1,
+        "basis": "Public GETs only; no billable service invoked or invoice measured. Local compute/network not priced."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-onf-fellowships",
+      "organizer": "National Fellowships",
+      "url": "https://onf.fsu.edu/fellowships",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://onf.fsu.edu/fellowships",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "scholarships"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-international-finances",
+      "organizer": "Study abroad funding",
+      "url": "https://international.fsu.edu/finances",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://international.fsu.edu/finances",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "study_abroad"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-cosspp-connect",
+      "organizer": "COSSPP get connected",
+      "url": "https://cosspp.fsu.edu/get-connected/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://cosspp.fsu.edu/get-connected/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "policy_social"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-economics",
+      "organizer": "Economics",
+      "url": "https://cosspp.fsu.edu/economics/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://cosspp.fsu.edu/economics/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "economics"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-ppe",
+      "organizer": "Philosophy Politics Economics events",
+      "url": "https://cosspp.fsu.edu/philosophy-politics-and-economics/upcoming-events/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://cosspp.fsu.edu/philosophy-politics-and-economics/upcoming-events/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "policy"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-stavros",
+      "organizer": "Stavros",
+      "url": "https://cosspp.fsu.edu/stavros/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://cosspp.fsu.edu/stavros/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "economics"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-law-events",
+      "organizer": "College of Law events",
+      "url": "https://law.fsu.edu/news/calendar-events",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://law.fsu.edu/news/calendar-events",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "law_policy"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-law-docket",
+      "organizer": "Law Docket calendar",
+      "url": "https://docket.law.fsu.edu/calendar",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://docket.law.fsu.edu/calendar",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "law_policy"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-realestate",
+      "organizer": "Real Estate Center events",
+      "url": "https://realestatecenter.wertheim.fsu.edu/events",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://realestatecenter.wertheim.fsu.edu/events",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "real_estate"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-global",
+      "organizer": "Center for Global Engagement",
+      "url": "https://cge.fsu.edu/cge-programs",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://cge.fsu.edu/cge-programs",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "culture_social"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-service",
+      "organizer": "Leadership and service",
+      "url": "https://thecenter.fsu.edu/get-involved",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://thecenter.fsu.edu/get-involved",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "service"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-announcements",
+      "organizer": "Official announcements",
+      "url": "https://announcements.fsu.edu/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://announcements.fsu.edu/",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "announcements"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-news-rss",
+      "organizer": "FSU News RSS",
+      "url": "https://news.fsu.edu/feed",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://news.fsu.edu/feed",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "news_discovery"
+      ],
+      "adapter": {
+        "route": "rss",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "rss",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 60,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-hello-weekly",
+      "organizer": "Hello FSU Weekly Top 5",
+      "url": "https://hello.fsu.edu/weekly-top-5",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://hello.fsu.edu/weekly-top-5",
+        "evidence_kind": "institutional_domain",
+        "checked_at": "2026-10-20T18:36:26.407064+00:00"
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "newsletter"
+      ],
+      "adapter": {
+        "route": "html_newsletter",
+        "implementation": "read_only_probe",
+        "coverage_scope": "Public archive/RSS intake only; observed 2023-era items, no current newsletter, inbound email, or flyer OCR claim.",
+        "expected_format": "html",
+        "parser_version": "stage0-probe-v1"
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "verified_operational",
+      "status_reason": "Genuine relevant content parsed by a bounded read-only probe; scope is limited to the recorded route/window.",
+      "enabled": false,
+      "probe_enabled": true,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:36:23.719176+00:00",
+      "last_success_at": "2026-10-20T18:36:23.719176+00:00",
+      "consecutive_failures": 0,
+      "last_content_timestamp": "2023-04-30T18:46:38Z",
+      "last_test": {
+        "at": "2026-10-20T18:36:26.407064+00:00",
+        "outcome": "success",
+        "evidence_path": "reports/probes/latest.json",
+        "probe_ids": [
+          "fsu-hello-weekly",
+          "hello-observed-rss",
+          "hello-observed-item"
+        ],
+        "observed_outcomes": [
+          "parsed",
+          "reachable"
+        ],
+        "limitations": [
+          "archive intake only; current publication freshness and inbound email delivery not proved",
+          "bounded RSS archive; newsletter receiving/webhook and flyer OCR not configured"
+        ]
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 3,
+        "basis": "Public GETs only; no billable service invoked or invoice measured. Local compute/network not priced."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days",
+      "freshness_status": "archive_stale_for_current_alerts"
+    },
+    {
+      "source_id": "fsu-registrar-calendar",
+      "organizer": "Registrar calendar",
+      "url": "https://www.registrar.fsu.edu/bulletins/calendar",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://www.registrar.fsu.edu/bulletins/calendar",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "academic_deadlines"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-registrar-registration",
+      "organizer": "Registrar registration guides",
+      "url": "https://www.registrar.fsu.edu/registration-guides",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://www.registrar.fsu.edu/registration-guides",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "academic_deadlines"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-social-directory",
+      "organizer": "Student Affairs official social directory",
+      "url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "discovery_seed",
+      "categories": [
+        "discovery"
+      ],
+      "adapter": {
+        "route": "html_links",
+        "implementation": "read_only_probe",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "verified_operational",
+      "status_reason": "Official directory parser extracted affiliation links only; Instagram content collection remains untested.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 10080,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:29:58.366883+00:00",
+      "last_success_at": "2026-10-20T18:29:58.366883+00:00",
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:29:58.366883+00:00",
+        "outcome": "success",
+        "evidence_path": "config/social-pilot-accounts.json",
+        "scope": "directory_links_only"
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 1,
+        "basis": "Public directory GET; no actor or Instagram collection run."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-rso-directory",
+      "organizer": "Registered Student Organizations",
+      "url": "https://soi.fsu.edu/registered-student-organizations",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://soi.fsu.edu/registered-student-organizations",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "discovery_seed",
+      "categories": [
+        "discovery"
+      ],
+      "adapter": {
+        "route": "html_links",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 10080,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-directory",
+      "organizer": "FSU directory",
+      "url": "https://www.fsu.edu/directory",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://www.fsu.edu/directory",
+        "evidence_kind": "institutional_domain",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "discovery_seed",
+      "categories": [
+        "discovery"
+      ],
+      "adapter": {
+        "route": "html_links",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 10080,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "tallahassee-arts",
+      "organizer": "Tallahassee Arts",
+      "url": "https://tallahasseearts.org/event/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "selected_off_campus",
+        "evidence_url": "https://tallahasseearts.org/event/",
+        "evidence_kind": "organizer_domain_pending_verification",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "offcampus_arts"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 2,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "visit-tallahassee",
+      "organizer": "Visit Tallahassee",
+      "url": "https://visittallahassee.com/events/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "selected_off_campus",
+        "evidence_url": "https://visittallahassee.com/events/",
+        "evidence_kind": "organizer_domain_pending_verification",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "offcampus_selected"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 2,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "tallahassee-museum",
+      "organizer": "Tallahassee Museum",
+      "url": "https://tallahasseemuseum.org/events/",
+      "platform": "web",
+      "account_id": null,
+      "affiliation": {
+        "class": "selected_off_campus",
+        "evidence_url": "https://tallahasseemuseum.org/events/",
+        "evidence_kind": "organizer_domain_pending_verification",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "offcampus_arts_outdoors"
+      ],
+      "adapter": {
+        "route": "html",
+        "implementation": "planned",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Build-pack source seed; ingestion has not been demonstrated.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 2,
+      "cadence_minutes": 1440,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-matpat-reference",
+      "organizer": "MatPat archived listing regression reference",
+      "url": "https://calendar.fsu.edu/event/golden-torch-lecture-series-presents-an-evening-with-matpat",
+      "platform": "localist",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://calendar.fsu.edu/event/golden-torch-lecture-series-presents-an-evening-with-matpat",
+        "evidence_kind": "institutional_domain",
+        "checked_at": "2026-10-20T18:36:26.407064+00:00"
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "regression_reference",
+      "categories": [
+        "regression_reference"
+      ],
+      "adapter": {
+        "route": "localist_html",
+        "implementation": "read_only_probe",
+        "coverage_scope": "bounded source-specific capture; not campus completeness",
+        "expected_format": "html",
+        "parser_version": "stage0-probe-v1"
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "verified_operational",
+      "status_reason": "Genuine relevant content parsed by a bounded read-only probe; scope is limited to the recorded route/window.",
+      "enabled": false,
+      "probe_enabled": true,
+      "priority": 0,
+      "cadence_minutes": null,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:36:24.512556+00:00",
+      "last_success_at": "2026-10-20T18:36:24.512556+00:00",
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:36:26.407064+00:00",
+        "outcome": "success",
+        "evidence_path": "reports/probes/latest.json",
+        "probe_ids": [
+          "fsu-matpat-conflict",
+          "matpat-observed-ics"
+        ],
+        "observed_outcomes": [
+          "parsed"
+        ],
+        "limitations": [
+          "successful export of observed URL only; scope, private events, truncation, freshness, and completeness not established"
+        ]
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": 0,
+        "basis": "No per-request charge observed; hosting/compute/AI excluded."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 2,
+        "basis": "Public GETs only; no billable service invoked or invoice measured. Local compute/network not priced."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "hq-institutional-api",
+      "organizer": "HQ institution-approved event-only API",
+      "url": "https://www.campusgroups.com/api?public=1",
+      "platform": "campusgroups",
+      "account_id": null,
+      "affiliation": {
+        "class": "supplementary_route",
+        "evidence_url": "https://www.campusgroups.com/api?public=1",
+        "evidence_kind": "primary_documentation_candidate",
+        "checked_at": null
+      },
+      "access_class": "permissioned",
+      "visibility": "owner_private",
+      "source_role": "integration_route",
+      "categories": [
+        "clubs"
+      ],
+      "adapter": {
+        "route": "institutional_api",
+        "implementation": "planned",
+        "coverage_scope": "Access-specific scope; not an assertion of completeness.",
+        "expected_format": "json",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": true,
+        "reference": "HQ_API_SECRET",
+        "setup_state": "needed"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Primary CampusGroups API docs inspected; FSU-specific administrator-provisioned event-only credentials and scope unavailable. No institutional requests run.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": null,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "see config/cost-assumptions.json",
+        "provider_charge": null,
+        "basis": "No paid usage authorized; social model is scenario only."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "private_7_days_unless_saved_and_permitted"
+    },
+    {
+      "source_id": "instagram-official",
+      "organizer": "Instagram authorized professional-account route",
+      "url": "https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-instagram-login",
+      "platform": "instagram",
+      "account_id": null,
+      "affiliation": {
+        "class": "supplementary_route",
+        "evidence_url": "https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-instagram-login",
+        "evidence_kind": "primary_documentation_candidate",
+        "checked_at": null
+      },
+      "access_class": "permissioned",
+      "visibility": "owner_private",
+      "source_role": "integration_route",
+      "categories": [
+        "social"
+      ],
+      "adapter": {
+        "route": "instagram_graph",
+        "implementation": "planned",
+        "coverage_scope": "No arbitrary other-account Stories or private-account coverage.",
+        "expected_format": "json",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": true,
+        "reference": "INSTAGRAM_ACCESS_TOKEN",
+        "setup_state": "needed"
+      },
+      "status": "blocked",
+      "status_reason": "Setup needed; content collector unrun. Missing: IG_ACCESS_TOKEN, IG_USER_ID, IG_API_VERSION",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 120,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:29:56.638246+00:00",
+        "outcome": "not_run_setup_needed",
+        "evidence_path": "evidence/instagram-login-probe.json"
+      },
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "see config/cost-assumptions.json",
+        "provider_charge": null,
+        "basis": "No paid usage authorized; social model is scenario only."
+      },
+      "actual_cost": {
+        "provider_charge_usd": 0,
+        "requests": 0,
+        "basis": "Credential preflight only; no content requests or actor runs."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "private_7_days_unless_saved_and_permitted"
+    },
+    {
+      "source_id": "instagram-public-posts-apify",
+      "organizer": "Apify maintained Instagram posts candidate",
+      "url": "https://apify.com/apify/instagram-post-scraper",
+      "platform": "instagram",
+      "account_id": null,
+      "affiliation": {
+        "class": "supplementary_route",
+        "evidence_url": "https://apify.com/apify/instagram-post-scraper",
+        "evidence_kind": "primary_documentation_candidate",
+        "checked_at": null
+      },
+      "access_class": "public",
+      "visibility": "owner_private",
+      "source_role": "integration_route",
+      "categories": [
+        "social"
+      ],
+      "adapter": {
+        "route": "apify_dataset",
+        "implementation": "planned",
+        "coverage_scope": "No arbitrary other-account Stories or private-account coverage.",
+        "expected_format": "json",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": true,
+        "reference": "APIFY_DATASET_ID",
+        "setup_state": "needed"
+      },
+      "status": "blocked",
+      "status_reason": "Setup needed; content collector unrun. Missing: APIFY_TOKEN, APIFY_DATASET_ID",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 120,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:29:56.638355+00:00",
+        "outcome": "not_run_setup_needed",
+        "evidence_path": "evidence/apify-dataset-probe.json"
+      },
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "see config/cost-assumptions.json",
+        "provider_charge": null,
+        "basis": "No paid usage authorized; social model is scenario only."
+      },
+      "actual_cost": {
+        "provider_charge_usd": 0,
+        "requests": 0,
+        "basis": "Credential preflight only; no content requests or actor runs."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days",
+      "capability_evidence": {
+        "evidence_path": "evidence/apify-posts-metadata.json",
+        "scope": "public_vendor_metadata_only",
+        "content_collection_verified": false
+      }
+    },
+    {
+      "source_id": "instagram-stories-apify",
+      "organizer": "Apify community Stories candidate",
+      "url": "https://apify.com/datavoyantlab/advanced-instagram-stories-scraper",
+      "platform": "instagram",
+      "account_id": null,
+      "affiliation": {
+        "class": "supplementary_route",
+        "evidence_url": "https://apify.com/datavoyantlab/advanced-instagram-stories-scraper",
+        "evidence_kind": "primary_documentation_candidate",
+        "checked_at": null
+      },
+      "access_class": "permissioned",
+      "visibility": "owner_private",
+      "source_role": "integration_route",
+      "categories": [
+        "social"
+      ],
+      "adapter": {
+        "route": "apify_dataset",
+        "implementation": "planned",
+        "coverage_scope": "No arbitrary other-account Stories or private-account coverage.",
+        "expected_format": "json",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": true,
+        "reference": "APIFY_DATASET_ID",
+        "setup_state": "needed"
+      },
+      "status": "blocked",
+      "status_reason": "Setup needed; content collector unrun. Missing: APIFY_TOKEN, APIFY_DATASET_ID",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": 120,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": {
+        "at": "2026-10-20T18:29:56.638355+00:00",
+        "outcome": "not_run_setup_needed",
+        "evidence_path": "evidence/apify-dataset-probe.json"
+      },
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "see config/cost-assumptions.json",
+        "provider_charge": null,
+        "basis": "No paid usage authorized; social model is scenario only."
+      },
+      "actual_cost": {
+        "provider_charge_usd": 0,
+        "requests": 0,
+        "basis": "Credential preflight only; no content requests or actor runs."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "private_7_days_unless_saved_and_permitted",
+      "capability_evidence": {
+        "evidence_path": "evidence/apify-stories-metadata.json",
+        "scope": "public_vendor_metadata_only",
+        "content_collection_verified": false
+      }
+    },
+    {
+      "source_id": "manual-yikyak",
+      "organizer": "Yik Yak shared leads only",
+      "url": "https://sidechat.notion.site/Sidechat-Terms-of-Use-d2f718ddad2f403b85bba67078fbdf18",
+      "platform": "yikyak",
+      "account_id": null,
+      "affiliation": {
+        "class": "supplementary_route",
+        "evidence_url": "https://sidechat.notion.site/Sidechat-Terms-of-Use-d2f718ddad2f403b85bba67078fbdf18",
+        "evidence_kind": "primary_documentation_candidate",
+        "checked_at": null
+      },
+      "access_class": "manual",
+      "visibility": "owner_private",
+      "source_role": "integration_route",
+      "categories": [
+        "social"
+      ],
+      "adapter": {
+        "route": "manual_submission",
+        "implementation": "planned",
+        "coverage_scope": "Access-specific scope; not an assertion of completeness.",
+        "expected_format": "user_supplied",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "manual_only",
+      "status_reason": "Manual lead route only; no collection connector.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": null,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "see config/cost-assumptions.json",
+        "provider_charge": null,
+        "basis": "No paid usage authorized; social model is scenario only."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "private_7_days_unless_saved_and_permitted"
+    },
+    {
+      "source_id": "manual-flyer",
+      "organizer": "Private manual flyer/link intake",
+      "url": "https://hello.fsu.edu/weekly-top-5",
+      "platform": "manual",
+      "account_id": null,
+      "affiliation": {
+        "class": "supplementary_route",
+        "evidence_url": "https://hello.fsu.edu/weekly-top-5",
+        "evidence_kind": "primary_documentation_candidate",
+        "checked_at": null
+      },
+      "access_class": "manual",
+      "visibility": "owner_private",
+      "source_role": "intake_route",
+      "categories": [
+        "newsletter_flyer"
+      ],
+      "adapter": {
+        "route": "manual_upload",
+        "implementation": "planned",
+        "coverage_scope": "Access-specific scope; not an assertion of completeness.",
+        "expected_format": "user_supplied",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "manual_only",
+      "status_reason": "Manual lead route only; no collection connector.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": null,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "see config/cost-assumptions.json",
+        "provider_charge": null,
+        "basis": "No paid usage authorized; social model is scenario only."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "private_7_days_unless_saved_and_permitted",
+      "url_purpose": "public_sample_newsletter_reference_not_an_app_endpoint",
+      "endpoint_url": null
+    },
+    {
+      "source_id": "resend-inbound",
+      "organizer": "Authorized newsletter forwarding",
+      "url": "https://resend.com/features/inbound",
+      "platform": "email",
+      "account_id": null,
+      "affiliation": {
+        "class": "supplementary_route",
+        "evidence_url": "https://resend.com/features/inbound",
+        "evidence_kind": "primary_documentation_candidate",
+        "checked_at": null
+      },
+      "access_class": "permissioned",
+      "visibility": "owner_private",
+      "source_role": "integration_route",
+      "categories": [
+        "newsletter_flyer"
+      ],
+      "adapter": {
+        "route": "signed_inbound_webhook",
+        "implementation": "planned",
+        "coverage_scope": "Access-specific scope; not an assertion of completeness.",
+        "expected_format": "json",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": true,
+        "reference": "RESEND_WEBHOOK_SECRET",
+        "setup_state": "needed"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Documented candidate; no project-specific collection test.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": null,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "see config/cost-assumptions.json",
+        "provider_charge": null,
+        "basis": "No paid usage authorized; social model is scenario only."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "private_7_days_unless_saved_and_permitted"
+    },
+    {
+      "source_id": "x-official-search",
+      "organizer": "X bounded official search candidate",
+      "url": "https://docs.x.com/x-api/posts/search/introduction",
+      "platform": "x",
+      "account_id": null,
+      "affiliation": {
+        "class": "supplementary_route",
+        "evidence_url": "https://docs.x.com/x-api/posts/search/introduction",
+        "evidence_kind": "primary_documentation_candidate",
+        "checked_at": null
+      },
+      "access_class": "permissioned",
+      "visibility": "owner_private",
+      "source_role": "integration_route",
+      "categories": [
+        "social"
+      ],
+      "adapter": {
+        "route": "official_recent_search",
+        "implementation": "planned",
+        "coverage_scope": "Access-specific scope; not an assertion of completeness.",
+        "expected_format": "json",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": true,
+        "reference": "X_BEARER_TOKEN",
+        "setup_state": "needed"
+      },
+      "status": "documented_but_untested",
+      "status_reason": "Documented candidate; no project-specific collection test.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": null,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "see config/cost-assumptions.json",
+        "provider_charge": null,
+        "basis": "No paid usage authorized; social model is scenario only."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "facebook-groups",
+      "organizer": "Facebook Groups automated collection",
+      "url": "https://developers.facebook.com/blog/post/2024/01/23/introducing-facebook-graph-and-marketing-api-v19/",
+      "platform": "facebook",
+      "account_id": null,
+      "affiliation": {
+        "class": "supplementary_route",
+        "evidence_url": "https://developers.facebook.com/blog/post/2024/01/23/introducing-facebook-graph-and-marketing-api-v19/",
+        "evidence_kind": "primary_documentation_candidate",
+        "checked_at": null
+      },
+      "access_class": "member",
+      "visibility": "owner_private",
+      "source_role": "integration_route",
+      "categories": [
+        "social"
+      ],
+      "adapter": {
+        "route": "none",
+        "implementation": "planned",
+        "coverage_scope": "Access-specific scope; not an assertion of completeness.",
+        "expected_format": "json",
+        "parser_version": null
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "unsupported",
+      "status_reason": "Pack reports Groups API removal; no supported project route independently established. No automated collection enabled.",
+      "enabled": false,
+      "probe_enabled": false,
+      "priority": 1,
+      "cadence_minutes": null,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "consecutive_failures": 0,
+      "last_content_timestamp": null,
+      "last_test": null,
+      "verification_date": null,
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "see config/cost-assumptions.json",
+        "provider_charge": null,
+        "basis": "No paid usage authorized; social model is scenario only."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 0,
+        "basis": "untested"
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days"
+    },
+    {
+      "source_id": "fsu-hq-public-export",
+      "organizer": "HQ observed public calendar export",
+      "url": "https://hq.fsu.edu/ical/floridastate/ical_floridastate.ics",
+      "platform": "campusgroups",
+      "account_id": null,
+      "affiliation": {
+        "class": "campus",
+        "evidence_url": "https://hq.fsu.edu/events",
+        "evidence_kind": "url_observed_in_official_page",
+        "checked_at": "2026-10-20T18:38:34.931150+00:00"
+      },
+      "access_class": "public",
+      "visibility": "public_source_private_catalog",
+      "source_role": "collection_candidate",
+      "categories": [
+        "clubs"
+      ],
+      "adapter": {
+        "route": "observed_ics",
+        "implementation": "read_only_probe",
+        "coverage_scope": "Observed public subscription only; no complete/private HQ coverage claim.",
+        "expected_format": "ics",
+        "parser_version": "stage0-probe-v1"
+      },
+      "credential_dependency": {
+        "required": false,
+        "reference": null,
+        "setup_state": "not_required"
+      },
+      "status": "verified_operational",
+      "status_reason": "Genuine relevant content parsed by a bounded read-only probe; scope is limited to the recorded route/window.",
+      "enabled": false,
+      "probe_enabled": true,
+      "priority": 0,
+      "cadence_minutes": 30,
+      "rate_limit": {
+        "requests_per_minute": null,
+        "status": "not_published_or_not_verified",
+        "proposed_concurrency": 1
+      },
+      "cursor": null,
+      "next_due_at": null,
+      "last_attempt_at": "2026-10-20T18:38:34.671188+00:00",
+      "last_success_at": "2026-10-20T18:38:34.671188+00:00",
+      "consecutive_failures": 0,
+      "last_content_timestamp": "2026-10-20T01:04:58Z",
+      "last_test": {
+        "at": "2026-10-20T18:38:34.931150+00:00",
+        "outcome": "success",
+        "evidence_path": "reports/probes/hq-export-live.json",
+        "probe_ids": [
+          "fsu-hq-public-export"
+        ],
+        "observed_outcomes": [
+          "parsed"
+        ],
+        "limitations": [
+          "successful export of observed URL only; scope, private events, truncation, freshness, and completeness not established"
+        ]
+      },
+      "verification_date": "2026-10-20",
+      "estimated_cost": {
+        "currency": "USD",
+        "unit": "request",
+        "provider_charge": null,
+        "basis": "Unknown until permitted route is provisioned."
+      },
+      "actual_cost": {
+        "provider_charge_usd": null,
+        "requests": 2,
+        "basis": "Public GETs only; no billable service invoked or invoice measured. Local compute/network not priced."
+      },
+      "owner": "personal_tracker_user",
+      "retention_policy": "public_excerpt_90_days",
+      "date_horizon_observed": {
+        "earliest_dtstart": "2026-07-22T15:00:00Z",
+        "latest_dtstart": "2027-05-26T15:00:00Z",
+        "entries": 1146,
+        "future_entries_as_of_2026_10_20": 441,
+        "scope": "observed public feed; full/member coverage unverified"
+      }
+    }
+  ]
+}

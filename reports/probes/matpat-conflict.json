@@ -1,0 +1,53 @@
+{
+  "evidence_class": "live-public-read-only-probe",
+  "captured_at": "2026-10-20T18:36:26.407064+00:00",
+  "source_url": "https://calendar.fsu.edu/event/golden-torch-lecture-series-presents-an-evening-with-matpat",
+  "probe": {
+    "probe_id": "fsu-matpat-conflict",
+    "source_id": "fsu-matpat-conflict",
+    "request_ids": [
+      "request-044"
+    ],
+    "outcome": "parsed",
+    "classification": "HTML page reachable; record extraction must be checked separately",
+    "visible_text_characters": 2810,
+    "event_records_extracted": 0,
+    "empty_result_is_success": false,
+    "occurrence_claim": {
+      "start": "2026-09-29T20:00:00-04:00",
+      "end": "2026-09-29T21:00:00-04:00"
+    },
+    "compact_excerpts": [
+      "Tuesday, September 29, 2026 8:00pm to 9:00pm EDT",
+      "Wednesday, March 4th"
+    ],
+    "event_native_id": 54104506971068,
+    "occurrence_native_id": 54104506972094,
+    "conflict": "description ticket-like March 4 reference conflicts with September occurrence context; year/action unspecified",
+    "ticket_milestone": null,
+    "original_publication_time": null,
+    "historical_alert_timeliness": null,
+    "policy": "human verification; never infer on-sale date or historical capture from this archived page"
+  },
+  "requests": [
+    {
+      "request_id": "request-044",
+      "probe_id": "fsu-matpat-conflict",
+      "url": "https://calendar.fsu.edu/event/golden-torch-lecture-series-presents-an-evening-with-matpat",
+      "method": "GET",
+      "started_at": "2026-10-20T18:36:23.877566+00:00",
+      "transport": "python-stdlib-urllib",
+      "http_status": 200,
+      "final_url": "https://calendar.fsu.edu/event/golden-torch-lecture-series-presents-an-evening-with-matpat",
+      "content_type": "text/html; charset=utf-8",
+      "etag": "W/\"a1826c587367c9bf2325cea481bd379f-gzip\"",
+      "last_modified": null,
+      "retry_after": null,
+      "bytes": 50583,
+      "body_sha256": "a1826c587367c9bf2325cea481bd379f60c6a314d6ec57477bc4d1fa078272db",
+      "outcome": "fetched",
+      "finished_at": "2026-10-20T18:36:24.160022+00:00",
+      "elapsed_seconds": 0.282
+    }
+  ]
+}

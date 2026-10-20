@@ -1,0 +1,48 @@
+{
+  "evidence_class": "live-public-read-only-probe",
+  "source_id": "fsu-hq-events",
+  "probe_id": "hq-observed-redirect-export",
+  "url": "https://static-prod-us-east-1.campusgroups.com:443/ical/floridastate/ical_floridastate.ics",
+  "method": "GET",
+  "transport": "python-stdlib-urllib",
+  "observed_from": "https://hq.fsu.edu/ical/floridastate/ical_floridastate.ics",
+  "redirect_observation": {
+    "status": 302,
+    "location": "https://static-prod-us-east-1.campusgroups.com:443/ical/floridastate/ical_floridastate.ics"
+  },
+  "started_at": "2026-10-20T18:36:03.069617+00:00",
+  "max_response_bytes": 3145728,
+  "http_status": 200,
+  "final_url": "https://static-prod-us-east-1.campusgroups.com:443/ical/floridastate/ical_floridastate.ics",
+  "content_type": "text/calendar; charset=utf-8",
+  "bytes": 1119964,
+  "body_sha256": "b8efb564697da4756ce0a119a1f1b5f42da57b48d0748a703cda80d774a27038",
+  "outcome": "parsed",
+  "event_records_extracted": 1146,
+  "uid_samples": [
+    "11c5a1a9282151d8f154a63b07e0f3d4772026_9:27:12_AM@campusgroups.com\r",
+    "a9a859c0c549dfc6f2c9eeabcd728c986302026_10:17:38_AM@campusgroups.com\r",
+    "b9ca728622e4a9f8ca9f5386f5976e2b772026_10:10:31_AM@campusgroups.com\r"
+  ],
+  "start_samples": [
+    "20260722T150000Z\r",
+    "20260722T170000Z\r",
+    "20260722T210000Z\r"
+  ],
+  "recurrence_rule_count": 0,
+  "finished_at": "2026-10-20T18:36:03.316342+00:00",
+  "limitation": "Exact public institutional export only; private/full-HQ scope, update semantics and truncation unverified. No login/session or action.",
+  "scope_measurement": {
+    "earliest_dtstart": "20260722T150000Z\r",
+    "latest_dtstart": "20270526T150000Z\r",
+    "unique_uids": 1146,
+    "future_on_or_after_20261020": 441,
+    "url_samples": [
+      "https://hq.fsu.edu/rsvp?id=375139\r",
+      "https://hq.fsu.edu/rsvp?id=375042\r"
+    ],
+    "latest_dtstamp_or_modified": "20261020T010458Z\r"
+  },
+  "last_modified": "Tue, 20 Oct 2026 01:05:00 GMT",
+  "etag": "\"00cb77ed02b6890eea84796376cf51e4\""
+}

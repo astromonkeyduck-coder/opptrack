@@ -1,0 +1,13 @@
+{
+  "route": "apify-dataset",
+  "tested_at": "2026-10-20T18:29:56.638355+00:00",
+  "probe_version": "0.1",
+  "status": "setup-needed",
+  "detail": "Required configuration unavailable; collector unrun",
+  "missing": [
+    "APIFY_TOKEN",
+    "APIFY_DATASET_ID"
+  ],
+  "upstream_requests": 0,
+  "collection_executed": false
+}

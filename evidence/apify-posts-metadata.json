@@ -1,0 +1,108 @@
+{
+  "route": "apify-posts-metadata",
+  "tested_at": "2026-10-20T18:29:59.959393+00:00",
+  "probe_version": "0.1",
+  "status": "verified-operational",
+  "verification_scope": "public_vendor_metadata_only",
+  "actor": "apify/instagram-post-scraper",
+  "actor_id": "nH2AHrwxeTRJoN5hX",
+  "http_status": 200,
+  "modified_at": "2026-10-20T12:07:45.335Z",
+  "latest_build": {
+    "buildId": "aDqS4ULVsE4fqtWKy",
+    "finishedAt": "2026-10-20T08:26:26.463Z",
+    "buildNumberInt": 640,
+    "buildNumber": "0.0.640"
+  },
+  "current_pricing": {
+    "minimalMaxTotalChargeUsd": 0.005,
+    "pricingModel": "PAY_PER_EVENT",
+    "isPriceChangeNotificationSuppressed": true,
+    "apifyMarginPercentage": 0.2,
+    "pricingPerEvent": {
+      "actorChargeEvents": {
+        "post": {
+          "eventTitle": "Post",
+          "eventDescription": "Each post written to the dataset.",
+          "isOneTimeEvent": false,
+          "eventTieredPricingUsd": {
+            "FREE": {
+              "tieredEventPriceUsd": 0.0017
+            },
+            "BRONZE": {
+              "tieredEventPriceUsd": 0.0015
+            },
+            "SILVER": {
+              "tieredEventPriceUsd": 0.0013
+            },
+            "GOLD": {
+              "tieredEventPriceUsd": 0.001
+            },
+            "PLATINUM": {
+              "tieredEventPriceUsd": 0.0008
+            },
+            "DIAMOND": {
+              "tieredEventPriceUsd": 0.0004
+            }
+          },
+          "isPrimaryEvent": true
+        },
+        "post-details": {
+          "eventTitle": "Post details",
+          "eventDescription": "Each post written to the dataset with detailed information.",
+          "isOneTimeEvent": false,
+          "eventTieredPricingUsd": {
+            "FREE": {
+              "tieredEventPriceUsd": 0.001
+            },
+            "BRONZE": {
+              "tieredEventPriceUsd": 0.0008
+            },
+            "SILVER": {
+              "tieredEventPriceUsd": 0.0007
+            },
+            "GOLD": {
+              "tieredEventPriceUsd": 0.0006
+            },
+            "PLATINUM": {
+              "tieredEventPriceUsd": 0.0002
+            },
+            "DIAMOND": {
+              "tieredEventPriceUsd": 0.0001
+            }
+          }
+        },
+        "music-data": {
+          "eventTitle": "Add-on: Music data",
+          "eventDescription": "Extra cost per image or carousel scraped with a music data.",
+          "isOneTimeEvent": false,
+          "eventTieredPricingUsd": {
+            "FREE": {
+              "tieredEventPriceUsd": 0.007
+            },
+            "BRONZE": {
+              "tieredEventPriceUsd": 0.006
+            },
+            "SILVER": {
+              "tieredEventPriceUsd": 0.005
+            },
+            "GOLD": {
+              "tieredEventPriceUsd": 0.004
+            },
+            "PLATINUM": {
+              "tieredEventPriceUsd": 0.003
+            },
+            "DIAMOND": {
+              "tieredEventPriceUsd": 0.002
+            }
+          }
+        }
+      }
+    },
+    "createdAt": "2026-10-07T13:39:36.280Z",
+    "startedAt": "2026-10-07T13:39:36.280Z"
+  },
+  "collection_executed": false,
+  "billable_actor_runs": 0,
+  "detail": "Metadata GET succeeded; actor output, permission and capture completeness untested"
+}

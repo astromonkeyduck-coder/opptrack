@@ -1,0 +1,14 @@
+{
+  "route": "instagram-login",
+  "tested_at": "2026-10-20T18:29:56.638246+00:00",
+  "probe_version": "0.1",
+  "status": "setup-needed",
+  "detail": "Required configuration unavailable; collector unrun",
+  "missing": [
+    "IG_ACCESS_TOKEN",
+    "IG_USER_ID",
+    "IG_API_VERSION"
+  ],
+  "upstream_requests": 0,
+  "collection_executed": false
+}

@@ -1,0 +1,71 @@
+{
+  "tested_at": "2026-10-20T18:40:10.140602+00:00",
+  "scope": "Stage 0 offline checks; no application integration validation",
+  "results": [
+    {
+      "command": [
+        "make",
+        "check"
+      ],
+      "exit_code": 0,
+      "stdout": "python3 -m unittest discover -s tests -v\npython3 scripts/validate_registry.py\n{\n  \"result\": \"pass\",\n  \"sources\": 59,\n  \"statuses\": {\n    \"verified_operational\": 8,\n    \"documented_but_untested\": 44,\n    \"blocked\": 4,\n    \"manual_only\": 2,\n    \"unsupported\": 1\n  }\n}\npython3 evaluation/validate_cases.py\nPASS: 45 scenario contracts; provenance={'synthetic': 44, 'live_reference': 1}; 6 rejection checks\nPASS: DST gap/fold, recurrence exception, all-slide and evidence-reference labels\nNOT RUN: application extraction, model accuracy, live calendar/delivery, database/RLS/outbox behavior\n",
+      "stderr": "test_changed_usage_cannot_quote_impossible_free_path (test_cost_model.CostBudgetTests.test_changed_usage_cannot_quote_impossible_free_path) ... ok\ntest_excerpt_retention_is_independent_from_media_retention (test_cost_model.CostBudgetTests.test_excerpt_retention_is_independent_from_media_retention) ... ok\ntest_larger_pilot_cannot_claim_same_cap_fits (test_cost_model.CostBudgetTests.test_larger_pilot_cannot_claim_same_cap_fits) ... ok\ntest_starter_prepaid_credit_not_double_counted (test_cost_model.CostBudgetTests.test_starter_prepaid_credit_not_double_counted) ... ok\ntest_story_fee_includes_empty_checks_and_batched_starts (test_cost_model.CostBudgetTests.test_story_fee_includes_empty_checks_and_batched_starts) ... ok\ntest_atom_entries_are_not_silently_empty (test_probe_sources.PublicProbeTests.test_atom_entries_are_not_silently_empty) ... ok\ntest_calendar_month_windows_do_not_drift (test_probe_sources.PublicProbeTests.test_calendar_month_windows_do_not_drift) ... ok\ntest_changed_total_during_pagination_fails (test_probe_sources.PublicProbeTests.test_changed_total_during_pagination_fails) ... ok\ntest_current_page_mismatch_fails (test_probe_sources.PublicProbeTests.test_current_page_mismatch_fails) ... ok\ntest_email_security_tracking_is_not_retained (test_probe_sources.PublicProbeTests.test_email_security_tracking_is_not_retained) ... ok\ntest_empty_positive_total_fails (test_probe_sources.PublicProbeTests.test_empty_positive_total_fails) ... ok\ntest_error_page_200_is_failure (test_probe_sources.PublicProbeTests.test_error_page_200_is_failure) ... ok\ntest_hash_ignores_counters_but_observes_changed_facts (test_probe_sources.PublicProbeTests.test_hash_ignores_counters_but_observes_changed_facts) ... ok\ntest_html_instead_of_json_fails (test_probe_sources.PublicProbeTests.test_html_instead_of_json_fails) ... ok\ntest_ics_missing_uid_is_failure (test_probe_sources.PublicProbeTests.test_ics_missing_uid_is_failure) ... ok\ntest_ics_preserves_uid_separate_occurrence_and_date_range (test_probe_sources.PublicProbeTests.test_ics_preserves_uid_separate_occurrence_and_date_range) ... ok\ntest_links_normalize_without_following_actions (test_probe_sources.PublicProbeTests.test_links_normalize_without_following_actions) ... ok\ntest_login_wall_200_is_not_empty_success (test_probe_sources.PublicProbeTests.test_login_wall_200_is_not_empty_success) ... ok\ntest_missing_occurrence_id_fails (test_probe_sources.PublicProbeTests.test_missing_occurrence_id_fails) ... ok\ntest_missing_pagination_fails (test_probe_sources.PublicProbeTests.test_missing_pagination_fails) ... ok\ntest_native_event_and_occurrence_ids_remain_distinct (test_probe_sources.PublicProbeTests.test_native_event_and_occurrence_ids_remain_distinct) ... ok\ntest_nonfeed_html_cannot_be_successful_empty (test_probe_sources.PublicProbeTests.test_nonfeed_html_cannot_be_successful_empty) ... ok\ntest_null_occurrence_fails_without_aborting_other_sources (test_probe_sources.PublicProbeTests.test_null_occurrence_fails_without_aborting_other_sources) ... ok\ntest_observed_export_allowlist_is_exact (test_probe_sources.PublicProbeTests.test_observed_export_allowlist_is_exact) ... ok\ntest_public_events_with_login_link_are_not_wall (test_probe_sources.PublicProbeTests.test_public_events_with_login_link_are_not_wall) ... ok\ntest_public_preview_links_exclude_navigation_shares_and_prefer_title (test_probe_sources.PublicProbeTests.test_public_preview_links_exclude_navigation_shares_and_prefer_title) ... ok\ntest_public_url_guard_rejects_secrets_and_local_routes (test_probe_sources.PublicProbeTests.test_public_url_guard_rejects_secrets_and_local_routes) ... ok\ntest_recurrent_rows_identified_by_occurrence (test_probe_sources.PublicProbeTests.test_recurrent_rows_identified_by_occurrence) ... ok\ntest_rss_preserves_native_guid_and_date (test_probe_sources.PublicProbeTests.test_rss_preserves_native_guid_and_date) ... ok\ntest_silent_terminal_truncation_fails (test_probe_sources.PublicProbeTests.test_silent_terminal_truncation_fails) ... ok\ntest_template_only_200_is_incomplete (test_probe_sources.PublicProbeTests.test_template_only_200_is_incomplete) ... ok\ntest_terminal_matching_total_passes (test_probe_sources.PublicProbeTests.test_terminal_matching_total_passes) ... ok\ntest_terminal_zero_is_accepted_with_pagination (test_probe_sources.PublicProbeTests.test_terminal_zero_is_accepted_with_pagination) ... ok\ntest_actor_starting_get_endpoints_are_rejected_before_network (test_social_probe.SocialReadSafetyTests.test_actor_starting_get_endpoints_are_rejected_before_network) ... ok\ntest_carousel_remaining_child_page_is_partial (test_social_probe.SocialReadSafetyTests.test_carousel_remaining_child_page_is_partial) ... ok\ntest_dataset_empty_remains_unverified (test_social_probe.SocialReadSafetyTests.test_dataset_empty_remains_unverified) ... ok\ntest_dataset_errors_retained_and_not_summarized_as_success (test_social_probe.SocialReadSafetyTests.test_dataset_errors_retained_and_not_summarized_as_success) ... ok\ntest_failed_request_does_not_echo_exception_url_or_token (test_social_probe.SocialReadSafetyTests.test_failed_request_does_not_echo_exception_url_or_token) ... ok\ntest_http200_login_html_is_not_json_success (test_social_probe.SocialReadSafetyTests.test_http200_login_html_is_not_json_success) ... ok\ntest_missing_credentials_make_no_request (test_social_probe.SocialReadSafetyTests.test_missing_credentials_make_no_request) ... ok\ntest_missing_dataset_setup_is_not_empty_success (test_social_probe.SocialReadSafetyTests.test_missing_dataset_setup_is_not_empty_success) ... ok\ntest_missing_native_id_or_timestamp_is_partial (test_social_probe.SocialReadSafetyTests.test_missing_native_id_or_timestamp_is_partial) ... ok\ntest_official_row_error_is_partial (test_social_probe.SocialReadSafetyTests.test_official_row_error_is_partial) ... ok\ntest_pagination_never_follows_supplied_next_url (test_social_probe.SocialReadSafetyTests.test_pagination_never_follows_supplied_next_url) ... ok\ntest_untrusted_hosts_and_insecure_schemes_rejected (test_social_probe.SocialReadSafetyTests.test_untrusted_hosts_and_insecure_schemes_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 45 tests in 0.005s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/cost_model.py",
+        "--output",
+        "evidence/cost-forecast.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"currency\": \"USD\",\n  \"status\": \"explicit_assumptions_not_measured_runtime_or_invoice\",\n  \"verified_on\": \"2026-10-20\",\n  \"core_30_day\": {\n    \"sources\": 60,\n    \"dispatcher_runs\": 2880,\n    \"http_runs\": 26100,\n    \"browser_runs\": 300,\n    \"extraction_runs\": 500,\n    \"notification_runs\": 100,\n    \"trigger_raw_usage_usd\": 4.088764,\n    \"trigger_free_credit_sufficient_under_assumptions\": true,\n    \"llm_input_tokens_assumed\": 1500000,\n    \"llm_output_tokens_assumed\": 250000,\n    \"llm_forecast_usd_assumed\": 2.5,\n    \"combined_email_count\": 300,\n    \"resend_free_quota_fits\": true,\n    \"storage_gb_media_plus_raw_assumed\": 0.312,\n    \"database_growth_gb_per_month_assumed_excludes_indexes\": 0.01,\n    \"free_tier_known_assumed_quotas_fit\": true,\n    \"free_tier_setup_or_budget_blockers\": [],\n    \"free_tier_path_cash_usd_assuming_all_quotas_fit_excludes_domain\": 2.5,\n    \"paid_supabase_pro_vercel_pro_trigger_hobby_resend_free_usd_excludes_domain\": 57.5,\n    \"paid_path_with_resend_pro_usd_excludes_domain\": 77.5,\n    \"optional_domain_monthly_equivalent_assumed\": 1.5\n  },\n  \"social_7_day\": {\n    \"accounts\": 39,\n    \"days\": 7,\n    \"posts_account_checks\": 1092,\n    \"posts_items_repeated_and_billable_assumed\": 3276,\n    \"posts_one_time_backfill_items_assumed\": 468,\n    \"stories_username_checks_including_empty\": 3276,\n    \"story_batched_runs\": 84,\n    \"story_start_units_per_run_assumed\": 1,\n    \"stories_vendor_usd_before_retries\": 18.144,\n    \"posts_vendor_free_rate_usd_before_retries\": 10.1088,\n    \"posts_vendor_bronze_rate_usd_before_retries\": 8.6112,\n    \"vendor_bronze_plus_stories_usd_before_retries\": 26.7552,\n    \"vendor_bronze_plus_stories_usd_with_retry_reserve\": 30.76848,\n    \"apify_starter_cash_usd_including_plan_and_overage_assumed\": 30.76848,\n    \"free_credit_insufficient_usd_before_retries\": 23.2528,\n    \"unique_items_extracted_assumed\": 1150.5,\n    \"media_items_assumed\": 1755.0,\n    \"media_gb_assumed_at_1mb_each\": 1.755,\n    \"core_free_storage_exceeded_by_social_media_alone\": true,\n    \"storage_condition\": \"Requires existing paid/private storage or a separately costed retention plan; core hosting excluded\",\n    \"extraction_model_usd_assumed\": 7.3788,\n    \"storage_transfer_reserve_usd_assumed\": 3,\n    \"pilot_incremental_cash_forecast_usd_including_retry_reserve\": 41.14728,\n    \"proposed_cap_usd_not_authorized\": 45,\n    \"cap_fits_baseline_assumptions\": true,\n    \"human_audit_hours_assumed_unpriced\": 13.65,\n    \"excluded\": [\n      \"tax\",\n      \"human labor valuation\",\n      \"unmeasured extra actor events/compute/proxy/storage charges\",\n      \"core hosting\",\n      \"coding agent subscription\",\n      \"video transcription\"\n    ]\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "evaluation",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "HEAD"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: Needed a single revision\n"
+    },
+    {
+      "command": [
+        "git",
+        "remote",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

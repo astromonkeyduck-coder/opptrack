@@ -1,0 +1,45 @@
+{
+  "route": "apify-stories-metadata",
+  "tested_at": "2026-10-20T18:30:02.570098+00:00",
+  "probe_version": "0.1",
+  "status": "verified-operational",
+  "verification_scope": "public_vendor_metadata_only",
+  "actor": "datavoyantlab/advanced-instagram-stories-scraper",
+  "actor_id": "dLL7b34nRrgN6ZV24",
+  "http_status": 200,
+  "modified_at": "2026-08-27T20:07:03.703Z",
+  "latest_build": {
+    "buildId": "ye0HDyFbbdNZIdh2h",
+    "finishedAt": "2026-08-27T20:07:03.703Z",
+    "buildNumberInt": 101,
+    "buildNumber": "0.0.101"
+  },
+  "current_pricing": {
+    "minimalMaxTotalChargeUsd": null,
+    "pricingModel": "PAY_PER_EVENT",
+    "isPriceChangeNotificationSuppressed": false,
+    "pricingPerEvent": {
+      "actorChargeEvents": {
+        "username-request": {
+          "eventTitle": "Cost Per Username",
+          "eventDescription": "Cost for each scraped username",
+          "isOneTimeEvent": false,
+          "eventPriceUsd": 0.003,
+          "isPrimaryEvent": true
+        },
+        "apify-actor-start": {
+          "eventTitle": "Actor Start",
+          "eventDescription": "Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).",
+          "isOneTimeEvent": true,
+          "eventPriceUsd": 0.099
+        }
+      }
+    },
+    "startedAt": "2026-08-05T23:55:30.635Z",
+    "createdAt": "2026-08-05T23:55:30.932Z",
+    "apifyMarginPercentage": 0.2
+  },
+  "collection_executed": false,
+  "billable_actor_runs": 0,
+  "detail": "Metadata GET succeeded; actor output, permission and capture completeness untested"
+}

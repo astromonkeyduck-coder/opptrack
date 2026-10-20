@@ -1,0 +1,46 @@
+# Stage 0 evaluation plan
+
+Prepared 2026-10-20, America/New_York. `evaluation/cases.json` is a labeled scenario/expected-behavior specification. It is not a measured extraction benchmark, a working model, or a record of successful calendar failure recovery. Except the explicitly marked live MatPat reference, inputs are synthetic text/structured descriptions; image/carousel cases do not yet contain real image assets. Stage 0 validates corpus structure and time-label consistency only. No application, model extraction, delivery or calendar tests have run.
+
+## Corpus now and corpus required
+
+Each case records provenance, split, scenario tags, supplied input, expected result and current application-test status. Synthetic cases exercise failure boundaries without claiming live source access. The MatPat fixture references the separately saved current official-page probe and is development-only. It must never be used to estimate historical ticket-alert timeliness or sold-out status. Its event date and ticket-reference discrepancy are separate labels; original publication and confirmed on-sale time are unknown.
+
+For Stage 1, promote three verified source paths (central calendar, an independent producer/department and authenticated manual or inbound intake) into real deterministic parser fixtures. Keep source URL/native ID, fetch date, bounded payload/hash, permission/retention classification and human field labels. Stage 1 must also supply a permitted flyer image, not merely its hand-written OCR transcript. Keep false/empty/access-failure examples alongside positive events.
+
+For Stage 2, build roughly 100 diverse, permitted real captures where practical. An initial stratification is 30 JSON/ICS/RSS, 20 department/ticket HTML, 15 image flyers, 10 complete carousels, 5 newsletters, 5 permitted social captures and 15 negatives/failures. These are a collection target, not completed counts. Cover speakers, concerts/recitals, film, clubs/social/date experiences, outdoor trips, employer visits, research, scholarships and unfamiliar exploration. Include campus-first versus unusually worthwhile off-campus examples and ordinary low-ranked events that must remain searchable. Label every slide and all opportunities/actions within each capture.
+
+Separate development (~60%) and frozen human-labeled holdout (~40%) by **opportunity/organizer/media family**, not random duplicated captures. Copies, carousel crops, reposts and source duplicates belong to one split. Do not place MatPat or synthetic prompt-tuning examples into holdout. A second reviewer adjudicates critical-date/action/cancellation disputes. The model under test does not supply its own unquestioned ground truth. Freeze parser/prompt/model IDs and source-window manifests for each run, then report change deltas and misses.
+
+## Required measurements
+
+| Measurement | Numerator / denominator and limit |
+| --- | --- |
+| Collection recall | Eligible announcements captured / eligible announcements manually observed in named accessible sources and audited windows; report sources, sample size, misses and audit method. Blocked sources/windows are excluded from this ratio **and explicitly reported as uncovered**. No campus-wide denominator is known. |
+| Extraction recall | Correctly represented labeled opportunities and action milestones / labeled eligible units in captures; report event and action units separately. A capture with two performances and a ticket action has three units. |
+| Field accuracy/evidence | Correct supported fields / evaluated present fields, with critical start/deadline/availability/cancellation fields separately; report null abstentions, unsupported claims and wrong evidence pointers. |
+| Duplicate/change quality | Correct merges, wrongful merges, duplicates retained, performance/club separation and material-change detection on labeled pairs. Retained rejected duplicates are an explicit regression. |
+| Recommendation visibility | Catalog retention and lane exposure counts versus eligible catalog, plus user judgments; never use recommendation precision to hide collection misses. Track exploration and campus-first exposure. |
+| Timeliness | First recorded observable publication/announcement → capture → verified action → delivered alert; report interval/unknown when original publication is unavailable. A current archive cannot establish original alert delay. |
+| Delivery | Provider accepted, delivered, bounced, failed and unknown are separate ledger states; opens are optional unreliable signals, not delivery proof. |
+| Calendar | Approved target actions completed with correct facts and one provider effect; count unauthorized writes, duplicate effects, unreconciled uncertainty, manual-edit/deletion conflicts and time to recovery. |
+
+The proposed ≥95% recall target applies to adequately varied labeled sets and accessible audited source samples only. Report confidence intervals (for example Wilson 95%) and absolute misses. A small perfect score is weak evidence; never report a campus completeness percentage. Keep ambiguous ground truth out of binary correctness until adjudicated, while counting the ambiguity and its operational impact.
+
+## Failure execution required before enabling each capability
+
+- Collection: HTTP-200 login/error payloads, malformed or empty vendor schemas, full versus partial pagination, repeated pages, failure after a durable capture but before cursor commit, retry/backoff/Retry-After, expired credentials and independent-source continuation. Persist health outcomes rather than converting errors to empty success.
+- Extraction: image-only inputs, every carousel slide, missing slide, old repost, original-context relative date, unavailable publication context, year conflict, MatPat ticket discrepancy, missing end/location, unknown deadline time, date-only versus instant, DST gap/fold, recurrence exceptions, availability/waitlist/cancellation and irrelevant content. Retrieved instructions and malicious intake URLs must not gain authority or internal-network access.
+- Reconciliation/review: explicit duplicate links, separate performances and organizations, a rejected item reappearing from another source, reversible merges and reschedules requiring review. Validate evidence pointers and all critical facts, not just JSON validity.
+- Calendar/outbox (later stages, separate test calendar only): no save/alert-as-approval, one approval per occurrence or milestone, stale snapshot rejection, transaction rollback between decision and outbox, duplicate workers, revoked approval before/in-flight write, token expiry, provider success followed by timeout/database failure, partial batch success, duplicate ID/foreign metadata, user deletion tombstones and etag/manual-edit conflict. No test may write the user's real calendar.
+- Privacy/authorization: unauthenticated and cross-owner reads/writes denied, forged outbox/approval rejected, private object access restricted, secret/log redaction, signed webhook/replay validation, upload bounds, deletion/retention and restore check. These tests require the real Stage 1 storage/auth implementation; a TypeScript type is not evidence they pass.
+
+## Running the Stage 0 checks
+
+Run `python3 evaluation/validate_cases.py`. This checks required scenario coverage, IDs/provenance/status labels, live-reference path and URL, synthetic asset honesty, calendar-approval expectations and hand-labeled timezone conversions using Python's IANA zone database. It exits nonzero for inconsistencies and reports scenario counts. It makes no network requests or external writes. TypeScript interfaces are documentation until the root project's reported compiler check is run; no runtime schema validator is implied by their presence.
+
+Stage 1 acceptance: actual parser tests must consume real saved probe payloads and a real permitted flyer, emit evidence-linked typed records with exact unknowns/conflicts, preserve partial/blocked source health, store raw evidence privately, and populate a searchable authenticated review inbox with ownership tests. Calendar/outbox design stays visible but external writes remain disabled in Stage 1. Full extraction and calendar safety gates are release work for the appropriate later stages, not Stage 0 accomplishments.
+
+Run 14 days of shadow operation before relying on the tracker: manually audit bounded high-priority source windows, measure freshness against configured budgets, classify misses as discovery/access/collection/extraction/ranking/delivery, and convert misses into fixtures. A weekly late-discovery submission review and term-change inventory check maintain the evidence base. Shadow operation is proposed; it has not occurred during Stage 0.
+
+Reference: the [current official MatPat listing](https://calendar.fsu.edu/event/golden-torch-lecture-series-presents-an-evening-with-matpat), checked 2026-10-20, provides the date-conflict example; the repo probe report preserves its fetched evidence. The [Google Calendar error guide](https://developers.google.com/workspace/calendar/api/guides/errors), checked 2026-10-20, informs the auth, retry, uncertain-write and conflict cases. These sources establish documented behavior/reference facts, not an operational integration.

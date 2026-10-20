@@ -1,0 +1,365 @@
+{
+  "route": "pilot-accounts",
+  "tested_at": "2026-10-20T18:29:58.366883+00:00",
+  "probe_version": "0.1",
+  "status": "verified-operational",
+  "verification_scope": "official_directory_links_only",
+  "http_status": 200,
+  "content_sha256": "15ea3067e5b107feaba0f72e16c33b6812fd626f8488aa1bbf92e8eb758f99fe",
+  "account_count": 39,
+  "accounts": [
+    {
+      "organizer": "Division of Student Affairs",
+      "handle": "fsustudentaffairs",
+      "url": "https://www.instagram.com/fsustudentaffairs/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "New Student and Family Programs",
+      "handle": "fsunsfp",
+      "url": "https://www.instagram.com/fsunsfp/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "University Housing",
+      "handle": "housingfsu",
+      "url": "https://www.instagram.com/housingfsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Center for Academic Retention and Enhancement (CARE)",
+      "handle": "care_fsu",
+      "url": "https://www.instagram.com/care_fsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Student Government Association",
+      "handle": "fsusga",
+      "url": "https://www.instagram.com/fsusga/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Congress of Graduate Students",
+      "handle": "cogsfsu",
+      "url": "https://www.instagram.com/cogsfsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "University Honors Program",
+      "handle": "fsuhonors",
+      "url": "https://www.instagram.com/fsuhonors/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "International Programs",
+      "handle": "fsuip",
+      "url": "https://www.instagram.com/fsuip/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Center for Global Engagement",
+      "handle": "fsucge",
+      "url": "https://www.instagram.com/fsucge/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "The Center for Leadership and Service",
+      "handle": "thecenterfsu",
+      "url": "https://www.instagram.com/thecenterfsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Class Councils",
+      "handle": "fsuclasscouncils",
+      "url": "https://www.instagram.com/fsuclasscouncils/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Seminole Dining",
+      "handle": "seminole_dining",
+      "url": "https://www.instagram.com/seminole_dining/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Card Center",
+      "handle": "fsu_obs",
+      "url": "https://www.instagram.com/fsu_obs/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Center for Health Advocacy & Wellness (CHAW)",
+      "handle": "fsuchaw",
+      "url": "https://www.instagram.com/fsuchaw/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Counseling & Psychological Services",
+      "handle": "fsucounseling",
+      "url": "https://www.instagram.com/fsucounseling/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "University Health Services",
+      "handle": "fsu_student_health",
+      "url": "https://www.instagram.com/fsu_student_health/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Office of Accessibility Services",
+      "handle": "fsuoas",
+      "url": "https://www.instagram.com/fsuoas/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Department of Student Support and Transitions",
+      "handle": "fsudsst",
+      "url": "https://www.instagram.com/fsudsst/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Student Union",
+      "handle": "fsustudentunion",
+      "url": "https://www.instagram.com/fsustudentunion/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Garnet Gaming Lounge",
+      "handle": "fsugglounge",
+      "url": "https://www.instagram.com/fsugglounge/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Campus Recreation",
+      "handle": "fsucampusrec",
+      "url": "https://www.instagram.com/fsucampusrec/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Student Life Cinema",
+      "handle": "aslc_fsu",
+      "url": "https://www.instagram.com/aslc_fsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Union Productions/Club Downunder",
+      "handle": "clubdownunderfsu",
+      "url": "https://www.instagram.com/clubdownunderfsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Student Engagement",
+      "handle": "fsustudentengagement",
+      "url": "https://www.instagram.com/fsustudentengagement/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Homecoming",
+      "handle": "fsuhomecoming",
+      "url": "https://www.instagram.com/fsuhomecoming/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Flying High Circus",
+      "handle": "fsuflyinghighcircus",
+      "url": "https://www.instagram.com/fsuflyinghighcircus/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Sustainable Campus",
+      "handle": "fsusustainable",
+      "url": "https://www.instagram.com/fsusustainable/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Florida State Athletics",
+      "handle": "seminoles",
+      "url": "https://www.instagram.com/seminoles/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Asian American Student Union",
+      "handle": "fsuaasu",
+      "url": "https://www.instagram.com/fsuaasu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Black Student Union",
+      "handle": "fsu_bsu",
+      "url": "https://www.instagram.com/fsu_bsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Hispanic/Latinx Student Union",
+      "handle": "hlsu_fsu",
+      "url": "https://www.instagram.com/hlsu_fsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Jewish Student Union",
+      "handle": "fsujsu",
+      "url": "https://www.instagram.com/fsujsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Pride Student Union",
+      "handle": "pridefsu",
+      "url": "https://www.instagram.com/pridefsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Women Student Union",
+      "handle": "wsu_fsu",
+      "url": "https://www.instagram.com/wsu_fsu/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Division of Undergraduate Studies",
+      "handle": "fsu_undergraduate_studies",
+      "url": "https://www.instagram.com/fsu_undergraduate_studies/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "The Graduate School",
+      "handle": "fsugradschool",
+      "url": "https://www.instagram.com/fsugradschool/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "Academic Center for Excellence (ACE) Learning Studio",
+      "handle": "acelearningstudio",
+      "url": "https://www.instagram.com/acelearningstudio/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Libraries",
+      "handle": "fsulibraries",
+      "url": "https://www.instagram.com/fsulibraries/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    },
+    {
+      "organizer": "FSU Career Center",
+      "handle": "fsucareercenter",
+      "url": "https://www.instagram.com/fsucareercenter/",
+      "affiliation_evidence_url": "https://studentaffairs.fsu.edu/resources/social-media-follow-list",
+      "identity_status": "linked_from_fsu_official_directory",
+      "account_content_access": "untested",
+      "pilot_enabled": false
+    }
+  ],
+  "collection_executed": false,
+  "detail": "Affiliation links verified; Instagram account existence, public status, professional status and ingestion remain untested"
+}

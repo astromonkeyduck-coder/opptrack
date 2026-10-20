@@ -1,0 +1,59 @@
+{
+  "evidence_class": "live-public-field-projection",
+  "synthetic": false,
+  "lossless_response": false,
+  "source_url": "https://calendar.fsu.edu/api/2/events",
+  "report_path": "reports/probes/latest.json",
+  "captured_at": "2026-10-20T18:36:26.407064+00:00",
+  "projection_note": "two observed occurrences of the same native event; selected public fields only; not original full HTTP body or fake API response; attendance/contact fields excluded",
+  "observed_records": [
+    {
+      "event": {
+        "id": 52675367464418,
+        "title": "Faculty Writing Accountability (registration open)",
+        "localist_url": "https://calendar.fsu.edu/event/faculty-writing-accountability-registration-fall-2026",
+        "updated_at": "2026-10-20T07:11:24-04:00",
+        "created_at": "2026-04-20T15:04:45-04:00",
+        "recurring": true,
+        "location": "",
+        "location_name": "",
+        "ticket_url": "",
+        "event_instances": [
+          {
+            "event_instance": {
+              "id": 52675374024532,
+              "event_id": 52675367464418,
+              "start": "2026-10-20T07:00:00-04:00",
+              "end": "2026-10-20T11:00:00-04:00",
+              "all_day": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "event": {
+        "id": 52675367464418,
+        "title": "Faculty Writing Accountability (registration open)",
+        "localist_url": "https://calendar.fsu.edu/event/faculty-writing-accountability-registration-fall-2026",
+        "updated_at": "2026-10-20T07:11:24-04:00",
+        "created_at": "2026-04-20T15:04:45-04:00",
+        "recurring": true,
+        "location": "",
+        "location_name": "",
+        "ticket_url": "",
+        "event_instances": [
+          {
+            "event_instance": {
+              "id": 52675374025557,
+              "event_id": 52675367464418,
+              "start": "2026-10-21T07:00:00-04:00",
+              "end": "2026-10-21T11:00:00-04:00",
+              "all_day": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

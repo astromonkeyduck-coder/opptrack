@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "stage": 0,
+  "evidence_class": "live-public-read-only-probe",
+  "started_at": "2026-10-20T18:30:40.674827+00:00",
+  "finished_at": "2026-10-20T18:30:40.832900+00:00",
+  "command": [
+    "python3",
+    "scripts/probe_sources.py",
+    "--only",
+    "fsu-hq-public-calendar",
+    "--output",
+    "reports/probes/sandbox-network-check.json",
+    "--max-requests",
+    "1",
+    "--timeout",
+    "5"
+  ],
+  "policy": "no credentials; public FSU HTTPS GET only; no actions; untrusted source data; no completeness claim",
+  "bounds": {
+    "max_requests": 1,
+    "timeout_seconds": 5,
+    "max_response_bytes": 3145728
+  },
+  "requests_attempted": 1,
+  "blocked_or_incomplete_probe_ids": [
+    "fsu-hq-public-calendar"
+  ],
+  "requests": [
+    {
+      "request_id": "request-001",
+      "probe_id": "fsu-hq-public-calendar",
+      "url": "https://calendar.fsu.edu/department/fsu-hq",
+      "method": "GET",
+      "started_at": "2026-10-20T18:30:40.675034+00:00",
+      "transport": "python-stdlib-urllib",
+      "outcome": "transport_error",
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "finished_at": "2026-10-20T18:30:40.677717+00:00",
+      "elapsed_seconds": 0.003
+    }
+  ],
+  "probes": [
+    {
+      "probe_id": "fsu-hq-public-calendar",
+      "source_id": "fsu-hq-public-calendar",
+      "request_ids": [
+        "request-001"
+      ],
+      "outcome": "transport_error",
+      "event_records_extracted": 0,
+      "empty_result_is_success": false
+    }
+  ],
+  "exit_code": 2
+}
