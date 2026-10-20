@@ -6,6 +6,7 @@
 .netlify/
 node_modules/
 .next/
+*.tsbuildinfo
 .trigger/
 __pycache__/
 *.py[cod]

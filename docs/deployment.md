@@ -1,6 +1,6 @@
 # Production deployment: Netlify + Trigger.dev Cloud
 
-Updated October 20, 2026 at the user's request. **Netlify is the production Next.js host.** Supabase remains the database/Auth/private Storage service, Trigger.dev Cloud the workflow service, and Resend the email provider. This repository currently contains Stage 0 probes, deployment configuration and an offline environment validator. No Next.js app, linked Netlify site or Trigger deployment exists yet; hosted variables have not been applied. No GitHub push is implied by this document.
+Updated October 20, 2026 at the user's request. **Netlify is the production Next.js host.** Supabase remains the database/Auth/private Storage service, Trigger.dev Cloud the workflow service, and Resend the email provider. This repository contains Stage 0 probes, a minimal Next.js bootstrap page, deployment configuration and an offline environment validator. The bootstrap is public and has no login, saved captures, opportunity catalog or provider integrations. The user supplied a Netlify build log that failed because `package.json` was absent; the root package and lockfile now address that failure. No successful hosted deployment or Trigger deployment has been verified, and hosted variables have not been applied.
 
 ## Two independent environments
 
@@ -30,15 +30,27 @@ python3 scripts/validate_production_env.py --target trigger --env-file .env.trig
 
 The validator reports names/errors only, rejects wrong-target credentials, secret keys in public fields, nonproduction Trigger keys, missing required values and unsafe stage flags. It does not contact providers or authenticate keys. Template-only validation is `python3 scripts/validate_production_env.py`; this passing does **not** mean production values exist. Keep `CALENDAR_WRITES_ENABLED=false` in both targets and `SOCIAL_COLLECTION_ENABLED=false` on Trigger. Delivery/inbound flags also default false; their credentials become required only when their implemented features are enabled. No setting alone grants permission for a calendar write.
 
-## Netlify setup and release
+## Netlify bootstrap build
 
-After Stage 1 has created the actual Next.js app and lockfile:
+The root package and lockfile supply the build target referenced by `netlify.toml`. With Node 22, reproduce it from the repository root:
+
+```sh
+npm ci
+npm run typecheck
+npm run build
+```
+
+The bootstrap needs no Supabase, Trigger or Resend values at build time or runtime. It performs no network collection or external actions. Keep the Netlify base directory at the repository root, build command `npm run build`, and publish directory `.next`. Rebuild the corrected commit in the intended Netlify site and verify its deploy log and homepage before claiming a successful deployment. No service credentials need to be added merely to render this page.
+
+## Netlify tracker setup and release
+
+The following integration steps remain later-stage work; the bootstrap alone does not satisfy them.
 
 1. Link the intended repository/branch to the correct Netlify site. Repository publication is a separate action; a local `origin` does not mean code was pushed. Do not import an unrelated site or assume an existing paid plan.
 2. Use root base directory, `npm run build`, publish directory `.next`, Node 22 from `netlify.toml`. Let Netlify automatically use its modern OpenNext adapter. Do not add a static `next export`, SPA catch-all redirect or the legacy Next.js plugin. Build devDependencies must remain available; do not set `NODE_ENV=production` in Netlify's dependency-install environment.
 3. In the site's environment-variable UI, enter only the Netlify template keys, Production context and declared scopes. Mark `TRIGGER_SECRET_KEY` and optional `RESEND_WEBHOOK_SECRET` secret. Avoid bulk `env:import`: the documented command does not expose context/scope flags, so a blind import can put production values in every context. Use per-key UI/API configuration instead.
 4. Set `APP_URL` to the actual canonical HTTPS origin. Configure Supabase Auth Site URL and the implemented auth callback's exact allowed redirect URL. Do not allow arbitrary preview wildcards into production auth. Add separate test redirects/projects for previews. Register Resend's webhook only after its route and signature/replay checks exist; do not invent a currently working callback route.
-5. Run application type checks/tests/build and a test-context Netlify build. Verify authenticated SSR, session cookies, private evidence access and server routes. Check browser bundles do not contain privileged values. Deploy the production web artifact only after those gates; verify the actual deployed commit and a non-secret health/auth flow. Public `NEXT_PUBLIC_*` changes need a new build; rebuild/redeploy after variable updates so generated functions/assets use the intended values.
+5. Run `npm ci`, `npm run typecheck`, `npm run build`, relevant feature tests and a test-context Netlify build. Verify authenticated SSR, session cookies, private evidence access and server routes. Check browser bundles do not contain privileged values. Deploy the production web artifact only after those gates; verify the actual deployed commit and a non-secret health/auth flow. Public `NEXT_PUBLIC_*` changes need a new build; rebuild/redeploy after variable updates so generated functions/assets use the intended values.
 
 ## Trigger.dev Cloud setup and release
 
@@ -50,7 +62,7 @@ After Stage 1 has created the actual Next.js app and lockfile:
 
 ## Current setup requirements
 
-Netlify site ID/name/URL, Trigger project reference, Supabase production project/keys and canonical application URL have not been provided. Resend credentials/sender/domain are needed when delivery is enabled, plus a signing secret when inbound intake is enabled. No Netlify or Trigger CLI is installed in this workspace and no connected Netlify/Trigger administrative tool is available. Prepared files therefore remain **not applied**, with identifiers null in the contract. Do not replace nulls with guessed projects or blank hosted secrets. No app build/deployment was attempted while `package.json` and tasks are absent.
+Netlify site ID/name/URL, Trigger project reference, Supabase production project/keys and canonical application URL have not been provided. Resend credentials/sender/domain are needed when delivery is enabled, plus a signing secret when inbound intake is enabled. No Netlify or Trigger CLI is installed in this workspace and no connected Netlify/Trigger administrative tool is available. Prepared files therefore remain **not applied**, with identifiers null in the contract. Do not replace nulls with guessed projects or blank hosted secrets. The root Next.js bootstrap can be built without any of these values. Trigger tasks and the authenticated tracker remain absent. The supplied failed Netlify build is evidence of an attempted deployment, not a successful release; verifying the corrected commit on Netlify is still required.
 
 ## Primary documentation checked October 20, 2026
 

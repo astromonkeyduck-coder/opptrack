@@ -156,10 +156,12 @@
     }
   },
   "notes": [
+    "The minimal Next.js bootstrap builds without service values. application_implemented remains false because authenticated tracker features and provider integrations are absent; required variables describe their later production setup.",
     "Templates and validation are executable deployment preparation, not evidence of applied hosted variables.",
     "Netlify variable scopes are plan-dependent. If unavailable, keep secrets server-only in code and restrict production credentials to trusted production builds.",
     "Netlify toml variables do not supply function-runtime secrets; configure those through Netlify UI/API.",
     "Preview deployments must use separate test projects/keys; production credentials are never copied to preview contexts.",
     "The validator is an offline configuration check, not a substitute for application runtime validation, RLS or explicit user approval."
-  ]
+  ],
+  "application_status": "bootstrap_only"
 }

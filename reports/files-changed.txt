@@ -6,6 +6,9 @@ AGENTS.md
 CLAUDE.md
 Makefile
 README.md
+app/globals.css
+app/layout.tsx
+app/page.tsx
 config/cost-assumptions.json
 config/production-environments.json
 config/social-pilot-accounts.json
@@ -34,9 +37,13 @@ evidence/apify-stories-metadata.json
 evidence/cost-forecast.json
 evidence/instagram-login-probe.json
 netlify.toml
+next-env.d.ts
+package-lock.json
+package.json
 reports/deployment-config-validation.json
 reports/files-changed.txt
 reports/input-provenance.json
+reports/netlify-build-fix.json
 reports/probes/hq-export-live.json
 reports/probes/hq-export-redirect.json
 reports/probes/hq-public-calendar-live.json
@@ -57,3 +64,4 @@ tests/test_cost_model.py
 tests/test_probe_sources.py
 tests/test_production_env.py
 tests/test_social_probe.py
+tsconfig.json

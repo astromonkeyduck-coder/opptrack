@@ -1,7 +1,7 @@
 # Stage 0 handoff runbook
 
-1. Read `AGENTS.md`, `docs/engineering-instructions.md`, `docs/charter.md`, `docs/status.md`, `docs/stage-plan.md`, and `config/source-registry.json`. The application has not been built. Do not interpret later build-pack prompts as authorization to advance stages.
-2. Run `make check` and inspect the saved probe reports. Use `make forecast` only for offline arithmetic. A cost forecast is not permission to provision services or start social actors. Do not run `make probe` merely to validate unchanged documents; repeat network probes when new access/changes justify them.
+1. Read `AGENTS.md`, `docs/engineering-instructions.md`, `docs/charter.md`, `docs/status.md`, `docs/stage-plan.md`, and `config/source-registry.json`. A minimal public Next.js bootstrap page exists to fix the missing-package Netlify build; the authenticated tracker and integrations remain unimplemented. Do not interpret later build-pack prompts as authorization to advance stages.
+2. Run `make check` and inspect the saved probe reports. To verify the bootstrap separately, use Node 22 and run `npm ci`, `npm run typecheck`, then `npm run build` from the repository root; no live environment values are needed. Use `make forecast` only for offline arithmetic. A cost forecast is not permission to provision services or start social actors. Do not run `make probe` merely to validate unchanged documents; repeat network probes when new access/changes justify them.
 3. To investigate a changed public route, use `python3 scripts/probe_sources.py --help`, select the smallest source/window and save a separate report before replacing canonical evidence. Keep original failed attempts. Respect fixed URL/redirect/request/body/time bounds; generic private/member sites are not authorized by a public route.
 4. After an intentionally updated canonical public probe, run `make reconcile`, inspect the registry diff, and rerun `make check`. Runtime flags remain false. Operational means the named bounded parser succeeded, not that scheduling, database persistence, end-to-end alerts or full source coverage work.
 5. Social public actor metadata and official directory probes are read-only. Instagram media and existing Apify dataset reads require the documented server-side configuration. Actor execution is absent. Recheck current API versions/permissions/input schema/price and obtain permitted access plus a separate pilot budget before any paid run. Failed and unverified empty results cannot be promoted.
@@ -15,7 +15,7 @@
 | Capability | Exact requirement | Blocks Stage 1 core? |
 | --- | --- | --- |
 | GitHub persistence/CI | `origin` is now `https://github.com/astromonkeyduck-coder/opptrack.git`; `main` has been pushed and tracks `origin/main` | No local work; remote delivery verified, CI unconfigured |
-| Production web | Netlify site ID/URL, actual Next.js app/lockfile, production-only web variables and authenticated release | Hosted web, yes; deployment configuration is prepared |
+| Production web | Verify the corrected bootstrap commit in the intended Netlify site; later configure production-only web variables and authenticated tracker release | Minimal page builds without credentials; a successful hosted release is unverified |
 | Private app/storage | Supabase project URL/publishable key/server secret, single user configuration and migrations/RLS tests | Hosted thin slice, yes; local implementation can proceed |
 | Hosted jobs | Trigger.dev project and server secret, deploy tested dispatcher | Hosted operation, yes; probe scripts work independently |
 | Email | Resend API key, sending domain/DNS; inbound domain/webhook secret if used | No, authenticated manual intake is a fallback |

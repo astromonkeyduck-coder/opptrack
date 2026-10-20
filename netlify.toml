@@ -1,4 +1,5 @@
-# Production host selected by the user. Requires the future Next.js app and lockfile.
+# Production host selected by the user. Root package/lockfile build the bootstrap.
+# The bootstrap needs no service credentials; tracker integrations remain unconfigured.
 # Netlify automatically supplies its OpenNext adapter; no legacy plugin needed.
 # Secrets and runtime variables belong in Netlify's Production environment UI/API.
 [build]

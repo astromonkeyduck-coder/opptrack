@@ -1,6 +1,6 @@
 # Personal FSU Opportunity Tracker
 
-Stage 0 source feasibility and design, prepared October 20, 2026. **The tracker application is not built or deployed.** Only Stage 0 was authorized; stop here until the user requests the next stage. No calendar writes, RSVPs, messages, purchases, or paid actor runs were performed.
+Stage 0 source feasibility and design, prepared October 20, 2026. **A minimal Next.js page now builds; the tracker features remain unimplemented.** The Netlify build fix adds a public bootstrap page only, without private captures, an event catalog, login, ingestion or delivery. A successful hosted deployment has not been verified. No calendar writes, RSVPs, messages, purchases, or paid actor runs were performed. Stage 1 still requires a separate request.
 
 Start with [current status and actual commands/results](docs/status.md), [coverage gaps](docs/coverage-gaps.md), and [Stage 1 acceptance criteria](docs/stage-plan.md). [Shared instructions](docs/engineering-instructions.md) apply to all agents; [charter](docs/charter.md) defines broad campus discovery, selective recommendations, searchable review and per-occurrence/per-action calendar approval.
 
@@ -16,7 +16,19 @@ Start with [current status and actual commands/results](docs/status.md), [covera
 
 The user selected **Netlify** for the production Next.js app, with Supabase, Trigger.dev Cloud and Resend retained. [Deployment instructions](docs/deployment.md), [Netlify build config](netlify.toml), and [the machine-readable environment contract](config/production-environments.json) separate the two production runtimes. Templates: [.env.netlify.production.example](.env.netlify.production.example) and [.env.trigger.production.example](.env.trigger.production.example).
 
-Run `python3 scripts/validate_production_env.py` to verify blank templates, or use `--target netlify|trigger --env-file PATH` to validate real ignored settings without printing secrets. These are executable configuration tools; the Next.js application and hosted settings still need their later-stage setup.
+Run `python3 scripts/validate_production_env.py` to verify blank templates, or use `--target netlify|trigger --env-file PATH` to validate real ignored settings without printing secrets. The environment contract describes the future integrations. The bootstrap page does not use credentials or connect to these services; hosted settings and tracker integrations still need their later-stage setup.
+
+## Build the Next.js bootstrap
+
+Use Node 22 and the committed root package/lockfile. From the repository root:
+
+```sh
+npm ci
+npm run typecheck
+npm run build
+```
+
+Netlify uses the same root `npm run build` command and publishes `.next`. This page builds with no production environment values. Keep secrets in provider settings when their integrations are implemented; adding credentials cannot turn the bootstrap into an operating tracker. See [deployment instructions](docs/deployment.md) for the separate Netlify and Trigger environments.
 
 ## Reproduce Stage 0
 
@@ -43,6 +55,6 @@ python3 scripts/social_probe.py instagram-login --output evidence/instagram-logi
 python3 scripts/social_probe.py apify-dataset --output evidence/apify-dataset-probe.json
 ```
 
-Without the documented environment setup, those content probes exit setup-needed before HTTP. They never start an Apify actor, send a message, RSVP or call Google Calendar. Put future tokens only in ignored environment/secret stores; `.env.example` lists names. Do not supply an FSU password. The proposed Next.js, Supabase, Trigger.dev, Resend and Google Calendar services remain unconfigured.
+Without the documented environment setup, those content probes exit setup-needed before HTTP. They never start an Apify actor, send a message, RSVP or call Google Calendar. Put future tokens only in ignored environment/secret stores; `.env.example` lists names. Do not supply an FSU password. Supabase, Trigger.dev, Resend and Google Calendar integrations remain unconfigured.
 
-The initial local repository had no commits or configured remote. The project is now connected to [astromonkeyduck-coder/opptrack](https://github.com/astromonkeyduck-coder/opptrack) as `origin`. Stage 0 and the Netlify deployment configuration have been committed and pushed to `main`. No application deployment has occurred. See [runbook](docs/runbook.md) before continuing in a fresh session.
+The initial local repository had no commits or configured remote. The project is now connected to [astromonkeyduck-coder/opptrack](https://github.com/astromonkeyduck-coder/opptrack) as `origin`. Stage 0 and the Netlify deployment configuration have been committed and pushed to `main`. The supplied Netlify log shows a failed build because the earlier configuration referenced a missing root `package.json`; the bootstrap fixes that repository gap. A successful hosted deployment remains unverified. See [runbook](docs/runbook.md) before continuing in a fresh session.
