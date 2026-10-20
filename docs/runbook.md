@@ -14,7 +14,7 @@
 
 | Capability | Exact requirement | Blocks Stage 1 core? |
 | --- | --- | --- |
-| GitHub persistence/CI | `origin` is now `https://github.com/astromonkeyduck-coder/opptrack.git`; remote upload pending, local Git HTTPS authentication unavailable | No local work; remote delivery/CI remains unverified |
+| GitHub persistence/CI | `origin` is now `https://github.com/astromonkeyduck-coder/opptrack.git`; `main` has been pushed and tracks `origin/main` | No local work; remote delivery verified, CI unconfigured |
 | Production web | Netlify site ID/URL, actual Next.js app/lockfile, production-only web variables and authenticated release | Hosted web, yes; deployment configuration is prepared |
 | Private app/storage | Supabase project URL/publishable key/server secret, single user configuration and migrations/RLS tests | Hosted thin slice, yes; local implementation can proceed |
 | Hosted jobs | Trigger.dev project and server secret, deploy tested dispatcher | Hosted operation, yes; probe scripts work independently |
