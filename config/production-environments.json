@@ -159,13 +159,15 @@
     }
   },
   "notes": [
-    "Stage 1 local application/SQL/live-source evidence exists. Existing hosted targets are identified and settings are partially applied; authenticated production acceptance remains pending.",
-    "All five Stage 1 Netlify variables were confirmed saved in the single Production context. Existing Free plan locks variable scope to all; only public configuration and nonsecret false flags belong there. No upgrade was selected.",
-    "The Stage 1 web app uses the public Supabase pair and user-session RLS. TRIGGER_SECRET_KEY is optional and unused by Stage 1; worker Supabase secret never belongs on Netlify.",
-    "All six Trigger worker variables were confirmed saved for Production only, with Development unchecked. SUPABASE_SECRET_KEY was stored as a secret, unviewable and never printed. No worker deployment/run is verified.",
-    "The Trigger GitHub app is installed for opptrack only, but Trigger organization connection still does not recognize it; managed deployment is pending investigation. trigger.config.ts defaults to the verified nonsecret project reference and permits an explicit override.",
-    "Supabase migrations001/002 were applied to the existing project. Zero Auth users were found and none created; empty ownership continues to deny all.",
-    "Calendar, social collection, inbound email and email delivery remain disabled. Hosted flags were confirmed saved on their respective targets. No paid connector or plan upgrade was enabled."
+    "Netlify SSR deployment is published and anonymous HTTP checks pass. Trigger Production worker and hourly schedule are deployed; owner-authenticated ingestion and offline acceptance remain pending.",
+    "Five Netlify variables are saved in one Production context; Free scopes are all scopes, containing public configuration and nonsecret false flags only. No upgrade was selected.",
+    "The web app uses user-session RLS; the Supabase server secret stays off Netlify. Optional web Trigger key is unused by Stage1.",
+    "Six Trigger variables are saved Production-only, Development unchecked. Server secret is unviewable and never printed. Deployment kx5ru529/version20261020.1 runs Node24.18.0.",
+    "The connected GitHub app is limited to one selected repository, opptrack, with main tracking Production. Active hourly schedule has not yet executed at last observation.",
+    "One real manual Production test failed the owner-setup guard before collection. Its synthetic scheduler payload is not scheduled-run evidence; actual invocation dollars remain unmeasured.",
+    "Supabase migrations001/002 and Auth Site URL/settings are applied. At2026-10-20T23:48:31.583435Z users,owners,sources,opportunities,captures,runs andobjects were zero. No owner bypass or account creation occurred.",
+    "Explicit current OpenNext5.16.4 is deployed with one server/one edge function. Published commit9fc73a6 has home200,inbox307,private-media401; authenticated inbox remains unverified.",
+    "Calendar,social,inbound and email delivery flags remain false. No paid connector or paid upgrade was enabled."
   ],
   "application_status": "stage_1_implemented_local_verified_hosted_gate_pending",
   "hosted_application_state": {
@@ -187,7 +189,19 @@
         "CALENDAR_WRITES_ENABLED",
         "INBOUND_EMAIL_ENABLED"
       ],
-      "production_context_count": 1
+      "production_context_count": 1,
+      "next_adapter": "@netlify/plugin-nextjs@5.16.4 explicitly configured",
+      "adapter_reason": "Earlier automatic runtime omission caused 404s. Explicit OpenNext5.16.4 is now published with one server and one edge function; anonymous HTTP200/307/401 checks pass. Owner session remains unverified.",
+      "ssr_deployment_verified": true,
+      "published_deploy_id": "6ad7fd1b5a01e9295c7a246e",
+      "published_commit": "9fc73a619a39272dc0794f1c7d1186cdb4ea63a4",
+      "server_functions": 1,
+      "edge_functions": 1,
+      "latest_anonymous_http_checks": {
+        "home": 200,
+        "inbox": 307,
+        "private_media": 401
+      }
     },
     "supabase": {
       "migrations_applied": [
@@ -196,12 +210,28 @@
       ],
       "auth_user_count_at_inspection": 0,
       "owner_registered": false,
-      "owner_creation": "User declined manual account creation; no account or invitation created"
+      "owner_creation": "User declined manual account creation; no account or invitation created",
+      "auth_site_url": "https://luxury-longma-01d2fa.netlify.app",
+      "auth_site_url_saved": true,
+      "public_signup_enabled": false,
+      "anonymous_signin_enabled": false,
+      "email_confirmation_enabled": true,
+      "auth_configuration_evidence": "Saved Site URL success toast; signup/anonymous disabled and email confirmation enabled persisted in dashboard",
+      "latest_empty_database_check": {
+        "checked_at": "2026-10-20T23:48:31.583435Z",
+        "auth_users": 0,
+        "owners": 0,
+        "sources": 0,
+        "opportunities": 0,
+        "captures": 0,
+        "source_runs": 0,
+        "storage_objects": 0
+      }
     },
     "trigger": {
-      "github_repository_grant": "GitHub app installation confirmed 2026-10-20 19:28 America/New_York; only astromonkeyduck-coder/opptrack",
+      "github_repository_grant": "New GitHub app installation verified for one selected repository: astromonkeyduck-coder/opptrack only",
       "production_variables_applied": true,
-      "production_worker_verified": false,
+      "production_worker_verified": true,
       "schedule": "0 * * * * UTC; 60m window",
       "production_variables_confirmed": [
         "APP_URL",
@@ -219,8 +249,41 @@
       "production_context_only": true,
       "development_values_applied": false,
       "server_secret_status": "saved as secret; value unviewable and never printed",
-      "github_organization_connection_recognized": false,
-      "managed_deployment_status": "pending investigation; installed repository grant is not recognized by Trigger organization connection"
+      "github_organization_connection_recognized": true,
+      "managed_deployment_status": "Deployed through the connected repository; successful collection awaits owner setup",
+      "github_repository_connected": "astromonkeyduck-coder/opptrack",
+      "production_tracking_branch": "main",
+      "connection_confirmation": "Fresh Integrations UI confirmed the installed GitHub app and connected repository after user reconnect, approximately 2026-10-20 23:45 UTC",
+      "deployment_id": "kx5ru529",
+      "worker_version": "20261020.1",
+      "deployed_at": "2026-10-20T23:46:19Z",
+      "cloud_node_version": "24.18.0",
+      "schedule_details": {
+        "id": "sched_7piwpgtckcngy15icqk45",
+        "active": true,
+        "enabled": true,
+        "cron": "0 * * * *",
+        "timezone": "UTC",
+        "window": "60m",
+        "concurrency": 1,
+        "created_at": "2026-10-20T23:46:11Z",
+        "last_scheduled_run_at": null,
+        "next_run_display": "approximately00:10UTC, not an exact timing guarantee",
+        "scheduled_execution_verified": false
+      },
+      "manual_test": {
+        "run_id": "run_06glndpqqqf43ur6djisksj5e1",
+        "triggered_at": "2026-10-20T23:48:17.400Z",
+        "started_at": "2026-10-20T23:48:19.519Z",
+        "finished_at": "2026-10-20T23:48:23.434Z",
+        "outcome": "failed",
+        "error_type": "AbortTaskRunError",
+        "reason": "Tracker owner setup required before collection",
+        "invocation_kind": "manual_test",
+        "schedule_proof": false,
+        "payload_limit": "Test payload contained synthetic sched_1234/IMPERATIVE; not provider schedule evidence",
+        "actual_usd": null
+      }
     },
     "paid_plan_change": false
   }

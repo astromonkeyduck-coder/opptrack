@@ -4,7 +4,7 @@
   "actual": {
     "public_http_attempts": 12,
     "public_source_provider_charges_usd": 0,
-    "trigger_cloud_runs": 0,
+    "trigger_cloud_runs": 1,
     "supabase_hosted_verified_runs": 0,
     "model_calls": 0,
     "paid_connector_runs": 0,
@@ -18,8 +18,19 @@
       "netlify": "Free; unchanged",
       "trigger": "Free schedule policy; unchanged"
     },
-    "hosted_setup": "Supabase migrations001/002 applied; all five Netlify Production variables and six Trigger Production-only worker variables confirmed saved. Trigger GitHub app is installed for opptrack only but organization connection is not recognized. No owner account or verified cloud collection yet.",
-    "new_paid_upgrades": 0
+    "hosted_setup": "Netlify SSR published with one server/one edge function; Trigger version20261020.1 deployed with active hourly schedule. One manual Production test failed owner guard before collection; no scheduled/offline collection verified. Supabase users, owners and data remain zero.",
+    "new_paid_upgrades": 0,
+    "trigger_manual_production_tests": 1,
+    "trigger_failed_manual_tests": 1,
+    "trigger_scheduled_runs_verified": 0,
+    "trigger_actual_invocation_cost_usd": null,
+    "trigger_cost_limit": "One manual Production invocation observed; dollar charge unmeasured. Failure before owner setup produced no source collection.",
+    "latest_hosted_web_http_checks": 3,
+    "latest_hosted_web_http_results": {
+      "home": 200,
+      "inbox": 307,
+      "private_media": 401
+    }
   },
   "conditional_30_day_forecast": {
     "dispatcher_ticks": 720,

@@ -34,9 +34,14 @@
     "missed_source_slots": "Coalesce missed source slots once; no catch-up burst",
     "timing_limit": "Provider chooses a stable start offset within the hour; no minute-level alert guarantee"
   },
-  "hosted_setup_status": "partially_applied; Netlify/Trigger production variables saved, managed worker deployment and authenticated acceptance pending",
+  "hosted_setup_status": "deployed; anonymous web checks pass and manual cloud test aborts before collection until owner setup; authenticated ingestion/offline gate pending",
   "hosted_migrations_applied": [
     "202610200001_stage1.sql",
     "202610200002_hourly_cadence.sql"
-  ]
+  ],
+  "hosted_web_ssr_verified": true,
+  "hosted_worker_deployed": true,
+  "hosted_scheduled_collection_verified": false,
+  "hosted_owner_inbox_verified": false,
+  "hosted_laptop_off_verified": false
 }

@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-20T23:38:50.348Z",
+  "mode": "real-local-OpenNext-adapter-lifecycle",
+  "adapterVersion": "5.16.4",
+  "hostedDeployment": false,
+  "serverHandlerCreated": true,
+  "serverFunctionManifest": "@netlify/plugin-nextjs@5.16.4",
+  "routeKeys": [
+    "/_global-error/page",
+    "/_not-found/page",
+    "/api/intake/route",
+    "/api/private-media/route",
+    "/inbox/page",
+    "/intake/page",
+    "/page"
+  ],
+  "edgeManifestCreated": true,
+  "localNetlifyContext": true,
+  "networkProviderWrites": 0,
+  "evidenceClass": "actual-local-Netlify-OpenNext-adapter-lifecycle",
+  "routeCount": 7,
+  "buildExitCode": 0,
+  "typecheckExitCode": 0,
+  "dependencyAuditVulnerabilities": 0,
+  "commandOutcomeSource": "Root and adapter agent reported actual lifecycle onPreBuild \u2192 next build \u2192 onBuild, build/typecheck exit 0 and npm audit 0 vulnerabilities. This file independently checks/copies the generated manifest evidence.",
+  "sourceArtifact": "private/stage-1-netlify-adapter-proof.json",
+  "boundary": "Local adapter/SSR and edge manifests only; not a hosted Netlify deploy or authenticated browser session. No provider writes or secrets are included."
+}

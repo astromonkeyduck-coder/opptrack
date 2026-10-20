@@ -1,0 +1,236 @@
+{
+  "updatedAt": "2026-10-20T23:48:31.583435Z",
+  "scope": "Stage 1 hosted deployment and manual setup check; not scheduled ingestion acceptance",
+  "commit": "9fc73a619a39272dc0794f1c7d1186cdb4ea63a4",
+  "supabase": {
+    "projectRef": "nuywbvlcwetqjalqvxzb",
+    "migrations": [
+      {
+        "localFile": "202610200001_stage1.sql",
+        "hostedVersion": "20261020231512",
+        "name": "stage1_private_opportunity_inbox"
+      },
+      {
+        "localFile": "202610200002_hourly_cadence.sql",
+        "hostedVersion": "20261020231950",
+        "name": "stage1_hourly_polling_cadence"
+      }
+    ],
+    "hostedSqlChecks": {
+      "passed": 28,
+      "failed": 0,
+      "report": "reports/stage-1-hosted-sql-checks.json"
+    },
+    "siteUrlSaved": "https://luxury-longma-01d2fa.netlify.app",
+    "publicSignupDisabled": true,
+    "anonymousSignInDisabled": true,
+    "emailConfirmationEnabled": true,
+    "countsAfterManualCloudTest": {
+      "checkedAt": "2026-10-20T23:48:31.583435Z",
+      "authUsers": 0,
+      "owners": 0,
+      "sources": 0,
+      "opportunities": 0,
+      "captures": 0,
+      "sourceRuns": 0,
+      "storageObjects": 0
+    },
+    "ownerCreated": false,
+    "positiveOwnerJwtStorageHttpVerified": false
+  },
+  "netlify": {
+    "site": "luxury-longma-01d2fa",
+    "url": "https://luxury-longma-01d2fa.netlify.app",
+    "deployId": "6ad7fd1b5a01e9295c7a246e",
+    "state": "Published",
+    "dashboard": "https://app.netlify.com/projects/luxury-longma-01d2fa/deploys/6ad7fd1b5a01e9295c7a246e",
+    "publishedCommit": "9fc73a619a39272dc0794f1c7d1186cdb4ea63a4",
+    "runtime": "Next.js Runtime, explicit @netlify/plugin-nextjs@5.16.4",
+    "serverFunctions": 1,
+    "edgeFunctions": 1,
+    "variables": {
+      "context": "Production only",
+      "names": [
+        "APP_URL",
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+        "CALENDAR_WRITES_ENABLED",
+        "INBOUND_EMAIL_ENABLED"
+      ],
+      "valuesPrinted": false,
+      "workerSecretsPresent": false
+    },
+    "initialSmoke": {
+      "at": "2026-10-20T23:35:43.752Z",
+      "command": "node scripts/check-hosted-access.mjs --app-url=https://luxury-longma-01d2fa.netlify.app",
+      "exitCode": 1,
+      "requests": 3,
+      "cause": "Successful prior build omitted server adapter and published plain .next files",
+      "checks": [
+        {
+          "name": "hosted_signin_page",
+          "state": "failed",
+          "httpStatus": 404,
+          "boundary": "Anonymous HTTP smoke only; owner browser login remains required"
+        },
+        {
+          "name": "hosted_inbox_anonymous_redirect",
+          "state": "failed",
+          "httpStatus": 404
+        },
+        {
+          "name": "hosted_private_media_anonymous_denial",
+          "state": "failed",
+          "httpStatus": 404
+        }
+      ]
+    },
+    "postAdapterSmoke": {
+      "at": "2026-10-20T23:47:01.193Z",
+      "command": "node scripts/check-hosted-access.mjs --app-url=https://luxury-longma-01d2fa.netlify.app --output=private/stage-1-hosted-post-adapter.json",
+      "exitCode": 2,
+      "requests": 3,
+      "checks": [
+        {
+          "name": "hosted_signin_page",
+          "state": "passed",
+          "httpStatus": 200,
+          "boundary": "Anonymous HTTP smoke only; owner browser login remains required"
+        },
+        {
+          "name": "hosted_inbox_anonymous_redirect",
+          "state": "passed",
+          "httpStatus": 307
+        },
+        {
+          "name": "hosted_private_media_anonymous_denial",
+          "state": "passed",
+          "httpStatus": 401
+        }
+      ],
+      "exitMeaning": "All three implemented app GET checks passed; missing credential-backed and owner/offline acceptance evidence remains setup-needed"
+    },
+    "ownerBrowserLoginVerified": false
+  },
+  "trigger": {
+    "projectRef": "proj_wurjjfgxnzhkvcewuaci",
+    "projectSlug": "opptrack-BrDD",
+    "organizationSlug": "plangplangplang-6ce7",
+    "plan": "Free",
+    "github": {
+      "repository": "astromonkeyduck-coder/opptrack",
+      "trackingBranch": "main",
+      "connected": true,
+      "installationId": "173568157",
+      "onlySelectedRepositories": true,
+      "selectedRepositoryCount": 1,
+      "installedAtLocal": "2026-10-20 19:43 America/New_York",
+      "scopeEvidence": "GitHub installed-app settings: All repositories=0, Only select repositories=1, Selected 1 repository opptrack"
+    },
+    "deployment": {
+      "id": "kx5ru529",
+      "version": "20261020.1",
+      "state": "Deployed",
+      "deployedAt": "2026-10-20T23:46:19Z",
+      "timestampBasis": "Dashboard local EDT converted to UTC",
+      "runtime": "Node.js v24.18.0",
+      "tasks": 1,
+      "externalCommit": "9fc73a619a39272dc0794f1c7d1186cdb4ea63a4"
+    },
+    "variables": {
+      "environment": "Production only",
+      "developmentSelected": false,
+      "names": [
+        "APP_URL",
+        "SUPABASE_URL",
+        "SUPABASE_SECRET_KEY",
+        "EMAIL_DELIVERY_ENABLED",
+        "CALENDAR_WRITES_ENABLED",
+        "SOCIAL_COLLECTION_ENABLED"
+      ],
+      "serverKeySavedAsUnviewableSecret": true,
+      "valuesPrinted": false
+    },
+    "schedule": {
+      "id": "sched_7piwpgtckcngy15icqk45",
+      "task": "opportunity-source-dispatcher",
+      "cron": "0 * * * *",
+      "timezone": "UTC",
+      "window": "60m",
+      "dashboardWindow": "1h",
+      "status": "Enabled",
+      "concurrency": 1,
+      "createdAt": "2026-10-20T23:46:11Z",
+      "lastRunAtInspection": "Never",
+      "freeScheduleUsage": "1/10"
+    },
+    "manualSetupCheck": {
+      "runId": "run_06glndpqqqf43ur6djisksj5e1",
+      "environment": "Production",
+      "invocation": "manual dashboard Test schedule",
+      "scheduledExecution": false,
+      "providerTestFlagApiVerified": false,
+      "version": "20261020.1",
+      "triggeredAt": "2026-10-20T23:48:17.400Z",
+      "startedAt": "2026-10-20T23:48:19.519Z",
+      "finishedAt": "2026-10-20T23:48:23.434Z",
+      "timestampBasis": "Dashboard local EDT converted to UTC",
+      "status": "Failed",
+      "errorType": "AbortTaskRunError",
+      "message": "Tracker owner setup is required before collection can run",
+      "payloadScheduleId": "sched_1234",
+      "payloadType": "IMPERATIVE",
+      "sourceRequests": 0,
+      "sqlSourceRunIds": [],
+      "newOpportunities": 0,
+      "interpretation": "Real Cloud execution reached Supabase owner readiness and stopped safely. It did not collect an empty source response and is not an ingestion success.",
+      "observedCostUsd": null
+    },
+    "successfulScheduledRunIds": [],
+    "scheduledRunMetadataRetrievalVerified": false
+  },
+  "laptopOffVerification": {
+    "accepted": false,
+    "confirmedOffInterval": null,
+    "scheduledRunIds": [],
+    "correspondingDatabaseUpdates": [],
+    "reason": "No user-confirmed powered-off interval or completed scheduled source collection. Laptop remained in active work during this check."
+  },
+  "screenshotsPrivate": [
+    "private/stage-1-trigger-production-variables.png",
+    "private/stage-1-trigger-github-scope.png",
+    "private/stage-1-netlify-published.png",
+    "private/stage-1-trigger-hourly-schedule.png",
+    "private/stage-1-trigger-manual-setup-check.png",
+    "private/stage-1-hosted-signin.png"
+  ],
+  "costs": {
+    "paidUpgrade": false,
+    "paidConnectorsEnabled": 0,
+    "manualCloudInvocationsObserved": 1,
+    "actualProviderDollarsMeasured": false,
+    "sourceProviderChargesObservedUsd": 0,
+    "modelCalls": 0,
+    "resendMessages": 0,
+    "calendarWrites": 0
+  },
+  "accepted": false,
+  "remaining": [
+    "Owner identity registration and source seeding",
+    "Real scheduled source fetch/storage/normalization with exact cloud-to-SQL run IDs",
+    "Hosted authenticated review inbox and private manual intake",
+    "Known-object Storage HTTP policies with owner and other account",
+    "Confirmed laptop-off interval with correlated cloud/SQL evidence",
+    "Hosted restore, distributed contention and safe retention/orphan cleanup"
+  ],
+  "githubActions": {
+    "id": 39517076626,
+    "url": "https://github.com/astromonkeyduck-coder/opptrack/actions/runs/39517076626",
+    "commit": "9fc73a619a39272dc0794f1c7d1186cdb4ea63a4",
+    "status": "completed",
+    "conclusion": "success",
+    "createdAt": "2026-10-20T23:45:31Z",
+    "updatedAt": "2026-10-20T23:46:06Z",
+    "method": "GitHub connector read of Actions run collection filtered by head SHA; combined-status wrapper returned no legacy status records and was not treated as CI evidence"
+  }
+}

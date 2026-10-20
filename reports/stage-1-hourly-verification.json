@@ -17,7 +17,7 @@
     {
       "command": "git diff --check",
       "exitCode": 0,
-      "wallTimeSeconds": 0.000006834,
+      "wallTimeSeconds": 6.834e-06,
       "output": ""
     }
   ],
@@ -76,5 +76,60 @@
     "Root agent owns type checking, application tests, build and hosted service configuration; those outcomes are not claimed by this report."
   ],
   "calendarWrites": 0,
-  "paidServicesEnabled": 0
+  "paidServicesEnabled": 0,
+  "rootApplicationChecks": {
+    "recordedAt": "2026-10-20T23:50:04.004890+00:00",
+    "executionEvidenceSource": "Root agent reported actual command outcomes in task delegation; these are not reruns by the database reviewer.",
+    "beforeAdapter": [
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0,
+        "passedTests": 51
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0
+      }
+    ],
+    "afterAdapter": {
+      "adapterVersion": "5.16.4",
+      "realLifecycle": [
+        "onPreBuild",
+        "next build",
+        "onBuild"
+      ],
+      "buildExitCode": 0,
+      "typecheckExitCode": 0,
+      "dependencyAuditVulnerabilities": 0,
+      "serverHandlerCreated": true,
+      "edgeManifestCreated": true,
+      "routeCount": 7,
+      "report": "reports/stage-1-netlify-adapter.json",
+      "hostedDeployment": false
+    }
+  },
+  "hostedCheckerSafetyReview": {
+    "checkedAt": "2026-10-20T23:50:04.004890+00:00",
+    "syntaxCommand": "node --check scripts/check-hosted-access.mjs",
+    "syntaxExitCode": 0,
+    "executedWithCredentials": false,
+    "credentialFilesRead": false,
+    "codeOnlyFindings": {
+      "supabaseOriginPinnedToConfiguredProject": true,
+      "netlifyAndTriggerApiHostsFixed": true,
+      "httpMethodsGetOnly": true,
+      "redirectsManual": true,
+      "noAccountCreationOrRemoteWrites": true,
+      "secretValuesNotPrintedOrIncludedInReport": true,
+      "otherUserEmptyCatalogMarkedNotDemonstrated": true,
+      "allStage1HostedCriteriaAcceptedAlwaysFalse": true
+    },
+    "limitations": [
+      "Syntax/static safety review only; no network requests, authentication or credentials were used."
+    ]
+  }
 }
