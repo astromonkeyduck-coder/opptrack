@@ -128,5 +128,32 @@
     "paidConnectorsOrUpgrades": 0,
     "providerBilling": "Not independently measured; no connector purchased or plan upgraded",
     "scheduledInstagramRuns": 0
+  },
+  "instagramAutomaticMonitoring": {
+    "plan": "Trigger Free, unchanged",
+    "manualRunId": "run_06glo936eht6v3gl45naeepge1",
+    "manualUsageSeconds": 12.2,
+    "manualDisplayedUsd": 0.00043695,
+    "manualMetaRequests": 16,
+    "manualMetaResponseBytes": 285131,
+    "privateCaptures": 16,
+    "postIdentities": 400,
+    "postVersions": 400,
+    "scheduledSocialRunVerified": false,
+    "planningScenario": {
+      "days": 30,
+      "hourlyRuns": 720,
+      "assumedCombinedRunSeconds": 35,
+      "small1xUsdPerSecond": 3.38e-05,
+      "invocationUsd": 2.5e-05,
+      "projectedUsdBeforeRetries": 0.86976,
+      "measuredSteadyState": false,
+      "upperBound": false
+    },
+    "paidUpgrades": 0,
+    "modelCalls": 0,
+    "mediaDownloads": 0,
+    "calendarWrites": 0,
+    "providerInvoiceVerified": false
   }
 }

@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-21T01:09:02.289Z",
-  "authorization": "The user explicitly selected these 17 handles for opportunity monitoring. Selection is not proof of account identity, API eligibility or access.",
+  "as_of": "2026-10-21T01:49:45.144314+00:00",
+  "authorization": "The user selected these 17 handles and explicitly authorized automatic Trigger monitoring for the 16 proven accounts on October 20, 2026. The blocked fsucre route remains disabled.",
   "scope": "Separate user-selected watchlist; the Stage 0 source registry remains unchanged.",
-  "automatic_collection_enabled": false,
-  "posts_access": "16 bounded live samples proven; 1 blocked; scheduled collection unconfigured",
+  "automatic_collection_enabled": true,
+  "posts_access": "16 accounts enabled for hourly bounded collection; manual Production collection succeeded; first scheduled Instagram run verification pending; fsucre blocked",
   "stories_access": "manual_only; no proven arbitrary-target Stories route",
   "paid_connectors_enabled": false,
   "calendar_writes_enabled": false,
@@ -24,10 +24,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -59,6 +59,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:37.054+00:00"
       }
     },
     {
@@ -73,10 +82,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -108,6 +117,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:45.666+00:00"
       }
     },
     {
@@ -121,10 +139,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -156,6 +174,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:44.401+00:00"
       }
     },
     {
@@ -170,10 +197,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -205,6 +232,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:45.556+00:00"
       }
     },
     {
@@ -219,10 +255,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -254,6 +290,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:36.974+00:00"
       }
     },
     {
@@ -268,10 +313,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -303,6 +348,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:41.388+00:00"
       }
     },
     {
@@ -317,10 +371,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -352,6 +406,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:43.778+00:00"
       }
     },
     {
@@ -366,10 +429,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -401,6 +464,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:38.034+00:00"
       }
     },
     {
@@ -415,10 +487,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -450,6 +522,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:41.796+00:00"
       }
     },
     {
@@ -465,10 +546,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -500,6 +581,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:39.236+00:00"
       }
     },
     {
@@ -513,10 +603,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -548,6 +638,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:42.922+00:00"
       }
     },
     {
@@ -562,10 +661,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -597,6 +696,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:39.787+00:00"
       }
     },
     {
@@ -611,10 +719,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -646,6 +754,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:46.621+00:00"
       }
     },
     {
@@ -659,10 +776,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -694,6 +811,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:47.425+00:00"
       }
     },
     {
@@ -744,10 +870,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -779,6 +905,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:39.832+00:00"
       }
     },
     {
@@ -793,10 +928,10 @@
       "selection_evidence": "user_provided",
       "identity_verification": "verified_for_business_discovery_sample",
       "professional_account_eligibility": "verified_for_business_discovery_sample",
-      "adapter": "unconfigured",
-      "enabled": false,
-      "cadence_seconds": null,
-      "status": "setup_needed",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
       "posts_access": "live_sample_proven",
       "stories_access": "manual_only",
       "access_probe": {
@@ -828,6 +963,15 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-production-monitoring.json",
+        "observed_at_utc": "2026-10-21T01:49:45.144314+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glo936eht6v3gl45naeepge1",
+        "health_status": "success",
+        "last_attempt_at": "2026-10-21T01:47:36.059353+00:00",
+        "last_success_at": "2026-10-21T01:47:41.015+00:00"
       }
     }
   ],
@@ -838,7 +982,37 @@
     "targets_without_proven_sample": 1,
     "parent_posts": 80,
     "carousel_children": 181,
-    "scheduled_collection_enabled": false,
-    "report": "reports/instagram-cli-access.json"
+    "scheduled_collection_enabled": true,
+    "report": "reports/instagram-cli-access.json",
+    "scheduled_collection_verified": false,
+    "manual_production_collection_verified": true
+  },
+  "production_monitoring": {
+    "report": "reports/instagram-production-monitoring.json",
+    "activated_at_utc": "2026-10-21T01:45:17.967573Z",
+    "cadence_seconds": 3600,
+    "parent_limit_per_poll": 25,
+    "child_limit_per_carousel": 20,
+    "history_complete": false,
+    "media_downloads": 0,
+    "stories_collected": 0,
+    "event_extraction": false,
+    "token_expiry_verified": false,
+    "automatic_token_renewal": false,
+    "manual_production_smoke": {
+      "run_id": "run_06glo936eht6v3gl45naeepge1",
+      "invocation_kind": "manual",
+      "test_run": true,
+      "started_at_utc": "2026-10-21T01:47:34.222Z",
+      "finished_at_utc": "2026-10-21T01:47:47.737Z",
+      "outcome": "completed",
+      "posts_retained": 400
+    },
+    "scheduled_verification": {
+      "status": "pending",
+      "schedule_id": "sched_7piwpgtckcngy15icqk45",
+      "next_nominal_at_utc": "2026-10-21T02:00:00Z",
+      "laptop_off_proof": false
+    }
   }
 }

@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
 import watchlist from '../config/instagram-watchlist.json';
 import accessReport from '../reports/instagram-cli-access.json';
+import productionReport from '../reports/instagram-production-monitoring.json';
 import { instagramSourceSeeds, sourceSeedUpsertOptions } from '../scripts/instagram-source-seeds';
 
 const selectedHandles = ['clubdownunderfsu', 'fsustudentengagement', 'fsustudentaffairs', 'fsustudentunion', 'aslc_fsu', 'fsuhomecoming', 'fsusga', 'fsucampusrec', 'fsuhonors', 'fsucareercenter', 'fsuip', 'fsucge', 'thecenterfsu', 'fsusustainable', 'fsucre', 'fsucosspp', 'fsucossppslc'];
@@ -29,22 +30,33 @@ test('profile links are exact canonical HTTPS Instagram profiles without query t
   }
 });
 
-test('live-sample evidence never silently enables collection, paid connectors or Stories', () => {
-  assert.equal(watchlist.automatic_collection_enabled, false);
+test('production enablement is restricted to the sixteen proven and explicitly authorized accounts', () => {
+  assert.equal(watchlist.automatic_collection_enabled, true);
   assert.equal(watchlist.paid_connectors_enabled, false);
   assert.equal(watchlist.calendar_writes_enabled, false);
   assert.equal(watchlist.credential_values_included, false);
   for (const account of watchlist.accounts) {
-    assert.equal(account.adapter, 'unconfigured'); assert.equal(account.enabled, false);
-    assert.equal(account.cadence_seconds, null); assert.equal(account.status, 'setup_needed');
     assert.equal(account.stories_access, 'manual_only');
     if (account.posts_access === 'live_sample_proven') {
+      assert.equal(account.adapter, 'instagram-business-discovery-v1'); assert.equal(account.enabled, true);
+      assert.equal(account.cadence_seconds, 3600); assert.equal(account.status, 'enabled');
+      assert.equal(account.collector_snapshot?.report, 'reports/instagram-production-monitoring.json');
+      assert.equal(account.collector_snapshot.invocation_kind, 'manual');
+      assert.equal(account.collector_snapshot.trigger_run_id, productionReport.manualSmoke.runId);
+      assert.equal(account.collector_snapshot.health_status, 'success');
+      const source = productionReport.manualSmoke.database.source_health.find(row => row.id === account.source_id);
+      assert.ok(source);
+      assert.equal(account.collector_snapshot.last_attempt_at, source.last_attempt_at);
+      assert.equal(account.collector_snapshot.last_success_at, source.last_success_at);
       assert.equal(account.identity_verification, 'verified_for_business_discovery_sample');
       assert.equal(account.professional_account_eligibility, 'verified_for_business_discovery_sample');
       assert.equal(account.live_sample?.report, 'reports/instagram-cli-access.json');
       assert.equal(account.live_sample.scheduled_collection, false);
       assert.equal(account.live_sample.event_extraction, false);
     } else {
+      assert.equal(account.adapter, 'unconfigured'); assert.equal(account.enabled, false);
+      assert.equal(account.cadence_seconds, null); assert.equal(account.status, 'setup_needed');
+      assert.equal(account.collector_snapshot, undefined);
       assert.ok(['blocked', 'not_proven'].includes(account.posts_access));
       assert.equal(account.identity_verification, 'unverified');
       assert.equal(account.professional_account_eligibility, 'unverified');
@@ -52,6 +64,28 @@ test('live-sample evidence never silently enables collection, paid connectors or
     }
   }
   assert.equal(watchlist.accounts.filter(account => account.posts_access === 'live_sample_proven').length, accessReport.totals.liveTargetSamplesProven);
+  assert.equal(watchlist.accounts.filter(account => account.enabled).length, 16);
+});
+
+test('manual Production ingestion is recorded separately from pending scheduled verification', () => {
+  const monitoring = watchlist.production_monitoring;
+  assert.equal(monitoring.report, 'reports/instagram-production-monitoring.json');
+  assert.equal(monitoring.activated_at_utc, productionReport.configuration.activationAtUtc);
+  assert.equal(monitoring.cadence_seconds, 3600);
+  assert.equal(monitoring.parent_limit_per_poll, 25); assert.equal(monitoring.child_limit_per_carousel, 20);
+  assert.equal(monitoring.history_complete, false); assert.equal(monitoring.event_extraction, false);
+  assert.equal(monitoring.media_downloads, 0); assert.equal(monitoring.stories_collected, 0);
+  assert.equal(monitoring.token_expiry_verified, false); assert.equal(monitoring.automatic_token_renewal, false);
+  assert.equal(monitoring.manual_production_smoke.run_id, productionReport.manualSmoke.runId);
+  assert.equal(monitoring.manual_production_smoke.invocation_kind, 'manual');
+  assert.equal(monitoring.manual_production_smoke.test_run, true);
+  assert.equal(monitoring.manual_production_smoke.posts_retained, 400);
+  assert.equal(monitoring.scheduled_verification.status, 'pending');
+  assert.equal(monitoring.scheduled_verification.schedule_id, productionReport.scheduledVerification.scheduleId);
+  assert.equal(monitoring.scheduled_verification.laptop_off_proof, false);
+  assert.equal(watchlist.live_access_summary.scheduled_collection_enabled, true);
+  assert.equal(watchlist.live_access_summary.scheduled_collection_verified, false);
+  assert.equal(watchlist.live_access_summary.manual_production_collection_verified, true);
 });
 
 test('selection retains campus breadth without inventing event dates, captions or collector success', async () => {

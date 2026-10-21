@@ -1,0 +1,29 @@
+{
+  "runAt": "2026-10-21T01:51:04.030Z",
+  "passed": 6,
+  "checks": [
+    "actual collector → private upload adapter → SQL RPC persists one publication without an event",
+    "replayed response verifies duplicate object bytes and preserves stable identities/versions",
+    "caption edit creates one new private projection/version and keeps prior version plus identity",
+    "corrupt duplicate Storage bytes stop ingestion before any run or cursor update",
+    "real collector expired-token result reaches blocked health, preserving prior posts and last success",
+    "hosted read-only policy audit script validates against populated local PostgreSQL without changes"
+  ],
+  "readOnlyPolicyChecks": 33,
+  "fixtureClass": "Replayed synthetic Meta HTTP; production collector/ingestion modules; actual PGlite PostgreSQL; in-memory immutable Storage substitute",
+  "uploads": 3,
+  "reuses": 2,
+  "verifiedDownloads": 2,
+  "privateTestObjects": 3,
+  "sqlSourceRuns": 4,
+  "postIdentities": 1,
+  "contentVersions": 2,
+  "calendarWrites": 0,
+  "paidServicesEnabled": 0,
+  "notTested": [
+    "Hosted Supabase Storage/HTTP JWT",
+    "Live Meta access/token lifetime",
+    "Actual Trigger scheduled execution",
+    "Storage upload and SQL cannot roll back as one transaction; safe orphan cleanup remains open"
+  ]
+}

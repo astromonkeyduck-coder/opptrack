@@ -189,9 +189,10 @@
     "One real manual Production test failed the owner-setup guard before collection. Its synthetic scheduler payload is not scheduled-run evidence; actual invocation dollars remain unmeasured.",
     "Supabase migrations001/002 and Auth Site URL/settings are applied. At2026-10-20T23:48:31.583435Z users,owners,sources,opportunities,captures,runs andobjects were zero. No owner bypass or account creation occurred.",
     "Explicit current OpenNext5.16.4 is deployed with one server/one edge function. Published commit9fc73a6 has home200,inbox307,private-media401; authenticated inbox remains unverified.",
-    "Calendar,social,inbound and email delivery flags remain false. No paid connector or paid upgrade was enabled."
+    "Calendar,social,inbound and email delivery flags remain false. No paid connector or paid upgrade was enabled.",
+    "Latest Instagram extension:16 approved sources enabled hourly, protected read token and caller ID in Trigger Production only; social=true, calendar/email=false. Manual Production run succeeds with400 posts; first scheduled social run pending. Earlier setup notes are historical snapshots."
   ],
-  "application_status": "stage_1_implemented_local_verified_hosted_gate_pending",
+  "application_status": "core_cloud_operational_instagram_manual_verified_hourly_proof_pending",
   "hosted_application_state": {
     "netlify": {
       "production_base_variables_confirmed": [
@@ -203,7 +204,7 @@
       "provider_variable_scope": "all scopes; narrower scopes locked on existing Free plan",
       "production_context_only": true,
       "scope_values": "public Supabase pair, public APP_URL and nonsecret disabled flags only",
-      "stage1_authenticated_deploy_verified": false,
+      "stage1_authenticated_deploy_verified": true,
       "production_variables_confirmed": [
         "APP_URL",
         "NEXT_PUBLIC_SUPABASE_URL",
@@ -213,10 +214,10 @@
       ],
       "production_context_count": 1,
       "next_adapter": "@netlify/plugin-nextjs@5.16.4 explicitly configured",
-      "adapter_reason": "Earlier automatic runtime omission caused 404s. Explicit OpenNext5.16.4 is now published with one server and one edge function; anonymous HTTP200/307/401 checks pass. Owner session remains unverified.",
+      "adapter_reason": "Pinned OpenNext runtime deployed; real owner events and private Instagram post feed verified.",
       "ssr_deployment_verified": true,
-      "published_deploy_id": "6ad7fd1b5a01e9295c7a246e",
-      "published_commit": "9fc73a619a39272dc0794f1c7d1186cdb4ea63a4",
+      "published_deploy_id": "6ad815cc31d991b1f07a39bd",
+      "published_commit": "5e1a57dc42fc4562f1a9990b05568c2bd55044d1",
       "server_functions": 1,
       "edge_functions": 1,
       "latest_anonymous_http_checks": {
@@ -228,10 +229,11 @@
     "supabase": {
       "migrations_applied": [
         "202610200001_stage1.sql",
-        "202610200002_hourly_cadence.sql"
+        "202610200002_hourly_cadence.sql",
+        "202610200003_instagram_monitoring.sql"
       ],
       "auth_user_count_at_inspection": 0,
-      "owner_registered": false,
+      "owner_registered": true,
       "owner_creation": "User declined manual account creation; no account or invitation created",
       "auth_site_url": "https://luxury-longma-01d2fa.netlify.app",
       "auth_site_url_saved": true,
@@ -248,7 +250,9 @@
         "captures": 0,
         "source_runs": 0,
         "storage_objects": 0
-      }
+      },
+      "auth_user_count_latest": 1,
+      "instagram_migration_applied": "20261021012900"
     },
     "trigger": {
       "github_repository_grant": "New GitHub app installation verified for one selected repository: astromonkeyduck-coder/opptrack only",
@@ -261,23 +265,24 @@
         "SUPABASE_SECRET_KEY",
         "EMAIL_DELIVERY_ENABLED",
         "CALENDAR_WRITES_ENABLED",
-        "SOCIAL_COLLECTION_ENABLED"
+        "SOCIAL_COLLECTION_ENABLED",
+        "IG_FB_USER_ACCESS_TOKEN",
+        "IG_CALLER_USER_ID"
       ],
       "production_disabled_flags": {
         "EMAIL_DELIVERY_ENABLED": false,
-        "CALENDAR_WRITES_ENABLED": false,
-        "SOCIAL_COLLECTION_ENABLED": false
+        "CALENDAR_WRITES_ENABLED": false
       },
       "production_context_only": true,
       "development_values_applied": false,
       "server_secret_status": "saved as secret; value unviewable and never printed",
       "github_organization_connection_recognized": true,
-      "managed_deployment_status": "Deployed through the connected repository; successful collection awaits owner setup",
+      "managed_deployment_status": "Core scheduled runs and real Instagram manual Production ingestion verified; first automatic social tick pending",
       "github_repository_connected": "astromonkeyduck-coder/opptrack",
       "production_tracking_branch": "main",
       "connection_confirmation": "Fresh Integrations UI confirmed the installed GitHub app and connected repository after user reconnect, approximately 2026-10-20 23:45 UTC",
-      "deployment_id": "kx5ru529",
-      "worker_version": "20261020.1",
+      "deployment_id": "4qe6zd7w",
+      "worker_version": "20261021.3",
       "deployed_at": "2026-10-20T23:46:19Z",
       "cloud_node_version": "24.18.0",
       "schedule_details": {
@@ -305,8 +310,11 @@
         "schedule_proof": false,
         "payload_limit": "Test payload contained synthetic sched_1234/IMPERATIVE; not provider schedule evidence",
         "actual_usd": null
-      }
+      },
+      "instagram_flag_enabled": true
     },
     "paid_plan_change": false
-  }
+  },
+  "latest_monitoring_evidence": "reports/instagram-production-monitoring.json",
+  "hosted_state_as_of": "2026-10-21T01:50:00Z"
 }
