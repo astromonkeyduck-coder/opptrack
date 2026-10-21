@@ -10,7 +10,7 @@ First core schedule `run_06glnirsvhqdmbeiiur94st901` succeeded. Manual Instagram
 
 A bounded approved Meta token extension succeeded at `02:20:49.610662Z`; returned lifetime `5,177,995` seconds gives conservative expiry `2026-12-20T00:40:44.610662Z`. The replacement and verified expiry were saved in Trigger Production only at 10:21/10:22 pm Eastern. Recovered manual/test run `run_06gloh91rq560t7h1a6lmcfre1`, version `20261021.4`, ran `02:23:19.396–02:23:35.587Z`: all 16 fresh reads succeeded, retaining 400 posts/versions and 32 captures with no duplicates and released leases. Next nominal social polls are `03:00Z` (11 pm Eastern). This is not automatic success or automatic renewal. [Token-extension evidence](../reports/instagram-token-extension.json).
 
-`config/instagram-candidates.json` is a separate inactive 209-account inventory:15 watchlist overlaps,194 additional,29 high priority (14 new),180 standard and three unverified aliases. Nothing was probed, enabled or seeded from this inventory. Keep the current exact16 source scope until the pending preference/authorization is resolved and each route passes its access check. [Import report](../reports/instagram-candidates-import.json).
+`config/instagram-candidates.json` is a separate inactive 209-account inventory: 15 watchlist overlaps, 194 additional, 29 high priority (14 new), 180 standard and three unverified aliases. The user-authorized high-priority check made 29 live GETs: 26 returned readable samples, including 11 new accounts; three returned access errors. All candidates remain inactive, with no database seeding. Keep the current exact 16 source scope until a monitoring expansion is authorized and budgeted. The other 180 candidates are untested. [Import report](../reports/instagram-candidates-import.json), [live access checks](../reports/instagram-candidates-high-priority-access.json).
 
 ## Local setup and safe configuration
 
@@ -53,7 +53,7 @@ npm run build
 make check
 ```
 
-Current recorded checks: **103 JavaScript tests**, **60 local PostgreSQL checks** (29 base, 12 hourly, 19 Instagram), **six production-module Instagram replay checks**, **60 Python tests**. `test:db` includes the Instagram replay command; do not count it twice. Synthetic/replayed HTTP and in-memory replay Storage are explicitly labeled. PostgreSQL/RLS are real; local Auth/Storage compatibility shells do not emulate hosted JWT/HTTP.
+Current recorded checks: **106 JavaScript tests**, **60 local PostgreSQL checks** (29 base, 12 hourly, 19 Instagram), **six production-module Instagram replay checks**, **60 Python tests**. `test:db` includes the Instagram replay command; do not count it twice. Synthetic/replayed HTTP and in-memory replay Storage are explicitly labeled. PostgreSQL/RLS are real; local Auth/Storage compatibility shells do not emulate hosted JWT/HTTP.
 
 Fresh core collection may use `npm run collect:live -- --start=YYYY-MM-DD` with the actual date, followed by `npm run prove:live`; direct ingestion is a mutation and must not interfere with due-slot evidence. `node --import tsx scripts/prove-dispatcher-replay.ts` proves the core handler path against replay fixtures. `npm run test:instagram:replay` proves actual social collector/ingestion modules through SQL, including edit/replay, corrupt-object rejection and expired-token health. Exit 2 from a collector means blocked/partial/failed, never “nothing new.”
 

@@ -6,6 +6,8 @@ The user authorized automatic monitoring for the 16 accounts with proven access,
 
 The separate [candidate inventory](../config/instagram-candidates.json) contains 209 supplied accounts, including 15 watchlist overlaps and 194 additional accounts. Of 29 high-priority candidates, 14 are new; the other 180 are standard. Three aliases remain unverified. Importing this inactive inventory made no API requests and enabled no routes; the active monitor remains the exact approved 16. [Import evidence](../reports/instagram-candidates-import.json).
 
+The user-approved high-priority read check ran `02:50:11.467–02:50:17.943Z` on October 21 UTC (10:50 pm Eastern October 20): 29 fixed-host GETs / 42,874 bytes yielded 26 successful bounded samples, 130 parents and 214 child IDs/types. Fifteen successes were existing-watchlist accounts and 11 were new. Three candidates—`dmcfsu`, `fsu_theatre`, `hikingclubfsu`—were blocked with HTTP 400 / Graph 110 / subcode 2207013; causes remain unresolved. `fsu_cre` succeeded independently and is not an established alias/merge for blocked `fsucre`. All candidates remain inactive. This read-only probe made no database ingestion or hosted Storage writes and did not change the active 16-account monitor. [Read-check evidence](../reports/instagram-candidates-high-priority-access.json).
+
 ## Implemented path
 
 `lib/instagram/collector.ts` makes one fixed-host Bearer-authenticated Graph v26.0 GET per due account. Each hourly overlap requests at most 25 parent posts, plaintext captions, canonical permalinks, publication timestamps and up to 20 ordered child IDs/types per carousel. Media files/URLs, Stories, OCR and event dates are not collected. Publication timestamps are not occurrence dates; posts remain separate from the event inbox.
@@ -39,7 +41,7 @@ The existing Meta app is Unpublished. Continued access depends on current grants
 
 ## Evidence boundaries
 
-Current application checks: **103 JavaScript tests**, **60 local PostgreSQL checks plus six worker replay checks**, **60 Python tests**, and **33 populated hosted SQL policy checks**. Local HTTP/Storage fixtures are labeled; SQL-role claims are separate from JWT and Storage HTTP. Known-object download remains unverified. A 390×844 authenticated viewport passed on commit `5e1a57d`; physical-phone and laptop-off verification remain open. See [status](status.md), [worker replay](../reports/instagram-worker-replay.json) and [hosted policies](../reports/instagram-hosted-policy-checks.json).
+Current application checks: **106 JavaScript tests**, **60 local PostgreSQL checks plus six worker replay checks**, **60 Python tests**, and **33 populated hosted SQL policy checks**. Local HTTP/Storage fixtures are labeled; SQL-role claims are separate from JWT and Storage HTTP. Known-object download remains unverified. A 390×844 authenticated viewport passed on commit `5e1a57d`; physical-phone and laptop-off verification remain open. See [status](status.md), [worker replay](../reports/instagram-worker-replay.json) and [hosted policies](../reports/instagram-hosted-policy-checks.json).
 
 Historical access evidence is preserved: [first UI sample](../reports/instagram-live-access.json), [16 successful CLI samples plus one blocked target](../reports/instagram-cli-access.json), and [fresh 25-post collector-shape validation](../reports/instagram-collector-live-validation.json). These do not establish a seven-day social pilot or campus completeness.
 

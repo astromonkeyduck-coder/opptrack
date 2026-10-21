@@ -282,8 +282,8 @@
       "github_repository_connected": "astromonkeyduck-coder/opptrack",
       "production_tracking_branch": "main",
       "connection_confirmation": "Fresh Integrations UI confirmed the installed GitHub app and connected repository after user reconnect, approximately 2026-10-20 23:45 UTC",
-      "deployment_id": null,
-      "worker_version": "20261021.4",
+      "deployment_id": "o9auwo8u",
+      "worker_version": "20261021.5",
       "deployed_at": null,
       "cloud_node_version": "24.18.0",
       "schedule_details": {
@@ -315,7 +315,7 @@
       "instagram_flag_enabled": true,
       "first_instagram_deployment_id": "4qe6zd7w",
       "first_instagram_worker_version": "20261021.3",
-      "version_basis": "Observed in genuine scheduled run run_06gloea0tch74en66hvp2iis01; latest deployment ID/time not separately recorded here.",
+      "version_basis": "Trigger Deploys UI verified Deployed at commit d1d0a9d; prior actual recovery run used20261021.4.",
       "instagram_token_status": "replacement_saved_protected_production_2026-10-20_22:21_Eastern; manualrecoveryverified16success",
       "instagram_token_expiry_verified": true,
       "instagram_token_expires_at_utc": "2026-12-20T00:40:44.610662Z",
@@ -358,8 +358,13 @@
     "new_high_priority": 14,
     "standard": 180,
     "unverified_aliases": 3,
-    "probed": false,
     "source_activation": false,
-    "active_monitor_unchanged": true
+    "active_monitor_unchanged": true,
+    "read_checks": 29,
+    "read_samples_proven": 26,
+    "read_access_blocks": 3,
+    "all_candidates_probed": false,
+    "additional_sample_proven_accounts": 11,
+    "access_report": "reports/instagram-candidates-high-priority-access.json"
   }
 }

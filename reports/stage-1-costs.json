@@ -163,14 +163,15 @@
     "https://www.netlify.com/pricing/"
   ],
   "as_of_timezone": "America/New_York",
-  "observed_through_utc": "2026-10-21T02:24:48.122949Z",
+  "observed_through_utc": "2026-10-21T02:50:17.943Z",
   "evidence": [
     "reports/stage-1-sources-live.json",
     "reports/stage-1-cloud-correlation.json",
     "private/stage-1-trigger-manual-setup-check.png",
     "reports/instagram-production-monitoring.json",
     "reports/instagram-token-recheck.json",
-    "reports/instagram-token-extension.json"
+    "reports/instagram-token-extension.json",
+    "reports/instagram-candidates-high-priority-access.json"
   ],
   "instagramReadOnlyAccessInvestigation": {
     "evidence": "reports/instagram-cli-access.json",
@@ -249,8 +250,44 @@
     "newHighPriority": 14,
     "standard": 180,
     "unverifiedAliases": 3,
-    "probes": 0,
+    "probes": 29,
     "enabledSources": 0,
-    "paidConnectorRuns": 0
+    "paidConnectorRuns": 0,
+    "importProbes": 0,
+    "activeMonitoringUnchanged": true,
+    "readCheckReport": "reports/instagram-candidates-high-priority-access.json"
+  },
+  "instagramHighPriorityReadCheck": {
+    "report": "reports/instagram-candidates-high-priority-access.json",
+    "startedAtUtc": "2026-10-21T02:50:11.467Z",
+    "finishedAtUtc": "2026-10-21T02:50:17.943Z",
+    "requests": 29,
+    "responseBytes": 42874,
+    "successfulSamples": 26,
+    "blocked": 3,
+    "parentPosts": 130,
+    "childMetadataItems": 214,
+    "existingWatchlistSuccesses": 15,
+    "newAccountSuccesses": 11,
+    "blockedHandles": [
+      "dmcfsu",
+      "fsu_theatre",
+      "hikingclubfsu"
+    ],
+    "failure": {
+      "httpStatus": 400,
+      "graphCode": 110,
+      "graphSubcode": 2207013,
+      "cause": "unresolved"
+    },
+    "fsuCreUnderscoreHandle": "fsu_cre succeeded independently; not merged with fsucre",
+    "productionMonitoringRequestsRemain": 48,
+    "databaseIngestion": 0,
+    "hostedStorageWrites": 0,
+    "enabledCandidates": 0,
+    "mediaDownloads": 0,
+    "paidConnectorRuns": 0,
+    "paidUpgrades": 0,
+    "providerInvoiceVerified": false
   }
 }

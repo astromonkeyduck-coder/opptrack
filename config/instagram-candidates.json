@@ -36,7 +36,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-aslc_fsu",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:11.468Z",
+        "finished_at_utc": "2026-10-21T02:50:11.883Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1176,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 2785,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 3,
+          "videos": 2,
+          "reels": 2,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-clubdownunderfsu",
@@ -56,7 +94,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-clubdownunderfsu",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:11.500Z",
+        "finished_at_utc": "2026-10-21T02:50:12.022Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1820,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 369,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 2,
+          "videos": 1,
+          "reels": 1,
+          "carousels": 2,
+          "children": 12,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-dmcfsu",
@@ -75,7 +151,47 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "blocked_unresolved",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:11.883Z",
+        "finished_at_utc": "2026-10-21T02:50:12.033Z",
+        "status": "blocked",
+        "access_sample_proven": false,
+        "requests": 1,
+        "http_statuses": [
+          400
+        ],
+        "response_bytes": 263,
+        "graph_error": {
+          "code": 110,
+          "subcode": 2207013
+        },
+        "reason_codes": [
+          "graph_error_or_http_failure"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": null,
+          "returnedMediaRows": 0,
+          "validUniqueMediaRows": 0,
+          "invalidMediaRows": 0,
+          "images": 0,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-durpfsu",
@@ -94,7 +210,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:12.022Z",
+        "finished_at_utc": "2026-10-21T02:50:12.241Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1165,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 171,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 5,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-emhs_fsu",
@@ -113,7 +267,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:12.033Z",
+        "finished_at_utc": "2026-10-21T02:50:12.257Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1162,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 434,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 5,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsu_cre",
@@ -131,7 +323,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:12.241Z",
+        "finished_at_utc": "2026-10-21T02:50:12.948Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1165,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 3381,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 5,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsu_theatre",
@@ -150,7 +380,47 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "blocked_unresolved",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:12.257Z",
+        "finished_at_utc": "2026-10-21T02:50:12.374Z",
+        "status": "blocked",
+        "access_sample_proven": false,
+        "requests": 1,
+        "http_statuses": [
+          400
+        ],
+        "response_bytes": 268,
+        "graph_error": {
+          "code": 110,
+          "subcode": 2207013
+        },
+        "reason_codes": [
+          "graph_error_or_http_failure"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": null,
+          "returnedMediaRows": 0,
+          "validUniqueMediaRows": 0,
+          "invalidMediaRows": 0,
+          "images": 0,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsucampusrec",
@@ -238,7 +508,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsucampusrec",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:12.374Z",
+        "finished_at_utc": "2026-10-21T02:50:12.714Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1678,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 2058,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 0,
+          "videos": 3,
+          "reels": 3,
+          "carousels": 2,
+          "children": 9,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsucareercenter",
@@ -293,7 +601,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsucareercenter",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:12.714Z",
+        "finished_at_utc": "2026-10-21T02:50:13.125Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1860,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 1640,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 3,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 2,
+          "children": 13,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsucge",
@@ -335,7 +681,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsucge",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:12.948Z",
+        "finished_at_utc": "2026-10-21T02:50:13.788Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 2250,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 1774,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 1,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 4,
+          "children": 20,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsucollegeoflaw",
@@ -354,7 +738,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:13.125Z",
+        "finished_at_utc": "2026-10-21T02:50:13.605Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1405,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 2129,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 2,
+          "videos": 2,
+          "reels": 2,
+          "carousels": 1,
+          "children": 4,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsucosspp",
@@ -373,7 +795,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsucosspp",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:13.605Z",
+        "finished_at_utc": "2026-10-21T02:50:13.835Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1165,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 2495,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 5,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsueconomicsdept",
@@ -392,7 +852,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:13.788Z",
+        "finished_at_utc": "2026-10-21T02:50:14.043Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1173,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 144,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 5,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsuhomecoming",
@@ -410,7 +908,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsuhomecoming",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:13.835Z",
+        "finished_at_utc": "2026-10-21T02:50:14.165Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1543,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 515,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 3,
+          "videos": 1,
+          "reels": 1,
+          "carousels": 1,
+          "children": 7,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsuhonors",
@@ -430,7 +966,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsuhonors",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:14.043Z",
+        "finished_at_utc": "2026-10-21T02:50:14.362Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1421,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 615,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 3,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 2,
+          "children": 4,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsuhsa",
@@ -448,7 +1022,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:14.165Z",
+        "finished_at_utc": "2026-10-21T02:50:14.798Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1162,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 143,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 5,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsuigc",
@@ -467,7 +1079,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:14.362Z",
+        "finished_at_utc": "2026-10-21T02:50:14.798Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1979,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 266,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 1,
+          "videos": 1,
+          "reels": 1,
+          "carousels": 3,
+          "children": 15,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsuip",
@@ -488,7 +1138,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsuip",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:14.798Z",
+        "finished_at_utc": "2026-10-21T02:50:15.218Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1671,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 1438,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 0,
+          "videos": 3,
+          "reels": 3,
+          "carousels": 2,
+          "children": 9,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsumofa",
@@ -507,7 +1195,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:14.798Z",
+        "finished_at_utc": "2026-10-21T02:50:15.192Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1979,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 2406,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 2,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 3,
+          "children": 15,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsusga",
@@ -545,7 +1271,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsusga",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:15.192Z",
+        "finished_at_utc": "2026-10-21T02:50:16.091Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 2079,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 1153,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 1,
+          "videos": 1,
+          "reels": 1,
+          "carousels": 3,
+          "children": 17,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsustudentaffairs",
@@ -599,7 +1363,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsustudentaffairs",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:15.218Z",
+        "finished_at_utc": "2026-10-21T02:50:15.733Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 2093,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 1135,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 0,
+          "videos": 2,
+          "reels": 2,
+          "carousels": 3,
+          "children": 17,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsustudentengagement",
@@ -617,7 +1419,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsustudentengagement",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:15.733Z",
+        "finished_at_utc": "2026-10-21T02:50:16.179Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 2040,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 475,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 2,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 3,
+          "children": 16,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsustudentunion",
@@ -641,7 +1481,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsustudentunion",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:16.091Z",
+        "finished_at_utc": "2026-10-21T02:50:16.496Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1815,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 504,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 2,
+          "videos": 1,
+          "reels": 1,
+          "carousels": 2,
+          "children": 12,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-fsusustainable",
@@ -661,7 +1539,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-fsusustainable",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:16.179Z",
+        "finished_at_utc": "2026-10-21T02:50:16.749Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 2401,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 1636,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 1,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 4,
+          "children": 23,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-hikingclubfsu",
@@ -679,7 +1595,47 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "blocked_unresolved",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:16.496Z",
+        "finished_at_utc": "2026-10-21T02:50:16.621Z",
+        "status": "blocked",
+        "access_sample_proven": false,
+        "requests": 1,
+        "http_statuses": [
+          400
+        ],
+        "response_bytes": 270,
+        "graph_error": {
+          "code": 110,
+          "subcode": 2207013
+        },
+        "reason_codes": [
+          "graph_error_or_http_failure"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": null,
+          "returnedMediaRows": 0,
+          "validUniqueMediaRows": 0,
+          "invalidMediaRows": 0,
+          "images": 0,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-musicfsu",
@@ -698,7 +1654,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:16.621Z",
+        "finished_at_utc": "2026-10-21T02:50:17.028Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1566,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 5160,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 2,
+          "videos": 1,
+          "reels": 1,
+          "carousels": 2,
+          "children": 7,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-onf.fsu",
@@ -716,7 +1710,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:16.749Z",
+        "finished_at_utc": "2026-10-21T02:50:17.543Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1164,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 532,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 5,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 0,
+          "children": 0,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-openingnights",
@@ -735,7 +1767,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": null,
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:17.028Z",
+        "finished_at_utc": "2026-10-21T02:50:17.424Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1797,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 1221,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 1,
+          "videos": 1,
+          "reels": 1,
+          "carousels": 3,
+          "children": 11,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-thecenterfsu",
@@ -755,7 +1825,45 @@
       "alias_verification": null,
       "existing_watchlist_source_id": "instagram-thecenterfsu",
       "enabled_in_candidate_registry": false,
-      "access_status": "not_tested_during_import"
+      "access_status": "live_sample_proven",
+      "access_evidence": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "probe_version": "business-discovery-high-priority-candidate-preflight-v1",
+        "api_version": "v26.0",
+        "started_at_utc": "2026-10-21T02:50:17.424Z",
+        "finished_at_utc": "2026-10-21T02:50:17.943Z",
+        "status": "success_sample",
+        "access_sample_proven": true,
+        "requests": 1,
+        "http_statuses": [
+          200
+        ],
+        "response_bytes": 1344,
+        "graph_error": null,
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "sample_counts": {
+          "providerReportedMediaCount": 998,
+          "returnedMediaRows": 5,
+          "validUniqueMediaRows": 5,
+          "invalidMediaRows": 0,
+          "images": 4,
+          "videos": 0,
+          "reels": 0,
+          "carousels": 1,
+          "children": 3,
+          "childPagesRemaining": 0
+        },
+        "pagination_complete": false,
+        "sample_only": true,
+        "captions_collected": false,
+        "media_files_downloaded": 0,
+        "stories_tested": false,
+        "candidate_activated": false,
+        "affiliation_and_alias_claims_independently_verified": false
+      }
     },
     {
       "candidate_id": "instagram-candidate-acelearningstudio",
@@ -4302,6 +5410,60 @@
     "candidate_handle": "fsu_cre",
     "existing_blocked_watchlist_handle": "fsucre",
     "relationship_status": "unverified_distinct_handles",
-    "note": "The submitted fsu_cre candidate may warrant a separate access check; no alias, replacement or activation is inferred."
+    "note": "A separate bounded API sample for fsu_cre succeeded; its relationship to blocked fsucre remains unverified. No alias, replacement or activation is inferred.",
+    "candidate_access_sample_status": "live_sample_proven",
+    "access_report": "reports/instagram-candidates-high-priority-access.json"
+  },
+  "latest_access_investigation": {
+    "report": "reports/instagram-candidates-high-priority-access.json",
+    "investigation_kind": "user_authorized_read_only_29_high_priority_candidate_access_checks",
+    "started_at_utc": "2026-10-21T02:50:11.467Z",
+    "finished_at_utc": "2026-10-21T02:50:17.943Z",
+    "counts": {
+      "selected_accounts": 29,
+      "accounts_attempted": 29,
+      "access_samples_proven": 26,
+      "requests": 29,
+      "response_bytes": 42874,
+      "valid_parent_posts": 130,
+      "child_metadata_rows": 214,
+      "status_counts": {
+        "success_sample": 26,
+        "blocked": 3
+      },
+      "successful_existing_watchlist_samples": 15,
+      "successful_additional_candidate_samples": 11,
+      "standard_candidates_not_tested": 180
+    },
+    "successful_additional_candidate_handles": [
+      "durpfsu",
+      "emhs_fsu",
+      "fsu_cre",
+      "fsucollegeoflaw",
+      "fsueconomicsdept",
+      "fsuhsa",
+      "fsuigc",
+      "fsumofa",
+      "musicfsu",
+      "onf.fsu",
+      "openingnights"
+    ],
+    "blocked_unresolved_handles": [
+      "dmcfsu",
+      "fsu_theatre",
+      "hikingclubfsu"
+    ],
+    "candidate_activation_count": 0,
+    "active_watchlist_modified": false,
+    "worker_allowlist_modified": false,
+    "database_modified": false,
+    "alias_claims_merged": 0,
+    "evidence_limits": [
+      "Bounded five-parent metadata samples only; no full-history or all-slide content guarantee.",
+      "No captions, media URLs, media files, Stories or event extraction requested.",
+      "A failed, blocked, rate-limited or empty-unverified response does not mean nothing new.",
+      "Affiliation, current activity, alias claims and suitability are separate from API sample access.",
+      "Public report omits credentials, caller/account IDs, sample post IDs, permalinks, provider URLs, cursor values and raw error messages."
+    ]
   }
 }

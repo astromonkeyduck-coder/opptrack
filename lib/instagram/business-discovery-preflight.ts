@@ -2,10 +2,12 @@ import { createHash, randomUUID } from "node:crypto";
 import { lstat, mkdir, realpath, writeFile } from "node:fs/promises";
 import path from "node:path";
 import watchlist from "../../config/instagram-watchlist.json";
+import candidates from "../../config/instagram-candidates.json";
 
 export const graphVersion = "v26.0";
 export const probeEnvironmentFilename = ".env.instagram.probe.local";
 const handles = new Set(watchlist.accounts.map(account => account.handle));
+const highPriorityCandidateHandles = new Set(candidates.accounts.filter(account => account.priority === "high").map(account => account.handle));
 const numericId = /^[0-9]{1,32}$/;
 const cursorPattern = /^[A-Za-z0-9_+=/-]{1,2048}$/;
 const instant = /(?:Z|[+-][0-9]{2}:?[0-9]{2})$/;
@@ -65,26 +67,39 @@ function continuation(value: unknown) {
 }
 
 /** One fixed Graph node; no provider URL or endpoint can control the request. */
-export function discoveryRequestUrl(callerId: string, target: string, pageSize: number, after: string | null = null): URL {
-  if (!numericId.test(callerId) || !handles.has(target) || !Number.isInteger(pageSize) || pageSize < 1 || pageSize > 25 || (after !== null && !cursorPattern.test(after))) throw new Error("Invalid bounded Business Discovery request");
+function requestUrl(callerId: string, target: string, pageSize: number, after: string | null, allowedTargets: ReadonlySet<string>): URL {
+  if (!numericId.test(callerId) || !allowedTargets.has(target) || !Number.isInteger(pageSize) || pageSize < 1 || pageSize > 25 || (after !== null && !cursorPattern.test(after))) throw new Error("Invalid bounded Business Discovery request");
   const media = `media${after ? `.after(${after})` : ""}.limit(${pageSize}){id,media_type,media_product_type,timestamp,permalink,children.limit(20){id,media_type}}`;
   const url = new URL(`https://graph.facebook.com/${graphVersion}/${callerId}`);
   url.searchParams.set("fields", `id,business_discovery.username(${target}){id,username,media_count,${media}}`);
   return url;
 }
 
+export function discoveryRequestUrl(callerId: string, target: string, pageSize: number, after: string | null = null): URL {
+  return requestUrl(callerId, target, pageSize, after, handles);
+}
+
 /** Read-only, bounded access hypothesis. This is not a scheduled social collector. */
 export async function preflightBusinessDiscovery(options: PreflightOptions, dependencies: { fetch?: typeof fetch; now?: () => Date } = {}): Promise<PreflightResult> {
+  return runPreflight(options, dependencies, handles, 25_000, "business-discovery-preflight-v2");
+}
+
+/** Separate, manual candidate investigation; it never changes the production watchlist/allowlist. */
+export async function preflightHighPriorityInstagramCandidate(options: Pick<PreflightOptions, "target" | "environment">, dependencies: { fetch?: typeof fetch; now?: () => Date } = {}): Promise<PreflightResult> {
+  return runPreflight({ target: options.target, environment: options.environment, maxPages: 1, maxRequests: 1, pageSize: 5 }, dependencies, highPriorityCandidateHandles, 10_000, "business-discovery-high-priority-candidate-preflight-v1");
+}
+
+async function runPreflight(options: PreflightOptions, dependencies: { fetch?: typeof fetch; now?: () => Date }, allowedTargets: ReadonlySet<string>, timeoutMs: number, probeVersion: string): Promise<PreflightResult> {
   const now = dependencies.now ?? (() => new Date());
   const environment = options.environment ?? process.env;
   const target = options.target.trim().replace(/^@/, "").toLowerCase();
   const result: PreflightResult = {
-    summary: { probeVersion: "business-discovery-preflight-v2", apiVersion: graphVersion, target: handles.has(target) ? target : null, startedAt: now().toISOString(), finishedAt: now().toISOString(), status: "setup_needed", reasonCodes: [], missingVariables: [], requests: 0, pages: 0, responseBytes: 0, httpStatuses: [], graphError: null, metadataReturned: false, accessSampleProven: false, paginationComplete: false, sampleOnly: true, counts: { providerReportedMediaCount: null, returnedMediaRows: 0, validUniqueMediaRows: 0, invalidMediaRows: 0, images: 0, videos: 0, reels: 0, carousels: 0, children: 0, childPagesRemaining: 0 }, storiesTested: false, automaticMonitoringEnabled: false },
+    summary: { probeVersion, apiVersion: graphVersion, target: allowedTargets.has(target) ? target : null, startedAt: now().toISOString(), finishedAt: now().toISOString(), status: "setup_needed", reasonCodes: [], missingVariables: [], requests: 0, pages: 0, responseBytes: 0, httpStatuses: [], graphError: null, metadataReturned: false, accessSampleProven: false, paginationComplete: false, sampleOnly: true, counts: { providerReportedMediaCount: null, returnedMediaRows: 0, validUniqueMediaRows: 0, invalidMediaRows: 0, images: 0, videos: 0, reels: 0, carousels: 0, children: 0, childPagesRemaining: 0 }, storiesTested: false, automaticMonitoringEnabled: false },
     privateDiagnostics: { evidenceKind: "sanitized-diagnostic-projection", losslessRawCapture: false, excludedFields: ["credentials", "Graph paging URLs and cursor values", "error messages", "captions", "media and thumbnail URLs", "unrequested provider fields"], pages: [] },
   };
   const summary = result.summary;
   const finish = (status: ProbeStatus, reason: string) => { summary.status = status; summary.accessSampleProven = summary.counts.validUniqueMediaRows > 0; if (reason && !summary.reasonCodes.includes(reason)) summary.reasonCodes.push(reason); summary.finishedAt = now().toISOString(); return result; };
-  if (!handles.has(target)) return finish("blocked", "target_not_in_user_watchlist");
+  if (!allowedTargets.has(target)) return finish("blocked", "target_not_in_authorized_probe_set");
   const maxPages = options.maxPages ?? 1, maxRequests = options.maxRequests ?? 1, pageSize = options.pageSize ?? 5;
   if (![maxPages, maxRequests].every(value => Number.isInteger(value) && value >= 1 && value <= 3) || !Number.isInteger(pageSize) || pageSize < 1 || pageSize > 25) return finish("blocked", "invalid_request_or_page_limit");
   const token = environment.IG_FB_USER_ACCESS_TOKEN?.trim();
@@ -95,12 +110,12 @@ export async function preflightBusinessDiscovery(options: PreflightOptions, depe
   if (!numericId.test(callerId!)) return finish("setup_needed", "caller_instagram_id_must_be_numeric");
   if (!/^[A-Za-z0-9_.~+/=-]{16,4096}$/.test(token!)) return finish("setup_needed", "invalid_token_format_no_request");
   const fetcher = dependencies.fetch ?? fetch;
-  const signal = AbortSignal.timeout(25_000);
+  const signal = AbortSignal.timeout(timeoutMs);
   const seenIds = new Set<string>(), seenCursors = new Set<string>();
   let providerCountChanged = false;
   let after: string | null = null;
   for (let pageIndex = 0; pageIndex < maxPages && summary.requests < maxRequests; pageIndex++) {
-    const url = discoveryRequestUrl(callerId!, target, pageSize, after);
+    const url = requestUrl(callerId!, target, pageSize, after, allowedTargets);
     let response: Response;
     try {
       summary.requests++;

@@ -1653,7 +1653,7 @@
     "eventExtraction": 0
   },
   "tests": {
-    "application": 103,
+    "application": 106,
     "basePostgres": 29,
     "hourlyPostgres": 12,
     "instagramPostgres": 19,
@@ -2486,7 +2486,7 @@
     "workerVersion": "20261021.4",
     "usageSeconds": 14.7,
     "estimatedRunUsd": 0.00052356,
-    "invocationCostUsd": 0.000025,
+    "invocationCostUsd": 2.5e-05,
     "computeCostUsd": 0.00049855,
     "providerRounding": true
   },
@@ -2510,6 +2510,24 @@
     "newHighPriorityOutsideWatchlist": 14,
     "additionalCandidates": 194,
     "enabledFromCandidates": 0,
-    "highPriorityReadChecksAuthorized": true
+    "highPriorityReadChecksAuthorized": true,
+    "accessReport": "reports/instagram-candidates-high-priority-access.json",
+    "readChecks": 29,
+    "samplesProven": 26,
+    "blocked": 3,
+    "newAccountsWithSamples": 11,
+    "activated": 0
+  },
+  "recoveryUiRelease": {
+    "commit": "d1d0a9d525b8bffb13e27305bb69269640fd6146",
+    "githubActionsRunId": 39535090523,
+    "githubActionsConclusion": "success",
+    "netlifyDeployId": "6ad82810b014a80cb24340a1",
+    "netlifyPublishedVerified": true,
+    "triggerDeployId": "o9auwo8u",
+    "triggerVersion": "20261021.5",
+    "triggerDeployedVerified": true,
+    "realOwnerFeedPosts": 400,
+    "liveCredentialExpiryCopyVerified": true
   }
 }

@@ -108,5 +108,59 @@
     "exit_code": 0,
     "stdout": "PASS:209 unique candidates;29 high/180 standard;726 FSU source references;3 unmerged alias claims;0 activated;0 network",
     "stderr_empty": true
-  }
+  },
+  "follow_up_investigations": [
+    {
+      "report": "reports/instagram-candidates-high-priority-access.json",
+      "investigation_kind": "user_authorized_read_only_29_high_priority_candidate_access_checks",
+      "started_at_utc": "2026-10-21T02:50:11.467Z",
+      "finished_at_utc": "2026-10-21T02:50:17.943Z",
+      "counts": {
+        "selected_accounts": 29,
+        "accounts_attempted": 29,
+        "access_samples_proven": 26,
+        "requests": 29,
+        "response_bytes": 42874,
+        "valid_parent_posts": 130,
+        "child_metadata_rows": 214,
+        "status_counts": {
+          "success_sample": 26,
+          "blocked": 3
+        },
+        "successful_existing_watchlist_samples": 15,
+        "successful_additional_candidate_samples": 11,
+        "standard_candidates_not_tested": 180
+      },
+      "successful_additional_candidate_handles": [
+        "durpfsu",
+        "emhs_fsu",
+        "fsu_cre",
+        "fsucollegeoflaw",
+        "fsueconomicsdept",
+        "fsuhsa",
+        "fsuigc",
+        "fsumofa",
+        "musicfsu",
+        "onf.fsu",
+        "openingnights"
+      ],
+      "blocked_unresolved_handles": [
+        "dmcfsu",
+        "fsu_theatre",
+        "hikingclubfsu"
+      ],
+      "candidate_activation_count": 0,
+      "active_watchlist_modified": false,
+      "worker_allowlist_modified": false,
+      "database_modified": false,
+      "alias_claims_merged": 0,
+      "evidence_limits": [
+        "Bounded five-parent metadata samples only; no full-history or all-slide content guarantee.",
+        "No captions, media URLs, media files, Stories or event extraction requested.",
+        "A failed, blocked, rate-limited or empty-unverified response does not mean nothing new.",
+        "Affiliation, current activity, alias claims and suitability are separate from API sample access.",
+        "Public report omits credentials, caller/account IDs, sample post IDs, permalinks, provider URLs, cursor values and raw error messages."
+      ]
+    }
+  ]
 }
