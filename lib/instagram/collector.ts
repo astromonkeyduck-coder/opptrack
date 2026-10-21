@@ -2,6 +2,7 @@ import watchlist from "../../config/instagram-watchlist.json";
 import type { CollectionBatch, RawPage } from "../collection/types";
 import { parseRetryAfter, sha256, stableHash } from "../collection/http";
 import { validateCollectionBatch } from "../collection";
+import { instagramPermissionRepairMessage, isGraphPermissionError } from "./graph-errors";
 
 export const instagramAdapter = "instagram-business-discovery-v1";
 export const instagramScope = "latest25_parent_metadata_only";
@@ -111,6 +112,7 @@ export async function collectInstagram(sourceId: string, options: {
     const projection = { kind: "sanitized_api_projection", scope: instagramScope, history_complete: false, posts: [], graph_error: { code, subcode }, http_status: response.status };
     addCapture(projection);
     if (response.status === 429 || response.status === 503 || [4, 17, 32, 613].includes(code ?? -1)) { batch.retryAfterSeconds = parseRetryAfter(response.headers.get("retry-after"), now()); return finish("rate_limited", "rate_limited", "Instagram API rate limit; retry floor is retained separately from hourly cadence"); }
+    if (isGraphPermissionError(code)) return finish("blocked", "permission_denied", instagramPermissionRepairMessage);
     if (code === 190 || [401, 403].includes(response.status)) return finish("blocked", code === 190 && subcode === 463 ? "token_expired" : "authorization_unavailable", code === 190 && subcode === 463 ? "Instagram token expired; replace it in Trigger Production" : "Instagram token or read authorization is unavailable; review worker setup");
     if (response.status >= 500 || graphError?.is_transient === true) return finish("failed", "provider_failure", "Instagram API returned a transient/provider failure");
     return finish("blocked", "target_unavailable", `Instagram target access failed (Graph ${code ?? "unknown"}/${subcode ?? "unknown"}); cause remains unresolved`);

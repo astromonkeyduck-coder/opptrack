@@ -1,0 +1,37 @@
+{
+  "diagnosticVersion": "instagram-read-access-v1",
+  "startedAt": "2026-10-21T23:37:44.491Z",
+  "finishedAt": "2026-10-21T23:37:44.873Z",
+  "status": "blocked",
+  "requests": 1,
+  "responseBytes": 259,
+  "permissionCheck": {
+    "status": "blocked",
+    "reason": "token_expired",
+    "httpStatus": 401,
+    "graphCode": 190,
+    "graphSubcode": 463
+  },
+  "callerCheck": {
+    "status": "setup_needed",
+    "reason": "not_attempted",
+    "httpStatus": null,
+    "graphCode": null,
+    "graphSubcode": null
+  },
+  "requiredPermissions": {
+    "instagram_basic": "unverified",
+    "instagram_manage_insights": "unverified",
+    "pages_read_engagement": "unverified",
+    "pages_show_list": "unverified"
+  },
+  "conclusions": [
+    "permission_read_failed_production_health_unchanged"
+  ],
+  "credentialValuesLogged": false,
+  "databaseWrites": 0,
+  "tokenChanges": 0,
+  "scopesAdded": 0,
+  "credentialSource": "local_test_credential_not_assumed_to_match_production",
+  "automaticMonitoringRepaired": false
+}

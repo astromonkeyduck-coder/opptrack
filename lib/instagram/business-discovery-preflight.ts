@@ -3,6 +3,7 @@ import { lstat, mkdir, realpath, writeFile } from "node:fs/promises";
 import path from "node:path";
 import watchlist from "../../config/instagram-watchlist.json";
 import candidates from "../../config/instagram-candidates.json";
+import { isGraphPermissionError } from "./graph-errors";
 
 export const graphVersion = "v26.0";
 export const probeEnvironmentFilename = ".env.instagram.probe.local";
@@ -150,6 +151,7 @@ async function runPreflight(options: PreflightOptions, dependencies: { fetch?: t
       summary.graphError = error ? { code: safeInteger(error.code), subcode: safeInteger(error.error_subcode) } : null;
       if (summary.graphError) diagnostic.graphError = summary.graphError;
       if (response.status === 429 || response.status === 503 || [4, 17, 32, 613].includes(summary.graphError?.code ?? -1)) return finish("rate_limited", "provider_rate_limit_no_automatic_retry");
+      if (isGraphPermissionError(summary.graphError?.code ?? null)) return finish("blocked", "read_permission_denied_review_existing_grants_and_page_link");
       if ([401, 403].includes(response.status) || summary.graphError?.code === 190) return finish("setup_needed", "token_or_authorization_unavailable");
       if (response.status >= 500 || error?.is_transient === true) return finish("failed", "provider_http_or_transient_graph_failure");
       return finish("blocked", "graph_error_or_http_failure");

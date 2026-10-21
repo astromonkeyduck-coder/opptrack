@@ -92,6 +92,19 @@ test("Graph190expiredtoken with HTTP200 is blocked and never successful empty", 
   assert.equal(result.pages[0].body.includes(environment.IG_FB_USER_ACCESS_TOKEN), false); assert.equal(result.pages[0].body.includes("message"), false);
 });
 
+test("Graph permission codes are actionable authorization blocks without storing provider error text", async () => {
+  for (const code of [10, 200, 299]) {
+    const result = await collectInstagram(source, { environment, now, fetch: jsonFetch({ error: { code, message: `PRIVATE ${environment.IG_FB_USER_ACCESS_TOKEN}`, type: "OAuthException" } }, 400) });
+    assert.equal(result.status, "blocked"); assert.equal(result.failureCategory, "permission_denied");
+    assert.match(result.reason!, /read permission/); assert.doesNotMatch(result.reason!, /target access failed/);
+    assert.equal(result.cursor, null); assert.equal(result.updates.length, 0);
+    assert.equal(JSON.stringify(result).includes(environment.IG_FB_USER_ACCESS_TOKEN), false);
+    assert.equal(JSON.stringify(result).includes("PRIVATE"), false);
+  }
+  const unknown = await collect({ error: { code: 110, error_subcode: 2207013 } });
+  assert.equal(unknown.failureCategory, "target_unavailable");
+});
+
 test("RetryAfter is retained and provider rate limit uses durable rate_limited outcome", async () => {
   const result = await collectInstagram(source, { environment, now, fetch: jsonFetch({ error: { code: 4 } }, 429, { "retry-after": "7200" }) });
   assert.equal(result.status, "rate_limited"); assert.equal(result.retryAfterSeconds, 7200); assert.equal(result.cursor, null);
