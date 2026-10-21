@@ -85,21 +85,27 @@
           "required": false,
           "type": "string",
           "secret": false,
-          "scopes": ["functions"],
+          "scopes": [
+            "functions"
+          ],
           "feature": "google_calendar_readonly"
         },
         "GOOGLE_CLIENT_SECRET": {
           "required": false,
           "type": "string",
           "secret": true,
-          "scopes": ["functions"],
+          "scopes": [
+            "functions"
+          ],
           "feature": "google_calendar_readonly"
         },
         "CALENDAR_TOKEN_ENCRYPTION_KEY": {
           "required": false,
           "type": "base64_32",
           "secret": true,
-          "scopes": ["functions"],
+          "scopes": [
+            "functions"
+          ],
           "feature": "google_calendar_readonly",
           "format": "32 random bytes encoded as canonical base64; enforced by offline validation and server runtime"
         }
@@ -402,11 +408,15 @@
   "hosted_state_as_of": "2026-10-21T14:35:44.214128Z",
   "optional_features": {
     "google_calendar_readonly": {
-      "status": "implemented_cloud_configuration_and_live_consent_pending",
+      "status": "credentials_configured_api_enablement_and_live_consent_pending",
       "explicit_owner_authorization": true,
       "google_cloud_project": "iron-radio-512315-g3",
       "billing_activation_authorized": false,
-      "netlify_variables": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "CALENDAR_TOKEN_ENCRYPTION_KEY"],
+      "netlify_variables": [
+        "GOOGLE_CLIENT_ID",
+        "GOOGLE_CLIENT_SECRET",
+        "CALENDAR_TOKEN_ENCRYPTION_KEY"
+      ],
       "all_variables_required_together": true,
       "runtime": "Netlify server functions only; no Trigger or NEXT_PUBLIC credential",
       "scope": "https://www.googleapis.com/auth/calendar.events.readonly",
@@ -414,10 +424,13 @@
       "writes_enabled": false,
       "redirect_uri": "https://luxury-longma-01d2fa.netlify.app/api/calendar/callback",
       "migration": "202610200006_google_calendar_readonly.sql",
-      "migration_hosted_verified": false,
+      "migration_hosted_verified": true,
       "live_oauth_verified": false,
       "live_event_read_verified": false,
-      "runbook": "docs/calendar-readonly.md"
+      "runbook": "docs/calendar-readonly.md",
+      "migration_hosted_version": "20261021152408",
+      "production_credentials_configured": true,
+      "credential_scopes_actual": "Production context only; Free UI locks protected secrets to Builds, Functions and Runtime; no post processing or NEXT_PUBLIC variable"
     }
   },
   "inactive_instagram_candidate_inventory": {

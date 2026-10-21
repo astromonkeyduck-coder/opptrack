@@ -2254,3 +2254,21 @@ input[type=file]::file-selector-button {
 .calendar-agenda p {font-size:10px;line-height:1.5;margin:9px 0;color:#768169;}
 .calendar-agenda strong {display:block;font-weight:500;color:#515f49;}
 .calendar-agenda span {font-size:9px;}
+
+/* Prioritize the event and keep both deliberate decision controls in view. */
+.workspace-heading .subtitle {display:none;}
+.event-excerpt {display:none;}
+@media (min-width:761px) {
+  .app-main {padding-top:32px;}
+  .workspace-heading {margin-bottom:18px;}
+  .workspace-heading .kicker {margin-bottom:6px;}
+  .event-art {height:160px;}
+  .deck-toolbar {margin-bottom:8px;}
+}
+.event-when span {color:#68745f;}
+.event-location {color:#68745f;}
+.event-source {color:#6b7562;}
+.event-flags {color:#6f7666;}
+.event-details {color:#65735c;}
+.inbox-context {color:#6b7562;}
+.post-account time,.post-media,.post-footer span {color:#6d7862;}
