@@ -1,0 +1,32 @@
+{
+  "asOfUtc": "2026-10-21T00:30:02Z",
+  "verifiedApplicationCommit": "d5ed016e87a01d201fd1c20b796544b6004234f0",
+  "gitPush": "origin/main advanced2deaa36\u2192d5ed016",
+  "githubActions": {
+    "id": 39521235011,
+    "status": "completed",
+    "conclusion": "success",
+    "updatedAtUtc": "2026-10-21T00:26:02Z"
+  },
+  "netlify": {
+    "site": "luxury-longma-01d2fa",
+    "deployId": "6ad8067ad679ba54923ac5be",
+    "state": "Published",
+    "commit": "d5ed016e87a01d201fd1c20b796544b6004234f0",
+    "runtime": "Next.js Runtime",
+    "serverFunctions": 1,
+    "edgeFunctions": 1,
+    "observation": "Actual Netlify deploy-detail UI"
+  },
+  "authenticatedWatchlist": {
+    "url": "https://luxury-longma-01d2fa.netlify.app/instagram",
+    "actualOwnerSession": true,
+    "accountsDisplayed": 17,
+    "statuses": "setup_needed; automatic collection disabled; Storiesmanual-only",
+    "privateScreenshot": "private/instagram-watchlist-hosted.png"
+  },
+  "sourceEnablementUnchanged": true,
+  "calendarWrites": 0,
+  "paidUpgrades": 0,
+  "evidenceBoundary": "This proves the new hosted watchlist, not Instagram post collection. Any later documentation-only commit/deploy is separate."
+}

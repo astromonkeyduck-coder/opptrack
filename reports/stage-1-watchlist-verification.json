@@ -4,7 +4,7 @@
     {
       "command": "npm test",
       "exitCode": 0,
-      "tests": 58
+      "tests": 77
     },
     {
       "command": "make check",
@@ -34,12 +34,22 @@
     "boundary": "Read-only SQL roles/claims, not owner or other-user signed JWT Storage HTTP"
   },
   "credentialScan": {
-    "checkedChangedFiles": 22,
-    "credentialPatternMatches": 0,
+    "scannedRepositoryFiles": 154,
+    "exactMetaTokenOrCallerIdMatches": 0,
     "forbiddenTrackedFiles": 0,
-    "dotenvPrivateScreenshotsIgnored": true
+    "dotenvPrivateScreenshotsIgnored": true,
+    "localProbeFileMode": "600",
+    "credentialValuesPrinted": false
   },
   "liveEvidence": "reports/stage-1-cloud-correlation.json",
-  "mockBoundary": "New watchlist tests use static configuration/synthetic test owner; no Instagram live post request made",
-  "calendarWrites": 0
+  "mockBoundary": "26 synthetic watchlist/preflight tests plus prior 51 tests pass. Fresh live target samples are separate in reports/instagram-cli-access.json:16 success, 1 blocked, no scheduled social collection.",
+  "calendarWrites": 0,
+  "probeEnvironmentInitialization": {
+    "command": "node --import tsx scripts/probe-instagram-business-discovery.ts --initialize-env",
+    "exitCode": 0,
+    "result": "already_exists",
+    "networkRequests": 0,
+    "credentialValuesRead": false
+  },
+  "liveInstagramEvidence": "reports/instagram-cli-access.json"
 }

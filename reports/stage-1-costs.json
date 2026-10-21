@@ -115,5 +115,18 @@
     "reports/stage-1-sources-live.json",
     "reports/stage-1-cloud-correlation.json",
     "private/stage-1-trigger-manual-setup-check.png"
-  ]
+  ],
+  "instagramReadOnlyAccessInvestigation": {
+    "evidence": "reports/instagram-cli-access.json",
+    "batchRequests": 17,
+    "batchResponseBytes": 28794,
+    "businessDiscoveryRequestsIncludingEarlierSamples": 19,
+    "setupApiReads": 3,
+    "totalKnownCredentialedGraphReads": 22,
+    "mediaDownloads": 0,
+    "modelCalls": 0,
+    "paidConnectorsOrUpgrades": 0,
+    "providerBilling": "Not independently measured; no connector purchased or plan upgraded",
+    "scheduledInstagramRuns": 0
+  }
 }

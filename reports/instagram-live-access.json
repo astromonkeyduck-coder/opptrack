@@ -1,0 +1,70 @@
+{
+  "asOfUtc": "2026-10-21T00:52:27Z",
+  "accessRoute": "Meta Instagram API with Facebook Login / Business Discovery",
+  "apiVersion": "v26.0",
+  "actorSetup": {
+    "developerApp": "4387142291430378",
+    "publishStatus": "Unpublished",
+    "pageCreatedWithExplicitApproval": true,
+    "professionalInstagramLinked": true,
+    "savedInstagramInboxMessageAccess": "Disabled",
+    "ownerIdentifiersOmitted": true
+  },
+  "readAuthorization": {
+    "userApprovedAtActionTime": true,
+    "grantedVerifiedByLiveMePermissions": [
+      "instagram_basic",
+      "instagram_manage_insights",
+      "pages_read_engagement",
+      "pages_show_list",
+      "public_profile"
+    ],
+    "tokenValuePrinted": false,
+    "tokenStillOnlyInProviderUi": false,
+    "productionWorkerTokenConfigured": false,
+    "tokenExpiry": "unmeasured; do not assume production longevity",
+    "tokenStoredInIgnoredLocalProbeFile": true
+  },
+  "setupReads": {
+    "mePermissions": "All four requested reads plus standard public_profile granted",
+    "meAccounts": "Successful response data:[]; cause unresolved, never interpreted as no posts",
+    "knownPageRead": "Exact Page asset ID from normal admin UI returned expected professional username and caller IG ID. No Page access_token field requested. Caller ID filled only into empty ignored local placeholder."
+  },
+  "targetSample": {
+    "target": "clubdownunderfsu",
+    "provenance": "Fresh live GET through official Meta Graph API Explorer; not a replay or mock",
+    "readRequests": 1,
+    "responseUiLatencyMs": 510,
+    "httpStatus": "not separately captured by this UI observation",
+    "parentPostsReturned": 5,
+    "standaloneImages": 2,
+    "reels": 1,
+    "carousels": 2,
+    "carouselChildrenReturned": 12,
+    "providerReportedMediaCount": 369,
+    "latestPublishedAt": "2026-10-20T19:51:35+0000",
+    "timestampsDescribe": "Publication, not event occurrence or ticket sale time",
+    "mediaFilesDownloaded": 0,
+    "storiesRetrieved": 0,
+    "pagination": "Bounded five-post sample, not complete history; full pagination unverified",
+    "privateScreenshot": "private/instagram-first-live-post-sample.png"
+  },
+  "coverageBoundary": {
+    "selectedAccounts": 17,
+    "liveTargetSamplesProven": 16,
+    "otherTargetsUnverified": 1,
+    "scheduledInstagramMonitoring": false,
+    "eventExtractionOrCalendarWrites": false,
+    "paidConnectorsEnabled": false,
+    "latestEvidence": "reports/instagram-cli-access.json",
+    "historicalTargetSampleBoundary": "targetSample below preserves the first UI sample; latest 17-target CLI results are in latestEvidence"
+  },
+  "localProbe": {
+    "script": "scripts/probe-instagram-business-discovery.ts",
+    "initializerResult": "already_exists, requests0, credentialValuesRead=false",
+    "replayTests": 18,
+    "liveCliProbeRun": true,
+    "diagnostics": "Allowlisted sanitized projections only, not lossless raw captures",
+    "liveCliEvidence": "reports/instagram-cli-access.json"
+  }
+}

@@ -15,7 +15,7 @@ export function instagramSourceSeeds(ownerId: string, accounts: SelectedAccount[
     cadence_seconds: null,
     next_due_at: null,
     health_status: 'setup_needed',
-    health_message: 'Selected by the user; no Meta token or live post access verified. Stories remain manual-only.',
-    coverage_note: `${account.focus}. User-selected account; identity/professional eligibility unverified. Posts unconfigured; Stories manual-only.`,
+    health_message: 'Selected by the user; production worker credentials and a scheduled Instagram collector are not configured. See account access evidence separately. Stories remain manual-only.',
+    coverage_note: `${account.focus}. User-selected account; per-account access evidence is separate from collector health. Posts collection unconfigured; Stories manual-only.`,
   }));
 }

@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-20",
+  "as_of": "2026-10-21T01:09:02.289Z",
   "authorization": "The user explicitly selected these 17 handles for opportunity monitoring. Selection is not proof of account identity, API eligibility or access.",
   "scope": "Separate user-selected watchlist; the Stage 0 source registry remains unchanged.",
   "automatic_collection_enabled": false,
-  "posts_access": "setup_needed; conditional Meta Business Discovery route, not live-proven",
+  "posts_access": "16 bounded live samples proven; 1 blocked; scheduled collection unconfigured",
   "stories_access": "manual_only; no proven arbitrary-target Stories route",
   "paid_connectors_enabled": false,
   "calendar_writes_enabled": false,
@@ -22,14 +22,44 @@
         "special_events"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:54.531Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:54.531Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 2,
+        "reels": 1,
+        "carousels": 2,
+        "carousel_children": 12,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsustudentengagement",
@@ -41,14 +71,44 @@
         "involvement"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:54.987Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:54.987Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 2,
+        "reels": 0,
+        "carousels": 3,
+        "carousel_children": 16,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsustudentaffairs",
@@ -59,14 +119,44 @@
         "campus_announcements"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:55.431Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:55.431Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 0,
+        "reels": 2,
+        "carousels": 3,
+        "carousel_children": 17,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsustudentunion",
@@ -78,14 +168,44 @@
         "entertainment"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:55.913Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:55.913Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 2,
+        "reels": 1,
+        "carousels": 2,
+        "carousel_children": 12,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-aslc_fsu",
@@ -97,14 +217,44 @@
         "cinema"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:56.182Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:56.182Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 3,
+        "reels": 2,
+        "carousels": 0,
+        "carousel_children": 0,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsuhomecoming",
@@ -116,14 +266,44 @@
         "ticket_information"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:56.720Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:56.720Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 3,
+        "reels": 1,
+        "carousels": 1,
+        "carousel_children": 7,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsusga",
@@ -135,14 +315,44 @@
         "student_government"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:57.619Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:57.619Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 1,
+        "reels": 1,
+        "carousels": 3,
+        "carousel_children": 17,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsucampusrec",
@@ -154,14 +364,44 @@
         "recreation"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:58.026Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:58.026Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 0,
+        "reels": 3,
+        "carousels": 2,
+        "carousel_children": 9,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsuhonors",
@@ -173,14 +413,44 @@
         "academic"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:58.407Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:58.407Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 3,
+        "reels": 0,
+        "carousels": 2,
+        "carousel_children": 4,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsucareercenter",
@@ -193,14 +463,44 @@
         "recruiting"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:58.933Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:58.933Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 3,
+        "reels": 0,
+        "carousels": 2,
+        "carousel_children": 13,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsuip",
@@ -211,14 +511,44 @@
         "study_abroad"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:59.355Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:08:59.355Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 0,
+        "reels": 3,
+        "carousels": 2,
+        "carousel_children": 9,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsucge",
@@ -230,14 +560,44 @@
         "global_experiences"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:00.227Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:00.227Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 1,
+        "reels": 0,
+        "carousels": 4,
+        "carousel_children": 20,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-thecenterfsu",
@@ -249,14 +609,44 @@
         "leadership"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:00.648Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:00.648Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 4,
+        "reels": 0,
+        "carousels": 1,
+        "carousel_children": 3,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsusustainable",
@@ -267,14 +657,44 @@
         "sustainability"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:01.224Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:01.224Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 1,
+        "reels": 0,
+        "carousels": 4,
+        "carousel_children": 23,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsucre",
@@ -294,8 +714,23 @@
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "blocked",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:01.369Z",
+        "status": "blocked",
+        "http_statuses": [
+          400
+        ],
+        "reason_codes": [
+          "graph_error_or_http_failure"
+        ],
+        "graph_error": {
+          "code": 110,
+          "subcode": 2207013
+        }
+      }
     },
     {
       "source_id": "instagram-fsucosspp",
@@ -307,14 +742,44 @@
         "public_policy"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:01.663Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:01.663Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 5,
+        "reels": 0,
+        "carousels": 0,
+        "carousel_children": 0,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     },
     {
       "source_id": "instagram-fsucossppslc",
@@ -326,14 +791,54 @@
         "involvement"
       ],
       "selection_evidence": "user_provided",
-      "identity_verification": "unverified",
-      "professional_account_eligibility": "unverified",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
       "adapter": "unconfigured",
       "enabled": false,
       "cadence_seconds": null,
       "status": "setup_needed",
-      "posts_access": "not_proven",
-      "stories_access": "manual_only"
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:02.284Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-cli-access.json",
+        "observed_at_utc": "2026-10-21T01:09:02.284Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through repository probe v2; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 2,
+        "reels": 0,
+        "carousels": 3,
+        "carousel_children": 19,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     }
-  ]
+  ],
+  "live_access_summary": {
+    "proven_target_samples": 16,
+    "blocked_targets": 1,
+    "untested_targets": 0,
+    "targets_without_proven_sample": 1,
+    "parent_posts": 80,
+    "carousel_children": 181,
+    "scheduled_collection_enabled": false,
+    "report": "reports/instagram-cli-access.json"
+  }
 }

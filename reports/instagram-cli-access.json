@@ -1,0 +1,700 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-10-21T01:08:54.042Z",
+  "finishedAt": "2026-10-21T01:09:02.289Z",
+  "provenance": "Fresh read-only Meta Business Discovery GETs through repository probe v2; not replay fixtures",
+  "command": "node --import tsx --input-type=module (sequential preflightBusinessDiscovery for exact configured 17-handle watchlist)",
+  "limits": {
+    "requestsPerAccount": 1,
+    "pagesPerAccount": 1,
+    "parentPostsPerPage": 5,
+    "maximumResponseBytes": 262144,
+    "timeoutMsPerAccount": 25000
+  },
+  "accounts": [
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "clubdownunderfsu",
+      "startedAt": "2026-10-21T01:08:54.043Z",
+      "finishedAt": "2026-10-21T01:08:54.531Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1820,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 369,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 2,
+        "videos": 1,
+        "reels": 1,
+        "carousels": 2,
+        "children": 12,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsustudentengagement",
+      "startedAt": "2026-10-21T01:08:54.534Z",
+      "finishedAt": "2026-10-21T01:08:54.987Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 2040,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 475,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 2,
+        "videos": 0,
+        "reels": 0,
+        "carousels": 3,
+        "children": 16,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsustudentaffairs",
+      "startedAt": "2026-10-21T01:08:54.992Z",
+      "finishedAt": "2026-10-21T01:08:55.431Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 2093,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 1135,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 0,
+        "videos": 2,
+        "reels": 2,
+        "carousels": 3,
+        "children": 17,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsustudentunion",
+      "startedAt": "2026-10-21T01:08:55.434Z",
+      "finishedAt": "2026-10-21T01:08:55.913Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1815,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 504,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 2,
+        "videos": 1,
+        "reels": 1,
+        "carousels": 2,
+        "children": 12,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "aslc_fsu",
+      "startedAt": "2026-10-21T01:08:55.915Z",
+      "finishedAt": "2026-10-21T01:08:56.182Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1176,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 2785,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 3,
+        "videos": 2,
+        "reels": 2,
+        "carousels": 0,
+        "children": 0,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsuhomecoming",
+      "startedAt": "2026-10-21T01:08:56.187Z",
+      "finishedAt": "2026-10-21T01:08:56.720Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1543,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 515,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 3,
+        "videos": 1,
+        "reels": 1,
+        "carousels": 1,
+        "children": 7,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsusga",
+      "startedAt": "2026-10-21T01:08:56.721Z",
+      "finishedAt": "2026-10-21T01:08:57.619Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 2079,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 1153,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 1,
+        "videos": 1,
+        "reels": 1,
+        "carousels": 3,
+        "children": 17,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsucampusrec",
+      "startedAt": "2026-10-21T01:08:57.620Z",
+      "finishedAt": "2026-10-21T01:08:58.026Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1678,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 2058,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 0,
+        "videos": 3,
+        "reels": 3,
+        "carousels": 2,
+        "children": 9,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsuhonors",
+      "startedAt": "2026-10-21T01:08:58.030Z",
+      "finishedAt": "2026-10-21T01:08:58.407Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1421,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 615,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 3,
+        "videos": 0,
+        "reels": 0,
+        "carousels": 2,
+        "children": 4,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsucareercenter",
+      "startedAt": "2026-10-21T01:08:58.409Z",
+      "finishedAt": "2026-10-21T01:08:58.933Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1860,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 1640,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 3,
+        "videos": 0,
+        "reels": 0,
+        "carousels": 2,
+        "children": 13,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsuip",
+      "startedAt": "2026-10-21T01:08:58.936Z",
+      "finishedAt": "2026-10-21T01:08:59.355Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1671,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 1438,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 0,
+        "videos": 3,
+        "reels": 3,
+        "carousels": 2,
+        "children": 9,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsucge",
+      "startedAt": "2026-10-21T01:08:59.357Z",
+      "finishedAt": "2026-10-21T01:09:00.227Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 2250,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 1774,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 1,
+        "videos": 0,
+        "reels": 0,
+        "carousels": 4,
+        "children": 20,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "thecenterfsu",
+      "startedAt": "2026-10-21T01:09:00.229Z",
+      "finishedAt": "2026-10-21T01:09:00.648Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1344,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 998,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 4,
+        "videos": 0,
+        "reels": 0,
+        "carousels": 1,
+        "children": 3,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsusustainable",
+      "startedAt": "2026-10-21T01:09:00.649Z",
+      "finishedAt": "2026-10-21T01:09:01.224Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 2401,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 1636,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 1,
+        "videos": 0,
+        "reels": 0,
+        "carousels": 4,
+        "children": 23,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsucre",
+      "startedAt": "2026-10-21T01:09:01.227Z",
+      "finishedAt": "2026-10-21T01:09:01.369Z",
+      "status": "blocked",
+      "reasonCodes": [
+        "graph_error_or_http_failure"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 0,
+      "responseBytes": 263,
+      "httpStatuses": [
+        400
+      ],
+      "graphError": {
+        "code": 110,
+        "subcode": 2207013
+      },
+      "metadataReturned": false,
+      "accessSampleProven": false,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": null,
+        "returnedMediaRows": 0,
+        "validUniqueMediaRows": 0,
+        "invalidMediaRows": 0,
+        "images": 0,
+        "videos": 0,
+        "reels": 0,
+        "carousels": 0,
+        "children": 0,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsucosspp",
+      "startedAt": "2026-10-21T01:09:01.370Z",
+      "finishedAt": "2026-10-21T01:09:01.663Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 1165,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 2495,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 5,
+        "videos": 0,
+        "reels": 0,
+        "carousels": 0,
+        "children": 0,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    },
+    {
+      "probeVersion": "business-discovery-preflight-v2",
+      "apiVersion": "v26.0",
+      "target": "fsucossppslc",
+      "startedAt": "2026-10-21T01:09:01.665Z",
+      "finishedAt": "2026-10-21T01:09:02.284Z",
+      "status": "success_sample",
+      "reasonCodes": [
+        "provider_media_count_exceeds_sample_without_continuation",
+        "bounded_media_sample_only"
+      ],
+      "missingVariables": [],
+      "requests": 1,
+      "pages": 1,
+      "responseBytes": 2175,
+      "httpStatuses": [
+        200
+      ],
+      "graphError": null,
+      "metadataReturned": true,
+      "accessSampleProven": true,
+      "paginationComplete": false,
+      "sampleOnly": true,
+      "counts": {
+        "providerReportedMediaCount": 510,
+        "returnedMediaRows": 5,
+        "validUniqueMediaRows": 5,
+        "invalidMediaRows": 0,
+        "images": 2,
+        "videos": 0,
+        "reels": 0,
+        "carousels": 3,
+        "children": 19,
+        "childPagesRemaining": 0
+      },
+      "storiesTested": false,
+      "automaticMonitoringEnabled": false
+    }
+  ],
+  "totals": {
+    "selected": 17,
+    "attempted": 17,
+    "requests": 17,
+    "responseBytes": 28794,
+    "liveTargetSamplesProven": 16,
+    "targetsWithoutProvenSample": 1,
+    "validParentPosts": 80,
+    "carouselChildren": 181
+  },
+  "credentialBoundary": {
+    "ignoredLocalFile": true,
+    "productionWorkerTokenConfigured": false,
+    "valuesPrinted": false,
+    "tokenExpiryUnmeasured": true
+  },
+  "coverageBoundary": {
+    "sampleOnly": true,
+    "fullAccountHistoryProven": false,
+    "mediaFilesDownloaded": 0,
+    "storiesRetrieved": 0,
+    "captionsRequested": false,
+    "eventExtraction": false,
+    "scheduledInstagramMonitoring": false,
+    "paidConnectorsEnabled": false,
+    "calendarWrites": false
+  },
+  "historicalV1": {
+    "requests": 1,
+    "target": "clubdownunderfsu",
+    "httpStatus": 200,
+    "parentPosts": 5,
+    "children": 12,
+    "paginationCompleteFlag": "v1 true was overstated; superseded by v2 provider-count validation"
+  },
+  "costBoundary": "No paid connector or upgrade; Meta billing not independently measured. This batch adds only the stated read requests."
+}
