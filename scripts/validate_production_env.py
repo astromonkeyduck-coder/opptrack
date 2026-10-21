@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime
 import ipaddress
 import json
 from pathlib import Path
@@ -79,6 +80,17 @@ def check_values(spec, values):
             errors.append(f'{key}: use a Supabase server secret key')
         elif rule['type'] == 'trigger_production_key' and not value.startswith('tr_prod_'):
             errors.append(f'{key}: use the Trigger.dev Production key, not a development or staging key')
+        elif rule['type'] == 'instagram_user_token' and not re.fullmatch(r'[A-Za-z0-9_.~+/=-]{16,4096}', value):
+            errors.append(f'{key}: invalid opaque token format')
+        elif rule['type'] == 'numeric_id' and not re.fullmatch(r'[0-9]{1,32}', value):
+            errors.append(f'{key}: numeric caller account ID required')
+        elif rule['type'] == 'iso_instant':
+            try:
+                if not re.search(r'(Z|[+-][0-9]{2}:?[0-9]{2})$', value):
+                    raise ValueError()
+                datetime.fromisoformat(value.replace('Z', '+00:00'))
+            except ValueError:
+                errors.append(f'{key}: explicit-offset ISO timestamp required when supplied')
         if '${' in value or value.startswith('REPLACE_') or '<' in value and key != 'RESEND_FROM_EMAIL':
             errors.append(f'{key}: unresolved placeholder or interpolation')
     return errors

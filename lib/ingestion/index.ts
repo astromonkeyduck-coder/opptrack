@@ -2,6 +2,7 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { collectSource, validateCollectionBatch } from "../collection";
 import type { CollectionBatch } from "../collection/types";
 import { isDuplicateObject, verifyStoredObject } from "../storage/integrity";
+import { runLeasedInstagramCollection } from "../instagram/ingestion";
 
 export interface SourceLease {
   id: string;
@@ -114,7 +115,7 @@ export async function runLeasedCollection(lease: SourceLease, client = getWorker
   return { sourceId: lease.id, sourceRunId: (committed as { run_id?: string } | null)?.run_id ?? null, outcome: batch.status, opportunities: batch.opportunities.length, occurrences: batch.occurrences.length, requests: batch.observations.requests };
 }
 
-export async function dispatchDueSources(limit = 2, client = getWorkerClient(), provenance?: DispatcherProvenance) {
+export async function dispatchDueSources(limit = 2, client = getWorkerClient(), provenance?: DispatcherProvenance, environment: Record<string,string|undefined> = process.env) {
   const { data, error } = await client.rpc("lease_due_sources", { p_limit: Math.min(2, Math.max(1, limit)), p_lease_seconds: 600 });
   if (error) throw new Error(`Source leasing failed (${error.code ?? "database"})`);
   if (!data?.length) {
@@ -124,7 +125,6 @@ export async function dispatchDueSources(limit = 2, client = getWorkerClient(), 
     if (readinessError) throw new Error(`Tracker owner readiness check failed (${readinessError.code ?? "database"})`);
     if (!Array.isArray(members)) throw new Error("Tracker owner readiness check returned an invalid response");
     if (!members.length) throw new WorkerSetupNeeded();
-    return [];
   }
   const results = [];
   for (const lease of (data ?? []) as SourceLease[]) {
@@ -135,6 +135,28 @@ export async function dispatchDueSources(limit = 2, client = getWorkerClient(), 
       // expires and is recovered; never mark a failed persistence as collection success.
       results.push({ sourceId: lease.id, outcome: "infrastructure_failure", reason: "Capture persistence failed; lease will expire and retry" });
     }
+  }
+  // The database leases core producers separately. Social work cannot consume
+  // Central/Music's two slots or prevent their processing when Meta fails.
+  if (environment.SOCIAL_COLLECTION_ENABLED === "true") {
+    const { data: socialLeases, error: socialError } = await client.rpc("lease_due_instagram_sources", { p_limit: 16, p_lease_seconds: 600 });
+    if (socialError) throw new Error(`Instagram source leasing failed (${socialError.code ?? "database"})`);
+    if (!Array.isArray(socialLeases) || socialLeases.length > 16) throw new Error("Instagram leasing returned an invalid bounded response");
+    const leases = socialLeases as SourceLease[];
+    // Two in flight bounds a worst-case sixteen-account timeout wave to ~80s.
+    // Results retain source-specific failures; no exception text can leak tokens.
+    const socialResults = new Array<Awaited<ReturnType<typeof runLeasedInstagramCollection>> | { sourceId: string; outcome: string; reason: string }>(leases.length);
+    let index = 0;
+    const deadline = Date.now() + 90_000;
+    await Promise.all(Array.from({ length: Math.min(2, leases.length) }, async () => {
+      while (index < leases.length) {
+        const current = index++, lease = leases[current];
+        if (Date.now() >= deadline) { socialResults[current] = { sourceId: lease.id, outcome: "infrastructure_failure", reason: "Instagram dispatch time budget exhausted before this source; lease will expire and retry" }; continue; }
+        try { socialResults[current] = await runLeasedInstagramCollection(lease, client, provenance, environment); }
+        catch { socialResults[current] = { sourceId: lease.id, outcome: "infrastructure_failure", reason: "Instagram persistence failed; lease will expire and retry" }; }
+      }
+    }));
+    results.push(...socialResults);
   }
   if (results.some(result => result.outcome === "infrastructure_failure")) throw new Error("One or more source runs could not persist; retry after lease recovery");
   return results;

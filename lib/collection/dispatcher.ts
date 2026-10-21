@@ -12,7 +12,7 @@ export async function runDispatcherHandler(
   if(!environment.SUPABASE_SECRET_KEY)missing.push("SUPABASE_SECRET_KEY");
   if(missing.length)return {status:"setup_needed" as const,missing,missingOwner:false,results:[],provenance};
   try {
-    const results=await dispatch(2,undefined,provenance);
+    const results=await dispatch(2,undefined,provenance,environment);
     return {status:results.length?"completed" as const:"idle" as const,missing:[],missingOwner:false,results,provenance};
   } catch(error) {
     if(error instanceof WorkerSetupNeeded)return {status:"setup_needed" as const,missing:["tracker_owner"],missingOwner:true,results:[],provenance};

@@ -1,9 +1,10 @@
 {
-  "run_at": "2026-10-20T23:30:37.279Z",
+  "run_at": "2026-10-21T01:28:08.399Z",
   "engine": "PGlite 0.5.10 (actual PostgreSQL WASM)",
   "migrations": [
     "202610200001_stage1.sql",
-    "202610200002_hourly_cadence.sql"
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql"
   ],
   "passed": 29,
   "checks": [

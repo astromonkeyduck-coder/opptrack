@@ -55,11 +55,27 @@ class ProductionEnvironmentTests(unittest.TestCase):
         values['SUPABASE_SECRET_KEY'] = 'sb_publishable_SYNTHETIC'
         self.assertTrue(env.check_values(CONTRACT['targets']['trigger'], values))
 
-    def test_calendar_or_unproven_social_cannot_be_enabled(self):
-        for target, key in (('netlify', 'CALENDAR_WRITES_ENABLED'), ('trigger', 'CALENDAR_WRITES_ENABLED'), ('trigger', 'SOCIAL_COLLECTION_ENABLED')):
+    def test_calendar_cannot_be_enabled(self):
+        for target, key in (('netlify', 'CALENDAR_WRITES_ENABLED'), ('trigger', 'CALENDAR_WRITES_ENABLED')):
             values = valid_values(target)
             values[key] = 'true'
             self.assertTrue(env.check_values(CONTRACT['targets'][target], values))
+
+    def test_social_enablement_requires_worker_only_read_credentials(self):
+        values = valid_values('trigger')
+        values['SOCIAL_COLLECTION_ENABLED'] = 'true'
+        self.assertTrue(env.check_values(CONTRACT['targets']['trigger'], values))
+        values.update(IG_FB_USER_ACCESS_TOKEN='SYNTHETIC_READ_TOKEN_1234', IG_CALLER_USER_ID='123456789')
+        self.assertEqual(env.check_values(CONTRACT['targets']['trigger'], values), [])
+        values['IG_TOKEN_EXPIRES_AT'] = 'tomorrow'
+        self.assertTrue(env.check_values(CONTRACT['targets']['trigger'], values))
+        values['IG_TOKEN_EXPIRES_AT'] = '2026-10-21T02:00:00Z'
+        self.assertEqual(env.check_values(CONTRACT['targets']['trigger'], values), [])
+        web_values = valid_values('netlify')
+        web_values['IG_FB_USER_ACCESS_TOKEN'] = values['IG_FB_USER_ACCESS_TOKEN']
+        errors = env.check_values(CONTRACT['targets']['netlify'], web_values)
+        self.assertTrue(errors)
+        self.assertNotIn(values['IG_FB_USER_ACCESS_TOKEN'], str(errors))
 
     def test_email_requires_credentials_only_when_enabled(self):
         values = valid_values('trigger')

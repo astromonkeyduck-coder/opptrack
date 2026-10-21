@@ -92,7 +92,10 @@
         "GOOGLE_CLIENT_SECRET",
         "GOOGLE_REFRESH_TOKEN",
         "TRIGGER_ACCESS_TOKEN",
-        "NETLIFY_AUTH_TOKEN"
+        "NETLIFY_AUTH_TOKEN",
+        "IG_FB_USER_ACCESS_TOKEN",
+        "IG_CALLER_USER_ID",
+        "IG_TOKEN_EXPIRES_AT"
       ]
     },
     "trigger": {
@@ -143,9 +146,28 @@
         },
         "SOCIAL_COLLECTION_ENABLED": {
           "required": true,
-          "type": "disabled_flag",
+          "type": "boolean",
           "secret": false,
           "default": "false"
+        },
+        "IG_FB_USER_ACCESS_TOKEN": {
+          "required_when": {
+            "SOCIAL_COLLECTION_ENABLED": "true"
+          },
+          "type": "instagram_user_token",
+          "secret": true
+        },
+        "IG_CALLER_USER_ID": {
+          "required_when": {
+            "SOCIAL_COLLECTION_ENABLED": "true"
+          },
+          "type": "numeric_id",
+          "secret": true
+        },
+        "IG_TOKEN_EXPIRES_AT": {
+          "required": false,
+          "type": "iso_instant",
+          "secret": false
         }
       },
       "forbidden_variables": [

@@ -1,0 +1,31 @@
+{
+  "startedAt": "2026-10-21T01:27:54.249Z",
+  "finishedAt": "2026-10-21T01:27:55.400Z",
+  "sourceId": "instagram-clubdownunderfsu",
+  "liveFreshFetch": true,
+  "status": "success",
+  "failureCategory": null,
+  "httpStatuses": [
+    200
+  ],
+  "requests": 1,
+  "responseBytes": 16865,
+  "posts": 25,
+  "postsWithCaption": 25,
+  "children": 35,
+  "childrenIncomplete": 0,
+  "providerReportedMediaCount": 369,
+  "configuredWindowComplete": true,
+  "fullHistoryComplete": false,
+  "captures": [
+    {
+      "sha256": "6b268b6298952e5a93f4ccedf518cfbf5b0a094afde7ed289ed3eaee255ae7fb",
+      "sanitizedProjectionBytes": 18126
+    }
+  ],
+  "noDatabaseOrStorageWrites": true,
+  "tokenExpiryKnown": false,
+  "calendarWrites": 0,
+  "mediaDownloads": 0,
+  "rawCaptionsOrKeysPrinted": false
+}

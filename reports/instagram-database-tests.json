@@ -1,0 +1,37 @@
+{
+  "runAt": "2026-10-21T01:28:09.997Z",
+  "database": "PGlite 0.5.10 actual PostgreSQL WASM",
+  "migration": "202610200003_instagram_monitoring.sql",
+  "passed": 19,
+  "checks": [
+    "incremental migration preserves existing sources and enables no social routes",
+    "two core leases remain available before 16 overdue social routes; social cannot consume core slots",
+    "lease limits and browser access are enforced for both groups",
+    "successful bounded post completion atomically stores capture/provenance/current post/version without events",
+    "unchanged replay reuses identity/capture/version while retaining separate source-run evidence",
+    "caption edits append versions and keep stable identity; search indexes plaintext",
+    "owner can select current feed and versions while other signed-in user sees zero rows",
+    "anonymous grants deny reads and RLS still denies rows if a grant is accidentally added",
+    "authenticated clients cannot directly mutate posts/versions or invoke ingestion RPC",
+    "a stale or wrong lease cannot create a run or mutate any existing post",
+    "missing capture evidence rolls back original run/capture/cursor/health writes as one transaction",
+    "unordered or secret-bearing children reject the batch and roll back its source state",
+    "Instagram RPC rejects event payloads, raw-response captures, empty success and false full-history claims",
+    "post constraints reject Stories, noncanonical links and children on standalone images",
+    "standalone image metadata and offset pagination stay separate from occurrence inbox",
+    "partial valid updates remain reviewable without advancing success time/cursor; retry floor is retained",
+    "expired-token failure is stored as blocked and cannot appear as successful empty collection",
+    "out-of-order observations cannot overwrite the current caption or move last-seen backward",
+    "core completion still works under migration 003 and creates no social rows"
+  ],
+  "fixtureClass": "Synthetic metadata, API captures and Trigger IDs; not live provider/schedule proof",
+  "calendarWrites": 0,
+  "paidServicesEnabled": 0,
+  "policy": "Owner-only searchable publication metadata with stable identity, append-only content versions, atomic run/capture/update/cursor/health completion, separate core/social lease budgets",
+  "notTested": [
+    "Hosted migration/HTTP JWT and Storage behavior",
+    "Real Meta token lifetime and provider payloads",
+    "Distributed workers in separate database sessions",
+    "Storage upload rollback; uploaded orphan objects require later safe retention"
+  ]
+}

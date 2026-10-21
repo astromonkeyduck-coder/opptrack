@@ -1,5 +1,7 @@
 # Stage 1 status
 
+**New authorized Instagram work, 9:29 pm Eastern October 20:** automatic monitoring for 16 accounts is implemented and locally tested; hosted migration 003 is applied and Production-only protected credentials are saved. Worker deployment, source activation and scheduled-run proof are pending. Do not interpret the historical access-only snapshot below as the final status of this new request. No paid upgrade or calendar write.
+
 **The live authenticated inbox contains real events from a genuine scheduled cloud collection. Stage 1 acceptance remains incomplete; stop before Stage 2.** Updated October 20 local / October 21 UTC, 2026. Stage 0 remains at annotated tag `stage-0-complete`, commit `795f23e4116bd98f1e26a4b933a0d0f2ca1fd7b3`. Origin is `https://github.com/astromonkeyduck-coder/opptrack.git`.
 
 ## Working hosted path

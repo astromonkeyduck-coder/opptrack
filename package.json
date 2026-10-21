@@ -12,7 +12,7 @@
     "start": "next start",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "node --import tsx --test tests/*.test.ts",
-    "test:db": "node scripts/test-database.mjs && node scripts/test-hourly-database.mjs",
+    "test:db": "node scripts/test-database.mjs && node scripts/test-hourly-database.mjs && node scripts/test-instagram-database.mjs",
     "collect:live": "node --import tsx scripts/collect-live.ts",
     "dispatch": "node --import tsx scripts/dispatch.ts",
     "setup:owner": "node scripts/setup-owner.mjs",

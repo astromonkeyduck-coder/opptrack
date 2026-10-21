@@ -92,3 +92,9 @@ The user additionally authorized the 17-account Instagram watchlist and permitte
 - [Trigger scheduled tasks](https://trigger.dev/docs/tasks/scheduled), [configuration](https://trigger.dev/docs/config/config-file), and [runtime environments](https://trigger.dev/docs/deploy-environment-variables).
 
 Provider documentation describes supported behavior; it is separate from project-specific evidence.
+
+## Authorized Instagram worker extension
+
+The existing hourly task now supports 16 approved Instagram accounts after core producers. Keep `CALENDAR_WRITES_ENABLED=false` and email disabled. Use only Trigger Production for the protected `IG_FB_USER_ACCESS_TOKEN` and `IG_CALLER_USER_ID`; set `SOCIAL_COLLECTION_ENABLED=true` only after migration 003 and the monitoring deployment are verified. Do not place these values on Netlify. `IG_TOKEN_EXPIRES_AT` stays absent unless actually verified. No AppSecret or paid connector is needed by the current read collector.
+
+Migration 003 is applied as hosted 20261021012900; no social source is enabled by that migration. The worker deployment and 16 source activation must be recorded separately, followed by a genuine scheduled run and exact database correlation. See docs/instagram-monitoring.md.
