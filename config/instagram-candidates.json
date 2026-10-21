@@ -248,6 +248,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-durpfsu",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -305,6 +311,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-emhs_fsu",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -361,6 +373,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-fsu_cre",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -776,6 +794,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-fsucollegeoflaw",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -890,6 +914,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-fsueconomicsdept",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -1060,6 +1090,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-fsuhsa",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -1117,6 +1153,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-fsuigc",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -1233,6 +1275,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-fsumofa",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -1692,6 +1740,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-musicfsu",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -1748,6 +1802,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-onf.fsu",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -1805,6 +1865,12 @@
         "stories_tested": false,
         "candidate_activated": false,
         "affiliation_and_alias_claims_independently_verified": false
+      },
+      "operational_watchlist_promotion": {
+        "source_id": "instagram-openingnights",
+        "user_authorized": true,
+        "automatic_monitoring_in_separate_watchlist": true,
+        "report": "reports/instagram-27-account-expansion.json"
       }
     },
     {
@@ -5465,5 +5531,6 @@
       "Affiliation, current activity, alias claims and suitability are separate from API sample access.",
       "Public report omits credentials, caller/account IDs, sample post IDs, permalinks, provider URLs, cursor values and raw error messages."
     ]
-  }
+  },
+  "scope_note": "Candidate inventory is not a scheduling input. Eleven proven candidates were separately promoted into the operational watchlist by explicit user authorization; all candidate-registry enabled flags remain false."
 }

@@ -6,6 +6,7 @@ import candidates from '../config/instagram-candidates.json';
 import accessReport from '../reports/instagram-cli-access.json';
 import candidateAccessReport from '../reports/instagram-candidates-high-priority-access.json';
 import productionReport from '../reports/instagram-production-monitoring.json';
+import expansionReport from '../reports/instagram-27-account-expansion.json';
 import { instagramSourceSeeds, sourceSeedUpsertOptions } from '../scripts/instagram-source-seeds';
 
 const originalHandles = ['clubdownunderfsu', 'fsustudentengagement', 'fsustudentaffairs', 'fsustudentunion', 'aslc_fsu', 'fsuhomecoming', 'fsusga', 'fsucampusrec', 'fsuhonors', 'fsucareercenter', 'fsuip', 'fsucge', 'thecenterfsu', 'fsusustainable', 'fsucre', 'fsucosspp', 'fsucossppslc'];
@@ -118,6 +119,7 @@ test('historical manual recovery and blocked automatic attempts are scoped to th
   assert.equal(monitoring.scheduled_verification.instagram_succeeded, 0);
   assert.equal(monitoring.scheduled_verification.instagram_blocked, 16);
   assert.equal(monitoring.scheduled_verification.failure_category, 'token_expired');
+  assert.equal(monitoring.scheduled_verification.is_historical, true);
   assert.equal(monitoring.recovery_production_smoke.run_id, productionReport.recoverySmoke.runId);
   assert.equal(monitoring.recovery_production_smoke.invocation_kind, 'manual');
   assert.equal(monitoring.recovery_production_smoke.test_run, true);
@@ -135,6 +137,66 @@ test('historical manual recovery and blocked automatic attempts are scoped to th
     assert.equal(failed.last_success_at, prior.last_success_at, 'the failed schedule preserved the previous actual success');
     assert.ok(Date.parse(recovered.last_success_at) > Date.parse(failed.last_success_at));
   }
+});
+
+test('the eleven promoted routes have their own fresh manual Cloud and database collection evidence', () => {
+  const expectedIds = new Set(expandedHandles.map(handle => `instagram-${handle}`));
+  assert.equal(expansionReport.activation.status, 'enabled');
+  assert.equal(expansionReport.activation.inserted_count, 11);
+  assert.deepEqual(new Set(expansionReport.activation.inserted_sources.map(source => source.id)), expectedIds);
+  assert.equal(expansionReport.activation.totalInstagramEnabled, 27);
+  assert.equal(expansionReport.activation.totalSourceRows, 87);
+  const cloud = expansionReport.cloudVerification;
+  assert.equal(cloud.status, 'manual_first_collection_success');
+  assert.equal(cloud.invocationKind, 'manual'); assert.equal(cloud.testRun, true);
+  assert.equal(cloud.cloudOutputMatchedSql, true);
+  assert.equal(cloud.database.runs.length, 11);
+  assert.deepEqual(new Set(cloud.database.runs.map(run => run.source_id)), expectedIds);
+  let collected = 0;
+  for (const run of cloud.database.runs) {
+    assert.equal(run.outcome, 'success'); assert.equal(run.trigger_run_id, cloud.runId);
+    assert.equal(run.invocation_kind, 'manual'); assert.equal(run.trigger_schedule_id, null);
+    assert.equal(run.dispatcher_scheduled_at, null); assert.equal(run.request_count, 1);
+    assert.equal(run.instagram_update_count, 25); collected += run.instagram_update_count;
+    assert.equal(run.collection_window.history_complete, false);
+    assert.equal(run.collection_window.media_downloaded, false);
+    assert.equal(run.collection_window.stories_collected, false);
+    assert.ok(Date.parse(run.started_at) >= Date.parse(cloud.startedAtUtc));
+    assert.ok(Date.parse(run.finished_at) <= Date.parse(cloud.finishedAtUtc));
+    const account = watchlist.accounts.find(account => account.source_id === run.source_id);
+    const health = cloud.database.source_health.find(source => source.id === run.source_id);
+    assert.ok(account); assert.ok(health);
+    assert.equal(account.collector_snapshot?.report, 'reports/instagram-27-account-expansion.json');
+    assert.equal(account.collector_snapshot.trigger_run_id, cloud.runId);
+    assert.equal(account.collector_snapshot.invocation_kind, 'manual');
+    assert.equal(account.collector_snapshot.health_status, 'success');
+    assert.equal(account.collector_snapshot.last_attempt_at, health.last_attempt_at);
+    assert.equal(account.collector_snapshot.last_success_at, health.last_success_at);
+    assert.equal(health.enabled, true); assert.equal(health.lease_released, true);
+  }
+  assert.equal(collected, 275);
+  assert.equal(cloud.database.posts, expansionReport.beforeActivation.posts + collected);
+  assert.equal(cloud.database.posts, 677); assert.equal(cloud.database.versions, 677);
+  assert.equal(cloud.database.duplicate_post_groups, 0); assert.equal(cloud.database.duplicate_version_groups, 0);
+  assert.equal(expansionReport.coverage.mediaDownloads, 0); assert.equal(expansionReport.coverage.stories, 0);
+  assert.equal(expansionReport.coverage.eventExtraction, 0); assert.equal(expansionReport.coverage.calendarWrites, 0);
+  assert.equal(expansionReport.coverage.otherCandidatesEnabled, 0);
+});
+
+test('current scheduled verification covers twenty-seven accounts without reusing the old failed sixteen-account tick', () => {
+  const current = watchlist.production_monitoring.next_scheduled_success_verification;
+  assert.equal(current.status, 'pending');
+  assert.equal(current.account_scope, 27);
+  assert.equal(current.next_nominal_at_utc, expansionReport.scheduledExpansionVerification.nextNominalPollUtc);
+  assert.equal(current.actual_start_may_be_later, true);
+  assert.ok(Date.parse(current.next_nominal_at_utc) > Date.parse(expansionReport.cloudVerification.finishedAtUtc));
+  assert.equal(expansionReport.scheduledExpansionVerification.status, 'pending');
+  assert.equal(expansionReport.scheduledExpansionVerification.existing16ScheduledSuccessVerified, true);
+  const earlier = expansionReport.beforeActivation.latest_scheduled_runs[0];
+  assert.equal(earlier.invocation_kind, 'scheduled');
+  assert.equal(earlier.source_runs, 17); assert.equal(earlier.successes, 17);
+  assert.ok(Date.parse(earlier.finished_at) < Date.parse(expansionReport.cloudVerification.startedAtUtc));
+  assert.notEqual(earlier.trigger_run_id, expansionReport.cloudVerification.runId);
 });
 
 test('each selected account retains its own live probe evidence without inventing event facts', () => {

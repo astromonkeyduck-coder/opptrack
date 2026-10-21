@@ -1,6 +1,6 @@
 # Production deployment: Netlify + Trigger.dev Cloud
 
-Next.js/Netlify, private Supabase and the single hourly Trigger worker are deployed. Core scheduled collection works. The authorized 16-account Instagram extension is deployed and enabled; its manual smoke collected 400 posts, but its first genuine automatic tick was blocked by token expiry. The replacement token/verified expiry are installed; a fresh manual Production recovery succeeded, while recovered scheduled success still needs separate evidence. No paid upgrade, calendar write or Stage 2 work is authorized.
+Next.js/Netlify, private Supabase and the single hourly Trigger worker are deployed. Core and the original 16 Instagram accounts have genuine scheduled success. The user-approved 11-account expansion is live, bringing monitoring to 27; all 11 new routes succeeded in a fresh manual Production run. A genuine full 27-account scheduled tick is pending nominal 15:00 UTC October 21. No paid upgrade, calendar write or broader Stage 2 work is authorized.
 
 ## Netlify production app
 
@@ -20,7 +20,7 @@ Use `.env.netlify.production.example`. Public build values require a rebuild aft
 
 Password sign-in uses the actual Netlify Auth Site URL. The user-created confirmed account is already the sole owner; public signup/anonymous sign-in are disabled and confirmation remains enabled. Do not invent another login or replace ownership. Keep preview/development settings separate.
 
-Current Instagram application release evidence includes commit `5e1a57dc42fc4562f1a9990b05568c2bd55044d1`, Netlify deploy `6ad815cc31d991b1f07a39bd`, Actions `39527759560` success. The owner has viewed real posts, caption search and pagination. Historical static-only `1d04777` returned 404; corrected `9fc73a6`/`6ad7fd1b5a01e9295c7a246e` proved runtime packaging and anonymous home200/inbox307/private-media401. [Earlier deployment](../reports/stage-1-hosted-deployment.json), [watchlist release](../reports/instagram-watchlist-release.json), [monitoring release/run evidence](../reports/instagram-production-monitoring.json). Later code releases require their own published confirmation.
+Current worker release `2073828` has GitHub Actions `39616984224` success at `2026-10-21T14:32:19Z` and verified Trigger deployment below. Earlier web/runtime release evidence includes commit `5e1a57dc42fc4562f1a9990b05568c2bd55044d1`, Netlify deploy `6ad815cc31d991b1f07a39bd`, Actions `39527759560` success. The owner has viewed real posts, caption search and pagination. Historical static-only `1d04777` returned 404; corrected `9fc73a6`/`6ad7fd1b5a01e9295c7a246e` proved runtime packaging and anonymous home 200/inbox 307/private-media 401. [Earlier deployment](../reports/stage-1-hosted-deployment.json), [watchlist release](../reports/instagram-watchlist-release.json), [monitoring release/run evidence](../reports/instagram-production-monitoring.json). Later code releases require their own published confirmation.
 
 ## Supabase migrations and ownership
 
@@ -31,8 +31,9 @@ Existing project `nuywbvlcwetqjalqvxzb` has these immutable migrations:
 | `202610200001_stage1.sql` | `20261020231512` |
 | `202610200002_hourly_cadence.sql` | `20261020231950` |
 | `202610200003_instagram_monitoring.sql` | `20261021012900` |
+| `202610200004_instagram_27_accounts.sql` | `20261021142636` |
 
-Inspect history before applying/retrying; a new environment applies all in order. The Supabase CLI was unavailable locally, so 003 followed the repository's existing sequence. Management access is separate from application API keys.
+Inspect history before applying/retrying; a new environment applies all in order. The Supabase CLI was unavailable locally, so 003/004 followed the repository's existing sequence. Management access is separate from application API keys.
 
 Fourteen public tables have RLS. Both `review_inbox` and `instagram_updates_current` are security-invoker; authenticated reads require the sole owner. Captures use a private 5 MiB bucket. Service-only RPCs lease/complete collections; authenticated clients cannot forge source facts or Instagram versions. Source/native identities and content hashes preserve stable posts and append edited versions. Publication metadata stays separate from event/occurrence records.
 
@@ -43,9 +44,9 @@ npm run setup:owner -- EXISTING_AUTH_USER_UUID
 npm run setup:sources
 ```
 
-`setup:sources` seeds 59 original registry and 17 watchlist routes, ignores conflicts and preserves current health/cursors. Fresh Instagram routes are disabled. Current production has 76 source records and 18 enabled routes: Central, Music and exactly 16 approved Instagram accounts. Use an explicit validated account-ID list for activation; never a broad Instagram prefix. `fsucre`, generic social and paid routes stay disabled. Migration 003 itself enables nothing.
+`setup:sources` seeds 59 original registry and 28 watchlist routes, ignores conflicts and preserves current health/cursors. Fresh Instagram routes are disabled. Current production has 87 source records and 29 enabled routes: Central, Music and exactly 27 approved Instagram accounts. Use an explicit validated account-ID list for activation; never a broad Instagram prefix. `fsucre`, generic social and paid routes stay disabled. Migration 003 itself enables nothing.
 
-The separate `config/instagram-candidates.json` inventory has209 inactive candidates (15 overlaps,194 additional;29 high/14 new,180 standard,three unverified aliases). It is not source enablement or access evidence; no candidate was probed or seeded by the import. The deployed76-source/18-enabled state remains unchanged.
+The separate `config/instagram-candidates.json` inventory has 209 inactive candidates (15 overlaps, 194 additional; 29 high/14 new, 180 standard, three unverified aliases). It is not source enablement or access evidence; no candidate was probed or seeded by the import. The later separately authorized 11-source activation is not part of the import: current state is 87 sources/29 enabled, with 26 inventory overlaps active and 183 candidates inactive.
 
 The server secret stays in trusted ignored setup/worker files and Trigger Production. Thirty-two populated core and 33 social hosted SQL-role checks passed read-only/rollback, with no fake users/rows. These are separate from signed-JWT and known-object HTTP tests, which remain open. Existing owner browser sessions are real Auth evidence.
 
@@ -60,20 +61,28 @@ Project `proj_wurjjfgxnzhkvcewuaci` tracks main through a GitHub App limited to 
 | SUPABASE_SECRET_KEY | Protected worker server secret; bypasses RLS |
 | EMAIL_DELIVERY_ENABLED | `false` |
 | CALENDAR_WRITES_ENABLED | `false` |
-| SOCIAL_COLLECTION_ENABLED | `true` for the approved 16-account extension |
+| SOCIAL_COLLECTION_ENABLED | `true` for the approved 27-account extension |
 | IG_FB_USER_ACCESS_TOKEN | Protected Facebook User read token, worker only |
 | IG_CALLER_USER_ID | Protected linked professional-account numeric ID |
 | IG_TOKEN_EXPIRES_AT | Optional verified expiry only; never guess |
 
-The approved replacement exchange returned conservative expiry `2026-12-20T00:40:44.610662Z`; the replacement token and verified expiry are installed in Trigger Production only. Manual recovery succeeded for all 16 accounts; a subsequent genuine automatic success is still unverified. The prior token demonstrably expired. No App Secret is required by the collector; transient exchange input was removed. A roughly 60-day exchange is not automatic renewal. Expired/revoked access must remain visibly blocked and preserve prior posts. [Token extension](../reports/instagram-token-extension.json).
+The approved replacement exchange returned conservative expiry `2026-12-20T00:40:44.610662Z`; the replacement token and verified expiry are installed in Trigger Production only. Manual recovery and subsequent genuine scheduled collection succeeded for the original 16; the new full 27-account scheduled tick remains unverified. The prior token demonstrably expired. No App Secret is required by the collector; transient exchange input was removed. A roughly 60-day exchange is not automatic renewal. Expired/revoked access must remain visibly blocked and preserve prior posts. [Token extension](../reports/instagram-token-extension.json).
 
-Managed builds have used SDK `4.7.6`, Node `24.18.0`, Small 1x/us-east-1; web/local use Node 22. The optional local CLI was removed after dependency advisories; no local CLI deployment is claimed. Keep deployment-account tokens out of runtime templates and logs.
+Managed builds have used SDK `4.7.6`, Node `24.18.0`, Small 1 x/us-east-1; web/local use Node 22. The optional local CLI was removed after dependency advisories; no local CLI deployment is claimed. Keep deployment-account tokens out of runtime templates and logs.
 
-The one active schedule `sched_7piwpgtckcngy15icqk45` remains `0 * * * *`, UTC, `window: "60m"`, concurrency one, on Free. Starts are spread inside the hour. Migration 002 uses nominal Central-hourly/Music-six-hour UTC slots and a separate retry floor, so processing time does not skip cycles. Missed slots coalesce; retries wait for later eligible ticks. Migration 003 leases core before social; the 16-source Instagram group has two requests in flight and a bounded 90-second loop. [Trigger schedule policy](https://trigger.dev/docs/tasks/scheduled#free-plan-minimum-window).
+The one active schedule `sched_7piwpgtckcngy15icqk45` remains `0 * * * *`, UTC, `window: "60m"`, concurrency one, on Free. Starts are spread inside the hour. Migration 002 uses nominal Central-hourly/Music-six-hour UTC slots and a separate retry floor, so processing time does not skip cycles. Missed slots coalesce; retries wait for later eligible ticks. Migration 003 leases core before social; the 27-source Instagram group (migration 004) has two requests in flight and a bounded 90-second loop. [Trigger schedule policy](https://trigger.dev/docs/tasks/scheduled#free-plan-minimum-window).
 
 First genuine core schedule `run_06glnirsvhqdmbeiiur94st901` ran `00:10:50.502–00:11:11.503Z`, version `20261020.3`; provider provenance and exact SQL IDs match 303 opportunities/342 occurrences/five captures. [Core correlation](../reports/stage-1-cloud-correlation.json).
 
-Manual/test social run `run_06glo936eht6v3gl45naeepge1`, version `20261021.3`, ran `01:47:34.222–01:47:47.737Z`: 16 successful reads, 400 posts/versions, 16 private projections. Genuine schedule `run_06gloea0tch74en66hvp2iis01`, version `20261021.4`, nominal `02:00Z`, ran `02:11:04.492–02:11:25.903Z`: Central success and 16 expired-token blocks, with exact 17 SQL IDs correlated. Total social projections became 32; prior posts survived. Recovered manual/test run `run_06gloh91rq560t7h1a6lmcfre1` then ran `02:23:19.396–02:23:35.587Z` with 16 successful fresh reads, 400 stable posts/versions, 32 retained captures, zero duplicate groups and next nominal social polls `03:00Z`. **Successful scheduled Instagram ingestion remains unverified.** [Monitoring evidence](../reports/instagram-production-monitoring.json).
+Manual/test social run `run_06glo936eht6v3gl45naeepge1`, version `20261021.3`, ran `01:47:34.222–01:47:47.737Z`: 16 successful reads, 400 posts/versions, 16 private projections. Genuine schedule `run_06gloea0tch74en66hvp2iis01`, version `20261021.4`, nominal `02:00Z`, ran `02:11:04.492–02:11:25.903Z`: Central success and 16 expired-token blocks, with exact 17 SQL IDs correlated. Total social projections became 32; prior posts survived. Recovered manual/test run `run_06gloh91rq560t7h1a6lmcfre1` then ran `02:23:19.396–02:23:35.587Z` with 16 successful fresh reads, 400 stable posts/versions, 32 retained captures, zero duplicate groups and next nominal social polls `03:00Z`. This is historical evidence: later genuine 14:00 UTC schedule `run_06gltj5jsr8t0547pls4achk01` succeeded for Central and the original 16 Instagram accounts. [Monitoring evidence](../reports/instagram-production-monitoring.json).
+
+## Authorized 27-account release
+
+Worker commit `20738287729e018b7ee6d2cf58e3955a089d2b1d` is deployed as `5k9yr7qh`, version `20261021.7`, verified 10:31:39 am Eastern October 21. Forward migration 004 raises only the private social lease ceiling to 27; no RLS/storage/slot/core-priority changes. An initial expired management request was confirmed unapplied before a successful verified retry. The migration itself enables no source.
+
+Exact 11-source activation through `scripts/activate-instagram-11-expansion.sql` completed `14:32:21.903094Z`, yielding 87 sources/29 enabled. Manual/test Cloud run `run_06glto7pof47do100m2q5b7me1` ran `14:32:47.118–14:32:58.246Z`:11 GETs, 228,647 bytes, 11 successes and 275 newly retained posts. SQL/owner UI now show 677 posts/versions, 45 sanitized captures, zero duplicate groups and 27 healthy sources with released leases. **The full 27-account automatic run remains pending 15:00 UTC nominal.** [Release/run evidence](../reports/instagram-27-account-expansion.json).
+
+The 33-check expanded hosted audit passed at 14:35:44.214128 UTC against 677 posts/45 private objects/27 enabled accounts; it remains a SQL-role test, not signed-JWT/Storage HTTP. [Policy report](../reports/instagram-27-hosted-policy-checks.json).
 
 ## Release checks and retained gaps
 
@@ -87,8 +96,8 @@ make check
 python3 scripts/validate_production_env.py
 ```
 
-Current evidence: 103 application tests, 60 local PostgreSQL checks plus six worker replay checks, 60 Python tests and 33 populated hosted social SQL checks. Local fixtures are separate from live integrations. An authenticated 390×844 viewport passed on `5e1a57d`; physical phone remains untested. Known-object downloads and hosted multi-slide intake are unverified; browser approval/tooling blocks were not bypassed. Two synthetic link-only intake records contain zero files.
+Current evidence: 111 application tests, 63 local PostgreSQL checks plus six worker replay checks, 60 Python tests and 33 populated hosted social SQL checks. Local fixtures are separate from live integrations. An authenticated 390×844 viewport passed on `5e1a57d`; physical phone remains untested. Known-object downloads and hosted multi-slide intake are unverified; browser approval/tooling blocks were not bypassed. Two synthetic link-only intake records contain zero files.
 
-Dotenv, captured payloads, rows, screenshots and backups remain ignored. Private capture hashes describe sanitized projections for Instagram, raw bodies for core. Uploaded objects cannot share SQL rollback; safe orphan cleanup and production deletion remain disabled. Other open gates include event decisions after repeated hosted collection, distributed recovery, backup/Storage restore, verified credential renewal, successful scheduled social recovery and a user-confirmed laptop-off interval. Include Music's six-hour due window before claiming both core sources survived laptop shutdown. Stories/full history/media extraction/HQ member coverage/tickets remain gaps. Calendar/email/paid connectors and broader Stage 2 remain disabled.
+Dotenv, captured payloads, rows, screenshots and backups remain ignored. Private capture hashes describe sanitized projections for Instagram, raw bodies for core. Uploaded objects cannot share SQL rollback; safe orphan cleanup and production deletion remain disabled. Other open gates include event decisions after repeated hosted collection, distributed recovery, backup/Storage restore, verified credential renewal, the first genuine full 27-account scheduled tick and a user-confirmed laptop-off interval. Include Music's six-hour due window before claiming both core sources survived laptop shutdown. Stories/full history/media extraction/HQ member coverage/tickets remain gaps. Calendar/email/paid connectors and broader Stage 2 remain disabled.
 
 Primary references: [Netlify OpenNext](https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/), [environment scopes](https://docs.netlify.com/build/environment-variables/overview/), [Supabase SSR](https://supabase.com/docs/guides/auth/server-side/creating-a-client), [Storage policies](https://supabase.com/docs/guides/storage/security/access-control), [Trigger environments](https://trigger.dev/docs/deploy-environment-variables), and [Trigger schedules](https://trigger.dev/docs/tasks/scheduled). Provider documentation is separate from project evidence.

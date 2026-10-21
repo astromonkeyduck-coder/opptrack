@@ -1709,7 +1709,7 @@
     "separateCodexAutomationCreated": false,
     "backgroundProposal": "Automatic approval review rejected a separate10-minute heartbeat with future edit/push/notification authority; no workaround attempted. Existing Trigger hourly monitoring unaffected."
   },
-  "monitoringStatus": "production_collection_recovered_manual_success_hourly_schedule_enabled_successful_automatic_social_run_pending",
+  "monitoringStatus": "27_accounts_enabled_added11_manual_collection_success_full27_scheduled_batch_pending",
   "credentialRecheck": {
     "report": "reports/instagram-token-recheck.json",
     "checkedAtUtc": "2026-10-21T02:06:39.845Z",
@@ -2529,5 +2529,6 @@
     "triggerDeployedVerified": true,
     "realOwnerFeedPosts": 400,
     "liveCredentialExpiryCopyVerified": true
-  }
+  },
+  "supersededBy": "reports/instagram-27-account-expansion.json"
 }

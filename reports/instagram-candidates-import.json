@@ -162,5 +162,13 @@
         "Public report omits credentials, caller/account IDs, sample post IDs, permalinks, provider URLs, cursor values and raw error messages."
       ]
     }
-  ]
+  ],
+  "subsequent_monitoring_promotion": {
+    "report": "reports/instagram-27-account-expansion.json",
+    "explicit_user_authorization": true,
+    "additional_accounts_activated": 11,
+    "activation_at_utc": "2026-10-21T14:32:21.903094Z",
+    "candidate_registry_used_as_scheduler": false,
+    "historical_import_actions_unchanged": true
+  }
 }

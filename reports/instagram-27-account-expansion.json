@@ -1,0 +1,966 @@
+{
+  "schemaVersion": 1,
+  "scope": "User-authorized automatic monitoring expansion: 11 additional proven accounts, 27 total",
+  "authorization": {
+    "explicitUserRequest": true,
+    "additionalHandles": [
+      "durpfsu",
+      "emhs_fsu",
+      "fsu_cre",
+      "fsucollegeoflaw",
+      "fsueconomicsdept",
+      "fsuhsa",
+      "fsuigc",
+      "fsumofa",
+      "musicfsu",
+      "onf.fsu",
+      "openingnights"
+    ],
+    "paidUpgradesAllowed": false,
+    "calendarWritesEnabled": false
+  },
+  "implementation": {
+    "commit": "20738287729e018b7ee6d2cf58e3955a089d2b1d",
+    "watchlistRows": 28,
+    "authorizedAccounts": 27,
+    "dispatcherCron": "0 * * * *",
+    "timezone": "UTC",
+    "window": "60m",
+    "concurrency": 1,
+    "socialParallelRequests": 2,
+    "perRequestTimeoutMs": 10000,
+    "socialLaunchBudgetMs": 90000,
+    "parentLimit": 25,
+    "childLimit": 20,
+    "storageAndRlsUnchanged": true
+  },
+  "migration": {
+    "file": "supabase/migrations/202610200004_instagram_27_accounts.sql",
+    "hostedVersion": "20261021142636",
+    "status": "applied_verified",
+    "earlierUnknownAttempt": "Initial migration request expired; read-after confirmed not applied, then a retry succeeded. No duplicate migration.",
+    "newAdvisories": 0
+  },
+  "beforeActivation": {
+    "checked_at": "2026-10-21 14:27:14.818831+00",
+    "migrations": [
+      {
+        "name": "stage1_private_opportunity_inbox",
+        "version": "20261020231512"
+      },
+      {
+        "name": "stage1_hourly_polling_cadence",
+        "version": "20261020231950"
+      },
+      {
+        "name": "instagram_monitoring",
+        "version": "20261021012900"
+      },
+      {
+        "name": "instagram_27_account_dispatch_budget",
+        "version": "20261021142636"
+      }
+    ],
+    "latest_scheduled_runs": [
+      {
+        "successes": 17,
+        "started_at": "2026-10-21T14:10:50.55+00:00",
+        "finished_at": "2026-10-21T14:11:22.439+00:00",
+        "source_runs": 17,
+        "observed_posts": 400,
+        "trigger_run_id": "run_06gltj5jsr8t0547pls4achk01",
+        "invocation_kind": "scheduled",
+        "dispatcher_scheduled_at": "2026-10-21T14:00:00+00:00"
+      },
+      {
+        "successes": 17,
+        "started_at": "2026-10-21T13:10:55.716+00:00",
+        "finished_at": "2026-10-21T13:11:44.083+00:00",
+        "source_runs": 17,
+        "observed_posts": 400,
+        "trigger_run_id": "run_06glt5cksr3gm0qtdap2scc201",
+        "invocation_kind": "scheduled",
+        "dispatcher_scheduled_at": "2026-10-21T13:00:00+00:00"
+      }
+    ],
+    "posts": 402
+  },
+  "activation": {
+    "status": "enabled",
+    "activated_at": "2026-10-21 14:32:21.903094+00",
+    "inserted_count": 11,
+    "inserted_sources": [
+      {
+        "id": "instagram-durpfsu",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-emhs_fsu",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-fsu_cre",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-fsucollegeoflaw",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-fsueconomicsdept",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-fsuhsa",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-fsuigc",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-fsumofa",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-musicfsu",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-onf.fsu",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      },
+      {
+        "id": "instagram-openingnights",
+        "enabled": true,
+        "next_due_at": "2026-10-21T14:00:00+00:00",
+        "cadence_seconds": 3600
+      }
+    ],
+    "totalInstagramEnabled": 27,
+    "allSourcesEnabled": 29,
+    "totalSourceRows": 87
+  },
+  "cloudVerification": {
+    "status": "manual_first_collection_success",
+    "runId": "run_06glto7pof47do100m2q5b7me1",
+    "workerVersion": "20261021.7",
+    "testRun": true,
+    "invocationKind": "manual",
+    "triggeredAtUtc": "2026-10-21T14:32:44.885Z",
+    "dequeuedAtUtc": "2026-10-21T14:32:45.192Z",
+    "startedAtUtc": "2026-10-21T14:32:47.118Z",
+    "finishedAtUtc": "2026-10-21T14:32:58.246Z",
+    "cloudOutputMatchedSql": true,
+    "database": {
+      "runs": [
+        {
+          "id": "f0e4934e-f305-4a77-b107-5db5e5360927",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-durpfsu",
+          "byte_count": 21457,
+          "created_at": "2026-10-21T14:32:50.181133+00:00",
+          "started_at": "2026-10-21T14:32:49.204+00:00",
+          "finished_at": "2026-10-21T14:32:49.927+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 171
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "dce53743-ddad-4243-8622-1c4c00028eaf",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-emhs_fsu",
+          "byte_count": 26640,
+          "created_at": "2026-10-21T14:32:50.252055+00:00",
+          "started_at": "2026-10-21T14:32:49.206+00:00",
+          "finished_at": "2026-10-21T14:32:49.94+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 434
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "9b8b0363-2440-4918-b927-3f4c9ccefea3",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-fsu_cre",
+          "byte_count": 20218,
+          "created_at": "2026-10-21T14:32:51.021515+00:00",
+          "started_at": "2026-10-21T14:32:50.24+00:00",
+          "finished_at": "2026-10-21T14:32:50.752+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 3381
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "fcbc7677-f6ed-4d59-90bc-f4549b94e852",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-fsucollegeoflaw",
+          "byte_count": 20467,
+          "created_at": "2026-10-21T14:32:52.241544+00:00",
+          "started_at": "2026-10-21T14:32:50.301+00:00",
+          "finished_at": "2026-10-21T14:32:51.974+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 2129
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "068a6810-3306-4ab2-9ac7-65518e79a503",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-fsueconomicsdept",
+          "byte_count": 21401,
+          "created_at": "2026-10-21T14:32:52.29128+00:00",
+          "started_at": "2026-10-21T14:32:51.06+00:00",
+          "finished_at": "2026-10-21T14:32:51.965+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 144
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "f1204c0a-c4b1-4b94-b044-d101c5928ba2",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-fsuhsa",
+          "byte_count": 11449,
+          "created_at": "2026-10-21T14:32:53.682217+00:00",
+          "started_at": "2026-10-21T14:32:52.292+00:00",
+          "finished_at": "2026-10-21T14:32:53.437+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 143
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "7c37be97-45a3-4ed0-8d27-908faf48e3cf",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-fsuigc",
+          "byte_count": 21322,
+          "created_at": "2026-10-21T14:32:54.484638+00:00",
+          "started_at": "2026-10-21T14:32:52.331+00:00",
+          "finished_at": "2026-10-21T14:32:54.24+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 266
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "cb56c91f-8721-4f74-a3ad-fffba736c03e",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-fsumofa",
+          "byte_count": 30441,
+          "created_at": "2026-10-21T14:32:56.459924+00:00",
+          "started_at": "2026-10-21T14:32:53.719+00:00",
+          "finished_at": "2026-10-21T14:32:56.185+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 2407
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "5b9bd0cc-8752-438e-96f9-c6260adb3a44",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-musicfsu",
+          "byte_count": 17929,
+          "created_at": "2026-10-21T14:32:56.662983+00:00",
+          "started_at": "2026-10-21T14:32:54.529+00:00",
+          "finished_at": "2026-10-21T14:32:56.366+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 5161
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "d88aee70-d2b3-4a4e-8394-f72e4f1ae609",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-onf.fsu",
+          "byte_count": 20659,
+          "created_at": "2026-10-21T14:32:57.219525+00:00",
+          "started_at": "2026-10-21T14:32:56.507+00:00",
+          "finished_at": "2026-10-21T14:32:56.97+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 533
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        },
+        {
+          "id": "475894b6-0f77-4512-b69b-1023e81bb7cc",
+          "error": null,
+          "outcome": "success",
+          "source_id": "instagram-openingnights",
+          "byte_count": 16664,
+          "created_at": "2026-10-21T14:32:58.022753+00:00",
+          "started_at": "2026-10-21T14:32:56.699+00:00",
+          "finished_at": "2026-10-21T14:32:57.791+00:00",
+          "request_count": 1,
+          "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+          "invocation_kind": "manual",
+          "collection_window": {
+            "to": null,
+            "from": null,
+            "scope": "latest25_parent_metadata_only",
+            "warnings": [
+              "Latest 25 parent posts per hourly poll; older history and posts outside this overlap can be missed",
+              "Captions and child IDs/types only; no media files, Stories, OCR or event extraction",
+              "Post publication is not an event date; ticket availability is unverified"
+            ],
+            "child_limit": 20,
+            "native_rows": 25,
+            "parent_limit": 25,
+            "failure_category": null,
+            "history_complete": false,
+            "media_downloaded": false,
+            "stories_collected": false,
+            "token_expiry_known": true,
+            "provider_reported_media_count": 1222
+          },
+          "trigger_schedule_id": null,
+          "instagram_update_count": 25,
+          "dispatcher_scheduled_at": null
+        }
+      ],
+      "posts": 677,
+      "versions": 677,
+      "checked_at": "2026-10-21T14:34:12.049545+00:00",
+      "occurrences": 393,
+      "opportunities": 345,
+      "source_health": [
+        {
+          "id": "instagram-aslc_fsu",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:11.673+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-clubdownunderfsu",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:11.78+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-durpfsu",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:49.927+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-emhs_fsu",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:49.94+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsu_cre",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:50.752+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsucampusrec",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:12.673+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsucareercenter",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:14.027+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsucge",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:14.691+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsucollegeoflaw",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:51.974+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsucosspp",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:14.785+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsucossppslc",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:16.246+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsueconomicsdept",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:51.965+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsuhomecoming",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:16.072+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsuhonors",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:17.066+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsuhsa",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:53.437+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsuigc",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:54.24+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsuip",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:18.018+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsumofa",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:56.185+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsusga",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:19.032+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsustudentaffairs",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:19.436+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsustudentengagement",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:21.222+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsustudentunion",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:20.516+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-fsusustainable",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:22.439+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-musicfsu",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:56.366+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-onf.fsu",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:56.97+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-openingnights",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+          "last_success_at": "2026-10-21T14:32:57.791+00:00",
+          "retry_not_before": null
+        },
+        {
+          "id": "instagram-thecenterfsu",
+          "enabled": true,
+          "next_due_at": "2026-10-21T15:00:00+00:00",
+          "next_poll_at": "2026-10-21T15:00:00+00:00",
+          "health_status": "success",
+          "lease_released": true,
+          "last_attempt_at": "2026-10-21T14:11:10.746023+00:00",
+          "last_success_at": "2026-10-21T14:11:22.289+00:00",
+          "retry_not_before": null
+        }
+      ],
+      "sanitized_captures": 45,
+      "duplicate_post_groups": 0,
+      "duplicate_version_groups": 0
+    },
+    "displayedRunCostUsd": 0.0003489,
+    "billedComputeSeconds": 9.5,
+    "providerDisplayedEstimateNotInvoice": true
+  },
+  "tests": {
+    "application": 111,
+    "postgres": 63,
+    "productionModuleReplay": 6,
+    "typecheck": "passed",
+    "build": "passed",
+    "fixturesNotLiveProof": true,
+    "python": 60,
+    "productionTemplates": "passed",
+    "finalTypecheck": "passed",
+    "finalBuild": "passed",
+    "generatedCacheRepair": "One final typecheck failed on four ignored duplicate Next generated type files named * 2.ts. Removed only these generated duplicates; typecheck and build rerun both passed."
+  },
+  "coverage": {
+    "captionMetadataOnly": true,
+    "mediaDownloads": 0,
+    "stories": 0,
+    "calendarWrites": 0,
+    "eventExtraction": 0,
+    "historyComplete": false,
+    "otherCandidatesEnabled": 0
+  },
+  "deployment": {
+    "commit": "20738287729e018b7ee6d2cf58e3955a089d2b1d",
+    "triggerDeployId": "5k9yr7qh",
+    "triggerVersion": "20261021.7",
+    "deployedVerified": true,
+    "displayedDeployAtEastern": "2026-10-21 10:31:39 AM",
+    "freePlanVerified": true
+  },
+  "scheduledExpansionVerification": {
+    "status": "pending",
+    "existing16ScheduledSuccessVerified": true,
+    "nextNominalPollUtc": "2026-10-21T15:00:00Z",
+    "notExactStart": true,
+    "laptopOffProof": false
+  },
+  "ownerInbox": {
+    "accountsEnabled": 27,
+    "accountsWithCollectorSuccess": 27,
+    "realPosts": 677,
+    "verifiedInActualAuthenticatedBrowser": true,
+    "newAccountFilter": {
+      "source_id": "instagram-fsu_cre",
+      "matching_posts": 25,
+      "verified_in_actual_owner_browser": true,
+      "restored_to_all_accounts": true
+    }
+  },
+  "hostedPolicies": {
+    "report": "reports/instagram-27-hosted-policy-checks.json",
+    "passed": 33,
+    "failed": 0,
+    "transactionLocalRoleChecksNotSignedJwtOrHttp": true
+  },
+  "privateScreenshot": "private/instagram-27-live-feed.png",
+  "commands": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "result": "111 application tests passed; HTTP fixtures/replays are separate from the real cloud collection above"
+    },
+    {
+      "command": "npm run test:db",
+      "exitCode": 0,
+      "result": "63 PostgreSQL checks plus6 production module replay checks passed"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "result": "passed, including final watchlist/evidence metadata updates"
+    },
+    {
+      "command": "make check",
+      "exitCode": 0,
+      "result": "60 Python tests and original registry/scenario/environment-template validators passed"
+    },
+    {
+      "command": "scripts/activate-instagram-11-expansion.sql via hosted execute_sql",
+      "result": "inserted exactly11 approved source rows, enabled hourly; no existing source reset"
+    },
+    {
+      "command": "scripts/hosted-instagram-rls-check.sql via hosted execute_sql",
+      "result": "33 populated role-policy checks passed, zero failures, read-only transaction rollback"
+    }
+  ]
+}

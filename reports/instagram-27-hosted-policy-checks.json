@@ -1,0 +1,182 @@
+{
+  "scope": "Actual PostgreSQL roles with transaction-local claims; not signed-JWT/HTTP/browser proof",
+  "checks": [
+    {
+      "test": "private_capture_bucket",
+      "passed": true
+    },
+    {
+      "test": "all_current_posts_have_private_sanitized_capture_evidence",
+      "passed": true
+    },
+    {
+      "test": "no_duplicate_social_identity_or_version",
+      "passed": true
+    },
+    {
+      "test": "post_publications_do_not_create_event_records",
+      "passed": true
+    },
+    {
+      "test": "new_tables_have_rls",
+      "passed": true
+    },
+    {
+      "test": "feed_view_is_security_invoker",
+      "passed": true
+    },
+    {
+      "test": "service_only_complete_instagram_run",
+      "passed": true
+    },
+    {
+      "test": "service_only_lease_due_instagram_sources",
+      "passed": true
+    },
+    {
+      "test": "service_only_lease_due_sources",
+      "passed": true
+    },
+    {
+      "test": "private_ingestion_helpers_are_not_callable_by_api_roles",
+      "passed": true
+    },
+    {
+      "test": "actual_owner_membership",
+      "passed": true
+    },
+    {
+      "test": "owner_read_instagram_updates",
+      "passed": true,
+      "visible_rows": 677,
+      "baseline_rows": 677
+    },
+    {
+      "test": "owner_read_instagram_update_versions",
+      "passed": true,
+      "visible_rows": 677,
+      "baseline_rows": 677
+    },
+    {
+      "test": "owner_read_instagram_updates_current",
+      "passed": true,
+      "visible_rows": 677,
+      "baseline_rows": 677
+    },
+    {
+      "test": "owner_read_instagram_captures",
+      "passed": true,
+      "visible_rows": 45,
+      "baseline_rows": 45
+    },
+    {
+      "test": "owner_read_instagram_private_objects",
+      "passed": true,
+      "visible_rows": 45,
+      "baseline_rows": 45
+    },
+    {
+      "test": "owner_caption_search",
+      "passed": true,
+      "visible_rows": 1
+    },
+    {
+      "test": "owner_source_filter",
+      "passed": true,
+      "visible_rows": 25
+    },
+    {
+      "test": "owner_feed_first_page",
+      "passed": true,
+      "visible_rows": 20
+    },
+    {
+      "test": "owner_feed_second_page",
+      "passed": true,
+      "visible_rows": 20
+    },
+    {
+      "test": "owner_has_no_direct_social_mutation_privileges",
+      "passed": true
+    },
+    {
+      "test": "synthetic_nonowner_is_not_member",
+      "passed": true
+    },
+    {
+      "test": "nonowner_read_instagram_updates",
+      "passed": true,
+      "result": "visible_rows=0"
+    },
+    {
+      "test": "nonowner_read_instagram_update_versions",
+      "passed": true,
+      "result": "visible_rows=0"
+    },
+    {
+      "test": "nonowner_read_instagram_updates_current",
+      "passed": true,
+      "result": "visible_rows=0"
+    },
+    {
+      "test": "nonowner_read_instagram_captures",
+      "passed": true,
+      "result": "visible_rows=0"
+    },
+    {
+      "test": "nonowner_read_private_objects",
+      "passed": true,
+      "result": "visible_rows=0"
+    },
+    {
+      "test": "nonowner_search_filter_denied",
+      "passed": true,
+      "visible_rows": 0
+    },
+    {
+      "test": "anonymous_read_instagram_updates",
+      "passed": true,
+      "result": "SQLSTATE 42501 denied"
+    },
+    {
+      "test": "anonymous_read_instagram_update_versions",
+      "passed": true,
+      "result": "SQLSTATE 42501 denied"
+    },
+    {
+      "test": "anonymous_read_instagram_updates_current",
+      "passed": true,
+      "result": "SQLSTATE 42501 denied"
+    },
+    {
+      "test": "anonymous_read_instagram_captures",
+      "passed": true,
+      "result": "SQLSTATE 42501 denied"
+    },
+    {
+      "test": "anonymous_read_private_objects",
+      "passed": true,
+      "result": "visible_rows=0"
+    }
+  ],
+  "failed": 0,
+  "baseline": {
+    "checked_at": "2026-10-21T14:35:44.214128+00:00",
+    "occurrences": 393,
+    "owner_count": 1,
+    "opportunities": 345,
+    "bucket_private": true,
+    "auth_user_count": 1,
+    "one_source_rows": 25,
+    "searchable_rows": 1,
+    "instagram_updates": 677,
+    "instagram_captures": 45,
+    "instagram_source_runs": 251,
+    "enabled_instagram_sources": 27,
+    "instagram_private_objects": 45,
+    "instagram_update_versions": 677,
+    "instagram_updates_current": 677
+  },
+  "test_count": 33,
+  "database_changes": 0
+}

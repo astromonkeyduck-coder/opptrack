@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-21T02:24:48.122949+00:00",
+  "as_of": "2026-10-21T14:34:12.049545+00:00",
   "authorization": "The user selected the original 17 accounts and authorized the proven 16, then explicitly authorized adding the 11 newly proven candidates on October 20, 2026. Exactly27 accounts are approved; unresolved fsucre remains disabled.",
   "scope": "Separate user-selected watchlist; the Stage 0 source registry remains unchanged.",
   "automatic_collection_enabled": true,
-  "posts_access": "27 accounts authorized for hourly bounded collection; deployment and activation of the additional11 pending. Historical original16 manual recovery evidence preserved.",
+  "posts_access": "27 accounts enabled hourly; the additional11 passed a fresh Production collection, adding275 posts for677 total. Existing16 scheduled collection is verified; the first full27 scheduled batch is pending. fsucre remains excluded.",
   "stories_access": "manual_only; no proven arbitrary-target Stories route",
   "paid_connectors_enabled": false,
   "calendar_writes_enabled": false,
@@ -1036,6 +1036,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:49.927+00:00"
       }
     },
     {
@@ -1084,6 +1094,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:49.94+00:00"
       }
     },
     {
@@ -1132,6 +1152,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:50.752+00:00"
       }
     },
     {
@@ -1180,6 +1210,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:51.974+00:00"
       }
     },
     {
@@ -1228,6 +1268,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:51.965+00:00"
       }
     },
     {
@@ -1276,6 +1326,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:53.437+00:00"
       }
     },
     {
@@ -1324,6 +1384,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:54.24+00:00"
       }
     },
     {
@@ -1372,6 +1442,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:56.185+00:00"
       }
     },
     {
@@ -1420,6 +1500,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:56.366+00:00"
       }
     },
     {
@@ -1468,6 +1558,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:56.97+00:00"
       }
     },
     {
@@ -1516,6 +1616,16 @@
         "pagination_complete": false,
         "scheduled_collection": false,
         "event_extraction": false
+      },
+      "collector_snapshot": {
+        "report": "reports/instagram-27-account-expansion.json",
+        "observed_at_utc": "2026-10-21T14:34:12.049545+00:00",
+        "invocation_kind": "manual",
+        "trigger_run_id": "run_06glto7pof47do100m2q5b7me1",
+        "health_status": "success",
+        "failure_category": null,
+        "last_attempt_at": "2026-10-21T14:32:49.187461+00:00",
+        "last_success_at": "2026-10-21T14:32:57.791+00:00"
       }
     }
   ],
@@ -1569,10 +1679,11 @@
       "instagram_succeeded": 0,
       "instagram_blocked": 16,
       "failure_category": "token_expired",
-      "laptop_off_proof": false
+      "laptop_off_proof": false,
+      "is_historical": true
     },
     "operational": true,
-    "current_status": "production_collection_recovered_manual_success_scheduled_social_success_pending",
+    "current_status": "27_accounts_enabled_new11_manual_production_success_full27_schedule_pending",
     "token_status": "valid_at_recovery_smoke",
     "exact_token_expiry_instant_known": false,
     "credential_recovery": "completed_production_manual_success",
@@ -1593,11 +1704,12 @@
     },
     "next_scheduled_success_verification": {
       "status": "pending",
-      "next_nominal_at_utc": "2026-10-21T03:00:00Z",
+      "account_scope": 27,
+      "next_nominal_at_utc": "2026-10-21T15:00:00Z",
       "actual_start_may_be_later": true
     },
     "expansion": {
-      "status": "deployment_and_hosted_activation_pending",
+      "status": "enabled_first_production_collection_verified",
       "authorized_additional_handles": [
         "durpfsu",
         "emhs_fsu",
@@ -1614,7 +1726,23 @@
       "authorized_account_count": 27,
       "proof_report": "reports/instagram-27-account-expansion.json",
       "calendar_writes_enabled": false,
-      "paid_upgrades": 0
+      "paid_upgrades": 0,
+      "activated_at_utc": "2026-10-21T14:32:21.903094Z",
+      "new_account_count": 11,
+      "first_manual_run_id": "run_06glto7pof47do100m2q5b7me1",
+      "first_manual_test_run": true,
+      "posts_retained": 677,
+      "new_posts": 275,
+      "full27_scheduled_success_verified": false
+    },
+    "original16_recovered_scheduled_success": {
+      "run_id": "run_06gltj5jsr8t0547pls4achk01",
+      "invocation_kind": "scheduled",
+      "test_run": false,
+      "nominal_at_utc": "2026-10-21T14:00:00Z",
+      "instagram_success": 16,
+      "core_success": 1,
+      "report": "reports/instagram-27-account-expansion.json"
     }
   }
 }
