@@ -2,11 +2,12 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { signOut } from '../actions';
 
-type Section = 'discover' | 'saved' | 'instagram' | 'intake' | 'sources';
+type Section = 'discover' | 'saved' | 'instagram' | 'intake' | 'sources' | 'deadlines';
 
 const navigation: { section: Section; href: string; label: string }[] = [
   { section: 'discover', href: '/inbox', label: 'Discover' },
   { section: 'saved', href: '/inbox?decision=save', label: 'Saved' },
+  { section: 'deadlines', href: '/deadlines', label: 'Deadlines & tickets' },
   { section: 'instagram', href: '/instagram', label: 'Instagram' },
   { section: 'intake', href: '/intake', label: 'Add something' },
   { section: 'sources', href: '/sources', label: 'Sources' },
@@ -15,6 +16,7 @@ const navigation: { section: Section; href: string; label: string }[] = [
 function NavigationIcon({ section }: { section: Section }) {
   const paths: Record<Section, ReactNode> = {
     discover: <><rect x="3" y="4" width="10" height="13" rx="1.5" /><path d="M7 2h9a1 1 0 0 1 1 1v11M6 8h4M6 11h4" /></>,
+    deadlines: <><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M6 2v4M14 2v4M3 8h14M7 12h2M11 12h2"/></>,
     saved: <path d="M5 3h10v14l-5-3-5 3V3Z" />,
     instagram: <><rect x="3" y="3" width="14" height="14" rx="4" /><circle cx="10" cy="10" r="3" /><path d="M14.2 5.8h.01" /></>,
     intake: <><rect x="3" y="3" width="14" height="14" rx="2" /><path d="M10 6v8M6 10h8" /></>,

@@ -33,5 +33,131 @@
   "tokenChanges": 0,
   "scopesAdded": 0,
   "credentialSource": "local_test_credential_not_assumed_to_match_production",
-  "automaticMonitoringRepaired": false
+  "automaticMonitoringRepaired": false,
+  "hostedSnapshot": {
+    "observedAt": "2026-10-21T23:37:55.330324Z",
+    "enabledAccounts": 27,
+    "blockedAccounts": 27,
+    "accountsWithGraph200Reason": 27,
+    "latestLastSuccessAt": "2026-10-21T18:11:33.163Z",
+    "latestTriggerRunId": "run_06gm1epdq5gq47gv1c24r46901",
+    "latestObservedSourceAttemptsAt": "2026-10-21T23:11:20Z",
+    "httpStatus": 400,
+    "graphCode": 200,
+    "exactMissingGrantOrAssetCause": "not_yet_verified"
+  },
+  "interpretation": {
+    "verifiedProviderCategory": "permission_denied",
+    "basis": "Meta Graph error guide defines codes200\u2013299 as API Permission: permission not granted or removed",
+    "notEstablished": [
+      "Whether completing the identity checkpoint restores the existing Production token",
+      "Whether a specific existing grant, selected Page asset or token also needs repair",
+      "Successful current Business Discovery or scheduled recovery"
+    ],
+    "verifiedProviderRestriction": "Meta developer account confirmation required for unusual activity; identity checkpoint pending user completion"
+  },
+  "manualCloudDiagnostic": {
+    "taskId": "instagram-access-check",
+    "scheduled": false,
+    "requestsMaximum": 3,
+    "databaseWrites": 0,
+    "newScopes": 0,
+    "tokenChanges": 0,
+    "deployed": true,
+    "runId": "run_06gm1li2rrv2endu3s3raj7ge1",
+    "output": "sanitized status/error codes/known grant statuses/caller match and one fixed target sample count only",
+    "deploymentVersion": "20261021.18",
+    "invocationKind": "manual_test",
+    "startedAt": "2026-10-21T23:40:19.311Z",
+    "finishedAt": "2026-10-21T23:40:21.011Z",
+    "diagnosticStartedAt": "2026-10-21T23:40:20.493Z",
+    "diagnosticFinishedAt": "2026-10-21T23:40:20.730Z",
+    "status": "blocked",
+    "requests": 1,
+    "responseBytes": 117,
+    "permissionCheck": {
+      "httpStatus": 400,
+      "graphCode": 200,
+      "graphSubcode": null,
+      "category": "permission_denied"
+    },
+    "callerCheck": "not_attempted",
+    "targetCheck": "not_attempted",
+    "grants": "unverified",
+    "productionHealthChanged": false
+  },
+  "verification": {
+    "command": "node --import tsx --test tests/instagram-access-diagnostic.test.ts tests/instagram-access-task.test.ts tests/instagram-collector.test.ts tests/instagram-preflight.test.ts",
+    "passed": 43,
+    "fixtureClass": "synthetic Meta responses; current production code; no live access established by tests"
+  },
+  "primaryDocumentation": [
+    {
+      "url": "https://developers.facebook.com/docs/graph-api/guides/error-handling/",
+      "retrievedAtDate": "2026-10-21",
+      "sha256": "25bc8a43cd21e4b8f1b331b955e2b5396f506cd4419bfc02f70fecbdd6d510dc"
+    },
+    {
+      "url": "https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/business_discovery/",
+      "retrievedAtDate": "2026-10-21",
+      "sha256": "3417c70f90645cea4fa4b4064ffe4146b8dd52a10708810a32a11ed1581f62e9"
+    },
+    {
+      "url": "https://developers.facebook.com/docs/graph-api/reference/user/permissions/",
+      "retrievedAtDate": "2026-10-21",
+      "sha256": "ec04ecf9d62c4393eba14317ac9b93cb40ef2ad6872121e89dc1552c6a6f0c96"
+    },
+    {
+      "url": "https://developers.facebook.com/docs/facebook-login/guides/access-tokens/",
+      "retrievedAtDate": "2026-10-21",
+      "sha256": "75d1e797938854186457d031ed55df7fd0dcf0057edbe6c7c5439b6e5a2b812a"
+    },
+    {
+      "url": "https://developers.facebook.com/docs/facebook-login/access-tokens/debugging-and-error-handling",
+      "retrievedAtDate": "2026-10-21",
+      "sha256": "b636bb7fc8bb47abd6d8bf5ac4f233b69ab69a650727f06eb7af10e19c2f2638"
+    }
+  ],
+  "nextSafeStep": {
+    "route": "https://developers.facebook.com/apps/4387142291430378/dashboard/",
+    "action": "User completes Meta identity checkpoint privately; then rerun bounded existing-credential diagnostic before changing tokens or grants.",
+    "existingScopes": [
+      "instagram_basic",
+      "instagram_manage_insights",
+      "pages_read_engagement",
+      "pages_show_list",
+      "public_profile"
+    ],
+    "newScopesAuthorized": false,
+    "tokenExtensionAuthorizedThisTurn": false,
+    "verifyPrivately": [
+      "Facebook User token type",
+      "Correct existing Meta app",
+      "Token validity and verified expiry/data-access expiry",
+      "Exact intended Page/account granular asset selection",
+      "Same existing read scopes only"
+    ],
+    "replacementExpiryRule": "If a new token is needed, replace IG_TOKEN_EXPIRES_AT with that token\u2019s verified expiry; do not retain the previous token\u2019s expiry or extend token duration."
+  },
+  "providerUiFinding": {
+    "route": "existing_Meta_app_dashboard",
+    "observedPage": "Developer Platform Blocked User Error",
+    "messageCategory": "account_confirmation_needed_unusual_activity",
+    "checkpoint": "Confirm your identity / email OTP selection",
+    "findingClass": "observed_provider_account_restriction",
+    "userConfirmationRequired": true,
+    "completion": "pending_user_private_checkpoint",
+    "codeReadOrSentByAgent": false,
+    "credentialsChanged": false,
+    "newScopes": 0,
+    "tokenDurationChanged": false,
+    "causalBoundary": "The account restriction is directly observed and prevents developer access/repair; the denied permission edge alone does not prove whether a specific grant or token is also invalid."
+  },
+  "confirmationAttempt": {
+    "route": "existing selected email confirmation",
+    "result": "Meta technical error: Sorry, something went wrong; technical problem with this feature",
+    "recoveredUi": "Closed error dialog; returned to developer Account confirmation needed restriction",
+    "identityCodeReadByAgent": false,
+    "accountRestored": false
+  }
 }

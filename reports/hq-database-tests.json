@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-10-21T23:00:02.506Z",
+  "runAt": "2026-10-21T23:55:07.480Z",
   "migrations": [
     "202610200001_stage1.sql",
     "202610200002_hourly_cadence.sql",
@@ -7,7 +7,8 @@
     "202610200004_instagram_27_accounts.sql",
     "202610200005_review_undo.sql",
     "202610200006_google_calendar_readonly.sql",
-    "20261021193109_hq_public_collector.sql"
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql"
   ],
   "passed": 12,
   "checks": [

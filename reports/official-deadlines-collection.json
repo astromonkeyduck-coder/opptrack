@@ -1,0 +1,397 @@
+{
+  "recordedAt": "2026-10-21T23:39:57.549Z",
+  "evidenceClass": "actual-public-collection-probes-and-replay",
+  "attempts": [
+    {
+      "evidenceClass": "fresh-public-GET-plus-private-response-replay",
+      "mockedLiveFetch": false,
+      "fresh": {
+        "sourceId": "fsu-onf-dates",
+        "parserVersion": "official-deadlines-v1",
+        "status": "failed",
+        "reason": "Source transport failed or timed out; collection was not empty",
+        "startedAt": "2026-10-21T23:39:48.613Z",
+        "finishedAt": "2026-10-21T23:39:48.640Z",
+        "requests": 1,
+        "responseBytes": 0,
+        "capturedPages": 0,
+        "captureSha256": [],
+        "nativeRows": 0,
+        "programs": 0,
+        "milestones": 0,
+        "eventOccurrences": 0,
+        "exactFutureClosingDates": 0,
+        "unknownAbsoluteDates": 0,
+        "expiredClosingDates": 0,
+        "paginationComplete": false,
+        "warnings": []
+      },
+      "replay": null,
+      "evidencePointersValidated": true,
+      "requestMetadata": [],
+      "sampleFutureMilestones": [],
+      "privateCapturePath": "private/official-deadlines-live/fsu-onf-dates-latest.json"
+    },
+    {
+      "evidenceClass": "fresh-public-GET-plus-private-response-replay",
+      "mockedLiveFetch": false,
+      "fresh": {
+        "sourceId": "fsu-cre-applications",
+        "parserVersion": "official-deadlines-v1",
+        "status": "failed",
+        "reason": "Source transport failed or timed out; collection was not empty",
+        "startedAt": "2026-10-21T23:39:48.644Z",
+        "finishedAt": "2026-10-21T23:39:48.645Z",
+        "requests": 1,
+        "responseBytes": 0,
+        "capturedPages": 0,
+        "captureSha256": [],
+        "nativeRows": 0,
+        "programs": 0,
+        "milestones": 0,
+        "eventOccurrences": 0,
+        "exactFutureClosingDates": 0,
+        "unknownAbsoluteDates": 0,
+        "expiredClosingDates": 0,
+        "paginationComplete": false,
+        "warnings": []
+      },
+      "replay": null,
+      "evidencePointersValidated": true,
+      "requestMetadata": [],
+      "sampleFutureMilestones": [],
+      "privateCapturePath": "private/official-deadlines-live/fsu-cre-applications-latest.json"
+    },
+    {
+      "evidenceClass": "fresh-public-GET-plus-private-response-replay",
+      "mockedLiveFetch": false,
+      "fresh": {
+        "sourceId": "fsu-career-deadlines",
+        "parserVersion": "official-deadlines-v1",
+        "status": "failed",
+        "reason": "Source transport failed or timed out; collection was not empty",
+        "startedAt": "2026-10-21T23:39:48.646Z",
+        "finishedAt": "2026-10-21T23:39:48.647Z",
+        "requests": 1,
+        "responseBytes": 0,
+        "capturedPages": 0,
+        "captureSha256": [],
+        "nativeRows": 0,
+        "programs": 0,
+        "milestones": 0,
+        "eventOccurrences": 0,
+        "exactFutureClosingDates": 0,
+        "unknownAbsoluteDates": 0,
+        "expiredClosingDates": 0,
+        "paginationComplete": false,
+        "warnings": []
+      },
+      "replay": null,
+      "evidencePointersValidated": true,
+      "requestMetadata": [],
+      "sampleFutureMilestones": [],
+      "privateCapturePath": "private/official-deadlines-live/fsu-career-deadlines-latest.json"
+    },
+    {
+      "evidenceClass": "fresh-public-GET-plus-private-response-replay",
+      "mockedLiveFetch": false,
+      "fresh": {
+        "sourceId": "fsu-onf-dates",
+        "parserVersion": "official-deadlines-v1",
+        "status": "success",
+        "reason": null,
+        "startedAt": "2026-10-21T23:39:56.010Z",
+        "finishedAt": "2026-10-21T23:39:56.171Z",
+        "requests": 1,
+        "responseBytes": 49145,
+        "capturedPages": 1,
+        "captureSha256": [
+          "9a976c2f88057190c9102317114657c88ffa744e6d15ea572bc4770f43472e95"
+        ],
+        "nativeRows": 18,
+        "programs": 18,
+        "milestones": 18,
+        "eventOccurrences": 0,
+        "exactFutureClosingDates": 0,
+        "unknownAbsoluteDates": 18,
+        "expiredClosingDates": 0,
+        "paginationComplete": true,
+        "warnings": [
+          "Read-only public program/application monitoring; no calendar, application submission or email execution",
+          "Missing row years/timezones, approximate and rolling dates remain unknown; old records are retained rather than relabelled as current"
+        ]
+      },
+      "replay": {
+        "evidenceClass": "local-replay-not-second-network-fetch",
+        "sourceId": "fsu-onf-dates",
+        "parserVersion": "official-deadlines-v1",
+        "status": "success",
+        "reason": null,
+        "startedAt": "2026-10-21T23:39:56.010Z",
+        "finishedAt": "2026-10-21T23:39:56.010Z",
+        "requests": 1,
+        "responseBytes": 49145,
+        "capturedPages": 1,
+        "captureSha256": [
+          "9a976c2f88057190c9102317114657c88ffa744e6d15ea572bc4770f43472e95"
+        ],
+        "nativeRows": 18,
+        "programs": 18,
+        "milestones": 18,
+        "eventOccurrences": 0,
+        "exactFutureClosingDates": 0,
+        "unknownAbsoluteDates": 18,
+        "expiredClosingDates": 0,
+        "paginationComplete": true,
+        "warnings": [
+          "Read-only public program/application monitoring; no calendar, application submission or email execution",
+          "Missing row years/timezones, approximate and rolling dates remain unknown; old records are retained rather than relabelled as current"
+        ],
+        "identicalSemanticRecords": true
+      },
+      "evidencePointersValidated": true,
+      "requestMetadata": [
+        {
+          "url": "https://onf.fsu.edu/important-dates",
+          "httpStatus": 200,
+          "contentType": "text/html; charset=UTF-8"
+        }
+      ],
+      "sampleFutureMilestones": [],
+      "privateCapturePath": "private/official-deadlines-live/fsu-onf-dates-latest.json"
+    },
+    {
+      "evidenceClass": "fresh-public-GET-plus-private-response-replay",
+      "mockedLiveFetch": false,
+      "fresh": {
+        "sourceId": "fsu-cre-applications",
+        "parserVersion": "official-deadlines-v1",
+        "status": "success",
+        "reason": null,
+        "startedAt": "2026-10-21T23:39:56.485Z",
+        "finishedAt": "2026-10-21T23:39:57.209Z",
+        "requests": 2,
+        "responseBytes": 7428,
+        "capturedPages": 2,
+        "captureSha256": [
+          "522aaa9b684417c76c5a1ab33f6fda7e82219debf99fe7f967971830d67379c0",
+          "42da0b9e1d2b6066753fd2d1f985ba24ff62bfd44202dc317a9adb1c7f07192a"
+        ],
+        "nativeRows": 14,
+        "programs": 14,
+        "milestones": 28,
+        "eventOccurrences": 0,
+        "exactFutureClosingDates": 5,
+        "unknownAbsoluteDates": 1,
+        "expiredClosingDates": 8,
+        "paginationComplete": true,
+        "warnings": [
+          "Read-only public program/application monitoring; no calendar, application submission or email execution",
+          "Missing row years/timezones, approximate and rolling dates remain unknown; old records are retained rather than relabelled as current"
+        ]
+      },
+      "replay": {
+        "evidenceClass": "local-replay-not-second-network-fetch",
+        "sourceId": "fsu-cre-applications",
+        "parserVersion": "official-deadlines-v1",
+        "status": "success",
+        "reason": null,
+        "startedAt": "2026-10-21T23:39:56.485Z",
+        "finishedAt": "2026-10-21T23:39:56.485Z",
+        "requests": 2,
+        "responseBytes": 7428,
+        "capturedPages": 2,
+        "captureSha256": [
+          "522aaa9b684417c76c5a1ab33f6fda7e82219debf99fe7f967971830d67379c0",
+          "42da0b9e1d2b6066753fd2d1f985ba24ff62bfd44202dc317a9adb1c7f07192a"
+        ],
+        "nativeRows": 14,
+        "programs": 14,
+        "milestones": 28,
+        "eventOccurrences": 0,
+        "exactFutureClosingDates": 5,
+        "unknownAbsoluteDates": 1,
+        "expiredClosingDates": 8,
+        "paginationComplete": true,
+        "warnings": [
+          "Read-only public program/application monitoring; no calendar, application submission or email execution",
+          "Missing row years/timezones, approximate and rolling dates remain unknown; old records are retained rather than relabelled as current"
+        ],
+        "identicalSemanticRecords": true
+      },
+      "evidencePointersValidated": true,
+      "requestMetadata": [
+        {
+          "url": "https://fsu-cre.smapply.us/prog/ds/?page=1&base_query=all",
+          "httpStatus": 200,
+          "contentType": "application/json"
+        },
+        {
+          "url": "https://fsu-cre.smapply.us/prog/ds/?page=2&base_query=all",
+          "httpStatus": 200,
+          "contentType": "application/json"
+        }
+      ],
+      "sampleFutureMilestones": [
+        {
+          "program": "FSU IDEA Grants Application",
+          "nativeId": "873:application_deadline",
+          "occursAt": "2027-02-02T04:59:00.000Z",
+          "occursOn": "2027-02-01",
+          "sourceLocalText": "Feb 1 2027 11:59 PM (EST)",
+          "sourceUrl": "https://fsu-cre.smapply.us/prog/fsu_idea_grants_application/",
+          "uncertainty": "Literal publisher EST/EDT offset retained; program eligibility and current application acceptance require confirmation on the official page"
+        },
+        {
+          "program": "Global Scholars Ambassador Application",
+          "nativeId": "1351:application_deadline",
+          "occursAt": "2026-11-03T04:59:00.000Z",
+          "occursOn": "2026-11-02",
+          "sourceLocalText": "Nov 2 2026 11:59 PM (EST)",
+          "sourceUrl": "https://fsu-cre.smapply.us/prog/global_scholars_ambassador_application/",
+          "uncertainty": "Literal publisher EST/EDT offset retained; program eligibility and current application acceptance require confirmation on the official page"
+        },
+        {
+          "program": "Global Scholars 2027 Application",
+          "nativeId": "1541:application_deadline",
+          "occursAt": "2026-11-07T04:59:00.000Z",
+          "occursOn": "2026-11-06",
+          "sourceLocalText": "Nov 6 2026 11:59 PM (EST)",
+          "sourceUrl": "https://fsu-cre.smapply.us/prog/global_scholars_2027_application/",
+          "uncertainty": "Literal publisher EST/EDT offset retained; program eligibility and current application acceptance require confirmation on the official page"
+        },
+        {
+          "program": "FURC 2027 Funding Application",
+          "nativeId": "1577:application_deadline",
+          "occursAt": "2026-11-08T04:59:00.000Z",
+          "occursOn": "2026-11-07",
+          "sourceLocalText": "Nov 7 2026 11:59 PM (EST)",
+          "sourceUrl": "https://fsu-cre.smapply.us/prog/furc_2027_funding_application/",
+          "uncertainty": "Literal publisher EST/EDT offset retained; program eligibility and current application acceptance require confirmation on the official page"
+        },
+        {
+          "program": "Julius Scholars",
+          "nativeId": "4992:application_deadline",
+          "occursAt": "2026-12-01T05:00:00.000Z",
+          "occursOn": "2026-12-01",
+          "sourceLocalText": "Dec 1 2026 12:00 AM (EST)",
+          "sourceUrl": "https://fsu-cre.smapply.us/prog/julius_scholars_/",
+          "uncertainty": "Literal publisher EST/EDT offset retained; program eligibility and current application acceptance require confirmation on the official page"
+        }
+      ],
+      "privateCapturePath": "private/official-deadlines-live/fsu-cre-applications-latest.json"
+    },
+    {
+      "evidenceClass": "fresh-public-GET-plus-private-response-replay",
+      "mockedLiveFetch": false,
+      "fresh": {
+        "sourceId": "fsu-career-deadlines",
+        "parserVersion": "official-deadlines-v1",
+        "status": "success",
+        "reason": null,
+        "startedAt": "2026-10-21T23:39:57.273Z",
+        "finishedAt": "2026-10-21T23:39:57.467Z",
+        "requests": 1,
+        "responseBytes": 178789,
+        "capturedPages": 1,
+        "captureSha256": [
+          "0750925cc671d3e9ed083a45a374420c455a5e04cd7b9f29b4d2a08fb124a9dc"
+        ],
+        "nativeRows": 1,
+        "programs": 1,
+        "milestones": 2,
+        "eventOccurrences": 0,
+        "exactFutureClosingDates": 0,
+        "unknownAbsoluteDates": 2,
+        "expiredClosingDates": 0,
+        "paginationComplete": true,
+        "warnings": [
+          "Read-only public program/application monitoring; no calendar, application submission or email execution",
+          "Missing row years/timezones, approximate and rolling dates remain unknown; old records are retained rather than relabelled as current"
+        ]
+      },
+      "replay": {
+        "evidenceClass": "local-replay-not-second-network-fetch",
+        "sourceId": "fsu-career-deadlines",
+        "parserVersion": "official-deadlines-v1",
+        "status": "success",
+        "reason": null,
+        "startedAt": "2026-10-21T23:39:57.273Z",
+        "finishedAt": "2026-10-21T23:39:57.273Z",
+        "requests": 1,
+        "responseBytes": 178789,
+        "capturedPages": 1,
+        "captureSha256": [
+          "0750925cc671d3e9ed083a45a374420c455a5e04cd7b9f29b4d2a08fb124a9dc"
+        ],
+        "nativeRows": 1,
+        "programs": 1,
+        "milestones": 2,
+        "eventOccurrences": 0,
+        "exactFutureClosingDates": 0,
+        "unknownAbsoluteDates": 2,
+        "expiredClosingDates": 0,
+        "paginationComplete": true,
+        "warnings": [
+          "Read-only public program/application monitoring; no calendar, application submission or email execution",
+          "Missing row years/timezones, approximate and rolling dates remain unknown; old records are retained rather than relabelled as current"
+        ],
+        "identicalSemanticRecords": true
+      },
+      "evidencePointersValidated": true,
+      "requestMetadata": [
+        {
+          "url": "https://career.fsu.edu/programs-services/internfsu",
+          "httpStatus": 200,
+          "contentType": "text/html; charset=UTF-8"
+        }
+      ],
+      "sampleFutureMilestones": [],
+      "privateCapturePath": "private/official-deadlines-live/fsu-career-deadlines-latest.json"
+    }
+  ],
+  "totalsForLatestAttempt": {
+    "requests": 4,
+    "responseBytes": 235362,
+    "programs": 33,
+    "milestones": 48,
+    "eventOccurrences": 0
+  },
+  "initialExploratoryReads": {
+    "evidenceClass": "public-route-discovery-not-hosted-ingestion",
+    "completeRequests": 9,
+    "explanation": "ONF/Career/CRE landing, two CRE static program pages, two public vendor JavaScript bundles identifying /prog/ds/, and two unauthenticated JSON directory pages. The first sandboxed attempt failed DNS for three pages and was not counted as collection success. Bodies remain ignored. Indexed search differed from fresh ONF Goldwater day; only the actual captured publisher response is parsed."
+  },
+  "zeroSideEffects": {
+    "databaseWrites": 0,
+    "productionActivation": 0,
+    "calendarWrites": 0,
+    "applicationsSubmitted": 0,
+    "emailMessages": 0,
+    "modelCalls": 0,
+    "paidConnectors": 0
+  },
+  "costModel": {
+    "cadenceSeconds": 21600,
+    "checksPer30Days": 120,
+    "publicGetsPer30DaysAtObservedPagination": 480,
+    "responseBytesPer30DaysAtObservedSize": 28243440,
+    "upstreamGetChargeUsd": 0,
+    "cloudComputeCost": "unmeasured; no hosted run claimed",
+    "notes": "4 GETs per complete three-route check. Storage growth assumes each content body changes; content-addressed reuse lowers identical-body writes. Private capture retention deletion remains disabled. Provider API shape changes and additional pages can block this bounded adapter."
+  },
+  "limits": [
+    "Public source-specific monitoring, not all fellowships/research/career coverage",
+    "No year guessed from fetch date or ambiguous 2026–2027/Spring2027 heading; ONF and Career local text remains visible with unknown absolute dates",
+    "CRE uses explicit portal windows only; older program descriptions/eligibility and conflicts with other pages need confirmation",
+    "Closed historical programs and unpublished/rolling closing deadlines remain visible; last successful fetch is not a guarantee of current applications",
+    "Program deadlines are milestones, never event attendance occurrences or automatic reminders",
+    "No NoleNetwork login, applicant data, submission, email alert, calendar write or paid connector",
+    "ONF native publisher editor IDs may change on page rewrites; no cross-source merge or disappearance-based cancellation"
+  ],
+  "primaryReferences": [
+    "https://onf.fsu.edu/important-dates",
+    "https://fsu-cre.smapply.us/prog/ds/?page=1&base_query=all",
+    "https://career.fsu.edu/programs-services/internfsu"
+  ]
+}

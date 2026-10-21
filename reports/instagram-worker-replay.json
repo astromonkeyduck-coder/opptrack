@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-10-21T23:00:00.920Z",
+  "runAt": "2026-10-21T23:55:05.853Z",
   "passed": 6,
   "checks": [
     "actual collector → private upload adapter → SQL RPC persists one publication without an event",

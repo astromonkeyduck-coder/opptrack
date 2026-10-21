@@ -1,0 +1,516 @@
+{
+  "sourceId": "fsu-opening-nights",
+  "evidenceClass": "fresh-public-read-only-fetch-and-capture-replay",
+  "liveFetchMocked": false,
+  "reportedAt": "2026-10-21T23:44:22.411Z",
+  "fresh": {
+    "status": "success",
+    "reason": null,
+    "startedAt": "2026-10-21T23:44:16.943Z",
+    "finishedAt": "2026-10-21T23:44:21.982Z",
+    "parserVersion": "official-tickets-v1",
+    "requests": 19,
+    "bytes": 1643316,
+    "capturedPages": 19,
+    "nativeRows": 18,
+    "opportunities": 18,
+    "occurrences": 18,
+    "milestones": 18,
+    "explicitReleases": [
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/national-symphony-orchestra-of-ukraine#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/prism#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/audra-mcdonald#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/leslie-odom-jr-with-the-tallahassee-symphony-orchestra#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/manual-cinemas-the-4th-witch#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/vienna-girls-choir#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/jazzreach#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      }
+    ],
+    "captureHashes": [
+      "ffb0f2f6f08c87329cf865be687c990897fdf2d51cc62aaf4eac7c3de819c8cd",
+      "41ac3d5ec7ace9305594427b89f50ddd381ef5b38c516a8929827e0f3c3588ff",
+      "2d9dfd3b43206068799a8fdfb00b6ad095942182793b32b1ef412c708514cdf7",
+      "8d4f54830b7b0fb772d5f0ed14d4511ae6974ab1e309ad7ebfc34cc40a7d5895",
+      "0f831705c720b47ddab01a3ef1edb0f5a2ab9350577c89a3a64c3a4600abfd07",
+      "cdfeaf3c9ad0019fedc26ead305f6324853e2ed262da06c0358b48a3bce74d66",
+      "9c401896dd1bda7e402daae16fb9652a7939e74d2538a596e9f9687277178059",
+      "a79be664e91da6b0d51f1971a40b1b0038503d52a29e8206a9e0a2e1bb4fdf96",
+      "cbc618b05af126a0173219b81efa674ead432100099f23033f4c72f6eeba290f",
+      "26c3c677afd9b02398b22ca1f1666705c8a02bbf7ba02f96db0bf6638a2fd8fe",
+      "bfc7d18e21bbc7869433902e7d1bd5cb6ff8701c413b0fdc2b5883ed1418771a",
+      "30e780a04a80273165168e25903f552b38f6a1b8004416d4828a88e6525c7bb5",
+      "888b7f890914e0c1c1884bbbe8c669801366b4cc642156665bb8db30b7e609c9",
+      "d5ccae6e18dd1623a1f20b354c1e31796558a55641c1260ea89f2185332a679b",
+      "5b94c9f44b2a925d0170f2ccfdea5c1f46855f52ab68ebebba86f7aff2ae7d47",
+      "3d757c32b483cea1f6b6dcd8fd45da0eda04b4f17834cbe597ce3163b40da17c",
+      "30aae6896e7702f51088419995957f9b71e54a1265658de406c0ccfddeae7a87",
+      "c53c2900e9fed56bd62ab84ffe726041173d7464505964e4d8f36339ab834900",
+      "074f37ecf1d6c4c0e7afb0d249516e4e6fc47976f82543c55b99e7f0829e1ca7"
+    ],
+    "warnings": [
+      "Complete current organizer listing and every linked show detail only; no campus-wide ticket completeness",
+      "Ticket vendor URLs are retained as action links and never fetched; no seat availability, reservation or purchase",
+      "Sale dates are extracted only from explicit visible hero action copy with a year; timezone remains unknown",
+      "Semantic revisions record observed ticket-link/release changes; polling does not prove the first public announcement; disappearance never means sold out or cancellation"
+    ]
+  },
+  "requestMetadata": [
+    {
+      "url": "https://www.openingnights.fsu.edu/events",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/alash-ensemble-masters-of-tuvan-throat-singing",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/alash-ensemble",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/katie-skene-friends",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/whose-live-anyway",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/barron-ryan-classic-meets-cool",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/barron-ryan-the-most-wonderful-time",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/duane-betts-palmetto-motel",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/jazz-at-lincoln-center",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/national-symphony-orchestra-of-ukraine",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/prism",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/audra-mcdonald",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/leslie-odom-jr-with-the-tallahassee-symphony-orchestra",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/manual-cinemas-the-4th-witch",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/vienna-girls-choir",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/jeff-arucuri-the-road-trip-tour",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/jazzreach-janus-jaunting-the-story-of-jazz",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/jazzreach",
+      "status": 200,
+      "location": null
+    }
+  ],
+  "evidencePointersValidated": 54,
+  "attempts": [
+    {
+      "status": "success",
+      "reason": null,
+      "startedAt": "2026-10-21T23:38:22.152Z",
+      "finishedAt": "2026-10-21T23:38:27.228Z",
+      "parserVersion": "official-tickets-v1",
+      "requests": 19,
+      "bytes": 1643316,
+      "capturedPages": 19,
+      "nativeRows": 18,
+      "opportunities": 18,
+      "occurrences": 18,
+      "milestones": 26,
+      "explicitReleases": [
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance#ticket-release",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/national-symphony-orchestra-of-ukraine#ticket-release",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/prism#ticket-release",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/audra-mcdonald#ticket-release",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/leslie-odom-jr-with-the-tallahassee-symphony-orchestra#ticket-release",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/manual-cinemas-the-4th-witch#ticket-release",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/vienna-girls-choir#ticket-release",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/jazzreach#ticket-release",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        }
+      ],
+      "captureHashes": [
+        "611b4d78e6e4a4d4c8e88064f58e10d4a4d32cb0a7e62b2de86b2b26d1327131",
+        "b6714ba7afb03bbe723da91aca77e4fcc02182f03a7c97d615070ea90f5470d4",
+        "fcb17fa0c0bb27cabc54edd1be115d8c975b811295562806a339c7336a23b3f5",
+        "9d7837429e0f099b282a2175f2fdcad618b2e7c0cafbb3960bdfc70fb16ff440",
+        "c29c024b8c1cd4cd0cb6a78733297f1405607dd362e8902f34bee427360732b6",
+        "a9958aa32699cd512ac4f4d8df70a1d67a8970ee6a93b91a2a25447d751feec3",
+        "4f818466c185b3bf97e491317bec9b80f0daf6c147c9bfe749e01ad4ce8211ae",
+        "49baedc1f549af200e55931ac883530301b97fcffbe032a560698afa8bf4c891",
+        "e529c9ead060ca1bbe7aaad211623514926c500778e7f0cba8bcc6a1c64d3a36",
+        "467e2e21fd3e2c6e847f68a288a7c41b36238f06045fd7b089748b5d1b1840ee",
+        "93216daef08836750f5530a389fa9452d13586e299bee60fa4deb5f812907371",
+        "2ac56fffaa8824cac7245033beb7c3107856af0656458681b3b3e8ae1ccd6896",
+        "fbd3e013ed74345af34faa86c2ae3a0bb1c93f8bbd8be78713332968b244b2a6",
+        "30cd14be878dcd3e7723b877d93fa278ed46f9278bca36943bbb445a7f33240e",
+        "b9d442a6bfb05d9873a6e043e719668856b38ef66b5cae9d0be251dd8e3df14f",
+        "6cda49f4cbba565e8db82f336d18ead40bdd875cc8a32b581f9b2f7f4821f4d6",
+        "125e42ac4a58bc34ba51c349f6f38cfae0572a19de33517ac3e4d247007e4485",
+        "734717302bad0d106d3a89aea37789362a875667cc77d5477f5890bbcd948acd",
+        "e4fb2c2a02967cf60f51611778d52443daca50f38924e17216a0072d74d27d02"
+      ],
+      "warnings": [
+        "Complete current organizer listing and every linked show detail only; no campus-wide ticket completeness",
+        "Ticket vendor URLs are retained as action links and never fetched; no seat availability, reservation or purchase",
+        "Sale dates are extracted only from explicit visible hero action copy with a year; timezone remains unknown",
+        "Semantic revisions record observed ticket-link/release changes; polling does not prove the first public announcement; disappearance never means sold out or cancellation"
+      ]
+    },
+    {
+      "status": "success",
+      "reason": null,
+      "startedAt": "2026-10-21T23:44:16.943Z",
+      "finishedAt": "2026-10-21T23:44:21.982Z",
+      "parserVersion": "official-tickets-v1",
+      "requests": 19,
+      "bytes": 1643316,
+      "capturedPages": 19,
+      "nativeRows": 18,
+      "opportunities": 18,
+      "occurrences": 18,
+      "milestones": 18,
+      "explicitReleases": [
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance#ticket-notice",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/national-symphony-orchestra-of-ukraine#ticket-notice",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/prism#ticket-notice",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/audra-mcdonald#ticket-notice",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/leslie-odom-jr-with-the-tallahassee-symphony-orchestra#ticket-notice",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/manual-cinemas-the-4th-witch#ticket-notice",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/vienna-girls-choir#ticket-notice",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        },
+        {
+          "nativeId": "https://www.openingnights.fsu.edu/show-details/jazzreach#ticket-notice",
+          "date": "2026-11-30",
+          "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+          "timezone": null
+        }
+      ],
+      "captureHashes": [
+        "ffb0f2f6f08c87329cf865be687c990897fdf2d51cc62aaf4eac7c3de819c8cd",
+        "41ac3d5ec7ace9305594427b89f50ddd381ef5b38c516a8929827e0f3c3588ff",
+        "2d9dfd3b43206068799a8fdfb00b6ad095942182793b32b1ef412c708514cdf7",
+        "8d4f54830b7b0fb772d5f0ed14d4511ae6974ab1e309ad7ebfc34cc40a7d5895",
+        "0f831705c720b47ddab01a3ef1edb0f5a2ab9350577c89a3a64c3a4600abfd07",
+        "cdfeaf3c9ad0019fedc26ead305f6324853e2ed262da06c0358b48a3bce74d66",
+        "9c401896dd1bda7e402daae16fb9652a7939e74d2538a596e9f9687277178059",
+        "a79be664e91da6b0d51f1971a40b1b0038503d52a29e8206a9e0a2e1bb4fdf96",
+        "cbc618b05af126a0173219b81efa674ead432100099f23033f4c72f6eeba290f",
+        "26c3c677afd9b02398b22ca1f1666705c8a02bbf7ba02f96db0bf6638a2fd8fe",
+        "bfc7d18e21bbc7869433902e7d1bd5cb6ff8701c413b0fdc2b5883ed1418771a",
+        "30e780a04a80273165168e25903f552b38f6a1b8004416d4828a88e6525c7bb5",
+        "888b7f890914e0c1c1884bbbe8c669801366b4cc642156665bb8db30b7e609c9",
+        "d5ccae6e18dd1623a1f20b354c1e31796558a55641c1260ea89f2185332a679b",
+        "5b94c9f44b2a925d0170f2ccfdea5c1f46855f52ab68ebebba86f7aff2ae7d47",
+        "3d757c32b483cea1f6b6dcd8fd45da0eda04b4f17834cbe597ce3163b40da17c",
+        "30aae6896e7702f51088419995957f9b71e54a1265658de406c0ccfddeae7a87",
+        "c53c2900e9fed56bd62ab84ffe726041173d7464505964e4d8f36339ab834900",
+        "074f37ecf1d6c4c0e7afb0d249516e4e6fc47976f82543c55b99e7f0829e1ca7"
+      ],
+      "warnings": [
+        "Complete current organizer listing and every linked show detail only; no campus-wide ticket completeness",
+        "Ticket vendor URLs are retained as action links and never fetched; no seat availability, reservation or purchase",
+        "Sale dates are extracted only from explicit visible hero action copy with a year; timezone remains unknown",
+        "Semantic revisions record observed ticket-link/release changes; polling does not prove the first public announcement; disappearance never means sold out or cancellation"
+      ]
+    }
+  ],
+  "replay": {
+    "evidenceClass": "replay-of-this-fresh-capture; not-another-network-fetch",
+    "status": "success",
+    "reason": null,
+    "startedAt": "2026-10-21T23:44:16.943Z",
+    "finishedAt": "2026-10-21T23:44:16.943Z",
+    "parserVersion": "official-tickets-v1",
+    "requests": 19,
+    "bytes": 1643316,
+    "capturedPages": 19,
+    "nativeRows": 18,
+    "opportunities": 18,
+    "occurrences": 18,
+    "milestones": 18,
+    "explicitReleases": [
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/national-symphony-orchestra-of-ukraine#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/prism#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/audra-mcdonald#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/leslie-odom-jr-with-the-tallahassee-symphony-orchestra#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/manual-cinemas-the-4th-witch#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/vienna-girls-choir#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      },
+      {
+        "nativeId": "https://www.openingnights.fsu.edu/show-details/jazzreach#ticket-notice",
+        "date": "2026-11-30",
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "timezone": null
+      }
+    ],
+    "captureHashes": [
+      "ffb0f2f6f08c87329cf865be687c990897fdf2d51cc62aaf4eac7c3de819c8cd",
+      "41ac3d5ec7ace9305594427b89f50ddd381ef5b38c516a8929827e0f3c3588ff",
+      "2d9dfd3b43206068799a8fdfb00b6ad095942182793b32b1ef412c708514cdf7",
+      "8d4f54830b7b0fb772d5f0ed14d4511ae6974ab1e309ad7ebfc34cc40a7d5895",
+      "0f831705c720b47ddab01a3ef1edb0f5a2ab9350577c89a3a64c3a4600abfd07",
+      "cdfeaf3c9ad0019fedc26ead305f6324853e2ed262da06c0358b48a3bce74d66",
+      "9c401896dd1bda7e402daae16fb9652a7939e74d2538a596e9f9687277178059",
+      "a79be664e91da6b0d51f1971a40b1b0038503d52a29e8206a9e0a2e1bb4fdf96",
+      "cbc618b05af126a0173219b81efa674ead432100099f23033f4c72f6eeba290f",
+      "26c3c677afd9b02398b22ca1f1666705c8a02bbf7ba02f96db0bf6638a2fd8fe",
+      "bfc7d18e21bbc7869433902e7d1bd5cb6ff8701c413b0fdc2b5883ed1418771a",
+      "30e780a04a80273165168e25903f552b38f6a1b8004416d4828a88e6525c7bb5",
+      "888b7f890914e0c1c1884bbbe8c669801366b4cc642156665bb8db30b7e609c9",
+      "d5ccae6e18dd1623a1f20b354c1e31796558a55641c1260ea89f2185332a679b",
+      "5b94c9f44b2a925d0170f2ccfdea5c1f46855f52ab68ebebba86f7aff2ae7d47",
+      "3d757c32b483cea1f6b6dcd8fd45da0eda04b4f17834cbe597ce3163b40da17c",
+      "30aae6896e7702f51088419995957f9b71e54a1265658de406c0ccfddeae7a87",
+      "c53c2900e9fed56bd62ab84ffe726041173d7464505964e4d8f36339ab834900",
+      "074f37ecf1d6c4c0e7afb0d249516e4e6fc47976f82543c55b99e7f0829e1ca7"
+    ],
+    "warnings": [
+      "Complete current organizer listing and every linked show detail only; no campus-wide ticket completeness",
+      "Ticket vendor URLs are retained as action links and never fetched; no seat availability, reservation or purchase",
+      "Sale dates are extracted only from explicit visible hero action copy with a year; timezone remains unknown",
+      "Semantic revisions record observed ticket-link/release changes; polling does not prove the first public announcement; disappearance never means sold out or cancellation"
+    ],
+    "semanticRecordsIdentical": true
+  },
+  "privateCapturePath": "private/official-tickets-live/latest.json",
+  "databaseWrites": 0,
+  "calendarWrites": 0,
+  "emailsSent": 0,
+  "modelCalls": 0,
+  "paidConnectors": 0,
+  "ticketVendorRequests": 0,
+  "providerChargesUsd": 0,
+  "costBasis": "Observed public HTTPS GETs only; local compute/network and hosted service invoices are unmeasured. This probe does not prove deployed or scheduled ingestion.",
+  "limits": [
+    "Organizer listing and linked details only; no university-wide ticket coverage",
+    "No seat inventory, eligibility, RSVP, order, cart or reservation requests",
+    "Exact observed on-sale date and local clock retained; unstated timezone is unknown, so no precise instant is inferred",
+    "Link/status revisions report observed changes; they cannot prove first release time",
+    "Structured offer availabilityStarts/validFrom ignored because fresh payload reuses event time",
+    "Missing link never means sold out; vanished show never means cancelled"
+  ],
+  "primaryReferences": [
+    {
+      "url": "https://www.openingnights.fsu.edu/events",
+      "checkedAt": "2026-10-21T23:44:16.943Z"
+    },
+    {
+      "url": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance",
+      "checkedAt": "2026-10-21T23:44:16.943Z"
+    }
+  ],
+  "localValidation": {
+    "recordedAt": "2026-10-21T23:54:52.822Z",
+    "command": "node --import tsx --test tests/official-tickets.test.ts tests/milestone-presentation.test.ts",
+    "testsPassed": 28,
+    "syntheticTestBodies": true,
+    "capturedLiveReplay": {
+      "evidencePointersValidated": 54,
+      "opportunities": 18,
+      "occurrences": 18,
+      "milestones": 18,
+      "semanticRecordsIdentical": true,
+      "trustedDatabasePayloadValid": true,
+      "additionalNetworkRequests": 0,
+      "databaseWrites": 0
+    },
+    "semanticEvidencePolicy": "All normalized fields reconstructed from each corresponding private capture; rehashed mutations and alternate pointers fail closed"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "runAt": "2026-10-21T23:55:40.999Z",
+  "database": "PGlite 0.5.10 actual PostgreSQL WASM",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql"
+  ],
+  "passed": 23,
+  "checks": [
+    "new migration preserves all source state and activates no sources",
+    "exact-source activation is idempotent and preserves unrelated rows plus an existing active source cursor/lease",
+    "only exact authorized official source IDs and adapters qualify for four-source leases",
+    "four official leases remain separate from three core leases and all27 social leases",
+    "official lease limits and worker-only privileges reject browsers and private-function calls",
+    "production deadline collector and ingestion persist real SQL milestones without attendance occurrences",
+    "immutable private captures, native evidence claims and current-version local text survive SQL normalization",
+    "unchanged replay preserves milestone identity/revision/versions and verifies duplicate Storage bytes",
+    "changed application date appends a revision/version while preserving stable native milestone identity",
+    "published-window availability transition appends a version without creating a new milestone",
+    "changed official application link updates the same milestone and retains older action claims",
+    "unknown-year fellowship and career milestones remain visible in the invoker view with no invented instant",
+    "explicit ticket release is a separate milestone; changed links preserve show/occurrence/release identities",
+    "an organizer removing an explicit release notice clears the current deadline without losing its historical version",
+    "partial/truncated collection records failure and preserves last success, cursor and prior milestones",
+    "a captured genuinely empty complete directory succeeds without deleting retained programs or milestones",
+    "rate limit preserves nominal source slot and enforces Retry-After before official leasing",
+    "hourly ticket and six-hour deadline processing across UTC boundaries cannot skip the next nominal poll",
+    "missed official slots coalesce once and expired leases retain their failed-run slot evidence",
+    "production dispatcher actually invokes the separate official RPC and ingests all four fixtures",
+    "owner-only milestones, versions, claims, captures and invoker view deny other-user/anonymous reads and browser writes",
+    "forged native timing is rejected before upload or SQL and Storage failure leaves cursor and lease recoverable",
+    "composite ownership foreign keys reject cross-owner milestone references even under a worker role"
+  ],
+  "fixtureClass": "Synthetic official program/ticket HTML and JSON, source times and Trigger IDs; production collector/dispatcher/ingestion modules; actual PostgreSQL migrations, FK, roles and RLS; in-memory immutable Storage body substitute with actual SQL object metadata",
+  "counts": {
+    "opportunities": 4,
+    "milestones": 6,
+    "occurrences": 1,
+    "sourceRuns": 20,
+    "versions": 20,
+    "fieldClaims": 75
+  },
+  "storageSubstitute": {
+    "uploads": 13,
+    "duplicateReuses": 10,
+    "verifiedDownloads": 10,
+    "objects": 13
+  },
+  "calendarWrites": 0,
+  "paidServicesEnabled": 0,
+  "hostedNetworkRequests": 0,
+  "actualCloudCostUsd": 0,
+  "notTested": [
+    "Hosted migration or source activation",
+    "Real Trigger scheduled ingestion",
+    "Hosted signed-JWT and Storage HTTP",
+    "Distributed simultaneous lock contention",
+    "Actual Google writes",
+    "Automated email notifications",
+    "Backup/restore and production retention"
+  ]
+}

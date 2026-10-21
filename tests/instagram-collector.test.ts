@@ -162,6 +162,7 @@ test("core producerlease/processing finishes before27socialleases, and a socialf
     rpc: async (name: string, args: Record<string,unknown>) => {
       order.push(name);
       if (name === "lease_due_sources") return { data: [coreLease], error: null };
+      if (name === "lease_due_official_sources") { assert.equal(args.p_limit,4);return {data:[],error:null}; }
       if (name === "complete_source_run") return {data:{run_id:"synthetic_core_run"},error:null};
       if (name === "lease_due_instagram_sources") { assert.equal(args.p_limit, 27); return { data: [lease], error: null }; }
       if (name === "complete_instagram_run") return { data: { run_id: "synthetic_run" }, error: null };
@@ -170,7 +171,7 @@ test("core producerlease/processing finishes before27socialleases, and a socialf
     storage: { from: () => ({ upload: async () => ({ error: null }) }) },
   } as unknown as SupabaseClient;
   const result = await dispatchDueSources(2, client, { invocationKind: "local" }, environment);
-  assert.deepEqual(order, ["lease_due_sources", "complete_source_run", "lease_due_instagram_sources", "complete_instagram_run"]);
+  assert.deepEqual(order, ["lease_due_sources", "complete_source_run", "lease_due_official_sources", "lease_due_instagram_sources", "complete_instagram_run"]);
   assert.equal(result[0].outcome, "success"); assert.equal(result[0].sourceId,"fsu-calendar-api");
   assert.equal(result[1].outcome, "blocked"); assert.equal(result[1].sourceId, source);
 });
@@ -187,7 +188,7 @@ test("one dispatcher covers27socialsources with atmosttwoAPIrequests inflight", 
     from:()=>({select:()=>({limit:async()=>({data:[{user_id:lease.owner_id}],error:null})})}),
     storage:{from:()=>({upload:async()=>({error:null})})},
     rpc:async(name:string)=>{
-      if(name==="lease_due_sources")return{data:[],error:null};
+      if(name==="lease_due_sources"||name==="lease_due_official_sources")return{data:[],error:null};
       if(name==="lease_due_instagram_sources")return{data:[...instagramHandles].map(handle=>({...lease,id:`instagram-${handle}`})),error:null};
       if(name==="complete_instagram_run"){commits++;return{data:{run_id:`synthetic_${commits}`},error:null};}
       throw Error("Unexpected synthetic RPC");
@@ -210,7 +211,7 @@ test("90second launch budget leaves unstarted27accountleases for recovery withou
     from:()=>({select:()=>({limit:async()=>({data:[{user_id:lease.owner_id}],error:null})})}),
     storage:{from:()=>({upload:async()=>({error:null})})},
     rpc:async(name:string)=>{
-      if(name==="lease_due_sources")return{data:[],error:null};
+      if(name==="lease_due_sources"||name==="lease_due_official_sources")return{data:[],error:null};
       if(name==="lease_due_instagram_sources")return{data:[...instagramHandles].map(handle=>({...lease,id:`instagram-${handle}`})),error:null};
       if(name==="complete_instagram_run"){commits++;elapsed=90_001;return{data:{run_id:`synthetic_${commits}`},error:null};}
       throw Error("Unexpected synthetic RPC");

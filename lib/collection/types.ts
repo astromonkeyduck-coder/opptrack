@@ -32,12 +32,30 @@ export interface NormalizedOpportunity {
   title: string;
   description: string | null;
   sourceUrl: string;
-  kind: "event";
+  kind: "event" | "program";
   campusRelation: "campus" | "fsu_affiliated" | "unknown";
   categories: string[];
   sourcePublishedAt: string | null;
   sourceUpdatedAt: string | null;
   uncertainties: string[];
+  contentSha256: string;
+  captureNativeId: string;
+  evidencePointer: string;
+}
+
+/** An application or ticket action is not an attendance occurrence. */
+export interface NormalizedMilestone {
+  nativeId: string;
+  opportunityNativeId: string;
+  occurrenceNativeId: string | null;
+  kind: "application_deadline" | "application_open" | "ticket_release" | "ticket_link";
+  occursAt: string | null;
+  occursOn: string | null;
+  sourceLocalText: string | null;
+  timezone: string | null;
+  availability: string | null;
+  actionUrl: string | null;
+  uncertainty: string | null;
   contentSha256: string;
   captureNativeId: string;
   evidencePointer: string;
@@ -54,6 +72,7 @@ export interface CollectionBatch {
   pages: RawPage[];
   opportunities: NormalizedOpportunity[];
   occurrences: NormalizedOccurrence[];
+  milestones?: NormalizedMilestone[];
   cursor: Record<string, unknown> | null;
   observations: {
     requests: number;

@@ -62,7 +62,7 @@ export function toDatabaseBatch(lease: SourceLease, batch: CollectionBatch, prov
     })),
     opportunities: batch.opportunities.map(item => ({
       native_id: item.nativeId, title: item.title, description: item.description,
-      source_url: item.sourceUrl, categories: item.categories, campus_relation: item.campusRelation,
+      kind:item.kind, source_url: item.sourceUrl, categories: item.categories, campus_relation: item.campusRelation,
       source_published_at: item.sourcePublishedAt, source_updated_at: item.sourceUpdatedAt,
       capture_native_id: item.captureNativeId, content_sha256: item.contentSha256,
       uncertainties: item.uncertainties,
@@ -84,7 +84,15 @@ export function toDatabaseBatch(lease: SourceLease, batch: CollectionBatch, prov
         { field: "location", value: item.location, evidence_pointer: item.evidencePointer },
       ],
     })),
-    milestones: [],
+    milestones: (batch.milestones ?? []).map(item => ({
+      native_id:item.nativeId,opportunity_native_id:item.opportunityNativeId,occurrence_native_id:item.occurrenceNativeId,
+      kind:item.kind,occurs_at:item.occursAt,occurs_on:item.occursOn,source_local_text:item.sourceLocalText,timezone:item.timezone,
+      availability:item.availability,action_url:item.actionUrl,uncertainty:item.uncertainty,
+      content_sha256:item.contentSha256,capture_native_id:item.captureNativeId,
+      claims:[{field:"timing",value:{at:item.occursAt,on:item.occursOn,local_text:item.sourceLocalText,timezone:item.timezone},evidence_pointer:item.evidencePointer},
+        {field:"availability",value:item.availability,evidence_pointer:item.evidencePointer},
+        {field:"action_url",value:item.actionUrl,evidence_pointer:item.evidencePointer}],
+    })),
   };
 }
 
@@ -147,7 +155,7 @@ export async function runLeasedCollection(lease: SourceLease, client = getWorker
   const batch = await collectSource(lease.id, retainedNativeIds ? { retainedNativeIds } : {});
   // A source failure is a durable run and retry time, not an infrastructure exception.
   const committed = await ingestCollectedBatch(lease, batch, client, provenance);
-  return { sourceId: lease.id, sourceRunId: (committed as { run_id?: string } | null)?.run_id ?? null, outcome: batch.status, opportunities: batch.opportunities.length, occurrences: batch.occurrences.length, requests: batch.observations.requests };
+  return { sourceId: lease.id, sourceRunId: (committed as { run_id?: string } | null)?.run_id ?? null, outcome: batch.status, opportunities: batch.opportunities.length, occurrences: batch.occurrences.length, requests: batch.observations.requests, milestones:batch.milestones?.length??0 };
 }
 
 export async function dispatchDueSources(limit = 3, client = getWorkerClient(), provenance?: DispatcherProvenance, environment: Record<string,string|undefined> = process.env) {
@@ -172,6 +180,13 @@ export async function dispatchDueSources(limit = 3, client = getWorkerClient(), 
       // expires and is recovered; never mark a failed persistence as collection success.
       results.push({ sourceId: lease.id, outcome: "infrastructure_failure", reason: "Collection preparation or persistence failed; lease will expire and retry" });
     }
+  }
+  const {data:officialLeases,error:officialError}=await client.rpc("lease_due_official_sources",{p_limit:4,p_lease_seconds:600});
+  if(officialError)throw new Error(`Official source leasing failed (${officialError.code ?? "database"})`);
+  if(!Array.isArray(officialLeases)||officialLeases.length>4)throw new Error("Official source leasing returned an invalid bounded response");
+  for(const lease of officialLeases as SourceLease[]) {
+    try { results.push(await runLeasedCollection(lease,client,provenance)); }
+    catch { results.push({sourceId:lease.id,outcome:"infrastructure_failure",reason:"Official collection persistence failed; lease will expire and retry"}); }
   }
   // The database leases core producers separately. Social work cannot consume
   // Central/Music/HQ's three slots or prevent their processing when Meta fails.

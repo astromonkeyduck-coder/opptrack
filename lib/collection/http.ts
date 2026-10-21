@@ -6,6 +6,10 @@ const HOST_PATHS: Record<string, string[]> = {
   "music.fsu.edu": ["/events/", "/events"],
   "hq.fsu.edu": ["/ical/floridastate/ical_floridastate.ics"],
   "static-prod-us-east-1.campusgroups.com": ["/ical/floridastate/ical_floridastate.ics"],
+  "onf.fsu.edu": ["/important-dates"],
+  "career.fsu.edu": ["/programs-services/internfsu"],
+  "fsu-cre.smapply.us": ["/prog/ds/"],
+  "www.openingnights.fsu.edu": ["/events"],
 };
 
 export class CollectionFailure extends Error {
@@ -50,7 +54,15 @@ export function retryDelaySeconds(failures: number, retryAfter: number | null, r
 
 export function assertCollectorUrl(value: string): URL {
   const url = new URL(value);
-  if (url.protocol !== "https:" || url.username || url.password || (url.port && url.port !== "443") || !HOST_PATHS[url.hostname]?.includes(url.pathname)) {
+  const ticketDetail = url.hostname === "www.openingnights.fsu.edu" && /^\/show-details\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(url.pathname);
+  const knownPath = HOST_PATHS[url.hostname]?.includes(url.pathname) || ticketDetail;
+  const constrained = ["onf.fsu.edu", "career.fsu.edu", "www.openingnights.fsu.edu"].includes(url.hostname);
+  const creQuery = url.hostname === "fsu-cre.smapply.us";
+  if (url.protocol !== "https:" || url.username || url.password || (url.port && url.port !== "443") || !knownPath
+    || (constrained && (url.search || url.hash))
+    || (creQuery && (url.hash || [...url.searchParams.keys()].some(key => !["page", "base_query"].includes(key))
+      || url.searchParams.getAll("page").length !== 1 || !/^[12]$/.test(url.searchParams.get("page") || "")
+      || url.searchParams.getAll("base_query").length !== 1 || url.searchParams.get("base_query") !== "all"))) {
     throw new CollectionFailure("Collector redirect or URL is outside its exact public source allowlist", "blocked");
   }
   return url;

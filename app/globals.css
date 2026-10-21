@@ -2278,3 +2278,27 @@ input[type=file]::file-selector-button {
 .candidate-time-marker {left:auto;right:-18px;width:10px;padding:0;overflow:hidden;background:#a35f73;border:1px solid #782f40;border-radius:2px;opacity:.65;pointer-events:none;}
 .candidate-time-marker>* {display:none;}
 .calendar-unknown-marker {border-top:0;border-right:0;border-bottom:0;}
+
+/* Official action notices stay separate from attendance decisions. */
+.milestone-list {display:grid;gap:16px;max-width:1160px;}
+.milestone-card {display:grid;grid-template-columns:210px minmax(0,1fr);border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;}
+.milestone-date {padding:25px 22px;background:#e8ecdf;display:flex;flex-direction:column;gap:14px;}
+.milestone-date>span {font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#55634d;}
+.milestone-date>strong {font-size:24px;font-weight:500;line-height:1.2;letter-spacing:-.03em;}
+.milestone-date>small {font-size:10px;line-height:1.6;color:#65715e;}
+.milestone-content {padding:24px 28px;min-width:0;overflow-wrap:anywhere;}
+.milestone-content h2 {font-size:22px;font-weight:500;line-height:1.3;margin:12px 0;letter-spacing:-.025em;}
+.milestone-status {font-size:12px;color:#536846;}
+.milestone-source-text {font-size:13px;line-height:1.7;color:#495744;margin:12px 0;}
+.milestone-content .small,.milestone-content .uncertainty {font-size:11px;line-height:1.7;}
+.milestone-content .card-actions {display:flex;flex-wrap:wrap;gap:12px;font-size:12px;margin-top:15px;}
+@media(max-width:760px) {
+  .milestone-card {grid-template-columns:1fr;}
+  .milestone-date {padding:18px 20px;gap:8px;}
+  .milestone-date>strong {font-size:23px;}
+  .milestone-content {padding:20px;}
+  .milestone-content h2 {font-size:21px;}
+  .search:has(select[name="category"]) {flex-wrap:wrap;}
+  .search:has(select[name="category"]) .form-field:first-child {flex:1 1 100%;}
+  .search:has(select[name="category"]) .form-field:has(select) {flex:1 1 100px;}
+}

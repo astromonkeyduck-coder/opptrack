@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "stage": 1,
+  "sourceId": "fsu-opening-nights",
+  "adapter": "official-tickets-v1",
+  "listingUrl": "https://www.openingnights.fsu.edu/events",
+  "detailRoute": "HTTPS www.openingnights.fsu.edu /show-details/[a-z0-9]+(?:-[a-z0-9]+)* only; no query or fragment",
+  "cadenceSeconds": 3600,
+  "maxShowCards": 40,
+  "maxPages": 41,
+  "maxPageBytes": 1572864,
+  "maxBatchBytes": 8388608,
+  "maxWallTimeMs": 75000,
+  "activation": "Separate exact-source operator step after deployed worker and migration verification; configuration is not activation evidence",
+  "calendarWrites": false,
+  "ticketVendorRequests": false,
+  "paidConnectors": false,
+  "emailSending": false,
+  "coverage": "Current official Opening Nights listing and every linked show detail; one stable current ticket notice per show reconciles explicit releases, observed links, absence and corrected announcements",
+  "availabilityPolicy": "A Buy/Get Tickets link is link_observed, not verified available seats, sale-open timing or eligibility. A missing/disabled link does not imply sold out.",
+  "releasePolicy": "Only explicit visible Tickets go on sale month day year at local clock copy creates ticket_release. No timezone is assumed. JSON-LD offer validFrom/availabilityStarts is ignored because observed metadata reuses performance time."
+}

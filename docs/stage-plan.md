@@ -23,7 +23,11 @@ Stage 1 is explicitly authorized by the user on October 20, 2026. Stage 0 is pre
 6. Re-ingestion proves no duplicate versions/occurrences and no lost user decisions. Meaningful checks cover HTTP-200 login walls, malformed feeds, truncated pagination, stale sources, lease/retry behavior, ownership/RLS, private storage, and zero-event captures. Verify migrations against a local/test database, including anonymous and other-user denials; written policies alone do not pass.
 7. Record real commands, screenshots of the basic inbox, measured source counts/windows, actual costs or zero usage, remaining gaps, and a fresh-session runbook. Calendar, RSVP, purchase, and organizer messaging paths remain absent/disabled. Stop after Stage 1.
 
-## Current Stage 1 gate (October 21, 2026, Eastern/UTC)
+## Current bounded source extension
+
+On October 21 the user authorized Instagram read-access repair, verification of the existing public HQ route and deterministic official fellowship/research/career deadlines plus ticket-release monitoring. These action milestones are separate from attendance decisions and require individual approval before any future reminder. No broad media extraction, paid connector, delivery or calendar writer is authorized. Current evidence and acceptance gaps are maintained at the top of [status](status.md); the dated snapshot below is historical and superseded by later observations.
+
+## Historical Stage 1 gate (October 21, 14:35 UTC snapshot)
 
 The hosted path works: fresh Central/Music HTTP → genuine scheduled Trigger Production worker → private Supabase captures/normalized facts → the real authenticated Netlify inbox. The original first schedule produced 303 opportunities/342 occurrences; the current expansion snapshot has **345 opportunities and 393 occurrences**. Real browser search/pagination and populated SQL policy checks have passed. SQL-role tests remain distinct from signed-JWT/Storage HTTP proof.
 

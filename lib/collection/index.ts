@@ -1,10 +1,12 @@
 import { load } from "cheerio";
 import { z } from "zod";
 import { CollectionFailure, fetchPage, sha256, stableHash } from "./http";
-import type { CollectionBatch, CollectionOptions, NormalizedOccurrence, NormalizedOpportunity, RawPage } from "./types";
+import type { CollectionBatch, CollectionOptions, NormalizedMilestone, NormalizedOccurrence, NormalizedOpportunity, RawPage } from "./types";
 import { collectHq, hqEvidenceUids } from "./hq";
+import { collectOfficialDeadlines, assertOfficialDeadlineEvidence, OFFICIAL_DEADLINE_URLS } from "./official-deadlines";
+import { collectOfficialTickets, assertOfficialTicketEvidence } from "./official-tickets";
 
-export type { CollectionBatch, CollectionOptions, NormalizedOccurrence, NormalizedOpportunity, RawPage } from "./types";
+export type { CollectionBatch, CollectionOptions, NormalizedMilestone, NormalizedOccurrence, NormalizedOpportunity, RawPage } from "./types";
 export { parseRetryAfter, retryDelaySeconds } from "./http";
 export { collectHq } from "./hq";
 
@@ -29,8 +31,9 @@ const normalizedBatchSchema = z.object({
   sourceId: z.string().min(1), parserVersion: z.string().min(1), startedAt: instant, finishedAt: instant,
   status: z.enum(["success", "partial", "failed", "blocked", "rate_limited"]), reason: z.string().nullable(), retryAfterSeconds: z.number().nonnegative().nullable(),
   pages: z.array(z.object({ nativeId:z.string().min(1), url:z.url(), contentType:z.string(), body:z.string(), sha256:z.string().regex(/^[a-f0-9]{64}$/), byteCount:z.number().int().nonnegative(), fetchedAt:instant, httpStatus:z.number().int() })),
-  opportunities: z.array(z.object({ nativeId:z.string().min(1), title:z.string().min(1), description:z.string().nullable(), sourceUrl:z.url(), kind:z.literal("event"), campusRelation:z.enum(["campus","fsu_affiliated","unknown"]), categories:z.array(z.string()), sourcePublishedAt:instant.nullable(), sourceUpdatedAt:instant.nullable(), uncertainties:z.array(z.string()), contentSha256:z.string().regex(/^[a-f0-9]{64}$/), captureNativeId:z.string().min(1), evidencePointer:z.string().min(1) })),
+  opportunities: z.array(z.object({ nativeId:z.string().min(1), title:z.string().min(1), description:z.string().nullable(), sourceUrl:z.url(), kind:z.enum(["event","program"]), campusRelation:z.enum(["campus","fsu_affiliated","unknown"]), categories:z.array(z.string()), sourcePublishedAt:instant.nullable(), sourceUpdatedAt:instant.nullable(), uncertainties:z.array(z.string()), contentSha256:z.string().regex(/^[a-f0-9]{64}$/), captureNativeId:z.string().min(1), evidencePointer:z.string().min(1) })),
   occurrences: z.array(z.object({ nativeId:z.string().min(1), opportunityNativeId:z.string().min(1), startAt:instant.nullable(), endAt:instant.nullable(), startDate:z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(), timezone:z.string().nullable(), sourceLocalText:z.string().nullable(), datePrecision:z.enum(["instant","date","unknown"]), location:z.string().nullable(), allDay:z.boolean(), lifecycle:z.enum(["scheduled","cancelled","postponed","unknown"]), contentSha256:z.string().regex(/^[a-f0-9]{64}$/), captureNativeId:z.string().min(1), evidencePointer:z.string().min(1) })),
+  milestones: z.array(z.object({ nativeId:z.string().min(1), opportunityNativeId:z.string().min(1), occurrenceNativeId:z.string().nullable(), kind:z.enum(["application_deadline","application_open","ticket_release","ticket_link"]), occursAt:instant.nullable(), occursOn:z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(), sourceLocalText:z.string().nullable(), timezone:z.string().nullable(), availability:z.string().nullable(), actionUrl:z.url().nullable(), uncertainty:z.string().nullable(), contentSha256:z.string().regex(/^[a-f0-9]{64}$/), captureNativeId:z.string().min(1), evidencePointer:z.string().min(1) })).optional(),
   cursor:z.record(z.string(),z.unknown()).nullable(),
   observations:z.object({requests:z.number().int().nonnegative(),httpStatuses:z.array(z.number().int()),bytes:z.number().int().nonnegative(),nativeRows:z.number().int().nonnegative(),paginationComplete:z.boolean(),windowFrom:z.string().nullable(),windowTo:z.string().nullable(),warnings:z.array(z.string())}),
 });
@@ -38,16 +41,23 @@ const normalizedBatchSchema = z.object({
 /** Validate before the trusted persistence boundary; source text cannot add action capabilities. */
 export function validateCollectionBatch(batch: unknown): CollectionBatch {
   const result = normalizedBatchSchema.parse(batch);
+  const milestones = result.milestones ?? [];
   const captureIds = new Set(result.pages.map(p => p.nativeId));
   const eventIds = new Set(result.opportunities.map(o => o.nativeId));
-  if (captureIds.size !== result.pages.length || eventIds.size !== result.opportunities.length || new Set(result.occurrences.map(o => o.nativeId)).size !== result.occurrences.length) throw new Error("Duplicate native identity in normalized batch");
+  if (captureIds.size !== result.pages.length || eventIds.size !== result.opportunities.length || new Set(result.occurrences.map(o => o.nativeId)).size !== result.occurrences.length || new Set(milestones.map(o=>o.nativeId)).size !== milestones.length) throw new Error("Duplicate native identity in normalized batch");
   if (result.status === "success" && (!result.observations.paginationComplete || !result.pages.length || result.reason !== null)) throw new Error("Success requires a captured complete response");
   if (result.status !== "success" && (!result.reason || result.cursor !== null || result.observations.paginationComplete)) throw new Error("Incomplete collection must retain its reason without advancing the cursor");
   for(const page of result.pages)if(sha256(page.body)!==page.sha256||Buffer.byteLength(page.body)!==page.byteCount)throw new Error("Private capture content does not match its hash or byte count");
-  for (const item of [...result.opportunities, ...result.occurrences]) if (!captureIds.has(item.captureNativeId)) throw new Error("Evidence references an uncaptured response");
+  for (const item of [...result.opportunities, ...result.occurrences, ...milestones]) if (!captureIds.has(item.captureNativeId)) throw new Error("Evidence references an uncaptured response");
   const hqUidsByCapture = new Map<string, string[]>();
-  for(const item of [...result.opportunities,...result.occurrences]) {
+  for(const item of [...result.opportunities,...result.occurrences,...milestones]) {
     const page=result.pages.find(p=>p.nativeId===item.captureNativeId)!;
+    if(Object.hasOwn(OFFICIAL_DEADLINE_URLS,result.sourceId) && !item.evidencePointer.startsWith("official-deadline:"))throw new Error("Official deadline source requires its own evidence format");
+    if(result.sourceId==="fsu-opening-nights" && !item.evidencePointer.startsWith("official-ticket:"))throw new Error("Official ticket source requires its own evidence format");
+    if(Object.hasOwn(OFFICIAL_DEADLINE_URLS,result.sourceId)||result.sourceId==="fsu-opening-nights") {
+      const {contentSha256,captureNativeId,evidencePointer,...facts}=item;
+      if(stableHash(facts)!==contentSha256)throw new Error("Official normalized facts do not match their semantic content hash");
+    }
     if(item.evidencePointer.startsWith("/")){
       let value:unknown=JSON.parse(page.body);
       for(const segment of item.evidencePointer.slice(1).split("/"))value=(value as Record<string,unknown>)?.[segment.replace(/~1/g,"/").replace(/~0/g,"~")];
@@ -60,9 +70,20 @@ export function validateCollectionBatch(batch: unknown): CollectionBatch {
       if(!uids){uids=hqEvidenceUids(page.body);hqUidsByCapture.set(page.nativeId,uids);}
       const index=Number(match[1]);
       if(!Number.isSafeInteger(index)||uids[index]!==item.nativeId)throw new Error("HQ evidence UID does not match the normalized native identity");
+    } else if(item.evidencePointer.startsWith("official-deadline:")) {
+      if("startAt" in item)throw new Error("Application milestones cannot become attendance occurrences");
+      assertOfficialDeadlineEvidence(result.sourceId,item,page);
+    } else if(item.evidencePointer.startsWith("official-ticket:")) {
+      assertOfficialTicketEvidence(result.sourceId,item,page);
     } else if(!item.evidencePointer.startsWith("music-card:/event/"))throw new Error("Unrecognized evidence pointer format");
   }
   for (const item of result.occurrences) if (!eventIds.has(item.opportunityNativeId)) throw new Error("Occurrence references an unknown opportunity");
+  for(const item of milestones) {
+    if(!eventIds.has(item.opportunityNativeId))throw new Error("Milestone references an unknown opportunity");
+    if(item.occurrenceNativeId && !result.occurrences.some(row=>row.nativeId===item.occurrenceNativeId && row.opportunityNativeId===item.opportunityNativeId))throw new Error("Milestone occurrence must belong to its opportunity");
+    if(item.occursOn && new Date(`${item.occursOn}T12:00:00Z`).toISOString().slice(0,10)!==item.occursOn)throw new Error("Milestone date is invalid");
+    if(item.actionUrl) { const url=new URL(item.actionUrl);if(url.protocol!=="https:"||url.username||url.password)throw new Error("Milestone action link must be public HTTPS"); }
+  }
   return result;
 }
 
@@ -211,6 +232,8 @@ export async function collectSource(sourceId:string,options:CollectionOptions={}
   if(sourceId==="fsu-calendar-api")return collectCentralCalendar(options);
   if(sourceId==="fsu-music-events")return collectMusic(options);
   if(sourceId==="fsu-hq-public-export")return collectHq(options);
+  if(Object.hasOwn(OFFICIAL_DEADLINE_URLS,sourceId))return validateCollectionBatch(await collectOfficialDeadlines(sourceId,options));
+  if(sourceId==="fsu-opening-nights")return validateCollectionBatch(await collectOfficialTickets(options));
   const ctx=context(sourceId,"unconfigured-v1",options);
   return ctx.fail(new CollectionFailure("Source adapter is not configured in Stage 1; no request was made", "blocked"));
 }

@@ -10,7 +10,7 @@ const now = () => new Date("2026-10-20T12:00:00Z");
 
 function zeroLeaseClient(members:unknown,error:{code:string}|null=null) {
   return {
-    rpc:async(name:string)=>{assert.equal(name,"lease_due_sources");return {data:[],error:null};},
+    rpc:async(name:string)=>{assert.ok(["lease_due_sources","lease_due_official_sources"].includes(name));return {data:[],error:null};},
     from:(table:string)=>{assert.equal(table,"tracker_members");return {select:(columns:string)=>{assert.equal(columns,"user_id");return {limit:async(limit:number)=>{assert.equal(limit,1);return {data:members,error};}};}};},
     storage:{from:()=>{throw Error("Zero-lease readiness must not upload captures");}},
   } as unknown as SupabaseClient;

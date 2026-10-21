@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "authorization": "User explicitly requested official fellowship, research and career deadline monitoring on October 21, 2026. Read-only public routes only; calendar and email writes remain disabled.",
+  "adapter": "official-deadlines-v1",
+  "routes": [
+    {"source_id":"fsu-onf-dates","name":"Office of National Fellowships deadlines","url":"https://onf.fsu.edu/important-dates","cadence_seconds":21600,"coverage_note":"Only the explicitly labelled fellowship-deadlines section. Individual rows without a year stay undated; academic-year headings do not invent an exact year. TBA and expired-cycle records remain visible."},
+    {"source_id":"fsu-cre-applications","name":"CRE public research applications","url":"https://fsu-cre.smapply.us/prog/ds/?page=1&base_query=all","cadence_seconds":21600,"coverage_note":"Complete public paginated program directory, including explicit application windows, historical programs and rolling/unknown closing dates. No login, applicant records or submissions."},
+    {"source_id":"fsu-career-deadlines","name":"Career Center Intern FSU deadlines","url":"https://career.fsu.edu/programs-services/internfsu","cadence_seconds":21600,"coverage_note":"Only student application opening/deadline rows in the labelled Intern FSU hiring timeline. Missing row years/timezones remain unknown. NoleNetwork listings and other employers are not collected."}
+  ],
+  "http_allowlist": {
+    "onf.fsu.edu": ["/important-dates"],
+    "fsu-cre.smapply.us": ["/prog/ds/"],
+    "career.fsu.edu": ["/programs-services/internfsu"]
+  },
+  "paid_connectors_enabled": false,
+  "calendar_writes_enabled": false,
+  "email_execution_enabled": false
+}
