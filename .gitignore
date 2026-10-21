@@ -8,6 +8,7 @@ node_modules/
 .next/
 *.tsbuildinfo
 .trigger/
+supabase/.temp/
 __pycache__/
 *.py[cod]
 .DS_Store

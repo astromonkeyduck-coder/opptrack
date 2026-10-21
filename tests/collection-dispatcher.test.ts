@@ -31,7 +31,7 @@ test("verified scheduler run forwards its actual run ID and nominal scheduled ti
   const provenance=await provenanceForTriggerRun(scheduledPayload,runIdentity,async id=>{assert.equal(id,"run_synthetic");return scheduledMetadata;});
   assert.deepEqual(provenance,{triggerRunId:"run_synthetic",scheduledAt:"2026-10-20T22:00:00.000Z",invocationKind:"scheduled",scheduleId:"sched_synthetic"});
   let calls=0;
-  const result=await runDispatcherHandler((async(limit?:number,client?:SupabaseClient,forwarded?:DispatcherProvenance)=>{calls++;assert.equal(limit,2);assert.equal(client,undefined);assert.deepEqual(forwarded,provenance);return [];}) as typeof dispatchDueSources,workerEnvironment,provenance);
+  const result=await runDispatcherHandler((async(limit?:number,client?:SupabaseClient,forwarded?:DispatcherProvenance)=>{calls++;assert.equal(limit,3);assert.equal(client,undefined);assert.deepEqual(forwarded,provenance);return [];}) as typeof dispatchDueSources,workerEnvironment,provenance);
   assert.equal(calls,1);assert.equal(result.status,"idle");assert.deepEqual(result.provenance,provenance);
 });
 
@@ -69,7 +69,7 @@ test("zero-owner setup stays distinct from an established tracker with nothing d
 });
 
 test("dispatcher handler invokes leased-source service once with its bounded batch",async()=>{
-  let calls=0;const result=await runDispatcherHandler((async(limit:number)=>{calls++;assert.equal(limit,2);return [{sourceId:"fixture",outcome:"success",opportunities:1,occurrences:1,requests:1}];}) as typeof dispatchDueSources,{SUPABASE_URL:"https://fixture.example.test",SUPABASE_SECRET_KEY:"synthetic-placeholder",CALENDAR_WRITES_ENABLED:"false"});
+  let calls=0;const result=await runDispatcherHandler((async(limit:number)=>{calls++;assert.equal(limit,3);return [{sourceId:"fixture",outcome:"success",opportunities:1,occurrences:1,requests:1}];}) as typeof dispatchDueSources,{SUPABASE_URL:"https://fixture.example.test",SUPABASE_SECRET_KEY:"synthetic-placeholder",CALENDAR_WRITES_ENABLED:"false"});
   assert.equal(calls,1);assert.equal(result.status,"completed");assert.equal(result.results.length,1);
 });
 

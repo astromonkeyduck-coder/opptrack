@@ -76,7 +76,7 @@ export const ReviewCalendar = memo(function ReviewCalendar({ candidate, savedRow
     {response.state === 'loading' && <p className="calendar-loading" role="status">Checking your calendar…</p>}
     {response.state === 'partial' && <p className="notice" role="alert">{response.notice || 'Only part of your calendar loaded. Availability is incomplete.'}</p>}
     <div className="calendar-day-heading"><strong>{dayTitle}</strong><span>Eastern time</span></div>
-    <div className="calendar-legend"><span><i className="google-dot" />Google</span><span><i className="saved-dot" />Saved here</span><span><i className="preview-dot" />This card</span></div>
+    <div className="calendar-legend"><span><i className="google-dot" />Existing in Google</span><span><i className="saved-dot" />Saved in tracker</span><span><i className="preview-dot" />Card preview</span></div>
     {allDay.map(event => <div className="calendar-all-day" key={event.id}>All day · {event.title}</div>)}
     {saved.filter(item => occurrenceSchedule(item).precision !== 'instant').map(item => <div className="calendar-all-day saved-calendar-event" key={item.id}>{occurrenceSchedule(item).timeLabel} · {item.title}</div>)}
     {candidateVisible && !candidateTimed && <div className="calendar-all-day candidate-calendar-event">{candidateSchedule?.timeLabel} · {candidate.title}</div>}
@@ -86,19 +86,19 @@ export const ReviewCalendar = memo(function ReviewCalendar({ candidate, savedRow
       <div className="calendar-blocks">
         {lanes.map(item => {
           const height = item.interval.endMinute === null ? 14 : Math.max(1, (item.interval.endMinute - item.interval.startMinute) / 60 * scale);
-          const label = `${item.title}. ${calendarTimeRange(item.start, item.end, selected)}. ${item.kind === 'google' ? 'Google Calendar' : 'Saved here'}.`;
+          const label = `${item.title}. ${calendarTimeRange(item.start, item.end, selected)}. ${item.kind === 'google' ? 'Already on Google Calendar' : 'Saved in this tracker only'}.`;
           return <div key={item.id} className={`calendar-event ${item.kind === 'google' ? 'google-calendar-event' : 'saved-calendar-event'}${item.interval.durationKnown ? '' : ' calendar-unknown-marker'}`} title={label} aria-label={label} style={{ top: Math.max(0, (item.interval.startMinute / 60 - startHour) * scale), height, minHeight: 0, left: `calc(${item.leftPercent}% + 1px)`, width: `calc(${item.widthPercent}% - 2px)`, right: 'auto', padding: height < 28 ? '1px 4px' : undefined, ...(!item.interval.durationKnown ? { background: 'transparent', borderLeftStyle: 'dotted' } : {}) }}><strong>{item.title}</strong><span>{calendarTimeRange(item.start, item.end, selected)}</span></div>;
         })}
         {candidateTimed && candidateInterval && <div className="candidate-time-marker" role="img" title={`${candidate.title} · ${calendarTimeRange(candidate.starts_at!, candidate.ends_at, selected)} · Preview only`} aria-label={`${candidate.title}. ${calendarTimeRange(candidate.starts_at!, candidate.ends_at, selected)}. This card, preview only.`} style={{ ...candidateMarkerPosition(candidateInterval, startHour, scale), position: 'absolute', left: 'auto', right: -15, width: 10, minHeight: 0, padding: 0 }} />}
       </div>
     </div></div>
     <section className="calendar-agenda" aria-label="All events shown for the selected day"><h3>Day details</h3>
-      {events.map(event => <p key={`google-${event.id}`}><strong>{event.title}</strong><span>{event.allDay ? 'All day' : calendarTimeRange(event.start, event.end, selected)} · Google</span></p>)}
-      {saved.map(item => <p key={`saved-${item.id}`}><strong>{item.title}</strong><span>{occurrenceSchedule(item).precision === 'instant' ? calendarTimeRange(item.starts_at!, item.ends_at, selected) : occurrenceSchedule(item).timeLabel} · Saved here</span></p>)}
+      {events.map(event => <p key={`google-${event.id}`}><strong>{event.title}</strong><span>{event.allDay ? 'All day' : calendarTimeRange(event.start, event.end, selected)} · Already in Google Calendar</span></p>)}
+      {saved.map(item => <p key={`saved-${item.id}`}><strong>{item.title}</strong><span>{occurrenceSchedule(item).precision === 'instant' ? calendarTimeRange(item.starts_at!, item.ends_at, selected) : occurrenceSchedule(item).timeLabel} · Tracker only</span></p>)}
       {candidateVisible && <p><strong>{candidate.title}</strong><span>{candidateTimed ? calendarTimeRange(candidate.starts_at!, candidate.ends_at, selected) : candidateSchedule?.timeLabel} · This card, preview only</span></p>}
       {response.state === 'connected' && response.complete && !events.length && <p>No primary-calendar events returned for this day.</p>}
     </section>
-    <p className="calendar-footnote">{connected ? 'Primary Google calendar only · ' : 'Personal calendar not loaded; availability unknown · '}Saved events stay in this tracker. The garnet side marker previews this card. Unknown durations use a small start marker.{connected && " Google test access requires reconnection after 7 days."}</p>
+    <p className="calendar-footnote">{connected ? 'Blue entries already exist in your primary Google Calendar. ' : 'Personal calendar not loaded; availability unknown. '}Save and Pass only change this tracker. The garnet marker previews this card. To add an event yourself, open its calendar draft from Details or Saved and press Save in Google. Unknown durations use a small start marker.{connected && " Google test access requires reconnection after 7 days."}</p>
     {connected && <button type="button" className="text-button disconnect-calendar" disabled={disconnecting} title="Removes the tracker connection and attempts to revoke this app’s Google grant" onClick={() => void disconnect()}>{disconnecting ? 'Disconnecting…' : 'Disconnect Google Calendar'}</button>}
   </aside>;
 });

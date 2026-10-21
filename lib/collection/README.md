@@ -1,10 +1,12 @@
 # Stage 1 collection boundary
 
-`collectSource(id, options)` returns a runtime-validated `CollectionBatch` (`types.ts`). The live adapters are `fsu-calendar-api` and `fsu-music-events`. Any other ID returns a blocked, unconfigured result with zero requests. Source text never supplies an action capability.
+`collectSource(id, options)` returns a runtime-validated `CollectionBatch` (`types.ts`). The implemented adapters are `fsu-calendar-api`, `fsu-music-events` and the separately authorized `fsu-hq-public-export`. Production deployment/activation evidence is in `docs/status.md`; implementation alone does not prove a scheduled run. Any other ID returns a blocked, unconfigured result with zero requests. Source text never supplies an action capability.
 
 Central calendar collection requests a bounded seven-day window by default, follows contiguous Localist pages and verifies stable declared row totals. Event IDs and event-instance IDs have separate identities. Sixteen pages, 3 MiB per response and a 25-second request timeout bound collection. HTTP 200 HTML, access walls, incomplete envelopes, repeated pages, shifting totals and request limits cannot become successful empty results. A genuine zero-row envelope is captured and retained.
 
 Music collection covers its current public preview only. One native detail URL identifies one preview occurrence, so a date edit changes its version while preserving decisions. Multiple different dates on one detail URL fail as ambiguous instead of collapsing performances. Local time is retained as text/date; timezone, end, location and tickets remain unknown. Both official-source adapters use `fsu_affiliated`; an on-campus venue is not assumed.
+
+HQ validates one bounded complete public ICS envelope and normalizes a rolling 90-day upcoming/ongoing window every six hours. The whole feed is validated before filtering. UID identities survive moved dates, and `ics-vevent:<index>` evidence resolves to the matching UID in the private capture. Recurrence/structural/identity errors remain partial or failed; conflicting ends stay unknown. No disappearance-based cancellation, private access, RSVP, ticket milestone or calendar action is inferred. Its three-source core lease budget remains independent of the 27-account social budget. See `docs/hq-monitoring.md` for scope, deployment order, live/replay evidence and costs.
 
 Raw page bodies stay in memory until private storage persistence or the ignored `private/stage-1-live/` probe output. Public reports contain counts, URLs, hashes and failures, never raw payloads. Semantic hashes exclude attendance/view counters. Capture hashes, byte counts and JSON evidence pointers are validated before persistence.
 

@@ -4,6 +4,8 @@ import type { RawPage } from "./types";
 const HOST_PATHS: Record<string, string[]> = {
   "calendar.fsu.edu": ["/api/2/events"],
   "music.fsu.edu": ["/events/", "/events"],
+  "hq.fsu.edu": ["/ical/floridastate/ical_floridastate.ics"],
+  "static-prod-us-east-1.campusgroups.com": ["/ical/floridastate/ical_floridastate.ics"],
 };
 
 export class CollectionFailure extends Error {
@@ -69,7 +71,7 @@ export async function fetchPage(urlString: string, nativeId: string, options: {
         method: "GET", redirect: "manual", signal: timeout,
         headers: {
           "User-Agent": "FSUOpportunityTracker/0.1-stage1 (personal read-only campus discovery; no RSVP or calendar actions)",
-          Accept: "application/json,text/html;q=0.9",
+          Accept: "application/json,text/calendar;q=0.95,text/html;q=0.9",
         },
       });
     } catch {

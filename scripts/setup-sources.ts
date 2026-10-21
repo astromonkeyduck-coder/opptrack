@@ -10,11 +10,11 @@ const watchlist = JSON.parse(readFileSync('config/instagram-watchlist.json', 'ut
 const active = new Set(["fsu-calendar-api", "fsu-music-events"]);
 const registryRows = registry.sources.map((source: { source_id: string; organizer: string; url: string; status: string; status_reason: string; cadence_minutes: number | null; adapter: { coverage_scope: string } }) => ({
   id: source.source_id, name: source.organizer, owner_id: members[0].user_id, url: source.url,
-  adapter: source.source_id === "fsu-calendar-api" ? "localist-v1" : source.source_id === "fsu-music-events" ? "music-v1" : "unconfigured",
-  enabled: active.has(source.source_id), cadence_seconds: source.source_id === "fsu-calendar-api" ? 3600 : source.source_id === "fsu-music-events" ? 21600 : null,
+  adapter: source.source_id === "fsu-calendar-api" ? "localist-v1" : source.source_id === "fsu-music-events" ? "music-v1" : source.source_id === "fsu-hq-public-export" ? "hq-ics-v1" : "unconfigured",
+  enabled: active.has(source.source_id), cadence_seconds: source.source_id === "fsu-calendar-api" ? 3600 : ["fsu-music-events", "fsu-hq-public-export"].includes(source.source_id) ? 21600 : null,
   next_due_at: active.has(source.source_id) ? new Date().toISOString() : null,
-  health_status: active.has(source.source_id) ? "setup_needed" : source.status,
-  health_message: active.has(source.source_id) ? "Awaiting first Stage 1 collection" : source.status_reason,
+  health_status: active.has(source.source_id) || source.source_id === "fsu-hq-public-export" ? "setup_needed" : source.status,
+  health_message: source.source_id === "fsu-hq-public-export" ? "HQ public export adapter prepared; disabled until the deployed worker is verified and this exact source is activated separately." : active.has(source.source_id) ? "Awaiting first Stage 1 collection" : source.status_reason,
   coverage_note: source.adapter.coverage_scope,
 }));
 const instagramRows = instagramSourceSeeds(members[0].user_id, watchlist.accounts);
@@ -23,4 +23,4 @@ if (new Set(rows.map(row => row.id)).size !== rows.length) throw new Error('Sour
 // Ignore duplicates so rerunning setup cannot reset cursors, health or decisions.
 const { error } = await client.from("sources").upsert(rows, sourceSeedUpsertOptions);
 if (error) throw new Error(`Source setup failed (${error.code})`);
-console.log(`Source setup complete: ${registryRows.length} registry routes + ${instagramRows.length} selected Instagram accounts = ${rows.length}. Only central calendar and Music enabled; Instagram/Stories remain unconfigured/manual-only. Existing rows unchanged.`);
+console.log(`Source setup complete: ${registryRows.length} registry routes + ${instagramRows.length} selected Instagram accounts = ${rows.length}. New Central/Music rows are enabled; new HQ/Instagram rows stay disabled pending separate activation. Existing rows unchanged; Stories remain manual-only.`);

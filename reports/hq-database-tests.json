@@ -1,0 +1,40 @@
+{
+  "runAt": "2026-10-21T23:00:02.506Z",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql"
+  ],
+  "passed": 12,
+  "checks": [
+    "HQ migration preserves all existing sources/cursors/health/leases and enables nothing",
+    "targeted activation changes only HQ and retains its exact public route/six-hour cadence",
+    "repeated activation preserves an existing cursor, active lease, health and nominal due state",
+    "Central, Music and HQ all lease in the same dispatch independently of 27 overdue social routes",
+    "core maximum is three, social maximum remains 27 and browser roles cannot lease or call private internals",
+    "real HQ collector and ingestion modules persist captured UID facts through actual SQL",
+    "unchanged HQ replay verifies immutable duplicate bytes and preserves saved occurrence identity/decision",
+    "moved HQ time appends factual version while stable UID and saved decision survive",
+    "worker database identities reconcile retained HQ moves beyond90days, into the past and cancellation without losing saved decisions",
+    "six-hour HQ completion crossing a nominal boundary does not skip the next poll",
+    "HQ access failure retains prior facts/last success/cursor and reports blocked rather than nothing new",
+    "HQ facts and private capture metadata are owner-only; source state cannot be forged"
+  ],
+  "fixtureClass": "Synthetic HQ HTTP; production collector/ingestion; actual PGlite PostgreSQL; in-memory immutable Storage substitute",
+  "uploads": 6,
+  "reuses": 2,
+  "verifiedDownloads": 2,
+  "calendarWrites": 0,
+  "paidServicesEnabled": 0,
+  "notTested": [
+    "Hosted migration/activation",
+    "Real Trigger HQ schedule",
+    "Hosted JWT/Storage HTTP",
+    "Distributed lock contention",
+    "Actual Google editor save"
+  ]
+}

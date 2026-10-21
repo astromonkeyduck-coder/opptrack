@@ -68,6 +68,8 @@ export interface CollectionBatch {
 }
 
 export interface CollectionOptions {
+  /** Trusted existing native identities, used only to reconcile previously collected HQ rows outside its discovery window. */
+  retainedNativeIds?: ReadonlySet<string>;
   fetch?: typeof globalThis.fetch;
   now?: () => Date;
   startDate?: string;

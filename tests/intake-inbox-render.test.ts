@@ -34,7 +34,7 @@ test('date-only facts do not acquire a midnight or a previous-day timezone conve
   assert.ok(!html.includes('Oct 31'));
 });
 
-test('saved occurrence decisions are shown without creating calendar controls or unsafe links', () => {
+test('saved occurrence decisions retain unknown ends without unsafe links or invented calendar drafts', () => {
   const row = { ...syntheticRow, decision: 'save', source_url: 'javascript:alert(1)' };
   const html = renderToStaticMarkup(createElement(InboxList, { rows: [row] }));
   assert.ok(html.includes('Saved'));

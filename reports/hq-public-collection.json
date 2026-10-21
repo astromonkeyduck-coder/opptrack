@@ -1,0 +1,178 @@
+{
+  "evidenceClass": "fresh-public-read-only-fetch-and-private-replay",
+  "mockedLiveFetch": false,
+  "reportedAt": "2026-10-21T22:57:24.939Z",
+  "sourceId": "fsu-hq-public-export",
+  "fresh": {
+    "status": "success",
+    "reason": null,
+    "parserVersion": "hq-ics-v1",
+    "startedAt": "2026-10-21T22:57:24.217Z",
+    "finishedAt": "2026-10-21T22:57:24.751Z",
+    "requests": 2,
+    "responseBytes": 1146891,
+    "capturedPages": 1,
+    "nativeRows": 1176,
+    "opportunities": 373,
+    "occurrences": 373,
+    "cursor": {
+      "windowFrom": "2026-10-21T22:57:24.218Z",
+      "windowTo": "2027-01-19T22:57:24.218Z",
+      "totalNativeRows": 1176,
+      "emittedRows": 373,
+      "skippedOutsideWindow": 803,
+      "temporalEndConflicts": 3,
+      "retainedOutsideWindow": 0,
+      "retainedMissingFromExport": 0,
+      "completedAt": "2026-10-21T22:57:24.751Z"
+    },
+    "paginationComplete": true,
+    "captureSha256": [
+      "88fbe326e53ce679466f9bfd8857fa02c899b7a23714589b94545a2c31867f8b"
+    ],
+    "warnings": [
+      "Complete captured export envelope validated: 1176 native rows; 373 emitted within 90-day UTC window, ongoing or previously retained; 803 untracked rows outside window",
+      "Export inclusion rules and publisher truncation are unknown; complete envelope does not establish complete campus/private HQ coverage",
+      "Recurrence expansion is unsupported and causes a partial result if encountered",
+      "Missing/disappearing events never infer cancellation; only explicit STATUS:CANCELLED does",
+      "No ticket/application milestones, registration actions or calendar writes are inferred",
+      "3 source DTEND values are not after DTSTART; conflicting ends retained only as evidence/text and normalized unknown (including outside-window rows)"
+    ]
+  },
+  "requestMetadata": [
+    {
+      "url": "https://hq.fsu.edu/ical/floridastate/ical_floridastate.ics",
+      "status": 302,
+      "location": "https://static-prod-us-east-1.campusgroups.com:443/ical/floridastate/ical_floridastate.ics",
+      "contentType": "text/html"
+    },
+    {
+      "url": "https://static-prod-us-east-1.campusgroups.com/ical/floridastate/ical_floridastate.ics",
+      "status": 200,
+      "location": null,
+      "contentType": "text/calendar; charset=utf-8"
+    }
+  ],
+  "replay": {
+    "evidenceClass": "replay-of-fresh-private-response; not-second-network-fetch",
+    "status": "success",
+    "reason": null,
+    "parserVersion": "hq-ics-v1",
+    "startedAt": "2026-10-21T22:57:24.218Z",
+    "finishedAt": "2026-10-21T22:57:24.218Z",
+    "requests": 1,
+    "responseBytes": 1146891,
+    "capturedPages": 1,
+    "nativeRows": 1176,
+    "opportunities": 373,
+    "occurrences": 373,
+    "cursor": {
+      "windowFrom": "2026-10-21T22:57:24.218Z",
+      "windowTo": "2027-01-19T22:57:24.218Z",
+      "totalNativeRows": 1176,
+      "emittedRows": 373,
+      "skippedOutsideWindow": 803,
+      "temporalEndConflicts": 3,
+      "retainedOutsideWindow": 0,
+      "retainedMissingFromExport": 0,
+      "completedAt": "2026-10-21T22:57:24.218Z"
+    },
+    "paginationComplete": true,
+    "captureSha256": [
+      "88fbe326e53ce679466f9bfd8857fa02c899b7a23714589b94545a2c31867f8b"
+    ],
+    "warnings": [
+      "Complete captured export envelope validated: 1176 native rows; 373 emitted within 90-day UTC window, ongoing or previously retained; 803 untracked rows outside window",
+      "Export inclusion rules and publisher truncation are unknown; complete envelope does not establish complete campus/private HQ coverage",
+      "Recurrence expansion is unsupported and causes a partial result if encountered",
+      "Missing/disappearing events never infer cancellation; only explicit STATUS:CANCELLED does",
+      "No ticket/application milestones, registration actions or calendar writes are inferred",
+      "3 source DTEND values are not after DTSTART; conflicting ends retained only as evidence/text and normalized unknown (including outside-window rows)"
+    ],
+    "identicalSemanticRecords": true
+  },
+  "privateCapturePath": "private/hq-live/latest.json",
+  "databaseWrites": 0,
+  "calendarWrites": 0,
+  "modelCalls": 0,
+  "paidConnectors": 0,
+  "upstreamGetChargesUsd": 0,
+  "costBasis": "Public HTTPS GETs only. Local compute/network and service invoices are unmeasured. No production activation or hosted ingestion is claimed by this probe.",
+  "limits": [
+    "Public institutional subscription only; private/member visibility and publisher truncation are unknown",
+    "Upcoming 90 days UTC plus known ongoing events; previously retained native UIDs reconcile outside that window; whole feed validated before filtering",
+    "No recurring-series expansion; such input remains partial",
+    "No disappearance-based cancellations, ticket milestones, RSVP, purchase or calendar execution",
+    "Source UID identities are independent across collectors; cross-source duplicates may remain"
+  ],
+  "primaryReferences": [
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc5545",
+      "checkedAt": "2026-10-21",
+      "relevantSections": [
+        "3.1 content-line unfolding",
+        "3.3.4 DATE",
+        "3.3.5 DATE-TIME floating/UTC/TZID",
+        "3.6.1 VEVENT exclusive end",
+        "3.8.4.7 UID"
+      ]
+    }
+  ],
+  "attemptHistory": [
+    {
+      "evidenceClass": "historical-successful-live-probe-summary",
+      "status": "success",
+      "parserVersion": "hq-ics-v1",
+      "startedAt": "2026-10-21T19:31:26.352Z",
+      "finishedAt": "2026-10-21T19:31:27.001Z",
+      "requests": 2,
+      "responseBytes": 1146891,
+      "capturedPages": 1,
+      "nativeRows": 1176,
+      "opportunities": 376,
+      "occurrences": 376,
+      "skippedOutsideWindow": 800,
+      "temporalEndConflicts": 3,
+      "captureSha256": [
+        "88fbe326e53ce679466f9bfd8857fa02c899b7a23714589b94545a2c31867f8b"
+      ],
+      "replayIdenticalSemanticRecords": true
+    },
+    {
+      "status": "success",
+      "reason": null,
+      "parserVersion": "hq-ics-v1",
+      "startedAt": "2026-10-21T22:57:24.217Z",
+      "finishedAt": "2026-10-21T22:57:24.751Z",
+      "requests": 2,
+      "responseBytes": 1146891,
+      "capturedPages": 1,
+      "nativeRows": 1176,
+      "opportunities": 373,
+      "occurrences": 373,
+      "cursor": {
+        "windowFrom": "2026-10-21T22:57:24.218Z",
+        "windowTo": "2027-01-19T22:57:24.218Z",
+        "totalNativeRows": 1176,
+        "emittedRows": 373,
+        "skippedOutsideWindow": 803,
+        "temporalEndConflicts": 3,
+        "retainedOutsideWindow": 0,
+        "retainedMissingFromExport": 0,
+        "completedAt": "2026-10-21T22:57:24.751Z"
+      },
+      "paginationComplete": true,
+      "captureSha256": [
+        "88fbe326e53ce679466f9bfd8857fa02c899b7a23714589b94545a2c31867f8b"
+      ],
+      "warnings": [
+        "Complete captured export envelope validated: 1176 native rows; 373 emitted within 90-day UTC window, ongoing or previously retained; 803 untracked rows outside window",
+        "Export inclusion rules and publisher truncation are unknown; complete envelope does not establish complete campus/private HQ coverage",
+        "Recurrence expansion is unsupported and causes a partial result if encountered",
+        "Missing/disappearing events never infer cancellation; only explicit STATUS:CANCELLED does",
+        "No ticket/application milestones, registration actions or calendar writes are inferred",
+        "3 source DTEND values are not after DTSTART; conflicting ends retained only as evidence/text and normalized unknown (including outside-window rows)"
+      ]
+    }
+  ]
+}

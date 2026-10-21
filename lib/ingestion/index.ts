@@ -109,16 +109,52 @@ export async function ingestCollectedBatch(lease: SourceLease, batch: Collection
   return data;
 }
 
+/** The worker's retained source identities, never a source-supplied cursor, authorize out-of-window reconciliation. */
+export async function loadRetainedHqNativeIds(lease: SourceLease, client: SupabaseClient): Promise<ReadonlySet<string>> {
+  if (lease.id !== 'fsu-hq-public-export') throw new Error('Retained identity lookup is restricted to the HQ public source');
+  const retained = new Set<string>();
+  const pageSize = 500, maximum = 10_000;
+  let previousId = '';
+  let offset = 0;
+  // Follow actual row counts through short server-capped pages, ending only on an
+  // explicit empty page. A final row probe distinguishes exactly 10000 from truncation.
+  for (let page = 0; page < 64 && offset <= maximum; page++) {
+    const end = offset === maximum ? maximum : Math.min(maximum - 1, offset + pageSize - 1);
+    const { data, error } = await client.from('opportunities').select('id,native_id')
+      .eq('source_id', lease.id).eq('owner_id', lease.owner_id)
+      .order('id', { ascending: true }).range(offset, end);
+    if (error) throw new Error('HQ retained identity lookup failed; collection and cursor advancement were stopped');
+    if (!Array.isArray(data) || data.length > end - offset + 1) throw new Error('HQ retained identity lookup returned an invalid page; collection was stopped');
+    if (!data.length) return retained;
+    if (offset === maximum) {
+      if (data.length) throw new Error('HQ retained identity lookup exceeded its 10000-row bound; collection and cursor advancement were stopped');
+      return retained;
+    }
+    for (const row of data) {
+      if (!row || typeof row.id !== 'string' || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(row.id)
+        || row.id <= previousId || typeof row.native_id !== 'string' || !row.native_id.length || row.native_id.length > 1000 || /[\u0000-\u001f\u007f]/.test(row.native_id) || retained.has(row.native_id)) {
+        throw new Error('HQ retained identity lookup repeated or malformed source identities; collection was stopped');
+      }
+      previousId = row.id; retained.add(row.native_id);
+    }
+    offset += data.length;
+  }
+  throw new Error('HQ retained identity lookup did not complete; collection was stopped');
+}
+
 export async function runLeasedCollection(lease: SourceLease, client = getWorkerClient(), provenance?: DispatcherProvenance) {
-  const batch = await collectSource(lease.id);
+  const retainedNativeIds = lease.id === 'fsu-hq-public-export' ? await loadRetainedHqNativeIds(lease, client) : undefined;
+  const batch = await collectSource(lease.id, retainedNativeIds ? { retainedNativeIds } : {});
   // A source failure is a durable run and retry time, not an infrastructure exception.
   const committed = await ingestCollectedBatch(lease, batch, client, provenance);
   return { sourceId: lease.id, sourceRunId: (committed as { run_id?: string } | null)?.run_id ?? null, outcome: batch.status, opportunities: batch.opportunities.length, occurrences: batch.occurrences.length, requests: batch.observations.requests };
 }
 
-export async function dispatchDueSources(limit = 2, client = getWorkerClient(), provenance?: DispatcherProvenance, environment: Record<string,string|undefined> = process.env) {
-  const { data, error } = await client.rpc("lease_due_sources", { p_limit: Math.min(2, Math.max(1, limit)), p_lease_seconds: 600 });
+export async function dispatchDueSources(limit = 3, client = getWorkerClient(), provenance?: DispatcherProvenance, environment: Record<string,string|undefined> = process.env) {
+  const coreLimit = Math.min(3, Math.max(1, Number.isFinite(limit) ? Math.floor(limit) : 3));
+  const { data, error } = await client.rpc("lease_due_sources", { p_limit: coreLimit, p_lease_seconds: 600 });
   if (error) throw new Error(`Source leasing failed (${error.code ?? "database"})`);
+  if (!Array.isArray(data) || data.length > coreLimit) throw new Error("Core source leasing returned an invalid bounded response");
   if (!data?.length) {
     // An empty owner allowlist also produces zero leases. Distinguish setup from
     // an established private tracker with no sources currently due.
@@ -134,11 +170,11 @@ export async function dispatchDueSources(limit = 2, client = getWorkerClient(), 
     } catch {
       // Leave the lease intact on infrastructure/storage/transaction failures. It
       // expires and is recovered; never mark a failed persistence as collection success.
-      results.push({ sourceId: lease.id, outcome: "infrastructure_failure", reason: "Capture persistence failed; lease will expire and retry" });
+      results.push({ sourceId: lease.id, outcome: "infrastructure_failure", reason: "Collection preparation or persistence failed; lease will expire and retry" });
     }
   }
   // The database leases core producers separately. Social work cannot consume
-  // Central/Music's two slots or prevent their processing when Meta fails.
+  // Central/Music/HQ's three slots or prevent their processing when Meta fails.
   if (environment.SOCIAL_COLLECTION_ENABLED === "true") {
     const { data: socialLeases, error: socialError } = await client.rpc("lease_due_instagram_sources", { p_limit: instagramDispatchLimit, p_lease_seconds: 600 });
     if (socialError) throw new Error(`Instagram source leasing failed (${socialError.code ?? "database"})`);

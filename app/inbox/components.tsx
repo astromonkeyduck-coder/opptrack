@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { safeExternalUrl, sourceIsStale } from '../../lib/intake/presentation';
+import { CalendarDraftLink } from './calendar-draft-link';
 
 export type InboxRow = {
   id: string; opportunity_id: string; title: string; description: string | null; source_url: string | null;
@@ -26,7 +27,7 @@ export function OpportunityCard({ row, actions }: { row: InboxRow; actions?: Rea
   const url = safeExternalUrl(row.source_url);
   return <article className="opportunity">
     <div className="card-date">{occurrenceDate(row)}{row.ends_at ? <span>End: {timestamp(row.ends_at)}</span> : <span>End time unverified</span>}</div>
-    <div className="card-content"><div className="tags"><span>{row.source_id}</span>{row.decision && <span className="decision">{row.decision === 'save' ? 'Saved' : 'Rejected'}</span>}{row.status !== 'scheduled' && <span>{row.status}</span>}{sourceIsStale(row.source_last_success_at, row.source_cadence_seconds ?? null) && <span>Source stale or never collected</span>}</div><h3>{row.title}</h3><p className="location">{row.location || 'Location unverified'}</p>{row.description && <p className="description">{row.description}</p>}<p className="uncertainty">{[...new Set(['Ticket availability unverified', ...(row.uncertainties || [])])].join(' · ')}</p><p className="small">Last successful collection: {timestamp(row.source_last_success_at)} · Health: {row.source_health}</p><div className="card-actions">{url && <a href={url} rel="noopener noreferrer" target="_blank">Source listing ↗</a>}{actions}</div></div>
+    <div className="card-content"><div className="tags"><span>{row.source_id}</span>{row.decision && <span className="decision">{row.decision === 'save' ? 'Saved' : 'Rejected'}</span>}{row.status !== 'scheduled' && <span>{row.status}</span>}{sourceIsStale(row.source_last_success_at, row.source_cadence_seconds ?? null) && <span>Source stale or never collected</span>}</div><h3>{row.title}</h3><p className="location">{row.location || 'Location unverified'}</p>{row.description && <p className="description">{row.description}</p>}<p className="uncertainty">{[...new Set(['Ticket availability unverified', ...(row.uncertainties || [])])].join(' · ')}</p><p className="small">Last successful collection: {timestamp(row.source_last_success_at)} · Health: {row.source_health}</p><div className="card-actions">{url && <a href={url} rel="noopener noreferrer" target="_blank">Source listing ↗</a>}{row.decision !== 'reject' && <CalendarDraftLink row={row} />}{actions}</div></div>
   </article>;
 }
 export function InboxList({ rows, renderActions }: { rows: InboxRow[]; renderActions?: (row: InboxRow) => ReactNode }) {

@@ -3,6 +3,8 @@
   "hosting": "netlify",
   "worker": "trigger.dev-cloud",
   "hosted_verified": false,
+  "verification_note": "Legacy hosted flags below record the original bootstrap snapshot; current production evidence is in docs/status.md. HQ preparation does not imply hosted activation or collection.",
+  "core_dispatch_limit": 3,
   "dispatcher_cron": "0 * * * *",
   "sources": {
     "fsu-calendar-api": {
@@ -15,6 +17,15 @@
       "enabled_when_configured": true,
       "cadence_seconds": 21600,
       "coverage": "public preview only"
+    },
+    "fsu-hq-public-export": {
+      "adapter": "hq-ics-v1",
+      "enabled_when_configured": false,
+      "activation": "Separate exact-source operator step after deployed worker verification; setup seeding never resets existing rows",
+      "cadence_seconds": 21600,
+      "window_days": 90,
+      "coverage": "Public institutional export only plus ongoing events; private/member coverage, freshness and ticket availability unverified",
+      "hosted_collection_verified": false
     }
   },
   "all_other_adapters_enabled": false,
@@ -22,7 +33,7 @@
   "paid_connectors": false,
   "model_calls": false,
   "retention_execution": "plan_only; hosted deletion/refresh race and Storage restore gate pending",
-  "cadence_basis": "Stage 1 fixed UTC slots: central3600s, Music21600s; source retry floors are separate. Stage 0 registry is historical evidence.",
+  "cadence_basis": "Stage 1 fixed UTC slots: Central3600s, Music21600s, HQ21600s after separate activation; source retry floors are separate. Stage 0 registry is historical evidence.",
   "dispatcher_timezone": "UTC",
   "dispatcher_window": "60m",
   "dispatcher_plan_policy": "Free-created schedules: at most hourly, minimum 60-minute stable-offset window; no upgrade selected",

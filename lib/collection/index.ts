@@ -2,9 +2,11 @@ import { load } from "cheerio";
 import { z } from "zod";
 import { CollectionFailure, fetchPage, sha256, stableHash } from "./http";
 import type { CollectionBatch, CollectionOptions, NormalizedOccurrence, NormalizedOpportunity, RawPage } from "./types";
+import { collectHq, hqEvidenceUids } from "./hq";
 
 export type { CollectionBatch, CollectionOptions, NormalizedOccurrence, NormalizedOpportunity, RawPage } from "./types";
 export { parseRetryAfter, retryDelaySeconds } from "./http";
+export { collectHq } from "./hq";
 
 const nativeId = z.union([z.string().min(1), z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER)]).transform(String);
 const instant = z.string().refine(v => /(?:Z|[+-]\d\d:\d\d)$/.test(v) && Number.isFinite(Date.parse(v)), "Expected an explicit-offset source timestamp");
@@ -43,12 +45,21 @@ export function validateCollectionBatch(batch: unknown): CollectionBatch {
   if (result.status !== "success" && (!result.reason || result.cursor !== null || result.observations.paginationComplete)) throw new Error("Incomplete collection must retain its reason without advancing the cursor");
   for(const page of result.pages)if(sha256(page.body)!==page.sha256||Buffer.byteLength(page.body)!==page.byteCount)throw new Error("Private capture content does not match its hash or byte count");
   for (const item of [...result.opportunities, ...result.occurrences]) if (!captureIds.has(item.captureNativeId)) throw new Error("Evidence references an uncaptured response");
+  const hqUidsByCapture = new Map<string, string[]>();
   for(const item of [...result.opportunities,...result.occurrences]) {
     const page=result.pages.find(p=>p.nativeId===item.captureNativeId)!;
     if(item.evidencePointer.startsWith("/")){
       let value:unknown=JSON.parse(page.body);
       for(const segment of item.evidencePointer.slice(1).split("/"))value=(value as Record<string,unknown>)?.[segment.replace(/~1/g,"/").replace(/~0/g,"~")];
       if(value===undefined)throw new Error("JSON evidence pointer does not resolve in its capture");
+    } else if(item.evidencePointer.startsWith("ics-vevent:")) {
+      if(result.sourceId!=="fsu-hq-public-export")throw new Error("ICS evidence belongs only to the HQ public export");
+      const match=item.evidencePointer.match(/^ics-vevent:(0|[1-9]\d*)$/);
+      if(!match)throw new Error("Invalid HQ VEVENT evidence pointer");
+      let uids=hqUidsByCapture.get(page.nativeId);
+      if(!uids){uids=hqEvidenceUids(page.body);hqUidsByCapture.set(page.nativeId,uids);}
+      const index=Number(match[1]);
+      if(!Number.isSafeInteger(index)||uids[index]!==item.nativeId)throw new Error("HQ evidence UID does not match the normalized native identity");
     } else if(!item.evidencePointer.startsWith("music-card:/event/"))throw new Error("Unrecognized evidence pointer format");
   }
   for (const item of result.occurrences) if (!eventIds.has(item.opportunityNativeId)) throw new Error("Occurrence references an unknown opportunity");
@@ -199,6 +210,7 @@ export async function collectMusic(options:CollectionOptions={}):Promise<Collect
 export async function collectSource(sourceId:string,options:CollectionOptions={}):Promise<CollectionBatch>{
   if(sourceId==="fsu-calendar-api")return collectCentralCalendar(options);
   if(sourceId==="fsu-music-events")return collectMusic(options);
+  if(sourceId==="fsu-hq-public-export")return collectHq(options);
   const ctx=context(sourceId,"unconfigured-v1",options);
   return ctx.fail(new CollectionFailure("Source adapter is not configured in Stage 1; no request was made", "blocked"));
 }

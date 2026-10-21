@@ -4,6 +4,14 @@ The owner explicitly authorized a read-only Google Calendar connection for the c
 
 The user-selected primary Google Calendar is connected read-only. Hosted OAuth and a real complete seven-day read were verified October 21 at 17:19–17:21 UTC. Access-token refresh has unit/replay coverage but has not yet been observed live; durable unattended access is not claimed. Test-mode grants require reconnection after seven days.
 
+## Manual event additions and old-system cleanup
+
+On October 21 the user requested manual additions only and explicitly authorized removing old-system opportunity additions while preserving classes and personal events. The one-off cleanup uses the already connected Google Calendar connector, not the tracker OAuth client. Full selected event details and a per-ID deletion log stay in ignored `private/` files with mode 0600; no personal event titles, IDs or descriptions belong in committed evidence. Entries without clear old-system provenance remain untouched. This does not authorize an app writer, broader OAuth scope or future automatic additions.
+
+An individual timed event with a verified start, end and scheduled status offers **Add to Google Calendar**. This ordinary external link opens Google's prefilled editor. Opening it does not save an event: the user reviews the details and presses **Save** in Google. Swiping right changes only tracker review state. The draft link attaches no guests, recurrence, reminders or automatic action. Uncertain, conflicting or missing times suppress the draft rather than inventing a duration; all-day drafts require an explicit exclusive end date, which current normalized rows do not retain. The source link remains available for manual checking.
+
+This route follows Google's documented [link for users to add an event](https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events#provide_a_link_for_users_to_add_the_event), checked October 21, 2026. The app's existing Google scope and GET-only events API remain unchanged.
+
 ## Production setup
 
 Use a dedicated Google Cloud project for this tracker. Enable the Google Calendar API without enabling a paid service or upgrading a plan. Configure the OAuth consent screen for the owner; if the app remains in Testing, add the owner's Google account as a test user. Google documents a seven-day refresh-token lifetime for External apps in Testing with Calendar scopes. Reconnect after that period. Publishing or extending authorization is a separate future change; it was not performed. [Google refresh-token expiration](https://developers.google.com/identity/protocols/oauth2#expiration), checked October 21, 2026.
