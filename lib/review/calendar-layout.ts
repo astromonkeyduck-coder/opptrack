@@ -126,6 +126,47 @@ export function calendarBlockPosition(interval: CalendarTimedInterval, startHour
   };
 }
 
+export type CalendarLaneInput = { id: string; interval: CalendarTimedInterval };
+export type CalendarLane<T> = T & { lane: number; laneCount: number; leftPercent: number; widthPercent: number };
+
+/** Widths describe visual overlap, never free/busy availability or an unknown event duration. */
+export function calendarLaneLayout<T extends CalendarLaneInput>(items: readonly T[], scale = 44): CalendarLane<T>[] {
+  const pixelsPerHour = Number.isFinite(scale) && scale > 0 ? scale : 44;
+  const entries = uniqueOccurrences(items).filter(item => Number.isFinite(item.interval.startMinute) && (item.interval.endMinute === null || Number.isFinite(item.interval.endMinute))).map(item => ({
+    item,
+    start: item.interval.startMinute,
+    // Unknown ends occupy only the 14px start marker for collision avoidance.
+    end: item.interval.endMinute === null ? item.interval.startMinute + 14 / pixelsPerHour * 60 : Math.max(item.interval.startMinute + 1 / pixelsPerHour * 60, item.interval.endMinute),
+  })).sort((a, b) => a.start - b.start || b.end - a.end || (a.item.id < b.item.id ? -1 : a.item.id > b.item.id ? 1 : 0));
+  const result: CalendarLane<T>[] = [];
+  let cluster: Array<{ item: T; lane: number }> = [];
+  let laneEnds: number[] = [];
+  let clusterEnd = Number.NEGATIVE_INFINITY;
+  function finishCluster() {
+    const laneCount = laneEnds.length;
+    for (const { item, lane } of cluster) result.push({ ...item, lane, laneCount, leftPercent: lane / laneCount * 100, widthPercent: 100 / laneCount });
+    cluster = []; laneEnds = []; clusterEnd = Number.NEGATIVE_INFINITY;
+  }
+  for (const entry of entries) {
+    if (cluster.length && entry.start >= clusterEnd) finishCluster();
+    let lane = laneEnds.findIndex(end => end <= entry.start);
+    if (lane < 0) lane = laneEnds.length;
+    laneEnds[lane] = entry.end;
+    cluster.push({ item: entry.item, lane });
+    clusterEnd = Math.max(clusterEnd, entry.end);
+  }
+  finishCluster();
+  return result;
+}
+
+/** A candidate is a side rail; it cannot cover real calendar entries. */
+export function candidateMarkerPosition(interval: CalendarTimedInterval, startHour: number, scale = 44) {
+  return {
+    top: Math.max(0, (interval.startMinute / 60 - startHour) * scale),
+    height: interval.endMinute === null ? 8 : Math.max(2, (interval.endMinute - interval.startMinute) / 60 * scale),
+  };
+}
+
 export function calendarTime(value: string, includeDate = false): string {
   if (!instantValid(value)) return 'Time unconfirmed';
   return (includeDate ? dateTimeFormatter : timeFormatter).format(new Date(value));

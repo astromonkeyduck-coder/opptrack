@@ -2273,3 +2273,8 @@ input[type=file]::file-selector-button {
 .inbox-context {color:#6b7562;}
 .post-account time,.post-media,.post-footer span {color:#6d7862;}
 .deck-stage {min-height:0;}
+/* A separate preview rail keeps the real calendar readable beneath a long card. */
+.calendar-blocks {right:24px;}
+.candidate-time-marker {left:auto;right:-18px;width:10px;padding:0;overflow:hidden;background:#a35f73;border:1px solid #782f40;border-radius:2px;opacity:.65;pointer-events:none;}
+.candidate-time-marker>* {display:none;}
+.calendar-unknown-marker {border-top:0;border-right:0;border-bottom:0;}

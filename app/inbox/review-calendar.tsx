@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useMemo, useState } from 'react';
 import { occurrenceSchedule } from '../../lib/review/deck';
-import { calendarBlockPosition, calendarPreviewWeek, calendarTimeRange, calendarTimelineBounds, easternDateKey, eventsForCalendarDay, occurrenceForCalendarDay, parseCalendarResponse, reviewCalendarDate, shiftCalendarDay, timedIntervalForDay, type CalendarDisplayResponse } from '../../lib/review/calendar-layout';
+import { calendarLaneLayout, calendarPreviewWeek, calendarTimeRange, calendarTimelineBounds, candidateMarkerPosition, easternDateKey, eventsForCalendarDay, occurrenceForCalendarDay, parseCalendarResponse, reviewCalendarDate, shiftCalendarDay, timedIntervalForDay, type CalendarDisplayResponse, type CalendarTimedInterval } from '../../lib/review/calendar-layout';
 import type { InboxRow } from './components';
 
 const loading: CalendarDisplayResponse = { state: 'loading', events: [], complete: false };
@@ -41,10 +41,17 @@ export const ReviewCalendar = memo(function ReviewCalendar({ candidate, savedRow
   const candidateTimed = candidateVisible && candidateSchedule?.precision === 'instant';
   const { startHour, endHour } = calendarTimelineBounds(selected, events, [...saved, ...(candidateVisible ? [candidate] : [])]);
   const scale = 44;
-  function blockPosition(start: string, end?: string | null) {
-    const interval = timedIntervalForDay(start, end, selected);
-    return interval ? calendarBlockPosition(interval, startHour, scale) : undefined;
+  const laneItems: Array<{ id: string; title: string; start: string; end: string | null; kind: 'google' | 'saved'; interval: CalendarTimedInterval }> = [];
+  for (const event of timedEvents) {
+    const interval = timedIntervalForDay(event.start, event.end, selected);
+    if (interval) laneItems.push({ id: `google-${event.id}`, title: event.title, start: event.start, end: event.end, kind: 'google', interval });
   }
+  for (const item of saved.filter(item => occurrenceSchedule(item).precision === 'instant')) {
+    const interval = timedIntervalForDay(item.starts_at!, item.ends_at, selected);
+    if (interval) laneItems.push({ id: `saved-${item.id}`, title: item.title, start: item.starts_at!, end: item.ends_at, kind: 'saved', interval });
+  }
+  const lanes = calendarLaneLayout(laneItems, scale);
+  const candidateInterval = candidateTimed ? timedIntervalForDay(candidate.starts_at!, candidate.ends_at, selected) : null;
   const conflict = candidateTimed && candidate.ends_at && timedEvents.some(event => Date.parse(event.start) < Date.parse(candidate.ends_at!) && Date.parse(event.end) > Date.parse(candidate.starts_at!));
   async function disconnect() {
     if (disconnecting) return;
@@ -77,9 +84,12 @@ export const ReviewCalendar = memo(function ReviewCalendar({ candidate, savedRow
     <div className="calendar-timeline-scroll"><div className="calendar-timeline" style={{ height: (endHour - startHour) * scale }}>
       {Array.from({ length: endHour - startHour }, (_, i) => <div className="calendar-hour" key={i} style={{ top: i * scale }}><span>{(startHour + i) % 12 || 12}{startHour + i < 12 ? 'am' : 'pm'}</span></div>)}
       <div className="calendar-blocks">
-        {timedEvents.map(event => <div key={event.id} className="calendar-event google-calendar-event" style={blockPosition(event.start, event.end)}><strong>{event.title}</strong><span>{calendarTimeRange(event.start, event.end, selected)}</span></div>)}
-        {saved.filter(item => occurrenceSchedule(item).precision === 'instant').map(item => <div key={item.id} className="calendar-event saved-calendar-event" style={blockPosition(item.starts_at!, item.ends_at)}><strong>{item.title}</strong><span>{calendarTimeRange(item.starts_at!, item.ends_at, selected)}</span></div>)}
-        {candidateTimed && <div className="calendar-event candidate-calendar-event" style={blockPosition(candidate.starts_at!, candidate.ends_at)}><strong>{candidate.title}</strong><span>{calendarTimeRange(candidate.starts_at!, candidate.ends_at, selected)}</span></div>}
+        {lanes.map(item => {
+          const height = item.interval.endMinute === null ? 14 : Math.max(1, (item.interval.endMinute - item.interval.startMinute) / 60 * scale);
+          const label = `${item.title}. ${calendarTimeRange(item.start, item.end, selected)}. ${item.kind === 'google' ? 'Google Calendar' : 'Saved here'}.`;
+          return <div key={item.id} className={`calendar-event ${item.kind === 'google' ? 'google-calendar-event' : 'saved-calendar-event'}${item.interval.durationKnown ? '' : ' calendar-unknown-marker'}`} title={label} aria-label={label} style={{ top: Math.max(0, (item.interval.startMinute / 60 - startHour) * scale), height, minHeight: 0, left: `calc(${item.leftPercent}% + 1px)`, width: `calc(${item.widthPercent}% - 2px)`, right: 'auto', padding: height < 28 ? '1px 4px' : undefined, ...(!item.interval.durationKnown ? { background: 'transparent', borderLeftStyle: 'dotted' } : {}) }}><strong>{item.title}</strong><span>{calendarTimeRange(item.start, item.end, selected)}</span></div>;
+        })}
+        {candidateTimed && candidateInterval && <div className="candidate-time-marker" role="img" title={`${candidate.title} · ${calendarTimeRange(candidate.starts_at!, candidate.ends_at, selected)} · Preview only`} aria-label={`${candidate.title}. ${calendarTimeRange(candidate.starts_at!, candidate.ends_at, selected)}. This card, preview only.`} style={{ ...candidateMarkerPosition(candidateInterval, startHour, scale), position: 'absolute', left: 'auto', right: -15, width: 10, minHeight: 0, padding: 0 }} />}
       </div>
     </div></div>
     <section className="calendar-agenda" aria-label="All events shown for the selected day"><h3>Day details</h3>
@@ -88,7 +98,7 @@ export const ReviewCalendar = memo(function ReviewCalendar({ candidate, savedRow
       {candidateVisible && <p><strong>{candidate.title}</strong><span>{candidateTimed ? calendarTimeRange(candidate.starts_at!, candidate.ends_at, selected) : candidateSchedule?.timeLabel} · This card, preview only</span></p>}
       {response.state === 'connected' && response.complete && !events.length && <p>No primary-calendar events returned for this day.</p>}
     </section>
-    <p className="calendar-footnote">{connected ? 'Primary Google calendar only · ' : 'Personal calendar not loaded; availability unknown · '}Saved events stay in this tracker. The outlined event is a preview. Unknown durations use a small marker.{connected && " Google test access requires reconnection after 7 days."}</p>
+    <p className="calendar-footnote">{connected ? 'Primary Google calendar only · ' : 'Personal calendar not loaded; availability unknown · '}Saved events stay in this tracker. The garnet side marker previews this card. Unknown durations use a small start marker.{connected && " Google test access requires reconnection after 7 days."}</p>
     {connected && <button type="button" className="text-button disconnect-calendar" disabled={disconnecting} title="Removes the tracker connection and attempts to revoke this app’s Google grant" onClick={() => void disconnect()}>{disconnecting ? 'Disconnecting…' : 'Disconnect Google Calendar'}</button>}
   </aside>;
 });

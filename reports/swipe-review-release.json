@@ -4,11 +4,20 @@
   "site": "https://luxury-longma-01d2fa.netlify.app/inbox",
   "published_design_commits": [
     "8a3bdf155b1a0ff37ff9cb10c38d88a345805576",
-    "2220b4c"
+    "2220b4c",
+    "b22f9982d56a268ee939ef939ce62dc638b4fe2c"
   ],
-  "final_polish_publish": "pending",
+  "final_polish_publish": {
+    "verified_commit": "b22f9982d56a268ee939ef939ce62dc638b4fe2c",
+    "github_checks": {
+      "run_id": 39643388756,
+      "conclusion": "success"
+    },
+    "live_fingerprint": "Known card end time and seven-day testing notice rendered; controls moved up to842.398px in1028px desktop viewport",
+    "calendar_lane_refinement": "pending next commit publish"
+  },
   "test_results": {
-    "npm_test": 165,
+    "npm_test": 170,
     "local_sql": 81,
     "worker_replays": 6,
     "python": 63,
@@ -33,7 +42,14 @@
       "decision_controls_bottom": 828.9296875,
       "calendar_toggle_visible": true,
       "physical_phone_tested": false
-    }
+    },
+    "desktop_controls_bottom": 842.3984375,
+    "desktop_viewport_height": 1028,
+    "instagram_redesign_loaded": true,
+    "instagram_posts_at_ui_check": 685,
+    "instagram_enabled_accounts": 27,
+    "sources_page_loaded": true,
+    "private_intake_form_loaded": true
   },
   "google": {
     "connected_at_utc": "2026-10-21T17:19:46.321154Z",
@@ -85,5 +101,13 @@
     "Physical touch-device testing",
     "Hosted intake/download/backup and full Stage1 gaps in docs/status.md are unchanged"
   ],
-  "fixtures": "Unit/PGlite/replay tests use labeled synthetic data; browser and71-eventread are real hosted behavior"
+  "fixtures": "Unit/PGlite/replay tests use labeled synthetic data; browser and71-eventread are real hosted behavior",
+  "advisor_review": {
+    "authenticated_definer_notices": "Intentional owner-checked review/calendar/intake RPCs;32 hosted policy checks pass",
+    "preexisting_notices": [
+      "membership helper executable by anonymous returns membership for auth.uid only",
+      "tracker_members RLS has no direct policy by design",
+      "leaked-password protection disabled; no paid upgrade enabled"
+    ]
+  }
 }

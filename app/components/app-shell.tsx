@@ -14,7 +14,7 @@ const navigation: { section: Section; href: string; label: string }[] = [
 
 function NavigationIcon({ section }: { section: Section }) {
   const paths: Record<Section, ReactNode> = {
-    discover: <><path d="m10 2 2.3 5.7L18 10l-5.7 2.3L10 18l-2.3-5.7L2 10l5.7-2.3L10 2Z" /><circle cx="10" cy="10" r="1" /></>,
+    discover: <><rect x="3" y="4" width="10" height="13" rx="1.5" /><path d="M7 2h9a1 1 0 0 1 1 1v11M6 8h4M6 11h4" /></>,
     saved: <path d="M5 3h10v14l-5-3-5 3V3Z" />,
     instagram: <><rect x="3" y="3" width="14" height="14" rx="4" /><circle cx="10" cy="10" r="3" /><path d="M14.2 5.8h.01" /></>,
     intake: <><rect x="3" y="3" width="14" height="14" rx="2" /><path d="M10 6v8M6 10h8" /></>,

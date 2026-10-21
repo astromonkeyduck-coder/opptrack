@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { calendarBlockPosition, calendarDayInterval, calendarPreviewWeek, calendarTimeRange, calendarTimelineBounds, easternDateKey, eventsForCalendarDay, occurrenceForCalendarDay, parseCalendarResponse, reviewCalendarDate, shiftCalendarDay, timedIntervalForDay, type CalendarDisplayEvent, type CalendarOccurrence } from '../lib/review/calendar-layout';
+import { calendarBlockPosition, calendarDayInterval, calendarLaneLayout, calendarPreviewWeek, calendarTimeRange, calendarTimelineBounds, candidateMarkerPosition, easternDateKey, eventsForCalendarDay, occurrenceForCalendarDay, parseCalendarResponse, reviewCalendarDate, shiftCalendarDay, timedIntervalForDay, type CalendarDisplayEvent, type CalendarOccurrence } from '../lib/review/calendar-layout';
 
 // Synthetic calendar fixtures. These exercise display semantics without Google requests or writes.
 const event: CalendarDisplayEvent = { id: 'fixture-event', title: 'A private plan', start: '2026-10-21T15:00:00-04:00', end: '2026-10-21T16:00:00-04:00', allDay: false };
@@ -97,4 +97,52 @@ test('malformed, duplicate, reversed and oversized event collections are rejecte
     [{ ...event, allDay: true, start: '2026-02-30', end: '2026-03-02' }],
   ]) assert.throws(() => parseCalendarResponse({ ...envelope(), events }), /Invalid calendar event/);
   assert.throws(() => parseCalendarResponse(envelope(Array.from({ length: 201 }, (_, index) => ({ ...event, id: `event-${index}` })))), /Invalid calendar response/);
+});
+
+const laneItem = (id: string, startMinute: number, endMinute: number | null) => ({ id, interval: { startMinute, endMinute, durationKnown: endMinute !== null } });
+
+test('overlapping Google and saved intervals share visible lanes sized to cluster concurrency', () => {
+  const items = [laneItem('google-long', 9 * 60, 12 * 60), laneItem('saved-short', 9.5 * 60, 10 * 60), laneItem('google-next', 10 * 60, 11 * 60), laneItem('google-third', 10.5 * 60, 11.5 * 60)];
+  const before = JSON.stringify(items);
+  const layout = calendarLaneLayout(items);
+  assert.equal(layout.length, 4);
+  assert.ok(layout.every(item => item.laneCount === 3 && item.widthPercent === 100 / 3));
+  for (const item of layout) for (const other of layout) {
+    if (item.id === other.id) continue;
+    if (item.interval.startMinute < other.interval.endMinute! && item.interval.endMinute! > other.interval.startMinute) assert.notEqual(item.lane, other.lane);
+  }
+  assert.equal(layout.find(item => item.id === 'saved-short')?.lane, layout.find(item => item.id === 'google-next')?.lane);
+  assert.equal(JSON.stringify(items), before);
+});
+
+test('exclusive adjacent ends reuse a full-width lane and disconnected clusters reset their widths', () => {
+  const adjacent = calendarLaneLayout([laneItem('a', 540, 600), laneItem('b', 600, 660)]);
+  assert.ok(adjacent.every(item => item.lane === 0 && item.laneCount === 1 && item.widthPercent === 100));
+  const separate = calendarLaneLayout([laneItem('a', 540, 600), laneItem('b', 570, 630), laneItem('later', 720, 780)]);
+  assert.equal(separate.find(item => item.id === 'later')?.laneCount, 1);
+  assert.equal(separate.find(item => item.id === 'a')?.laneCount, 2);
+});
+
+test('multiday clipped intervals keep lanes separate until the exclusive midnight end', () => {
+  const overnight = timedIntervalForDay('2026-10-20T23:00:00-04:00', '2026-10-21T02:00:00-04:00', '2026-10-21')!;
+  const layout = calendarLaneLayout([{ id: 'overnight', interval: overnight }, laneItem('overlap', 30, 60), laneItem('after', 120, 180)]);
+  assert.equal(layout.find(item => item.id === 'overnight')?.laneCount, 2);
+  assert.equal(layout.find(item => item.id === 'after')?.laneCount, 1);
+});
+
+test('unknown ends occupy only a small start marker and never gain a fabricated duration', () => {
+  const input = [laneItem('unknown', 540, null), laneItem('known', 545, 600)];
+  const layout = calendarLaneLayout(input);
+  assert.equal(layout.find(item => item.id === 'unknown')?.interval.endMinute, null);
+  assert.equal(layout.find(item => item.id === 'unknown')?.interval.durationKnown, false);
+  assert.equal(layout.find(item => item.id === 'known')?.laneCount, 2);
+  assert.deepEqual(candidateMarkerPosition(input[0].interval, 9), { top: 0, height: 8 });
+  assert.deepEqual(candidateMarkerPosition(laneItem('seven-hours', 540, 960).interval, 9), { top: 0, height: 308 });
+});
+
+test('lane assignment is deterministic, occurrence-safe and rejects nonfinite geometry', () => {
+  const a = laneItem('a', 540, 600), b = laneItem('b', 540, 600);
+  assert.deepEqual(calendarLaneLayout([b, a]), calendarLaneLayout([a, b]));
+  assert.equal(calendarLaneLayout([a, a]).length, 1);
+  assert.deepEqual(calendarLaneLayout([laneItem('invalid', Number.NaN, 600)]), []);
 });
