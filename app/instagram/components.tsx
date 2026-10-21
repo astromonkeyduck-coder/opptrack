@@ -18,6 +18,24 @@ export type InstagramSourceRow = {
   coverage_note: string | null; next_due_at: string | null;
 };
 
+type CredentialMetadata = {
+  token_expiry_verified: boolean;
+  token_expires_at_conservative_utc?: string | null;
+  automatic_token_renewal: boolean;
+};
+
+export function instagramCredentialExpiry(metadata: CredentialMetadata, now = Date.now()) {
+  const value = metadata.token_expires_at_conservative_utc;
+  const known = metadata.token_expiry_verified && typeof value === 'string' && Number.isFinite(Date.parse(value));
+  const renewal = metadata.automatic_token_renewal ? 'Automatic renewal configured' : 'Automatic renewal not configured';
+  if (!known) return { summary: `Credential expiry unverified · ${renewal}`, detail: `Credential expiry has not been verified. ${renewal}. Current access failures appear in collector health.` };
+  const expired = Date.parse(value) <= now;
+  return {
+    summary: `${expired ? 'Configured credential expiry reached' : 'Conservative credential expiry'}: ${postTimestamp(value)} · ${renewal}`,
+    detail: `${expired ? 'The configured expiry bound has been reached; credentials need review before continuing collection.' : 'The configured expiry is a conservative bound. Meta can invalidate credentials earlier.'} ${renewal}. Current access failures appear in collector health.`,
+  };
+}
+
 export function instagramFilters(params: { q?: string | string[]; account?: string | string[]; page?: string | string[] }, allowedSources: string[]) {
   const q = typeof params.q === 'string' ? params.q : '';
   const account = typeof params.account === 'string' ? params.account : '';
@@ -44,6 +62,22 @@ export function instagramCollectionState(source?: InstagramSourceRow, now = Date
   if (source.health_status !== 'success') return `Enabled · ${source.health_status}${sourceIsStale(source.last_success_at, source.cadence_seconds, now) ? ' · stale or never succeeded' : ''}`;
   if (sourceIsStale(source.last_success_at, source.cadence_seconds, now)) return 'Enabled · stale or never succeeded';
   return 'Enabled · latest bounded collection succeeded';
+}
+
+export function InstagramCollectionAttention({ sources }: { sources: InstagramSourceRow[] }) {
+  const statuses = ['blocked', 'failed', 'rate_limited', 'partial'] as const;
+  const labels = { blocked: 'Blocked', failed: 'Failed', rate_limited: 'Rate limited', partial: 'Partial' };
+  const affected = sources.filter(source => source.enabled && source.adapter === INSTAGRAM_ADAPTER && statuses.some(status => status === source.health_status));
+  if (!affected.length) return null;
+  const reasons = statuses.flatMap(status => {
+    const count = affected.filter(source => source.health_status === status).length;
+    return count ? [`${labels[status]}: ${count}`] : [];
+  });
+  return <section className="notice" role="alert" aria-label="Instagram collection needs attention">
+    <strong>Collection needs attention for {affected.length} enabled account{affected.length === 1 ? '' : 's'}.</strong>
+    <p>{reasons.join(' · ')}. Current successful monitoring is not established for these accounts.</p>
+    <p>Previously collected posts remain available below. A failed or incomplete read does not mean there are no new posts. <a href="#instagram-source-health">Review collector health below</a> for the recorded reason and next steps.</p>
+  </section>;
 }
 
 function postTimestamp(value: string) {

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { INSTAGRAM_ADAPTER, InstagramPostCard, instagramCollectionState, instagramFeedLink, instagramFilters, safeInstagramPostUrl, type InstagramPostRow, type InstagramSourceRow } from '../app/instagram/components';
+import { INSTAGRAM_ADAPTER, InstagramCollectionAttention, InstagramPostCard, instagramCollectionState, instagramCredentialExpiry, instagramFeedLink, instagramFilters, safeInstagramPostUrl, type InstagramPostRow, type InstagramSourceRow } from '../app/instagram/components';
 
 // Explicit synthetic render fixtures, never seeded into the production feed.
 const fixture: InstagramPostRow = {
@@ -74,4 +74,49 @@ test('caption search and independent feed pagination retain only allowlisted acc
   assert.equal(url.searchParams.get('account'), 'instagram-fsuip'); assert.equal(url.searchParams.get('page'), '3');
   assert.deepEqual(instagramFilters({ q: ['duplicate', 'params'], account: 'unknown-account', page: '-2' }, allowed), { q: '', account: '', page: 1 });
   assert.deepEqual(instagramFilters({ account: ['instagram-fsuip'], page: ['2'] }, allowed), { q: '', account: '', page: 1 });
+});
+
+test('collection attention is derived from enabled database health and retains prior-post context', () => {
+  const sources = ['blocked', 'blocked', 'failed', 'rate_limited', 'partial'].map((health_status, index) => ({ ...source, id: `fixture-${index}`, health_status }));
+  const html = renderToStaticMarkup(createElement(InstagramCollectionAttention, { sources }));
+  assert.ok(html.includes('role="alert"'));
+  assert.ok(html.includes('Collection needs attention for 5 enabled accounts'));
+  assert.ok(html.includes('Blocked: 2 · Failed: 1 · Rate limited: 1 · Partial: 1'));
+  assert.ok(html.includes('Previously collected posts remain available'));
+  assert.ok(html.includes('does not mean there are no new posts'));
+  assert.ok(html.includes('href="#instagram-source-health"'));
+  assert.ok(!html.includes('token expired'));
+});
+
+test('pending and disabled accounts do not become false failures, and successful recovery clears attention', () => {
+  const render = (sources: InstagramSourceRow[]) => renderToStaticMarkup(createElement(InstagramCollectionAttention, { sources }));
+  assert.equal(render([]), '');
+  assert.equal(render([source]), '');
+  assert.equal(render([{ ...source, health_status: 'setup_needed', last_attempt_at: null, last_success_at: null }]), '');
+  assert.equal(render([{ ...source, health_status: 'blocked', enabled: false }]), '');
+  assert.equal(render([{ ...source, health_status: 'blocked', adapter: 'unconfigured' }]), '');
+  const blocked = { ...source, health_status: 'blocked' };
+  assert.ok(render([blocked]).includes('1 enabled account.'));
+  assert.equal(render([{ ...blocked, health_status: 'success' }]), '');
+});
+
+test('verified conservative expiry is displayed in Eastern time without promising current access or renewal', () => {
+  const metadata = { token_expiry_verified: true, token_expires_at_conservative_utc: '2026-12-20T00:40:44.610662Z', automatic_token_renewal: false };
+  const expiry = instagramCredentialExpiry(metadata, Date.parse('2026-10-21T02:30:00Z'));
+  assert.equal(expiry.summary, 'Conservative credential expiry: Dec 19, 2026, 7:40 PM ET · Automatic renewal not configured');
+  assert.ok(expiry.detail.includes('Meta can invalidate credentials earlier'));
+  assert.ok(expiry.detail.includes('Current access failures appear in collector health'));
+  assert.ok(!expiry.summary.includes('unverified'));
+  assert.ok(!expiry.summary.includes('valid until'));
+  const expired = instagramCredentialExpiry(metadata, Date.parse('2026-12-20T00:41:00Z'));
+  assert.ok(expired.summary.startsWith('Configured credential expiry reached'));
+  assert.ok(expired.detail.includes('credentials need review'));
+});
+
+test('missing, invalid or unverified expiry metadata stays explicitly unknown', () => {
+  for (const metadata of [
+    { token_expiry_verified: false, token_expires_at_conservative_utc: '2026-12-20T00:40:44.610662Z', automatic_token_renewal: false },
+    { token_expiry_verified: true, token_expires_at_conservative_utc: 'invalid', automatic_token_renewal: false },
+    { token_expiry_verified: true, automatic_token_renewal: false },
+  ]) assert.equal(instagramCredentialExpiry(metadata).summary, 'Credential expiry unverified · Automatic renewal not configured');
 });

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "imported_at_utc": "2026-10-21T02:27:20.868881Z",
+  "source_document": {
+    "filename": "Pasted text.txt",
+    "sha256": "818a68af9104fdaac1605b4cf57105831fe20573462d00ba397ca303e5088481",
+    "title": "FSU Instagram monitoring seed list",
+    "compiled_date": "2026-10-20",
+    "declared_account_count": 209,
+    "scope": "FSU-linked account candidates across departments, campus events, research, cultural organizations and sports clubs. Not an exhaustive directory of student organizations. Includes accounts with limited event relevance.",
+    "monitoring_status": "Not configured. Posts, reels and stories access must be tested separately."
+  },
+  "output_registry": "config/instagram-candidates.json",
+  "status": "validated_offline_inventory_only",
+  "counts": {
+    "submitted_rows": 209,
+    "unique_normalized_handles": 209,
+    "high_priority_user_claim": 29,
+    "standard_priority_user_claim": 180,
+    "possible_alias_claims": 3,
+    "overlapping_existing_watchlist": 15,
+    "candidates_outside_existing_watchlist": 194,
+    "existing_watchlist_only": 2,
+    "source_url_references": 726,
+    "unique_source_urls": 251,
+    "https_source_references": 688,
+    "http_source_references": 38,
+    "high_priority_existing_watchlist": 15,
+    "high_priority_outside_existing_watchlist": 14,
+    "standard_priority_existing_watchlist": 0
+  },
+  "overlap_handles": [
+    "aslc_fsu",
+    "clubdownunderfsu",
+    "fsucampusrec",
+    "fsucareercenter",
+    "fsucge",
+    "fsucosspp",
+    "fsuhomecoming",
+    "fsuhonors",
+    "fsuip",
+    "fsusga",
+    "fsustudentaffairs",
+    "fsustudentengagement",
+    "fsustudentunion",
+    "fsusustainable",
+    "thecenterfsu"
+  ],
+  "existing_watchlist_only_handles": [
+    "fsucossppslc",
+    "fsucre"
+  ],
+  "possible_alias_claims": [
+    {
+      "handle": "fsudsa",
+      "user_provided_possible_older_alias_of": "@fsustudentaffairs",
+      "verified": false,
+      "merged": false
+    },
+    {
+      "handle": "oglesbyunion",
+      "user_provided_possible_older_alias_of": "@fsustudentunion",
+      "verified": false,
+      "merged": false
+    },
+    {
+      "handle": "slc_fsu",
+      "user_provided_possible_older_alias_of": "@aslc_fsu",
+      "verified": false,
+      "merged": false
+    }
+  ],
+  "format_checks": {
+    "duplicate_json_object_keys": 0,
+    "duplicate_normalized_handles": 0,
+    "invalid_handle_formats": 0,
+    "mismatched_instagram_profile_urls": 0,
+    "non_fsu_source_hosts": 0,
+    "credentialed_or_fragmented_source_urls": 0,
+    "all_profile_urls_exact_https_www_instagram_com_handle_path": true,
+    "http_source_urls_preserved_without_fetch_or_upgrade": true,
+    "all_submitted_sources_and_verification_claims_preserved": true
+  },
+  "import_actions": {
+    "network_requests": 0,
+    "api_probes": 0,
+    "sources_activated": 0,
+    "active_watchlist_modified": false,
+    "worker_allowlist_modified": false,
+    "database_modified": false,
+    "paid_services_enabled": false,
+    "calendar_writes": 0
+  },
+  "research_handle_correction_candidate": {
+    "candidate_handle": "fsu_cre",
+    "existing_blocked_watchlist_handle": "fsucre",
+    "relationship_status": "unverified_distinct_handles",
+    "note": "The submitted fsu_cre candidate may warrant a separate access check; no alias, replacement or activation is inferred."
+  },
+  "limits": [
+    "URL syntax/host checks do not verify destination existence, control, affiliation, current content, redirects or Instagram API eligibility.",
+    "Existing watchlist overlaps are recorded as identity matches only; current access evidence belongs to the separate watchlist and live reports.",
+    "Possible aliases remain separate unverified candidate rows.",
+    "Every imported candidate remains inactive; no monitoring scope, schedule, API budget or credential access was changed."
+  ],
+  "validation": {
+    "command": "python3 -c 'import collections,json,re\nfrom urllib.parse import urlsplit\nr=json.load(open(\"config/instagram-candidates.json\"))\na=r[\"accounts\"]\nassert len(a)==len({x[\"handle\"] for x in a})==209\nassert collections.Counter(x[\"priority\"] for x in a)=={\"high\":29,\"standard\":180}\nassert r[\"automatic_collection_enabled\"] is False and r[\"calendar_writes_enabled\"] is False\nfor x in a:\n assert re.fullmatch(\"[a-z0-9._]{1,30}\",x[\"handle\"])\n assert x[\"profile_url\"]==\"https://www.instagram.com/\"+x[\"handle\"]+\"/\"\n assert x[\"enabled_in_candidate_registry\"] is False\n assert x[\"attribution_status\"]==\"user_provided_source_urls_not_fetched_during_import\"\n for value in x[\"source_urls\"]:\n  u=urlsplit(value)\n  assert u.scheme in (\"http\",\"https\") and (u.hostname==\"fsu.edu\" or u.hostname.endswith(\".fsu.edu\"))\n  assert not (u.username or u.password or u.fragment or u.port)\nassert sum(len(x[\"source_urls\"]) for x in a)==726\nassert sum(x[\"possible_older_alias_of\"] is not None for x in a)==3\nprint(\"PASS:209 unique candidates;29 high/180 standard;726 FSU source references;3 unmerged alias claims;0 activated;0 network\")\n'",
+    "exit_code": 0,
+    "stdout": "PASS:209 unique candidates;29 high/180 standard;726 FSU source references;3 unmerged alias claims;0 activated;0 network",
+    "stderr_empty": true
+  }
+}

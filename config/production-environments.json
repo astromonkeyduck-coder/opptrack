@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-10-20",
-  "status": "partially_applied",
+  "status": "configured_instagram_manual_recovery_verified_scheduled_success_pending",
   "web_host": "netlify",
   "worker_host": "trigger.dev-cloud",
   "hosted_targets": {
@@ -181,18 +181,17 @@
     }
   },
   "notes": [
-    "Netlify SSR deployment is published and anonymous HTTP checks pass. Trigger Production worker and hourly schedule are deployed; owner-authenticated ingestion and offline acceptance remain pending.",
-    "Five Netlify variables are saved in one Production context; Free scopes are all scopes, containing public configuration and nonsecret false flags only. No upgrade was selected.",
-    "The web app uses user-session RLS; the Supabase server secret stays off Netlify. Optional web Trigger key is unused by Stage1.",
-    "Six Trigger variables are saved Production-only, Development unchecked. Server secret is unviewable and never printed. Deployment kx5ru529/version20261020.1 runs Node24.18.0.",
-    "The connected GitHub app is limited to one selected repository, opptrack, with main tracking Production. Active hourly schedule has not yet executed at last observation.",
-    "One real manual Production test failed the owner-setup guard before collection. Its synthetic scheduler payload is not scheduled-run evidence; actual invocation dollars remain unmeasured.",
-    "Supabase migrations001/002 and Auth Site URL/settings are applied. At2026-10-20T23:48:31.583435Z users,owners,sources,opportunities,captures,runs andobjects were zero. No owner bypass or account creation occurred.",
-    "Explicit current OpenNext5.16.4 is deployed with one server/one edge function. Published commit9fc73a6 has home200,inbox307,private-media401; authenticated inbox remains unverified.",
-    "Calendar,social,inbound and email delivery flags remain false. No paid connector or paid upgrade was enabled.",
-    "Latest Instagram extension:16 approved sources enabled hourly, protected read token and caller ID in Trigger Production only; social=true, calendar/email=false. Manual Production run succeeds with400 posts; first scheduled social run pending. Earlier setup notes are historical snapshots."
+    "Netlify SSR and real owner event/Instagram feeds are verified. Core scheduled collection works; actual automatic social dispatch reached 16 accounts but the first tick was token-expired blocked, not successful scheduled collection.",
+    "Five Netlify Production values contain only public app/Supabase configuration and false calendar/inbound flags. Free scopes remain all scopes; no worker or Instagram secret is on Netlify.",
+    "Trigger Production only contains protected Supabase server key, protected Meta User token/caller ID, verified expiry, social=true and calendar/email=false. Development remains separate.",
+    "Exactly 16 approved Instagram rows are enabled hourly alongside Central/Music:18 enabled of76 sources. fsucre and generic/unproven/paid routes remain disabled.",
+    "Migrations001/002/003 are applied; sole owner is the user-created confirmed Auth account. Public signup/anonymous sign-in remain disabled.",
+    "Actual manual/test social run stored400 posts. Genuine scheduled run run_06gloea0tch74en66hvp2iis01 completed Central successfully and recorded16 token_expired blocks; prior posts/last success preserved.",
+    "Approved token extension returned lifetime5177995 seconds and verified conservative expiry2026-12-20T00:40:44.610662Z. Replacement token and expiry saved Trigger Production only; recovered manual run succeeded for16 accounts with400 stable posts and no duplicates; recovered automatic success remains unverified.",
+    "No automatic token renewal, paid connector, paid upgrade, email send or calendar write. Laptop-off interval, restore and remaining Stage1 access checks are unverified.",
+    "Historical empty-owner, initial deployment failure and earlier manual guard failure remain in dated reports; they are not current configuration state."
   ],
-  "application_status": "core_cloud_operational_instagram_manual_verified_hourly_proof_pending",
+  "application_status": "core_cloud_operational_instagram_manual_recovered_hourly_enabled",
   "hosted_application_state": {
     "netlify": {
       "production_base_variables_confirmed": [
@@ -232,9 +231,9 @@
         "202610200002_hourly_cadence.sql",
         "202610200003_instagram_monitoring.sql"
       ],
-      "auth_user_count_at_inspection": 0,
+      "auth_user_count_at_inspection": 1,
       "owner_registered": true,
-      "owner_creation": "User declined manual account creation; no account or invitation created",
+      "owner_creation": "User created the confirmed Auth account directly; its existing UUID was registered privately as sole owner. No agent-created account/password.",
       "auth_site_url": "https://luxury-longma-01d2fa.netlify.app",
       "auth_site_url_saved": true,
       "public_signup_enabled": false,
@@ -252,7 +251,8 @@
         "storage_objects": 0
       },
       "auth_user_count_latest": 1,
-      "instagram_migration_applied": "20261021012900"
+      "instagram_migration_applied": "20261021012900",
+      "auth_user_count_at_inspection_basis": "Latest confirmed owner bootstrap; historical empty counts retained separately."
     },
     "trigger": {
       "github_repository_grant": "New GitHub app installation verified for one selected repository: astromonkeyduck-coder/opptrack only",
@@ -267,7 +267,8 @@
         "CALENDAR_WRITES_ENABLED",
         "SOCIAL_COLLECTION_ENABLED",
         "IG_FB_USER_ACCESS_TOKEN",
-        "IG_CALLER_USER_ID"
+        "IG_CALLER_USER_ID",
+        "IG_TOKEN_EXPIRES_AT"
       ],
       "production_disabled_flags": {
         "EMAIL_DELIVERY_ENABLED": false,
@@ -277,13 +278,13 @@
       "development_values_applied": false,
       "server_secret_status": "saved as secret; value unviewable and never printed",
       "github_organization_connection_recognized": true,
-      "managed_deployment_status": "Core scheduled runs and real Instagram manual Production ingestion verified; first automatic social tick pending",
+      "managed_deployment_status": "Scheduled version20261021.4 reached core and16 social sources; Central success/social expired-token blocks. Production token replaced; manual recovery run all16 success. Recovered automatic success pending.",
       "github_repository_connected": "astromonkeyduck-coder/opptrack",
       "production_tracking_branch": "main",
       "connection_confirmation": "Fresh Integrations UI confirmed the installed GitHub app and connected repository after user reconnect, approximately 2026-10-20 23:45 UTC",
-      "deployment_id": "4qe6zd7w",
-      "worker_version": "20261021.3",
-      "deployed_at": "2026-10-20T23:46:19Z",
+      "deployment_id": null,
+      "worker_version": "20261021.4",
+      "deployed_at": null,
       "cloud_node_version": "24.18.0",
       "schedule_details": {
         "id": "sched_7piwpgtckcngy15icqk45",
@@ -294,9 +295,9 @@
         "window": "60m",
         "concurrency": 1,
         "created_at": "2026-10-20T23:46:11Z",
-        "last_scheduled_run_at": null,
-        "next_run_display": "approximately00:10UTC, not an exact timing guarantee",
-        "scheduled_execution_verified": false
+        "last_scheduled_run_at": "2026-10-21T02:11:04.492Z",
+        "next_run_display": "Next eligible hourly tick within the60m provider window; not an exact-time guarantee",
+        "scheduled_execution_verified": true
       },
       "manual_test": {
         "run_id": "run_06glndpqqqf43ur6djisksj5e1",
@@ -309,12 +310,56 @@
         "invocation_kind": "manual_test",
         "schedule_proof": false,
         "payload_limit": "Test payload contained synthetic sched_1234/IMPERATIVE; not provider schedule evidence",
-        "actual_usd": null
+        "actual_usd": 9.868e-05
       },
-      "instagram_flag_enabled": true
+      "instagram_flag_enabled": true,
+      "first_instagram_deployment_id": "4qe6zd7w",
+      "first_instagram_worker_version": "20261021.3",
+      "version_basis": "Observed in genuine scheduled run run_06gloea0tch74en66hvp2iis01; latest deployment ID/time not separately recorded here.",
+      "instagram_token_status": "replacement_saved_protected_production_2026-10-20_22:21_Eastern; manualrecoveryverified16success",
+      "instagram_token_expiry_verified": true,
+      "instagram_token_expires_at_utc": "2026-12-20T00:40:44.610662Z",
+      "instagram_automatic_renewal": false,
+      "latest_scheduled_run": {
+        "run_id": "run_06gloea0tch74en66hvp2iis01",
+        "test_run": false,
+        "nominal_at_utc": "2026-10-21T02:00:00Z",
+        "started_at_utc": "2026-10-21T02:11:04.492Z",
+        "finished_at_utc": "2026-10-21T02:11:25.903Z",
+        "core_success": 1,
+        "instagram_success": 0,
+        "instagram_blocked": 16,
+        "failure_category": "token_expired"
+      },
+      "manual_recovery_run": {
+        "run_id": "run_06gloh91rq560t7h1a6lmcfre1",
+        "test_run": true,
+        "invocation_kind": "manual",
+        "started_at_utc": "2026-10-21T02:23:19.396Z",
+        "finished_at_utc": "2026-10-21T02:23:35.587Z",
+        "instagram_success": 16,
+        "posts": 400,
+        "versions": 400,
+        "duplicate_groups": 0,
+        "sanitized_captures": 32,
+        "next_nominal_poll_at_utc": "2026-10-21T03:00:00Z"
+      }
     },
     "paid_plan_change": false
   },
   "latest_monitoring_evidence": "reports/instagram-production-monitoring.json",
-  "hosted_state_as_of": "2026-10-21T01:50:00Z"
+  "hosted_state_as_of": "2026-10-21T02:24:48.122949Z",
+  "inactive_instagram_candidate_inventory": {
+    "file": "config/instagram-candidates.json",
+    "accounts": 209,
+    "watchlist_overlaps": 15,
+    "additional": 194,
+    "high_priority": 29,
+    "new_high_priority": 14,
+    "standard": 180,
+    "unverified_aliases": 3,
+    "probed": false,
+    "source_activation": false,
+    "active_monitor_unchanged": true
+  }
 }

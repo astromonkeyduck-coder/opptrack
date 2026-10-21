@@ -42,9 +42,10 @@ test('production enablement is restricted to the sixteen proven and explicitly a
       assert.equal(account.cadence_seconds, 3600); assert.equal(account.status, 'enabled');
       assert.equal(account.collector_snapshot?.report, 'reports/instagram-production-monitoring.json');
       assert.equal(account.collector_snapshot.invocation_kind, 'manual');
-      assert.equal(account.collector_snapshot.trigger_run_id, productionReport.manualSmoke.runId);
+      assert.equal(account.collector_snapshot.trigger_run_id, productionReport.recoverySmoke.runId);
       assert.equal(account.collector_snapshot.health_status, 'success');
-      const source = productionReport.manualSmoke.database.source_health.find(row => row.id === account.source_id);
+      assert.equal(account.collector_snapshot.failure_category, null);
+      const source = productionReport.recoverySmoke.database.source_health.find(row => row.id === account.source_id);
       assert.ok(source);
       assert.equal(account.collector_snapshot.last_attempt_at, source.last_attempt_at);
       assert.equal(account.collector_snapshot.last_success_at, source.last_success_at);
@@ -67,7 +68,7 @@ test('production enablement is restricted to the sixteen proven and explicitly a
   assert.equal(watchlist.accounts.filter(account => account.enabled).length, 16);
 });
 
-test('manual Production ingestion is recorded separately from pending scheduled verification', () => {
+test('manual Production recovery preserves the genuine blocked scheduled attempt without claiming automatic success', () => {
   const monitoring = watchlist.production_monitoring;
   assert.equal(monitoring.report, 'reports/instagram-production-monitoring.json');
   assert.equal(monitoring.activated_at_utc, productionReport.configuration.activationAtUtc);
@@ -75,17 +76,50 @@ test('manual Production ingestion is recorded separately from pending scheduled 
   assert.equal(monitoring.parent_limit_per_poll, 25); assert.equal(monitoring.child_limit_per_carousel, 20);
   assert.equal(monitoring.history_complete, false); assert.equal(monitoring.event_extraction, false);
   assert.equal(monitoring.media_downloads, 0); assert.equal(monitoring.stories_collected, 0);
-  assert.equal(monitoring.token_expiry_verified, false); assert.equal(monitoring.automatic_token_renewal, false);
+  assert.equal(monitoring.token_expiry_verified, true); assert.equal(monitoring.automatic_token_renewal, false);
+  assert.equal(monitoring.token_expires_at_conservative_utc, productionReport.configuration.tokenExpiresAtConservativeUtc);
   assert.equal(monitoring.manual_production_smoke.run_id, productionReport.manualSmoke.runId);
   assert.equal(monitoring.manual_production_smoke.invocation_kind, 'manual');
   assert.equal(monitoring.manual_production_smoke.test_run, true);
   assert.equal(monitoring.manual_production_smoke.posts_retained, 400);
-  assert.equal(monitoring.scheduled_verification.status, 'pending');
+  assert.equal(monitoring.scheduled_verification.status, 'executed_credential_blocked');
+  assert.equal(monitoring.scheduled_verification.run_id, productionReport.scheduledVerification.runId);
+  assert.equal(monitoring.scheduled_verification.invocation_kind, 'scheduled');
+  assert.equal(monitoring.scheduled_verification.test_run, false);
   assert.equal(monitoring.scheduled_verification.schedule_id, productionReport.scheduledVerification.scheduleId);
+  assert.equal(monitoring.scheduled_verification.instagram_succeeded, 0);
+  assert.equal(monitoring.scheduled_verification.instagram_blocked, 16);
+  assert.equal(monitoring.scheduled_verification.failure_category, 'token_expired');
+  assert.equal(monitoring.scheduled_verification.outcome, 'completed_with_social_blocks');
   assert.equal(monitoring.scheduled_verification.laptop_off_proof, false);
+  assert.equal(monitoring.operational, true);
+  assert.equal(monitoring.token_status, 'valid_at_recovery_smoke');
+  assert.equal(monitoring.exact_token_expiry_instant_known, false);
+  assert.equal(monitoring.credential_recovery, 'completed_production_manual_success');
+  assert.equal(monitoring.recovery_production_smoke.run_id, productionReport.recoverySmoke.runId);
+  assert.equal(monitoring.recovery_production_smoke.invocation_kind, 'manual');
+  assert.equal(monitoring.recovery_production_smoke.test_run, true);
+  assert.equal(monitoring.recovery_production_smoke.instagram_succeeded, 16);
+  assert.equal(monitoring.recovery_production_smoke.instagram_blocked, 0);
+  assert.equal(monitoring.recovery_production_smoke.posts_retained, 400);
+  assert.equal(monitoring.recovery_production_smoke.versions_retained, 400);
+  assert.equal(monitoring.recovery_production_smoke.duplicate_post_groups, 0);
+  assert.equal(monitoring.recovery_production_smoke.duplicate_version_groups, 0);
+  assert.equal(monitoring.next_scheduled_success_verification.status, 'pending');
+  assert.equal(monitoring.next_scheduled_success_verification.next_nominal_at_utc, '2026-10-21T03:00:00Z');
   assert.equal(watchlist.live_access_summary.scheduled_collection_enabled, true);
+  assert.equal(watchlist.live_access_summary.scheduled_collection_attempt_verified, true);
   assert.equal(watchlist.live_access_summary.scheduled_collection_verified, false);
   assert.equal(watchlist.live_access_summary.manual_production_collection_verified, true);
+  assert.equal(watchlist.live_access_summary.manual_recovery_verified, true);
+  for (const account of watchlist.accounts.filter(account => account.enabled)) {
+    const prior = productionReport.manualSmoke.database.source_health.find(row => row.id === account.source_id);
+    const failed = productionReport.scheduledVerification.database.source_health.find(row => row.id === account.source_id);
+    assert.ok(prior); assert.ok(failed);
+    assert.equal(failed.last_success_at, prior.last_success_at, 'the historical failed schedule preserved the previous actual success');
+    assert.ok(Date.parse(account.collector_snapshot!.last_success_at) > Date.parse(failed.last_success_at));
+    assert.ok(Date.parse(account.collector_snapshot!.last_attempt_at) > Date.parse(failed.last_attempt_at));
+  }
 });
 
 test('selection retains campus breadth without inventing event dates, captions or collector success', async () => {

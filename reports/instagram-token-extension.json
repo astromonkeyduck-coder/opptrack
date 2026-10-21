@@ -1,0 +1,15 @@
+{
+  "checkedAtUtc": "2026-10-21T02:20:49.610662+00:00",
+  "method": "POST",
+  "endpoint": "https://graph.facebook.com/v26.0/oauth/access_token",
+  "credentialsInUrl": false,
+  "redirectsAllowed": false,
+  "automaticRetries": 0,
+  "httpStatus": 200,
+  "status": "success",
+  "expiresInSeconds": 5177995,
+  "conservativeExpiresAtUtc": "2026-12-20T00:40:44.610662Z",
+  "resultDestination": "Trigger Production only; temporary private transfer removed after save",
+  "appSecretStoredInWorker": false,
+  "newScopesRequested": false
+}

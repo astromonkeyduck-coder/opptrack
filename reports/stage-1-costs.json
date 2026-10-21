@@ -2,10 +2,10 @@
   "stage": 1,
   "as_of": "2026-10-20",
   "actual": {
-    "public_http_attempts": 17,
+    "public_http_attempts": 25,
     "public_source_provider_charges_usd": 0,
-    "trigger_cloud_runs": 2,
-    "supabase_hosted_verified_runs": 2,
+    "trigger_cloud_runs": 6,
+    "supabase_hosted_verified_runs": 52,
     "model_calls": 0,
     "paid_connector_runs": 0,
     "resend_messages": 0,
@@ -18,12 +18,12 @@
       "netlify": "Free; unchanged",
       "trigger": "Free schedule policy; unchanged"
     },
-    "hosted_setup": "Netlify SSR and the hourly Trigger Production schedule are deployed. The registered owner enabled the first genuine scheduled collection: both central and Music succeeded; 303 opportunities, 342 occurrences and five private captures/objects are correlated to two SQL source runs. Laptop-off operation and all hosted acceptance gates are not established by these counts.",
+    "hosted_setup": "Core and Instagram workers are deployed. First automatic social tick was token-expired blocked; replacement token/verified expiry installed and real manual recovery succeeded for16 accounts. 400 posts/versions retained, zero duplicates,32 captures. Successful recovered automatic tick and laptop-off remain unverified.",
     "new_paid_upgrades": 0,
-    "trigger_manual_production_tests": 1,
+    "trigger_manual_production_tests": 3,
     "trigger_failed_manual_tests": 1,
-    "trigger_scheduled_runs_verified": 1,
-    "trigger_cost_limit": "Two actual dashboard per-run estimates, USD 0.00009868 manual setup failure + USD 0.00068775 scheduled success = USD 0.00078643. Not an invoice, actual cash payment, monthly total or proof of remaining credits.",
+    "trigger_scheduled_runs_verified": 3,
+    "trigger_cost_limit": "Six observed per-run dashboard estimates sum USD0.00308548. Not an invoice, account-wide total or remaining-credit proof.",
     "latest_hosted_web_http_checks": 3,
     "latest_hosted_web_http_results": {
       "home": 200,
@@ -31,10 +31,10 @@
       "private_media": 401
     },
     "local_public_http_attempts": 12,
-    "hosted_public_http_attempts": 5,
-    "http_attempt_basis": "Stage 1 source collection only: local initial/corrected/final probes plus the first actual scheduled Cloud run; excludes hosted app/auth/health/docs and Stage 0 traffic.",
-    "supabase_hosted_run_basis": "Two SQL source-run records from one genuine scheduled Trigger invocation; the earlier manual invocation failed before collection.",
-    "trigger_observed_runs_cost_estimate_usd": 0.00078643,
+    "hosted_public_http_attempts": 13,
+    "http_attempt_basis": "Known minimum through the 02:00 UTC tick: 12 recorded local public-source attempts + Cloud first core5 + following Central4 + latest Central4; excludes social/API setup, web/auth/health/docs and other uncounted local probes.",
+    "supabase_hosted_run_basis": "Known minimum52 SQL source runs: first core2, following Central1, initial manual Instagram16, automatic Central+Instagram17, recovered manual Instagram16. Not an exhaustive account ledger.",
+    "trigger_observed_runs_cost_estimate_usd": 0.00308548,
     "trigger_observed_cost_is_invoice": false,
     "trigger_observed_runs": [
       {
@@ -57,14 +57,67 @@
         "dashboard_compute_usd": 0.00066275,
         "dashboard_total_estimate_usd": 0.00068775,
         "basis": "reports/stage-1-cloud-correlation.json; one mixed central-plus-Music observation, not a steady-state runtime sample."
+      },
+      {
+        "kind": "genuine_scheduled_production",
+        "run_id": "run_06glo0il33pcm881rblro27j01",
+        "status": "completed_central_success",
+        "test_run": false,
+        "worker_version": "20261021.1",
+        "source_run_id": "86fa6e19-b5fa-4158-a70d-43ba14d931a8",
+        "source_http_attempts": 4,
+        "source_started_at_utc": "2026-10-21T01:10:50.546Z",
+        "source_finished_at_utc": "2026-10-21T01:11:03.912Z",
+        "dashboard_usage_seconds": 18.3,
+        "dashboard_total_estimate_usd": 0.00064441,
+        "basis": "Actual Trigger UI dashboard values and correlated SQL source run; source timestamps are not the complete Cloud wall duration."
+      },
+      {
+        "kind": "manual_instagram_production_test",
+        "run_id": "run_06glo936eht6v3gl45naeepge1",
+        "status": "completed_16_accounts_success",
+        "test_run": true,
+        "meta_requests": 16,
+        "meta_response_bytes": 285131,
+        "dashboard_usage_seconds": 12.2,
+        "dashboard_total_estimate_usd": 0.00043695
+      },
+      {
+        "kind": "genuine_scheduled_production",
+        "run_id": "run_06gloea0tch74en66hvp2iis01",
+        "status": "completed_core_success_16_instagram_token_expired_blocks",
+        "test_run": false,
+        "nominal_at_utc": "2026-10-21T02:00:00Z",
+        "started_at_utc": "2026-10-21T02:11:04.492Z",
+        "finished_at_utc": "2026-10-21T02:11:25.903Z",
+        "source_http_attempts": 4,
+        "meta_requests": 16,
+        "dashboard_usage_seconds": 19.8,
+        "dashboard_total_estimate_usd": 0.00069413
+      },
+      {
+        "kind": "manual_instagram_production_recovery_test",
+        "run_id": "run_06gloh91rq560t7h1a6lmcfre1",
+        "status": "completed_16_accounts_success",
+        "test_run": true,
+        "started_at_utc": "2026-10-21T02:23:19.396Z",
+        "finished_at_utc": "2026-10-21T02:23:35.587Z",
+        "meta_requests": 16,
+        "meta_response_bytes": 285131,
+        "dashboard_usage_seconds": 14.7,
+        "dashboard_total_estimate_usd": 0.00052356,
+        "basis": "Actual displayed rounded total; invocation0.000025 + displayedcompute0.00049855 differs by one cent-millionth due to display rounding."
       }
     ],
-    "hosted_source_response_bytes": 1123725,
+    "hosted_source_response_bytes": 3240431,
     "instagram_watchlist_handles": 17,
-    "instagram_collection_enabled": false,
-    "instagram_collection_api_calls_observed": 0,
-    "instagram_collector_runs": 0,
-    "instagram_cost_quote": "Not established: configured watchlist only; zero observed collection API calls and no paid connector activation. Future API/media/extraction costs and permitted coverage remain unproven."
+    "instagram_collection_enabled": true,
+    "instagram_collection_api_calls_observed": 48,
+    "instagram_collector_runs": 48,
+    "instagram_cost_quote": "Official Meta collection deployed;48 observed Production reads:32 successful manual reads +16 automatic expired-token blocks. No successful automatic ingestion yet. Provider invoices/steady-state costs unverified; no paid connector/upgrade.",
+    "public_http_attempts_is_lower_bound": true,
+    "trigger_runs_with_observed_cost": 6,
+    "trigger_cloud_runs_is_lower_bound": true
   },
   "conditional_30_day_forecast": {
     "dispatcher_ticks": 720,
@@ -110,11 +163,14 @@
     "https://www.netlify.com/pricing/"
   ],
   "as_of_timezone": "America/New_York",
-  "observed_through_utc": "2026-10-21T00:15:50.579Z",
+  "observed_through_utc": "2026-10-21T02:24:48.122949Z",
   "evidence": [
     "reports/stage-1-sources-live.json",
     "reports/stage-1-cloud-correlation.json",
-    "private/stage-1-trigger-manual-setup-check.png"
+    "private/stage-1-trigger-manual-setup-check.png",
+    "reports/instagram-production-monitoring.json",
+    "reports/instagram-token-recheck.json",
+    "reports/instagram-token-extension.json"
   ],
   "instagramReadOnlyAccessInvestigation": {
     "evidence": "reports/instagram-cli-access.json",
@@ -127,7 +183,8 @@
     "modelCalls": 0,
     "paidConnectorsOrUpgrades": 0,
     "providerBilling": "Not independently measured; no connector purchased or plan upgraded",
-    "scheduledInstagramRuns": 0
+    "scheduledInstagramRuns": 0,
+    "scope": "Historical one-off access-investigation snapshot only; later Production collection, validation, credential rechecks and exchange are separate."
   },
   "instagramAutomaticMonitoring": {
     "plan": "Trigger Free, unchanged",
@@ -136,10 +193,10 @@
     "manualDisplayedUsd": 0.00043695,
     "manualMetaRequests": 16,
     "manualMetaResponseBytes": 285131,
-    "privateCaptures": 16,
+    "privateCaptures": 32,
     "postIdentities": 400,
     "postVersions": 400,
-    "scheduledSocialRunVerified": false,
+    "scheduledSocialRunVerified": true,
     "planningScenario": {
       "days": 30,
       "hourlyRuns": 720,
@@ -148,12 +205,52 @@
       "invocationUsd": 2.5e-05,
       "projectedUsdBeforeRetries": 0.86976,
       "measuredSteadyState": false,
-      "upperBound": false
+      "upperBound": false,
+      "centralGetRequests": 2880,
+      "musicGetRequests": 120,
+      "instagramGetRequests": 11520,
+      "totalSourceGetRequests": 14520
     },
     "paidUpgrades": 0,
     "modelCalls": 0,
     "mediaDownloads": 0,
     "calendarWrites": 0,
-    "providerInvoiceVerified": false
+    "providerInvoiceVerified": false,
+    "scheduledSocialSuccessVerified": false,
+    "scheduledRunId": "run_06gloea0tch74en66hvp2iis01",
+    "scheduledUsageSeconds": 19.8,
+    "scheduledDisplayedUsd": 0.00069413,
+    "scheduledMetaRequests": 16,
+    "scheduledAccountsSucceeded": 0,
+    "scheduledAccountsBlocked": 16,
+    "scheduledFailureCategory": "token_expired",
+    "tokenReplacementInstalledProduction": true,
+    "tokenExpiryVerified": true,
+    "tokenExpiresAtUtc": "2026-12-20T00:40:44.610662Z",
+    "automaticTokenRenewal": false,
+    "recoveryRunId": "run_06gloh91rq560t7h1a6lmcfre1",
+    "recoveryTestRun": true,
+    "recoveryUsageSeconds": 14.7,
+    "recoveryDisplayedUsd": 0.00052356,
+    "recoveryMetaRequests": 16,
+    "recoveryMetaResponseBytes": 285131,
+    "recoveryAccountsSucceeded": 16,
+    "recoveryDuplicates": 0,
+    "knownProductionMetaRequests": 48,
+    "nextNominalPollUtc": "2026-10-21T03:00:00Z"
+  },
+  "inactiveInstagramCandidates": {
+    "inventory": "config/instagram-candidates.json",
+    "report": "reports/instagram-candidates-import.json",
+    "total": 209,
+    "watchlistOverlaps": 15,
+    "additional": 194,
+    "highPriority": 29,
+    "newHighPriority": 14,
+    "standard": 180,
+    "unverifiedAliases": 3,
+    "probes": 0,
+    "enabledSources": 0,
+    "paidConnectorRuns": 0
   }
 }

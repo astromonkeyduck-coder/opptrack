@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-21T02:06:39.845Z",
+  "sourceId": "instagram-clubdownunderfsu",
+  "status": "blocked",
+  "failureCategory": "token_expired",
+  "reason": "Instagram token expired; replace it in Trigger Production",
+  "requests": 1,
+  "httpStatuses": [
+    401
+  ],
+  "posts": 0,
+  "realCredentialedRead": true,
+  "noDatabaseWrites": true,
+  "tokenValuePrinted": false
+}
