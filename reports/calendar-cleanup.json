@@ -1,0 +1,103 @@
+{
+  "checked_at": "2026-10-21T23:19:55.703Z",
+  "status": "completed_for_exact_confirmed_selection",
+  "provenance": {
+    "connector": "Google Calendar",
+    "calendar": "primary",
+    "profile_matched_user_selected_account": true,
+    "read_only_backups": "ignored private files, mode 0600",
+    "human_confirmation": "Explicit approval of all 136 remaining listed entries, including the previously blocked example, before continuation",
+    "prior_automatic_approval_rejection_preserved": true,
+    "additional_human_confirmation": "Separate explicit approval of the concrete ten-entry unlabelled opportunity list before any of those ten deletions",
+    "additional_preflight_verified": {
+      "selected_count": 10,
+      "self_organized": 10,
+      "nonrecurring": 10,
+      "with_other_attendees": 0,
+      "matched_private_backups": 10
+    }
+  },
+  "deletion_counts": {
+    "original_selected": 313,
+    "additional_screenshot_identified": 1,
+    "previously_deleted": 178,
+    "deleted_after_explicit_remaining_list_confirmation": 136,
+    "total_deleted": 324,
+    "remaining_selected": 0,
+    "errors_after_reconfirmation": 0,
+    "additional_unlabelled_approved": 10,
+    "deleted_after_additional_list_confirmation": 10
+  },
+  "verification": {
+    "full_original_search_window": {
+      "from": "2026-01-01T00:00:00-05:00",
+      "to": "2028-01-01T00:00:00-05:00",
+      "unfiltered": true,
+      "pages": 3,
+      "pagination_complete": true,
+      "remaining_events": 667,
+      "approved_ids_checked": 324,
+      "deleted_ids_still_visible": 0
+    },
+    "future_window": {
+      "from": "2026-10-21T00:00:00-04:00",
+      "to": "2028-01-01T00:00:00-05:00",
+      "unfiltered": true,
+      "pages": 1,
+      "pagination_complete": true,
+      "remaining_events": 187,
+      "previously_unselected_preserved": 187,
+      "previously_unselected_missing": 0,
+      "recurring_occurrences_preserved": 159,
+      "known_class_occurrences_preserved": 88,
+      "unselected_nonrecurring_candidates_preserved": 11,
+      "comparison": "All 197 previously preserved future IDs, excluding exactly the ten newly approved IDs, remain present."
+    }
+  },
+  "application_policy": {
+    "calendar_write_flag": false,
+    "oauth_scope_read_only": true,
+    "cleanup_used_separate_user_authorized_connector": true,
+    "no_new_calendar_events_created": true
+  },
+  "limitations": [
+    "All counts refer to the exact 324 approved entries and bounded searches. All other future entries in the prior verification were preserved; no claim that every remaining event was personally created.",
+    "Private backup is evidence and recovery input; no automated restore was attempted."
+  ],
+  "prior_314_cleanup_snapshot": {
+    "checked_at": "2026-10-21T23:01:26.946Z",
+    "deletion_counts": {
+      "original_selected": 313,
+      "additional_screenshot_identified": 1,
+      "previously_deleted": 178,
+      "deleted_after_explicit_remaining_list_confirmation": 136,
+      "total_deleted": 314,
+      "remaining_selected": 0,
+      "errors_after_reconfirmation": 0
+    },
+    "verification": {
+      "full_original_search_window": {
+        "from": "2026-01-01T00:00:00-05:00",
+        "to": "2028-01-01T00:00:00-05:00",
+        "unfiltered": true,
+        "pages": 3,
+        "pagination_complete": true,
+        "remaining_events": 677,
+        "deleted_ids_still_visible": 0
+      },
+      "future_window": {
+        "from": "2026-10-21T00:00:00-04:00",
+        "to": "2028-01-01T00:00:00-05:00",
+        "unfiltered": true,
+        "pages": 1,
+        "pagination_complete": true,
+        "remaining_events": 197,
+        "previously_unselected_preserved": 197,
+        "previously_unselected_missing": 0,
+        "recurring_occurrences_preserved": 159,
+        "known_class_occurrences_preserved": 88,
+        "unselected_nonrecurring_candidates_preserved": 21
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { calendarBlockPosition, calendarDayInterval, calendarLaneLayout, calendarPreviewWeek, calendarTimeRange, calendarTimelineBounds, candidateMarkerPosition, easternDateKey, eventsForCalendarDay, occurrenceForCalendarDay, parseCalendarResponse, reviewCalendarDate, shiftCalendarDay, timedIntervalForDay, type CalendarDisplayEvent, type CalendarOccurrence } from '../lib/review/calendar-layout';
+import { calendarBlockPosition, calendarDayInterval, calendarLaneLayout, calendarPreviewWeek, calendarTimeRange, calendarTimelineBounds, candidateMarkerPosition, easternDateKey, eventsForCalendarDay, occurrenceForCalendarDay, parseCalendarResponse, reviewCalendarAnchor, reviewCalendarDate, shiftCalendarDay, timedIntervalForDay, type CalendarDisplayEvent, type CalendarOccurrence } from '../lib/review/calendar-layout';
 
 // Synthetic calendar fixtures. These exercise display semantics without Google requests or writes.
 const event: CalendarDisplayEvent = { id: 'fixture-event', title: 'A private plan', start: '2026-10-21T15:00:00-04:00', end: '2026-10-21T16:00:00-04:00', allDay: false };
@@ -20,6 +20,32 @@ test('the Eastern calendar groups instants by Eastern day while retaining date-o
 
 test('invalid, timezone-free or impossible date values never become an Eastern calendar date', () => {
   for (const value of ['', '2026-02-30', '2026-02-30T18:00:00Z', '2026-10-21T24:00:00Z', '2026-10-21T19:00:00', 'not-a-date']) assert.equal(easternDateKey(value), null);
+});
+
+test('a known ongoing span anchors today without replacing its actual start or splitting sessions', () => {
+  const ongoing = { ...saved, starts_at: '2026-10-14T16:00:00Z', ends_at: '2026-10-28T20:00:00Z', timezone: 'UTC' };
+  assert.equal(reviewCalendarDate(ongoing), '2026-10-14');
+  assert.equal(reviewCalendarAnchor(ongoing, '2026-10-21T19:45:00Z'), '2026-10-21');
+  assert.equal(reviewCalendarAnchor(ongoing, '2026-10-22T00:30:00Z'), '2026-10-21');
+  assert.equal(occurrenceForCalendarDay(ongoing, '2026-10-21'), true);
+  assert.equal(ongoing.starts_at, '2026-10-14T16:00:00Z');
+});
+
+test('future, ended, unknown-end and date-only candidates keep their existing start-day anchor', () => {
+  const future = { ...saved, starts_at: '2026-10-23T00:30:00Z', ends_at: '2026-10-23T01:30:00Z', timezone: 'UTC' };
+  assert.equal(reviewCalendarAnchor(future, '2026-10-21T19:45:00Z'), '2026-10-22');
+  assert.equal(reviewCalendarAnchor(future, future.ends_at), '2026-10-22');
+  assert.equal(reviewCalendarAnchor({ ...future, ends_at: null }, '2026-10-26T19:45:00Z'), '2026-10-22');
+  assert.equal(reviewCalendarAnchor({ ...future, ends_at: 'bad-end' }, '2026-10-26T19:45:00Z'), '2026-10-22');
+  assert.equal(reviewCalendarAnchor({ ...future, date_precision: 'date', start_date: '2026-10-23', starts_at: null, all_day: true }, '2026-10-21T19:45:00Z'), '2026-10-23');
+});
+
+test('ongoing anchor uses Eastern DST days and the end remains exclusive', () => {
+  const span = { ...saved, starts_at: '2026-10-31T23:00:00Z', ends_at: '2026-11-02T05:00:00Z', timezone: 'UTC' };
+  assert.equal(reviewCalendarAnchor(span, '2026-11-01T03:30:00Z'), '2026-10-31');
+  assert.equal(reviewCalendarAnchor(span, '2026-11-01T05:30:00Z'), '2026-11-01');
+  assert.equal(reviewCalendarAnchor(span, '2026-11-01T06:30:00Z'), '2026-11-01');
+  assert.equal(reviewCalendarAnchor(span, span.ends_at), '2026-10-31');
 });
 
 test('day intervals preserve real 23-hour and 25-hour Eastern DST days', () => {

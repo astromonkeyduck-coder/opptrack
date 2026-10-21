@@ -1,0 +1,151 @@
+{
+  "recordedAt": "2026-10-21T23:28:00Z",
+  "status": "cloud_manual_ingestion_verified; automatic_HQ_tick_pending",
+  "implementation": {
+    "workerCommit": "5562c54f50c6485d945d36cfec3bf7482bac93d1",
+    "triggerDeploy": "yb1nrv34",
+    "triggerVersion": "20261021.14",
+    "triggerDeployedAt": "2026-10-21T23:01:45.671Z",
+    "webVerifiedLive": true,
+    "githubChecksRun": 39690552179,
+    "githubChecksConclusion": "success",
+    "displayFollowup": "Eastern card/list instants and ongoing-today anchor tested; next deployment"
+  },
+  "migration": {
+    "local": "20261021193109_hq_public_collector.sql",
+    "hosted": "20261021225320",
+    "name": "hq_public_collector",
+    "initialExpiredRequestVerifiedUnappliedBeforeRetry": true
+  },
+  "activation": {
+    "sourceId": "fsu-hq-public-export",
+    "activatedAt": "2026-10-21T23:19:03.011167Z",
+    "cadenceSeconds": 21600,
+    "initialExpiredRequestVerifiedUnappliedBeforeRetry": true,
+    "dispatcherCron": "0 * * * *",
+    "window": "60m",
+    "newEnvironmentVariables": 0
+  },
+  "manualRun": {
+    "id": "run_06gm1h2ak2qv58r47dg5biube1",
+    "sourceRunId": "b3eba9f2-06ea-40b0-8eb2-9a210a709240",
+    "invocationKind": "manual",
+    "triggeredAt": "2026-10-21T23:20:39.396Z",
+    "startedAt": "2026-10-21T23:20:41.757Z",
+    "finishedAt": "2026-10-21T23:20:46.948Z",
+    "sourceStartedAt": "2026-10-21T23:20:43.594Z",
+    "sourceFinishedAt": "2026-10-21T23:20:45.324Z",
+    "requests": 2,
+    "responseBytes": 1146891,
+    "totalSourceRows": 1176,
+    "normalizedOpportunities": 372,
+    "normalizedOccurrences": 372,
+    "privateCaptures": 1,
+    "duplicateNativeGroups": 0,
+    "usageSeconds": 3.8,
+    "invocationUsd": 0.000025,
+    "computeUsd": 0.00012987,
+    "totalUsd": 0.00015487,
+    "scope": "Real Trigger Production test/manual run, not scheduled or laptop-off proof"
+  },
+  "database": {
+    "captures": 1,
+    "occurrences": 372,
+    "opportunities": 372,
+    "duplicate_native_groups": 0,
+    "sourceHealth": "success",
+    "leaseReleased": true,
+    "nextPollAt": "2026-10-22T00:00:00+00:00",
+    "totals": {
+      "occurrences": 765,
+      "opportunities": 717,
+      "enabled_sources": 30
+    },
+    "sqlPolicyChecksPassed": 12,
+    "policyCounts": {
+      "ownerOpportunities": 372,
+      "ownerInboxRows": 372,
+      "ownerCaptures": 1,
+      "otherUserVisible": 0,
+      "anonymousSelectDenied": true
+    },
+    "policyScope": "Actual PostgreSQL roles/local claims with rollback; not signed-JWT/Storage HTTP proof"
+  },
+  "calendar": {
+    "approvedLegacyEventsDeleted": 324,
+    "allApprovedIdsAbsentInReadback": true,
+    "legacyWritersPaused": [
+      "FSU Opportunity Watch",
+      "FSU Email Calendar Watch"
+    ],
+    "otherTasksUnchanged": [
+      "FSU Daily Opportunity Sweep",
+      "Email Monitor"
+    ],
+    "appWriteFlag": false,
+    "oauthScope": "https://www.googleapis.com/auth/calendar.events.readonly",
+    "manualDraftOpenedOnSelectedAccount": true,
+    "correctEasternIntervalVerified": true,
+    "draftCancelledAndDiscarded": true,
+    "newEventsCreated": 0,
+    "savePassOnlyTrackerState": true,
+    "privateBackupsIgnored": true,
+    "privateBackupsMode": "0600"
+  },
+  "commands": [
+    {
+      "command": "npm test",
+      "result": "210 passed, zero failed"
+    },
+    {
+      "command": "npm run test:db",
+      "result": "93 actual local SQL/HQ-worker checks and six Instagram worker replays passed"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "passed"
+    },
+    {
+      "command": "npm run build",
+      "result": "passed"
+    },
+    {
+      "command": "make check",
+      "result": "63 Python tests, 59-source registry, 45 scenario and production-template checks passed"
+    },
+    {
+      "command": "node --import tsx scripts/probe-hq.ts",
+      "result": "fresh live GET plus replay matched; raw responses ignored"
+    },
+    {
+      "command": "scripts/hosted-hq-check.sql via Supabase execute_sql",
+      "result": "12/12 populated hosted policy checks passed, rolled back"
+    },
+    {
+      "command": "git push origin main",
+      "result": "5562c54 pushed"
+    }
+  ],
+  "existingSecurityAdvisors": {
+    "newFindings": 0,
+    "intentionalMemberRlsNoDirectPolicies": true,
+    "intentionalMembershipAndOwnerCheckedDefinerRpcs": true,
+    "leakedPasswordProtectionDisabled": true,
+    "remediationUrls": [
+      "https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable",
+      "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable",
+      "https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection"
+    ]
+  },
+  "remainingGaps": [
+    "First genuine scheduled HQ run not yet observed; next nominal source slot 2026-10-22T00:00Z is subject to provider window",
+    "No user-confirmed laptop-off interval",
+    "All 27 Instagram sources remain blocked at 23:21Z; no credential repair performed",
+    "HQ private/member inclusion, publisher truncation/freshness, multi-day session semantics, ticket/application milestones and cross-source deduplication remain uncertain",
+    "Existing Stage1 restore, Storage HTTP/private-file intake and durable credential-renewal gates remain open"
+  ],
+  "paidUpgrades": 0,
+  "paidConnectors": 0,
+  "modelCalls": 0,
+  "stage2Started": false
+}

@@ -2,20 +2,21 @@
 
 import { memo, useEffect, useMemo, useState } from 'react';
 import { occurrenceSchedule } from '../../lib/review/deck';
-import { calendarLaneLayout, calendarPreviewWeek, calendarTimeRange, calendarTimelineBounds, candidateMarkerPosition, easternDateKey, eventsForCalendarDay, occurrenceForCalendarDay, parseCalendarResponse, reviewCalendarDate, shiftCalendarDay, timedIntervalForDay, type CalendarDisplayResponse, type CalendarTimedInterval } from '../../lib/review/calendar-layout';
+import { calendarLaneLayout, calendarPreviewWeek, calendarTimeRange, calendarTimelineBounds, candidateMarkerPosition, easternDateKey, eventsForCalendarDay, occurrenceForCalendarDay, parseCalendarResponse, reviewCalendarAnchor, shiftCalendarDay, timedIntervalForDay, type CalendarDisplayResponse, type CalendarTimedInterval } from '../../lib/review/calendar-layout';
 import type { InboxRow } from './components';
 
 const loading: CalendarDisplayResponse = { state: 'loading', events: [], complete: false };
 
 export const ReviewCalendar = memo(function ReviewCalendar({ candidate, savedRows, connectionMessage }: { candidate?: InboxRow; savedRows: InboxRow[]; connectionMessage?: string }) {
-  const candidateDate = candidate ? reviewCalendarDate(candidate) : null;
-  const today = easternDateKey(new Date().toISOString())!;
+  const now = new Date().toISOString();
+  const candidateDate = candidate ? reviewCalendarAnchor(candidate, now) : null;
+  const today = easternDateKey(now)!;
   const [selected, setSelected] = useState(candidateDate || today);
   const [response, setResponse] = useState<CalendarDisplayResponse>(loading);
   const [connectionNotice, setConnectionNotice] = useState('');
   const [disconnecting, setDisconnecting] = useState(false);
   const [refresh, setRefresh] = useState(0);
-  useEffect(() => { if (candidateDate) setSelected(candidateDate); }, [candidateDate]);
+  useEffect(() => { if (candidateDate) setSelected(candidateDate); }, [candidate?.id, candidateDate]);
   const week = useMemo(() => calendarPreviewWeek(selected, savedRows), [selected, savedRows]);
   const first = week[0]?.dateKey || today;
   useEffect(() => {

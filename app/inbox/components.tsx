@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { safeExternalUrl, sourceIsStale } from '../../lib/intake/presentation';
 import { CalendarDraftLink } from './calendar-draft-link';
+import { occurrenceSchedule } from '../../lib/review/deck';
 
 export type InboxRow = {
   id: string; opportunity_id: string; title: string; description: string | null; source_url: string | null;
@@ -20,13 +21,14 @@ function occurrenceDate(row: InboxRow) {
     if (row.all_day) return `${date} · all day`;
     return row.local_start_text ? `${row.local_start_text} · timezone unverified` : `${date} · time unknown`;
   }
-  if (row.starts_at && !Number.isNaN(Date.parse(row.starts_at))) return timestamp(row.starts_at);
+  const schedule = occurrenceSchedule(row, 'America/New_York');
+  if (schedule.precision === 'instant') return `${schedule.weekday}, ${schedule.dateLabel} · ${schedule.timeLabel} ${schedule.timezoneLabel}`;
   return row.local_start_text ? `${row.local_start_text} · exact time/zone unverified` : 'Date or time unknown';
 }
 export function OpportunityCard({ row, actions }: { row: InboxRow; actions?: ReactNode }) {
   const url = safeExternalUrl(row.source_url);
   return <article className="opportunity">
-    <div className="card-date">{occurrenceDate(row)}{row.ends_at ? <span>End: {timestamp(row.ends_at)}</span> : <span>End time unverified</span>}</div>
+    <div className="card-date">{occurrenceDate(row)}{row.ends_at ? <span>End: {timestamp(row.ends_at)}</span> : <span>End time unverified</span>}{row.date_precision === 'instant' && <span>Shown in Eastern · Source timezone: {row.timezone || 'Unconfirmed'}</span>}</div>
     <div className="card-content"><div className="tags"><span>{row.source_id}</span>{row.decision && <span className="decision">{row.decision === 'save' ? 'Saved' : 'Rejected'}</span>}{row.status !== 'scheduled' && <span>{row.status}</span>}{sourceIsStale(row.source_last_success_at, row.source_cadence_seconds ?? null) && <span>Source stale or never collected</span>}</div><h3>{row.title}</h3><p className="location">{row.location || 'Location unverified'}</p>{row.description && <p className="description">{row.description}</p>}<p className="uncertainty">{[...new Set(['Ticket availability unverified', ...(row.uncertainties || [])])].join(' · ')}</p><p className="small">Last successful collection: {timestamp(row.source_last_success_at)} · Health: {row.source_health}</p><div className="card-actions">{url && <a href={url} rel="noopener noreferrer" target="_blank">Source listing ↗</a>}{row.decision !== 'reject' && <CalendarDraftLink row={row} />}{actions}</div></div>
   </article>;
 }

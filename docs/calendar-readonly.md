@@ -12,6 +12,8 @@ An individual timed event with a verified start, end and scheduled status offers
 
 This route follows Google's documented [link for users to add an event](https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events#provide_a_link_for_users_to_add_the_event), checked October 21, 2026. The app's existing Google scope and GET-only events API remain unchanged.
 
+Actual cleanup removed all 324 explicitly approved entries with complete unfiltered read-back and preserved classes/personal items. Both named legacy calendar writers are paused. A real HQ card's draft link opened the selected account's Google editor with the correct Eastern date, start/end, title and source. The operator cancelled and discarded that unsaved draft; Save was never pressed and no new event was created. Source UTC instants are displayed in Eastern beside the personal calendar; original source zones remain in Details, and date-only values do not shift days. [Cleanup counts and bounded verification](../reports/calendar-cleanup.json).
+
 ## Production setup
 
 Use a dedicated Google Cloud project for this tracker. Enable the Google Calendar API without enabling a paid service or upgrading a plan. Configure the OAuth consent screen for the owner; if the app remains in Testing, add the owner's Google account as a test user. Google documents a seven-day refresh-token lifetime for External apps in Testing with Calendar scopes. Reconnect after that period. Publishing or extending authorization is a separate future change; it was not performed. [Google refresh-token expiration](https://developers.google.com/identity/protocols/oauth2#expiration), checked October 21, 2026.

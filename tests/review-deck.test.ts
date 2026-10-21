@@ -90,6 +90,32 @@ test('daylight saving uses the declared zone rather than a fixed Eastern offset'
   assert.equal(before.dateKey, after.dateKey);
 });
 
+test('an Eastern display override aligns UTC source instants with the calendar across UTC midnight', () => {
+  const row = { ...occurrence, timezone: 'UTC', local_start_text: '2026-10-22T00:30:00Z' };
+  const original = JSON.stringify(row);
+  assert.equal(occurrenceSchedule(row).dateKey, '2026-10-22');
+  const display = occurrenceSchedule(row, 'America/New_York');
+  assert.equal(display.dateKey, '2026-10-21');
+  assert.equal(display.weekday, 'Wednesday');
+  assert.equal(display.timeLabel, '8:30 PM');
+  assert.equal(display.timezoneLabel, 'EDT');
+  assert.equal(display.localText, row.local_start_text);
+  assert.equal(display.uncertain, false);
+  assert.equal(JSON.stringify(row), original);
+});
+
+test('Eastern display follows DST while preserving source-local uncertainty and date-only days', () => {
+  const before = occurrenceSchedule({ ...occurrence, timezone: 'UTC', starts_at: '2026-11-01T05:30:00Z' }, 'America/New_York');
+  const after = occurrenceSchedule({ ...occurrence, timezone: 'UTC', starts_at: '2026-11-01T06:30:00Z' }, 'America/New_York');
+  assert.equal(before.timeLabel, '1:30 AM'); assert.equal(after.timeLabel, '1:30 AM');
+  assert.equal(before.timezoneLabel, 'EDT'); assert.equal(after.timezoneLabel, 'EST');
+  const missingZone = occurrenceSchedule({ ...occurrence, timezone: null, local_start_text: 'Source clock unconfirmed' }, 'America/New_York');
+  assert.equal(missingZone.uncertain, true); assert.equal(missingZone.localText, 'Source clock unconfirmed');
+  assert.equal(missingZone.timezoneLabel, 'EDT · source timezone unconfirmed');
+  const dateOnly = { ...occurrence, timezone: 'UTC', date_precision: 'date', start_date: '2026-11-01', all_day: true };
+  assert.deepEqual(occurrenceSchedule(dateOnly, 'America/New_York'), occurrenceSchedule(dateOnly));
+});
+
 test('unknown, malformed and timezone-free clocks cannot invent a calendar date or midnight', () => {
   for (const row of [
     { ...occurrence, date_precision: 'unknown' },

@@ -49,6 +49,15 @@ test('source local clocks survive while their missing timezone remains visible',
   assert.ok(!html.includes('T00:00:00'));
 });
 
+test('UTC source instants render on their Eastern day while the original source timezone remains visible', () => {
+  const row = { ...syntheticRow, date_precision: 'instant', starts_at: '2026-10-22T00:30:00Z', ends_at: '2026-10-22T01:30:00Z', timezone: 'UTC' };
+  const html = renderToStaticMarkup(createElement(OpportunityCard, { row }));
+  assert.ok(html.includes('Wednesday, Oct 21, 2026'));
+  assert.ok(html.includes('8:30 PM EDT'));
+  assert.ok(html.includes('Shown in Eastern · Source timezone: UTC'));
+  assert.equal(html.includes('Thursday, Oct 22, 2026'), false);
+});
+
 test('Music cards use their six-hour collection cadence for freshness', context => {
   context.mock.method(Date, 'now', () => Date.parse('2026-10-20T20:00:00Z'));
   const row = { ...syntheticRow, source_id: 'fsu-music-events', source_cadence_seconds: 6 * 3600, source_last_success_at: '2026-10-20T14:00:00Z' };

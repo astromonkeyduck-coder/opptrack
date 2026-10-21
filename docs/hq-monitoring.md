@@ -20,8 +20,16 @@ The fresh `22:57:24Z` recheck fetched the same feed hash and 1,176 native rows: 
 
 The source shares the single hourly Trigger dispatcher. Its nominal UTC source slots are six-hourly and independent of completion time and retry floors. A core budget of three prevents a simultaneous Central/Music/HQ due slot from skipping a producer. No paid upgrade or extra schedule is needed.
 
+## Actual hosted verification
+
+Migration applied as `20261021225320`; Trigger deployment `yb1nrv34`/`20261021.14` at `23:01:45.671Z` matches commit `5562c54`. Exact-source activation completed at `23:19:03Z`, with expired-request outcomes verified unapplied before retry. Manual/test Cloud run `run_06gm1h2ak2qv58r47dg5biube1` ran `23:20:41.757–23:20:46.948Z`. Source run `b3eba9f2-06ea-40b0-8eb2-9a210a709240` returned two GETs/1,146,891 bytes, 1,176 full source rows, 372 normalized opportunities/occurrences, one private capture and zero duplicate native groups. Source health is success and lease released. The authenticated owner inbox/search displays actual HQ events. A 12/12 populated hosted SQL rollback audit confirms owner reads, other-user/anonymous denial, a private capture bucket and worker-only leasing; it is not signed-JWT/Storage body HTTP proof.
+
+The next nominal poll is `2026-10-22T00:00Z`, corresponding to 8 pm Eastern October 21; the hourly Trigger Free window can delay actual execution. **No genuine scheduled HQ run or laptop-off interval has yet been observed.** Do not replace that gap with the successful manual run. Missing private/member content, export inclusion rules, full feed freshness, source-published multi-day program spans, cross-source duplicates and ticket/application milestones remain unresolved. No source text authorizes attendance or an external action.
+
 ## Costs and limits
 
 At the measured size, 120 six-hour checks per 30 days imply 240 GETs including the redirect and approximately 137.63 MB of response bodies. This is an upper estimate of new raw storage if every body changes, before database metadata; identical bodies reuse content-addressed objects and integrity verification can add download egress. Actual source changes, retry load, billed worker seconds and shared account balances are not established by the probe. Retention execution remains disabled, so storage growth is not capped by an implemented deletion policy.
+
+The actual first manual Cloud run displayed 3.8 usage seconds, $0.000025 invocation + $0.00012987 compute = **$0.00015487**. This is one observed run, not an invoice or monthly average; recurring HQ collection shares existing dispatcher invocations. No upgrade, new connector or paid add-on was selected.
 
 The preceding hosted capture snapshot had 164 objects totaling 20,979,741 metadata bytes. Existing Supabase Pro, Trigger Free and Netlify Free are retained without upgrades. No model/OCR, email, purchase, RSVP or calendar action is inferred from collection. Private/member coverage, export freshness/inclusion rules and publisher-side truncation remain unknown; validating a complete envelope does not establish complete campus coverage.

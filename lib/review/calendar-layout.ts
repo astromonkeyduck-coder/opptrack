@@ -37,6 +37,14 @@ export function reviewCalendarDate(row: DatedOccurrence): string | null {
   return key && dateKeyValid(key) ? key : null;
 }
 
+/** A known ongoing span should show today's schedule, without inventing sessions within that span. */
+export function reviewCalendarAnchor(row: CalendarOccurrence, now = new Date().toISOString()): string | null {
+  const startDate = reviewCalendarDate(row);
+  if (row.date_precision !== 'instant' || !row.starts_at || !row.ends_at || !instantValid(row.starts_at) || !instantValid(row.ends_at) || !instantValid(now)) return startDate;
+  const start = Date.parse(row.starts_at), end = Date.parse(row.ends_at), current = Date.parse(now);
+  return end > start && start <= current && current < end ? easternDateKey(now) : startDate;
+}
+
 export function calendarPreviewWeek<T extends CalendarOccurrence>(anchor: string, rows: readonly T[]): CalendarDay<T>[] {
   const saved = uniqueOccurrences(rows).filter(row => row.decision === 'save').map(row => ({ row, span: occurrenceSpan(row) }));
   return calendarWeek<T>(anchor, []).map(day => ({ ...day, occurrences: saved.filter(item => item.span && item.span.from <= day.dateKey && item.span.to >= day.dateKey).map(item => item.row) }));

@@ -89,8 +89,8 @@ function dateLabels(key: string) {
   };
 }
 
-/** Date-only facts retain the source calendar day; they never pass through a timezone conversion. */
-export function occurrenceSchedule(row: DatedOccurrence): OccurrenceSchedule {
+/** Optional display-zone conversion changes labels only; date-only facts retain the source calendar day. */
+export function occurrenceSchedule(row: DatedOccurrence, displayTimezone?: string): OccurrenceSchedule {
   const localText = row.local_start_text?.trim() || null;
   const unknown: OccurrenceSchedule = {
     dateKey: null, dateLabel: 'Date unconfirmed', weekday: null, day: null, month: null,
@@ -110,7 +110,7 @@ export function occurrenceSchedule(row: DatedOccurrence): OccurrenceSchedule {
   const instant = validInstant(row.starts_at);
   if (!instant) return unknown;
   const declaredZone = validTimezone(row.timezone) ? row.timezone : null;
-  const timeZone = declaredZone ?? 'America/New_York';
+  const timeZone = validTimezone(displayTimezone) ? displayTimezone : declaredZone ?? 'America/New_York';
   const parts = new Intl.DateTimeFormat('en-US', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(instant);
   const part = (type: string) => parts.find(item => item.type === type)?.value || '';
   const key = `${part('year').padStart(4, '0')}-${part('month')}-${part('day')}`;
