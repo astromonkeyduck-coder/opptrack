@@ -2272,3 +2272,4 @@ input[type=file]::file-selector-button {
 .event-details {color:#65735c;}
 .inbox-context {color:#6b7562;}
 .post-account time,.post-media,.post-footer span {color:#6d7862;}
+.deck-stage {min-height:0;}

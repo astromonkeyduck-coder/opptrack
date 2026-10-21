@@ -408,7 +408,7 @@
   "hosted_state_as_of": "2026-10-21T14:35:44.214128Z",
   "optional_features": {
     "google_calendar_readonly": {
-      "status": "credentials_configured_api_enablement_and_live_consent_pending",
+      "status": "live_primary_read_verified_testing_refresh_lifetime_limited",
       "explicit_owner_authorization": true,
       "google_cloud_project": "iron-radio-512315-g3",
       "billing_activation_authorized": false,
@@ -425,12 +425,21 @@
       "redirect_uri": "https://luxury-longma-01d2fa.netlify.app/api/calendar/callback",
       "migration": "202610200006_google_calendar_readonly.sql",
       "migration_hosted_verified": true,
-      "live_oauth_verified": false,
-      "live_event_read_verified": false,
+      "live_oauth_verified": true,
+      "live_event_read_verified": true,
       "runbook": "docs/calendar-readonly.md",
       "migration_hosted_version": "20261021152408",
       "production_credentials_configured": true,
-      "credential_scopes_actual": "Production context only; Free UI locks protected secrets to Builds, Functions and Runtime; no post processing or NEXT_PUBLIC variable"
+      "credential_scopes_actual": "Production context only; Free UI locks protected secrets to Builds, Functions and Runtime; no post processing or NEXT_PUBLIC variable",
+      "api_enabled": true,
+      "connected_at_utc": "2026-10-21T17:19:46.321154Z",
+      "live_read_at_utc": "2026-10-21T17:21:17.965Z",
+      "live_read_event_count": 71,
+      "live_read_complete": true,
+      "live_refresh_verified": false,
+      "google_publishing_status": "Testing",
+      "refresh_grant_lifetime_days_documented": 7,
+      "calendar_writes_enabled": false
     }
   },
   "inactive_instagram_candidate_inventory": {

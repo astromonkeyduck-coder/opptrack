@@ -36,6 +36,7 @@ export function ReviewDeck({ rows: input, savedRows, nextPage, previousPage, tot
   const card = useRef<HTMLElement>(null);
   const row = rows.find(item => !reviewed.includes(item.id));
   const schedule = row ? occurrenceSchedule(row) : null;
+  const endSchedule = row?.ends_at ? occurrenceSchedule({ ...row, starts_at: row.ends_at }) : null;
   const feedback = swipeFeedback(offset, card.current?.clientWidth || 420);
   const url = row ? safeExternalUrl(row.source_url) : null;
   const latest = history.at(-1);
@@ -124,7 +125,7 @@ export function ReviewDeck({ rows: input, savedRows, nextPage, previousPage, tot
             <div className="event-body">
               <div className="event-source"><span>{sourceName(row.source_id)}</span><span>{row.status !== 'scheduled' ? row.status : 'Event'}</span></div>
               <h2 id="current-event-title">{row.title}</h2>
-              <div className="event-when"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M6 2v4m8-4v4M3 8h14"/></svg><div><strong>{schedule.weekday ? `${schedule.weekday}, ` : ""}{schedule.dateLabel}</strong><span>{schedule.timeLabel}{schedule.timezoneLabel ? ` · ${schedule.timezoneLabel}` : ''}</span></div></div>
+              <div className="event-when"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M6 2v4m8-4v4M3 8h14"/></svg><div><strong>{schedule.weekday ? `${schedule.weekday}, ` : ""}{schedule.dateLabel}</strong><span>{schedule.timeLabel}{endSchedule?.precision === "instant" ? `–${endSchedule.timeLabel}${endSchedule.dateKey !== schedule.dateKey ? ` (${endSchedule.dateLabel})` : ""}` : ""}{schedule.timezoneLabel ? ` · ${schedule.timezoneLabel.split(" · ")[0]}` : ""}{schedule.uncertain && schedule.precision === "instant" ? " · shown in Eastern" : ""}</span></div></div>
 
               <p className="event-location"><span aria-hidden="true">↗</span> {row.location || 'Location unverified'}</p>
               {row.description && <p className="event-excerpt">{row.description}</p>}

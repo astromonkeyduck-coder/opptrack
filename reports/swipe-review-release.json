@@ -1,0 +1,89 @@
+{
+  "recorded_at_utc": "2026-10-21T17:21:17.965Z",
+  "scope": "User-authorized visual review and primary-calendar-read extension; calendar writes disabled; no Stage2 extraction",
+  "site": "https://luxury-longma-01d2fa.netlify.app/inbox",
+  "published_design_commits": [
+    "8a3bdf155b1a0ff37ff9cb10c38d88a345805576",
+    "2220b4c"
+  ],
+  "final_polish_publish": "pending",
+  "test_results": {
+    "npm_test": 165,
+    "local_sql": 81,
+    "worker_replays": 6,
+    "python": 63,
+    "hosted_policy_rollback": 32,
+    "typecheck": "pass",
+    "next_build": "pass"
+  },
+  "live_behavior": {
+    "real_central_image_rendered": true,
+    "short_drag_decided": false,
+    "right_swipe_saved": true,
+    "left_swipe_rejected": true,
+    "undo_restored_undecided_after_each": true,
+    "test_decisions_final_active": 0,
+    "review_save_at_utc": "2026-10-21T17:14:06.17746Z",
+    "review_reject_at_utc": "2026-10-21T17:15:18.094219Z",
+    "undo_audit_preserved": true,
+    "mobile_viewport": {
+      "width": 390,
+      "height": 844,
+      "scroll_width": 390,
+      "decision_controls_bottom": 828.9296875,
+      "calendar_toggle_visible": true,
+      "physical_phone_tested": false
+    }
+  },
+  "google": {
+    "connected_at_utc": "2026-10-21T17:19:46.321154Z",
+    "read_at_utc": "2026-10-21T17:21:17.965Z",
+    "scope": "https://www.googleapis.com/auth/calendar.events.readonly",
+    "calendar": "primary",
+    "window": {
+      "from": "2026-10-19",
+      "to": "2026-10-26",
+      "timezone": "America/New_York"
+    },
+    "events": 71,
+    "all_day": 5,
+    "complete": true,
+    "selected_day_timed": 12,
+    "selected_day_all_day": 1,
+    "overlap_warning_rendered": true,
+    "token_encrypted": true,
+    "titles_and_credentials_omitted": true,
+    "publishing_status": "Testing",
+    "documented_refresh_grant_lifetime_days": 7,
+    "live_refresh_verified": false,
+    "live_disconnect_verified": false,
+    "billing_activation": false
+  },
+  "anonymous_http": {
+    "/": 200,
+    "/inbox": 307,
+    "/api/calendar/events": 401,
+    "/api/event-art": 401
+  },
+  "hosted_migrations": {
+    "005": "20261021151303",
+    "006": "20261021152408"
+  },
+  "costs": {
+    "paid_upgrades": 0,
+    "new_paid_connectors": 0,
+    "calendar_write_calls": 0,
+    "image_binary_server_downloads": 0,
+    "model_calls": 0,
+    "resend_calls": 0,
+    "new_invoice_total": "not measured",
+    "calendar_list_bounds": "at most4pages/200events per7dayview; real71eventreadverified, exactrequestcountnotinstrumented",
+    "event_images": "one fixed-host metadata read pernewuncachedCentralevent, onehourcache; browserretrievesvalidatedpublicimage"
+  },
+  "remaining_gaps": [
+    "Live token refresh and Testing seven-day reconnection",
+    "Physical touch-device testing",
+    "Hosted intake/download/backup and full Stage1 gaps in docs/status.md are unchanged"
+  ],
+  "fixtures": "Unit/PGlite/replay tests use labeled synthetic data; browser and71-eventread are real hosted behavior"
+}

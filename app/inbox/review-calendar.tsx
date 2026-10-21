@@ -88,7 +88,7 @@ export const ReviewCalendar = memo(function ReviewCalendar({ candidate, savedRow
       {candidateVisible && <p><strong>{candidate.title}</strong><span>{candidateTimed ? calendarTimeRange(candidate.starts_at!, candidate.ends_at, selected) : candidateSchedule?.timeLabel} · This card, preview only</span></p>}
       {response.state === 'connected' && response.complete && !events.length && <p>No primary-calendar events returned for this day.</p>}
     </section>
-    <p className="calendar-footnote">{connected ? 'Primary Google calendar only · ' : 'Personal calendar not loaded; availability unknown · '}Saved events stay in this tracker. The outlined event is a preview. Unknown durations use a small marker.</p>
+    <p className="calendar-footnote">{connected ? 'Primary Google calendar only · ' : 'Personal calendar not loaded; availability unknown · '}Saved events stay in this tracker. The outlined event is a preview. Unknown durations use a small marker.{connected && " Google test access requires reconnection after 7 days."}</p>
     {connected && <button type="button" className="text-button disconnect-calendar" disabled={disconnecting} title="Removes the tracker connection and attempts to revoke this app’s Google grant" onClick={() => void disconnect()}>{disconnecting ? 'Disconnecting…' : 'Disconnect Google Calendar'}</button>}
   </aside>;
 });

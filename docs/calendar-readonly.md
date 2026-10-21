@@ -2,11 +2,11 @@
 
 The owner explicitly authorized a read-only Google Calendar connection for the calendar panel. This is a separate permission from event collection and saving tracker items. Calendar writes, RSVP, email and reminder delivery remain disabled. No calendar write scope, event-write endpoint, outbox or background calendar job exists.
 
-The implementation is locally verified with synthetic Google responses and a real PostgreSQL/PGlite policy harness. Live OAuth consent, refresh and primary-calendar reads still require cloud configuration and an owner-completed connection; they must not be reported operational until those checks pass.
+The user-selected primary Google Calendar is connected read-only. Hosted OAuth and a real complete seven-day read were verified October 21 at 17:19–17:21 UTC. Access-token refresh has unit/replay coverage but has not yet been observed live; durable unattended access is not claimed. Test-mode grants require reconnection after seven days.
 
 ## Production setup
 
-Use a dedicated Google Cloud project for this tracker. Enable the Google Calendar API without enabling a paid service or upgrading a plan. Configure the OAuth consent screen for the owner; if the app remains in Testing, add the owner's Google account as a test user. Google's Testing-mode refresh-token lifetime can be short, so an approved connection is not proof of durable unattended access.
+Use a dedicated Google Cloud project for this tracker. Enable the Google Calendar API without enabling a paid service or upgrading a plan. Configure the OAuth consent screen for the owner; if the app remains in Testing, add the owner's Google account as a test user. Google documents a seven-day refresh-token lifetime for External apps in Testing with Calendar scopes. Reconnect after that period. Publishing or extending authorization is a separate future change; it was not performed. [Google refresh-token expiration](https://developers.google.com/identity/protocols/oauth2#expiration), checked October 21, 2026.
 
 Create a **Web application** OAuth client. Register the exact production redirect URI:
 
@@ -81,4 +81,8 @@ Primary references checked October 21, 2026: [Google web-server OAuth](https://d
 
 ## Netlify Free scope limitation
 
-The three variables were configured in the Production context only on October 21. Contains secret values is enabled for the client secret and encryption key. The Free plan disables per-scope editing and automatically assigns protected secrets to Builds, Functions and Runtime, excluding post processing. No upgrade was made. Application code consumes them in server Functions only; they have no NEXT_PUBLIC name, no client import and no Trigger copy. Desired functions-only scope in the template is documented intent, not a claim that the Free dashboard enforced it. Google API activation and the real owner consent/read remain pending.
+The three variables were configured in the Production context only on October 21. Contains secret values is enabled for the client secret and encryption key. The Free plan disables per-scope editing and automatically assigns protected secrets to Builds, Functions and Runtime, excluding post processing. No upgrade was made. Application code consumes them in server Functions only; they have no NEXT_PUBLIC name, no client import and no Trigger copy. Desired functions-only scope in the template is documented intent, not a claim that the Free dashboard enforced it. Google API activation and real owner consent/read are verified; live refresh, revocation and seven-day reconnection remain untested.
+
+## Actual hosted verification
+
+Migrations 005/006 applied as 20261021151303/20261021152408. Hosted rollback policy audit:32/32 passed. The chosen account connected at2026-10-21T17:19:46.321154Z; SQL confirmed one ciphertext envelope with exact read-only scope without exposing it. At17:21:17.965Z the authenticated endpoint returned71 events, five all-day, complete=true, for October19–26 Eastern. No event titles or tokens are retained in committed reports. Anonymous events/image endpoints returned401. No live refresh/disconnect was forced, so the working owner connection remains intact. Screenshots and local setup credential backup remain ignored.
