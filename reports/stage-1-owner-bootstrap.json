@@ -1,0 +1,54 @@
+{
+  "stage": 1,
+  "ownerBootstrap": {
+    "confirmedAuthUsersObserved": 1,
+    "existingOwnersBefore": 0,
+    "ownersAfter": 1,
+    "configuredAtUtc": "2026-10-20T23:59:54.436893Z",
+    "method": "Existing service-only configure_tracker_owner RPC through connected project SQL; existing confirmed Auth UUID used privately, no account or password created",
+    "ownerIdentityOmitted": true
+  },
+  "registrySeed": {
+    "configuredAtUtc": "2026-10-21T00:00:34.748965Z",
+    "sources": 59,
+    "onlyEnabledSources": {
+      "fsu-calendar-api": 3600,
+      "fsu-music-events": 21600
+    },
+    "existingRowsPreserved": true
+  },
+  "browserOwnerAccess": {
+    "verified": true,
+    "route": "https://luxury-longma-01d2fa.netlify.app/inbox",
+    "signedInOwnerSession": true,
+    "method": "Previously signed-in browser session moved from old not_allowed redirect to real inbox after owner registration",
+    "initialInboxEmpty": true,
+    "privateScreenshot": "private/stage-1-hosted-owner-empty.png",
+    "populatedInboxVerified": true,
+    "populatedScreenshot": "private/stage-1-hosted-owner-populated.png"
+  },
+  "collection": {
+    "manualBootstrapRun": false,
+    "reason": "Leave both sources due for first genuine hourly schedule; avoid consuming their UTC slots in a manual collection",
+    "scheduledProofPending": false,
+    "scheduledEvidence": "reports/stage-1-cloud-correlation.json"
+  },
+  "manualIntake": {
+    "twoSyntheticPngFixturesPrepared": true,
+    "fixtureBytes": 356,
+    "automatedFileSelection": "Blocked: Chrome still reports file-URL access unavailable after user enabled setting; internal extensions page inspection blocked by browser URL policy; no workaround attempted",
+    "linkFormSubmitted": true,
+    "databaseManualIntakeCountAt000719": 2,
+    "specificTestRowCorrelationPending": false,
+    "fileUploadVerified": false,
+    "specificTestRowCorrelation": {
+      "checkedAtUtc": "2026-10-21T00:19:40.648936Z",
+      "matchingSyntheticLinkOnlyTestRows": 2,
+      "suppliedFilesPerRow": 0,
+      "status": "pending_verification",
+      "note": "Two separately submitted test forms; this does not prove retry idempotency."
+    }
+  },
+  "calendarWrites": 0,
+  "paidConnectorsEnabled": 0
+}

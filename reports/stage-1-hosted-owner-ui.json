@@ -1,0 +1,33 @@
+{
+  "stage": 1,
+  "observedByUtc": "2026-10-21T00:19:40.648936Z",
+  "origin": "https://luxury-longma-01d2fa.netlify.app",
+  "authentication": "Actual preexisting owner browser session; not service-key role simulation",
+  "inbox": {
+    "matchingOccurrences": 342,
+    "page1": true,
+    "nextPage2": true,
+    "page2FirstTitle": "Defense Meeting scheduled for Sehovic, Admir",
+    "searchQuery": "Friendly Arbitration",
+    "searchMatches": 8,
+    "sourceHealth": "Central and Music success; disabled HQ/social/stale routes visible",
+    "privateScreenshot": "private/stage-1-hosted-owner-populated.png",
+    "privateSearchScreenshot": "private/stage-1-hosted-owner-search.png"
+  },
+  "manualIntake": {
+    "syntheticLinkOnlySubmissionsVisible": 2,
+    "filesSelectedOrUploaded": 0,
+    "status": "pending_verification",
+    "allSlideHostedUpload": "unverified; extension file-URL selection still blocked after user enabled it; browser internal extensions URL policy prevents inspection, no workaround attempted"
+  },
+  "notTested": [
+    "hosted occurrence decision persistence and replay",
+    "hosted mobile viewport",
+    "known-object owner/other-user Storage HTTP",
+    "hosted all-slide upload/download",
+    "hosted restore and retention/refresh safety",
+    "user-confirmed laptop-off interval"
+  ],
+  "calendarWrites": 0,
+  "privateIdentityValuesIncluded": false
+}

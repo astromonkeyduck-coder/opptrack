@@ -24,6 +24,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     <section className="setup" aria-labelledby="login-heading"><h2 id="login-heading">{configured ? 'Sign in to your review inbox' : 'Connect your private inbox'}</h2>{notice && <p role="alert" className="notice">{notice}</p>}
       {configured ? <form action={signIn} className="stack"><label>Email<input name="email" type="email" autoComplete="username" required maxLength={254} /></label><label>Password<input name="password" type="password" autoComplete="current-password" required maxLength={1024} /></label><button type="submit">Sign in</button><p className="small">Use the existing Supabase Auth account registered as this tracker’s owner. Public signup is disabled.</p></form> : <><p>Supabase is not configured. Enter the three Supabase values and Trigger development key in <code>.env.local</code>, then restart the local app. Apply the migrations and register your existing Auth user with the owner setup command.</p><p className="small">No event catalog has been loaded here. Missing access is a setup requirement.</p></>}
       <p className="approval">Calendar writes are disabled. Saving an item never adds it to your calendar.</p>
+      <p className="small">Your private watchlist includes 17 selected Instagram accounts. Automatic post collection is unconfigured; Stories remain manual-only.</p>
     </section><footer><span>Campus comes first.</span><span>Stage 1 · Read, review, and collect.</span></footer>
   </main>;
 }

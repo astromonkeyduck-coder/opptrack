@@ -1,0 +1,322 @@
+{
+  "updatedAt": "2026-10-21T00:15:50.579Z",
+  "scope": "First genuine scheduled Production collection; exact Cloud-to-Supabase source-run correlation. This is not laptop-off or complete Stage 1 acceptance.",
+  "evidenceClass": "actual-hosted-scheduled-production-worker-with-fresh-source-http-and-read-only-sql-correlation",
+  "triggerCloud": true,
+  "hostedSupabase": true,
+  "mockedBoundaries": [],
+  "project": {
+    "triggerProjectRef": "proj_wurjjfgxnzhkvcewuaci",
+    "supabaseProjectRef": "nuywbvlcwetqjalqvxzb"
+  },
+  "providerObservation": {
+    "method": "Root agent observed the actual Trigger Cloud Production dashboard and completed run output; auditor did not independently retrieve the provider API response",
+    "runId": "run_06glnirsvhqdmbeiiur94st901",
+    "environment": "Production",
+    "taskId": "opportunity-source-dispatcher",
+    "status": "Completed",
+    "testRun": false,
+    "testRunEvidence": "Dashboard Test run field displayed a dash; output and SQL invocation kind are scheduled",
+    "version": "20261020.3",
+    "sdkVersion": "4.7.6",
+    "nodeVersion": "24.18.0",
+    "machine": "Small 1x",
+    "region": "us-east-1",
+    "externalCommit": null,
+    "externalCommitBoundary": "Not supplied for this version in this correlation observation",
+    "triggeredAt": "2026-10-21T00:10:46.320Z",
+    "dequeuedAt": "2026-10-21T00:10:48.470Z",
+    "startedAt": "2026-10-21T00:10:50.502Z",
+    "finishedAt": "2026-10-21T00:11:11.503Z",
+    "outputStatus": "completed",
+    "outputSuccessCount": 2,
+    "outputProvenance": {
+      "triggerRunId": "run_06glnirsvhqdmbeiiur94st901",
+      "scheduleId": "sched_7piwpgtckcngy15icqk45",
+      "scheduledAt": "2026-10-21T00:00:00.000Z",
+      "invocationKind": "scheduled"
+    },
+    "outputSourceRunIds": {
+      "fsu-calendar-api": "6bdef3ce-3cb8-4b71-86d5-e0de21293a2f",
+      "fsu-music-events": "91deb43b-58a8-48f9-bb30-a972c1aa73d2"
+    },
+    "screenshotPrivate": "private/stage-1-trigger-first-scheduled-success.png",
+    "cost": {
+      "basis": "Actual per-run values displayed in Trigger dashboard; not a monthly invoice",
+      "invocationUsd": 0.000025,
+      "computeUsd": 0.00066275,
+      "totalUsd": 0.00068775,
+      "usageSeconds": 19.6
+    }
+  },
+  "sqlObservation": {
+    "method": "Supabase connected execute_sql, two SELECT-only queries; no data/schema/auth/Storage mutations",
+    "readOnlyQueries": 2,
+    "runs": [
+      {
+        "error": null,
+        "outcome": "success",
+        "evidence": {
+          "capture_count": 1,
+          "captured_bytes": 65372,
+          "stored_object_count": 1,
+          "last_capture_fetched_at": "2026-10-21T00:10:52.398+00:00",
+          "raw_reference_available": true,
+          "first_capture_fetched_at": "2026-10-21T00:10:52.398+00:00",
+          "matching_object_byte_counts": 1
+        },
+        "source_id": "fsu-music-events",
+        "byte_count": 65372,
+        "started_at": "2026-10-21T00:10:52.236+00:00",
+        "finished_at": "2026-10-21T00:10:52.591+00:00",
+        "http_status": 200,
+        "committed_at": "2026-10-21T00:10:52.906294+00:00",
+        "request_count": 1,
+        "source_run_id": "91deb43b-58a8-48f9-bb30-a972c1aa73d2",
+        "parser_version": "music-preview-v1",
+        "trigger_run_id": "run_06glnirsvhqdmbeiiur94st901",
+        "invocation_kind": "scheduled",
+        "source_cost_usd": null,
+        "collection_window": {
+          "to": null,
+          "from": null,
+          "warnings": [
+            "Only current Music homepage preview cards; full calendar pagination is unverified",
+            "Local date/time retained without assuming timezone, end, location or ticket availability"
+          ],
+          "native_rows": 10
+        },
+        "scheduled_poll_at": "2026-10-21T00:00:00+00:00",
+        "pagination_complete": true,
+        "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+        "dispatcher_scheduled_at": "2026-10-21T00:00:00+00:00",
+        "occurrence_observation_count": 10,
+        "opportunity_observation_count": 10
+      },
+      {
+        "error": null,
+        "outcome": "success",
+        "evidence": {
+          "capture_count": 4,
+          "captured_bytes": 1058353,
+          "stored_object_count": 4,
+          "last_capture_fetched_at": "2026-10-21T00:11:06.337+00:00",
+          "raw_reference_available": true,
+          "first_capture_fetched_at": "2026-10-21T00:10:56.051+00:00",
+          "matching_object_byte_counts": 4
+        },
+        "source_id": "fsu-calendar-api",
+        "byte_count": 1058353,
+        "started_at": "2026-10-21T00:10:52.98+00:00",
+        "finished_at": "2026-10-21T00:11:06.351+00:00",
+        "http_status": 200,
+        "committed_at": "2026-10-21T00:11:10.931137+00:00",
+        "request_count": 4,
+        "source_run_id": "6bdef3ce-3cb8-4b71-86d5-e0de21293a2f",
+        "parser_version": "localist-v1",
+        "trigger_run_id": "run_06glnirsvhqdmbeiiur94st901",
+        "invocation_kind": "scheduled",
+        "source_cost_usd": null,
+        "collection_window": {
+          "to": "2026-10-27",
+          "from": "2026-10-20",
+          "warnings": [
+            "Bounded public central-calendar window only; no complete campus or private HQ coverage",
+            "Ticket availability is unverified; no action milestones inferred"
+          ],
+          "native_rows": 332
+        },
+        "scheduled_poll_at": "2026-10-21T00:00:00+00:00",
+        "pagination_complete": true,
+        "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+        "dispatcher_scheduled_at": "2026-10-21T00:00:00+00:00",
+        "occurrence_observation_count": 332,
+        "opportunity_observation_count": 293
+      }
+    ],
+    "totals": {
+      "captures": 5,
+      "occurrences": 342,
+      "source_runs": 2,
+      "field_claims": 1935,
+      "opportunities": 303,
+      "entity_versions": 645,
+      "storage_objects": 5,
+      "duplicate_occurrence_identity_groups": 0,
+      "duplicate_opportunity_identity_groups": 0
+    },
+    "sources": [
+      {
+        "source_id": "fsu-calendar-api",
+        "next_due_at": "2026-10-21T01:00:00+00:00",
+        "active_lease": null,
+        "next_poll_at": "2026-10-21T01:00:00+00:00",
+        "health_status": "success",
+        "cadence_seconds": 3600,
+        "last_attempt_at": "2026-10-21T00:10:52.218978+00:00",
+        "last_success_at": "2026-10-21T00:11:06.351+00:00",
+        "occurrence_count": 332,
+        "retry_not_before": null,
+        "opportunity_count": 293
+      },
+      {
+        "source_id": "fsu-music-events",
+        "next_due_at": "2026-10-21T06:00:00+00:00",
+        "active_lease": null,
+        "next_poll_at": "2026-10-21T06:00:00+00:00",
+        "health_status": "success",
+        "cadence_seconds": 21600,
+        "last_attempt_at": "2026-10-21T00:10:52.218978+00:00",
+        "last_success_at": "2026-10-21T00:10:52.591+00:00",
+        "occurrence_count": 10,
+        "retry_not_before": null,
+        "opportunity_count": 10
+      }
+    ],
+    "checked_at": "2026-10-21T00:14:28.112059+00:00",
+    "bucket_private": true,
+    "enabled_source_count": 2,
+    "registered_owner_count": 1,
+    "captures": [
+      {
+        "source_run_id": "6bdef3ce-3cb8-4b71-86d5-e0de21293a2f",
+        "source_id": "fsu-calendar-api",
+        "capture_id": "27252ba8-0052-4bc4-9790-c65618df942b",
+        "native_id": "page:1",
+        "content_sha256": "16d09497cf03a59d8a90bdc0ac4c8341364b68b5f45a11698209e818022ac3f0",
+        "content_type": "application/json",
+        "byte_count": 321250,
+        "first_seen_at": "2026-10-21 00:10:56.051+00",
+        "fetched_at": "2026-10-21 00:10:56.051+00",
+        "retention_until": "2026-11-20 00:10:56.051+00",
+        "raw_available": true,
+        "stored_object_exists": true,
+        "stored_object_metadata_bytes": 321250
+      },
+      {
+        "source_run_id": "6bdef3ce-3cb8-4b71-86d5-e0de21293a2f",
+        "source_id": "fsu-calendar-api",
+        "capture_id": "84840875-7b9f-4a7f-8379-d0a539d8a27f",
+        "native_id": "page:2",
+        "content_sha256": "fe54bef4676e05f8cda868dde866bcfc77095a498aee76e0616720738a580bd3",
+        "content_type": "application/json",
+        "byte_count": 334595,
+        "first_seen_at": "2026-10-21 00:11:01.579+00",
+        "fetched_at": "2026-10-21 00:11:01.579+00",
+        "retention_until": "2026-11-20 00:11:01.579+00",
+        "raw_available": true,
+        "stored_object_exists": true,
+        "stored_object_metadata_bytes": 334595
+      },
+      {
+        "source_run_id": "6bdef3ce-3cb8-4b71-86d5-e0de21293a2f",
+        "source_id": "fsu-calendar-api",
+        "capture_id": "bd49b6ef-df91-4611-8476-1b5b201d994a",
+        "native_id": "page:3",
+        "content_sha256": "3f2a090b54cba5b0d8a8e2ed3ad0169e81322d5e566a8e979c27cb53bc98c0b0",
+        "content_type": "application/json",
+        "byte_count": 305033,
+        "first_seen_at": "2026-10-21 00:11:04.774+00",
+        "fetched_at": "2026-10-21 00:11:04.774+00",
+        "retention_until": "2026-11-20 00:11:04.774+00",
+        "raw_available": true,
+        "stored_object_exists": true,
+        "stored_object_metadata_bytes": 305033
+      },
+      {
+        "source_run_id": "6bdef3ce-3cb8-4b71-86d5-e0de21293a2f",
+        "source_id": "fsu-calendar-api",
+        "capture_id": "dd453579-0d0b-4dfe-8d81-6d65a03975ee",
+        "native_id": "page:4",
+        "content_sha256": "c9ba0639eca14d81615f4458db6eac19b6ff3548d12585f869ea24d4c839aa4a",
+        "content_type": "application/json",
+        "byte_count": 97475,
+        "first_seen_at": "2026-10-21 00:11:06.337+00",
+        "fetched_at": "2026-10-21 00:11:06.337+00",
+        "retention_until": "2026-11-20 00:11:06.337+00",
+        "raw_available": true,
+        "stored_object_exists": true,
+        "stored_object_metadata_bytes": 97475
+      },
+      {
+        "source_run_id": "91deb43b-58a8-48f9-bb30-a972c1aa73d2",
+        "source_id": "fsu-music-events",
+        "capture_id": "639ae1ae-819b-4adf-aaf2-486b627af7d5",
+        "native_id": "preview",
+        "content_sha256": "bc098044d615a4b81dbc2d8901a713aee309049ebddcba6fce5d97139be42d86",
+        "content_type": "text/html",
+        "byte_count": 65372,
+        "first_seen_at": "2026-10-21 00:10:52.398+00",
+        "fetched_at": "2026-10-21 00:10:52.398+00",
+        "retention_until": "2026-11-20 00:10:52.398+00",
+        "raw_available": true,
+        "stored_object_exists": true,
+        "stored_object_metadata_bytes": 65372
+      }
+    ]
+  },
+  "verified": {
+    "providerOutputSourceRunIdsMatchSql": true,
+    "sqlRunIdsDistinct": true,
+    "bothSourcesSucceededWithCompletePagination": true,
+    "liveSourceRequests": 5,
+    "liveSourceResponseBytes": 1123725,
+    "actualScheduleIdMatches": true,
+    "invocationKindScheduled": true,
+    "runtimeRunMetadataRetrievalSucceeded": true,
+    "runtimeVerificationBasis": "The deployed non-test/non-replay provenance helper obtains SDK runs.retrieve(ctx.run.id), requires matching run/task/schedule metadata before dispatch, and its scheduled provenance reached the committed SQL source runs and completed Cloud output",
+    "nominalDispatcherAt": "2026-10-21T00:00:00.000Z",
+    "bothSourceSlotsAtNominalUtcTime": true,
+    "providerTimestampsEncloseSourceCollectionAndCommit": true,
+    "privateBucket": true,
+    "capturesWithLinkedStoredObjects": 5,
+    "captureAndObjectMetadataByteCountsMatch": 5,
+    "captureHashesRecorded": true,
+    "storedObjectBodiesDownloadedAndHashedByThisAudit": false,
+    "objectIntegrityBoundary": "SQL verifies exact capture-to-Storage path correspondence and object byte metadata. It does not independently download Storage bodies or prove owner/other-user HTTP policy.",
+    "opportunityDuplicateIdentityGroups": 0,
+    "occurrenceDuplicateIdentityGroups": 0,
+    "repeatedCloudCollectionDeduplicationTested": false,
+    "duplicateBoundary": "Initial populated hosted snapshot has no duplicate source/native identity groups; repeated unchanged Cloud collection and decision preservation were not exercised by this observation."
+  },
+  "currentCadence": {
+    "centralSeconds": 3600,
+    "centralNextPollAt": "2026-10-21T01:00:00.000Z",
+    "musicSeconds": 21600,
+    "musicNextPollAt": "2026-10-21T06:00:00.000Z",
+    "retryFloors": null,
+    "leasesReleased": true
+  },
+  "coverageLimits": [
+    "Central is the bounded seven-day public Localist window, October 20–27; no campus-wide or private HQ completeness claim.",
+    "Music is ten dated preview cards; full calendar pagination, multi-performance page semantics, timezone, end time, location and ticket availability remain unverified.",
+    "Ticket availability and release dates are unverified; no action milestones were inferred.",
+    "Instagram/Stories collection is not enabled or evidenced by this run."
+  ],
+  "laptopOffVerification": {
+    "accepted": false,
+    "userConfirmedOffInterval": null,
+    "reason": "The computer remained active during this observation; a genuine scheduled Cloud run is not proof of a laptop-off interval."
+  },
+  "costs": {
+    "observedTriggerRunUsd": 0.00068775,
+    "sourceRunCostUsdRecorded": null,
+    "sourceProviderInvoiceMeasured": false,
+    "paidConnectorsActivated": 0,
+    "paidPlanChange": false,
+    "calendarWrites": 0,
+    "modelCalls": 0,
+    "resendMessages": 0
+  },
+  "remaining": [
+    "Independent known-object Storage HTTP/integrity and populated owner/non-owner access checks",
+    "Hosted repeated collection and saved-decision preservation",
+    "User-confirmed powered-off interval with corresponding scheduled Cloud/database evidence",
+    "Other remaining Stage 1 acceptance gates recorded separately"
+  ],
+  "reproducibility": {
+    "correlationSql": "with selected_runs as (\n  select r.* from public.source_runs r\n  where r.trigger_run_id = any (array['run_06glnirsvhqdmbeiiur94st901']::text[])\n), linked_evidence as (\n  select r.id as run_id, count(c.id)::integer as capture_count,\n    coalesce(sum(c.byte_count),0)::bigint as captured_bytes,\n    count(o.id)::integer as stored_object_count,\n    count(c.id) filter (where o.id is not null and (o.metadata->>'size') ~ '^\\d+$' and (o.metadata->>'size')::bigint=c.byte_count)::integer as matching_object_byte_counts,\n    bool_and(c.storage_path is not null and c.purged_at is null)::boolean as raw_reference_available,\n    min(c.fetched_at) as first_capture_fetched_at, max(c.fetched_at) as last_capture_fetched_at\n  from selected_runs r\n  left join public.run_captures rc on rc.run_id=r.id and rc.owner_id=r.owner_id\n  left join public.captures c on c.id=rc.capture_id and c.owner_id=rc.owner_id\n  left join storage.objects o on o.bucket_id='captures' and o.name=c.storage_path\n  group by r.id\n)\nselect jsonb_build_object(\n  'checked_at',clock_timestamp(),\n  'bucket_private',coalesce((select not public from storage.buckets where id='captures'),false),\n  'registered_owner_count',(select count(*) from public.tracker_members),\n  'enabled_source_count',(select count(*) from public.sources where enabled),\n  'runs',coalesce((select jsonb_agg(jsonb_build_object(\n    'source_run_id',r.id,'source_id',r.source_id,\n    'trigger_run_id',r.trigger_run_id,'trigger_schedule_id',r.trigger_schedule_id,'invocation_kind',r.invocation_kind,\n    'dispatcher_scheduled_at',r.dispatcher_scheduled_at,'scheduled_poll_at',r.scheduled_poll_at,\n    'started_at',r.started_at,'finished_at',r.finished_at,'committed_at',r.created_at,\n    'outcome',r.outcome,'pagination_complete',r.pagination_complete,'parser_version',r.parser_version,\n    'http_status',r.http_status,'request_count',r.request_count,'byte_count',r.byte_count,\n    'opportunity_observation_count',r.opportunity_count,'occurrence_observation_count',r.occurrence_count,\n    'collection_window',r.collection_window,'error',r.error,'source_cost_usd',r.cost_usd,\n    'evidence',to_jsonb(e)-'run_id'\n  ) order by r.started_at,r.source_id) from selected_runs r join linked_evidence e on e.run_id=r.id),'[]'::jsonb),\n  'sources',coalesce((select jsonb_agg(jsonb_build_object(\n    'source_id',s.id,'cadence_seconds',s.cadence_seconds,'health_status',s.health_status,\n    'last_attempt_at',s.last_attempt_at,'last_success_at',s.last_success_at,'next_poll_at',s.next_poll_at,\n    'retry_not_before',s.retry_not_before,'next_due_at',s.next_due_at,'active_lease',s.lease_until>clock_timestamp(),\n    'opportunity_count',(select count(*) from public.opportunities o where o.source_id=s.id),\n    'occurrence_count',(select count(*) from public.occurrences o where o.source_id=s.id)\n  ) order by s.id) from public.sources s where s.enabled),'[]'::jsonb),\n  'totals',jsonb_build_object(\n    'opportunities',(select count(*) from public.opportunities),'occurrences',(select count(*) from public.occurrences),\n    'captures',(select count(*) from public.captures),'source_runs',(select count(*) from public.source_runs),\n    'entity_versions',(select count(*) from public.entity_versions),'field_claims',(select count(*) from public.field_claims),\n    'storage_objects',(select count(*) from storage.objects where bucket_id='captures'),\n    'duplicate_opportunity_identity_groups',(select count(*) from (select owner_id,source_id,native_id from public.opportunities group by owner_id,source_id,native_id having count(*)>1) d),\n    'duplicate_occurrence_identity_groups',(select count(*) from (select owner_id,source_id,native_id from public.occurrences group by owner_id,source_id,native_id having count(*)>1) d)\n  )\n) as correlation;",
+    "captureMetadataSql": "select r.id as source_run_id,r.source_id,c.id as capture_id,c.native_id,c.content_sha256,c.content_type,c.byte_count,c.first_seen_at,c.fetched_at,c.retention_until,c.purged_at is null as raw_available,o.id is not null as stored_object_exists,case when (o.metadata->>'size') ~ '^\\d+$' then (o.metadata->>'size')::bigint else null end as stored_object_metadata_bytes from public.source_runs r join public.run_captures rc on rc.run_id=r.id and rc.owner_id=r.owner_id join public.captures c on c.id=rc.capture_id and c.owner_id=rc.owner_id left join storage.objects o on o.bucket_id='captures' and o.name=c.storage_path where r.trigger_run_id='run_06glnirsvhqdmbeiiur94st901' order by r.source_id,c.native_id;"
+  },
+  "stage1Accepted": false
+}

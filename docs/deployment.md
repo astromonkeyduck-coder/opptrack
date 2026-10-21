@@ -1,20 +1,28 @@
 # Production deployment: Netlify + Trigger.dev Cloud
 
-Netlify SSR and the Trigger Production worker are deployed. Supabase migrations 001/002, Auth settings and separate web/worker variables are saved. Anonymous web checks pass. One real manual cloud test failed the required owner-setup guard before collection; this is not scheduled-run proof. Authenticated ingestion/inbox, Storage operations and laptop-off collection remain pending because no owner Auth account exists.
+The production Next.js app, single-owner Supabase inbox and hourly Trigger worker operate together. First genuine scheduled collection completed **2026-10-21 00:11:11.503 UTC**, with 303 opportunities, 342 occurrences and five private captured objects visible through the real owner's Netlify session. Full Stage 1 acceptance remains open for the specific HTTP/restore/replay/offline gates below; no Stage 2 work or paid upgrade is authorized.
 
 ## Netlify production app
 
-Use repository root, Node 22, build `npm run build`, publish `.next`. Build devDependencies must be installed; do not set NODE_ENV=production during dependency installation. The current exception explicitly pins modern OpenNext `@netlify/plugin-nextjs@5.16.4` in package/lock and declares it in `netlify.toml`.
+Use repository root, Node 22, build `npm run build`, publish `.next`. Install devDependencies during the build; do not set NODE_ENV=production during dependency installation. The current explicit fallback pins OpenNext `@netlify/plugin-nextjs@5.16.4` in package/lock and declares it in `netlify.toml`.
 
-This fixes observed missing runtime packaging: published `1d04777` compiled dynamic routes but omitted the Next runtime/functions, uploaded 238 static files and returned 404 for `/`, `/inbox` and `/api/private-media` at 23:35:43 UTC. The corrected published deploy `6ad7fd1b5a01e9295c7a246e`, commit `9fc73a619a39272dc0794f1c7d1186cdb4ea63a4`, now reports **one server function, one edge function and Next.js Runtime**. Three fresh live checks pass: home **200** with sign-in, inbox **307** anonymously, private-media **401** anonymously. This verifies runtime deployment and anonymous access behavior; no owner session is claimed.
+Published `1d04777` compiled dynamic routes but omitted runtime/functions and returned 404 on all three tested routes at 23:35:43 UTC. Corrected deploy `6ad7fd1b5a01e9295c7a246e`, commit `9fc73a619a39272dc0794f1c7d1186cdb4ea63a4`, reports Next.js Runtime, one server and one edge function. Anonymous checks pass home200/sign-in, inbox307, private-media401. Owner login now succeeds and shows actual collected rows, page 2 and an eight-match search. New application commits still require their own published-deploy verification; do not infer a new deploy from local build success.
 
-Netlify normally recommends automatic adapter updates. Its documented manual-install route supports this explicit current-v5 fallback; the pin opts out of automatic updates and must be maintained. Do not use v4, static export or a SPA catch-all rewrite. Once automatic runtime detection is demonstrably restored, the pin can be reconsidered. [Netlify adapter configuration](https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/#reverting-to-an-older-adapter-version), [official manual installation](https://github.com/opennextjs/opennextjs-netlify#manually-installing-the-nextjs-runtime).
+Netlify normally recommends automatic adapter updates. The documented manual installation supports this current-v5 fallback; the pin opts out of automatic updates and must be maintained. Do not use v4, static export or a SPA catch-all rewrite. Reconsider the pin only after automatic runtime detection is demonstrated. [Netlify adapter configuration](https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/#reverting-to-an-older-adapter-version), [official manual installation](https://github.com/opennextjs/opennextjs-netlify#manually-installing-the-nextjs-runtime).
 
-The site is `luxury-longma-01d2fa`, at `https://luxury-longma-01d2fa.netlify.app`; its site UUID remains unverified. All five variables are confirmed saved in one **Production** context: APP_URL, public Supabase URL/publishable key, CALENDAR_WRITES_ENABLED=false and INBOUND_EMAIL_ENABLED=false. The deployed sign-in page passes; owner-authenticated behavior still needs an account and explicit owner registration.
+Site: [luxury-longma-01d2fa](https://luxury-longma-01d2fa.netlify.app), main auto-publishing; site UUID is still unverified. These five values are saved in one **Production** context:
 
-Use `.env.netlify.production.example` for this web target. The public pair needs Builds + Functions and a rebuild after changes. The existing Free plan locks variable scopes to **all scopes**; retain the Production-only context and put only the public APP_URL/public Supabase pair and nonsecret disabled flags there. No paid upgrade was selected to unlock narrower scopes. Where a future plan permits it, narrow variables to their documented scopes. The web app uses the signed-in user's Supabase session/RLS; **never add SUPABASE_SECRET_KEY to Netlify**. The optional Trigger production key is unused by Stage 1 and need not be configured. There is no enqueue or inbound Resend webhook endpoint yet.
+| Netlify variable | Purpose |
+| --- | --- |
+| APP_URL | Actual production HTTPS origin |
+| NEXT_PUBLIC_SUPABASE_URL | Public API origin |
+| NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY | Public browser key, constrained by session/RLS |
+| CALENDAR_WRITES_ENABLED | `false` |
+| INBOUND_EMAIL_ENABLED | `false` |
 
-The app uses password sign-in. Supabase Auth Site URL was saved to the actual Netlify origin with a success confirmation; public signup and anonymous sign-in are disabled, while email confirmation remains enabled. The owner Auth account/registration is still absent. No OAuth callback/calendar scopes are needed. Keep preview/branch deploy credentials separate; never expose production secrets to untrusted builds.
+Use `.env.netlify.production.example`. Public Supabase values are needed at build/runtime; rebuild after changes. Existing Free scope controls are locked to all scopes, so store only the public pair/origin and nonsecret false flags here. No upgrade was selected. The web app uses the signed-in user's session/RLS; **SUPABASE_SECRET_KEY must never be on Netlify**. A Trigger production key, Meta token or Resend secret is not needed by the current web app. There is no enqueue/inbound webhook endpoint.
+
+Password sign-in is configured. Supabase Auth Site URL is the actual Netlify origin; public signup/anonymous sign-in are disabled and email confirmation retained. The user created their own confirmed account, registered privately as sole owner at **2026-10-20 23:59:54.436893 UTC**. No password/account was invented by the agent. No calendar OAuth scopes/callback are needed. Keep preview/branch credentials separate and production secrets away from untrusted builds.
 
 ```sh
 npm ci
@@ -25,44 +33,57 @@ npm run build
 python3 scripts/validate_production_env.py
 ```
 
-Use ignored `.env.netlify.production.local` to validate actual settings with `--target netlify --env-file PATH`; the validator prints names/errors only. Do not overwrite populated files when copying templates. A successful local build is not a successful Netlify deploy. Verify the actual hosted commit, owner login, unauthorized redirects, private downloads, search/pagination, and mobile inbox before acceptance.
+Ignored `.env.netlify.production.local` may validate actual settings using `--target netlify --env-file PATH`; validation prints names/errors only. Never overwrite populated files when copying templates.
 
-## Supabase migration and ownership
+## Supabase migration, ownership and sources
 
-The existing Supabase project is `nuywbvlcwetqjalqvxzb`. Migrations `202610200001_stage1.sql` and `202610200002_hourly_cadence.sql` were applied through authorized project access. Inspect migration history before retrying; never edit/reapply 001 as an upgrade. A new environment applies both in order. The second migration adds fixed UTC poll slots, separate retry floors and durable run provenance. The three app keys alone do not supply a SQL-management channel.
+Existing project: `nuywbvlcwetqjalqvxzb`. Local `202610200001_stage1.sql` was applied as hosted `20261020231512` (`stage1_private_opportunity_inbox`), and `202610200002_hourly_cadence.sql` as `20261020231950` (`stage1_hourly_polling_cadence`). Inspect migration history before retrying; 001 stays immutable. A fresh environment applies both in order. Application keys alone do not provide SQL-management access.
 
-The schema enforces single ownership, RLS, private captures, leases/versions/claims and save/reject-only decisions. At **2026-10-20 23:48:31.583435 UTC**, hosted Auth users, owners, sources, opportunities, captures, source runs and Storage objects were all zero. The user declined manual account creation; no user or invitation was created. No guard or ownership check was bypassed. Empty membership continues to deny access until the intended login exists and is explicitly registered.
+The schema enforces single ownership, 12 RLS-protected public tables, a security-invoker inbox view, private captures, leases/versions/claims and per-occurrence save/reject decisions. Empty ownership denies everyone. Historic zero-owner checks at 23:48/23:53 UTC are preserved, then superseded by the actual confirmed owner bootstrap. Do not rerun registration against another user or replace ownership.
 
-Create/choose the existing owner account in the dashboard, then from the trusted local environment:
+For a genuinely new environment only, have the user create/choose their intended Auth account privately, then use trusted setup access:
 
 ```sh
 npm run setup:owner -- EXISTING_AUTH_USER_UUID
 npm run setup:sources
 ```
 
-The local server secret belongs only in ignored `.env.local` for setup/direct worker commands, and in Trigger's worker runtime for production. `setup:sources` ignores existing rows and cannot reset cursors/health. Source IDs/hashes remain scoped to their actual source; cross-source duplicate matching is deferred.
+`setup:sources` now seeds the original 59 registry routes plus the 17 watchlist routes, ignores existing rows and does not reset health/cursors. The extra 17 `instagram-<handle>` watchlist routes were separately inserted disabled/setup-needed at **2026-10-21 00:16:08 UTC**; hosted total 76, only Central/Music enabled. Do not enable the unconfigured adapter. Source/native identities are scoped; cross-source deduplication is deferred.
+
+The server key belongs only in ignored trusted local setup/direct-worker files and Trigger's worker secret store. The captures bucket is private with a 5 MiB object limit. Actual scheduled ingestion has created five linked objects with matching byte metadata. Thirty-two populated hosted SQL-role/RLS checks passed in a read-only rollback transaction. These checks do not verify signed JWTs or object HTTP body access; the existing real owner browser is separate Auth evidence.
 
 ## Trigger.dev Cloud worker
 
-The verified project ref is `proj_wurjjfgxnzhkvcewuaci`; `trigger.config.ts` defaults to this nonsecret value for managed builds and permits an explicit TRIGGER_PROJECT_REF override. All six worker variables were confirmed saved for **Production only**, with Development unchecked: APP_URL, SUPABASE_URL, SUPABASE_SECRET_KEY, EMAIL_DELIVERY_ENABLED=false, CALENDAR_WRITES_ENABLED=false and SOCIAL_COLLECTION_ENABLED=false. The server key was stored as a secret with its value unviewable; no key value is printed or committed.
+Project `proj_wurjjfgxnzhkvcewuaci` is the verified nonsecret default in `trigger.config.ts`; an explicit TRIGGER_PROJECT_REF can override it. Six variables are saved for **Production only**, with Development unchecked:
 
-After the user reconnected, the new GitHub app installation was verified for **one selected repository, opptrack only**, with main tracking Production. Trigger deploy `kx5ru529`, worker version `20261020.1`, completed at **23:46:19 UTC** on Node **24.18.0**. This is distinct from the web/local Node 22 configuration. The active/enabled schedule `sched_7piwpgtckcngy15icqk45` was created at 23:46:11 UTC, uses hourly UTC cron, a one-hour window and concurrency one. Its last scheduled run was **Never** at inspection; the displayed next time around 00:10 UTC is not a precise timing promise.
+| Trigger variable | Purpose |
+| --- | --- |
+| APP_URL | Public production app origin |
+| SUPABASE_URL | Worker API origin |
+| SUPABASE_SECRET_KEY | Protected/unviewable server secret; bypasses RLS, worker only |
+| EMAIL_DELIVERY_ENABLED | `false` |
+| CALENDAR_WRITES_ENABLED | `false` |
+| SOCIAL_COLLECTION_ENABLED | `false` |
 
-Manual Production test `run_06glndpqqqf43ur6djisksj5e1` was triggered at 23:48:17.400 UTC, ran 23:48:19.519–23:48:23.434 UTC and failed with **AbortTaskRunError** because owner setup is required before collection. It is a real cloud invocation with unmeasured dollar cost, but its synthetic `sched_1234`/`IMPERATIVE` test payload is **not evidence of scheduler execution**. No source transaction was committed. Complete owner setup before demonstrating successful source collection; do not weaken the guard.
+Use `.env.trigger.production.example`, separately from Netlify. Local `.env.local` contains development placeholders and must not be copied to production blindly. Existing values were not overwritten. Optional future approved Meta tokens belong in worker secret storage after the access route is proven; no token is present or operational now. No deployment-account token belongs in application runtime templates.
 
-The SDK task `opportunity-source-dispatcher` declares hourly cron `0 * * * *`, UTC, with `window: "60m"`, queue concurrency one and SQL due-source leases. This accommodates the Free-created schedule policy: cadence cannot exceed hourly, and execution uses a stable offset within the hour after its nominal cron time. The nominal timestamp is not the actual start; minute-level alert timing is not promised. No upgrade was used. [Trigger schedule policy](https://trigger.dev/docs/tasks/scheduled#free-plan-minimum-window).
+The authorized GitHub App installation is limited to **opptrack only**, main→Production. Managed build/deploy works; first deploy `kx5ru529`/version `20261020.1` completed 23:46:19 UTC. Successful collection used **version `20261020.3`**, SDK 4.7.6, Node 24.18.0 on Small 1x in us-east-1; this differs from web/local Node 22. The optional CLI was removed after dependency advisories; resolve/recheck before installing a pinned CLI. No successful local CLI login/dev/deploy is claimed.
 
-Central keeps 3,600-second UTC slots; Music keeps 21,600-second slots (00/06/12/18 UTC). Migration 002 stores `next_poll_at` independently of completion time and `retry_not_before` independently of the poll grid; effective due is their maximum. A source retry is eligible at a later dispatcher tick after that floor, not guaranteed immediately when the floor expires. Missed source slots coalesce once without a catch-up burst. Only these two free public adapters are enabled after owner setup. SDK infrastructure retries wait for lease recovery. Code registration and replay do not verify cloud execution.
+Enabled schedule **`sched_7piwpgtckcngy15icqk45`** uses `0 * * * *`, UTC, `window: "60m"`, concurrency one and SQL leases. Trigger Free uses a stable offset inside that one-hour window; first nominal 00:00 UTC tick actually started **00:10:50.502**. This is compatible with Free and does not promise exact-hour or minute-level alert timing. [Trigger schedule policy](https://trigger.dev/docs/tasks/scheduled#free-plan-minimum-window).
 
-The SDK is pinned to 4.7.6. The optional matching CLI was inspected and removed because its dependency tree introduced an unpatched braces advisory and vulnerable archive dependencies. Resolve/recheck its advisories before selecting a pinned deployment CLI. No CLI login/dev/deploy succeeded here. Once a verified CLI is available, run its documented dev/deploy commands for the actual project, independently of the Netlify build. CLI --env-file supplies its local process, not uploaded runtime values. Set worker values explicitly in Trigger's dashboard; deployment account tokens stay outside app runtime templates.
+Central uses 3,600-second slots; Music uses 21,600-second slots (00/06/12/18 UTC). Migration 002 separates `next_poll_at` from completion time and `retry_not_before` from the poll grid; effective due is their maximum. Success advances from the leased nominal slot, so processing over a boundary leaves the next slot due. Missed slots coalesce once; retries wait for a later dispatcher after the floor. Following the first successful run, Central is next due 01:00 UTC and Music 06:00 UTC, with leases released and no retry floor.
 
-Next verify a genuine scheduled cloud run, exact source-run/capture correlation and owner-visible real rows in the same project. Deployment and the failed manual test do not close those gates. Record logs without keys/raw bodies. No paid connector or upgrade was enabled.
+First genuine scheduled run **`run_06glnirsvhqdmbeiiur94st901`** completed 00:10:50.502–00:11:11.503 UTC. Runtime run-metadata retrieval verified actual task/schedule before dispatch. Cloud output IDs match SQL Central `6bdef3ce-3cb8-4b71-86d5-e0de21293a2f` and Music `91deb43b-58a8-48f9-bb30-a972c1aa73d2`, including exact captures, commits and counts. See `reports/stage-1-cloud-correlation.json`. Dashboard run estimate $0.00068775 is actual displayed usage, not a monthly invoice. The laptop remained active, so this is not offline proof.
 
-## Privacy and release gate
+Earlier manual Production run `run_06glndpqqqf43ur6djisksj5e1` failed the missing-owner guard at 23:48:19.519–23:48:23.434 UTC, before any fetch/row. Its synthetic `sched_1234`/`IMPERATIVE` payload is not schedule proof. Dashboard estimate: $0.00009868. Preserve this guard failure rather than recasting it as successful collection.
 
-`.env.local`, populated production dotenv files, raw captures, backups, exported event rows and screenshots remain ignored. Authenticated downloads return attachments/no-store, not public Storage URLs. Manual links are retained without fetching; supplied files remain pending verification. Model/OCR extraction and Resend are optional and unused.
+## Release and privacy gates
 
-Local database backup/restore and SQL access controls pass; hosted Auth/Storage HTTP, complete Storage backup, distributed contention and safe hosted purge/refresh are still required. Retention planning deletes nothing until those checks pass. Do not call this hosted-ready merely because the build passes. Keep calendar provider code, OAuth scopes and writes absent; stop after Stage 1.
+Dotenv, raw captures, rows, backups and screenshots remain ignored. Links are retained without server fetch, all supplied media stays private/pending verification, and no OCR/model or Resend integration is active. Two synthetic link-only intake records are visible; hosted two-slide upload was blocked by browser file-access tooling and remains unverified.
+
+Owner login, real rows/search/pagination and populated SQL policy checks now pass. Still required: known-object owner/non-owner Storage HTTP and downloaded-body integrity, hosted multi-slide/idempotency/size-type checks, decisions surviving repeated hosted collection, mobile behavior, distributed contention/recovery, hosted database/Storage restore and safe retention/orphan cleanup. Retention planning deletes nothing. A user-confirmed laptop-off interval with exact scheduled source-run commits is still required; include Music's six-hour window for a claim about both adapters.
+
+The user additionally authorized a 17-account Instagram watchlist/Meta setup, not broader Stage 2. Developer registration and user-completed app creation are confirmed; the app is Unpublished. Its four minimum read capabilities are Ready for testing, which is not an owner OAuth grant. The current Facebook login showed no managed Pages; access to the user-provided existing professional account/Page remains to be established. No token, account/read grants or Business Discovery result is yet proven. Keep all social routes disabled/setup-needed and Stories manual-only. No paid upgrade/connector was enabled. Calendar provider code, scopes and writes remain absent. Stop after Stage 1.
 
 ## Primary references checked October 20, 2026
 
@@ -70,4 +91,4 @@ Local database backup/restore and SQL access controls pass; hosted Auth/Storage 
 - [Supabase SSR clients](https://supabase.com/docs/guides/auth/server-side/creating-a-client), [Storage policies](https://supabase.com/docs/guides/storage/security/access-control), [standard uploads](https://supabase.com/docs/guides/storage/uploads/standard-uploads), and [Storage errors](https://supabase.com/docs/guides/storage/debugging/error-codes).
 - [Trigger scheduled tasks](https://trigger.dev/docs/tasks/scheduled), [configuration](https://trigger.dev/docs/config/config-file), and [runtime environments](https://trigger.dev/docs/deploy-environment-variables).
 
-Provider documentation describes supported behavior; project-specific hosted verification remains necessary.
+Provider documentation describes supported behavior; it is separate from project-specific evidence.

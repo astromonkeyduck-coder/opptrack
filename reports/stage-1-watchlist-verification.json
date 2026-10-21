@@ -1,0 +1,45 @@
+{
+  "stage": 1,
+  "commands": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": 58
+    },
+    {
+      "command": "make check",
+      "exitCode": 0,
+      "pythonTests": 59,
+      "registrySources": 59,
+      "scenarioContracts": 45
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "newDynamicRoute": "/instagram"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "hostedPolicyChecks": {
+    "script": "scripts/hosted-populated-rls-check.sql",
+    "passed": 32,
+    "failed": 0,
+    "boundary": "Read-only SQL roles/claims, not owner or other-user signed JWT Storage HTTP"
+  },
+  "credentialScan": {
+    "checkedChangedFiles": 22,
+    "credentialPatternMatches": 0,
+    "forbiddenTrackedFiles": 0,
+    "dotenvPrivateScreenshotsIgnored": true
+  },
+  "liveEvidence": "reports/stage-1-cloud-correlation.json",
+  "mockBoundary": "New watchlist tests use static configuration/synthetic test owner; no Instagram live post request made",
+  "calendarWrites": 0
+}

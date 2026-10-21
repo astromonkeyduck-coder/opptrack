@@ -2,10 +2,10 @@
   "stage": 1,
   "as_of": "2026-10-20",
   "actual": {
-    "public_http_attempts": 12,
+    "public_http_attempts": 17,
     "public_source_provider_charges_usd": 0,
-    "trigger_cloud_runs": 1,
-    "supabase_hosted_verified_runs": 0,
+    "trigger_cloud_runs": 2,
+    "supabase_hosted_verified_runs": 2,
     "model_calls": 0,
     "paid_connector_runs": 0,
     "resend_messages": 0,
@@ -18,26 +18,60 @@
       "netlify": "Free; unchanged",
       "trigger": "Free schedule policy; unchanged"
     },
-    "hosted_setup": "Netlify SSR published with one server/one edge function; Trigger version20261020.1 deployed with active hourly schedule. One manual Production test failed owner guard before collection; no scheduled/offline collection verified. Supabase users, owners and data remain zero.",
+    "hosted_setup": "Netlify SSR and the hourly Trigger Production schedule are deployed. The registered owner enabled the first genuine scheduled collection: both central and Music succeeded; 303 opportunities, 342 occurrences and five private captures/objects are correlated to two SQL source runs. Laptop-off operation and all hosted acceptance gates are not established by these counts.",
     "new_paid_upgrades": 0,
     "trigger_manual_production_tests": 1,
     "trigger_failed_manual_tests": 1,
-    "trigger_scheduled_runs_verified": 0,
-    "trigger_actual_invocation_cost_usd": null,
-    "trigger_cost_limit": "One manual Production invocation observed; dollar charge unmeasured. Failure before owner setup produced no source collection.",
+    "trigger_scheduled_runs_verified": 1,
+    "trigger_cost_limit": "Two actual dashboard per-run estimates, USD 0.00009868 manual setup failure + USD 0.00068775 scheduled success = USD 0.00078643. Not an invoice, actual cash payment, monthly total or proof of remaining credits.",
     "latest_hosted_web_http_checks": 3,
     "latest_hosted_web_http_results": {
       "home": 200,
       "inbox": 307,
       "private_media": 401
-    }
+    },
+    "local_public_http_attempts": 12,
+    "hosted_public_http_attempts": 5,
+    "http_attempt_basis": "Stage 1 source collection only: local initial/corrected/final probes plus the first actual scheduled Cloud run; excludes hosted app/auth/health/docs and Stage 0 traffic.",
+    "supabase_hosted_run_basis": "Two SQL source-run records from one genuine scheduled Trigger invocation; the earlier manual invocation failed before collection.",
+    "trigger_observed_runs_cost_estimate_usd": 0.00078643,
+    "trigger_observed_cost_is_invoice": false,
+    "trigger_observed_runs": [
+      {
+        "kind": "manual_setup_failure",
+        "run_id": "run_06glndpqqqf43ur6djisksj5e1",
+        "status": "failed_owner_setup_guard",
+        "source_http_attempts": 0,
+        "dashboard_usage_seconds": 2.1,
+        "dashboard_total_estimate_usd": 9.868e-05,
+        "basis": "Actual dashboard values supplied by root; private/stage-1-trigger-manual-setup-check.png. Usage duration is displayed/rounded."
+      },
+      {
+        "kind": "genuine_scheduled_production",
+        "run_id": "run_06glnirsvhqdmbeiiur94st901",
+        "status": "completed",
+        "source_http_attempts": 5,
+        "dashboard_usage_seconds": 19.6,
+        "wall_seconds": 21.001,
+        "dashboard_invocation_usd": 2.5e-05,
+        "dashboard_compute_usd": 0.00066275,
+        "dashboard_total_estimate_usd": 0.00068775,
+        "basis": "reports/stage-1-cloud-correlation.json; one mixed central-plus-Music observation, not a steady-state runtime sample."
+      }
+    ],
+    "hosted_source_response_bytes": 1123725,
+    "instagram_watchlist_handles": 17,
+    "instagram_collection_enabled": false,
+    "instagram_collection_api_calls_observed": 0,
+    "instagram_collector_runs": 0,
+    "instagram_cost_quote": "Not established: configured watchlist only; zero observed collection API calls and no paid connector activation. Future API/media/extraction costs and permitted coverage remain unproven."
   },
   "conditional_30_day_forecast": {
     "dispatcher_ticks": 720,
-    "assumed_seconds_per_tick": 10,
+    "assumed_seconds_per_tick": 21,
     "small_1x_usd_per_second": 3.38e-05,
     "usd_per_invocation": 2.5e-05,
-    "trigger_metered_usd": 0.26136,
+    "trigger_metered_usd": 0.529056,
     "central_collections": 720,
     "music_collections": 120,
     "public_http_requests_at_current_page_count": 3000,
@@ -58,11 +92,28 @@
     "dispatcher_cron": "0 * * * *",
     "dispatcher_timezone": "UTC",
     "dispatcher_window": "60m",
-    "schedule_plan_policy": "Free-created hourly schedule with minimum 60-minute stable-offset window; no upgrade used"
+    "schedule_plan_policy": "Free-created hourly schedule with minimum 60-minute stable-offset window; no upgrade used",
+    "pre_cloud_10_second_scenario": {
+      "assumed_seconds_per_tick": 10,
+      "trigger_metered_usd": 0.26136,
+      "basis": "Earlier unmeasured Stage 1 arithmetic retained as historical sensitivity; not the observed Cloud runtime."
+    },
+    "forecast_class": "single_observed_mixed_tick_sensitivity_not_steady_state_baseline",
+    "seconds_basis": "Rounded wall duration from one actual mixed central+Music scheduled run (21.001 seconds wall, 19.6 seconds displayed usage). Using wall seconds as metered seconds here is explicit sensitivity only; not a constant forecast or upper bound.",
+    "steady_state_runtime_baseline_established": false,
+    "measurement_limit": "One mixed-source observation. Most hourly ticks are central-only; Music is due every sixth tick. Measure central-only, mixed, unchanged, empty, slow and retry runs and actual billed usage before adopting a monthly baseline.",
+    "account_credit_balance_verified": false
   },
   "sources": [
     "https://supabase.com/pricing",
     "https://trigger.dev/pricing",
     "https://www.netlify.com/pricing/"
+  ],
+  "as_of_timezone": "America/New_York",
+  "observed_through_utc": "2026-10-21T00:15:50.579Z",
+  "evidence": [
+    "reports/stage-1-sources-live.json",
+    "reports/stage-1-cloud-correlation.json",
+    "private/stage-1-trigger-manual-setup-check.png"
   ]
 }

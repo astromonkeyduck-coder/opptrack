@@ -1,0 +1,54 @@
+# Selected Instagram opportunity accounts
+
+The user explicitly selected 17 handles for opportunity monitoring on October 20, 2026. `config/instagram-watchlist.json` is a separate machine-readable watchlist; the 59-source Stage 0 registry remains preserved. Source IDs are `instagram-<handle>`, with canonical `https://www.instagram.com/<handle>/` links. User selection is evidence of requested scope, not verified account identity, professional-account eligibility or permission to collect.
+
+The authenticated `/instagram` page reads the selected rows from Supabase `sources` under the existing owner session/RLS. It shows each handle, requested interests, source state, last attempt and last success. Missing source rows are setup-needed; failed health reads show an explicit unavailable state. Neither condition means “nothing new.” The inbox header links to this page. It contains no post previews, inferred dates or mock event facts.
+
+Normal `npm run setup:sources` now combines the preserved 59 registry routes and these 17 selected accounts: **76 source identities**. It uses conflict-ignore inserts, so rerunning setup cannot reset existing health, cursors, leases or decisions. The selected rows remain disabled/unconfigured with null cadence. The hosted seed is recorded separately; this documentation does not claim the local setup command was executed against production.
+
+## Current capability
+
+- **Selected/configured:** concerts, comedy, speakers, clubs, films, campus announcements, Homecoming/ticket information, leadership, outdoors, Honors, recruiting, study abroad, culture, service, sustainability, research and public-policy accounts.
+- **Not operational:** automatic Instagram post collection. All 17 source records must retain adapter `unconfigured`, enabled=false, null cadence and setup-needed until a permitted live route is proven. No Instagram fetch, capture or successful run is claimed by the watchlist.
+- **Stories:** manual-only. An arbitrary target's Stories route has not been established. Do not infer it from Business Discovery or own-account Story support.
+- **Available now:** authenticated private manual link/flyer intake. Supply only material you may retain and include every supplied slide. Links are retained without server fetching; media/facts stay pending verification.
+
+The user-selected handles are clubdownunderfsu, fsustudentengagement, fsustudentaffairs, fsustudentunion, aslc_fsu, fsuhomecoming, fsusga, fsucampusrec, fsuhonors, fsucareercenter, fsuip, fsucge, thecenterfsu, fsusustainable, fsucre, fsucosspp and fsucossppslc. Focus labels reflect the user's intended discovery scope; they are not claims about current account content.
+
+## Meta setup and minimum read permissions
+
+Current primary Meta Markdown guides were retrieved successfully with HTTP 200 on October 20, 2026, despite earlier ordinary guide URLs returning 429. They establish a conditional route, **Instagram API with Facebook Login / Business Discovery**; no app, grant, token-backed target request or Instagram capture was created by that research. The authorized caller must be a Business/Creator Instagram account linked to a Facebook Page they manage. Selected target accounts must independently qualify; consumer and age-gated accounts are excluded. All 17 targets are still unverified. [Business Discovery reference](https://developers.facebook.com/documentation/instagram-platform/instagram-graph-api/reference/ig-user/business_discovery.md).
+
+| Purpose | Permission | Boundary |
+| --- | --- | --- |
+| Business Discovery reads | `instagram_basic`, `instagram_manage_insights`, `pages_read_engagement` | The documented Facebook **User** access-token requirements for this endpoint; no publishing/messaging grant is requested. |
+| Discover the caller's managed Page and linked IG ID | `pages_show_list` | Separate setup permission for `/me/accounts`; it is not an additional target-collection capability. |
+| Page role received through Business Manager | `ads_read` **or** `ads_management` | Conditional provider requirement only in that specific role path. Do not add either proactively; inspect the actual role/access error first and prefer the narrower applicable read grant. |
+
+These Facebook Login permissions are distinct from the `instagram_business_*` permissions used by Instagram Login. Do not substitute another login route's scope names. Business Discovery documentation requires `instagram_manage_insights` for this read route; that does not authorize this project to start unrelated insights collection. [Current Business Discovery permissions](https://developers.facebook.com/documentation/instagram-platform/instagram-graph-api/reference/ig-user/business_discovery.md).
+
+1. Use your own authorized Business/Creator IG account linked to a Facebook Page you manage; confirm the appropriate Page tasks and developer/app role. Do not enter your Facebook/Instagram password in this tracker or share session cookies.
+2. In Meta for Developers, follow the current Instagram app flow. The use-case label is **Manage messaging and content on Instagram**; the documented Business-app path is **Other → Business**. Add Instagram, choose **API setup with Facebook Login**, and configure Facebook Login for Business. An app supports only one Instagram login setup. The broad use-case label is not a reason to accept its default messaging/publishing permission bundles. [Create an Instagram app](https://developers.facebook.com/documentation/instagram-platform/create-an-instagram-app.md), [Instagram use-case setup](https://developers.facebook.com/documentation/development/create-an-app/instagram-use-case.md).
+3. Request only the three Business Discovery read permissions above, plus `pages_show_list` when discovering the Page. Authorize through Meta's normal flow as the legitimate app-role/Page user. Confirm actually granted scopes and token expiry; keep the Facebook **User token** private. No publish, comment-management or messaging permission is needed for this proposed collector.
+4. Use the documented `/me/accounts` → Page `instagram_business_account` → caller IG ID flow. Request only required identification/task fields and avoid returning/logging a Page access token. Do not save a full setup response that might contain tokens. The current get-started guide uses **v26.0 examples**; verify the version supported by the actual app rather than guessing a default. [Facebook Login get started](https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-facebook-login/get-started.md).
+5. Enter credentials directly into the approved server secret destination when a probe is ready. Never paste tokens into chat, URLs, screenshots, this watchlist, browser code, Git or public logs. Current collection remains disabled; do not add new production scopes or schedule changes solely because setup fields exist.
+
+Standard Access is limited to app-role/development use. Advanced Access for non-role users requires the applicable App Review and Business Verification. Meta also documents review requirements around third-party content, so a sole-admin Standard Access test must prove the actual intended target route before claiming review is unnecessary or that all 17 accounts work. [Access levels](https://developers.facebook.com/documentation/development/graph-api/overview/access-levels.md), [Instagram platform overview](https://developers.facebook.com/documentation/instagram-platform/overview).
+
+## Probe and activation gates
+
+First prove one eligible selected account with a bounded read-only Business Discovery request. Record caller/target identity, granted permissions, API version, outcome/error, actual request count and timestamps without keys or signed media URLs. Then check each selected handle separately; an ineligible, missing or denied target remains explicitly blocked/setup-needed. A login, permission, expired-token, rate-limit or parser failure is never “no new posts.”
+
+Business Discovery returns target media through nested field expansion; it does **not** grant direct GET access to the target media IDs. Validate nested media/children fields and every pagination page before claiming all-slide capture. Some licensed/copyright audio and other-account Reels with downloading disabled may omit `media_url` while returning other fields. Treat missing content as an explicit media gap, not a complete extraction. [Business Discovery field limitations](https://developers.facebook.com/documentation/instagram-platform/instagram-graph-api/reference/ig-user/business_discovery.md).
+
+Only promote a source after proving permitted live access, stable native identities/hashes, evidence timestamps, pagination/media completeness, visible uncertainty, retries/rate limits and measured bounded usage. Preserve user decisions and duplicate prevention when connecting any resulting opportunities to the review inbox. No enabled flag or cadence changes until that evidence exists.
+
+Stories remain a separate manual-only gap. Meta's authorized-account Stories reference documents 24-hour availability and exclusions such as Live stories and reshares; it does not establish access to these 17 other accounts' Stories. Own-account Story support must not be relabeled as arbitrary-target Story monitoring. [Stories reference](https://developers.facebook.com/documentation/instagram-platform/instagram-graph-api/reference/ig-user/stories.md).
+
+No paid connector, automatic email, follow action, calendar scope or calendar write is enabled. Selection does not promise complete Instagram coverage or automatic monitoring. Earlier source feasibility evidence remains in `docs/access-feasibility.md`.
+
+Validation: `node --import tsx --test tests/instagram-watchlist.test.ts`, `npm run typecheck`, and `npm run build`. Tests validate the exact scope, canonical links, disabled seeds, conflict-ignore options and 59+17 identities. They are not live Instagram tests.
+
+## Setup actually observed
+
+The user completed Meta developer registration and app creation directly. App `4387142291430378` is Unpublished. API setup with Facebook login was inspected; only `instagram_basic`, `instagram_manage_insights`, `pages_read_engagement` and `pages_show_list` were added as app capabilities and show Ready for testing, with zero API calls. That configuration is distinct from the user granting a token or successful access to a target. No publishing, messaging, ads or business-management capability bundle was added. The user identified an existing professional account and Page, but the current Facebook managed-Pages screen showed no Pages; establish the correct Page access before linking or token generation. No personal-account conversion was completed. See `reports/instagram-setup.json`; account credentials and setup screenshots remain private.

@@ -1,6 +1,6 @@
 # Stage plan
 
-Stage 1 is explicitly authorized by the user on October 20, 2026. Stage 0 is preserved at Git tag stage-0-complete. Stop after Stage 1; later stages remain a continuation map, not permission to implement them.
+Stage 1 is explicitly authorized by the user on October 20, 2026. Stage 0 is preserved at Git tag stage-0-complete. Stop after Stage 1; later stages remain a continuation map, not permission to implement them. The user separately authorized the 17-account Instagram watchlist and Meta setup. That narrow extension does not authorize broader Stage 2 extraction or a completed social pilot; access must be proven per account/format.
 
 | Stage | Deliverable | Gate |
 | --- | --- | --- |
@@ -23,6 +23,10 @@ Stage 1 is explicitly authorized by the user on October 20, 2026. Stage 0 is pre
 6. Re-ingestion proves no duplicate versions/occurrences and no lost user decisions. Meaningful checks cover HTTP-200 login walls, malformed feeds, truncated pagination, stale sources, lease/retry behavior, ownership/RLS, private storage, and zero-event captures. Verify migrations against a local/test database, including anonymous and other-user denials; written policies alone do not pass.
 7. Record real commands, screenshots of the basic inbox, measured source counts/windows, actual costs or zero usage, remaining gaps, and a fresh-session runbook. Calendar, RSVP, purchase, and organizer messaging paths remain absent/disabled. Stop after Stage 1.
 
-## Current Stage 1 gate (October 20, 2026)
+## Current Stage 1 gate (October 20 local / October 21 UTC, 2026)
 
-Local implementation and real-source/SQL evidence are present. **Stage 1 is not yet fully accepted:** hosted credentials/project setup, Auth/Storage HTTP checks, actual Trigger run, authenticated hosted screenshot, Storage restore and safe retention/orphan cleanup remain open. Do not advance to Stage 2. See docs/status.md and the runbook for exact results and remaining steps.
+The hosted path now works: fresh Central and Music HTTP → genuine scheduled Trigger Production worker → private Supabase captures/normalized facts → the real authenticated Netlify inbox. The first scheduled run produced 303 source-scoped opportunities, 342 occurrences and five linked private objects. The owner browser demonstrated real rows, pagination and search. Thirty-two populated hosted PostgreSQL/RLS checks passed; these SQL-role checks remain distinct from browser JWT and Storage HTTP checks.
+
+**Stage 1 is not fully accepted.** Remaining gates include known-object owner/non-owner Storage HTTP and downloaded-body integrity, hosted multi-slide upload/idempotency, occurrence decisions surviving repeated hosted collection, mobile behavior, backup/Storage restore, distributed contention and safe retention/orphan cleanup. The scheduled run occurred while the laptop was active; a user-confirmed powered-off interval is still required. Do not advance to Stage 2.
+
+The 17 Instagram routes are registered disabled/setup-needed, separately from the original 59-route registry. Meta developer registration and user-completed app creation are confirmed; the app is Unpublished. No token, account/read grant or successful Business Discovery request is yet proven. Posts/Reels/carousels remain unconfigured, and arbitrary third-party Stories remain manual-only. See docs/status.md, docs/instagram-monitoring.md and the hosted checklist for evidence and exact boundaries.

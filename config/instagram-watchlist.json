@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-20",
+  "authorization": "The user explicitly selected these 17 handles for opportunity monitoring. Selection is not proof of account identity, API eligibility or access.",
+  "scope": "Separate user-selected watchlist; the Stage 0 source registry remains unchanged.",
+  "automatic_collection_enabled": false,
+  "posts_access": "setup_needed; conditional Meta Business Discovery route, not live-proven",
+  "stories_access": "manual_only; no proven arbitrary-target Stories route",
+  "paid_connectors_enabled": false,
+  "calendar_writes_enabled": false,
+  "credential_values_included": false,
+  "accounts": [
+    {
+      "source_id": "instagram-clubdownunderfsu",
+      "handle": "clubdownunderfsu",
+      "profile_url": "https://www.instagram.com/clubdownunderfsu/",
+      "focus": "Concerts, comedy, speakers and special events",
+      "categories": [
+        "concerts",
+        "comedy",
+        "speakers",
+        "special_events"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsustudentengagement",
+      "handle": "fsustudentengagement",
+      "profile_url": "https://www.instagram.com/fsustudentengagement/",
+      "focus": "Student organizations and involvement",
+      "categories": [
+        "clubs",
+        "involvement"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsustudentaffairs",
+      "handle": "fsustudentaffairs",
+      "profile_url": "https://www.instagram.com/fsustudentaffairs/",
+      "focus": "Campus-wide and major announcements",
+      "categories": [
+        "campus_announcements"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsustudentunion",
+      "handle": "fsustudentunion",
+      "profile_url": "https://www.instagram.com/fsustudentunion/",
+      "focus": "Student Union events and entertainment",
+      "categories": [
+        "events",
+        "entertainment"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-aslc_fsu",
+      "handle": "aslc_fsu",
+      "profile_url": "https://www.instagram.com/aslc_fsu/",
+      "focus": "Cinema and Student Life Cinema opportunities",
+      "categories": [
+        "films",
+        "cinema"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsuhomecoming",
+      "handle": "fsuhomecoming",
+      "profile_url": "https://www.instagram.com/fsuhomecoming/",
+      "focus": "Homecoming announcements and ticket information",
+      "categories": [
+        "homecoming",
+        "ticket_information"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsusga",
+      "handle": "fsusga",
+      "profile_url": "https://www.instagram.com/fsusga/",
+      "focus": "Student government and leadership",
+      "categories": [
+        "leadership",
+        "student_government"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsucampusrec",
+      "handle": "fsucampusrec",
+      "profile_url": "https://www.instagram.com/fsucampusrec/",
+      "focus": "Outdoor trips, recreation and activities",
+      "categories": [
+        "outdoors",
+        "recreation"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsuhonors",
+      "handle": "fsuhonors",
+      "profile_url": "https://www.instagram.com/fsuhonors/",
+      "focus": "Honors opportunities",
+      "categories": [
+        "honors",
+        "academic"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsucareercenter",
+      "handle": "fsucareercenter",
+      "profile_url": "https://www.instagram.com/fsucareercenter/",
+      "focus": "Recruiting, employers and career opportunities",
+      "categories": [
+        "careers",
+        "employers",
+        "recruiting"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsuip",
+      "handle": "fsuip",
+      "profile_url": "https://www.instagram.com/fsuip/",
+      "focus": "Study abroad and international programs",
+      "categories": [
+        "study_abroad"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsucge",
+      "handle": "fsucge",
+      "profile_url": "https://www.instagram.com/fsucge/",
+      "focus": "Cultural and global experiences",
+      "categories": [
+        "culture",
+        "global_experiences"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-thecenterfsu",
+      "handle": "thecenterfsu",
+      "profile_url": "https://www.instagram.com/thecenterfsu/",
+      "focus": "Service and leadership",
+      "categories": [
+        "service",
+        "leadership"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsusustainable",
+      "handle": "fsusustainable",
+      "profile_url": "https://www.instagram.com/fsusustainable/",
+      "focus": "Sustainability opportunities",
+      "categories": [
+        "sustainability"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsucre",
+      "handle": "fsucre",
+      "profile_url": "https://www.instagram.com/fsucre/",
+      "focus": "UROP, research, IDEA Grants and Global Scholars",
+      "categories": [
+        "research",
+        "urop",
+        "idea_grants",
+        "global_scholars"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsucosspp",
+      "handle": "fsucosspp",
+      "profile_url": "https://www.instagram.com/fsucosspp/",
+      "focus": "Social sciences and public policy",
+      "categories": [
+        "social_sciences",
+        "public_policy"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    },
+    {
+      "source_id": "instagram-fsucossppslc",
+      "handle": "fsucossppslc",
+      "profile_url": "https://www.instagram.com/fsucossppslc/",
+      "focus": "College organizations and involvement",
+      "categories": [
+        "college_organizations",
+        "involvement"
+      ],
+      "selection_evidence": "user_provided",
+      "identity_verification": "unverified",
+      "professional_account_eligibility": "unverified",
+      "adapter": "unconfigured",
+      "enabled": false,
+      "cadence_seconds": null,
+      "status": "setup_needed",
+      "posts_access": "not_proven",
+      "stories_access": "manual_only"
+    }
+  ]
+}

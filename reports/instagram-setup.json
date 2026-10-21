@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "selectedAccounts": 17,
+  "configuredAtUtc": "2026-10-21T00:16:08.194499Z",
+  "verifiedAtUtc": "2026-10-21T00:19:40.648936Z",
+  "sourcesBefore": 59,
+  "sourcesAfter": 76,
+  "instagramRowsInserted": 17,
+  "instagramRowsSetupNeededDisabledWithoutAttempts": 17,
+  "onlyEnabledSources": [
+    "fsu-calendar-api",
+    "fsu-music-events"
+  ],
+  "seeding": "Connected SQL INSERT SELECT from existing sole tracker owner, ON CONFLICT DO NOTHING. No credentials or owner identity returned. Normal setup:sources now reproduces these rows.",
+  "meta": {
+    "developerRegistration": "confirmed My Apps UI; user completed registration and final app Terms directly",
+    "appDraftName": "FSU Opportunity Tracker",
+    "useCase": "Manage messaging & content on Instagram",
+    "businessPortfolio": "none available, left unselected",
+    "appCreated": true,
+    "status": "Waiting to establish access to the owner-provided existing professional Instagram account and Facebook Page. Current Facebook managed-Pages view was empty.",
+    "permissionsGranted": [],
+    "tokensStored": false,
+    "businessDiscoveryRequests": 0,
+    "postCollection": "setup_needed; not operational",
+    "stories": "manual_only; arbitrary-target route not proven",
+    "appId": "4387142291430378",
+    "dashboardUrl": "https://developers.facebook.com/apps/4387142291430378/dashboard/",
+    "publishStatus": "Unpublished",
+    "apiSetupRouteViewed": "API setup with Facebook login",
+    "appCapabilitiesReadyForTesting": [
+      "instagram_basic",
+      "instagram_manage_insights",
+      "pages_read_engagement",
+      "pages_show_list"
+    ],
+    "capabilityBoundary": "App may request these capabilities; no owner token or data authorization grant exists. Other optional publishing/messaging/ads/business-management capabilities remain unadded.",
+    "accountIdentifiersOmitted": true,
+    "accountConversionCompleted": false,
+    "conversionReview": "Automatic approval review blocked advancing an unrelated account conversion; user clarified an existing professional account should be used. No bypass or conversion performed.",
+    "privateCapabilityScreenshot": "private/meta-read-capabilities-configured.png"
+  },
+  "paidConnectorsEnabled": false,
+  "calendarWritesEnabled": false
+}

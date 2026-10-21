@@ -1,0 +1,275 @@
+{
+  "checkedAt": "2026-10-21T00:14:24.974116+00:00",
+  "evidenceClass": "actual-hosted-populated-postgresql-rls-read-only",
+  "projectRef": "nuywbvlcwetqjalqvxzb",
+  "transaction": "ISOLATION LEVEL REPEATABLE READ READ ONLY; ROLLBACK",
+  "script": "scripts/hosted-populated-rls-check.sql",
+  "baseline": {
+    "sources": 59,
+    "captures": 5,
+    "checked_at": "2026-10-21T00:14:24.974116+00:00",
+    "occurrences": 342,
+    "owner_count": 1,
+    "source_runs": 2,
+    "field_claims": 1935,
+    "review_inbox": 342,
+    "opportunities": 303,
+    "bucket_private": true,
+    "manual_intakes": 2,
+    "user_decisions": 0,
+    "auth_user_count": 1,
+    "entity_versions": 645,
+    "private_objects": 5
+  },
+  "testCount": 32,
+  "passed": 32,
+  "failed": 0,
+  "checks": [
+    {
+      "test": "owner_role_and_membership",
+      "passed": true,
+      "sql_role": "authenticated"
+    },
+    {
+      "test": "owner_read_sources",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 59,
+      "baseline_rows": 59
+    },
+    {
+      "test": "owner_read_source_runs",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 2,
+      "baseline_rows": 2
+    },
+    {
+      "test": "owner_read_captures",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 5,
+      "baseline_rows": 5
+    },
+    {
+      "test": "owner_read_opportunities",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 303,
+      "baseline_rows": 303
+    },
+    {
+      "test": "owner_read_occurrences",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 342,
+      "baseline_rows": 342
+    },
+    {
+      "test": "owner_read_entity_versions",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 645,
+      "baseline_rows": 645
+    },
+    {
+      "test": "owner_read_field_claims",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 1935,
+      "baseline_rows": 1935
+    },
+    {
+      "test": "owner_read_review_inbox",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 342,
+      "baseline_rows": 342
+    },
+    {
+      "test": "owner_read_user_decisions",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 0,
+      "baseline_rows": 0
+    },
+    {
+      "test": "owner_read_manual_intakes",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 2,
+      "baseline_rows": 2
+    },
+    {
+      "test": "owner_read_private_objects",
+      "passed": true,
+      "sql_role": "authenticated",
+      "visible_rows": 5,
+      "baseline_rows": 5
+    },
+    {
+      "test": "owner_cannot_directly_forge_facts",
+      "passed": true,
+      "sql_role": "authenticated"
+    },
+    {
+      "test": "owner_cannot_bootstrap_membership_or_lease_sources",
+      "passed": true,
+      "sql_role": "authenticated"
+    },
+    {
+      "test": "nonowner_role_and_membership",
+      "passed": true,
+      "sql_role": "authenticated"
+    },
+    {
+      "test": "nonowner_read_sources",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 59
+    },
+    {
+      "test": "nonowner_read_source_runs",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 2
+    },
+    {
+      "test": "nonowner_read_captures",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 5
+    },
+    {
+      "test": "nonowner_read_opportunities",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 303
+    },
+    {
+      "test": "nonowner_read_occurrences",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 342
+    },
+    {
+      "test": "nonowner_read_entity_versions",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 645
+    },
+    {
+      "test": "nonowner_read_field_claims",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 1935
+    },
+    {
+      "test": "nonowner_read_review_inbox",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 342
+    },
+    {
+      "test": "nonowner_read_user_decisions",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 0
+    },
+    {
+      "test": "nonowner_read_manual_intakes",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 2
+    },
+    {
+      "test": "nonowner_read_private_objects",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "authenticated",
+      "populated_baseline_rows": 5
+    },
+    {
+      "test": "anonymous_role_and_membership",
+      "passed": true,
+      "sql_role": "anon"
+    },
+    {
+      "test": "anonymous_read_sources",
+      "passed": true,
+      "result": "SQLSTATE 42501 denied",
+      "sql_role": "anon",
+      "populated_baseline_rows": 59
+    },
+    {
+      "test": "anonymous_read_captures",
+      "passed": true,
+      "result": "SQLSTATE 42501 denied",
+      "sql_role": "anon",
+      "populated_baseline_rows": 5
+    },
+    {
+      "test": "anonymous_read_opportunities",
+      "passed": true,
+      "result": "SQLSTATE 42501 denied",
+      "sql_role": "anon",
+      "populated_baseline_rows": 303
+    },
+    {
+      "test": "anonymous_read_review_inbox",
+      "passed": true,
+      "result": "SQLSTATE 42501 denied",
+      "sql_role": "anon",
+      "populated_baseline_rows": 342
+    },
+    {
+      "test": "anonymous_read_private_objects",
+      "passed": true,
+      "result": "visible_rows=0",
+      "sql_role": "anon",
+      "populated_baseline_rows": 5
+    }
+  ],
+  "scope": "Actual PostgreSQL SQL roles with transaction-local claims; not JWT/HTTP/browser proof",
+  "databaseChanges": 0,
+  "proof": {
+    "populatedOwnerVisibility": true,
+    "nonownerCannotSeePopulatedCatalog": true,
+    "anonymousCannotSeePopulatedCatalog": true,
+    "ownerPrivateStorageMetadataVisible": true,
+    "nonownerPrivateStorageMetadataHidden": true,
+    "realAccountsCreatedForTests": false,
+    "actualOwnerIdentifierReturned": false,
+    "sqlRoleClaimsOnly": true,
+    "signedJwtVerifiedByThisCheck": false,
+    "storageHttpVerifiedByThisCheck": false
+  },
+  "limitations": [
+    "Uses transaction-local SQL claims with actual PostgreSQL authenticated/anon roles. It does not create or verify a signed JWT, login session or browser.",
+    "Owner UID is read internally from the existing single-owner allowlist and is never returned. Non-owner claims use an arbitrary test subject; no second account is created.",
+    "Storage checks exercise existing object metadata and RLS, not HTTP object bytes, signed URLs or browser download.",
+    "The decision table contained zero rows at this snapshot; populated decision visibility and save/reject actions are not demonstrated by this read-only check.",
+    "Source-run/Trigger correlation is recorded separately; this report does not infer provider provenance from counts.",
+    "Counts are a consistent snapshot while collection/browser activity may continue; they are not campus completeness or unique-campus totals."
+  ],
+  "primaryDocumentation": "https://supabase.com/docs/guides/database/postgres/row-level-security",
+  "actions": {
+    "accountsCreated": 0,
+    "ownersCreated": 0,
+    "dataRowsCreated": 0,
+    "schemaChanges": 0,
+    "storageWrites": 0,
+    "keyChanges": 0,
+    "calendarWrites": 0
+  }
+}
