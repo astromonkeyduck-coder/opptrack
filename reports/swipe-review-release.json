@@ -5,7 +5,8 @@
   "published_design_commits": [
     "8a3bdf155b1a0ff37ff9cb10c38d88a345805576",
     "2220b4c",
-    "b22f9982d56a268ee939ef939ce62dc638b4fe2c"
+    "b22f9982d56a268ee939ef939ce62dc638b4fe2c",
+    "0ab72ad663bd6866326628bedb74fd520048b191"
   ],
   "final_polish_publish": {
     "verified_commit": "b22f9982d56a268ee939ef939ce62dc638b4fe2c",
@@ -14,7 +15,27 @@
       "conclusion": "success"
     },
     "live_fingerprint": "Known card end time and seven-day testing notice rendered; controls moved up to842.398px in1028px desktop viewport",
-    "calendar_lane_refinement": "pending next commit publish"
+    "calendar_lane_refinement": {
+      "verified_commit": "0ab72ad663bd6866326628bedb74fd520048b191",
+      "github_checks": {
+        "run_id": 39659751264,
+        "conclusion": "success"
+      },
+      "live_render": {
+        "timed_google_events": 12,
+        "candidate_rails": 1,
+        "overlap_lane_width": "33.3333% for observed three-lane cluster",
+        "opaque_candidate_overlay": false,
+        "desktop_overflow": false,
+        "mobile_scroll_width": 390,
+        "mobile_viewport": [
+          390,
+          844
+        ],
+        "mobile_controls_bottom": 828.9296875
+      },
+      "screenshots": "ignored private/swipe-inbox-desktop.png and private/swipe-inbox-mobile.png"
+    }
   },
   "test_results": {
     "npm_test": 170,
@@ -73,7 +94,9 @@
     "documented_refresh_grant_lifetime_days": 7,
     "live_refresh_verified": false,
     "live_disconnect_verified": false,
-    "billing_activation": false
+    "billing_activation": false,
+    "connection_updated_at_observed": "2026-10-21T18:19:55.783372Z",
+    "refresh_evidence_limit": "Connection timestamp advanced after first hour; provider token-exchange trace was not inspected, so a complete live refresh audit is not claimed."
   },
   "anonymous_http": {
     "/": 200,
@@ -97,6 +120,7 @@
     "event_images": "one fixed-host metadata read pernewuncachedCentralevent, onehourcache; browserretrievesvalidatedpublicimage"
   },
   "remaining_gaps": [
+    "Latest Instagram access blocked for all27 despite prior full27 SQL-recorded scheduled success; cause unresolved",
     "Live token refresh and Testing seven-day reconnection",
     "Physical touch-device testing",
     "Hosted intake/download/backup and full Stage1 gaps in docs/status.md are unchanged"
@@ -109,5 +133,22 @@
       "tracker_members RLS has no direct policy by design",
       "leaked-password protection disabled; no paid upgrade enabled"
     ]
+  },
+  "instagram_latest_recheck": {
+    "checked_at_utc": "2026-10-21T19:17:06Z",
+    "latest_attempt": "2026-10-21T19:11:24.466Z\u201319:11:43.363Z",
+    "latest_run_id": "run_06glvnqav5e3k66hjcsva09v01",
+    "invocation_kind_database": "scheduled",
+    "nominal_at_utc": "2026-10-21T19:00:00Z",
+    "blocked_accounts": 27,
+    "reason": "Instagram target access failed (Graph200/unknown); cause unresolved",
+    "previous_success_run_id": "run_06glva2r0qug1kf835ikpr7h01",
+    "previous_success_nominal_utc": "2026-10-21T18:00:00Z",
+    "previous_success_started_at_utc": "2026-10-21T18:11:13.491Z",
+    "previous_success_finished_at_utc": "2026-10-21T18:11:33.163Z",
+    "previous_success_accounts": 27,
+    "retained_posts_usable": true,
+    "trigger_ui_crosscheck_repeated": false,
+    "new_scopes_or_credentials_changed_for_instagram": false
   }
 }

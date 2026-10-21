@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-10-21",
-  "status": "configured_27_accounts_manual_expansion_verified_full_schedule_pending",
+  "status": "review_redesign_live_calendar_readonly_verified_instagram_latest_blocked",
   "web_host": "netlify",
   "worker_host": "trigger.dev-cloud",
   "hosted_targets": {
@@ -462,5 +462,12 @@
     "active_inventory_overlaps": 26,
     "inactive_candidates": 183,
     "activation_scope": "11 additional successes explicitly authorized;other183 remaininactive"
+  },
+  "latest_review_release": {
+    "commit": "0ab72ad663bd6866326628bedb74fd520048b191",
+    "live_verified": true,
+    "github_checks_run": 39659751264,
+    "report": "reports/swipe-review-release.json",
+    "instagram_latest_access": "27blocked Graph200/unknown at19:11UTC; previous27success18:11UTC; causeunresolved"
   }
 }
