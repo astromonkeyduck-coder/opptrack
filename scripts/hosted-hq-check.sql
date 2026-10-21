@@ -30,4 +30,3 @@ begin
 end $$;
 select current_setting('tracker.hq_audit')::jsonb as hq_policy_checks;
 rollback;
-

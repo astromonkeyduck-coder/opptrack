@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-21T23:28:00Z",
+  "recordedAt": "2026-10-21T23:31:59Z",
   "status": "cloud_manual_ingestion_verified; automatic_HQ_tick_pending",
   "implementation": {
     "workerCommit": "5562c54f50c6485d945d36cfec3bf7482bac93d1",
@@ -9,7 +9,13 @@
     "webVerifiedLive": true,
     "githubChecksRun": 39690552179,
     "githubChecksConclusion": "success",
-    "displayFollowup": "Eastern card/list instants and ongoing-today anchor tested; next deployment"
+    "displayFollowup": {
+      "commit": "097b8c52e67f5809bf1b1ebf3d98c5710ee48400",
+      "githubChecksRun": 39693665624,
+      "githubChecksConclusion": "success",
+      "webVerifiedLive": true,
+      "evidence": "Authenticated browser shows NavNight Wednesday October 21 8:00\u20139:30 PM EDT and the ongoing October 14\u201328 source span anchored to today October 21. Original source timezone remains visible in Details."
+    }
   },
   "migration": {
     "local": "20261021193109_hq_public_collector.sql",
@@ -90,7 +96,9 @@
     "newEventsCreated": 0,
     "savePassOnlyTrackerState": true,
     "privateBackupsIgnored": true,
-    "privateBackupsMode": "0600"
+    "privateBackupsMode": "0600",
+    "finalHostedDisplayVerified": true,
+    "hostedProof": "Ignored private/final-clean-calendar.png shows manual draft control and preserved classes; personal titles remain excluded from committed evidence."
   },
   "commands": [
     {
@@ -123,7 +131,7 @@
     },
     {
       "command": "git push origin main",
-      "result": "5562c54 pushed"
+      "result": "5562c54 and 097b8c5 pushed; both GitHub workflows succeeded"
     }
   ],
   "existingSecurityAdvisors": {
