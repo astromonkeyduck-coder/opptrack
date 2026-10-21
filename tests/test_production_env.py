@@ -1,5 +1,6 @@
 """Meaningful production configuration boundaries. All values are synthetic."""
 import importlib.util
+import base64
 import json
 from pathlib import Path
 import unittest
@@ -60,6 +61,57 @@ class ProductionEnvironmentTests(unittest.TestCase):
             values = valid_values(target)
             values[key] = 'true'
             self.assertTrue(env.check_values(CONTRACT['targets'][target], values))
+
+    def test_optional_google_read_credentials_are_complete_server_only_group(self):
+        values = valid_values('netlify')
+        google_values = {
+            'GOOGLE_CLIENT_ID': 'synthetic-client.apps.googleusercontent.com',
+            'GOOGLE_CLIENT_SECRET': 'SYNTHETIC_GOOGLE_CLIENT_SECRET',
+            'CALENDAR_TOKEN_ENCRYPTION_KEY': base64.b64encode(bytes(range(32))).decode('ascii'),
+        }
+        # An unconfigured integration remains optional; a partial one is a setup error.
+        self.assertEqual(env.check_values(CONTRACT['targets']['netlify'], values), [])
+        for key, value in google_values.items():
+            partial = dict(values, **{key: value})
+            errors = env.check_values(CONTRACT['targets']['netlify'], partial)
+            self.assertTrue(errors)
+            self.assertTrue(any('required with the other google_calendar_readonly variables' in error for error in errors))
+            self.assertNotIn(value, str(errors))
+        values.update(google_values)
+        self.assertEqual(env.check_values(CONTRACT['targets']['netlify'], values), [])
+        self.assertEqual(values['CALENDAR_WRITES_ENABLED'], 'false')
+        for key in google_values:
+            rule = CONTRACT['targets']['netlify']['variables'][key]
+            self.assertEqual(rule['scopes'], ['functions'])
+            self.assertFalse(key.startswith('NEXT_PUBLIC_'))
+
+    def test_google_encryption_key_requires_exact_canonical_32_byte_base64(self):
+        values = valid_values('netlify')
+        values.update(GOOGLE_CLIENT_ID='synthetic-client.apps.googleusercontent.com',
+                      GOOGLE_CLIENT_SECRET='SYNTHETIC_GOOGLE_CLIENT_SECRET')
+        for bad in ('SYNTHETIC_NOT_BASE64', base64.b64encode(bytes(16)).decode('ascii'),
+                    base64.b64encode(bytes(33)).decode('ascii'), 'A' * 42 + 'B=',
+                    base64.b64encode(bytes(32)).decode('ascii').rstrip('=')):
+            values['CALENDAR_TOKEN_ENCRYPTION_KEY'] = bad
+            errors = env.check_values(CONTRACT['targets']['netlify'], values)
+            self.assertTrue(any('canonical base64' in error for error in errors))
+            self.assertNotIn(bad, str(errors))
+
+    def test_google_credentials_and_tokens_never_belong_in_trigger_or_public_variables(self):
+        for key in ('GOOGLE_CLIENT_ID', 'GOOGLE_CLIENT_SECRET', 'CALENDAR_TOKEN_ENCRYPTION_KEY',
+                    'GOOGLE_ACCESS_TOKEN', 'GOOGLE_REFRESH_TOKEN'):
+            values = valid_values('trigger')
+            values[key] = 'SYNTHETIC_PRIVATE_GOOGLE_VALUE'
+            errors = env.check_values(CONTRACT['targets']['trigger'], values)
+            self.assertTrue(any('forbidden in this target' in error for error in errors))
+            self.assertNotIn(values[key], str(errors))
+        for key in ('NEXT_PUBLIC_GOOGLE_CLIENT_SECRET', 'NEXT_PUBLIC_CALENDAR_TOKEN_ENCRYPTION_KEY',
+                    'GOOGLE_ACCESS_TOKEN', 'GOOGLE_REFRESH_TOKEN'):
+            values = valid_values('netlify')
+            values[key] = 'SYNTHETIC_PRIVATE_GOOGLE_VALUE'
+            errors = env.check_values(CONTRACT['targets']['netlify'], values)
+            self.assertTrue(any('forbidden in this target' in error for error in errors))
+            self.assertNotIn(values[key], str(errors))
 
     def test_social_enablement_requires_worker_only_read_credentials(self):
         values = valid_values('trigger')

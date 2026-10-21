@@ -1,0 +1,39 @@
+{
+  "run_at": "2026-10-21T15:25:55.715Z",
+  "engine": "PGlite 0.5.10 (PostgreSQL WASM)",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql"
+  ],
+  "passed": 18,
+  "checks": [
+    "all migrations including review undo execute on PostgreSQL",
+    "anonymous cannot invoke review or undo RPCs",
+    "another authenticated user cannot review or undo owner items",
+    "authenticated role without a user cannot invoke privileged review",
+    "review returns the committed decision identity and actual prior undecided state",
+    "undo restores undecided using an audit marker without deleting history",
+    "repeated undo cannot replay or add another audit entry",
+    "a later review after clear returns null as its actual previous decision",
+    "undo of a changed review restores the actual previous saved state",
+    "forged previous state is rejected atomically",
+    "immutable decision guard rejects stale undo even after an identical newer review",
+    "undo cannot use a decision identity from another occurrence",
+    "source revision changes reject save and undo without changing the decision",
+    "only save and reject are accepted as direct user review actions",
+    "invalid undo arguments are denied before any mutation",
+    "owner cannot directly insert clear markers or mutate/delete audit rows",
+    "inbox view retains invoker security and functions pin an empty search path",
+    "review/undo adds no calendar or delivery execution table"
+  ],
+  "fixture_data": "Synthetic records only; not live event ingestion evidence",
+  "not_tested": [
+    "Hosted Auth HTTP/JWT verification",
+    "Independent concurrent PostgreSQL connections",
+    "Hosted browser gestures"
+  ]
+}

@@ -25,11 +25,27 @@ The 209-account inventory was imported inactive; 29 high-priority read checks la
 
 Follow [deployment](deployment.md), `config/production-environments.json` and the separate example templates. Netlify main auto-publishes Next.js with pinned OpenNext `5.16.4`, one server and one edge function. New code needs its own published commit confirmation; a local build alone is insufficient.
 
-- **Netlify Production:** APP_URL, NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, CALENDAR_WRITES_ENABLED=false, INBOUND_EMAIL_ENABLED=false. Existing Free controls use all scopes; only public configuration/nonsecret flags belong here. Rebuild after public build-value changes. No server/Instagram secret.
+- **Netlify Production:** APP_URL, NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, CALENDAR_WRITES_ENABLED=false, INBOUND_EMAIL_ENABLED=false. Optional separately authorized Google reads add GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and CALENDAR_TOKEN_ENCRYPTION_KEY to server functions only, never NEXT_PUBLIC or Trigger. Those three values are not yet confirmed configured. Existing Free controls use all scopes; do not upgrade. Rebuild after public build-value changes. No Supabase server or Instagram secret belongs here.
 - **Trigger Production only:** APP_URL, SUPABASE_URL, protected SUPABASE_SECRET_KEY, EMAIL_DELIVERY_ENABLED=false, CALENDAR_WRITES_ENABLED=false, SOCIAL_COLLECTION_ENABLED=true, protected IG_FB_USER_ACCESS_TOKEN and protected IG_CALLER_USER_ID. Use IG_TOKEN_EXPIRES_AT only for a verified expiry. Development remains separate.
 - **Local probes:** ignored mode-600 `.env.instagram.probe.local` is separate from development/web files. Deployment-account tokens and transient Meta App Secrets do not belong in application runtime templates or Git. The production collector never needs the App Secret.
 
 Credential hygiene limitation: a Meta diagnostic tool automatically displayed test User/App tokens during setup; the longer-lived production token and raw App Secret were not printed and no credentials entered Git. Preserve this disclosure in the run evidence. Do not automatically rotate credentials or disable the working monitor without the user's instruction.
+
+## Optional personal Google Calendar reads
+
+The owner separately authorized read-only Google Calendar access beside the event review cards. This does not enable writes or turn saved tracker items into Google events. Read [the complete calendar setup/runbook](calendar-readonly.md) before configuration; all provider calls tested locally so far use synthetic responses.
+
+The dedicated project `iron-radio-512315-g3` was created without billing activation. Complete Calendar API/OAuth Web client setup without enabling a paid service. Register only the exact production callback `https://luxury-longma-01d2fa.netlify.app/api/calendar/callback`, and add the owner as a test user if Google remains in Testing. Testing-mode tokens may have short lifetimes; durable refresh remains a separate live check.
+
+Apply local forward migration `202610200006_google_calendar_readonly.sql` after the existing sequence and record its real hosted version/policy results. It is not included in the four historically verified hosted migrations above. It stores only owner-bound AES-256-GCM ciphertext in a private RLS table, using authenticated owner RPCs and UUID revision guards; Netlify does not need a Supabase server key.
+
+Privately configure the three optional Netlify server values together: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and stable `CALENDAR_TOKEN_ENCRYPTION_KEY` (exactly 32 random bytes encoded as canonical base64). Never print them or place them in Trigger, browser code, Git or chat. Keep `CALENDAR_WRITES_ENABLED=false`; changing the encryption key requires reconnection. The app reports `unconfigured` if credentials are absent or invalid.
+
+Connect from the authenticated tracker, complete Google's read-only consent directly, and verify: exact `calendar.events.readonly` grant, state/callback owner binding, primary-calendar GET reads, valid empty versus errors, a bounded seven-day Eastern window, explicit partial/truncation notices, refresh after access-token expiry, and owner/other-user/anonymous access. No attendees, descriptions or locations are returned by this panel, and personal event data is not retained in source/event tables. Record actual requests/results; a button or local test does not prove live access.
+
+Disconnect deletes local ciphertext and attempts Google revocation. Google's revocation can invalidate every client/scope under the same Cloud project, so keep this dedicated project separate from unrelated apps. If revocation cannot be confirmed, preserve the warning and let the owner inspect Google Account permissions directly. Calendar writes, RSVP, purchase and reminders remain disabled.
+
+The focused local command `node --import tsx --test tests/calendar.test.ts` passed 20 checks, including five real PostgreSQL owner/anonymous/other-user/revision subchecks. These are synthetic-provider/local-SQL evidence, separate from hosted OAuth and signed-JWT policy verification.
 
 ## Dispatcher, cadence and recovery
 
@@ -71,4 +87,4 @@ Capture retention target is 30 days after latest fresh capture; manual media tar
 
 Open Stage 1 gates include the full 27-account genuine scheduled run and credential-renewal handling, known-object owner/nonowner/anonymous Storage HTTP and downloaded-body integrity, hosted file intake, event decisions surviving repeated collection, distributed contention/recovery, restore and safe retention. Record a user-confirmed powered-off interval and actual Cloud/SQL commits inside it; include Music's six-hour window before claiming both core sources continued. The observed scheduled runs occurred while the laptop was active.
 
-Stories, media contents, full social history, older edits/deletions, HQ/member scope and ticket availability remain gaps. No calendar code/write OAuth, RSVP, purchase, organizer messaging, email send, paid connector or upgrade is enabled. Stop after Stage 1.
+Stories, media contents, full social history, older edits/deletions, HQ/member scope and ticket availability remain gaps. Optional Google read routes are implemented, with live setup/consent still pending; no calendar write scope or event-mutation code exists. RSVP, purchase, organizer messaging, email send, paid connector and upgrades remain disabled. Stop after Stage 1 and the separately authorized read-only integration.

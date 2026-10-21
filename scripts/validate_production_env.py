@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import base64
+import binascii
 from datetime import datetime
 import ipaddress
 import json
@@ -46,6 +48,15 @@ def check_values(spec, values):
     for key in sorted(unknown):
         errors.append(f'{key}: forbidden in this target' if key in spec['forbidden_variables']
                       else f'{key}: not declared for this target')
+    # Optional integrations are either absent or configured as one complete group.
+    # Report names only; even malformed credentials must never enter diagnostics.
+    features = {rule['feature'] for rule in spec['variables'].values() if rule.get('feature')}
+    for feature in sorted(features):
+        group = [key for key, rule in spec['variables'].items() if rule.get('feature') == feature]
+        if any(values.get(key, '').strip() for key in group):
+            for key in group:
+                if not values.get(key, '').strip():
+                    errors.append(f'{key}: required with the other {feature} variables')
     for key, rule in spec['variables'].items():
         value = values.get(key, '')
         required = rule.get('required', False) or any(values.get(k) == v for k, v in rule.get('required_when', {}).items())
@@ -84,6 +95,14 @@ def check_values(spec, values):
             errors.append(f'{key}: invalid opaque token format')
         elif rule['type'] == 'numeric_id' and not re.fullmatch(r'[0-9]{1,32}', value):
             errors.append(f'{key}: numeric caller account ID required')
+        elif rule['type'] == 'base64_32':
+            try:
+                decoded = base64.b64decode(value, validate=True)
+                valid = len(decoded) == 32 and base64.b64encode(decoded).decode('ascii') == value
+            except (ValueError, binascii.Error):
+                valid = False
+            if not valid:
+                errors.append(f'{key}: exactly 32 random bytes encoded as canonical base64 required')
         elif rule['type'] == 'iso_instant':
             try:
                 if not re.search(r'(Z|[+-][0-9]{2}:?[0-9]{2})$', value):

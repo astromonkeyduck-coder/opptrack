@@ -84,7 +84,7 @@ test('collection attention is derived from enabled database health and retains p
   assert.ok(html.includes('Blocked: 2 · Failed: 1 · Rate limited: 1 · Partial: 1'));
   assert.ok(html.includes('Previously collected posts remain available'));
   assert.ok(html.includes('does not mean there are no new posts'));
-  assert.ok(html.includes('href="#instagram-source-health"'));
+  assert.ok(html.includes('href="/sources"'));
   assert.ok(!html.includes('token expired'));
 });
 

@@ -16,7 +16,21 @@ Site [luxury-longma-01d2fa](https://luxury-longma-01d2fa.netlify.app) tracks mai
 | CALENDAR_WRITES_ENABLED | `false` |
 | INBOUND_EMAIL_ENABLED | `false` |
 
-Use `.env.netlify.production.example`. Public build values require a rebuild after changes. Existing Free controls lock scopes to all scopes, so only public configuration/nonsecret disabled flags belong here. **No Supabase server secret, Instagram token/caller ID or Meta App Secret belongs on Netlify.** The app uses the signed-in owner's session/RLS and has no worker enqueue, calendar OAuth or inbound-email endpoint.
+Use `.env.netlify.production.example`. Public build values require a rebuild after changes. Existing Free controls lock scopes to all scopes. The verified baseline above contains public configuration/nonsecret disabled flags. The separately authorized optional Google read integration adds server-only credentials below; no paid upgrade is authorized to narrow provider scopes. Server values must never be prefixed `NEXT_PUBLIC_`, imported by client code, or printed in build logs. **No Supabase server secret, Instagram token/caller ID or Meta App Secret belongs on Netlify.** The app uses the signed-in owner's session/RLS and has no worker enqueue or inbound-email endpoint.
+
+### Optional Google Calendar reads
+
+The user authorized primary Google Calendar reads for the event review panel. Backend routes and encrypted storage are locally implemented and tested; cloud configuration, live consent and real Calendar reads are still pending. The dedicated Google project is `iron-radio-512315-g3`, with no billing activation authorized. Keep calendar writes disabled.
+
+| Additional Netlify variable | Purpose |
+| --- | --- |
+| GOOGLE_CLIENT_ID | Dedicated Web application OAuth client; server functions |
+| GOOGLE_CLIENT_SECRET | Protected client secret; server functions only |
+| CALENDAR_TOKEN_ENCRYPTION_KEY | Stable 32 random bytes as canonical base64; server functions only |
+
+These three variables are optional together: absent or incomplete configuration displays setup-needed instead of pretending calendar access works. No access/refresh token is stored in environment variables. Google credentials and the encryption key never belong in Trigger or browser bundles. No Supabase service key is added to Netlify; existing owner-session RPCs store only AES-256-GCM ciphertext in a private RLS table. Apply forward migration `202610200006_google_calendar_readonly.sql` and verify its hosted policies before real consent; its hosted application is not yet claimed here.
+
+Register exactly `https://luxury-longma-01d2fa.netlify.app/api/calendar/callback` for the Web client. The authenticated same-origin connect action requests only `https://www.googleapis.com/auth/calendar.events.readonly`; state/PKCE and a ten-minute HttpOnly cookie protect the callback. Reads call only the fixed `primary` events endpoint and return minimal event titles/times to the owner. No calendar event is created, changed or deleted. Use a dedicated project because disconnect revocation can affect all clients/scopes under that project. Full setup, failure states, retention boundaries and provider references: [Calendar read runbook](calendar-readonly.md).
 
 Password sign-in uses the actual Netlify Auth Site URL. The user-created confirmed account is already the sole owner; public signup/anonymous sign-in are disabled and confirmation remains enabled. Do not invent another login or replace ownership. Keep preview/development settings separate.
 
@@ -34,6 +48,8 @@ Existing project `nuywbvlcwetqjalqvxzb` has these immutable migrations:
 | `202610200004_instagram_27_accounts.sql` | `20261021142636` |
 
 Inspect history before applying/retrying; a new environment applies all in order. The Supabase CLI was unavailable locally, so 003/004 followed the repository's existing sequence. Management access is separate from application API keys.
+
+The optional calendar migration 006 is a new local forward migration, separate from the four verified hosted versions above. It creates `tracker_private.google_calendar_connections` with RLS, ciphertext-only fields and owner-checked encrypted get/put/delete RPCs. UUID revision guards prevent stale refreshes from overwriting a newer connection. It adds no source, calendar write, service key, approval or outbox. Record its actual hosted version only after applying and verifying it; local PGlite success is not hosted proof.
 
 Fourteen public tables have RLS. Both `review_inbox` and `instagram_updates_current` are security-invoker; authenticated reads require the sole owner. Captures use a private 5 MiB bucket. Service-only RPCs lease/complete collections; authenticated clients cannot forge source facts or Instagram versions. Source/native identities and content hashes preserve stable posts and append edited versions. Publication metadata stays separate from event/occurrence records.
 
@@ -98,6 +114,6 @@ python3 scripts/validate_production_env.py
 
 Current evidence: 111 application tests, 63 local PostgreSQL checks plus six worker replay checks, 60 Python tests and 33 populated hosted social SQL checks. Local fixtures are separate from live integrations. An authenticated 390×844 viewport passed on `5e1a57d`; physical phone remains untested. Known-object downloads and hosted multi-slide intake are unverified; browser approval/tooling blocks were not bypassed. Two synthetic link-only intake records contain zero files.
 
-Dotenv, captured payloads, rows, screenshots and backups remain ignored. Private capture hashes describe sanitized projections for Instagram, raw bodies for core. Uploaded objects cannot share SQL rollback; safe orphan cleanup and production deletion remain disabled. Other open gates include event decisions after repeated hosted collection, distributed recovery, backup/Storage restore, verified credential renewal, the first genuine full 27-account scheduled tick and a user-confirmed laptop-off interval. Include Music's six-hour due window before claiming both core sources survived laptop shutdown. Stories/full history/media extraction/HQ member coverage/tickets remain gaps. Calendar/email/paid connectors and broader Stage 2 remain disabled.
+Dotenv, captured payloads, rows, screenshots and backups remain ignored. Private capture hashes describe sanitized projections for Instagram, raw bodies for core. Uploaded objects cannot share SQL rollback; safe orphan cleanup and production deletion remain disabled. Other open gates include event decisions after repeated hosted collection, distributed recovery, backup/Storage restore, verified credential renewal, the first genuine full 27-account scheduled tick and a user-confirmed laptop-off interval. Include Music's six-hour due window before claiming both core sources survived laptop shutdown. Stories/full history/media extraction/HQ member coverage/tickets remain gaps. Calendar writes/email/paid connectors and broader Stage 2 remain disabled. Optional owner-authorized Google reads require their separate live OAuth, refresh, private-access and bounded-event verification before being called operational.
 
 Primary references: [Netlify OpenNext](https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/), [environment scopes](https://docs.netlify.com/build/environment-variables/overview/), [Supabase SSR](https://supabase.com/docs/guides/auth/server-side/creating-a-client), [Storage policies](https://supabase.com/docs/guides/storage/security/access-control), [Trigger environments](https://trigger.dev/docs/deploy-environment-variables), and [Trigger schedules](https://trigger.dev/docs/tasks/scheduled). Provider documentation is separate from project evidence.

@@ -76,7 +76,7 @@ export function InstagramCollectionAttention({ sources }: { sources: InstagramSo
   return <section className="notice" role="alert" aria-label="Instagram collection needs attention">
     <strong>Collection needs attention for {affected.length} enabled account{affected.length === 1 ? '' : 's'}.</strong>
     <p>{reasons.join(' · ')}. Current successful monitoring is not established for these accounts.</p>
-    <p>Previously collected posts remain available below. A failed or incomplete read does not mean there are no new posts. <a href="#instagram-source-health">Review collector health below</a> for the recorded reason and next steps.</p>
+    <p>Previously collected posts remain available below. A failed or incomplete read does not mean there are no new posts. <a href="/sources">Review collector health</a> for the recorded reason and next steps.</p>
   </section>;
 }
 
@@ -86,14 +86,22 @@ function postTimestamp(value: string) {
 
 export function InstagramPostCard({ row, handle }: { row: InstagramPostRow; handle: string }) {
   const url = safeInstagramPostUrl(row.permalink);
-  return <article className="manual-item">
-    <div className="tags"><span>@{handle}</span><span>{row.media_product_type === 'REELS' ? 'Reel' : row.media_type === 'CAROUSEL_ALBUM' ? 'Carousel' : row.media_type}</span><span>Unverified post update</span></div>
-    <h3>Published {postTimestamp(row.published_at)}</h3>
-    <p className="small">Publication time is not an event date. Event details, ticket availability and deadlines have not been extracted or verified.</p>
-    <p>{row.caption || 'No caption was returned. This does not establish that the image or video contains no opportunity.'}</p>
-    {row.media_type === 'CAROUSEL_ALBUM' && <p className="small">{row.children.length} child IDs retained · {row.children_complete ? 'Child metadata complete in this response' : 'Child metadata incomplete'}. Images, videos and text inside them have not been captured or read.</p>}
-    {row.media_type !== 'CAROUSEL_ALBUM' && <p className="small">Media has not been captured or read.</p>}
-    <p className="small">First collected: {postTimestamp(row.first_seen_at)} · Last observed: {postTimestamp(row.last_seen_at)}</p>
-    {url ? <a href={url} target="_blank" rel="noopener noreferrer">Open original Instagram post ↗</a> : <p className="notice">The stored post link could not be verified as a canonical Instagram link.</p>}
+  const caption = row.caption || 'No caption was returned. This does not establish that the image or video contains no opportunity.';
+  const captionCharacters = Array.from(caption);
+  const longCaption = captionCharacters.length > 360;
+  const media = row.media_product_type === 'REELS' ? 'Reel'
+    : row.media_type === 'CAROUSEL_ALBUM' ? 'Carousel'
+    : row.media_type === 'IMAGE' ? 'Photo' : row.media_type === 'VIDEO' ? 'Video' : row.media_type;
+  return <article className="instagram-card">
+    <header className="post-account"><div><strong>@{handle}</strong><time dateTime={Number.isFinite(Date.parse(row.published_at)) ? new Date(row.published_at).toISOString() : undefined}>Published {postTimestamp(row.published_at)}</time></div><span className="post-media">{media}</span></header>
+    <p className="post-caption">{longCaption ? `${captionCharacters.slice(0, 360).join('').trimEnd()}…` : caption}</p>
+    {longCaption && <details className="post-full-caption"><summary>Read full caption</summary><p className="post-caption">{caption}</p></details>}
+    <div className="post-footer">{url ? <a href={url} target="_blank" rel="noopener noreferrer">Open original Instagram post <span aria-hidden="true">↗</span></a> : <p className="notice">The stored post link could not be verified as a canonical Instagram link.</p>}</div>
+    <details className="post-details"><summary>Post details</summary>
+      <p>Publication time is not an event date. Event details, ticket availability and deadlines have not been extracted or verified.</p>
+      {row.media_type === 'CAROUSEL_ALBUM' && <p>{row.children.length} child IDs retained · {row.children_complete ? 'Child metadata complete in this response' : 'Child metadata incomplete'}. Images, videos and text inside them have not been captured or read.</p>}
+      {row.media_type !== 'CAROUSEL_ALBUM' && <p>Media has not been captured or read.</p>}
+      <p>First collected: {postTimestamp(row.first_seen_at)}<br />Last observed: {postTimestamp(row.last_seen_at)}</p>
+    </details>
   </article>;
 }

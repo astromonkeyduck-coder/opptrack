@@ -6,10 +6,10 @@ import { signIn } from './actions';
 
 export const dynamic = 'force-dynamic';
 const messages: Record<string, string> = {
-  invalid_login: 'Sign-in did not succeed. Check your existing Supabase account and try again.',
-  not_allowed: 'Your account is signed in, but the owner allowlist has not granted access. Complete the owner setup in the runbook.',
-  database_unavailable: 'The private database could not be verified. Apply the migrations and check service health; no catalog was loaded.',
-  auth_unavailable: 'The authentication service could not be reached or verified. Check service access and try again; no private data was loaded.',
+  invalid_login: 'The email or password didn’t match. Please try again.',
+  not_allowed: 'This account doesn’t have access to this private tracker yet.',
+  database_unavailable: 'Your inbox is temporarily unavailable. Please try again in a moment.',
+  auth_unavailable: 'We couldn’t connect to sign-in. Please try again in a moment.',
 };
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ state?: string }> }) {
@@ -18,13 +18,30 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const session = configured ? await trackerSession() : null;
   if (session?.state === 'ready') redirect('/inbox');
   const notice = messages[state || session?.state || ''];
-  return <main>
-    <header><Link className="wordmark" href="/"><span className="mark" aria-hidden="true">F</span>Opportunity Tracker</Link><span className="status">Private campus inbox</span></header>
-    <section className="intro"><p className="eyebrow">Make more of campus</p><h1>Find your next<br />worthwhile thing.</h1><p className="lead">Speakers, concerts, clubs, films, trips, research, and unfamiliar opportunities. Discover broadly, then choose what deserves your time.</p></section>
-    <section className="setup" aria-labelledby="login-heading"><h2 id="login-heading">{configured ? 'Sign in to your review inbox' : 'Connect your private inbox'}</h2>{notice && <p role="alert" className="notice">{notice}</p>}
-      {configured ? <form action={signIn} className="stack"><label>Email<input name="email" type="email" autoComplete="username" required maxLength={254} /></label><label>Password<input name="password" type="password" autoComplete="current-password" required maxLength={1024} /></label><button type="submit">Sign in</button><p className="small">Use the existing Supabase Auth account registered as this tracker’s owner. Public signup is disabled.</p></form> : <><p>Supabase is not configured. Enter the three Supabase values and Trigger development key in <code>.env.local</code>, then restart the local app. Apply the migrations and register your existing Auth user with the owner setup command.</p><p className="small">No event catalog has been loaded here. Missing access is a setup requirement.</p></>}
-      <p className="approval">Calendar writes are disabled. Saving an item never adds it to your calendar.</p>
-      <p className="small">Your selected Instagram accounts have a separate private post updates view for captions and links. It supports hourly bounded polling; source health shows what has actually run. Stories remain manual-only.</p>
-    </section><footer><span>Campus comes first.</span><span>Stage 1 · Read, review, and collect.</span></footer>
+  return <main className="auth-page">
+    <header className="auth-header">
+      <Link className="wordmark auth-brand" href="/">opptrack<span className="wordmark-dot" aria-hidden="true">.</span></Link>
+      <span className="auth-location">Florida State · Tallahassee</span>
+    </header>
+    <div className="auth-layout">
+      <section className="auth-story" aria-labelledby="welcome-heading">
+        <p className="kicker">A private place to keep up</p>
+        <h1 id="welcome-heading">There’s more<br />to campus.</h1>
+        <p className="auth-description">Live music, a film after class, a new club, your next opportunity. Keep the things you might want to do in one place.</p>
+        <div className="auth-caption"><span className="auth-caption-line" aria-hidden="true" /><p>Find something.<br />Make it your thing.</p></div>
+      </section>
+      <section className="auth-form-panel" aria-labelledby="login-heading">
+        <div className="auth-form-heading"><h2 id="login-heading">{configured ? 'Welcome back' : 'Set up your inbox'}</h2><p>{configured ? 'Sign in to see what’s happening.' : 'Connect the tracker to start collecting.'}</p></div>
+        {notice && <p role="alert" className="notice">{notice}</p>}
+        {configured ? <form action={signIn} className="stack auth-form">
+          <label>Email<input name="email" type="email" autoComplete="username" placeholder="you@example.com" required maxLength={254} /></label>
+          <label>Password<input name="password" type="password" autoComplete="current-password" required maxLength={1024} /></label>
+          <button type="submit" className="button-primary">Sign in <span aria-hidden="true">↗</span></button>
+          <p className="form-help">This is a private tracker. Sign in with your existing account.</p>
+        </form> : <div className="auth-setup"><p>Supabase is not configured. Add the three Supabase values and Trigger development key to <code>.env.local</code>, then restart the app. Follow the runbook to apply migrations and grant your existing account access.</p><p className="form-help">No opportunities have been loaded.</p></div>}
+        <p className="auth-note">Your plans are yours. Saving something never adds it to your calendar.</p>
+      </section>
+    </div>
+    <footer className="auth-footer"><span>Built around campus.</span><span>Only you decide what makes the calendar.</span></footer>
   </main>;
 }

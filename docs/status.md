@@ -1,5 +1,14 @@
 # Stage 1 status
 
+## Review interface redesign — October 21
+
+The user explicitly requested a visual swipe deck with deliberate left/right gestures, gradual red/green feedback, undo and a read-only Google Calendar beside the current event. That narrow interface/calendar-read extension is implemented; calendar writes remain disabled and Stage 2 has not started. Save keeps one occurrence in the tracker; Pass rejects only that occurrence. Neither approves calendar attendance or a reminder. A frozen batch and fresh undecided-batch reload avoid skipping items after decisions. Real Central source images are optional authenticated metadata lookups, with source URL validation and a typographic fallback; Instagram media is still unread.
+
+Migrations 005 (guarded review/undo with append-only clear markers) and 006 (owner-only encrypted Google connection) are applied to the hosted project. A rollback audit passed 32/32 SQL role/policy/state checks at `2026-10-21T15:28:11Z`, with no persistent row changes or Google calls. Prior-state and immutable decision-ID guards prevent undo from overwriting another review. Local review migration checks passed 18/18. Google helper tests use synthetic responses and PostgreSQL fixtures; real OAuth/event reads remain pending. Dedicated Google project `iron-radio-512315-g3` has no billing activation; its testing consent app was created after explicit user policy approval. Client creation/configuration is in progress, with no real connection stored yet.
+
+Initial validation: application tests passed 154 before the final eleven calendar-layout tests; type checking and application build passed. `npm run test:db` passed 81 SQL checks plus six worker replays. `make check` passed 63 Python checks plus registry/scenario/template checks. Final combined checks and hosted desktop/mobile verification are pending the design release. See [read-only Calendar](calendar-readonly.md), [hosted audit](../reports/review-calendar-hosted-policy-checks.json), and [review migration checks](../reports/review-undo-database-tests.json).
+
+
 **27 Instagram accounts are enabled hourly. The original 16 are proven on a genuine scheduled cloud run; all 11 newly approved accounts have completed a fresh manual Production collection.** The authenticated feed now contains 677 retained posts/versions, with no duplicate groups. A genuine automatic run covering all 27 is still pending the 15:00 UTC nominal tick (11 am Eastern October 21, with provider spreading). No user-confirmed laptop-off interval has been recorded. Stage 1 remains incomplete; stop before Stage 2.
 
 ## Current hosted behavior

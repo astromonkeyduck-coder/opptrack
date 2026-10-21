@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-10-21T03:02:45.872Z",
+  "runAt": "2026-10-21T15:25:54.909Z",
   "database": "PGlite 0.5.10 actual PostgreSQL WASM",
   "migration": "202610200003_instagram_monitoring.sql",
   "incrementalMigration": "202610200004_instagram_27_accounts.sql",

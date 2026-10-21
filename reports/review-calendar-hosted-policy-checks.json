@@ -1,0 +1,141 @@
+{
+  "scope": "Actual SQL roles and transaction-local claims; not signed-JWT HTTP, crypto or browser proof",
+  "checks": [
+    {
+      "test": "review_view_security_invoker",
+      "passed": true
+    },
+    {
+      "test": "calendar_private_rls",
+      "passed": true
+    },
+    {
+      "test": "calendar_table_not_directly_accessible",
+      "passed": true
+    },
+    {
+      "test": "review_record_authenticated_only_grant",
+      "passed": true
+    },
+    {
+      "test": "review_restore_authenticated_only_grant",
+      "passed": true
+    },
+    {
+      "test": "calendar_get_authenticated_only_grant",
+      "passed": true
+    },
+    {
+      "test": "calendar_put_authenticated_only_grant",
+      "passed": true
+    },
+    {
+      "test": "calendar_delete_authenticated_only_grant",
+      "passed": true
+    },
+    {
+      "test": "owner_membership",
+      "passed": true
+    },
+    {
+      "test": "owner_save_returns_actual_prior",
+      "passed": true
+    },
+    {
+      "test": "undo_clear_preserves_audit_history",
+      "passed": true
+    },
+    {
+      "test": "repeated_undo_denied",
+      "passed": true
+    },
+    {
+      "test": "forged_previous_decision_denied",
+      "passed": true
+    },
+    {
+      "test": "stale_same_action_decision_id_denied",
+      "passed": true
+    },
+    {
+      "test": "stale_review_revision_denied",
+      "passed": true
+    },
+    {
+      "test": "stale_undo_revision_denied",
+      "passed": true
+    },
+    {
+      "test": "owner_calendar_synthetic_ciphertext_roundtrip",
+      "passed": true
+    },
+    {
+      "test": "calendar_stale_update_cas_denied",
+      "passed": true
+    },
+    {
+      "test": "calendar_stale_delete_cas_denied",
+      "passed": true
+    },
+    {
+      "test": "owner_calendar_current_revision_delete",
+      "passed": true
+    },
+    {
+      "test": "nonowner_review_denied",
+      "passed": true
+    },
+    {
+      "test": "nonowner_undo_denied",
+      "passed": true
+    },
+    {
+      "test": "nonowner_calendar_read_denied",
+      "passed": true
+    },
+    {
+      "test": "nonowner_calendar_put_denied",
+      "passed": true
+    },
+    {
+      "test": "nonowner_calendar_delete_denied",
+      "passed": true
+    },
+    {
+      "test": "nonowner_direct_private_table_denied",
+      "passed": true
+    },
+    {
+      "test": "anonymous_review_denied",
+      "passed": true
+    },
+    {
+      "test": "anonymous_undo_denied",
+      "passed": true
+    },
+    {
+      "test": "anonymous_calendar_read_denied",
+      "passed": true
+    },
+    {
+      "test": "anonymous_calendar_put_denied",
+      "passed": true
+    },
+    {
+      "test": "anonymous_calendar_delete_denied",
+      "passed": true
+    },
+    {
+      "test": "anonymous_direct_private_table_denied",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "checked_at": "2026-10-21T15:28:11.39435+00:00",
+  "test_count": 32,
+  "google_calls": 0,
+  "rollback_required": true,
+  "credential_fixture": "Synthetic format-only bytes; not real encryption or Google credentials",
+  "persistent_row_changes": 0,
+  "identity_sequence_may_advance": true
+}

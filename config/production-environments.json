@@ -80,6 +80,28 @@
           "scopes": [
             "functions"
           ]
+        },
+        "GOOGLE_CLIENT_ID": {
+          "required": false,
+          "type": "string",
+          "secret": false,
+          "scopes": ["functions"],
+          "feature": "google_calendar_readonly"
+        },
+        "GOOGLE_CLIENT_SECRET": {
+          "required": false,
+          "type": "string",
+          "secret": true,
+          "scopes": ["functions"],
+          "feature": "google_calendar_readonly"
+        },
+        "CALENDAR_TOKEN_ENCRYPTION_KEY": {
+          "required": false,
+          "type": "base64_32",
+          "secret": true,
+          "scopes": ["functions"],
+          "feature": "google_calendar_readonly",
+          "format": "32 random bytes encoded as canonical base64; enforced by offline validation and server runtime"
         }
       },
       "forbidden_variables": [
@@ -89,8 +111,10 @@
         "RESEND_API_KEY",
         "IG_ACCESS_TOKEN",
         "APIFY_TOKEN",
-        "GOOGLE_CLIENT_SECRET",
+        "GOOGLE_ACCESS_TOKEN",
         "GOOGLE_REFRESH_TOKEN",
+        "NEXT_PUBLIC_GOOGLE_CLIENT_SECRET",
+        "NEXT_PUBLIC_CALENDAR_TOKEN_ENCRYPTION_KEY",
         "TRIGGER_ACCESS_TOKEN",
         "NETLIFY_AUTH_TOKEN",
         "IG_FB_USER_ACCESS_TOKEN",
@@ -176,7 +200,12 @@
         "TRIGGER_SECRET_KEY",
         "TRIGGER_ACCESS_TOKEN",
         "NETLIFY_AUTH_TOKEN",
-        "RESEND_WEBHOOK_SECRET"
+        "RESEND_WEBHOOK_SECRET",
+        "GOOGLE_CLIENT_ID",
+        "GOOGLE_CLIENT_SECRET",
+        "CALENDAR_TOKEN_ENCRYPTION_KEY",
+        "GOOGLE_ACCESS_TOKEN",
+        "GOOGLE_REFRESH_TOKEN"
       ]
     }
   },
@@ -185,8 +214,8 @@
     "87 database source rows,29 enabled:27 Instagram plus Central/Music. Current677 posts/versions45 private sanitized captures; zero duplicate groups. Current core345 opportunities393 occurrences.",
     "Four immutable migrations applied, including004 hosted20261021142636;004 changes only social lease ceiling27 and preserves core priority/UTC slots/RLS/storage. Initial unknown request was confirmed unapplied before verified retry.",
     "Trigger deployment5k9yr7qh/version20261021.7 atcommit20738287729e018b7ee6d2cf58e3955a089d2b1d is verified, Free plan unchanged. Existing single hourly60m-window schedule remains active.",
-    "Netlify Production holds public app/Supabase configuration and false calendar/inbound flags only. Supabase server secret and Meta User token/caller ID stay Trigger Production-only, with verified expiry; Development remains separate.",
-    "Calendar/email execution, media/OCR/Stories, paid connectors/upgrades and unapproved candidate activation stay disabled. Laptop-off interval and remaining Stage1 restore/Storage checks are unverified.",
+    "Netlify Production currently holds public app/Supabase configuration and false calendar/inbound flags. Optional separately authorized Google Calendar reads add GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and CALENDAR_TOKEN_ENCRYPTION_KEY to Netlify server functions only; their setup and live OAuth are not yet verified. Supabase server secret and Meta User token/caller ID stay Trigger Production-only; Development remains separate.",
+    "Calendar writes/email execution, media/OCR/Stories, paid connectors/upgrades and unapproved candidate activation stay disabled. Optional Google reads do not authorize event mutations. Laptop-off interval and remaining Stage1 restore/Storage checks are unverified.",
     "fsu_cre is its own successful source; blockedfsucre is not merged or enabled. The three blocked high-priority candidates and180 standard candidates remain inactive; aliases unverified.",
     "Historical token-expired schedule and successful recovery remain in dated reports. User-token expiry is2026-12-20T00:40:44.610662Z; automatic renewal is not established."
   ],
@@ -201,7 +230,7 @@
       "disabled_flags_confirmation": "confirmed_saved; CALENDAR_WRITES_ENABLED=false and INBOUND_EMAIL_ENABLED=false",
       "provider_variable_scope": "all scopes; narrower scopes locked on existing Free plan",
       "production_context_only": true,
-      "scope_values": "public Supabase pair, public APP_URL and nonsecret disabled flags only",
+      "scope_values": "Verified baseline: public Supabase pair, APP_URL and disabled flags. Optional Google server credentials/encryption key are not yet configured or verified.",
       "stage1_authenticated_deploy_verified": true,
       "production_variables_confirmed": [
         "APP_URL",
@@ -371,6 +400,26 @@
   },
   "latest_monitoring_evidence": "reports/instagram-27-account-expansion.json",
   "hosted_state_as_of": "2026-10-21T14:35:44.214128Z",
+  "optional_features": {
+    "google_calendar_readonly": {
+      "status": "implemented_cloud_configuration_and_live_consent_pending",
+      "explicit_owner_authorization": true,
+      "google_cloud_project": "iron-radio-512315-g3",
+      "billing_activation_authorized": false,
+      "netlify_variables": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "CALENDAR_TOKEN_ENCRYPTION_KEY"],
+      "all_variables_required_together": true,
+      "runtime": "Netlify server functions only; no Trigger or NEXT_PUBLIC credential",
+      "scope": "https://www.googleapis.com/auth/calendar.events.readonly",
+      "calendar": "primary",
+      "writes_enabled": false,
+      "redirect_uri": "https://luxury-longma-01d2fa.netlify.app/api/calendar/callback",
+      "migration": "202610200006_google_calendar_readonly.sql",
+      "migration_hosted_verified": false,
+      "live_oauth_verified": false,
+      "live_event_read_verified": false,
+      "runbook": "docs/calendar-readonly.md"
+    }
+  },
   "inactive_instagram_candidate_inventory": {
     "file": "config/instagram-candidates.json",
     "accounts": 209,
