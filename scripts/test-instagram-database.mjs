@@ -129,7 +129,29 @@ try{
   const core=(await sql("select * from public.sources where id='fsu-calendar-api'"))[0],payload=batch();delete payload.updates;payload.window={};payload.captures[0].evidence_kind='source_response';
   const before=await count('instagram_updates');await role('service_role',null,()=>sql('select public.complete_source_run($1,$2,$3::jsonb)',[core.id,core.lease_token,JSON.stringify(payload)]));assert.equal(await count('instagram_updates'),before);
  });
- const report={runAt:new Date().toISOString(),database:'PGlite 0.5.10 actual PostgreSQL WASM',migration,passed:checks.length,checks,
+ await check('migration 004 changes only the Instagram group ceiling and preserves data, active leases and privileges',async()=>{
+  const beforeDefinition=await scalar("select pg_get_functiondef('tracker_private.lease_due_source_group(text,integer,integer)'::regprocedure)");
+  const beforeSources=await sql('select * from public.sources order by id'),beforePosts=await count('instagram_updates'),beforeVersions=await count('instagram_update_versions');
+  await db.exec(await readFile('supabase/migrations/202610200004_instagram_27_accounts.sql','utf8'));
+  const afterDefinition=await scalar("select pg_get_functiondef('tracker_private.lease_due_source_group(text,integer,integer)'::regprocedure)");
+  assert.equal(afterDefinition,beforeDefinition.replace("case when p_group='instagram' then 16 else 10 end","case when p_group='instagram' then 27 else 10 end"));
+  assert.deepEqual(await sql('select * from public.sources order by id'),beforeSources);assert.equal(await count('instagram_updates'),beforePosts);assert.equal(await count('instagram_update_versions'),beforeVersions);
+  for(const name of ['anon','authenticated','service_role'])assert.equal(await scalar("select has_function_privilege($1,'tracker_private.lease_due_source_group(text,integer,integer)','EXECUTE')",[name]),false);
+ });
+ await check('27 explicitly enabled social routes lease independently while both core producers remain unstarved',async()=>{
+  for(let i=17;i<28;i++)await sql("insert into public.sources(id,owner_id,name,adapter,url,enabled,cadence_seconds,next_poll_at,next_due_at,health_status,coverage_note) values($1,$2,$1,'instagram-business-discovery-v1','https://www.instagram.com/fixture/',true,3600,clock_timestamp()-interval '2 days',clock_timestamp()-interval '2 days','never_run','Synthetic 27-account expansion fixture')",['instagram-fixture-'+i,owner]);
+  await db.exec("update public.sources set next_poll_at=clock_timestamp()-interval '1 hour',next_due_at=clock_timestamp()-interval '1 hour',retry_not_before=null,leased_poll_at=null,lease_token=null,lease_until=null where enabled");
+  assert.equal(await scalar("select count(*)::integer from public.sources where enabled and adapter='instagram-business-discovery-v1'"),27);
+  const core=await role('service_role',null,()=>sql('select * from public.lease_due_sources(2,600)'));assert.deepEqual(core.map(s=>s.id).sort(),['fsu-calendar-api','fsu-music-events']);
+  const social=await role('service_role',null,()=>sql('select * from public.lease_due_instagram_sources(27,600)'));assert.equal(social.length,27);assert.equal(new Set(social.map(s=>s.id)).size,27);assert.ok(social.every(s=>s.adapter==='instagram-business-discovery-v1' && s.id!=='instagram-fixture-16'));
+  assert.equal((await role('service_role',null,()=>sql('select * from public.lease_due_instagram_sources(27,600)'))).length,0);
+ });
+ await check('expanded group rejects 28-source requests and preserves core/browser limits',async()=>{
+  await assert.rejects(()=>role('service_role',null,()=>sql('select * from public.lease_due_instagram_sources(28,600)')),/Invalid lease limits/);
+  await assert.rejects(()=>role('service_role',null,()=>sql('select * from public.lease_due_sources(11,600)')),/Invalid lease limits/);
+  for(const name of ['anon','authenticated'])await assert.rejects(()=>role(name,owner,()=>sql('select * from public.lease_due_instagram_sources(27,600)')),/permission denied/);
+ });
+ const report={runAt:new Date().toISOString(),database:'PGlite 0.5.10 actual PostgreSQL WASM',migration,incrementalMigration:'202610200004_instagram_27_accounts.sql',passed:checks.length,checks,
   fixtureClass:'Synthetic metadata, API captures and Trigger IDs; not live provider/schedule proof',calendarWrites:0,paidServicesEnabled:0,
   policy:'Owner-only searchable publication metadata with stable identity, append-only content versions, atomic run/capture/update/cursor/health completion, separate core/social lease budgets',
   notTested:['Hosted migration/HTTP JWT and Storage behavior','Real Meta token lifetime and provider payloads','Distributed workers in separate database sessions','Storage upload rollback; uploaded orphan objects require later safe retention']};

@@ -1,8 +1,9 @@
 {
-  "runAt": "2026-10-21T02:23:25.206Z",
+  "runAt": "2026-10-21T03:02:45.872Z",
   "database": "PGlite 0.5.10 actual PostgreSQL WASM",
   "migration": "202610200003_instagram_monitoring.sql",
-  "passed": 19,
+  "incrementalMigration": "202610200004_instagram_27_accounts.sql",
+  "passed": 22,
   "checks": [
     "incremental migration preserves existing sources and enables no social routes",
     "two core leases remain available before 16 overdue social routes; social cannot consume core slots",
@@ -22,7 +23,10 @@
     "partial valid updates remain reviewable without advancing success time/cursor; retry floor is retained",
     "expired-token failure is stored as blocked and cannot appear as successful empty collection",
     "out-of-order observations cannot overwrite the current caption or move last-seen backward",
-    "core completion still works under migration 003 and creates no social rows"
+    "core completion still works under migration 003 and creates no social rows",
+    "migration 004 changes only the Instagram group ceiling and preserves data, active leases and privileges",
+    "27 explicitly enabled social routes lease independently while both core producers remain unstarved",
+    "expanded group rejects 28-source requests and preserves core/browser limits"
   ],
   "fixtureClass": "Synthetic metadata, API captures and Trigger IDs; not live provider/schedule proof",
   "calendarWrites": 0,

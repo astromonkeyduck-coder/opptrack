@@ -15,8 +15,10 @@ const envelope = (posts = [post()], overrides: Record<string, unknown> = {}) => 
 const jsonFetch = (value: unknown, status = 200, headers: Record<string,string> = {}) => (async () => Response.json(value, { status, headers })) as typeof fetch;
 const collect = (value: unknown = envelope()) => collectInstagram(source, { environment, now, fetch: jsonFetch(value) });
 
-test("collector allowlist contains exactly the16proven accounts and excludes the unresolved target", () => {
-  assert.equal(instagramHandles.size, 16); assert.equal(instagramHandles.has("fsucre"), false);
+test("collector allowlist contains exactly the27authorizedproven accounts and excludes unresolved/unchecked targets", () => {
+  assert.equal(instagramHandles.size, 27); assert.equal(instagramHandles.has("fsucre"), false);
+  for(const handle of ["durpfsu","emhs_fsu","fsu_cre","fsucollegeoflaw","fsueconomicsdept","fsuhsa","fsuigc","fsumofa","musicfsu","onf.fsu","openingnights"])assert.equal(instagramHandles.has(handle),true);
+  for(const handle of ["dmcfsu","fsu_theatre","hikingclubfsu","floridastateuniversity"])assert.equal(instagramHandles.has(handle),false);
   assert.throws(() => instagramRequestUrl("1234", "fsucre"));
   assert.throws(() => instagramRequestUrl("https://attacker.invalid", "clubdownunderfsu"));
 });
@@ -138,7 +140,7 @@ test("immutable upload must finish before atomicInstagramRPC and failedpersistne
   await assert.rejects(ingestInstagramBatch(lease, batch, broken), /upload failed/); assert.equal(commits, 0);
 });
 
-test("core producerlease/processing finishes before16socialleases, and a socialfailure doesnotstarvecore", async t => {
+test("core producerlease/processing finishes before27socialleases, and a socialfailure doesnotstarvecore", async t => {
   const order: string[] = [];
   const coreLease={...lease,id:"fsu-calendar-api"};
   t.mock.method(globalThis, "fetch", (async(value:RequestInfo|URL)=>String(value).startsWith("https://calendar.fsu.edu/")?Response.json({events:[],page:{current:1,total:0,total_items:0,next_page:null}}):Response.json({ error: { code: 190, error_subcode: 463 } })) as typeof fetch);
@@ -148,7 +150,7 @@ test("core producerlease/processing finishes before16socialleases, and a socialf
       order.push(name);
       if (name === "lease_due_sources") return { data: [coreLease], error: null };
       if (name === "complete_source_run") return {data:{run_id:"synthetic_core_run"},error:null};
-      if (name === "lease_due_instagram_sources") { assert.equal(args.p_limit, 16); return { data: [lease], error: null }; }
+      if (name === "lease_due_instagram_sources") { assert.equal(args.p_limit, 27); return { data: [lease], error: null }; }
       if (name === "complete_instagram_run") return { data: { run_id: "synthetic_run" }, error: null };
       throw Error("Unexpected synthetic RPC");
     },
@@ -160,7 +162,7 @@ test("core producerlease/processing finishes before16socialleases, and a socialf
   assert.equal(result[1].outcome, "blocked"); assert.equal(result[1].sourceId, source);
 });
 
-test("one dispatcher covers16socialsources with atmosttwoAPIrequests inflight", async t=>{
+test("one dispatcher covers27socialsources with atmosttwoAPIrequests inflight", async t=>{
   let active=0,maximum=0,requests=0,commits=0;
   t.mock.method(globalThis,"fetch",(async(value:RequestInfo|URL)=>{
     active++;requests++;maximum=Math.max(maximum,active);
@@ -179,6 +181,28 @@ test("one dispatcher covers16socialsources with atmosttwoAPIrequests inflight", 
     },
   } as unknown as SupabaseClient;
   const result=await dispatchDueSources(2,client,{invocationKind:"local"},environment);
-  assert.equal(result.length,16);assert.equal(requests,16);assert.equal(commits,16);assert.equal(maximum,2);
+  assert.equal(result.length,27);assert.equal(requests,27);assert.equal(commits,27);assert.equal(maximum,2);
   assert.ok(result.every(row=>row.outcome==="success"));
+});
+
+test("90second launch budget leaves unstarted27accountleases for recovery without fictitious success",async t=>{
+  let elapsed=0,requests=0,commits=0;
+  t.mock.method(Date,"now",()=>elapsed);
+  t.mock.method(globalThis,"fetch",(async(value:RequestInfo|URL)=>{
+    requests++;
+    const target=new URL(String(value)).searchParams.get("fields")!.match(/username\(([^)]+)\)/)![1];
+    return Response.json(envelope([post()],{username:target}));
+  }) as typeof fetch);
+  const client={
+    from:()=>({select:()=>({limit:async()=>({data:[{user_id:lease.owner_id}],error:null})})}),
+    storage:{from:()=>({upload:async()=>({error:null})})},
+    rpc:async(name:string)=>{
+      if(name==="lease_due_sources")return{data:[],error:null};
+      if(name==="lease_due_instagram_sources")return{data:[...instagramHandles].map(handle=>({...lease,id:`instagram-${handle}`})),error:null};
+      if(name==="complete_instagram_run"){commits++;elapsed=90_001;return{data:{run_id:`synthetic_${commits}`},error:null};}
+      throw Error("Unexpected synthetic RPC");
+    },
+  } as unknown as SupabaseClient;
+  await assert.rejects(dispatchDueSources(2,client,{invocationKind:"local"},environment),/could not persist; retry after lease recovery/);
+  assert.equal(requests,2);assert.equal(commits,2);
 });

@@ -3,6 +3,7 @@ import { collectSource, validateCollectionBatch } from "../collection";
 import type { CollectionBatch } from "../collection/types";
 import { isDuplicateObject, verifyStoredObject } from "../storage/integrity";
 import { runLeasedInstagramCollection } from "../instagram/ingestion";
+import { instagramDispatchLimit } from "../instagram/collector";
 
 export interface SourceLease {
   id: string;
@@ -139,11 +140,12 @@ export async function dispatchDueSources(limit = 2, client = getWorkerClient(), 
   // The database leases core producers separately. Social work cannot consume
   // Central/Music's two slots or prevent their processing when Meta fails.
   if (environment.SOCIAL_COLLECTION_ENABLED === "true") {
-    const { data: socialLeases, error: socialError } = await client.rpc("lease_due_instagram_sources", { p_limit: 16, p_lease_seconds: 600 });
+    const { data: socialLeases, error: socialError } = await client.rpc("lease_due_instagram_sources", { p_limit: instagramDispatchLimit, p_lease_seconds: 600 });
     if (socialError) throw new Error(`Instagram source leasing failed (${socialError.code ?? "database"})`);
-    if (!Array.isArray(socialLeases) || socialLeases.length > 16) throw new Error("Instagram leasing returned an invalid bounded response");
+    if (!Array.isArray(socialLeases) || socialLeases.length > instagramDispatchLimit) throw new Error("Instagram leasing returned an invalid bounded response");
     const leases = socialLeases as SourceLease[];
-    // Two in flight bounds a worst-case sixteen-account timeout wave to ~80s.
+    // Two in flight preserves the existing concurrency bound. The 90s launch
+    // budget leaves unstarted leases recoverable during unusually slow waves.
     // Results retain source-specific failures; no exception text can leak tokens.
     const socialResults = new Array<Awaited<ReturnType<typeof runLeasedInstagramCollection>> | { sourceId: string; outcome: string; reason: string }>(leases.length);
     let index = 0;

@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "as_of": "2026-10-21T02:24:48.122949+00:00",
-  "authorization": "The user selected these 17 handles and explicitly authorized automatic Trigger monitoring for the 16 proven accounts on October 20, 2026. The blocked fsucre route remains disabled.",
+  "authorization": "The user selected the original 17 accounts and authorized the proven 16, then explicitly authorized adding the 11 newly proven candidates on October 20, 2026. Exactly27 accounts are approved; unresolved fsucre remains disabled.",
   "scope": "Separate user-selected watchlist; the Stage 0 source registry remains unchanged.",
   "automatic_collection_enabled": true,
-  "posts_access": "16 accounts enabled for hourly bounded collection; fresh manual Production recovery succeeded for all 16 with 400 retained posts and unchanged versions; the prior genuine scheduled attempt was credential-blocked; successful automatic Instagram collection is still pending; fsucre remains excluded",
+  "posts_access": "27 accounts authorized for hourly bounded collection; deployment and activation of the additional11 pending. Historical original16 manual recovery evidence preserved.",
   "stories_access": "manual_only; no proven arbitrary-target Stories route",
   "paid_connectors_enabled": false,
   "calendar_writes_enabled": false,
@@ -989,21 +989,552 @@
         "last_attempt_at": "2026-10-21T02:23:21.220076+00:00",
         "last_success_at": "2026-10-21T02:23:33.145+00:00"
       }
+    },
+    {
+      "source_id": "instagram-durpfsu",
+      "handle": "durpfsu",
+      "profile_url": "https://www.instagram.com/durpfsu/",
+      "focus": "Campus announcements and opportunities from @durpfsu; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:12.241Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:12.241Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 5,
+        "reels": 0,
+        "carousels": 0,
+        "carousel_children": 0,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-emhs_fsu",
+      "handle": "emhs_fsu",
+      "profile_url": "https://www.instagram.com/emhs_fsu/",
+      "focus": "Campus announcements and opportunities from @emhs_fsu; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:12.257Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:12.257Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 5,
+        "reels": 0,
+        "carousels": 0,
+        "carousel_children": 0,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-fsu_cre",
+      "handle": "fsu_cre",
+      "profile_url": "https://www.instagram.com/fsu_cre/",
+      "focus": "Campus announcements and opportunities from @fsu_cre; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:12.948Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:12.948Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 5,
+        "reels": 0,
+        "carousels": 0,
+        "carousel_children": 0,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-fsucollegeoflaw",
+      "handle": "fsucollegeoflaw",
+      "profile_url": "https://www.instagram.com/fsucollegeoflaw/",
+      "focus": "Campus announcements and opportunities from @fsucollegeoflaw; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:13.605Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:13.605Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 2,
+        "reels": 2,
+        "carousels": 1,
+        "carousel_children": 4,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-fsueconomicsdept",
+      "handle": "fsueconomicsdept",
+      "profile_url": "https://www.instagram.com/fsueconomicsdept/",
+      "focus": "Campus announcements and opportunities from @fsueconomicsdept; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:14.043Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:14.043Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 5,
+        "reels": 0,
+        "carousels": 0,
+        "carousel_children": 0,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-fsuhsa",
+      "handle": "fsuhsa",
+      "profile_url": "https://www.instagram.com/fsuhsa/",
+      "focus": "Campus announcements and opportunities from @fsuhsa; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:14.798Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:14.798Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 5,
+        "reels": 0,
+        "carousels": 0,
+        "carousel_children": 0,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-fsuigc",
+      "handle": "fsuigc",
+      "profile_url": "https://www.instagram.com/fsuigc/",
+      "focus": "Campus announcements and opportunities from @fsuigc; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:14.798Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:14.798Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 1,
+        "reels": 1,
+        "carousels": 3,
+        "carousel_children": 15,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-fsumofa",
+      "handle": "fsumofa",
+      "profile_url": "https://www.instagram.com/fsumofa/",
+      "focus": "Campus announcements and opportunities from @fsumofa; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:15.192Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:15.192Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 2,
+        "reels": 0,
+        "carousels": 3,
+        "carousel_children": 15,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-musicfsu",
+      "handle": "musicfsu",
+      "profile_url": "https://www.instagram.com/musicfsu/",
+      "focus": "Campus announcements and opportunities from @musicfsu; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:17.028Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:17.028Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 2,
+        "reels": 1,
+        "carousels": 2,
+        "carousel_children": 7,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-onf.fsu",
+      "handle": "onf.fsu",
+      "profile_url": "https://www.instagram.com/onf.fsu/",
+      "focus": "Campus announcements and opportunities from @onf.fsu; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:17.543Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:17.543Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 5,
+        "reels": 0,
+        "carousels": 0,
+        "carousel_children": 0,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
+    },
+    {
+      "source_id": "instagram-openingnights",
+      "handle": "openingnights",
+      "profile_url": "https://www.instagram.com/openingnights/",
+      "focus": "Campus announcements and opportunities from @openingnights; publication metadata only",
+      "categories": [
+        "campus_opportunities"
+      ],
+      "selection_evidence": "user_authorized_proven_candidate_expansion",
+      "identity_verification": "verified_for_business_discovery_sample",
+      "professional_account_eligibility": "verified_for_business_discovery_sample",
+      "adapter": "instagram-business-discovery-v1",
+      "enabled": true,
+      "cadence_seconds": 3600,
+      "status": "enabled",
+      "posts_access": "live_sample_proven",
+      "stories_access": "manual_only",
+      "access_probe": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:17.424Z",
+        "status": "success_sample",
+        "http_statuses": [
+          200
+        ],
+        "reason_codes": [
+          "provider_media_count_exceeds_sample_without_continuation",
+          "bounded_media_sample_only"
+        ],
+        "graph_error": null
+      },
+      "live_sample": {
+        "report": "reports/instagram-candidates-high-priority-access.json",
+        "observed_at_utc": "2026-10-21T02:50:17.424Z",
+        "access_route": "Meta Facebook Login / Business Discovery",
+        "api_version": "v26.0",
+        "provenance": "Fresh live read-only GET through authorized high-priority candidate probe; not a replay or mock",
+        "parent_posts": 5,
+        "standalone_images": 1,
+        "reels": 1,
+        "carousels": 3,
+        "carousel_children": 11,
+        "media_files_downloaded": 0,
+        "stories_retrieved": 0,
+        "pagination_complete": false,
+        "scheduled_collection": false,
+        "event_extraction": false
+      }
     }
   ],
   "live_access_summary": {
-    "proven_target_samples": 16,
+    "proven_target_samples": 27,
     "blocked_targets": 1,
     "untested_targets": 0,
     "targets_without_proven_sample": 1,
-    "parent_posts": 80,
-    "carousel_children": 181,
+    "parent_posts": 135,
+    "carousel_children": 233,
     "scheduled_collection_enabled": true,
     "report": "reports/instagram-cli-access.json",
     "scheduled_collection_verified": false,
     "manual_production_collection_verified": true,
     "scheduled_collection_attempt_verified": true,
-    "manual_recovery_verified": true
+    "manual_recovery_verified": true,
+    "historical_original_17_report": "reports/instagram-cli-access.json",
+    "additional_11_report": "reports/instagram-candidates-high-priority-access.json",
+    "scope": "Combined per-account proven samples; original16 plus11 authorized additions, not a single fetch or scheduled-ingestion proof"
   },
   "production_monitoring": {
     "report": "reports/instagram-production-monitoring.json",
@@ -1064,6 +1595,26 @@
       "status": "pending",
       "next_nominal_at_utc": "2026-10-21T03:00:00Z",
       "actual_start_may_be_later": true
+    },
+    "expansion": {
+      "status": "deployment_and_hosted_activation_pending",
+      "authorized_additional_handles": [
+        "durpfsu",
+        "emhs_fsu",
+        "fsu_cre",
+        "fsucollegeoflaw",
+        "fsueconomicsdept",
+        "fsuhsa",
+        "fsuigc",
+        "fsumofa",
+        "musicfsu",
+        "onf.fsu",
+        "openingnights"
+      ],
+      "authorized_account_count": 27,
+      "proof_report": "reports/instagram-27-account-expansion.json",
+      "calendar_writes_enabled": false,
+      "paid_upgrades": 0
     }
   }
 }

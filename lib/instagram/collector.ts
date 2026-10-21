@@ -5,7 +5,15 @@ import { validateCollectionBatch } from "../collection";
 
 export const instagramAdapter = "instagram-business-discovery-v1";
 export const instagramScope = "latest25_parent_metadata_only";
-export const instagramHandles = new Set(watchlist.accounts.filter(account => account.posts_access === "live_sample_proven" && account.handle !== "fsucre").map(account => account.handle));
+export const instagramDispatchLimit = 27;
+// This explicit authorization boundary is separate from the 209-account candidate
+// inventory and its read-only access probes. A proven sample alone cannot enable
+// another account in the worker.
+const authorizedHandles = new Set([
+  "clubdownunderfsu", "fsustudentengagement", "fsustudentaffairs", "fsustudentunion", "aslc_fsu", "fsuhomecoming", "fsusga", "fsucampusrec", "fsuhonors", "fsucareercenter", "fsuip", "fsucge", "thecenterfsu", "fsusustainable", "fsucosspp", "fsucossppslc",
+  "durpfsu", "emhs_fsu", "fsu_cre", "fsucollegeoflaw", "fsueconomicsdept", "fsuhsa", "fsuigc", "fsumofa", "musicfsu", "onf.fsu", "openingnights",
+]);
+export const instagramHandles = new Set(watchlist.accounts.filter(account => account.posts_access === "live_sample_proven" && authorizedHandles.has(account.handle)).map(account => account.handle));
 const numericId = /^[0-9]{1,32}$/;
 const explicitInstant = /(?:Z|[+-][0-9]{2}:?[0-9]{2})$/;
 type Json = Record<string, unknown>;
@@ -55,7 +63,7 @@ export async function collectInstagram(sourceId: string, options: {
     validateCollectionBatch(batch);
     return batch;
   };
-  if (sourceId !== `instagram-${handle}` || !instagramHandles.has(handle)) return finish("blocked", "source_not_authorized", "Source is outside the 16 proven Instagram accounts; no request made");
+  if (sourceId !== `instagram-${handle}` || !instagramHandles.has(handle)) return finish("blocked", "source_not_authorized", "Source is outside the authorized proven Instagram accounts; no request made");
   if (environment.SOCIAL_COLLECTION_ENABLED !== "true") return finish("blocked", "setup_needed", "Instagram collection is disabled in the worker environment; no request made");
   const token = environment.IG_FB_USER_ACCESS_TOKEN?.trim(), callerId = environment.IG_CALLER_USER_ID?.trim();
   if (!token || !callerId || !numericId.test(callerId) || !/^[A-Za-z0-9_.~+/=-]{16,4096}$/.test(token)) return finish("blocked", "setup_needed", "Instagram worker credential setup is missing or invalid; no request made");

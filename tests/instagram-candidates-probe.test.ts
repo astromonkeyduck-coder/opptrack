@@ -8,10 +8,10 @@ import { probeHighPriorityCandidates } from "../scripts/probe-instagram-candidat
 
 const environment={IG_FB_USER_ACCESS_TOKEN:"SYNTHETIC_CANDIDATE_TOKEN_ONLY",IG_CALLER_USER_ID:"123456789012345"};
 
-test("candidate permission is separate from the production16 and original17 watchlist",async()=>{
-  assert.equal(instagramHandles.size,16);assert.equal(instagramHandles.has("fsu_cre"),false);
-  assert.throws(()=>discoveryRequestUrl(environment.IG_CALLER_USER_ID,"fsu_cre",5));
-  const selected=await preflightBusinessDiscovery({target:"fsu_cre",environment},{fetch:(async()=>{throw Error("must not fetch");}) as typeof fetch});
+test("candidate permission is separate from the production27 and selected watchlist",async()=>{
+  assert.equal(instagramHandles.size,27);assert.equal(instagramHandles.has("dmcfsu"),false);
+  assert.throws(()=>discoveryRequestUrl(environment.IG_CALLER_USER_ID,"dmcfsu",5));
+  const selected=await preflightBusinessDiscovery({target:"dmcfsu",environment},{fetch:(async()=>{throw Error("must not fetch");}) as typeof fetch});
   assert.equal(selected.summary.requests,0);assert.equal(selected.summary.status,"blocked");
   const standard=candidates.accounts.find(account=>account.priority==="standard")!.handle;
   const denied=await preflightHighPriorityInstagramCandidate({target:standard,environment},{fetch:(async()=>{throw Error("must not fetch");}) as typeof fetch});
