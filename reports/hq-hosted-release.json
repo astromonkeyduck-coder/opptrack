@@ -1,6 +1,6 @@
 {
-  "recordedAt": "2026-10-21T23:31:59Z",
-  "status": "cloud_manual_ingestion_verified; automatic_HQ_tick_pending",
+  "recordedAt": "2026-10-22T00:15:50Z",
+  "status": "cloud_manual_and_genuine_scheduled_HQ_ingestion_verified; instagram_repair_paused_by_user",
   "implementation": {
     "workerCommit": "5562c54f50c6485d945d36cfec3bf7482bac93d1",
     "triggerDeploy": "yb1nrv34",
@@ -49,7 +49,7 @@
     "privateCaptures": 1,
     "duplicateNativeGroups": 0,
     "usageSeconds": 3.8,
-    "invocationUsd": 0.000025,
+    "invocationUsd": 2.5e-05,
     "computeUsd": 0.00012987,
     "totalUsd": 0.00015487,
     "scope": "Real Trigger Production test/manual run, not scheduled or laptop-off proof"
@@ -75,7 +75,8 @@
       "otherUserVisible": 0,
       "anonymousSelectDenied": true
     },
-    "policyScope": "Actual PostgreSQL roles/local claims with rollback; not signed-JWT/Storage HTTP proof"
+    "policyScope": "Actual PostgreSQL roles/local claims with rollback; not signed-JWT/Storage HTTP proof",
+    "snapshotScope": "Historical initial manual-run database snapshot at 2026-10-21T23:31:59Z; later scheduled values recorded separately below"
   },
   "calendar": {
     "approvedLegacyEventsDeleted": 324,
@@ -146,14 +147,94 @@
     ]
   },
   "remainingGaps": [
-    "First genuine scheduled HQ run not yet observed; next nominal source slot 2026-10-22T00:00Z is subject to provider window",
-    "No user-confirmed laptop-off interval",
-    "All 27 Instagram sources remain blocked at 23:21Z; no credential repair performed",
-    "HQ private/member inclusion, publisher truncation/freshness, multi-day session semantics, ticket/application milestones and cross-source deduplication remain uncertain",
-    "Existing Stage1 restore, Storage HTTP/private-file intake and durable credential-renewal gates remain open"
+    "No user-confirmed laptop-off interval or physical-phone test",
+    "All 27 Instagram sources blocked on the genuine scheduled run; repair paused by user",
+    "HQ private/member inclusion, publisher truncation/freshness, multi-day session semantics, HQ-specific ticket/application milestones and cross-source deduplication remain uncertain",
+    "Existing Stage 1 restore, signed-JWT/Storage HTTP/private-file intake and durable credential-renewal gates remain open"
   ],
   "paidUpgrades": 0,
   "paidConnectors": 0,
   "modelCalls": 0,
-  "stage2Started": false
+  "stage2Started": false,
+  "initialRecordedAt": "2026-10-21T23:31:59Z",
+  "commandsScope": "Historical HQ release validation; later bounded official-monitor validation is recorded in reports/official-monitors-hosted-release.json",
+  "genuineScheduledProof": {
+    "recordedAt": "2026-10-22T00:15:50Z",
+    "workerCommit": "83f04f6524975b73afd0570da2104e0a137ad7b1",
+    "workerVersion": "20261022.1",
+    "run": {
+      "id": "run_06gm1sfdc83ge1to43d0erep01",
+      "scheduleId": "sched_7piwpgtckcngy15icqk45",
+      "nominalAt": "2026-10-22T00:00:00Z",
+      "triggeredAt": "2026-10-22T00:10:46.320Z",
+      "startedAt": "2026-10-22T00:10:49.350Z",
+      "finishedAt": "2026-10-22T00:11:36.981Z",
+      "test": false,
+      "invocationKind": "scheduled",
+      "environment": "Production",
+      "outcomes": {
+        "publicSuccess": 7,
+        "instagramBlocked": 27
+      },
+      "publicRequests": 30,
+      "publicResponseBytes": 4097611,
+      "invocationUsd": 2.5e-05,
+      "computeUsd": 0.00155493,
+      "totalUsd": 0.00157993,
+      "usageSeconds": 46,
+      "costScope": "One combined scheduled run including all public producers and existing blocked Instagram work, before credits; not marginal cost, invoice or monthly average"
+    },
+    "hqSourceRun": {
+      "id": "bfb2ca82-2067-4e05-b0ec-bd027cf67fd0",
+      "error": null,
+      "outcome": "success",
+      "source_id": "fsu-hq-public-export",
+      "byte_count": 1146891,
+      "started_at": "2026-10-22T00:11:05.208+00:00",
+      "finished_at": "2026-10-22T00:11:07.309+00:00",
+      "request_count": 2,
+      "trigger_run_id": "run_06gm1sfdc83ge1to43d0erep01",
+      "invocation_kind": "scheduled",
+      "occurrence_count": 372,
+      "opportunity_count": 372,
+      "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+      "dispatcher_scheduled_at": "2026-10-22T00:00:00+00:00"
+    },
+    "hqDatabase": {
+      "id": "fsu-hq-public-export",
+      "health": "success",
+      "adapter": "hq-ics-v1",
+      "enabled": true,
+      "captures": 1,
+      "milestones": 0,
+      "occurrences": 372,
+      "next_poll_at": "2026-10-22T06:00:00+00:00",
+      "opportunities": 372,
+      "lease_released": true,
+      "last_success_at": "2026-10-22T00:11:07.309+00:00"
+    },
+    "databaseCheckedAt": "2026-10-22T00:11:54.382315+00:00",
+    "combinedDatabaseTotals": {
+      "milestones": 66,
+      "occurrences": 783,
+      "opportunities": 768,
+      "source_records": 89,
+      "enabled_sources": 34
+    },
+    "officialMilestones": 66,
+    "officialDuplicateMilestoneGroups": 0,
+    "populatedOfficialPolicyChecks": {
+      "passed": 12,
+      "checkedAt": "2026-10-22T00:12:15.551641+00:00",
+      "scope": "Actual SQL roles and local claims; not signed-JWT or Storage HTTP proof",
+      "persistentChanges": 0,
+      "report": "reports/official-hosted-policy-checks.json"
+    },
+    "instagramRepair": "paused_by_user; all 27 existing sources blocked on this scheduled run; credentials, scopes and source activation unchanged",
+    "costScope": "One combined scheduled run including all public producers and existing blocked Instagram work, before credits; not marginal cost, invoice or monthly average",
+    "laptopOffIntervalProven": false,
+    "physicalPhoneTestProven": false,
+    "stage1FullyAccepted": false,
+    "evidence": "reports/official-monitors-hosted-release.json"
+  }
 }

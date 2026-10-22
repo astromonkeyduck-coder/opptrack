@@ -1,0 +1,389 @@
+{
+  "recordedAt": "2026-10-22T00:21:21Z",
+  "status": "genuine_scheduled_public_ingestion_verified; instagram_repair_paused_by_user",
+  "release": {
+    "collectorCommit": "cc0d4b511d98407bf6c4bb6e8207611610685c16",
+    "initialWebCommit": "cc0d4b511d98407bf6c4bb6e8207611610685c16",
+    "workerCommit": "83f04f6524975b73afd0570da2104e0a137ad7b1",
+    "workerVersion": "20261022.1",
+    "presentationFollowupCommit": "07ba822fde7ef5a4c5ee35c40249f62fd3594427",
+    "githubCollectorWorkflow": 39696680654,
+    "githubWorkerWorkflow": 39697228281,
+    "githubConclusion": "success",
+    "netlifyUrl": "https://luxury-longma-01d2fa.netlify.app/deadlines",
+    "githubPresentationWorkflow": 39698511892
+  },
+  "migration": {
+    "local": "20261021233742_official_milestone_monitoring.sql",
+    "hosted": "20261021235402",
+    "initialExpiredRequestVerifiedUnappliedBeforeRetry": true
+  },
+  "activation": {
+    "at": "2026-10-21T23:59:04.171094Z",
+    "newSources": 4,
+    "exactSourceScript": "scripts/activate-official-sources.sql",
+    "unrelatedSourceConfigurationChanged": false
+  },
+  "scheduledRun": {
+    "id": "run_06gm1sfdc83ge1to43d0erep01",
+    "scheduleId": "sched_7piwpgtckcngy15icqk45",
+    "nominalAt": "2026-10-22T00:00:00Z",
+    "triggeredAt": "2026-10-22T00:10:46.320Z",
+    "startedAt": "2026-10-22T00:10:49.350Z",
+    "finishedAt": "2026-10-22T00:11:36.981Z",
+    "test": false,
+    "invocationKind": "scheduled",
+    "environment": "Production",
+    "outcomes": {
+      "publicSuccess": 7,
+      "instagramBlocked": 27
+    },
+    "publicRequests": 30,
+    "publicResponseBytes": 4097611,
+    "invocationUsd": 2.5e-05,
+    "computeUsd": 0.00155493,
+    "totalUsd": 0.00157993,
+    "usageSeconds": 46,
+    "costScope": "One combined scheduled run including all public producers and existing blocked Instagram work, before credits; not marginal cost, invoice or monthly average"
+  },
+  "database": {
+    "checkedAt": "2026-10-22T00:11:54.382315+00:00",
+    "sources": [
+      {
+        "id": "fsu-career-deadlines",
+        "health": "success",
+        "adapter": "official-deadlines-v1",
+        "enabled": true,
+        "captures": 1,
+        "milestones": 2,
+        "occurrences": 0,
+        "next_poll_at": "2026-10-22T06:00:00+00:00",
+        "opportunities": 1,
+        "lease_released": true,
+        "last_success_at": "2026-10-22T00:11:09.837+00:00"
+      },
+      {
+        "id": "fsu-cre-applications",
+        "health": "success",
+        "adapter": "official-deadlines-v1",
+        "enabled": true,
+        "captures": 2,
+        "milestones": 28,
+        "occurrences": 0,
+        "next_poll_at": "2026-10-22T06:00:00+00:00",
+        "opportunities": 14,
+        "lease_released": true,
+        "last_success_at": "2026-10-22T00:11:11.008+00:00"
+      },
+      {
+        "id": "fsu-hq-public-export",
+        "health": "success",
+        "adapter": "hq-ics-v1",
+        "enabled": true,
+        "captures": 1,
+        "milestones": 0,
+        "occurrences": 372,
+        "next_poll_at": "2026-10-22T06:00:00+00:00",
+        "opportunities": 372,
+        "lease_released": true,
+        "last_success_at": "2026-10-22T00:11:07.309+00:00"
+      },
+      {
+        "id": "fsu-onf-dates",
+        "health": "success",
+        "adapter": "official-deadlines-v1",
+        "enabled": true,
+        "captures": 1,
+        "milestones": 18,
+        "occurrences": 0,
+        "next_poll_at": "2026-10-22T06:00:00+00:00",
+        "opportunities": 18,
+        "lease_released": true,
+        "last_success_at": "2026-10-22T00:11:11.874+00:00"
+      },
+      {
+        "id": "fsu-opening-nights",
+        "health": "success",
+        "adapter": "official-tickets-v1",
+        "enabled": true,
+        "captures": 19,
+        "milestones": 18,
+        "occurrences": 18,
+        "next_poll_at": "2026-10-22T01:00:00+00:00",
+        "opportunities": 18,
+        "lease_released": true,
+        "last_success_at": "2026-10-22T00:11:21.707+00:00"
+      }
+    ],
+    "totals": {
+      "milestones": 66,
+      "occurrences": 783,
+      "opportunities": 768,
+      "source_records": 89,
+      "enabled_sources": 34
+    },
+    "duplicateMilestoneGroups": 0,
+    "newOpportunities": 51,
+    "newOccurrences": 18,
+    "milestones": 66,
+    "newPrivateCaptures": 23,
+    "explicitTicketReleaseNotices": 8,
+    "futureDatedResearchDeadlines": [
+      {
+        "kind": "application_deadline",
+        "title": "Global Scholars Ambassador Application",
+        "timezone": "Etc/GMT+5",
+        "occurs_at": "2026-11-03T04:59:00+00:00",
+        "occurs_on": "2026-11-02",
+        "availability": "within_published_window",
+        "source_local_text": "Nov 2 2026 11:59 PM (EST)"
+      },
+      {
+        "kind": "application_deadline",
+        "title": "Global Scholars 2027 Application",
+        "timezone": "Etc/GMT+5",
+        "occurs_at": "2026-11-07T04:59:00+00:00",
+        "occurs_on": "2026-11-06",
+        "availability": "within_published_window",
+        "source_local_text": "Nov 6 2026 11:59 PM (EST)"
+      },
+      {
+        "kind": "application_deadline",
+        "title": "FURC 2027 Funding Application",
+        "timezone": "Etc/GMT+5",
+        "occurs_at": "2026-11-08T04:59:00+00:00",
+        "occurs_on": "2026-11-07",
+        "availability": "within_published_window",
+        "source_local_text": "Nov 7 2026 11:59 PM (EST)"
+      },
+      {
+        "kind": "application_deadline",
+        "title": "Julius Scholars",
+        "timezone": "Etc/GMT+5",
+        "occurs_at": "2026-12-01T05:00:00+00:00",
+        "occurs_on": "2026-12-01",
+        "availability": "within_published_window",
+        "source_local_text": "Dec 1 2026 12:00 AM (EST)"
+      },
+      {
+        "kind": "application_deadline",
+        "title": "FSU IDEA Grants Application",
+        "timezone": "Etc/GMT+5",
+        "occurs_at": "2027-02-02T04:59:00+00:00",
+        "occurs_on": "2027-02-01",
+        "availability": "within_published_window",
+        "source_local_text": "Feb 1 2027 11:59 PM (EST)"
+      }
+    ]
+  },
+  "publicSourceRuns": [
+    {
+      "id": "74b01d22-9287-44bf-a240-df014bc7b1d5",
+      "error": null,
+      "outcome": "success",
+      "source_id": "fsu-calendar-api",
+      "byte_count": 1006573,
+      "started_at": "2026-10-22T00:10:51.322+00:00",
+      "finished_at": "2026-10-22T00:11:00.382+00:00",
+      "request_count": 4,
+      "trigger_run_id": "run_06gm1sfdc83ge1to43d0erep01",
+      "invocation_kind": "scheduled",
+      "occurrence_count": 317,
+      "opportunity_count": 279,
+      "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+      "dispatcher_scheduled_at": "2026-10-22T00:00:00+00:00"
+    },
+    {
+      "id": "bfb2ca82-2067-4e05-b0ec-bd027cf67fd0",
+      "error": null,
+      "outcome": "success",
+      "source_id": "fsu-hq-public-export",
+      "byte_count": 1146891,
+      "started_at": "2026-10-22T00:11:05.208+00:00",
+      "finished_at": "2026-10-22T00:11:07.309+00:00",
+      "request_count": 2,
+      "trigger_run_id": "run_06gm1sfdc83ge1to43d0erep01",
+      "invocation_kind": "scheduled",
+      "occurrence_count": 372,
+      "opportunity_count": 372,
+      "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+      "dispatcher_scheduled_at": "2026-10-22T00:00:00+00:00"
+    },
+    {
+      "id": "44ee67d6-31df-4730-bd24-78d61f165a75",
+      "error": null,
+      "outcome": "success",
+      "source_id": "fsu-music-events",
+      "byte_count": 65469,
+      "started_at": "2026-10-22T00:11:08.898+00:00",
+      "finished_at": "2026-10-22T00:11:09.232+00:00",
+      "request_count": 1,
+      "trigger_run_id": "run_06gm1sfdc83ge1to43d0erep01",
+      "invocation_kind": "scheduled",
+      "occurrence_count": 10,
+      "opportunity_count": 10,
+      "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+      "dispatcher_scheduled_at": "2026-10-22T00:00:00+00:00"
+    },
+    {
+      "id": "ade3a2f3-18fb-47af-aecc-2e65760c257f",
+      "error": null,
+      "outcome": "success",
+      "source_id": "fsu-career-deadlines",
+      "byte_count": 178789,
+      "started_at": "2026-10-22T00:11:09.667+00:00",
+      "finished_at": "2026-10-22T00:11:09.837+00:00",
+      "request_count": 1,
+      "trigger_run_id": "run_06gm1sfdc83ge1to43d0erep01",
+      "invocation_kind": "scheduled",
+      "occurrence_count": 0,
+      "opportunity_count": 1,
+      "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+      "dispatcher_scheduled_at": "2026-10-22T00:00:00+00:00"
+    },
+    {
+      "id": "efd5f16d-9df6-46ac-abe5-c35abae3e67f",
+      "error": null,
+      "outcome": "success",
+      "source_id": "fsu-cre-applications",
+      "byte_count": 7428,
+      "started_at": "2026-10-22T00:11:10.577+00:00",
+      "finished_at": "2026-10-22T00:11:11.008+00:00",
+      "request_count": 2,
+      "trigger_run_id": "run_06gm1sfdc83ge1to43d0erep01",
+      "invocation_kind": "scheduled",
+      "occurrence_count": 0,
+      "opportunity_count": 14,
+      "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+      "dispatcher_scheduled_at": "2026-10-22T00:00:00+00:00"
+    },
+    {
+      "id": "20bdccb2-b506-4b1f-943f-942bf5687fc3",
+      "error": null,
+      "outcome": "success",
+      "source_id": "fsu-onf-dates",
+      "byte_count": 49145,
+      "started_at": "2026-10-22T00:11:11.765+00:00",
+      "finished_at": "2026-10-22T00:11:11.874+00:00",
+      "request_count": 1,
+      "trigger_run_id": "run_06gm1sfdc83ge1to43d0erep01",
+      "invocation_kind": "scheduled",
+      "occurrence_count": 0,
+      "opportunity_count": 18,
+      "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+      "dispatcher_scheduled_at": "2026-10-22T00:00:00+00:00"
+    },
+    {
+      "id": "ac9319ac-ce40-4e28-ad0b-dab3ae303c85",
+      "error": null,
+      "outcome": "success",
+      "source_id": "fsu-opening-nights",
+      "byte_count": 1643316,
+      "started_at": "2026-10-22T00:11:14.068+00:00",
+      "finished_at": "2026-10-22T00:11:21.707+00:00",
+      "request_count": 19,
+      "trigger_run_id": "run_06gm1sfdc83ge1to43d0erep01",
+      "invocation_kind": "scheduled",
+      "occurrence_count": 18,
+      "opportunity_count": 18,
+      "trigger_schedule_id": "sched_7piwpgtckcngy15icqk45",
+      "dispatcher_scheduled_at": "2026-10-22T00:00:00+00:00"
+    }
+  ],
+  "hostedPolicies": {
+    "passed": 12,
+    "checkedAt": "2026-10-22T00:12:15.551641+00:00",
+    "scope": "Actual SQL roles and local claims; not signed-JWT or Storage HTTP proof",
+    "persistentChanges": 0,
+    "report": "reports/official-hosted-policy-checks.json"
+  },
+  "ownerUi": {
+    "liveUpcomingOrUndatedCount": 44,
+    "liveAllHistoryCount": 66,
+    "sourceHealthSuccess": true,
+    "search": {
+      "query": "IDEA",
+      "results": 1,
+      "title": "FSU IDEA Grants Application"
+    },
+    "ticketFilterCount": 18,
+    "pagination": {
+      "pageOneRows": 30,
+      "pageTwoRows": 14,
+      "repeatedRenderedNotices": 0
+    },
+    "presentationFollowupVerifiedLive": true,
+    "defaultFiltersRestored": true,
+    "screenshot": "ignored private/official-monitors-live.png",
+    "responsive": {
+      "earlierEmpty390x844": {
+        "horizontalOverflow": false,
+        "navigationWithinBounds": true
+      },
+      "populatedOverride": "failed_to_apply",
+      "observedPopulatedViewport": {
+        "width": 1728,
+        "height": 906
+      },
+      "populatedMobileLayoutVerified": false,
+      "physicalPhoneTested": false
+    }
+  },
+  "validation": {
+    "applicationTests": 274,
+    "localSqlChecks": 116,
+    "instagramWorkerReplays": 6,
+    "pythonTests": 63,
+    "typecheck": "pass",
+    "build": "pass",
+    "presentationTestsAfterCopyChange": 11,
+    "anonymousHttp": {
+      "deadlines": 307,
+      "calendarEvents": 401
+    },
+    "replayProviderResponses": "synthetic",
+    "replayStorageBodies": "in-memory substitute",
+    "sourceProbeAndScheduledCollection": "real network"
+  },
+  "environment": {
+    "newVariables": 0,
+    "netlifyAndTriggerRemainSeparated": true,
+    "paidUpgrades": 0,
+    "paidConnectors": 0,
+    "calendarWritesEnabled": false,
+    "emailOrReminderDeliveryEnabled": false,
+    "modelCalls": 0
+  },
+  "instagram": {
+    "repair": "paused_by_user",
+    "developerAccountRestriction": "Meta unusual-activity identity confirmation; email confirmation attempt returned Meta technical error",
+    "credentialsOrScopesChanged": false,
+    "existingSourceActivationChanged": false,
+    "sourceFailuresRemainVisible": true
+  },
+  "manualPublicOnlyTest": {
+    "implemented": true,
+    "testedWithSyntheticHandler": true,
+    "liveInvocation": false,
+    "changesPersistentEnvironment": false,
+    "scheduledGroupsUnchanged": true
+  },
+  "costPlanning": {
+    "periodDays": 30,
+    "newRouteRequests": 14160,
+    "newRouteBodyBytes": 1211430960,
+    "basis": "Observed page counts/body sizes multiplied by hourly/six-hour cadence; assumes unchanged sizes, excludes retries",
+    "rawStorageGrowth": "Only if every body changes; content-addressed reuse/integrity downloads and metadata vary",
+    "existingPlans": "Supabase Pro, Trigger Free, Netlify Free; no upgrades"
+  },
+  "remainingGaps": [
+    "Instagram access remains blocked and its repair is paused",
+    "ONF/Intern FSU omitted years remain unknown; no invented exact instants",
+    "Ticket notice timezones, seat inventory, presales and first-announcement times remain unverified",
+    "HQ private/member completeness, publisher freshness and cross-source deduplication remain gaps",
+    "No email/push reminders or calendar writes are enabled",
+    "Laptop was active; user-confirmed powered-off interval and physical-phone test remain unproven",
+    "Signed-JWT/nonowner Storage HTTP, hosted multi-slide intake and restore/retention gates remain open"
+  ],
+  "stage2Started": false
+}

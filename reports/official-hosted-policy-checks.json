@@ -1,0 +1,74 @@
+{
+  "scope": "Actual SQL roles and local claims; not signed-JWT or Storage HTTP proof",
+  "checks": [
+    {
+      "role": "owner",
+      "count": 66,
+      "query": "select count(*) from public.milestones where source_id in ('fsu-onf-dates','fsu-cre-applications','fsu-career-deadlines','fsu-opening-nights')",
+      "passed": true
+    },
+    {
+      "role": "owner",
+      "count": 66,
+      "query": "select count(*) from public.milestone_inbox where source_id in ('fsu-onf-dates','fsu-cre-applications','fsu-career-deadlines','fsu-opening-nights')",
+      "passed": true
+    },
+    {
+      "role": "owner",
+      "count": 23,
+      "query": "select count(*) from public.captures where source_id in ('fsu-onf-dates','fsu-cre-applications','fsu-career-deadlines','fsu-opening-nights')",
+      "passed": true
+    },
+    {
+      "role": "other",
+      "count": 0,
+      "query": "select count(*) from public.milestones where source_id in ('fsu-onf-dates','fsu-cre-applications','fsu-career-deadlines','fsu-opening-nights')",
+      "passed": true
+    },
+    {
+      "role": "other",
+      "count": 0,
+      "query": "select count(*) from public.milestone_inbox where source_id in ('fsu-onf-dates','fsu-cre-applications','fsu-career-deadlines','fsu-opening-nights')",
+      "passed": true
+    },
+    {
+      "role": "other",
+      "count": 0,
+      "query": "select count(*) from public.captures where source_id in ('fsu-onf-dates','fsu-cre-applications','fsu-career-deadlines','fsu-opening-nights')",
+      "passed": true
+    },
+    {
+      "role": "anonymous",
+      "count": null,
+      "query": "select count(*) from public.milestones where source_id in ('fsu-onf-dates','fsu-cre-applications','fsu-career-deadlines','fsu-opening-nights')",
+      "passed": true
+    },
+    {
+      "role": "anonymous",
+      "count": null,
+      "query": "select count(*) from public.milestone_inbox where source_id in ('fsu-onf-dates','fsu-cre-applications','fsu-career-deadlines','fsu-opening-nights')",
+      "passed": true
+    },
+    {
+      "role": "anonymous",
+      "count": null,
+      "query": "select count(*) from public.captures where source_id in ('fsu-onf-dates','fsu-cre-applications','fsu-career-deadlines','fsu-opening-nights')",
+      "passed": true
+    },
+    {
+      "test": "worker_lease_only",
+      "passed": true
+    },
+    {
+      "test": "captures_bucket_private",
+      "passed": true
+    },
+    {
+      "test": "owner_cannot_mutate_source_state",
+      "passed": true
+    }
+  ],
+  "passed": 12,
+  "checked_at": "2026-10-22T00:12:15.551641+00:00",
+  "persistent_changes": 0
+}

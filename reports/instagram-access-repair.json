@@ -137,7 +137,8 @@
       "Exact intended Page/account granular asset selection",
       "Same existing read scopes only"
     ],
-    "replacementExpiryRule": "If a new token is needed, replace IG_TOKEN_EXPIRES_AT with that token\u2019s verified expiry; do not retain the previous token\u2019s expiry or extend token duration."
+    "replacementExpiryRule": "If a new token is needed, replace IG_TOKEN_EXPIRES_AT with that token\u2019s verified expiry; do not retain the previous token\u2019s expiry or extend token duration.",
+    "requiresUserResume": true
   },
   "providerUiFinding": {
     "route": "existing_Meta_app_dashboard",
@@ -146,7 +147,7 @@
     "checkpoint": "Confirm your identity / email OTP selection",
     "findingClass": "observed_provider_account_restriction",
     "userConfirmationRequired": true,
-    "completion": "pending_user_private_checkpoint",
+    "completion": "unresolved_repair_paused_by_user",
     "codeReadOrSentByAgent": false,
     "credentialsChanged": false,
     "newScopes": 0,
@@ -159,5 +160,8 @@
     "recoveredUi": "Closed error dialog; returned to developer Account confirmation needed restriction",
     "identityCodeReadByAgent": false,
     "accountRestored": false
-  }
+  },
+  "repairStatus": "paused_by_user",
+  "pausedByUser": true,
+  "pauseBoundary": "No further repair actions, credential changes, grants or token-lifetime changes. Existing automatic source configuration remains unchanged; the normal schedule still records blocked attempts."
 }

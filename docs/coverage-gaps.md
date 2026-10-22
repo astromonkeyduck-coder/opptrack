@@ -1,5 +1,13 @@
 # Coverage and operational gaps — October 20, 2026
 
+## Current bounded extension — October 21/22, 2026
+
+The later hosted tracker supersedes the original Stage 0 snapshot below. A genuine scheduled Production run verified Central, Music, public HQ, ONF fellowships, CRE applications, Intern FSU hiring dates and Opening Nights announcements. The authenticated inbox retains 768 opportunities/783 occurrences plus 66 separate milestones; 44 milestones are upcoming/undated. Eight explicit ticket-release announcements are retained, with missing timezones and unknown inventory visible. HQ remains a public subset, Music a ten-card preview, and career coverage is the Intern FSU public timeline, not NoleNetwork employer listings. CRE is proven complete at two current pages; unvalidated pagination fails visibly. No campus-wide completeness claim follows.
+
+All 27 configured Instagram reads remain blocked; **the user paused Meta repair**. Retained posts remain searchable. Stories/media/OCR/private systems remain gaps. No paid upgrade, external alert delivery or automatic calendar write is enabled. Actual source/Trigger/SQL correlation, tests, cost scope and remaining Stage 1 gates: [current status](status.md), [release evidence](../reports/official-monitors-hosted-release.json).
+
+## Preserved Stage 0 snapshot — October 20
+
 The repository contains working bounded read-only probes and design artifacts. It does not contain a hosted tracker, database, recommendation model, inbox UI, email delivery integration or Google Calendar writer. All scheduled source flags remain disabled. URL counts and successful tests cannot establish campus-wide completeness.
 
 ## What was observed live

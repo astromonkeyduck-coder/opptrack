@@ -25,7 +25,7 @@ Stage 1 is explicitly authorized by the user on October 20, 2026. Stage 0 is pre
 
 ## Current bounded source extension
 
-On October 21 the user authorized Instagram read-access repair, verification of the existing public HQ route and deterministic official fellowship/research/career deadlines plus ticket-release monitoring. These action milestones are separate from attendance decisions and require individual approval before any future reminder. No broad media extraction, paid connector, delivery or calendar writer is authorized. Current evidence and acceptance gaps are maintained at the top of [status](status.md); the dated snapshot below is historical and superseded by later observations.
+On October 21 the user authorized Instagram read-access repair, verification of the existing public HQ route and deterministic official fellowship/research/career deadlines plus ticket-release monitoring. These action milestones are separate from attendance decisions and require individual approval before any future reminder. No broad media extraction, paid connector, delivery or calendar writer is authorized. The first genuine scheduled seven-public-source run and 66 milestones are verified in [release evidence](../reports/official-monitors-hosted-release.json); Meta repair is paused by the user. Current evidence and acceptance gaps are maintained at the top of [status](status.md); the dated snapshot below is historical and superseded by later observations.
 
 ## Historical Stage 1 gate (October 21, 14:35 UTC snapshot)
 
