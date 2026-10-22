@@ -39,6 +39,14 @@ export function requireReadyDispatcherResult(result:Awaited<ReturnType<typeof ru
   return result;
 }
 
+/** Operator smoke tests can isolate public producers while Meta repair is paused.
+ * A real scheduled invocation always keeps its configured source groups. */
+export function manualPublicSourceEnvironment(payload: unknown, run: Pick<RunIdentity,"isTest">, environment: Record<string,string|undefined> = process.env): Record<string,string|undefined> | undefined {
+  if (!run.isTest || !payload || typeof payload !== "object" || Array.isArray(payload)
+    || (payload as Record<string,unknown>).publicSourcesOnly !== true) return undefined;
+  return {...environment,SOCIAL_COLLECTION_ENABLED:"false"};
+}
+
 /** One durable dispatcher. SQL atomically leases only enabled, due sources. */
 export const sourceDispatcher=schedules.task({
   id:"opportunity-source-dispatcher",
@@ -48,5 +56,5 @@ export const sourceDispatcher=schedules.task({
   // Collection HTTP failures persist their own Retry-After/backoff in SQL. Only
   // infrastructure exceptions reach SDK retries, after the ten-minute lease expires.
   retry:{maxAttempts:3,factor:2,minTimeoutInMs:600_000,maxTimeoutInMs:900_000,randomize:true},
-  run:async(payload,{ctx})=>requireReadyDispatcherResult(await runDispatcherHandler(undefined,undefined,await provenanceForTriggerRun(payload,ctx.run))),
+  run:async(payload,{ctx})=>requireReadyDispatcherResult(await runDispatcherHandler(undefined,manualPublicSourceEnvironment(payload,ctx.run),await provenanceForTriggerRun(payload,ctx.run))),
 });
