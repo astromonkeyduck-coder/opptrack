@@ -1,7 +1,7 @@
 {
-  "recordedAt": "2026-11-02T02:39:58Z",
+  "recordedAt": "2026-11-02T03:16:15.928309Z",
   "userDate": "2026-11-01",
-  "status": "published_and_owner_preview_verified; waiting_for_action_time_google_write_consent",
+  "status": "published_write_authorization_connected_primary_read_verified; individual_calendar_insert_not_yet_approved_or_tested",
   "authorization": "User confirmed individually approved event/reminder writes after read-only grant explanation; no blanket additions or other later-stage work",
   "runtimeCommit": "e7790d95a731bc46a4dd64d543fd4911cd600b6a",
   "github": {
@@ -23,7 +23,7 @@
     "newApprovalAndRetryRoutesObservedLive": true,
     "exactDashboardPublishedCommitVerified": true,
     "authenticatedNewUiVerified": true,
-    "blocker": "Google owned-event consent awaits explicit action-time confirmation; Mac unlock resolved",
+    "blocker": null,
     "newSecrets": 0,
     "paidUpgrade": false,
     "publishedDeployId": "6ae7f4fdd79280473e00a37f",
@@ -39,10 +39,14 @@
     "persistentAuditChanges": 0,
     "auditGoogleCalls": 0,
     "finalRealApprovals": 0,
-    "finalStoredScope": "https://www.googleapis.com/auth/calendar.events.readonly",
+    "finalStoredScope": "https://www.googleapis.com/auth/calendar.events.owned",
     "credentialValuesReadOrPrinted": false,
     "newAdvisorFindings": 0,
-    "existingAdvisorFindings": "Member RLS/older authenticated or anonymous definer functions and disabled leaked-password protection remain; old connection-put became invoker"
+    "existingAdvisorFindings": "Member RLS/older authenticated or anonymous definer functions and disabled leaked-password protection remain; old connection-put became invoker",
+    "authorizationGenerationChanged": true,
+    "ciphertextEnvelopeValid": true,
+    "connectionUpdatedAt": "2026-11-02T03:15:32.042388Z",
+    "finalVerificationAt": "2026-11-02T03:16:15.928309Z"
   },
   "http": {
     "requestsCarryCredentials": false,
@@ -93,12 +97,12 @@
     "realGoogleWriteCalls": 0,
     "netlifyBuildAndSqlUsageUsd": "unmeasured",
     "futurePerExplicitAttempt": "Normally one ID lookup plus one insert if absent/still eligible; uncertain insert adds at most one reconciliation lookup; expiry may add refresh",
-    "invoiceOrMonthlyAverageEstablished": false
+    "invoiceOrMonthlyAverageEstablished": false,
+    "liveConsentAndPrimaryRead": "Successful OAuth code exchange and primary-calendar read observed through the application; provider quotas/invoices not independently measured"
   },
   "nextSteps": [
-    "Receive explicit consent-screen authorization or have user finish Google consent directly",
-    "Confirm stored owned-event scope, rotated authorization generation and a successful primary-calendar read without exposing credentials",
-    "Actual insertion remains untested until the user selects and separately approves one exact event/reminder"
+    "User chooses a specific event occurrence or reminder and reviews it",
+    "User explicitly checks and submits approval for that one item; real insertion remains untested until then"
   ],
   "remainingLimits": [
     "New consent rotates the authorization generation and intentionally blocks delivery of old uncertain approvals even for the same account; manual recovery required",
@@ -120,17 +124,56 @@
     "ignoredScreenshots": [
       "private/calendar-approval-live.png",
       "private/calendar-writer-netlify-deploy.png",
-      "private/google-calendar-write-consent.png"
-    ]
+      "private/google-calendar-write-consent.png",
+      "private/calendar-approval-connected.png"
+    ],
+    "postConsentApprovalCheckboxChecked": false,
+    "postConsentApprovalButtonEnabled": false,
+    "connectionButtonAbsentWhenOwnedGrantPresent": true,
+    "finalPage": "/calendar?connection=connected"
   },
   "googleConsent": {
     "account": "previously user-selected Google account",
     "requestedScope": "https://www.googleapis.com/auth/calendar.events.owned",
     "observedPermission": "See, create, change, and delete events on Google calendars you own",
     "appIsInTesting": true,
-    "finalContinueClicked": false,
+    "finalContinueClicked": true,
     "confirmationAskedAtConsentScreen": true,
     "credentialsPrinted": false,
-    "generationBeforeConsentSha256": "d4844e2049563f6aba649df666ada2c34fe7f45a818e2b98110edae1368a7b26"
+    "generationBeforeConsentSha256": "d4844e2049563f6aba649df666ada2c34fe7f45a818e2b98110edae1368a7b26",
+    "actionTimeConfirmationReceived": true,
+    "successfulCallback": "/calendar?connection=connected",
+    "connectedAt": "2026-11-02T03:15:32.042388Z",
+    "grantStoredScope": "https://www.googleapis.com/auth/calendar.events.owned",
+    "authorizationGenerationChanged": true,
+    "attempts": [
+      {
+        "result": "failed_before_connection",
+        "observedAt": "2026-11-02T03:14:15Z",
+        "reason": "Waiting authorization exceeded the ten-minute OAuth state/cookie lifetime; callback showed /inbox?calendar=failed. Lifetime protection was preserved."
+      },
+      {
+        "result": "connected",
+        "at": "2026-11-02T03:15:32.042388Z",
+        "reason": "Fresh flow, same approved account and unchanged owned-event scope; no repeated permission question or weakened state checks."
+      }
+    ]
+  },
+  "primaryCalendarRead": {
+    "state": "connected",
+    "connected": true,
+    "readOnlyEndpoint": true,
+    "calendar": "primary",
+    "complete": true,
+    "eventCount": 19,
+    "allDayCount": 3,
+    "from": "2026-11-02",
+    "toExclusive": "2026-11-09",
+    "timeMin": "2026-11-02T05:00:00Z",
+    "timeMax": "2026-11-09T05:00:00Z",
+    "timeZone": "America/New_York",
+    "updatedAt": "2026-11-02T03:16:01.498Z",
+    "eventTitlesAndIdsRecorded": false,
+    "providerRequestCountIndependentlyTraced": false
   }
 }
