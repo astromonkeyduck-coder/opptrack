@@ -1,6 +1,6 @@
 {
-  "recordedAt": "2026-11-02T16:13:49.808780Z",
-  "status": "tested_locally_release_pending",
+  "recordedAt": "2026-11-02T16:19:39.080786Z",
+  "status": "published_authenticated_actions_and_single_item_preview_verified_no_calendar_insert_approved",
   "problem": "User interpreted the green save/check action as a Google Calendar approval; the action only saved review state.",
   "diagnostic": {
     "checkedAt": "2026-11-02T16:10:13.043376Z",
@@ -56,9 +56,27 @@
     "explicitItemApprovalStillRequired": true
   },
   "release": {
-    "runtimeCommit": null,
-    "publishedDeployId": null,
-    "hostedUiVerified": false
+    "runtimeCommit": "9cf0651dbca1240838d05f0449547d79e76b59ee",
+    "publishedDeployId": "6ae8b77541bf87f83ecd498d",
+    "publishedAtDisplay": "November 2, 2026 at 11:16 AM Eastern",
+    "publishedDashboardVerified": true,
+    "hostedUiVerified": true,
+    "savedPageApprovalLinks": 15,
+    "cardCalendarActionOutsideDetails": true,
+    "saveForLaterControlVerified": true,
+    "singleSavedItemPreview": "Exact current title/date/start/end/Eastern zone/location displayed; checkbox unchecked and submit disabled. No item was selected for approval by the agent.",
+    "screenshot": "private/calendar-action-clarity-saved.png",
+    "firstPush": "GitHub remote rejected with internal server error at 16:16:14Z; unchanged commit retry succeeded",
+    "mobileCheck": {
+      "requestedWidth": 390,
+      "requestedHeight": 844,
+      "actualWidth": 1728,
+      "actualHeight": 962,
+      "overrideApplied": false,
+      "horizontalOverflowAtActualSize": false,
+      "phoneLayoutVerified": false,
+      "note": "Browser viewport override was ignored; temporary override was reset. Do not reuse older phone-controls proof for this changed layout."
+    }
   },
   "otherAuthorizedStage1Work": {
     "intake": "4MiB individual and combined cap plus 64KiB multipart allowance and safe non-JSON/transport error handling",
@@ -80,5 +98,20 @@
     "Hosted backup and separate Storage-body restoration in an isolated destination",
     "Independent-session contention and a user-confirmed powered-off window",
     "Google testing-mode credential durability; Meta repair remains paused"
-  ]
+  ],
+  "primaryCalendarRead": {
+    "checkedAt": "2026-11-02T16:17:10.909Z",
+    "connected": true,
+    "calendar": "primary",
+    "complete": true,
+    "eventCount": 19,
+    "privateEventTitlesRecorded": false,
+    "writes": 0
+  },
+  "finalDatabaseCheck": {
+    "checkedAt": "2026-11-02T16:19:39.080786Z",
+    "calendarCommands": 0,
+    "savedOccurrences": 15,
+    "syntheticAuditSourcesRemaining": 0
+  }
 }
