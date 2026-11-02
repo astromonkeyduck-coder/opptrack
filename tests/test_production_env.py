@@ -56,11 +56,19 @@ class ProductionEnvironmentTests(unittest.TestCase):
         values['SUPABASE_SECRET_KEY'] = 'sb_publishable_SYNTHETIC'
         self.assertTrue(env.check_values(CONTRACT['targets']['trigger'], values))
 
-    def test_calendar_cannot_be_enabled(self):
-        for target, key in (('netlify', 'CALENDAR_WRITES_ENABLED'), ('trigger', 'CALENDAR_WRITES_ENABLED')):
-            values = valid_values(target)
-            values[key] = 'true'
-            self.assertTrue(env.check_values(CONTRACT['targets'][target], values))
+    def test_calendar_writes_are_web_only_and_require_google_configuration(self):
+        worker = valid_values('trigger')
+        worker['CALENDAR_WRITES_ENABLED'] = 'true'
+        self.assertTrue(env.check_values(CONTRACT['targets']['trigger'], worker))
+        web = valid_values('netlify')
+        web['CALENDAR_WRITES_ENABLED'] = 'true'
+        self.assertTrue(env.check_values(CONTRACT['targets']['netlify'], web))
+        web.update(GOOGLE_CLIENT_ID='synthetic-client.apps.googleusercontent.com',
+                   GOOGLE_CLIENT_SECRET='SYNTHETIC_GOOGLE_CLIENT_SECRET',
+                   CALENDAR_TOKEN_ENCRYPTION_KEY=base64.b64encode(bytes(range(32))).decode('ascii'))
+        self.assertEqual(env.check_values(CONTRACT['targets']['netlify'], web), [])
+        # Templates remain safe to copy without enabling any provider execution.
+        self.assertEqual(CONTRACT['targets']['netlify']['variables']['CALENDAR_WRITES_ENABLED']['default'], 'false')
 
     def test_optional_google_read_credentials_are_complete_server_only_group(self):
         values = valid_values('netlify')

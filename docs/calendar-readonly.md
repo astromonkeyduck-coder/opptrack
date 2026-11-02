@@ -1,5 +1,8 @@
 # Optional Google Calendar reads
 
+November 1 extension: the user explicitly authorized individually approved additions using a separate Google owned-event consent. The historical read-only implementation/evidence below is preserved. The calendar panel still performs GET-only reads; the new Netlify create-only approval executor is documented in [calendar-writes.md](calendar-writes.md). Trigger and source ingestion remain unable to write calendars. Existing read credentials are retained until successful new consent.
+
+
 The owner explicitly authorized a read-only Google Calendar connection for the calendar panel. This is a separate permission from event collection and saving tracker items. Calendar writes, RSVP, email and reminder delivery remain disabled. No calendar write scope, event-write endpoint, outbox or background calendar job exists.
 
 The user-selected primary Google Calendar is connected read-only. Hosted OAuth and a real complete seven-day read were verified October 21 at 17:19–17:21 UTC. Access-token refresh has unit/replay coverage but has not yet been observed live; durable unattended access is not claimed. Test-mode grants require reconnection after seven days.

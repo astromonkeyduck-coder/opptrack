@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-10-21T23:55:40.999Z",
+  "runAt": "2026-11-02T02:23:18.693Z",
   "database": "PGlite 0.5.10 actual PostgreSQL WASM",
   "migrations": [
     "202610200001_stage1.sql",
@@ -9,7 +9,8 @@
     "202610200005_review_undo.sql",
     "202610200006_google_calendar_readonly.sql",
     "20261021193109_hq_public_collector.sql",
-    "20261021233742_official_milestone_monitoring.sql"
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql"
   ],
   "passed": 23,
   "checks": [

@@ -27,12 +27,14 @@ const json = (value: unknown, status = 200) => new Response(JSON.stringify(value
 const mockFetch = (fn: (url: string, init: RequestInit) => Response | Promise<Response>): typeof fetch => (async (url, init) => fn(String(url), init || {})) as typeof fetch;
 const isCalendarError = (state: string) => (error: unknown) => error instanceof CalendarError && error.state === state;
 
-test('calendar config requires server credentials, a canonical 256-bit key and disabled writes', () => {
+test('calendar config requires server credentials, a canonical 256-bit key and explicit write flag', () => {
   assert.ok(config);
+  assert.equal(config.writeEnabled, false);
+  assert.equal(calendarConfig({ ...environment, CALENDAR_WRITES_ENABLED: 'true' })?.writeEnabled, true);
   assert.equal(config.redirectUri, 'https://tracker.example.test/api/calendar/callback');
   assert.equal(calendarCookieName(config), '__Host-opptrack-calendar-oauth');
   assert.equal(calendarConfig({}), null);
-  for (const replacement of [{ CALENDAR_WRITES_ENABLED: 'true' }, { CALENDAR_TOKEN_ENCRYPTION_KEY: 'invalid' }, { GOOGLE_CLIENT_SECRET: '' }, { APP_URL: 'http://tracker.example.test' }, { APP_URL: 'https://attacker:password@tracker.example.test/' }, { APP_URL: 'https://tracker.example.test/path' }]) assert.equal(calendarConfig({ ...environment, ...replacement }), null);
+  for (const replacement of [{ CALENDAR_WRITES_ENABLED: 'yes' }, { CALENDAR_TOKEN_ENCRYPTION_KEY: 'invalid' }, { GOOGLE_CLIENT_SECRET: '' }, { APP_URL: 'http://tracker.example.test' }, { APP_URL: 'https://attacker:password@tracker.example.test/' }, { APP_URL: 'https://tracker.example.test/path' }]) assert.equal(calendarConfig({ ...environment, ...replacement }), null);
   const local = calendarConfig({ ...environment, APP_URL: 'http://localhost:3000' })!;
   assert.equal(local.secure, false); assert.equal(calendarCookieName(local), 'opptrack-calendar-oauth');
 });

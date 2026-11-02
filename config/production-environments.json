@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-21",
-  "status": "review_redesign_live_calendar_readonly_verified_instagram_latest_blocked",
+  "updated_on": "2026-11-01",
+  "status": "approval_calendar_writer_implemented_awaiting_hosted_consent",
   "web_host": "netlify",
   "worker_host": "trigger.dev-cloud",
   "hosted_targets": {
@@ -55,12 +55,13 @@
         },
         "CALENDAR_WRITES_ENABLED": {
           "required": true,
-          "type": "disabled_flag",
+          "type": "boolean",
           "secret": false,
           "scopes": [
             "functions"
           ],
-          "default": "false"
+          "default": "false",
+          "note": "Safe default false; true is authorized only for the Netlify create-only individually approved writer. Trigger remains false."
         },
         "INBOUND_EMAIL_ENABLED": {
           "required": true,
@@ -88,7 +89,10 @@
           "scopes": [
             "functions"
           ],
-          "feature": "google_calendar_readonly"
+          "feature": "google_calendar_readonly",
+          "required_when": {
+            "CALENDAR_WRITES_ENABLED": "true"
+          }
         },
         "GOOGLE_CLIENT_SECRET": {
           "required": false,
@@ -97,7 +101,10 @@
           "scopes": [
             "functions"
           ],
-          "feature": "google_calendar_readonly"
+          "feature": "google_calendar_readonly",
+          "required_when": {
+            "CALENDAR_WRITES_ENABLED": "true"
+          }
         },
         "CALENDAR_TOKEN_ENCRYPTION_KEY": {
           "required": false,
@@ -107,7 +114,10 @@
             "functions"
           ],
           "feature": "google_calendar_readonly",
-          "format": "32 random bytes encoded as canonical base64; enforced by offline validation and server runtime"
+          "format": "32 random bytes encoded as canonical base64; enforced by offline validation and server runtime",
+          "required_when": {
+            "CALENDAR_WRITES_ENABLED": "true"
+          }
         }
       },
       "forbidden_variables": [
@@ -469,5 +479,17 @@
     "github_checks_run": 39659751264,
     "report": "reports/swipe-review-release.json",
     "instagram_latest_access": "27blocked Graph200/unknown at19:11UTC; previous27success18:11UTC; causeunresolved"
+  },
+  "approved_calendar_write_extension": {
+    "authorized_on": "2026-11-01",
+    "netlify_only": true,
+    "individual_approval_required": true,
+    "previous_saves_backfilled": false,
+    "provider_scope": "https://www.googleapis.com/auth/calendar.events.owned",
+    "production_grant_verified": false,
+    "trigger_flag_must_remain_false": true,
+    "google_credentials_in_trigger": false,
+    "no_guests_recurrence_or_default_reminders": true,
+    "new_consent_rotates_destination_generation": true
   }
 }

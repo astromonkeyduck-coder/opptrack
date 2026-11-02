@@ -1,5 +1,15 @@
 # Stage 1 status
 
+## Individually approved calendar writing — November 1
+
+The user explicitly confirmed enabling app-controlled Calendar additions after the read-only connection was explained. This is a narrow create-only extension: one verified future timed occurrence or one separately user-timed reminder per explicit approval. Save/Pass/Undo and previous saved items do not write Google events. Trigger keeps writes disabled; all credentials/execution stay in Netlify. Meta repair remains paused. [Writer runbook](calendar-writes.md).
+
+The implementation adds immutable approval snapshots, source/opportunity fingerprints, deterministic Google IDs, destination authorization generations, fenced 60-second leases, Retry-After floors and explicit retry/reconciliation. Unknown intervals/all-day dates remain blocked. Changed/cancelled/currently ineligible source facts prevent a new insert; retries may check an already existing event. Reconnection cannot move an old approval into a different Google account. No updates/deletes, guests, recurring events, default notifications, paid upgrade or email delivery is enabled.
+
+Generated migration `20261102021158_approved_calendar_writes.sql` applied as hosted `20261102022214`. Hosted audit passed **32/32** actual SQL-role/local-claim checks with synthetic facts/transactional scope metadata and rollback: **zero Google calls and zero persistent rows changed**. A separate read confirmed zero real commands and the retained read-only connection. Advisors show no new findings; older definer/member/leaked-password-protection warnings remain. Local checks passed **301 application tests**, **155 SQL checks plus six Instagram worker replays**, **63 Python tests plus registry/scenario/environment checks**, type checking and the production build. The 27 focused writer/UI tests passed after the security follow-ups. Synthetic provider tests do not prove a real Google insert.
+
+Netlify Production's feature flag is saved as true, with other contexts empty; templates remain false and Trigger's flag remains false. Web deployment and fresh Google owned-event consent are pending verification. No real calendar event/reminder has been added during this release. The authenticated pre-release browser showed the expired seven-day read grant, so reconnection is required. These current boundaries supersede older disabled-write snapshots below only for the explicitly approved Netlify writer.
+
 ## Official deadline/ticket monitors and Instagram repair — October 21
 
 The user explicitly authorized this bounded source extension. Three public deterministic deadline routes collect ONF fellowship notices, the CRE public application directory and Intern FSU student hiring windows. Opening Nights collects its official listing and every bounded linked show detail. Applications/ticket actions persist as separate milestones, never fake attendance occurrences. The authenticated `/deadlines` view has search, category/date filters, deterministic pagination, source health and original links. It sends no emails or reminders and writes no calendars.

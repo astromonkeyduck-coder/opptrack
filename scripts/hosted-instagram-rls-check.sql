@@ -57,7 +57,9 @@ begin
     not has_function_privilege('service_role','tracker_private.lease_due_source_group(text,integer,integer)','EXECUTE')
     and not has_function_privilege('authenticated','tracker_private.lease_due_source_group(text,integer,integer)','EXECUTE')
     and not has_function_privilege('anon','tracker_private.lease_due_source_group(text,integer,integer)','EXECUTE')
-    and not has_schema_privilege('authenticated','tracker_private','USAGE') and not has_schema_privilege('anon','tracker_private','USAGE')));
+    -- Authenticated USAGE now supports the separately authorized owner-only Calendar wrappers.
+    -- EXECUTE on ingestion helpers remains denied independently of schema usage.
+    and not has_schema_privilege('anon','tracker_private','USAGE')));
 
   perform set_config('request.jwt.claim.sub',v_owner::text,true);
   perform set_config('request.jwt.claim.role','authenticated',true);

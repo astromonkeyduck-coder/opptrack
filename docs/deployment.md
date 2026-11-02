@@ -2,6 +2,12 @@
 
 Next.js/Netlify, private Supabase and the single hourly Trigger worker are deployed. Core and the original 16 Instagram accounts have genuine scheduled success. The user-approved 11-account expansion is live, bringing monitoring to 27; all 11 new routes succeeded in a fresh manual Production run. A genuine full 27-account scheduled tick is pending nominal 15:00 UTC October 21. No paid upgrade, calendar write or broader Stage 2 work is authorized.
 
+## November 1 approval-only writer
+
+The user explicitly authorized a narrow create-only Google writer. After applying `20261102021158_approved_calendar_writes.sql` and deploying the tested web release, set **Netlify Production** `CALENDAR_WRITES_ENABLED=true` and redeploy. Keep the template default false for new environments. Keep **Trigger Production** `CALENDAR_WRITES_ENABLED=false`; no Google credential or executor belongs there. No new secret is required.
+
+The owner reconnects using `/api/calendar/connect?mode=write` and reviews the exact `calendar.events.owned` consent. Existing read credentials survive cancelled/failed consent. The grant can manage events on owned calendars; application code uses fixed primary-calendar GET/insert only. It does not update/delete events or add attendees/recurrence/default reminders. Each event/reminder has a separate `/calendar` preview and explicit POST approval. Source collection, Save/Pass/Undo and previous saved cards do not write Google events. [Writer runbook](calendar-writes.md). Older read-only release/configuration snapshots below remain history.
+
 ## Netlify production app
 
 Use repository root, Node 22, build `npm run build`, publish `.next`. Install devDependencies during builds. The explicit OpenNext fallback pins `@netlify/plugin-nextjs@5.16.4` in package/lock and `netlify.toml`, producing one server/one edge function. Do not use v4, static export or a SPA catch-all. The pin opts out of automatic adapter updates and must be maintained; revisit only after automatic runtime detection works.

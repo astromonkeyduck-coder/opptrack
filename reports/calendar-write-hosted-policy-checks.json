@@ -1,0 +1,139 @@
+{
+  "scope": "Real SQL roles/local claims and synthetic rollback facts; not hosted JWT HTTP or Google consent/provider evidence",
+  "checks": [
+    {
+      "test": "private_commands_rls_and_no_direct_api_grants",
+      "passed": true
+    },
+    {
+      "test": "preview_authenticated_only_public_and_private_grants",
+      "passed": true
+    },
+    {
+      "test": "approve_authenticated_only_public_and_private_grants",
+      "passed": true
+    },
+    {
+      "test": "get_authenticated_only_public_and_private_grants",
+      "passed": true
+    },
+    {
+      "test": "list_authenticated_only_public_and_private_grants",
+      "passed": true
+    },
+    {
+      "test": "claim_authenticated_only_public_and_private_grants",
+      "passed": true
+    },
+    {
+      "test": "finish_authenticated_only_public_and_private_grants",
+      "passed": true
+    },
+    {
+      "test": "scoped_connection_authenticated_only_public_and_private_grants",
+      "passed": true
+    },
+    {
+      "test": "owner_preview_without_approval",
+      "passed": true
+    },
+    {
+      "test": "stale_fingerprint_rejected",
+      "passed": true
+    },
+    {
+      "test": "explicit_owner_approval_exact_safe_payload",
+      "passed": true
+    },
+    {
+      "test": "duplicate_approval_reuses_command_and_provider_identity",
+      "passed": true
+    },
+    {
+      "test": "unknown_interval_denied",
+      "passed": true
+    },
+    {
+      "test": "milestone_requires_separate_explicit_reminder_time",
+      "passed": true
+    },
+    {
+      "test": "reminder_has_distinct_command_and_provider_id",
+      "passed": true
+    },
+    {
+      "test": "overlapping_claim_cannot_get_active_lease",
+      "passed": true
+    },
+    {
+      "test": "wrong_lease_cannot_finish",
+      "passed": true
+    },
+    {
+      "test": "retry_after_floor_blocks_early_explicit_retry",
+      "passed": true
+    },
+    {
+      "test": "retry_fences_old_lease_and_preserves_payload",
+      "passed": true
+    },
+    {
+      "test": "successful_command_cannot_be_claimed_again",
+      "passed": true
+    },
+    {
+      "test": "refresh_preserves_authorization_generation",
+      "passed": true
+    },
+    {
+      "test": "new_consent_rotates_generation_and_blocks_old_delivery",
+      "passed": true
+    },
+    {
+      "test": "nonowner_preview_denied",
+      "passed": true
+    },
+    {
+      "test": "nonowner_approval_denied",
+      "passed": true
+    },
+    {
+      "test": "nonowner_claim_denied",
+      "passed": true
+    },
+    {
+      "test": "anonymous_preview_denied",
+      "passed": true
+    },
+    {
+      "test": "anonymous_approval_denied",
+      "passed": true
+    },
+    {
+      "test": "anonymous_claim_denied",
+      "passed": true
+    },
+    {
+      "test": "worker_preview_denied",
+      "passed": true
+    },
+    {
+      "test": "worker_approval_denied",
+      "passed": true
+    },
+    {
+      "test": "worker_claim_denied",
+      "passed": true
+    },
+    {
+      "test": "only_two_synthetic_commands_added_inside_rollback_transaction",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "checked_at": "2026-11-02T02:22:35.56059+00:00",
+  "test_count": 32,
+  "google_calls": 0,
+  "rollback_required": true,
+  "persistent_row_changes": 0
+}

@@ -25,13 +25,13 @@ function occurrenceDate(row: InboxRow) {
   if (schedule.precision === 'instant') return `${schedule.weekday}, ${schedule.dateLabel} · ${schedule.timeLabel} ${schedule.timezoneLabel}`;
   return row.local_start_text ? `${row.local_start_text} · exact time/zone unverified` : 'Date or time unknown';
 }
-export function OpportunityCard({ row, actions }: { row: InboxRow; actions?: ReactNode }) {
+export function OpportunityCard({ row, actions, calendarWritesEnabled = false }: { row: InboxRow; actions?: ReactNode; calendarWritesEnabled?: boolean }) {
   const url = safeExternalUrl(row.source_url);
   return <article className="opportunity">
     <div className="card-date">{occurrenceDate(row)}{row.ends_at ? <span>End: {timestamp(row.ends_at)}</span> : <span>End time unverified</span>}{row.date_precision === 'instant' && <span>Shown in Eastern · Source timezone: {row.timezone || 'Unconfirmed'}</span>}</div>
-    <div className="card-content"><div className="tags"><span>{row.source_id}</span>{row.decision && <span className="decision">{row.decision === 'save' ? 'Saved' : 'Rejected'}</span>}{row.status !== 'scheduled' && <span>{row.status}</span>}{sourceIsStale(row.source_last_success_at, row.source_cadence_seconds ?? null) && <span>Source stale or never collected</span>}</div><h3>{row.title}</h3><p className="location">{row.location || 'Location unverified'}</p>{row.description && <p className="description">{row.description}</p>}<p className="uncertainty">{[...new Set(['Ticket availability unverified', ...(row.uncertainties || [])])].join(' · ')}</p><p className="small">Last successful collection: {timestamp(row.source_last_success_at)} · Health: {row.source_health}</p><div className="card-actions">{url && <a href={url} rel="noopener noreferrer" target="_blank">Source listing ↗</a>}{row.decision !== 'reject' && <CalendarDraftLink row={row} />}{actions}</div></div>
+    <div className="card-content"><div className="tags"><span>{row.source_id}</span>{row.decision && <span className="decision">{row.decision === 'save' ? 'Saved' : 'Rejected'}</span>}{row.status !== 'scheduled' && <span>{row.status}</span>}{sourceIsStale(row.source_last_success_at, row.source_cadence_seconds ?? null) && <span>Source stale or never collected</span>}</div><h3>{row.title}</h3><p className="location">{row.location || 'Location unverified'}</p>{row.description && <p className="description">{row.description}</p>}<p className="uncertainty">{[...new Set(['Ticket availability unverified', ...(row.uncertainties || [])])].join(' · ')}</p><p className="small">Last successful collection: {timestamp(row.source_last_success_at)} · Health: {row.source_health}</p><div className="card-actions">{url && <a href={url} rel="noopener noreferrer" target="_blank">Source listing ↗</a>}{row.decision !== 'reject' && <CalendarDraftLink row={row} calendarWritesEnabled={calendarWritesEnabled} />}{actions}</div></div>
   </article>;
 }
-export function InboxList({ rows, renderActions }: { rows: InboxRow[]; renderActions?: (row: InboxRow) => ReactNode }) {
-  return <div className="opportunity-list">{rows.map(row => <OpportunityCard key={row.id} row={row} actions={renderActions?.(row)} />)}</div>;
+export function InboxList({ rows, renderActions, calendarWritesEnabled = false }: { rows: InboxRow[]; renderActions?: (row: InboxRow) => ReactNode; calendarWritesEnabled?: boolean }) {
+  return <div className="opportunity-list">{rows.map(row => <OpportunityCard key={row.id} row={row} actions={renderActions?.(row)} calendarWritesEnabled={calendarWritesEnabled} />)}</div>;
 }

@@ -37,7 +37,7 @@ export function AppShell({ active, children }: { active: Section; children: Reac
         {navigation.map(item => <Link key={item.section} href={item.href} className={`app-nav-link${active === item.section ? ' is-active' : ''}`} aria-current={active === item.section ? 'page' : undefined}><NavigationIcon section={item.section} /><span>{item.label}</span></Link>)}
       </nav>
       <div className="app-sidebar-bottom">
-        <p className="calendar-state"><span aria-hidden="true" />Calendar writes off</p>
+        <p className="calendar-state"><span aria-hidden="true" />{process.env.CALENDAR_WRITES_ENABLED === 'true' ? <Link href="/calendar">Calendar: approve each item</Link> : 'Calendar writes off'}</p>
         <form action={signOut}><button className="app-signout" type="submit">Sign out <span aria-hidden="true">↗</span></button></form>
       </div>
     </aside>

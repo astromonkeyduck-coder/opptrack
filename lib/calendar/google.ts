@@ -3,6 +3,8 @@ import { createCipheriv, createDecipheriv, createHash, randomBytes, timingSafeEq
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 export const GOOGLE_CALENDAR_SCOPE = 'https://www.googleapis.com/auth/calendar.events.readonly';
+export const GOOGLE_CALENDAR_WRITE_SCOPE = 'https://www.googleapis.com/auth/calendar.events.owned';
+export type CalendarScope = typeof GOOGLE_CALENDAR_SCOPE | typeof GOOGLE_CALENDAR_WRITE_SCOPE;
 const AUTHORIZATION_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
 const TOKEN_URL = 'https://oauth2.googleapis.com/token';
 const EVENTS_URL = 'https://www.googleapis.com/calendar/v3/calendars/primary/events';
@@ -12,9 +14,9 @@ const MAX_PAGES = 4;
 const PAGE_SIZE = 50;
 const MAX_RESPONSE_BYTES = 262144;
 
-export type CalendarConfig = { origin: string; clientId: string; clientSecret: string; encryptionKey: Buffer; redirectUri: string; secure: boolean };
-export type CalendarCredentials = { accessToken: string; refreshToken: string; expiresAt: number; scope: typeof GOOGLE_CALENDAR_SCOPE };
-export type CalendarConnection = { encryptedCredentials: string; revision: string; connectedAt: string; updatedAt: string };
+export type CalendarConfig = { origin: string; clientId: string; clientSecret: string; encryptionKey: Buffer; redirectUri: string; secure: boolean; writeEnabled: boolean };
+export type CalendarCredentials = { accessToken: string; refreshToken: string; expiresAt: number; scope: CalendarScope };
+export type CalendarConnection = { encryptedCredentials: string; revision: string; connectedAt: string; updatedAt: string; authorizationGeneration?: string };
 export type CalendarEvent = { id: string; title: string; start: string; end: string; allDay: boolean };
 export type CalendarWindow = { from: string; to: string; timeMin: string; timeMax: string; timeZone: 'America/New_York' };
 export type CalendarState = 'connected' | 'partial' | 'unconfigured' | 'disconnected' | 'reconnect_required' | 'unavailable' | 'unauthenticated' | 'invalid_request';
@@ -23,7 +25,7 @@ export type CalendarEventsResponse = {
   events: CalendarEvent[]; complete: boolean; notice?: string; truncated?: boolean;
   window?: CalendarWindow; updatedAt?: string;
 };
-type OAuthState = { state: string; userId: string; verifier: string; expiresAt: number };
+type OAuthState = { state: string; userId: string; verifier: string; expiresAt: number; scope: CalendarScope };
 
 export class CalendarError extends Error {
   constructor(public state: CalendarState, message: string) { super(message); this.name = 'CalendarError'; }
@@ -31,7 +33,7 @@ export class CalendarError extends Error {
 
 export function calendarConfig(environment: Record<string, string | undefined> = process.env): CalendarConfig | null {
   const { APP_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, CALENDAR_TOKEN_ENCRYPTION_KEY } = environment;
-  if (environment.CALENDAR_WRITES_ENABLED && environment.CALENDAR_WRITES_ENABLED !== 'false') return null;
+  if (environment.CALENDAR_WRITES_ENABLED && !['false', 'true'].includes(environment.CALENDAR_WRITES_ENABLED)) return null;
   if (!APP_URL || !GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !CALENDAR_TOKEN_ENCRYPTION_KEY) return null;
   try {
     const origin = new URL(APP_URL);
@@ -41,7 +43,7 @@ export function calendarConfig(environment: Record<string, string | undefined> =
     if (!/^[A-Za-z0-9+/]{43}=$/.test(CALENDAR_TOKEN_ENCRYPTION_KEY)) return null;
     const encryptionKey = Buffer.from(CALENDAR_TOKEN_ENCRYPTION_KEY, 'base64');
     if (encryptionKey.length !== 32 || encryptionKey.toString('base64') !== CALENDAR_TOKEN_ENCRYPTION_KEY) return null;
-    return { origin: origin.origin, clientId: GOOGLE_CLIENT_ID, clientSecret: GOOGLE_CLIENT_SECRET, encryptionKey, redirectUri: `${origin.origin}/api/calendar/callback`, secure: !local };
+    return { origin: origin.origin, clientId: GOOGLE_CLIENT_ID, clientSecret: GOOGLE_CLIENT_SECRET, encryptionKey, redirectUri: `${origin.origin}/api/calendar/callback`, secure: !local, writeEnabled: environment.CALENDAR_WRITES_ENABLED === 'true' };
   } catch { return null; }
 }
 
@@ -77,15 +79,17 @@ export function encryptCredentials(credentials: CalendarCredentials, key: Buffer
 
 export function decryptCredentials(encrypted: string, key: Buffer, ownerId: string): CalendarCredentials {
   const value = record(unseal(encrypted, key, `credentials/${ownerId}`));
-  if (!value || !token(value.accessToken) || !token(value.refreshToken) || value.scope !== GOOGLE_CALENDAR_SCOPE || typeof value.expiresAt !== 'number' || !Number.isFinite(value.expiresAt)) throw new CalendarError('reconnect_required', 'Reconnect Google Calendar to verify this read-only connection.');
+  if (!value || !token(value.accessToken) || !token(value.refreshToken) || ![GOOGLE_CALENDAR_SCOPE, GOOGLE_CALENDAR_WRITE_SCOPE].includes(String(value.scope)) || typeof value.expiresAt !== 'number' || !Number.isFinite(value.expiresAt)) throw new CalendarError('reconnect_required', 'Reconnect Google Calendar to verify this private connection.');
   return value as CalendarCredentials;
 }
 
-export function createCalendarAuthorization(config: CalendarConfig, userId: string, now = Date.now()) {
-  const state: OAuthState = { state: randomBytes(32).toString('base64url'), userId, verifier: randomBytes(32).toString('base64url'), expiresAt: now + OAUTH_LIFETIME_MS };
+export function createCalendarAuthorization(config: CalendarConfig, userId: string, now = Date.now(), mode: 'read' | 'write' = 'read') {
+  if (mode === 'write' && !config.writeEnabled) throw new CalendarError('invalid_request', 'Calendar additions are disabled.');
+  const scope = mode === 'write' ? GOOGLE_CALENDAR_WRITE_SCOPE : GOOGLE_CALENDAR_SCOPE;
+  const state: OAuthState = { state: randomBytes(32).toString('base64url'), userId, verifier: randomBytes(32).toString('base64url'), expiresAt: now + OAUTH_LIFETIME_MS, scope };
   const url = new URL(AUTHORIZATION_URL);
   url.search = new URLSearchParams({
-    client_id: config.clientId, redirect_uri: config.redirectUri, response_type: 'code', scope: GOOGLE_CALENDAR_SCOPE,
+    client_id: config.clientId, redirect_uri: config.redirectUri, response_type: 'code', scope,
     access_type: 'offline', prompt: 'consent', include_granted_scopes: 'false', state: state.state,
     code_challenge: createHash('sha256').update(state.verifier).digest('base64url'), code_challenge_method: 'S256',
   }).toString();
@@ -98,7 +102,8 @@ export function validateCalendarCallback(cookie: string, state: string, userId: 
   catch { throw new CalendarError('invalid_request', 'The calendar connection request expired or could not be verified. Try connecting again.'); }
   if (!value || value.userId !== userId || typeof value.expiresAt !== 'number' || value.expiresAt <= now || value.expiresAt > now + OAUTH_LIFETIME_MS || typeof value.state !== 'string' || !/^[A-Za-z0-9_-]{43}$/.test(value.state) || !/^[A-Za-z0-9_-]{43}$/.test(state) || typeof value.verifier !== 'string' || !/^[A-Za-z0-9_-]{43}$/.test(value.verifier)) throw new CalendarError('invalid_request', 'The calendar connection request expired or could not be verified. Try connecting again.');
   if (!timingSafeEqual(Buffer.from(value.state), Buffer.from(state))) throw new CalendarError('invalid_request', 'The calendar connection request could not be verified. Try connecting again.');
-  return { verifier: value.verifier };
+  if (value.scope !== GOOGLE_CALENDAR_SCOPE && (value.scope !== GOOGLE_CALENDAR_WRITE_SCOPE || !config.writeEnabled)) throw new CalendarError('invalid_request', 'Calendar authorization mode could not be verified.');
+  return { verifier: value.verifier, scope: value.scope as CalendarScope };
 }
 
 async function googleJson(url: string, init: RequestInit, fetcher: typeof fetch) {
@@ -126,17 +131,18 @@ async function googleJson(url: string, init: RequestInit, fetcher: typeof fetch)
   } finally { reader.releaseLock(); }
 }
 
-function credentialsFromResponse(payload: Record<string, unknown>, previous?: CalendarCredentials, now = Date.now()): CalendarCredentials {
+function credentialsFromResponse(payload: Record<string, unknown>, previous?: CalendarCredentials, now = Date.now(), expectedScope: CalendarScope = previous?.scope ?? GOOGLE_CALENDAR_SCOPE): CalendarCredentials {
   const scopes = typeof payload.scope === 'string' ? payload.scope.trim().split(/\s+/) : previous ? [previous.scope] : [];
   const refreshToken = payload.refresh_token ?? previous?.refreshToken;
-  if (scopes.length !== 1 || scopes[0] !== GOOGLE_CALENDAR_SCOPE || !token(payload.access_token) || !token(refreshToken) || typeof payload.token_type !== 'string' || payload.token_type.toLowerCase() !== 'bearer' || typeof payload.expires_in !== 'number' || !Number.isFinite(payload.expires_in) || payload.expires_in < 60 || payload.expires_in > 86400) throw new CalendarError('reconnect_required', 'Google did not return the required read-only calendar grant. Reconnect and approve calendar read access only.');
-  return { accessToken: payload.access_token, refreshToken, expiresAt: now + payload.expires_in * 1000, scope: GOOGLE_CALENDAR_SCOPE };
+  if (scopes.length !== 1 || scopes[0] !== expectedScope || !token(payload.access_token) || !token(refreshToken) || typeof payload.token_type !== 'string' || payload.token_type.toLowerCase() !== 'bearer' || typeof payload.expires_in !== 'number' || !Number.isFinite(payload.expires_in) || payload.expires_in < 60 || payload.expires_in > 86400) throw new CalendarError('reconnect_required', 'Google did not return the exact requested calendar grant. Reconnect and review the permission requested.');
+  return { accessToken: payload.access_token, refreshToken, expiresAt: now + payload.expires_in * 1000, scope: expectedScope };
 }
 
-export async function exchangeCalendarCode(code: string, verifier: string, config: CalendarConfig, fetcher: typeof fetch = fetch, now = Date.now()) {
+export async function exchangeCalendarCode(code: string, verifier: string, config: CalendarConfig, fetcher: typeof fetch = fetch, now = Date.now(), expectedScope: CalendarScope = GOOGLE_CALENDAR_SCOPE) {
+  if (expectedScope === GOOGLE_CALENDAR_WRITE_SCOPE && !config.writeEnabled) throw new CalendarError('invalid_request', 'Calendar additions are disabled.');
   if (!code || code.length > 2048 || /[\r\n]/.test(code)) throw new CalendarError('invalid_request', 'The Google authorization response is invalid. Try connecting again.');
   const body = new URLSearchParams({ code, client_id: config.clientId, client_secret: config.clientSecret, redirect_uri: config.redirectUri, grant_type: 'authorization_code', code_verifier: verifier });
-  return credentialsFromResponse(await googleJson(TOKEN_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body }, fetcher), undefined, now);
+  return credentialsFromResponse(await googleJson(TOKEN_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body }, fetcher), undefined, now, expectedScope);
 }
 
 export async function getCalendarConnection(client: SupabaseClient): Promise<CalendarConnection | null> {
@@ -145,11 +151,14 @@ export async function getCalendarConnection(client: SupabaseClient): Promise<Cal
   if (data === null) return null;
   const value = record(data);
   if (!value || typeof value.encrypted_credentials !== 'string' || typeof value.revision !== 'string' || typeof value.connected_at !== 'string' || typeof value.updated_at !== 'string') throw new CalendarError('unavailable', 'Private calendar connection storage returned an invalid record.');
-  return { encryptedCredentials: value.encrypted_credentials, revision: value.revision, connectedAt: value.connected_at, updatedAt: value.updated_at };
+  return { encryptedCredentials: value.encrypted_credentials, revision: value.revision, connectedAt: value.connected_at, updatedAt: value.updated_at, ...(typeof value.authorization_generation === 'string' ? { authorizationGeneration: value.authorization_generation } : {}) };
 }
 
-export async function saveCalendarConnection(client: SupabaseClient, credentials: CalendarCredentials, config: CalendarConfig, userId: string, expectedRevision: string | null) {
-  const { data, error } = await client.rpc('calendar_connection_put', { p_encrypted_credentials: encryptCredentials(credentials, config.encryptionKey, userId), p_expected_revision: expectedRevision });
+export async function saveCalendarConnection(client: SupabaseClient, credentials: CalendarCredentials, config: CalendarConfig, userId: string, expectedRevision: string | null, newAuthorization = false) {
+  const params = { p_encrypted_credentials: encryptCredentials(credentials, config.encryptionKey, userId), p_expected_revision: expectedRevision };
+  const { data, error } = (credentials.scope === GOOGLE_CALENDAR_WRITE_SCOPE || newAuthorization)
+    ? await client.rpc('calendar_connection_put_scoped', { ...params, p_scope: credentials.scope, p_new_authorization: newAuthorization })
+    : await client.rpc('calendar_connection_put', params);
   if (error || typeof data !== 'string') throw new CalendarError('unavailable', error?.code === '40001' ? 'The calendar connection changed during this request. Try again.' : 'The private calendar connection could not be saved.');
   return data;
 }
