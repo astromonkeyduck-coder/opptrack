@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-11-01",
-  "status": "approval_calendar_routes_live_consent_and_owner_browser_verification_pending",
+  "status": "approval_calendar_published_owner_ui_verified_google_consent_pending",
   "web_host": "netlify",
   "worker_host": "trigger.dev-cloud",
   "hosted_targets": {
@@ -496,6 +496,9 @@
     "hosted_migration": "20261102022214",
     "hosted_policy_checks": 32,
     "google_write_consent_pending": true,
-    "authenticated_new_ui_check_pending_mac_unlock": true
+    "authenticated_new_ui_check_pending_mac_unlock": false,
+    "authenticated_new_ui_verified": true,
+    "netlify_deploy_id": "6ae7f4fdd79280473e00a37f",
+    "google_consent_screen_ready": true
   }
 }

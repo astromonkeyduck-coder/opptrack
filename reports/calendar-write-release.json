@@ -1,7 +1,7 @@
 {
-  "recordedAt": "2026-11-02T02:31:59.604537Z",
+  "recordedAt": "2026-11-02T02:39:58Z",
   "userDate": "2026-11-01",
-  "status": "implemented_pushed_new_routes_live; google_write_consent_and_owner_browser_verification_pending_mac_unlock",
+  "status": "published_and_owner_preview_verified; waiting_for_action_time_google_write_consent",
   "authorization": "User confirmed individually approved event/reminder writes after read-only grant explanation; no blanket additions or other later-stage work",
   "runtimeCommit": "e7790d95a731bc46a4dd64d543fd4911cd600b6a",
   "github": {
@@ -21,11 +21,14 @@
     "flag": "CALENDAR_WRITES_ENABLED=true",
     "previewBranchLocalContexts": "empty; unchanged",
     "newApprovalAndRetryRoutesObservedLive": true,
-    "exactDashboardPublishedCommitVerified": false,
-    "authenticatedNewUiVerified": false,
-    "blocker": "Mac locked; native app explicitly required manual unlock after browser lost its debugger connection",
+    "exactDashboardPublishedCommitVerified": true,
+    "authenticatedNewUiVerified": true,
+    "blocker": "Google owned-event consent awaits explicit action-time confirmation; Mac unlock resolved",
     "newSecrets": 0,
-    "paidUpgrade": false
+    "paidUpgrade": false,
+    "publishedDeployId": "6ae7f4fdd79280473e00a37f",
+    "publishedCommit": "e7790d95a731bc46a4dd64d543fd4911cd600b6a",
+    "dashboardDisplayedDeployTime": "November 1, 2026 at 9:27 PM Eastern"
   },
   "database": {
     "migration": "20261102021158_approved_calendar_writes.sql",
@@ -93,10 +96,9 @@
     "invoiceOrMonthlyAverageEstablished": false
   },
   "nextSteps": [
-    "User unlocks Mac; verify exact Netlify deployment and authenticated single-item preview/history",
-    "Open the explicit Google owned-event consent for the existing selected account and obtain action-time authorization or let the user complete it directly",
-    "Confirm stored owned-event grant and successful primary read without printing credentials",
-    "Actual Google insertion remains untested until the user explicitly selects and approves one event or reminder"
+    "Receive explicit consent-screen authorization or have user finish Google consent directly",
+    "Confirm stored owned-event scope, rotated authorization generation and a successful primary-calendar read without exposing credentials",
+    "Actual insertion remains untested until the user selects and separately approves one exact event/reminder"
   ],
   "remainingLimits": [
     "New consent rotates the authorization generation and intentionally blocks delivery of old uncertain approvals even for the same account; manual recovery required",
@@ -105,5 +107,30 @@
     "All prior Stage1 Storage HTTP/intake/restore/retention/laptop-off gaps remain separate",
     "Physical-phone and populated responsive browser checks not performed for this extension",
     "Idempotency is per owner/native occurrence or milestone; separate cross-source representations can still require manual duplicate review"
-  ]
+  ],
+  "ownerUi": {
+    "occurrencePreviewVerified": true,
+    "exactTitleStartEndTimezoneAndUnknownLocationVisible": true,
+    "noApprovalControlBeforeWriteGrant": true,
+    "separateConnectFormRequestsOwnedScope": true,
+    "approvalHistoryVerified": true,
+    "historyCommands": 0,
+    "eventOrReminderSelectedForAdditionByUser": false,
+    "calendarApprovalClicked": false,
+    "ignoredScreenshots": [
+      "private/calendar-approval-live.png",
+      "private/calendar-writer-netlify-deploy.png",
+      "private/google-calendar-write-consent.png"
+    ]
+  },
+  "googleConsent": {
+    "account": "previously user-selected Google account",
+    "requestedScope": "https://www.googleapis.com/auth/calendar.events.owned",
+    "observedPermission": "See, create, change, and delete events on Google calendars you own",
+    "appIsInTesting": true,
+    "finalContinueClicked": false,
+    "confirmationAskedAtConsentScreen": true,
+    "credentialsPrinted": false,
+    "generationBeforeConsentSha256": "d4844e2049563f6aba649df666ada2c34fe7f45a818e2b98110edae1368a7b26"
+  }
 }
