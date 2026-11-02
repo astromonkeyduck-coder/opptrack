@@ -1,5 +1,13 @@
 # Stage 1 hosted acceptance
 
+## Current November 2 boundary
+
+The dated tables below are historical. Read [current status](status.md) and [calendar clarity evidence](../reports/calendar-action-clarity-release.json) first: the Netlify writer is enabled only for separately approved items; Trigger remains disabled for writes. A confusing save-only green check produced 15 saved items and zero calendar commands. The new direct calendar action opens the existing single-item approval. No real insert has been tested or old saves backfilled. Seven public sources are successful; the 27 Instagram routes remain blocked and Meta repair stays paused.
+
+New verification closes a 14-check hosted rollback SQL replay/decision/lease-fencing audit and a 20-check local synthetic recovery drill. The latter is not a hosted backup restore. Fresh real Central/Music captures also pass ten local production-ingestion replay checks. Full hosted two-slide upload/download/known-object HTTP and another signed-in user, independent-session contention, isolated hosted backup/Storage recovery and a confirmed laptop-off window remain open. No new paid environment or production cleanup was enabled. The interrupted chooser did not establish an upload; the newest synthetic note-only intake contains zero files.
+
+## Historical October 20 baseline
+
 The real scheduled Central/Music → Trigger Cloud → Supabase → authenticated Netlify inbox path now works. This checklist separates completed evidence from remaining acceptance gates. Calendar writes, email delivery, social collection, purchases, RSVPs and organizer messages remain disabled. No paid upgrade or connector is authorized.
 
 ## Targets and completed evidence

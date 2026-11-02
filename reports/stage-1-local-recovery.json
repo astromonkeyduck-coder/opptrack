@@ -1,0 +1,200 @@
+{
+  "runAt": "2026-11-02T16:11:58.323Z",
+  "completedAt": "2026-11-02T16:12:00.652Z",
+  "status": "local_synthetic_restore_verified_hosted_restore_unverified",
+  "command": "node scripts/test-recovery-restore.mjs",
+  "engine": "@electric-sql/pglite 0.5.10 (actual PostgreSQL WASM)",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql"
+  ],
+  "passed": 20,
+  "checks": [
+    "all current migrations execute in a credential-free local PostgreSQL instance",
+    "worker SQL persists capture, program, occurrence, milestone, field evidence and source health",
+    "synthetic private object bodies and ordered two-slide intake match SQL metadata",
+    "database snapshot and three separate object backups pass byte counts and SHA-256 verification",
+    "all backup artifacts use private filesystem modes",
+    "restore verification rejects corrupt database bytes before opening PostgreSQL",
+    "restore verification rejects corrupt or missing object bodies instead of declaring a complete backup",
+    "restore paths reject traversal and another owner prefix",
+    "source loss is demonstrable before restore and cannot be hidden by querying the original",
+    "separate restored database matches every application, private, Auth-shell and Storage-shell row hash",
+    "restored policies, RLS flags, invoker views, function ACLs and definer settings match the backup",
+    "restored private files retain original paths, all bytes and hashes independently of database metadata",
+    "owner reads exactly the saved inbox and the same native identities after restore",
+    "another authenticated user cannot read restored catalog, decisions, intake or known-object metadata",
+    "anonymous access to restored private facts and review mutations remains denied",
+    "owner can read restored object metadata but cannot forge source facts or another storage prefix",
+    "post-restore recollection deduplicates native entities and versions while preserving the saved decision",
+    "restored intake submission key remains idempotent and decision identity sequence continues safely",
+    "recovery drill creates no calendar connections or commands and performs no provider calls",
+    "restored database survives closing and reopening its separate local data directory"
+  ],
+  "timings": {
+    "exportMs": 398,
+    "restoreMs": 572,
+    "totalMs": 2328
+  },
+  "fixtureClass": "Synthetic source facts, two generated one-pixel PNGs and one JSON capture. Actual migrated PostgreSQL/RLS/RPCs; Auth and Storage SQL compatibility shells and local filesystem bodies. No hosted Supabase/Auth/Storage service is emulated.",
+  "backup": {
+    "scope": "Entire fresh local PGlite data directory plus separate three-object local backup",
+    "databaseBytes": 4992491,
+    "databaseSha256": "084ff195c3cde7338e472dc3a258d46df8139a83518f1773171be82f5d26fb31",
+    "objectCount": 3,
+    "objectBytes": 319,
+    "policySha256": "4c555482be7fb09adc9376086912858a8dd99edd136d952d1f9d9ea77ed123bb",
+    "tables": [
+      {
+        "table": "auth.users",
+        "rows": 2,
+        "sha256": "7388167d4e869afd0b1eb35b63a13ecb23ff4753f4fdc38fea3c2fe2a01e711c"
+      },
+      {
+        "table": "public.captures",
+        "rows": 1,
+        "sha256": "18a01a7ae4a240197af1b2ccc30981586234259a884ed0564382c4b89d8075de"
+      },
+      {
+        "table": "public.entity_versions",
+        "rows": 3,
+        "sha256": "4ee59d0c90f6d0817a8139d1dde0b662b5333e7fc57c00de762437e281462679"
+      },
+      {
+        "table": "public.field_claims",
+        "rows": 3,
+        "sha256": "824f361edcddb43368aef8371a82415e531734e2eabcdc870e507f15f5354abd"
+      },
+      {
+        "table": "public.instagram_update_versions",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "table": "public.instagram_updates",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "table": "public.manual_intakes",
+        "rows": 1,
+        "sha256": "54731e0cab28fa44f86e7b3df42a15380282242f8442670adddfa3d8de987139"
+      },
+      {
+        "table": "public.milestones",
+        "rows": 1,
+        "sha256": "c88d9a5f47d81f65187d81b66d305b6cd7751261de445c4f5e169d7d01dabbd4"
+      },
+      {
+        "table": "public.occurrences",
+        "rows": 1,
+        "sha256": "12000d5dc18c3f3f5681521a0153962de30a479257c0ef35385b2e6e815cd2c5"
+      },
+      {
+        "table": "public.opportunities",
+        "rows": 1,
+        "sha256": "f2b1b709f4dd69ff96925d30b7ae90a9ce95fd9892154fa7ec922c4b09cd2af9"
+      },
+      {
+        "table": "public.run_captures",
+        "rows": 1,
+        "sha256": "15613ff38a296c08a9f286015b4ae9d299f25fef806dfdf3bbdef2789a3472ba"
+      },
+      {
+        "table": "public.source_runs",
+        "rows": 1,
+        "sha256": "48ce067c2b803fb8e13d1412f93c3b30ce275f8fe3c5698b69fd8cf30689d571"
+      },
+      {
+        "table": "public.sources",
+        "rows": 6,
+        "sha256": "a16908cc1f22cb46842b5f813055836e0c89b0541a6349945a0380a65e4b5265"
+      },
+      {
+        "table": "public.tracker_members",
+        "rows": 1,
+        "sha256": "833e32b9c3f29276e25b095fe145eb68e1491991f11a537985ae3acf8c77de08"
+      },
+      {
+        "table": "public.user_decisions",
+        "rows": 1,
+        "sha256": "ac40b84b4d9103d2f5e10456819239e7663efee2233ffb49ffcff81341340f52"
+      },
+      {
+        "table": "storage.buckets",
+        "rows": 1,
+        "sha256": "5b29b69b3aea2834a2c981bd63bfa0069fed837c6f4885f6512adb951dd54fb4"
+      },
+      {
+        "table": "storage.objects",
+        "rows": 3,
+        "sha256": "8fec33f2dd7149f46a355302a710dd079eda3250f089cdff0f0a6653abf00689"
+      },
+      {
+        "table": "tracker_private.calendar_write_commands",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "table": "tracker_private.google_calendar_connections",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    ],
+    "privateArtifacts": "private/recovery-drill-W8h1op",
+    "modes": {
+      "directory": "0700",
+      "backupAndObjectFiles": "0600"
+    },
+    "originalSourceClosed": true,
+    "originalObjectBodiesDeleted": true,
+    "restoredDatabaseReopened": true
+  },
+  "production": {
+    "reads": 0,
+    "writes": 0,
+    "credentialFilesRead": 0,
+    "calendarCalls": 0,
+    "newServices": 0,
+    "costUsd": 0
+  },
+  "documentation": [
+    {
+      "url": "https://pglite.dev/docs/api#dumpdatadir",
+      "claim": "PGlite dumpDataDir snapshots can initialize a separate database through loadDataDir; also verified against installed 0.5.10 declarations."
+    },
+    {
+      "url": "https://supabase.com/docs/guides/platform/backups",
+      "claim": "Hosted database backups do not include Storage object bodies; local object export/restore is tested separately."
+    },
+    {
+      "url": "https://supabase.com/docs/guides/platform/migrating-within-supabase/backup-restore",
+      "claim": "Hosted restoration includes database roles/schema/data, migration history and separate Storage-object handling; it has not been performed here."
+    }
+  ],
+  "documentationNotes": [
+    "Supabase changelog.md fetch returned HTTP400 unsupported text/markdown in the web tool; current backup documentation and MCP search_docs were read instead. No Supabase feature/schema change is implemented by this drill."
+  ],
+  "remainingAcceptance": [
+    "Export actual production database through an authorized backup route without exposing credentials; inspect backup recency/retention.",
+    "Restore a real hosted backup into an isolated destination with no live writers or schedulers, preserve auth/roles/grants/migrations, and verify original identities and decisions.",
+    "Independently export and restore actual private Storage bodies and metadata through the Storage service, with a complete hash manifest and missing-body detection.",
+    "Verify owner, other-user and anonymous signed-JWT/HTTP access plus downloaded-body hashes after hosted restoration; local SQL role claims do not establish these.",
+    "Verify production encryption-key availability/reconnection and restore handling for calendar credentials and immutable commands without resending any approved action; this fixture deliberately has zero credentials/commands.",
+    "Measure hosted recovery point/object completeness and recovery duration; local timings are not a production RPO/RTO guarantee.",
+    "Safe production retention/race handling and orphan cleanup remain disabled until separately verified."
+  ],
+  "limitations": [
+    "No production facts or captures were exported.",
+    "No managed Supabase backup was restored.",
+    "No Storage HTTP transfer, Auth/JWT verification, offsite/encrypted backup or cross-version restore was tested.",
+    "No destructive operation touched production."
+  ]
+}

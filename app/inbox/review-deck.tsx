@@ -7,7 +7,7 @@ import { occurrenceSchedule, swipeFeedback, swipeIntent, uniqueOccurrences } fro
 import { reviewOccurrence, undoReviewOccurrence } from './review-actions';
 import { timestamp, type InboxRow } from './components';
 import { ReviewCalendar } from './review-calendar';
-import { CalendarDraftLink } from './calendar-draft-link';
+import { CalendarDraftLink, SavedForLaterNotice } from './calendar-draft-link';
 
 type Decision = 'save' | 'reject';
 type History = { row: InboxRow; decision: Decision; decisionId: string; previousDecision: Decision | null };
@@ -68,7 +68,7 @@ export function ReviewDeck({ rows: input, savedRows, nextPage, previousPage, tot
       setReviewed(items => [...items, row.id]);
       setHistory(items => [...items, { row, decision, decisionId: result.decisionId, previousDecision: result.previousDecision }]);
       setSaved(items => decision === 'save' ? [...items.filter(item => item.id !== row.id), { ...row, decision: 'save' }] : items.filter(item => item.id !== row.id));
-      setAnnouncement(`${decision === 'save' ? 'Saved' : 'Passed on'} ${row.title}. Nothing added to your calendar.`);
+      setAnnouncement(`${decision === 'save' ? 'Saved for later' : 'Passed on'} ${row.title}. Nothing added to your calendar.`);
     } catch { setError('Your decision could not be saved. This card is still here. Try again.'); }
     finally { operation.current = false; setBusy(false); }
   }
@@ -109,6 +109,7 @@ export function ReviewDeck({ rows: input, savedRows, nextPage, previousPage, tot
       <div className="deck-toolbar"><span>{row ? `${reviewed.length + 1} / ${rows.length}` : `${rows.length} / ${rows.length}`} <span className="muted">on this page</span></span><button type="button" className="text-button calendar-toggle" onClick={() => setShowCalendar(v => !v)} aria-expanded={showCalendar}>{showCalendar ? 'Hide calendar' : 'View calendar'} <span aria-hidden="true">▦</span></button><button type="button" className="undo-button" onClick={undo} disabled={busy || !latest} aria-label="Undo last decision">↶ Undo</button></div>
       {error && <p role="alert" className="notice">{error}</p>}
       <div className="sr-only" role="status" aria-live="polite">{announcement}</div>
+      {latest?.decision === 'save' && <SavedForLaterNotice row={latest.row} calendarWritesEnabled={calendarWritesEnabled} />}
       <div className="deck-stage">
         <div className="swipe-aura aura-reject" style={{ opacity: feedback.direction === 'reject' ? feedback.progress * .85 : 0 }} />
         <div className="swipe-aura aura-save" style={{ opacity: feedback.direction === 'save' ? feedback.progress * .85 : 0 }} />
@@ -121,7 +122,7 @@ export function ReviewDeck({ rows: input, savedRows, nextPage, previousPage, tot
               <div className="poster-type" aria-hidden="true"><span>{schedule.weekday || 'FSU'}</span><strong>{schedule.day || '↗'}</strong></div>
               <span className="poster-month">{schedule.month || 'Find your next thing'}</span>
               <span className="poster-line" aria-hidden="true" />
-              <div className={`swipe-stamp${feedback.direction === 'reject' ? ' stamp-reject' : ' stamp-save'}`} style={{ opacity: feedback.progress }} aria-hidden="true">{feedback.direction === 'reject' ? 'PASS' : 'SAVE'}<small>{feedback.progress >= 1 ? 'Release to confirm' : 'Keep dragging'}</small></div>
+              <div className={`swipe-stamp${feedback.direction === 'reject' ? ' stamp-reject' : ' stamp-save'}`} style={{ opacity: feedback.progress }} aria-hidden="true">{feedback.direction === 'reject' ? 'PASS' : 'SAVE FOR LATER'}<small>{feedback.progress >= 1 ? feedback.direction === 'reject' ? 'Release to pass' : 'Release to save for later' : 'Keep dragging'}</small></div>
             </div>
             <div className="event-body">
               <div className="event-source"><span>{sourceName(row.source_id)}</span><span>{row.status !== 'scheduled' ? row.status : 'Event'}</span></div>
@@ -131,12 +132,13 @@ export function ReviewDeck({ rows: input, savedRows, nextPage, previousPage, tot
               <p className="event-location"><span aria-hidden="true">↗</span> {row.location || 'Location unverified'}</p>
               {row.description && <p className="event-excerpt">{row.description}</p>}
               <div className="event-flags"><span>Tickets unverified</span>{row.status !== 'scheduled' && <span className="flag-warning">{row.status}</span>}{(row.source_health !== 'success' || sourceIsStale(row.source_last_success_at, row.source_cadence_seconds ?? null)) && <span className="flag-warning">Source {row.source_health !== 'success' ? row.source_health : 'stale'}</span>}</div>
-              <details className="event-details"><summary>Details, source & calendar <span aria-hidden="true">+</span></summary><div>{schedule.localText && schedule.uncertain && <p>Source time: {schedule.localText} · source timezone unconfirmed</p>}{schedule.precision === 'instant' && <p>Times shown in Eastern · Source timezone: {row.timezone || 'Unconfirmed'}</p>}{row.description && <p className="full-description">{row.description}</p>}<p>{[...new Set(['Ticket availability unverified', ...(row.uncertainties || [])])].join(' · ')}</p><p>End: {row.ends_at ? timestamp(row.ends_at) : 'End time unverified'}</p><p>Health: {row.source_health} · Last success: {timestamp(row.source_last_success_at)}</p>{row.coverage_note && <p>{row.coverage_note}</p>}{url && <a href={url} rel="noopener noreferrer" target="_blank">Open source listing ↗</a>}{art && !imageFailed && <p><a href={art.url} target="_blank" rel="noopener noreferrer">View full source image ↗</a></p>}<CalendarDraftLink row={row} calendarWritesEnabled={calendarWritesEnabled} /></div></details>
+              <div className="event-calendar-action"><CalendarDraftLink row={row} calendarWritesEnabled={calendarWritesEnabled} compact /></div>
+              <details className="event-details"><summary>Details & source <span aria-hidden="true">+</span></summary><div>{schedule.localText && schedule.uncertain && <p>Source time: {schedule.localText} · source timezone unconfirmed</p>}{schedule.precision === 'instant' && <p>Times shown in Eastern · Source timezone: {row.timezone || 'Unconfirmed'}</p>}{row.description && <p className="full-description">{row.description}</p>}<p>{[...new Set(['Ticket availability unverified', ...(row.uncertainties || [])])].join(' · ')}</p><p>End: {row.ends_at ? timestamp(row.ends_at) : 'End time unverified'}</p><p>Health: {row.source_health} · Last success: {timestamp(row.source_last_success_at)}</p>{row.coverage_note && <p>{row.coverage_note}</p>}{url && <a href={url} rel="noopener noreferrer" target="_blank">Open source listing ↗</a>}{art && !imageFailed && <p><a href={art.url} target="_blank" rel="noopener noreferrer">View full source image ↗</a></p>}</div></details>
             </div>
           </article>
         </> : <div className="deck-complete"><span aria-hidden="true">✓</span><h2>{rows.length ? 'Caught up with this page.' : 'Nothing here yet.'}</h2><p>{rows.length ? 'Your decisions are saved. Keep going, or take another look at your saved events.' : 'Try a broader search, or check Sources for collection gaps.'}</p>{(nextPage || (continueReviewLink && initialTotal > reviewed.length)) ? <a className="button-primary" href={continueReviewLink || nextPage!}>Keep reviewing →</a> : <Link className="button-secondary" href="/inbox?decision=save">See saved events ↗</Link>}</div>}
       </div>
-      {row && <div className="deck-controls"><button type="button" className="decision-button reject-button" disabled={busy} onClick={() => void choose('reject')} aria-label={`Pass on ${row.title}`}><span aria-hidden="true">×</span><strong>Pass</strong><small>Swipe left</small></button><p>{busy ? 'Saving your decision…' : 'Your call.'}<span>Nothing added to your calendar.</span></p><button type="button" className="decision-button save-button" disabled={busy} onClick={() => void choose('save')} aria-label={`Save ${row.title}`}><span aria-hidden="true">✓</span><strong>Save</strong><small>Swipe right</small></button></div>}
+      {row && <div className="deck-controls"><button type="button" className="decision-button reject-button" disabled={busy} onClick={() => void choose('reject')} aria-label={`Pass on ${row.title}`}><span aria-hidden="true">×</span><strong>Pass</strong><small>Swipe left</small></button><p>{busy ? 'Saving your decision…' : 'Your call.'}<span>Swipes only organize your inbox.</span></p><button type="button" className="decision-button save-button" disabled={busy} onClick={() => void choose('save')} aria-label={`Save ${row.title} for later`}><span aria-hidden="true"><svg viewBox="0 0 20 20" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 3h10v14l-5-3-5 3z" /></svg></span><strong>Save for later</strong><small>Swipe right</small></button></div>}
       <nav className="pagination deck-pagination" aria-label="Catalog pages">{!continueReviewLink && previousPage && <Link href={previousPage}>← Previous page</Link>}<span>{continueReviewLink ? "One occurrence, one decision." : `Page ${page}`}</span>{!continueReviewLink && nextPage && <Link href={nextPage}>Next page →</Link>}</nav>
     </section>
     <ReviewCalendar candidate={row} savedRows={saved} connectionMessage={calendarMessage} calendarWritesEnabled={calendarWritesEnabled} />

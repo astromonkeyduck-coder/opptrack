@@ -1,0 +1,84 @@
+{
+  "recordedAt": "2026-11-02T16:13:49.808780Z",
+  "status": "tested_locally_release_pending",
+  "problem": "User interpreted the green save/check action as a Google Calendar approval; the action only saved review state.",
+  "diagnostic": {
+    "checkedAt": "2026-11-02T16:10:13.043376Z",
+    "reviewActionRows": 57,
+    "saveActions": 16,
+    "rejectActions": 39,
+    "undoActions": 2,
+    "currentSavedOccurrences": 15,
+    "calendarApprovalCommands": 0,
+    "providerFailureEstablished": false,
+    "evidence": "Metadata-only hosted SQL plus authenticated Saved page; no credentials or event titles/IDs in this report"
+  },
+  "savedEligibilitySnapshot": {
+    "checkedAt": "2026-11-02T16:11:34.843292Z",
+    "saved": 15,
+    "futureVerifiedIntervals": 5,
+    "alreadyStartedOrPast": 9,
+    "missingEnd": 1,
+    "boundary": "Time-sensitive snapshot; the approval RPC checks current source eligibility again"
+  },
+  "fix": {
+    "greenAction": "Save for later with bookmark icon",
+    "directCardAction": "Add to Google Calendar outside collapsed Details",
+    "afterSave": "Visible notice linking to approval of that exact occurrence",
+    "savedView": "Persistent per-item approval guidance and history link",
+    "swipesAndUndo": "Private review decisions only, unchanged",
+    "approvalGate": "Existing individual unchecked checkbox and immutable snapshot; no automatic save backfill"
+  },
+  "connection": {
+    "checkedAt": "2026-11-02T16:12:42.237759Z",
+    "storedScope": "https://www.googleapis.com/auth/calendar.events.owned",
+    "updatedAt": "2026-11-02T16:00:26.584409Z",
+    "encryptedEnvelopeValid": true,
+    "authorizationGenerationPresent": true,
+    "credentialValuesRead": false
+  },
+  "checks": {
+    "applicationTests": 313,
+    "applicationFailures": 0,
+    "regularSqlChecks": 155,
+    "instagramWorkerReplays": 6,
+    "focusedClarityAndApprovalTests": 24,
+    "typecheck": "passed",
+    "build": "passed",
+    "makeCheck": "passed",
+    "initialAppTestFailure": "Old entry-point copy assertion expected Review calendar addition; updated to assert Add to Google Calendar and the same exact target route"
+  },
+  "calendar": {
+    "realCommandsAtLastCheck": 0,
+    "providerWriteCallsThisWork": 0,
+    "insertTested": false,
+    "existingSavedRowsBackfilled": false,
+    "explicitItemApprovalStillRequired": true
+  },
+  "release": {
+    "runtimeCommit": null,
+    "publishedDeployId": null,
+    "hostedUiVerified": false
+  },
+  "otherAuthorizedStage1Work": {
+    "intake": "4MiB individual and combined cap plus 64KiB multipart allowance and safe non-JSON/transport error handling",
+    "hostedTwoSlideUploadVerified": false,
+    "interruptedChooser": "Browser file selection did not complete; a note-only synthetic intake with zero files is present. It is not evidence of file upload.",
+    "hostedReplaySqlChecks": 14,
+    "localRecoveryChecks": 20,
+    "localReplayChecks": 10,
+    "hostedRestoreVerified": false,
+    "independentConnectionContentionTested": false,
+    "confirmedLaptopOffWindow": false,
+    "metaRepair": "paused; 27 routes still blocked",
+    "paidUpgrades": false,
+    "calendarWorkerEnabled": false
+  },
+  "remaining": [
+    "User submits one actual individual calendar approval, then verify command and provider event",
+    "Hosted owner/nonowner/anonymous Storage HTTP, two-slide upload/download/hash/idempotency/type-size boundaries",
+    "Hosted backup and separate Storage-body restoration in an isolated destination",
+    "Independent-session contention and a user-confirmed powered-off window",
+    "Google testing-mode credential durability; Meta repair remains paused"
+  ]
+}

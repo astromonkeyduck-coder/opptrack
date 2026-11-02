@@ -1,0 +1,74 @@
+{
+  "checks": [
+    {
+      "test": "sequential lease calls exclude the active source and lease the other synthetic source",
+      "passed": true
+    },
+    {
+      "test": "expired lease cannot commit a run",
+      "passed": true
+    },
+    {
+      "test": "expired source reacquires a different token and records the abandoned attempt",
+      "passed": true
+    },
+    {
+      "test": "old token is fenced after recovery",
+      "passed": true
+    },
+    {
+      "test": "three unchanged collections add observations without duplicate entities versions or decisions",
+      "passed": true
+    },
+    {
+      "test": "changed source facts retain native occurrence UUIDs and add exactly two content versions",
+      "passed": true
+    },
+    {
+      "test": "saved passed and undecided sibling occurrences remain independent after changed collection",
+      "passed": true
+    },
+    {
+      "test": "saved decision retains its original target revision for honest review history",
+      "passed": true
+    },
+    {
+      "test": "stale occurrence review is rejected after changed source facts",
+      "passed": true
+    },
+    {
+      "test": "failure preserves successful cursor last success and decisions and respects Retry-After",
+      "passed": true
+    },
+    {
+      "test": "other authenticated user cannot read the audited inbox decisions",
+      "passed": true
+    },
+    {
+      "test": "existing source state remains byte-for-byte unchanged",
+      "passed": true
+    },
+    {
+      "test": "existing real user decision rows remain unchanged",
+      "passed": true
+    },
+    {
+      "test": "no calendar command or approval was created",
+      "passed": true
+    }
+  ],
+  "passed": 14,
+  "checked_at": "2026-11-02T16:11:58.126458+00:00",
+  "google_calls": 0,
+  "fixture_class": "Synthetic SQL fixtures through installed production RPCs and actual SQL roles; not live HTTP or user browser evidence",
+  "storage_http_calls": 0,
+  "decision_sequence_note": "Identity sequence may advance despite rollback; existing decision rows are untouched",
+  "persistent_rows_changed": 0,
+  "independent_connections_tested": false,
+  "projectRef": "nuywbvlcwetqjalqvxzb",
+  "command": "Supabase execute_sql: scripts/hosted-stage1-reingestion-check.sql",
+  "evidenceClass": "Hosted PostgreSQL roles/local claims with synthetic rollback-only facts",
+  "realUserDecisionsChanged": false,
+  "calendarProviderCalls": 0,
+  "hostedSignedJwtHttpProof": false
+}

@@ -1,0 +1,185 @@
+{
+  "recordedAt": "2026-11-02T16:12:02.271Z",
+  "command": "node --import tsx scripts/test-stage1-reingestion.mjs",
+  "evidenceClass": "Real public captures replayed through production ingestion and actual PGlite PostgreSQL; synthetic rollback audit separate",
+  "database": "PGlite 0.5.10 PostgreSQL WASM; test Auth/Storage compatibility shell",
+  "freshPublicFetchesThisCommand": false,
+  "publicHttpAttemptsThisCommand": 0,
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql"
+  ],
+  "passed": 10,
+  "checks": [
+    "fsu-calendar-api: captured real public facts enter production ingestion and actual SQL",
+    "fsu-calendar-api: opposite occurrence decisions are recorded through the owner RPC",
+    "fsu-calendar-api: three repeated complete collections preserve UUIDs, versions and evidence",
+    "fsu-calendar-api: saved and passed choices survive while other occurrences stay undecided",
+    "fsu-music-events: captured real public facts enter production ingestion and actual SQL",
+    "fsu-music-events: opposite occurrence decisions are recorded through the owner RPC",
+    "fsu-music-events: three repeated complete collections preserve UUIDs, versions and evidence",
+    "fsu-music-events: saved and passed choices survive while other occurrences stay undecided",
+    "core immutable Storage retries verify existing response bytes instead of overwriting",
+    "the rollback-only hosted audit executes unchanged against populated real local PostgreSQL"
+  ],
+  "sourceReports": [
+    {
+      "sourceId": "fsu-calendar-api",
+      "fetchStartedAt": "2026-11-02T15:52:01.819Z",
+      "fetchFinishedAt": "2026-11-02T15:52:17.401Z",
+      "outcome": "success",
+      "reason": null,
+      "requests": 4,
+      "responseBytes": 998466,
+      "captures": 4,
+      "nativeRows": 320,
+      "opportunities": 281,
+      "occurrences": 320,
+      "paginationComplete": true,
+      "windowFrom": "2026-11-02",
+      "windowTo": "2026-11-09",
+      "bodyHashes": [
+        "d5677878ae8f85476b298e8aa348beea48cc58076b781b934dfe4faf324ed487",
+        "3965c185dac7794c0266547d1c18fa378e1e3bc787c5fa5cfb2109764c8f1f60",
+        "7f71b8ba94b08b86a1eece34de2ccbe23aeec3d8cd5b40a285fe379c1d992ff8",
+        "90056c14fc249662e3baee01ed824e112275d58b820d7d66b58eae7beba78542"
+      ],
+      "privateCapture": "private/stage1-reingestion-live/fsu-calendar-api.json"
+    },
+    {
+      "sourceId": "fsu-music-events",
+      "fetchStartedAt": "2026-11-02T15:52:17.767Z",
+      "fetchFinishedAt": "2026-11-02T15:52:17.893Z",
+      "outcome": "success",
+      "reason": null,
+      "requests": 1,
+      "responseBytes": 65133,
+      "captures": 1,
+      "nativeRows": 10,
+      "opportunities": 10,
+      "occurrences": 10,
+      "paginationComplete": true,
+      "windowFrom": null,
+      "windowTo": null,
+      "bodyHashes": [
+        "3bbe38892e8fd5a3badf13a89d3624a0e3653a47484f77a92528006b7ed9d16d"
+      ],
+      "privateCapture": "private/stage1-reingestion-live/fsu-music-events.json"
+    }
+  ],
+  "summaries": [
+    {
+      "sourceId": "fsu-calendar-api",
+      "initialAndReplayRuns": 4,
+      "claims": 1803,
+      "captures": 4,
+      "versions": 601,
+      "decisions": 2,
+      "occurrences": 320,
+      "opportunities": 281
+    },
+    {
+      "sourceId": "fsu-music-events",
+      "initialAndReplayRuns": 4,
+      "claims": 60,
+      "captures": 1,
+      "versions": 20,
+      "decisions": 2,
+      "occurrences": 10,
+      "opportunities": 10
+    }
+  ],
+  "storage": {
+    "implementation": "in-memory immutable substitute",
+    "uploads": 5,
+    "reuses": 15,
+    "verifiedDownloads": 15,
+    "hostedHttpTested": false
+  },
+  "syntheticRollbackAudit": {
+    "checks": [
+      {
+        "test": "sequential lease calls exclude the active source and lease the other synthetic source",
+        "passed": true
+      },
+      {
+        "test": "expired lease cannot commit a run",
+        "passed": true
+      },
+      {
+        "test": "expired source reacquires a different token and records the abandoned attempt",
+        "passed": true
+      },
+      {
+        "test": "old token is fenced after recovery",
+        "passed": true
+      },
+      {
+        "test": "three unchanged collections add observations without duplicate entities versions or decisions",
+        "passed": true
+      },
+      {
+        "test": "changed source facts retain native occurrence UUIDs and add exactly two content versions",
+        "passed": true
+      },
+      {
+        "test": "saved passed and undecided sibling occurrences remain independent after changed collection",
+        "passed": true
+      },
+      {
+        "test": "saved decision retains its original target revision for honest review history",
+        "passed": true
+      },
+      {
+        "test": "stale occurrence review is rejected after changed source facts",
+        "passed": true
+      },
+      {
+        "test": "failure preserves successful cursor last success and decisions and respects Retry-After",
+        "passed": true
+      },
+      {
+        "test": "other authenticated user cannot read the audited inbox decisions",
+        "passed": true
+      },
+      {
+        "test": "existing source state remains byte-for-byte unchanged",
+        "passed": true
+      },
+      {
+        "test": "existing real user decision rows remain unchanged",
+        "passed": true
+      },
+      {
+        "test": "no calendar command or approval was created",
+        "passed": true
+      }
+    ],
+    "passed": 14,
+    "checked_at": "2026-11-02T11:12:02.27-05:00",
+    "google_calls": 0,
+    "fixture_class": "Synthetic SQL fixtures through installed production RPCs and actual SQL roles; not live HTTP or user browser evidence",
+    "storage_http_calls": 0,
+    "decision_sequence_note": "Identity sequence may advance despite rollback; existing decision rows are untouched",
+    "persistent_rows_changed": 0,
+    "independent_connections_tested": false
+  },
+  "calendarProviderCalls": 0,
+  "calendarCommands": 0,
+  "paidConnectors": 0,
+  "modelCalls": 0,
+  "limitations": [
+    "No signed-JWT or hosted Storage HTTP proof",
+    "No independent simultaneous PostgreSQL sessions; sequential lease fencing and expiry recovery only",
+    "Synthetic change/failure cases are SQL fixtures, not altered live source evidence",
+    "No Trigger Cloud or laptop-off proof",
+    "No real user decisions changed; local owner is synthetic"
+  ]
+}

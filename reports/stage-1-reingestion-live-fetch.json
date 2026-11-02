@@ -1,0 +1,295 @@
+{
+  "recordedAt": "2026-11-02T16:11:58.872Z",
+  "evidenceClass": "private-capture-replay-no-new-http",
+  "publicHttpAttemptsThisCommand": 0,
+  "sources": [
+    {
+      "sourceId": "fsu-calendar-api",
+      "fetchStartedAt": "2026-11-02T15:52:01.819Z",
+      "fetchFinishedAt": "2026-11-02T15:52:17.401Z",
+      "outcome": "success",
+      "reason": null,
+      "requests": 4,
+      "responseBytes": 998466,
+      "captures": 4,
+      "nativeRows": 320,
+      "opportunities": 281,
+      "occurrences": 320,
+      "paginationComplete": true,
+      "windowFrom": "2026-11-02",
+      "windowTo": "2026-11-09",
+      "bodyHashes": [
+        "d5677878ae8f85476b298e8aa348beea48cc58076b781b934dfe4faf324ed487",
+        "3965c185dac7794c0266547d1c18fa378e1e3bc787c5fa5cfb2109764c8f1f60",
+        "7f71b8ba94b08b86a1eece34de2ccbe23aeec3d8cd5b40a285fe379c1d992ff8",
+        "90056c14fc249662e3baee01ed824e112275d58b820d7d66b58eae7beba78542"
+      ],
+      "privateCapture": "private/stage1-reingestion-live/fsu-calendar-api.json"
+    },
+    {
+      "sourceId": "fsu-music-events",
+      "fetchStartedAt": "2026-11-02T15:52:17.767Z",
+      "fetchFinishedAt": "2026-11-02T15:52:17.893Z",
+      "outcome": "success",
+      "reason": null,
+      "requests": 1,
+      "responseBytes": 65133,
+      "captures": 1,
+      "nativeRows": 10,
+      "opportunities": 10,
+      "occurrences": 10,
+      "paginationComplete": true,
+      "windowFrom": null,
+      "windowTo": null,
+      "bodyHashes": [
+        "3bbe38892e8fd5a3badf13a89d3624a0e3653a47484f77a92528006b7ed9d16d"
+      ],
+      "privateCapture": "private/stage1-reingestion-live/fsu-music-events.json"
+    }
+  ],
+  "attemptHistory": [
+    {
+      "recordedAt": "2026-11-02T15:51:29.959Z",
+      "evidenceClass": "fresh-live-read-only-public-fetch",
+      "sources": [
+        {
+          "sourceId": "fsu-calendar-api",
+          "fetchStartedAt": "2026-11-02T15:51:29.921Z",
+          "fetchFinishedAt": "2026-11-02T15:51:29.954Z",
+          "outcome": "failed",
+          "reason": "Source transport failed or timed out; collection was not empty",
+          "requests": 1,
+          "responseBytes": 0,
+          "captures": 0,
+          "nativeRows": 0,
+          "opportunities": 0,
+          "occurrences": 0,
+          "paginationComplete": false,
+          "windowFrom": "2026-11-02",
+          "windowTo": "2026-11-09",
+          "bodyHashes": [],
+          "privateCapture": "private/stage1-reingestion-live/fsu-calendar-api.json"
+        },
+        {
+          "sourceId": "fsu-music-events",
+          "fetchStartedAt": "2026-11-02T15:51:29.957Z",
+          "fetchFinishedAt": "2026-11-02T15:51:29.958Z",
+          "outcome": "failed",
+          "reason": "Source transport failed or timed out; collection was not empty",
+          "requests": 1,
+          "responseBytes": 0,
+          "captures": 0,
+          "nativeRows": 0,
+          "opportunities": 0,
+          "occurrences": 0,
+          "paginationComplete": false,
+          "windowFrom": null,
+          "windowTo": null,
+          "bodyHashes": [],
+          "privateCapture": "private/stage1-reingestion-live/fsu-music-events.json"
+        }
+      ]
+    },
+    {
+      "recordedAt": "2026-11-02T15:52:17.894Z",
+      "evidenceClass": "fresh-live-read-only-public-fetch",
+      "sources": [
+        {
+          "sourceId": "fsu-calendar-api",
+          "fetchStartedAt": "2026-11-02T15:52:01.819Z",
+          "fetchFinishedAt": "2026-11-02T15:52:17.401Z",
+          "outcome": "success",
+          "reason": null,
+          "requests": 4,
+          "responseBytes": 998466,
+          "captures": 4,
+          "nativeRows": 320,
+          "opportunities": 281,
+          "occurrences": 320,
+          "paginationComplete": true,
+          "windowFrom": "2026-11-02",
+          "windowTo": "2026-11-09",
+          "bodyHashes": [
+            "d5677878ae8f85476b298e8aa348beea48cc58076b781b934dfe4faf324ed487",
+            "3965c185dac7794c0266547d1c18fa378e1e3bc787c5fa5cfb2109764c8f1f60",
+            "7f71b8ba94b08b86a1eece34de2ccbe23aeec3d8cd5b40a285fe379c1d992ff8",
+            "90056c14fc249662e3baee01ed824e112275d58b820d7d66b58eae7beba78542"
+          ],
+          "privateCapture": "private/stage1-reingestion-live/fsu-calendar-api.json"
+        },
+        {
+          "sourceId": "fsu-music-events",
+          "fetchStartedAt": "2026-11-02T15:52:17.767Z",
+          "fetchFinishedAt": "2026-11-02T15:52:17.893Z",
+          "outcome": "success",
+          "reason": null,
+          "requests": 1,
+          "responseBytes": 65133,
+          "captures": 1,
+          "nativeRows": 10,
+          "opportunities": 10,
+          "occurrences": 10,
+          "paginationComplete": true,
+          "windowFrom": null,
+          "windowTo": null,
+          "bodyHashes": [
+            "3bbe38892e8fd5a3badf13a89d3624a0e3653a47484f77a92528006b7ed9d16d"
+          ],
+          "privateCapture": "private/stage1-reingestion-live/fsu-music-events.json"
+        }
+      ]
+    },
+    {
+      "recordedAt": "2026-11-02T15:52:39.461Z",
+      "evidenceClass": "private-capture-replay-no-new-http",
+      "sources": [
+        {
+          "sourceId": "fsu-calendar-api",
+          "fetchStartedAt": "2026-11-02T15:52:01.819Z",
+          "fetchFinishedAt": "2026-11-02T15:52:17.401Z",
+          "outcome": "success",
+          "reason": null,
+          "requests": 4,
+          "responseBytes": 998466,
+          "captures": 4,
+          "nativeRows": 320,
+          "opportunities": 281,
+          "occurrences": 320,
+          "paginationComplete": true,
+          "windowFrom": "2026-11-02",
+          "windowTo": "2026-11-09",
+          "bodyHashes": [
+            "d5677878ae8f85476b298e8aa348beea48cc58076b781b934dfe4faf324ed487",
+            "3965c185dac7794c0266547d1c18fa378e1e3bc787c5fa5cfb2109764c8f1f60",
+            "7f71b8ba94b08b86a1eece34de2ccbe23aeec3d8cd5b40a285fe379c1d992ff8",
+            "90056c14fc249662e3baee01ed824e112275d58b820d7d66b58eae7beba78542"
+          ],
+          "privateCapture": "private/stage1-reingestion-live/fsu-calendar-api.json"
+        },
+        {
+          "sourceId": "fsu-music-events",
+          "fetchStartedAt": "2026-11-02T15:52:17.767Z",
+          "fetchFinishedAt": "2026-11-02T15:52:17.893Z",
+          "outcome": "success",
+          "reason": null,
+          "requests": 1,
+          "responseBytes": 65133,
+          "captures": 1,
+          "nativeRows": 10,
+          "opportunities": 10,
+          "occurrences": 10,
+          "paginationComplete": true,
+          "windowFrom": null,
+          "windowTo": null,
+          "bodyHashes": [
+            "3bbe38892e8fd5a3badf13a89d3624a0e3653a47484f77a92528006b7ed9d16d"
+          ],
+          "privateCapture": "private/stage1-reingestion-live/fsu-music-events.json"
+        }
+      ]
+    },
+    {
+      "recordedAt": "2026-11-02T15:53:31.465Z",
+      "evidenceClass": "private-capture-replay-no-new-http",
+      "publicHttpAttemptsThisCommand": 0,
+      "sources": [
+        {
+          "sourceId": "fsu-calendar-api",
+          "fetchStartedAt": "2026-11-02T15:52:01.819Z",
+          "fetchFinishedAt": "2026-11-02T15:52:17.401Z",
+          "outcome": "success",
+          "reason": null,
+          "requests": 4,
+          "responseBytes": 998466,
+          "captures": 4,
+          "nativeRows": 320,
+          "opportunities": 281,
+          "occurrences": 320,
+          "paginationComplete": true,
+          "windowFrom": "2026-11-02",
+          "windowTo": "2026-11-09",
+          "bodyHashes": [
+            "d5677878ae8f85476b298e8aa348beea48cc58076b781b934dfe4faf324ed487",
+            "3965c185dac7794c0266547d1c18fa378e1e3bc787c5fa5cfb2109764c8f1f60",
+            "7f71b8ba94b08b86a1eece34de2ccbe23aeec3d8cd5b40a285fe379c1d992ff8",
+            "90056c14fc249662e3baee01ed824e112275d58b820d7d66b58eae7beba78542"
+          ],
+          "privateCapture": "private/stage1-reingestion-live/fsu-calendar-api.json"
+        },
+        {
+          "sourceId": "fsu-music-events",
+          "fetchStartedAt": "2026-11-02T15:52:17.767Z",
+          "fetchFinishedAt": "2026-11-02T15:52:17.893Z",
+          "outcome": "success",
+          "reason": null,
+          "requests": 1,
+          "responseBytes": 65133,
+          "captures": 1,
+          "nativeRows": 10,
+          "opportunities": 10,
+          "occurrences": 10,
+          "paginationComplete": true,
+          "windowFrom": null,
+          "windowTo": null,
+          "bodyHashes": [
+            "3bbe38892e8fd5a3badf13a89d3624a0e3653a47484f77a92528006b7ed9d16d"
+          ],
+          "privateCapture": "private/stage1-reingestion-live/fsu-music-events.json"
+        }
+      ]
+    },
+    {
+      "recordedAt": "2026-11-02T16:11:58.872Z",
+      "evidenceClass": "private-capture-replay-no-new-http",
+      "publicHttpAttemptsThisCommand": 0,
+      "sources": [
+        {
+          "sourceId": "fsu-calendar-api",
+          "fetchStartedAt": "2026-11-02T15:52:01.819Z",
+          "fetchFinishedAt": "2026-11-02T15:52:17.401Z",
+          "outcome": "success",
+          "reason": null,
+          "requests": 4,
+          "responseBytes": 998466,
+          "captures": 4,
+          "nativeRows": 320,
+          "opportunities": 281,
+          "occurrences": 320,
+          "paginationComplete": true,
+          "windowFrom": "2026-11-02",
+          "windowTo": "2026-11-09",
+          "bodyHashes": [
+            "d5677878ae8f85476b298e8aa348beea48cc58076b781b934dfe4faf324ed487",
+            "3965c185dac7794c0266547d1c18fa378e1e3bc787c5fa5cfb2109764c8f1f60",
+            "7f71b8ba94b08b86a1eece34de2ccbe23aeec3d8cd5b40a285fe379c1d992ff8",
+            "90056c14fc249662e3baee01ed824e112275d58b820d7d66b58eae7beba78542"
+          ],
+          "privateCapture": "private/stage1-reingestion-live/fsu-calendar-api.json"
+        },
+        {
+          "sourceId": "fsu-music-events",
+          "fetchStartedAt": "2026-11-02T15:52:17.767Z",
+          "fetchFinishedAt": "2026-11-02T15:52:17.893Z",
+          "outcome": "success",
+          "reason": null,
+          "requests": 1,
+          "responseBytes": 65133,
+          "captures": 1,
+          "nativeRows": 10,
+          "opportunities": 10,
+          "occurrences": 10,
+          "paginationComplete": true,
+          "windowFrom": null,
+          "windowTo": null,
+          "bodyHashes": [
+            "3bbe38892e8fd5a3badf13a89d3624a0e3653a47484f77a92528006b7ed9d16d"
+          ],
+          "privateCapture": "private/stage1-reingestion-live/fsu-music-events.json"
+        }
+      ]
+    }
+  ],
+  "calendarWrites": 0,
+  "paidConnectors": 0,
+  "modelCalls": 0
+}

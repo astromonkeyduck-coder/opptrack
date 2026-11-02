@@ -103,7 +103,7 @@ test('event entry points offer a single-item review only behind the explicit ser
   const disabled = renderToStaticMarkup(createElement(CalendarDraftLink, { row }));
   assert.match(disabled, /Add to Google Calendar/); assert.ok(!disabled.includes('/calendar?kind='));
   const enabled = renderToStaticMarkup(createElement(CalendarDraftLink, { row, calendarWritesEnabled: true }));
-  assert.match(enabled, /Review calendar addition/); assert.match(enabled, new RegExp(`/calendar\\?kind=occurrence&amp;id=${id}`));
+  assert.match(enabled, /Add to Google Calendar/); assert.match(enabled, new RegExp(`/calendar\\?kind=occurrence&amp;id=${id}`));
   assert.match(enabled, /Open unsaved Google draft/); assert.match(enabled, /use one addition route/);
 });
 

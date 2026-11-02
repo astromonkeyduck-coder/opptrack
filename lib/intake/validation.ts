@@ -1,7 +1,9 @@
-export const MAX_FILE_BYTES = 5 * 1024 * 1024;
-export const MAX_TOTAL_BYTES = 20 * 1024 * 1024;
+// Netlify buffers binary requests as base64. 4 MiB plus 64 KiB of
+// multipart metadata stays below its 6 MB invocation payload limit.
+export const MAX_FILE_BYTES = 4 * 1024 * 1024;
+export const MAX_TOTAL_BYTES = 4 * 1024 * 1024;
 export const MAX_FILES = 8;
-export const MAX_BODY_BYTES = MAX_TOTAL_BYTES + 1024 * 1024;
+export const MAX_BODY_BYTES = MAX_TOTAL_BYTES + 64 * 1024;
 
 export class IntakeValidationError extends Error {}
 
@@ -30,7 +32,7 @@ export function validateNote(value: string): string {
 }
 
 export function validateUpload(bytes: Uint8Array, declaredType: string): { mime: string; extension: string } {
-  if (!bytes.length || bytes.length > MAX_FILE_BYTES) throw new IntakeValidationError('Each file must be nonempty and at most 5 MiB.');
+  if (!bytes.length || bytes.length > MAX_FILE_BYTES) throw new IntakeValidationError('Each file must be nonempty and at most 4 MiB.');
   const prefix = (values: number[]) => values.every((value, index) => bytes[index] === value);
   const ascii = (start: number, length: number) => String.fromCharCode(...bytes.slice(start, start + length));
   let format: { mime: string; extension: string } | undefined;
@@ -44,8 +46,8 @@ export function validateUpload(bytes: Uint8Array, declaredType: string): { mime:
 
 export function validateUploadSet(files: Array<{ size: number }>) {
   if (files.length > MAX_FILES) throw new IntakeValidationError('Upload at most 8 files at a time.');
-  if (files.some(file => !file.size || file.size > MAX_FILE_BYTES)) throw new IntakeValidationError('Each file must be nonempty and at most 5 MiB.');
-  if (files.reduce((sum, file) => sum + file.size, 0) > MAX_TOTAL_BYTES) throw new IntakeValidationError('Keep the combined files at or below 20 MiB.');
+  if (files.some(file => !file.size || file.size > MAX_FILE_BYTES)) throw new IntakeValidationError('Each file must be nonempty and at most 4 MiB.');
+  if (files.reduce((sum, file) => sum + file.size, 0) > MAX_TOTAL_BYTES) throw new IntakeValidationError('Keep the combined files at or below 4 MiB.');
 }
 
 export function ownsStoragePath(ownerId: string, path: string): boolean {

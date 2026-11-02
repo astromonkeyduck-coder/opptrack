@@ -36,6 +36,16 @@ test('every supplied slide counts toward file and combined byte limits', () => {
   assert.throws(() => validateUploadSet(Array.from({ length: 5 }, () => ({ size: MAX_TOTAL_BYTES / 4 }))));
 });
 
+test('the supported upload boundary fits the Netlify binary request envelope', () => {
+  assert.equal(MAX_FILE_BYTES, 4 * 1024 * 1024);
+  assert.equal(MAX_TOTAL_BYTES, 4 * 1024 * 1024);
+  assert.ok(Math.ceil(MAX_BODY_BYTES / 3) * 4 < 6_000_000);
+  assert.doesNotThrow(() => validateUploadSet([{ size: MAX_FILE_BYTES }]));
+  assert.doesNotThrow(() => validateUploadSet([{ size: MAX_TOTAL_BYTES / 2 }, { size: MAX_TOTAL_BYTES / 2 }]));
+  assert.throws(() => validateUploadSet([{ size: MAX_TOTAL_BYTES / 2 }, { size: MAX_TOTAL_BYTES / 2 + 1 }]), /combined files.*4 MiB/);
+  assert.throws(() => validateUploadSet([{ size: MAX_FILE_BYTES + 1 }]), /Each file.*4 MiB/);
+});
+
 test('private paths cannot escape owner prefix, including encoded traversal', () => {
   const owner = '00000000-0000-4000-8000-000000000001';
   assert.ok(ownsStoragePath(owner, `${owner}/submission/01-file.png`));
@@ -57,6 +67,20 @@ test('bounded multipart reader parses valid notes and rejects oversized chunked 
   const request = new Request('https://app.example/api/intake', { method: 'POST', headers: { 'Content-Type': 'multipart/form-data; boundary=x' }, body: stream, duplex: 'half' } as RequestInit);
   await assert.rejects(boundedFormData(request), /too large/);
   await assert.rejects(boundedFormData(new Request('https://app.example/api/intake', { method: 'POST', body: '{}' })), /intake form/);
+});
+
+test('the complete supported file limit leaves room for bounded multipart metadata', async () => {
+  const form = new FormData();
+  form.set('note', '\u2603'.repeat(5000));
+  form.set('source_url', `https://example.edu/${'a'.repeat(2000)}`);
+  form.set('files', new Blob([new Uint8Array(MAX_FILE_BYTES)], { type: 'image/png' }), 'boundary.png');
+  const parsed = await boundedFormData(new Request('https://app.example/api/intake', { method: 'POST', body: form }));
+  const file = parsed.get('files');
+  assert.ok(file instanceof File);
+  assert.equal(file.size, MAX_FILE_BYTES);
+  await assert.rejects(boundedFormData(new Request('https://app.example/api/intake', {
+    method: 'POST', headers: { 'Content-Type': 'multipart/form-data; boundary=test', 'Content-Length': String(MAX_BODY_BYTES + 1) }, body: 'x',
+  })), /too large/);
 });
 
 test('notes and list parameters are bounded and cannot inject PostgREST filters', () => {
