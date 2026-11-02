@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import { trackerSession } from '../../../lib/auth/session';
 import { boundedFormData, IntakeValidationError, requireSameOrigin, validateManualUrl, validateNote, validateUpload, validateUploadSet } from '../../../lib/intake/validation';
 import { isDuplicateObject, verifyStoredObject } from '../../../lib/storage/integrity';
+import { EXTRACTOR_VERSION } from '../../../lib/extraction/contracts';
 
 export const runtime = 'nodejs';
 export async function POST(request: Request) {
@@ -11,6 +12,15 @@ export async function POST(request: Request) {
   const session = await trackerSession();
   if (session.state !== 'ready') return NextResponse.json({ error: 'Sign in with the registered tracker owner before submitting.' }, { status: 401 });
   const { supabase, user } = session;
+  async function savedResponse(id:string,status:number) {
+    // Intake is already durable. A queue outage must not turn a saved upload into an unknown save.
+    try {
+      const queued=await supabase.rpc('extraction_enqueue',{p_kind:'manual',p_target_id:id,p_extractor_version:EXTRACTOR_VERSION});
+      const row=Array.isArray(queued.data)?queued.data.length===1?queued.data[0]:null:queued.data;
+      if(!queued.error&&row&&typeof row.id==='string')return NextResponse.json({id,extractionJobId:row.id},{status});
+    }catch{/* The owner can explicitly enqueue the retained submission later. */}
+    return NextResponse.json({id,extractionState:'unavailable'},{status});
+  }
   const uploaded: string[] = [];
   try {
     const form = await boundedFormData(request);
@@ -21,7 +31,7 @@ export async function POST(request: Request) {
     // A retried browser submission returns its original intake before uploading again.
     const prior = await supabase.from('manual_intakes').select('id').eq('submission_key', submissionKey).maybeSingle();
     if (prior.error) throw new Error('database_access');
-    if (prior.data) return NextResponse.json({ id: prior.data.id });
+    if (prior.data) return savedResponse(prior.data.id,200);
     const files = form.getAll('files').filter((item): item is File => item instanceof File && Boolean(item.name));
     validateUploadSet(files);
     if (!url && !note && !files.length) throw new IntakeValidationError('Provide a link, notes, or at least one file.');
@@ -49,7 +59,7 @@ export async function POST(request: Request) {
       const unused = uploaded.filter(path => !kept.has(path));
       if (unused.length) await supabase.storage.from('captures').remove(unused);
     }
-    return NextResponse.json({ id: result.data }, { status: 201 });
+    return savedResponse(result.data,201);
   } catch (error) {
     // A timeout or concurrent retry may already reference these immutable files.
     // Keep them for submission reconciliation and the bounded orphan-retention job.

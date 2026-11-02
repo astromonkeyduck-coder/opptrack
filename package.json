@@ -12,7 +12,7 @@
     "start": "next start",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "node --import tsx --test tests/*.test.ts",
-    "test:db": "node scripts/test-database.mjs && node scripts/test-hourly-database.mjs && node scripts/test-instagram-database.mjs && node scripts/test-review-database.mjs && npm run test:instagram:replay && node --import tsx scripts/test-hq-database.mjs && node --import tsx scripts/test-official-database.mjs && node scripts/test-calendar-write-database.mjs",
+    "test:db": "node scripts/test-database.mjs && node scripts/test-hourly-database.mjs && node scripts/test-instagram-database.mjs && node scripts/test-review-database.mjs && npm run test:instagram:replay && node --import tsx scripts/test-hq-database.mjs && node --import tsx scripts/test-official-database.mjs && node scripts/test-calendar-write-database.mjs && node scripts/test-stage2-database.mjs && node scripts/test-stage2-hosted-audit.mjs",
     "collect:live": "node --import tsx scripts/collect-live.ts",
     "dispatch": "node --import tsx scripts/dispatch.ts",
     "setup:owner": "node scripts/setup-owner.mjs",
@@ -21,7 +21,10 @@
     "prove:live": "node --import tsx scripts/prove-live-database.mjs",
     "evidence:inbox": "node --import tsx scripts/render-live-inbox.ts",
     "retention:plan": "node --import tsx scripts/purge-expired.ts",
-    "test:instagram:replay": "node --import tsx scripts/prove-instagram-replay.ts"
+    "test:instagram:replay": "node --import tsx scripts/prove-instagram-replay.ts",
+    "test:extraction:native": "node --import tsx scripts/probe-stage2-media.ts",
+    "test:extraction:replay": "node --import tsx scripts/prove-stage2-worker.ts",
+    "evaluate:extraction": "node --import tsx evaluation/predict-stage2-baseline.ts"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.7",
@@ -31,11 +34,13 @@
     "next": "16.4.2",
     "react": "19.3.1",
     "react-dom": "19.3.1",
+    "sharp": "0.35.5",
     "zod": "4.6.7"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.10",
     "@netlify/plugin-nextjs": "5.16.4",
+    "@trigger.dev/build": "4.7.6",
     "@types/node": "22.20.5",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",

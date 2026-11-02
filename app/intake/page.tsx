@@ -12,7 +12,8 @@ export default async function Intake() {
       <aside className="intake-aside">
         <h2>A place for the details</h2>
         <p>Save the original link, every flyer slide and anything you want to remember. Your files stay private.</p>
-        <p>Submissions are saved as you provide them. Dates and details aren’t extracted or verified yet.</p>
+        <p>Save the submission, then choose its Read flyer details button in your private inbox. Every supplied file is queued together; extracted suggestions still need checking.</p>
+        <p><a href="/extractions">View flyer details and queued reads →</a></p>
         <p className="form-help">Links are saved without opening them. Only upload material you’re allowed to retain.</p>
       </aside>
     </div>

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "stage2-reconciliation-synthetic-v1",
+  "frozenAt": "2026-11-02T20:02:27.571Z",
+  "cases": [
+    {
+      "id": "affirmative_cancellation_requires_review",
+      "familyId": "cancelled-workshop",
+      "split": "development",
+      "sha256": "ca3b640f865ef09c2f2c3514ebde4050edecab7c356fcb6cfcf2cfba3106963e"
+    },
+    {
+      "id": "event_and_deadline_are_separate",
+      "familyId": "fellowship-application",
+      "split": "holdout",
+      "sha256": "01bbfdd52767165d71f2431f8a741994292dd2ba91f85c0305e223386316b4b0"
+    },
+    {
+      "id": "explicit_same_canonical_event",
+      "familyId": "same-speaker-link",
+      "split": "development",
+      "sha256": "65d3ec5523e46b5871e2d63730bad1295f5dda312a06765b8d8d71769dd12e5c"
+    },
+    {
+      "id": "generic_homepage_not_event_identity",
+      "familyId": "homepage-identity",
+      "split": "development",
+      "sha256": "131ffd578c53055fbf82ab1ce07b5186584c6780d8b57ddf80b567ace1c27a1e"
+    },
+    {
+      "id": "poster_hash_with_conflicting_date",
+      "familyId": "old-club-flyer",
+      "split": "holdout",
+      "sha256": "d64dd46af396a95d208cb0b86c03bdc87635aafb148fcf1a3ce54d324f147d6e"
+    },
+    {
+      "id": "reschedule_preserves_history_requires_review",
+      "familyId": "reschedule-history",
+      "split": "development",
+      "sha256": "5b08bc9b9a93bdf106b03a840610d72668c970327274dc281d245b6e22b71b36"
+    },
+    {
+      "id": "same_gbm_different_clubs",
+      "familyId": "different-clubs",
+      "split": "holdout",
+      "sha256": "bcd5a9aa94562190deef03f4761a7050f1d7fd0029448f71781a8e86ad72f85e"
+    },
+    {
+      "id": "same_link_conflicting_start",
+      "familyId": "conflicting-social",
+      "split": "development",
+      "sha256": "1bb0187c0d69a713f8625e213755e46f74ecff3372cd5f76aab0d18beac983bf"
+    },
+    {
+      "id": "same_link_conflicting_venue",
+      "familyId": "venue-conflict",
+      "split": "development",
+      "sha256": "7f6f6efc10a5c8f1605bc4ba6197a28f187f5b78d43bd1c18472ac46f0b920c4"
+    },
+    {
+      "id": "same_native_identity",
+      "familyId": "native-identity",
+      "split": "development",
+      "sha256": "8bcb267b3555ac560e0022fc4c1148a8310fb98aa3ef73a1282053d930becbc4"
+    },
+    {
+      "id": "same_title_different_performances",
+      "familyId": "jazz-performances",
+      "split": "development",
+      "sha256": "014dcd478b9721dda93de827f97638769a2d698f4f72405ea563562d39a4dc54"
+    },
+    {
+      "id": "similar_without_explicit_link",
+      "familyId": "third-party-similarity",
+      "split": "development",
+      "sha256": "cb58185d215c5168777787354e47b0f5e0270faa6d2de1f4e9331fb945b58751"
+    }
+  ],
+  "contentSha256": "31ad787b41413dae9cad7083c10826dbdefdab3b476bae88bb00ccc22a7e1714",
+  "notice": "Synthetic family assignment and agent labels only; zero actual human reviews or production merges."
+}

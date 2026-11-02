@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "stage2-synthetic-v1",
+  "frozenAt": "2026-11-02T19:52:14.457Z",
+  "notice": "Frozen synthetic assignment only. No human-reviewed or untouched acceptance holdout is established by this manifest.",
+  "cases": [
+    {
+      "id": "affirmative_cancellation",
+      "familyId": "cancelled-workshop",
+      "split": "development",
+      "sha256": "c999d8a6d12ac3a034b435d217c6d190e71054c38eca3491feb8b544dc8eb3df"
+    },
+    {
+      "id": "application_is_not_attendance",
+      "familyId": "fellowship-application",
+      "split": "holdout",
+      "sha256": "fc2f2775976c77ec295b4277e6941ccfd1ecc6342be67f23d9f6a799307c6960"
+    },
+    {
+      "id": "carousel_missing_middle_slide",
+      "familyId": "outdoor-weekend",
+      "split": "development",
+      "sha256": "b41d3a960eef16d7b0ac3dc7092f60868a46d1facfaa08058e0b1a87ea5a752e"
+    },
+    {
+      "id": "complete_three_slide_carousel",
+      "familyId": "outdoor-weekend",
+      "split": "development",
+      "sha256": "6086923c9f04f53e245cc5efafa2ec83f030602cef8d4209ecdd1db5c8656314"
+    },
+    {
+      "id": "conflicting_year_across_slides",
+      "familyId": "conflicting-social",
+      "split": "development",
+      "sha256": "18e494ac91570fce56f27716f0c66161abffe9afccb52a81eec537433a658397"
+    },
+    {
+      "id": "deadline_without_time",
+      "familyId": "research-award",
+      "split": "development",
+      "sha256": "30066d903a89bc30c33ac47d993c1b53a1a0df0f5367be5f0344ff7fdb156a00"
+    },
+    {
+      "id": "different_clubs_same_gbm",
+      "familyId": "different-clubs",
+      "split": "holdout",
+      "sha256": "8afe371ef8195867531814d488abbe3a12bbaaae0b86c720026334f9bca04312"
+    },
+    {
+      "id": "disappearance_is_not_cancellation",
+      "familyId": "disappeared-listing",
+      "split": "development",
+      "sha256": "84a7ebe482fe57a0af637d86f0a072d33cc06067ae432373ab2ce03d32b8926d"
+    },
+    {
+      "id": "doors_and_start_are_distinct",
+      "familyId": "speaker-doors",
+      "split": "holdout",
+      "sha256": "30a2a37afea39623f0e73e7f07e0df417fa82e0bb227fc44519f067d72b39682"
+    },
+    {
+      "id": "dst_ambiguous_local_clock",
+      "familyId": "dst-transition",
+      "split": "holdout",
+      "sha256": "9b53454907207e4be1a6e1ad59dd925b09b1a140535c53f0282f18f03705603e"
+    },
+    {
+      "id": "dst_nonexistent_local_clock",
+      "familyId": "dst-transition",
+      "split": "holdout",
+      "sha256": "ee6474e551292ca830db1d8c7f549777d13f931d3d5ee5b6fb06dbb786dcf063"
+    },
+    {
+      "id": "evergreen_research_resource",
+      "familyId": "evergreen-research",
+      "split": "development",
+      "sha256": "3782016407b08836eee26318e754c217fda6ca0535072e0529c1eae464ea8b75"
+    },
+    {
+      "id": "explicit_source_crosslink",
+      "familyId": "same-speaker-link",
+      "split": "development",
+      "sha256": "46e4fc444da1d5b300627bda0164fe7e992faf15be43f46e716e0d1236c8ce25"
+    },
+    {
+      "id": "film_explicit_interval",
+      "familyId": "campus-film",
+      "split": "development",
+      "sha256": "837cd1e498995acf438b90c8f410061adf38d9f6274dccc48aaf1a614cc53b86"
+    },
+    {
+      "id": "irrelevant_thanks_photos",
+      "familyId": "negative-thanks",
+      "split": "holdout",
+      "sha256": "ff6894b251d6643d2109ccaab2c1ceac68b193b67cde4b69eddb8581988e6f63"
+    },
+    {
+      "id": "local_clock_without_timezone",
+      "familyId": "timezone-missing",
+      "split": "development",
+      "sha256": "9b443a0315f105fca41ebe50c4b5dd1e80d55dd95bb48f4334362f5599b9ff34"
+    },
+    {
+      "id": "missing_end_no_duration_guess",
+      "familyId": "campus-film",
+      "split": "development",
+      "sha256": "8236bf7bd0bd31a4ab40e8802e94e91b223869a72f2330e8d29d2e7287bd4243"
+    },
+    {
+      "id": "missing_location_preserved",
+      "familyId": "campus-film",
+      "split": "development",
+      "sha256": "5d889c0a34b8033150821d580224fe19d6dc631091b54a0eda307b1c481e0344"
+    },
+    {
+      "id": "old_flyer_repost",
+      "familyId": "old-club-flyer",
+      "split": "holdout",
+      "sha256": "0e6b448b4ca977ad4af298a613f239492d635f0a8b8ed3b0b3dd0190d1b75f7e"
+    },
+    {
+      "id": "pdf_second_page_has_deadline",
+      "familyId": "two-page-program",
+      "split": "development",
+      "sha256": "6e813beaeda2823e83d9556dfa6750cb804c44e3755b407465e566fbb071e4fa"
+    },
+    {
+      "id": "pdf_unreadable_second_page",
+      "familyId": "unreadable-pdf",
+      "split": "holdout",
+      "sha256": "6cb93cc92c178f85433e1434f9fbea6f6a5858c3b98d655c1c7d1ac63156ccc2"
+    },
+    {
+      "id": "retrieved_instruction_is_data",
+      "familyId": "injection-flyer",
+      "split": "development",
+      "sha256": "4bc2984a10f6021406b86fd38ffb7a987ac9b6bb6e4050402f4c21ff2baac5d1"
+    },
+    {
+      "id": "same_title_two_performances",
+      "familyId": "jazz-performances",
+      "split": "development",
+      "sha256": "41743ef39787c802075d0f87f6319d8745baadbd71428728a8799d49e8a379c7"
+    },
+    {
+      "id": "sold_out_waitlist_separate_action",
+      "familyId": "concert-availability",
+      "split": "holdout",
+      "sha256": "e76b454f1d112fdb45c7401bafb7b1655ffe1ce2a847081d6d5d0b47f5a8cdf2"
+    },
+    {
+      "id": "ticket_stray_date_not_release",
+      "familyId": "synthetic-ticket-conflict",
+      "split": "development",
+      "sha256": "70288835294460d623257500b987e16dfc24171a3311a0d0d2b741b25d57e5cd"
+    },
+    {
+      "id": "tomorrow_missing_publication",
+      "familyId": "relative-speaker",
+      "split": "holdout",
+      "sha256": "1d6ab740ca1d4f5085ce7c89e291f1f15c8806564b0e4de27f6ea3325530a645"
+    },
+    {
+      "id": "tomorrow_original_publication",
+      "familyId": "relative-speaker",
+      "split": "holdout",
+      "sha256": "b0c9f390f1b74f34017c6ac271d91807410a08199ddf9347829d9e48b605a5bb"
+    },
+    {
+      "id": "weekly_recurrence_with_exception",
+      "familyId": "urban-research-recurrence",
+      "split": "development",
+      "sha256": "c27e55b093e8f6973647e9ee1a9bc2d73a03056e58a85dec6720b0d52aeb9307"
+    }
+  ],
+  "contentSha256": "7d3532e8deed0eb62455276a45cde78458b9e269fd47018f5a84a6a6a9a68fd4"
+}

@@ -1,0 +1,115 @@
+{
+  "userDate": "2026-11-02",
+  "status": "hosted_schema_verified_runtime_release_pending",
+  "authorization": "User explicitly authorized Stage 2; Stage 1 gaps are not waived; stop before Stage 3.",
+  "implementation": {
+    "manualIntake": "Saved uploads enqueue immutable private extraction jobs; repeated submission opens the same job. Queue outage does not lose the saved intake.",
+    "media": "Native English Tesseract, Poppler text+visual pass on every bounded PDF page, Sharp normalization. No arbitrary source URL fetch.",
+    "limits": {
+      "dailyNewJobs": 2,
+      "dailyAttemptedVisualPages": 12,
+      "maxAttempts": 3,
+      "maxAssets": 8,
+      "maxCombinedBytes": 4194304,
+      "maxDecodedPixels": 12000000,
+      "nativeDeadlineMs": 120000
+    },
+    "unknownNativeWork": "Charges reserved visual budget; blocked attempted pages are still charged.",
+    "output": "Private unverified suggestions with exact UTF-16 quote spans and ordered asset/page identities; no catalog promotion or calendar authority.",
+    "reconciliation": "Explicit owner-reviewed reversible relations, preserved native rows/decisions/commands, alias duplicate guard; no physical merge or decision propagation."
+  },
+  "database": {
+    "migrationFile": "supabase/migrations/20261102194633_stage2_evidence_jobs.sql",
+    "hostedVersion": "20261102221746",
+    "hostedAuditPassed": 26,
+    "hostedAuditAt": "2026-11-02T22:23:46.150294Z",
+    "syntheticRollback": true,
+    "existingCalendarCommandsPreserved": 1,
+    "existingSuccessfulCalendarCommandsPreserved": 1,
+    "existingReviewDecisionsPreserved": 58,
+    "newAdvisorFindings": 0,
+    "advisorReport": "reports/stage-2-security-advisors.json"
+  },
+  "checks": {
+    "applicationTests": 377,
+    "localCoreSqlChecks": 185,
+    "instagramWorkerReplays": 6,
+    "hostedAuditReplayedLocally": 26,
+    "nativeMediaTests": 16,
+    "workerTests": 14,
+    "nativeWorkerPipelineChecks": 8,
+    "typecheck": "passed",
+    "build": "passed",
+    "offlineChecks": "passed"
+  },
+  "actualNativeEvidence": {
+    "syntheticImages": 2,
+    "syntheticExpectedTextChecksPassed": 6,
+    "publicFsuPdfPages": 6,
+    "publicFsuPdfBytes": 588276,
+    "pdfAllKnownPagesHaveExpectedCount": true,
+    "nativeSqlStorage": "Actual local PostgreSQL; in-memory Storage substitute, not hosted Storage proof",
+    "mediaReport": "reports/stage-2-native-media-supplied-probe.json",
+    "workerReport": "reports/stage-2-local-worker-proof.json"
+  },
+  "evaluation": {
+    "syntheticCases": 28,
+    "humanReviewedLabels": 0,
+    "actualPublicReviewUnits": 100,
+    "frozenPublicResponses": 20,
+    "publicRoutes": 7,
+    "provisionalUnknownOrganizerFamilies": 40,
+    "firstTenReviewPacket": "private/stage2-review/snapshot-861858544d6817c5/first-10-development-review.md",
+    "rulesDevelopment": {
+      "cases": 17,
+      "strictlyPassed": 0,
+      "supportedFieldCorrect": 58,
+      "predictedFields": 131,
+      "expectedFields": 94,
+      "eventCriticalRecall": "0/16",
+      "actionCriticalRecall": "1/4"
+    },
+    "assessment": "Rules baseline fails the diagnostic quality gate. Synthetic transcripts are not OCR accuracy or a human-reviewed holdout. Suggestions stay quarantined.",
+    "modelComparison": "not run; no model provider credentials or spending authorized",
+    "humanHoldoutAcceptance": "not_evaluated",
+    "report": "reports/stage-2-rules-diagnostic.json",
+    "realInventoryReport": "reports/stage-2-real-review-inventory.json"
+  },
+  "release": {
+    "runtimeCommit": null,
+    "netlifyDeployId": null,
+    "triggerDeployId": null,
+    "triggerVersion": null,
+    "workerFlagEnabledVerified": false,
+    "cloudNativeProbe": null,
+    "hostedPrivateJob": null
+  },
+  "uploadBlock": {
+    "tool": "Chrome extension normal file chooser",
+    "result": "File selection denied: Allow access to file URLs not recognized; no files uploaded or Save clicked in this attempt.",
+    "localPermissionBypass": false,
+    "hostedTwoSlideUploadVerified": false
+  },
+  "costs": {
+    "modelCalls": 0,
+    "modelApiUsd": 0,
+    "resendCalls": 0,
+    "paidConnectors": 0,
+    "newPaidServicesOrUpgrades": 0,
+    "calendarProviderCallsByStage2": 0,
+    "hostedSqlAndBuildUsageUsd": "unmeasured",
+    "cloudComputeUsd": "not yet observed",
+    "manualPublicProbe": "Operator-only fixed public PDF; separate bounded diagnostic run, not part of the private-job daily quota."
+  },
+  "stage2Accepted": false,
+  "remaining": [
+    "Human-reviewed varied development/holdout labels and model/prompt comparison",
+    "Semantic extraction quality, recurring-instance/exception materialization and conflict resolution",
+    "Real flyer/carousel/social/negative holdout variety and unresolved organizer grouping",
+    "Hosted private upload/download/hash and other-user signed-JWT proof",
+    "Cloud private-media OCR/Storage correlation",
+    "Physical canonical merge/collapsed display and decision propagation (current relations preserve separate rows)",
+    "Open Stage 1 isolated hosted backup/Storage restore, independent-session contention, phone layout and confirmed laptop-off checks",
+    "Meta access repair remains paused; no images, videos or Stories collected"
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "checks": [
+    {
+      "test": "extraction_jobs_owner_rls_no_direct_mutations",
+      "passed": true
+    },
+    {
+      "test": "extraction_attempts_owner_rls_no_direct_mutations",
+      "passed": true
+    },
+    {
+      "test": "reconciliation_links_owner_rls_no_direct_mutations",
+      "passed": true
+    },
+    {
+      "test": "reconciliation_history_owner_rls_no_direct_mutations",
+      "passed": true
+    },
+    {
+      "test": "owner_worker_rpc_boundaries",
+      "passed": true
+    },
+    {
+      "test": "enqueue_idempotent_manual_publication_unknown",
+      "passed": true
+    },
+    {
+      "test": "active_lease_excludes_duplicate_claim",
+      "passed": true
+    },
+    {
+      "test": "wrong_lease_cannot_finish",
+      "passed": true
+    },
+    {
+      "test": "unsupported_span_rejected",
+      "passed": true
+    },
+    {
+      "test": "missing_slide_cannot_succeed",
+      "passed": true
+    },
+    {
+      "test": "exact_utf16_evidence_and_two_slides_retained",
+      "passed": true
+    },
+    {
+      "test": "unknown_native_work_charges_full_remaining_reservation",
+      "passed": true
+    },
+    {
+      "test": "blocked_but_attempted_pages_consume_remaining_visual_budget",
+      "passed": true
+    },
+    {
+      "test": "instagram_publication_preserved_missing_media_explicit",
+      "passed": true
+    },
+    {
+      "test": "retry_floor_enforced",
+      "passed": true
+    },
+    {
+      "test": "two_new_jobs_per_utc_day_enforced",
+      "passed": true
+    },
+    {
+      "test": "other_user_cannot_see_or_enqueue_owner_jobs",
+      "passed": true
+    },
+    {
+      "test": "anonymous_job_read_is_denied",
+      "passed": true
+    },
+    {
+      "test": "reconciliation_keeps_conflicting_decisions_and_native_ids",
+      "passed": true
+    },
+    {
+      "test": "confirmed_alias_blocks_second_approval_without_provider_execution",
+      "passed": true
+    },
+    {
+      "test": "revocation_recorded_and_existing_approval_payload_preserved",
+      "passed": true
+    },
+    {
+      "test": "existing_sources_unchanged",
+      "passed": true
+    },
+    {
+      "test": "existing_decisions_unchanged",
+      "passed": true
+    },
+    {
+      "test": "existing_calendar_commands_unchanged",
+      "passed": true
+    },
+    {
+      "test": "existing_normalized_facts_unchanged",
+      "passed": true
+    },
+    {
+      "test": "connection_metadata_generation_unchanged",
+      "passed": true
+    }
+  ],
+  "passed": 26,
+  "checkedAt": "2026-11-02T22:23:46.150294+00:00",
+  "modelCalls": 0,
+  "googleCalls": 0,
+  "fixtureClass": "Synthetic text/media/source metadata through actual RPCs and SQL roles; not OCR, signed-JWT, Storage HTTP or Google insertion proof",
+  "sequenceNote": "Review identity sequence can advance on rollback; real rows unchanged",
+  "storageHttpCalls": 0,
+  "persistentRowsChanged": 0,
+  "firstReleasePrecondition": "No extraction jobs; existing owned grant; credential values never selected into output",
+  "independentConnectionsTested": false,
+  "projectRef": "nuywbvlcwetqjalqvxzb",
+  "migrationHostedVersion": "20261102221746",
+  "queryFile": "scripts/hosted-stage2-check.sql",
+  "postAudit": {
+    "extractionJobs": 0,
+    "reconciliationLinks": 0,
+    "auditSources": 0,
+    "calendarCommands": 1,
+    "successfulCalendarCommands": 1,
+    "reviewDecisionRows": 58
+  }
+}

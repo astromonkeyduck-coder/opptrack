@@ -153,7 +153,7 @@ export async function approveCalendarCommand(client: SupabaseClient, value: unkn
   const input = approvalInputSchema.parse(value);
   await requireCalendarWriteGrant(client, config, ownerId, fetcher);
   const { data, error } = await client.rpc('calendar_write_approve', { p_kind: input.kind, p_target_id: input.targetId, p_expected_fingerprint: input.fingerprint, p_start_at: input.startAt ?? null, p_end_at: input.endAt ?? null });
-  if (error) return { state: 'failed', notice: error.code === '40001' ? 'This source item changed. Refresh and review the new details before approving.' : 'This item cannot be approved. Check its date, duration and source status, then refresh.' } satisfies CalendarWriteResult;
+  if (error) return { state: 'failed', notice: error.code === '23505' ? 'An approval already exists for this event or a confirmed matching source. Open Recorded approvals before adding another.' : error.code === '40001' ? 'This source item changed. Refresh and review the new details before approving.' : 'This item cannot be approved. Check its date, duration and source status, then refresh.' } satisfies CalendarWriteResult;
   const command = parseCalendarCommand(data);
   return executeCalendarCommand(client, command.id, config, ownerId, fetcher);
 }

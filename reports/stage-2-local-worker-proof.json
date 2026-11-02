@@ -1,0 +1,135 @@
+{
+  "startedAt": "2026-11-02T22:23:45.045Z",
+  "completedAt": "2026-11-02T22:23:47.198Z",
+  "elapsedMs": 2152,
+  "command": "node --import tsx scripts/prove-stage2-worker.ts",
+  "passed": 8,
+  "checks": [
+    "private ordered real PNG bytes enter immutable owner-enqueued SQL snapshots with exact content hashes",
+    "production extractLeasedJob performs actual native OCR and real service SQL completion",
+    "production dispatcher leases another real SQL job, OCRs every slide, validates spans and stores its result",
+    "re-enqueue preserves the durable input identity and completed work does not run again",
+    "actual SQL records four attempted visual pages and releases all reservations",
+    "extraction remains quarantined without normalized events, decisions or calendar commands",
+    "blocked-after-work outcomes charge actual SQL visual pages even when processed-page count is zero",
+    "thrown media work charges the entire remaining SQL reservation without inventing page evidence"
+  ],
+  "evidenceClass": "Actual local native OCR and migrated PGlite PostgreSQL/RLS/RPCs with generated synthetic image bytes; in-memory Storage body substitute",
+  "engine": {
+    "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+    "tools": {
+      "tesseract": {
+        "available": true,
+        "version": "tesseract 5.5.4"
+      },
+      "pdfinfo": {
+        "available": true,
+        "version": "pdfinfo version 26.10.0"
+      },
+      "pdftotext": {
+        "available": true,
+        "version": "pdftotext version 26.10.0"
+      },
+      "pdftoppm": {
+        "available": true,
+        "version": "pdftoppm version 26.10.0"
+      }
+    },
+    "ready": true
+  },
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql",
+    "20261102194633_stage2_evidence_jobs.sql"
+  ],
+  "jobs": [
+    {
+      "phase": "direct-extractLeasedJob",
+      "jobId": "7baa4bf4-45de-4984-b702-89c2ad8157b1",
+      "state": "succeeded",
+      "inputHash": "4740b9af810a4a8dbf9f270b2e9a6e4fd6ba6c055653a62200beca3b59dc58a0",
+      "attempts": 1,
+      "units": 3,
+      "nativeVisualUnits": 2,
+      "candidateCount": 3,
+      "exactEvidenceSpans": 23,
+      "quarantined": true,
+      "privateResult": "private/stage2-worker-proof/result-7baa4bf4-45de-4984-b702-89c2ad8157b1.json"
+    },
+    {
+      "phase": "runExtractionDispatcher",
+      "jobId": "afe922ad-afa3-4e77-8720-529e0c08623d",
+      "state": "succeeded",
+      "inputHash": "5353119cd5e7dd83960bfa62a864761f7ac01e6f37106b264e1f8f262cd9a54f",
+      "attempts": 1,
+      "units": 3,
+      "nativeVisualUnits": 2,
+      "candidateCount": 3,
+      "exactEvidenceSpans": 23,
+      "quarantined": true,
+      "privateResult": "private/stage2-worker-proof/result-afe922ad-afa3-4e77-8720-529e0c08623d.json"
+    }
+  ],
+  "inputImages": [
+    {
+      "assetId": "1",
+      "bytes": 51540,
+      "sha256": "fda552a79663f20bc902bad4c7f746e74684f8e37002bd6234dd120ab729abd3",
+      "fixtureClass": "generated synthetic PNG"
+    },
+    {
+      "assetId": "2",
+      "bytes": 54512,
+      "sha256": "4710d865240405a840c4b8c6091845bb5b7b86fb46b01e93307fe7aca69b3e9d",
+      "fixtureClass": "generated synthetic PNG"
+    }
+  ],
+  "nativeVisualUnits": 4,
+  "privateStorageDownloads": 8,
+  "nativePhaseStorageDownloads": 4,
+  "sqlCompletedJobs": 2,
+  "sqlChargedVisualPages": 4,
+  "rpcNames": [
+    "extraction_claim",
+    "extraction_finish"
+  ],
+  "failureBudgetProof": [
+    {
+      "fixture": "injected blocked-after-work deadline",
+      "jobId": "7b7d71d3-4cf0-46e8-a720-00519c8c0981",
+      "state": "partial",
+      "successfulPages": 0,
+      "chargedPages": 2,
+      "realNativeCalls": 0
+    },
+    {
+      "fixture": "injected thrown media exception",
+      "jobId": "d855c34b-20b8-4cf6-8e62-200b3a99f727",
+      "state": "failed",
+      "successfulPages": 0,
+      "chargedPages": 10,
+      "visualWorkUncertain": true,
+      "realNativeCalls": 0
+    }
+  ],
+  "failureFixturePhase": "After retaining native positive outputs, only local synthetic job/attempt tables were reset to test failure accounting independently. No hosted data or real budget was changed.",
+  "credentialFilesRead": 0,
+  "externalHttpRequests": 0,
+  "modelCalls": 0,
+  "calendarCalls": 0,
+  "hostedWrites": 0,
+  "paidServices": 0,
+  "limitations": [
+    "Auth and Storage use local SQL compatibility shells; object bodies are an in-memory substitute, not hosted HTTP.",
+    "No Trigger Cloud run, Netlify upload or hosted Supabase job is demonstrated.",
+    "Candidate counts show functional evidence production, not human-labeled field accuracy or campus coverage.",
+    "No normalization, recommendation, merge, calendar approval or external action is performed."
+  ]
+}

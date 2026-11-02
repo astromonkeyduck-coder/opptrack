@@ -16,6 +16,12 @@ test('platform payload rejections have an actionable message without JSON parsin
   await assert.rejects(readIntakeResponse(response), /each file and the combined files at or below 4 MiB/);
 });
 
+test('a confirmed upload can open only a same-app extraction UUID while a queue outage preserves its saved identity',async()=>{
+  assert.deepEqual(await readIntakeResponse(Response.json({id,extractionJobId:id})),{id,extractionJobId:id});
+  assert.deepEqual(await readIntakeResponse(Response.json({id,extractionJobId:'https://attacker.example/'})),{id});
+  assert.deepEqual(await readIntakeResponse(Response.json({id,extractionState:'unavailable'})),{id,extractionUnavailable:true});
+});
+
 test('non-JSON platform failures and unconfirmed successes preserve safe retry guidance', async () => {
   for (const response of [
     new Response('Bad Gateway', { status: 502 }),

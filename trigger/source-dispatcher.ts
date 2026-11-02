@@ -1,6 +1,7 @@
 import { AbortTaskRunError, runs, schedules, type Context } from "@trigger.dev/sdk";
 import { runDispatcherHandler } from "../lib/collection/dispatcher";
 import type { DispatcherProvenance } from "../lib/ingestion";
+import { extractionDispatcher } from './extraction';
 
 // Free-created schedules require hourly cadence and a minimum 60-minute window.
 // payload.timestamp is the nominal cron time; the actual start can be later.
@@ -56,5 +57,12 @@ export const sourceDispatcher=schedules.task({
   // Collection HTTP failures persist their own Retry-After/backoff in SQL. Only
   // infrastructure exceptions reach SDK retries, after the ten-minute lease expires.
   retry:{maxAttempts:3,factor:2,minTimeoutInMs:600_000,maxTimeoutInMs:900_000,randomize:true},
-  run:async(payload,{ctx})=>requireReadyDispatcherResult(await runDispatcherHandler(undefined,manualPublicSourceEnvironment(payload,ctx.run),await provenanceForTriggerRun(payload,ctx.run))),
+  run:async(payload,{ctx})=>{
+    const result=requireReadyDispatcherResult(await runDispatcherHandler(undefined,manualPublicSourceEnvironment(payload,ctx.run),await provenanceForTriggerRun(payload,ctx.run)));
+    // OCR has its own bounded run, so a long source poll cannot consume its lease.
+    const extractionRun=process.env.STAGE2_EXTRACTION_ENABLED==='true'
+      ?await extractionDispatcher.trigger({},{idempotencyKey:`stage2:${ctx.run.id}`})
+      :null;
+    return {...result,extractionRunId:extractionRun?.id??null};
+  },
 });

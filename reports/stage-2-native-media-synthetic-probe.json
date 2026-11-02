@@ -1,0 +1,195 @@
+{
+  "recordedAt": "2026-11-02T19:55:32.061Z",
+  "runId": "3cbadc42-41e2-4350-a6fb-79e8ecb75ebb",
+  "command": "node --import tsx scripts/probe-stage2-media.ts",
+  "evidenceClass": "Actual local native OCR of two generated synthetic image slides",
+  "readiness": {
+    "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+    "tools": {
+      "tesseract": {
+        "available": true,
+        "version": "tesseract 5.5.4"
+      },
+      "pdfinfo": {
+        "available": true,
+        "version": "pdfinfo version 26.10.0"
+      },
+      "pdftotext": {
+        "available": true,
+        "version": "pdftotext version 26.10.0"
+      },
+      "pdftoppm": {
+        "available": true,
+        "version": "pdftoppm version 26.10.0"
+      }
+    },
+    "ready": true
+  },
+  "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+  "complete": true,
+  "elapsedMs": 395,
+  "assets": [
+    {
+      "assetId": "synthetic-slide-1",
+      "mimeType": "image/png",
+      "byteCount": 46580,
+      "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa"
+    },
+    {
+      "assetId": "synthetic-slide-2",
+      "mimeType": "image/png",
+      "byteCount": 57965,
+      "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6"
+    }
+  ],
+  "units": [
+    {
+      "assetId": "synthetic-slide-1",
+      "page": null,
+      "status": "processed",
+      "method": "ocr",
+      "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa",
+      "issues": [],
+      "textCharacters": 113,
+      "wordBoxes": 21
+    },
+    {
+      "assetId": "synthetic-slide-2",
+      "page": null,
+      "status": "processed",
+      "method": "ocr",
+      "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6",
+      "issues": [],
+      "textCharacters": 159,
+      "wordBoxes": 23
+    }
+  ],
+  "syntheticExpected": [
+    {
+      "text": "campus film night",
+      "matched": true
+    },
+    {
+      "text": "november 12, 2026",
+      "matched": true
+    },
+    {
+      "text": "7:00 pm",
+      "matched": true
+    },
+    {
+      "text": "student union cinema",
+      "matched": true
+    },
+    {
+      "text": "applications close november 10, 2026",
+      "matched": true
+    },
+    {
+      "text": "eligibility: fsu students",
+      "matched": true
+    }
+  ],
+  "privateResult": "private/stage2-native-media/ocr-result-synthetic-3cbadc42-41e2-4350-a6fb-79e8ecb75ebb.json",
+  "providerCalls": 0,
+  "modelCalls": 0,
+  "databaseCalls": 0,
+  "calendarCalls": 0,
+  "credentialFilesRead": 0,
+  "paidServices": 0,
+  "limitations": [
+    "OCR execution is not semantic field accuracy or a human-reviewed benchmark.",
+    "No Trigger Cloud execution or production Storage path is proven by this local probe.",
+    "All supplied PDF pages get text and visual passes only within declared bounds; rejected/partial units remain visible."
+  ],
+  "attemptHistory": [
+    {
+      "recordedAt": "2026-11-02T19:53:20.193Z",
+      "readiness": {
+        "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+        "tools": {
+          "tesseract": {
+            "available": true,
+            "version": "tesseract 5.5.4"
+          },
+          "pdfinfo": {
+            "available": true,
+            "version": "pdfinfo version 26.10.0"
+          },
+          "pdftotext": {
+            "available": true,
+            "version": "pdftotext version 26.10.0"
+          },
+          "pdftoppm": {
+            "available": true,
+            "version": "pdftoppm version 26.10.0"
+          }
+        },
+        "ready": true
+      },
+      "complete": true,
+      "elapsedMs": 400,
+      "privateResult": null,
+      "rawResultUnavailable": true,
+      "note": "The initial generic output path was overwritten by the supplied-PDF probe. Aggregate outcomes remain; later synthetic runs have independent immutable raw outputs."
+    },
+    {
+      "recordedAt": "2026-11-02T19:54:18.814Z",
+      "runId": "575cb8cb-a8cb-439f-ad6d-19dda5ede0c2",
+      "readiness": {
+        "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+        "tools": {
+          "tesseract": {
+            "available": true,
+            "version": "tesseract 5.5.4"
+          },
+          "pdfinfo": {
+            "available": true,
+            "version": "pdfinfo version 26.10.0"
+          },
+          "pdftotext": {
+            "available": true,
+            "version": "pdftotext version 26.10.0"
+          },
+          "pdftoppm": {
+            "available": true,
+            "version": "pdftoppm version 26.10.0"
+          }
+        },
+        "ready": true
+      },
+      "complete": true,
+      "elapsedMs": 390,
+      "privateResult": "private/stage2-native-media/ocr-result-575cb8cb-a8cb-439f-ad6d-19dda5ede0c2.json"
+    },
+    {
+      "recordedAt": "2026-11-02T19:55:32.061Z",
+      "runId": "3cbadc42-41e2-4350-a6fb-79e8ecb75ebb",
+      "readiness": {
+        "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+        "tools": {
+          "tesseract": {
+            "available": true,
+            "version": "tesseract 5.5.4"
+          },
+          "pdfinfo": {
+            "available": true,
+            "version": "pdfinfo version 26.10.0"
+          },
+          "pdftotext": {
+            "available": true,
+            "version": "pdftotext version 26.10.0"
+          },
+          "pdftoppm": {
+            "available": true,
+            "version": "pdftoppm version 26.10.0"
+          }
+        },
+        "ready": true
+      },
+      "complete": true,
+      "elapsedMs": 395,
+      "privateResult": "private/stage2-native-media/ocr-result-synthetic-3cbadc42-41e2-4350-a6fb-79e8ecb75ebb.json"
+    }
+  ]
+}

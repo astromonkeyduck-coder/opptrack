@@ -2,6 +2,10 @@
 
 Next.js/Netlify, private Supabase and the single hourly Trigger worker are deployed. Core and the original 16 Instagram accounts have genuine scheduled success. The user-approved 11-account expansion is live, bringing monitoring to 27; all 11 new routes succeeded in a fresh manual Production run. A genuine full 27-account scheduled tick is pending nominal 15:00 UTC October 21. No paid upgrade, calendar write or broader Stage 2 work is authorized.
 
+## November 2 Stage 2 runtime
+
+Apply the Stage 2 migration and policy audit before deployment. Netlify queues owner-only extraction snapshots after durable intake and never receives a Supabase worker secret. Trigger builds the pinned native image and uses only `STAGE2_EXTRACTION_ENABLED=true` in Production after verification; the example remains false. It retains calendar/email flags false and no Google/model secret. The single hourly dispatcher starts the bounded extraction task; no faster cron or paid upgrade is introduced. Results remain unverified. Follow [the Stage 2 runbook](stage-2-runbook.md) and [release evidence](../reports/stage-2-release.json); runtime/flag verification may still be pending.
+
 ## November 1 approval-only writer
 
 The user explicitly authorized a narrow create-only Google writer. After applying `20261102021158_approved_calendar_writes.sql` and deploying the tested web release, set **Netlify Production** `CALENDAR_WRITES_ENABLED=true` and redeploy. Keep the template default false for new environments. Keep **Trigger Production** `CALENDAR_WRITES_ENABLED=false`; no Google credential or executor belongs there. No new secret is required.

@@ -1,0 +1,211 @@
+{
+  "recordedAt": "2026-11-02T22:45:24.534Z",
+  "command": "node --import tsx scripts/prepare-stage2-real-review.ts",
+  "inventoryVersion": "stage2-public-review-inventory-v1",
+  "status": "real_existing_public_capture_inventory_prepared_not_human_labeled_or_holdout_accepted",
+  "snapshotSha256": "861858544d6817c5b83b69f916313fd76e976e0d4e0002275084be7c5b331dd0",
+  "privateInventorySha256": "06495b9c9067164a225681e0fbfaae6cc6a38efc1847341ef22f6868a286d10d",
+  "reviewUnits": 100,
+  "distinctProvisionalOpportunityFamilies": 100,
+  "retainedSourceAliasRecords": 165,
+  "provisionalSingleSourceUnknownOrganizerFamilies": 40,
+  "examplesWithPublisherOrganizerMetadata": 60,
+  "distinctPublisherOrganizerMetadataValues": 36,
+  "perPrimaryRoute": {
+    "fsu-calendar-api": 35,
+    "fsu-career-deadlines": 1,
+    "fsu-cre-applications": 10,
+    "fsu-hq-public-export": 25,
+    "fsu-music-events": 10,
+    "fsu-onf-dates": 10,
+    "fsu-opening-nights": 9
+  },
+  "perSelectionCategory": {
+    "arts_exhibition": 2,
+    "career_employer": 13,
+    "fellowship_scholarship": 8,
+    "film_cinema": 8,
+    "music_performance": 25,
+    "other_campus_exploration": 7,
+    "outdoors_recreation": 7,
+    "research_academic": 16,
+    "social_clubs": 8,
+    "speaker_policy": 6
+  },
+  "capturedResponseCount": 20,
+  "validatedExistingResponseCount": 29,
+  "copiedCapturedResponseBytes": 3328344,
+  "inputBatchReferences": [
+    {
+      "sourceId": "fsu-calendar-api",
+      "originalPrivateBatchPath": "private/stage1-reingestion-live/fsu-calendar-api.json",
+      "originalBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "parserVersion": "localist-v1",
+      "captureStartedAt": "2026-11-02T15:52:01.819Z",
+      "captureFinishedAt": "2026-11-02T15:52:17.401Z",
+      "windowFrom": "2026-11-02",
+      "windowTo": "2026-11-09",
+      "opportunitiesAvailableInBatch": 281,
+      "responseHashes": [
+        "d5677878ae8f85476b298e8aa348beea48cc58076b781b934dfe4faf324ed487",
+        "3965c185dac7794c0266547d1c18fa378e1e3bc787c5fa5cfb2109764c8f1f60",
+        "7f71b8ba94b08b86a1eece34de2ccbe23aeec3d8cd5b40a285fe379c1d992ff8",
+        "90056c14fc249662e3baee01ed824e112275d58b820d7d66b58eae7beba78542"
+      ]
+    },
+    {
+      "sourceId": "fsu-music-events",
+      "originalPrivateBatchPath": "private/stage1-reingestion-live/fsu-music-events.json",
+      "originalBatchSha256": "d9fd7ef4757a164f4f43827f7603eb6b1c73797fd472a167668f923cbd207185",
+      "parserVersion": "music-preview-v1",
+      "captureStartedAt": "2026-11-02T15:52:17.767Z",
+      "captureFinishedAt": "2026-11-02T15:52:17.893Z",
+      "windowFrom": null,
+      "windowTo": null,
+      "opportunitiesAvailableInBatch": 10,
+      "responseHashes": [
+        "3bbe38892e8fd5a3badf13a89d3624a0e3653a47484f77a92528006b7ed9d16d"
+      ]
+    },
+    {
+      "sourceId": "fsu-hq-public-export",
+      "originalPrivateBatchPath": "private/hq-live/latest.json",
+      "originalBatchSha256": "35153b4fd88a34924e81bb50d9b3fa1777ae1942c207c64517b700ec25d91091",
+      "parserVersion": "hq-ics-v1",
+      "captureStartedAt": "2026-10-21T22:57:24.217Z",
+      "captureFinishedAt": "2026-10-21T22:57:24.751Z",
+      "windowFrom": "2026-10-21T22:57:24.218Z",
+      "windowTo": "2027-01-19T22:57:24.218Z",
+      "opportunitiesAvailableInBatch": 373,
+      "responseHashes": [
+        "88fbe326e53ce679466f9bfd8857fa02c899b7a23714589b94545a2c31867f8b"
+      ]
+    },
+    {
+      "sourceId": "fsu-cre-applications",
+      "originalPrivateBatchPath": "private/official-deadlines-live/fsu-cre-applications-latest.json",
+      "originalBatchSha256": "13b6574eedd90d935d7805908572e5736c17248afc7006928a0ee0ceea0cd0ba",
+      "parserVersion": "official-deadlines-v1",
+      "captureStartedAt": "2026-10-21T23:39:56.485Z",
+      "captureFinishedAt": "2026-10-21T23:39:57.209Z",
+      "windowFrom": null,
+      "windowTo": null,
+      "opportunitiesAvailableInBatch": 14,
+      "responseHashes": [
+        "522aaa9b684417c76c5a1ab33f6fda7e82219debf99fe7f967971830d67379c0",
+        "42da0b9e1d2b6066753fd2d1f985ba24ff62bfd44202dc317a9adb1c7f07192a"
+      ]
+    },
+    {
+      "sourceId": "fsu-career-deadlines",
+      "originalPrivateBatchPath": "private/official-deadlines-live/fsu-career-deadlines-latest.json",
+      "originalBatchSha256": "677e98050b743dae5355907e81de9ef0844cddeb3ea3dafc160fdb699d04c1aa",
+      "parserVersion": "official-deadlines-v1",
+      "captureStartedAt": "2026-10-21T23:39:57.273Z",
+      "captureFinishedAt": "2026-10-21T23:39:57.467Z",
+      "windowFrom": null,
+      "windowTo": null,
+      "opportunitiesAvailableInBatch": 1,
+      "responseHashes": [
+        "0750925cc671d3e9ed083a45a374420c455a5e04cd7b9f29b4d2a08fb124a9dc"
+      ]
+    },
+    {
+      "sourceId": "fsu-onf-dates",
+      "originalPrivateBatchPath": "private/official-deadlines-live/fsu-onf-dates-latest.json",
+      "originalBatchSha256": "0b264b89c95847276935879301674b25eebc324ca18ee8dcd6fa5fb1070fcfed",
+      "parserVersion": "official-deadlines-v1",
+      "captureStartedAt": "2026-10-21T23:39:56.010Z",
+      "captureFinishedAt": "2026-10-21T23:39:56.171Z",
+      "windowFrom": null,
+      "windowTo": null,
+      "opportunitiesAvailableInBatch": 18,
+      "responseHashes": [
+        "9a976c2f88057190c9102317114657c88ffa744e6d15ea572bc4770f43472e95"
+      ]
+    },
+    {
+      "sourceId": "fsu-opening-nights",
+      "originalPrivateBatchPath": "private/official-tickets-live/latest.json",
+      "originalBatchSha256": "1ad191d18db282144981b31ac38b277b73c3962f9962a9ac37261f9a20dc2834",
+      "parserVersion": "official-tickets-v1",
+      "captureStartedAt": "2026-10-21T23:44:16.943Z",
+      "captureFinishedAt": "2026-10-21T23:44:21.982Z",
+      "windowFrom": null,
+      "windowTo": null,
+      "opportunitiesAvailableInBatch": 18,
+      "responseHashes": [
+        "ffb0f2f6f08c87329cf865be687c990897fdf2d51cc62aaf4eac7c3de819c8cd",
+        "41ac3d5ec7ace9305594427b89f50ddd381ef5b38c516a8929827e0f3c3588ff",
+        "2d9dfd3b43206068799a8fdfb00b6ad095942182793b32b1ef412c708514cdf7",
+        "8d4f54830b7b0fb772d5f0ed14d4511ae6974ab1e309ad7ebfc34cc40a7d5895",
+        "0f831705c720b47ddab01a3ef1edb0f5a2ab9350577c89a3a64c3a4600abfd07",
+        "cdfeaf3c9ad0019fedc26ead305f6324853e2ed262da06c0358b48a3bce74d66",
+        "9c401896dd1bda7e402daae16fb9652a7939e74d2538a596e9f9687277178059",
+        "a79be664e91da6b0d51f1971a40b1b0038503d52a29e8206a9e0a2e1bb4fdf96",
+        "cbc618b05af126a0173219b81efa674ead432100099f23033f4c72f6eeba290f",
+        "26c3c677afd9b02398b22ca1f1666705c8a02bbf7ba02f96db0bf6638a2fd8fe",
+        "bfc7d18e21bbc7869433902e7d1bd5cb6ff8701c413b0fdc2b5883ed1418771a",
+        "30e780a04a80273165168e25903f552b38f6a1b8004416d4828a88e6525c7bb5",
+        "888b7f890914e0c1c1884bbbe8c669801366b4cc642156665bb8db30b7e609c9",
+        "d5ccae6e18dd1623a1f20b354c1e31796558a55641c1260ea89f2185332a679b",
+        "5b94c9f44b2a925d0170f2ccfdea5c1f46855f52ab68ebebba86f7aff2ae7d47",
+        "3d757c32b483cea1f6b6dcd8fd45da0eda04b4f17834cbe597ce3163b40da17c",
+        "30aae6896e7702f51088419995957f9b71e54a1265658de406c0ccfddeae7a87",
+        "c53c2900e9fed56bd62ab84ffe726041173d7464505964e4d8f36339ab834900",
+        "074f37ecf1d6c4c0e7afb0d249516e4e6fc47976f82543c55b99e7f0829e1ca7"
+      ]
+    }
+  ],
+  "preservedOccurrenceClaims": 148,
+  "preservedActionClaims": 41,
+  "privateArtifacts": {
+    "directory": "private/stage2-review/snapshot-861858544d6817c5",
+    "inventory": "private/stage2-review/snapshot-861858544d6817c5/inventory.json",
+    "firstTenMarkdown": "private/stage2-review/snapshot-861858544d6817c5/first-10-development-review.md",
+    "firstTenCsv": "private/stage2-review/snapshot-861858544d6817c5/first-10-development-review.csv",
+    "firstTenRoutes": {
+      "fsu-calendar-api": 2,
+      "fsu-career-deadlines": 1,
+      "fsu-cre-applications": 1,
+      "fsu-hq-public-export": 2,
+      "fsu-music-events": 1,
+      "fsu-onf-dates": 1,
+      "fsu-opening-nights": 2
+    },
+    "directoryModesOctal": [
+      "700",
+      "700",
+      "700"
+    ],
+    "newFileMode": "0600",
+    "originalCapturesUnmodified": true,
+    "existingHumanPacketAnnotationsPreservedOnRerun": true
+  },
+  "evidenceBoundaries": {
+    "newHttpRequests": 0,
+    "credentialReads": 0,
+    "databaseReads": 0,
+    "databaseWrites": 0,
+    "metaAccess": 0,
+    "modelCalls": 0,
+    "calendarCalls": 0,
+    "paidServices": 0,
+    "actualHumanReviewsCreated": 0,
+    "acceptanceHoldoutAssigned": false,
+    "sourceInputProvenance": "Existing successful public JSON/ICS/HTML captures; no source-access renewal or current availability verification.",
+    "silverLabelProvenance": "Existing deterministic adapter output, not independently checked human facts.",
+    "actualImageFlyers": 0,
+    "actualCompleteCarousels": 0,
+    "actualSocialCaptures": 0,
+    "actualNegativeSourceCaptures": 0
+  },
+  "limitations": [
+    "100 review units share fewer independent captured responses; this is not 100 independent captures or 100 organizers.",
+    "Organizer and cross-source family assignments are provisional; source-native opportunity grouping keeps all captured occurrences/actions together but does not prove all aliases have been found.",
+    "Input windows and publication/fetch timestamps remain distinct; older captures cannot establish current access, historical alert timeliness or current ticket availability.",
+    "No real flyer/carousel/video/newsletter/social/negative corpus or model benchmark is established by this inventory.",
+    "The proposed silver labels can share parser mistakes; human review and critical-label adjudication are still required.",
+    "No untouched human-labeled holdout, measured extraction accuracy, recall target or Stage 2 acceptance is claimed."
+  ]
+}

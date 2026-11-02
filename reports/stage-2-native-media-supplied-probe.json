@@ -1,0 +1,220 @@
+{
+  "recordedAt": "2026-11-02T20:02:32.562Z",
+  "runId": "ae70a1a7-d92b-4fa3-b4be-b81a7b90b795",
+  "command": "node --import tsx scripts/probe-stage2-media.ts --file=<local input>...",
+  "evidenceClass": "Actual local native processing of caller-supplied bytes; provenance/classification must be established separately",
+  "readiness": {
+    "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+    "tools": {
+      "tesseract": {
+        "available": true,
+        "version": "tesseract 5.5.4"
+      },
+      "pdfinfo": {
+        "available": true,
+        "version": "pdfinfo version 26.10.0"
+      },
+      "pdftotext": {
+        "available": true,
+        "version": "pdftotext version 26.10.0"
+      },
+      "pdftoppm": {
+        "available": true,
+        "version": "pdftoppm version 26.10.0"
+      }
+    },
+    "ready": true
+  },
+  "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+  "complete": true,
+  "elapsedMs": 10556,
+  "assets": [
+    {
+      "assetId": "supplied-asset-1",
+      "mimeType": "application/pdf",
+      "byteCount": 588276,
+      "sha256": "af63c73213c33d51eb7f129f24c1ed3da06de95987ecb8fe0852eaff2be6673c"
+    }
+  ],
+  "units": [
+    {
+      "assetId": "supplied-asset-1",
+      "page": 1,
+      "expectedPages": 6,
+      "status": "processed",
+      "method": "pdf-text-and-ocr",
+      "sha256": "af63c73213c33d51eb7f129f24c1ed3da06de95987ecb8fe0852eaff2be6673c",
+      "issues": [
+        "pdf_text_and_visual_differ"
+      ],
+      "textCharacters": 3246,
+      "wordBoxes": 212
+    },
+    {
+      "assetId": "supplied-asset-1",
+      "page": 2,
+      "expectedPages": 6,
+      "status": "processed",
+      "method": "pdf-text-and-ocr",
+      "sha256": "af63c73213c33d51eb7f129f24c1ed3da06de95987ecb8fe0852eaff2be6673c",
+      "issues": [
+        "pdf_text_and_visual_differ"
+      ],
+      "textCharacters": 5502,
+      "wordBoxes": 408
+    },
+    {
+      "assetId": "supplied-asset-1",
+      "page": 3,
+      "expectedPages": 6,
+      "status": "processed",
+      "method": "pdf-text-and-ocr",
+      "sha256": "af63c73213c33d51eb7f129f24c1ed3da06de95987ecb8fe0852eaff2be6673c",
+      "issues": [
+        "pdf_text_and_visual_differ"
+      ],
+      "textCharacters": 6170,
+      "wordBoxes": 426
+    },
+    {
+      "assetId": "supplied-asset-1",
+      "page": 4,
+      "expectedPages": 6,
+      "status": "processed",
+      "method": "pdf-text-and-ocr",
+      "sha256": "af63c73213c33d51eb7f129f24c1ed3da06de95987ecb8fe0852eaff2be6673c",
+      "issues": [
+        "pdf_text_and_visual_differ"
+      ],
+      "textCharacters": 6763,
+      "wordBoxes": 426
+    },
+    {
+      "assetId": "supplied-asset-1",
+      "page": 5,
+      "expectedPages": 6,
+      "status": "processed",
+      "method": "pdf-text-and-ocr",
+      "sha256": "af63c73213c33d51eb7f129f24c1ed3da06de95987ecb8fe0852eaff2be6673c",
+      "issues": [
+        "pdf_text_and_visual_differ"
+      ],
+      "textCharacters": 4256,
+      "wordBoxes": 322
+    },
+    {
+      "assetId": "supplied-asset-1",
+      "page": 6,
+      "expectedPages": 6,
+      "status": "processed",
+      "method": "pdf-text-and-ocr",
+      "sha256": "af63c73213c33d51eb7f129f24c1ed3da06de95987ecb8fe0852eaff2be6673c",
+      "issues": [
+        "pdf_text_and_visual_differ"
+      ],
+      "textCharacters": 6284,
+      "wordBoxes": 421
+    }
+  ],
+  "syntheticExpected": [],
+  "privateResult": "private/stage2-native-media/ocr-result-supplied-ae70a1a7-d92b-4fa3-b4be-b81a7b90b795.json",
+  "providerCalls": 0,
+  "modelCalls": 0,
+  "databaseCalls": 0,
+  "calendarCalls": 0,
+  "credentialFilesRead": 0,
+  "paidServices": 0,
+  "limitations": [
+    "OCR execution is not semantic field accuracy or a human-reviewed benchmark.",
+    "No Trigger Cloud execution or production Storage path is proven by this local probe.",
+    "All supplied PDF pages get text and visual passes only within declared bounds; rejected/partial units remain visible."
+  ],
+  "attemptHistory": [
+    {
+      "recordedAt": "2026-11-02T19:54:26.999Z",
+      "readiness": {
+        "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+        "tools": {
+          "tesseract": {
+            "available": true,
+            "version": "tesseract 5.5.4"
+          },
+          "pdfinfo": {
+            "available": true,
+            "version": "pdfinfo version 26.10.0"
+          },
+          "pdftotext": {
+            "available": true,
+            "version": "pdftotext version 26.10.0"
+          },
+          "pdftoppm": {
+            "available": true,
+            "version": "pdftoppm version 26.10.0"
+          }
+        },
+        "ready": true
+      },
+      "complete": true,
+      "elapsedMs": 10497,
+      "privateResult": "private/stage2-native-media/ocr-result-supplied-03d133f7-7c17-431c-8542-d552fe32890e.json"
+    },
+    {
+      "recordedAt": "2026-11-02T19:57:35.057Z",
+      "runId": "f46838f6-a598-4f81-bd58-bc63fd3c9115",
+      "readiness": {
+        "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+        "tools": {
+          "tesseract": {
+            "available": true,
+            "version": "tesseract 5.5.4"
+          },
+          "pdfinfo": {
+            "available": true,
+            "version": "pdfinfo version 26.10.0"
+          },
+          "pdftotext": {
+            "available": true,
+            "version": "pdftotext version 26.10.0"
+          },
+          "pdftoppm": {
+            "available": true,
+            "version": "pdftoppm version 26.10.0"
+          }
+        },
+        "ready": true
+      },
+      "complete": true,
+      "elapsedMs": 10500,
+      "privateResult": "private/stage2-native-media/ocr-result-supplied-f46838f6-a598-4f81-bd58-bc63fd3c9115.json"
+    },
+    {
+      "recordedAt": "2026-11-02T20:02:32.562Z",
+      "runId": "ae70a1a7-d92b-4fa3-b4be-b81a7b90b795",
+      "readiness": {
+        "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+        "tools": {
+          "tesseract": {
+            "available": true,
+            "version": "tesseract 5.5.4"
+          },
+          "pdfinfo": {
+            "available": true,
+            "version": "pdfinfo version 26.10.0"
+          },
+          "pdftotext": {
+            "available": true,
+            "version": "pdftotext version 26.10.0"
+          },
+          "pdftoppm": {
+            "available": true,
+            "version": "pdftoppm version 26.10.0"
+          }
+        },
+        "ready": true
+      },
+      "complete": true,
+      "elapsedMs": 10556,
+      "privateResult": "private/stage2-native-media/ocr-result-supplied-ae70a1a7-d92b-4fa3-b4be-b81a7b90b795.json"
+    }
+  ]
+}

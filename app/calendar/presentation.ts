@@ -46,6 +46,7 @@ export function approvalHealth(preview: CalendarApprovalPreview, now = Date.now(
 }
 export function approvalSourceLink(value: string | null) { return safeExternalUrl(value); }
 export function approvalBlockedMessage(reason: string | null) {
+  if (reason === 'confirmed_alias_approved') return 'This event already has an approval under a confirmed matching source. Open Recorded approvals to review that addition before adding another.';
   if (reason === 'not_scheduled') return 'The source does not currently mark this event as scheduled. Check its status before making plans.';
   if (reason === 'event_started') return 'This occurrence has already started. A past event cannot be added through this approval.';
   return 'The source has no verified timed start and end. Date-only, all-day and unknown-duration events need source verification before this app can add them.';

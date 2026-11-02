@@ -1,4 +1,5 @@
 import { cleanSearch, pageNumber, sourceIsStale } from '../../lib/intake/presentation';
+import { QueueExtractionForm } from '../extractions/components';
 
 export const INSTAGRAM_PAGE_SIZE = 20;
 export const INSTAGRAM_ADAPTER = 'instagram-business-discovery-v1';
@@ -97,8 +98,9 @@ export function InstagramPostCard({ row, handle }: { row: InstagramPostRow; hand
     <p className="post-caption">{longCaption ? `${captionCharacters.slice(0, 360).join('').trimEnd()}…` : caption}</p>
     {longCaption && <details className="post-full-caption"><summary>Read full caption</summary><p className="post-caption">{caption}</p></details>}
     <div className="post-footer">{url ? <a href={url} target="_blank" rel="noopener noreferrer">Open original Instagram post <span aria-hidden="true">↗</span></a> : <p className="notice">The stored post link could not be verified as a canonical Instagram link.</p>}</div>
+    {row.caption?.trim() && <QueueExtractionForm kind="instagram" targetId={row.id} label="Read retained caption" />}
     <details className="post-details"><summary>Post details</summary>
-      <p>Publication time is not an event date. Event details, ticket availability and deadlines have not been extracted or verified.</p>
+      <p>Publication time is not an event date. Caption-read results are separate, unverified suggestions. Ticket availability and deadlines still need checking.</p>
       {row.media_type === 'CAROUSEL_ALBUM' && <p>{row.children.length} child IDs retained · {row.children_complete ? 'Child metadata complete in this response' : 'Child metadata incomplete'}. Images, videos and text inside them have not been captured or read.</p>}
       {row.media_type !== 'CAROUSEL_ALBUM' && <p>Media has not been captured or read.</p>}
       <p>First collected: {postTimestamp(row.first_seen_at)}<br />Last observed: {postTimestamp(row.last_seen_at)}</p>

@@ -184,7 +184,7 @@ try{
     const commandRows=await query('select state,count(*)::integer as count from tracker_private.calendar_write_commands group by state');assert.ok(commandRows.some(r=>r.state==='pending'));assert.equal(await scalar("select has_function_privilege('service_role','public.calendar_write_claim(uuid)','EXECUTE')"),false);
   });
   await check('new private schema usage exposes no pre-existing ingestion function to authenticated users',async()=>{
-    const exposed=await query("select p.proname from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='tracker_private' and has_function_privilege('authenticated',p.oid,'EXECUTE') and p.proname not like 'calendar_%'");assert.deepEqual(exposed,[]);
+    const exposed=await query("select p.proname from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='tracker_private' and has_function_privilege('authenticated',p.oid,'EXECUTE') and p.proname not like 'calendar_%' and p.proname not in ('extraction_enqueue','extraction_retry','reconciliation_propose','reconciliation_preview','reconciliation_review')");assert.deepEqual(exposed,[]);
   });
   await writeFile(new URL('../reports/calendar-write-database-tests.json',import.meta.url),JSON.stringify({run_at:new Date().toISOString(),engine:'PGlite 0.5.10 (PostgreSQL WASM)',migrations,passed:checks.length,checks,fixture_data:'Synthetic records only; real SQL/RLS/roles, no live Google or hosted JWT calls',not_tested:['Hosted Auth HTTP/JWT verification','Independent concurrent PostgreSQL connections','Google OAuth consent or provider writes','Powered-off operation']},null,2)+'\n');
   console.log(`${checks.length} approval-only calendar SQL checks passed.`);

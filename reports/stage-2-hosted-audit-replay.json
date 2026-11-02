@@ -1,0 +1,139 @@
+{
+  "recordedAt": "2026-11-02T22:16:01.386Z",
+  "command": "node scripts/test-stage2-hosted-audit.mjs",
+  "evidenceClass": "Exact hosted rollback SQL replayed locally in actual PGlite PostgreSQL with synthetic owner/Auth/Storage metadata. Not hosted execution.",
+  "audit": {
+    "checks": [
+      {
+        "test": "extraction_jobs_owner_rls_no_direct_mutations",
+        "passed": true
+      },
+      {
+        "test": "extraction_attempts_owner_rls_no_direct_mutations",
+        "passed": true
+      },
+      {
+        "test": "reconciliation_links_owner_rls_no_direct_mutations",
+        "passed": true
+      },
+      {
+        "test": "reconciliation_history_owner_rls_no_direct_mutations",
+        "passed": true
+      },
+      {
+        "test": "owner_worker_rpc_boundaries",
+        "passed": true
+      },
+      {
+        "test": "enqueue_idempotent_manual_publication_unknown",
+        "passed": true
+      },
+      {
+        "test": "active_lease_excludes_duplicate_claim",
+        "passed": true
+      },
+      {
+        "test": "wrong_lease_cannot_finish",
+        "passed": true
+      },
+      {
+        "test": "unsupported_span_rejected",
+        "passed": true
+      },
+      {
+        "test": "missing_slide_cannot_succeed",
+        "passed": true
+      },
+      {
+        "test": "exact_utf16_evidence_and_two_slides_retained",
+        "passed": true
+      },
+      {
+        "test": "unknown_native_work_charges_full_remaining_reservation",
+        "passed": true
+      },
+      {
+        "test": "blocked_but_attempted_pages_consume_remaining_visual_budget",
+        "passed": true
+      },
+      {
+        "test": "instagram_publication_preserved_missing_media_explicit",
+        "passed": true
+      },
+      {
+        "test": "retry_floor_enforced",
+        "passed": true
+      },
+      {
+        "test": "two_new_jobs_per_utc_day_enforced",
+        "passed": true
+      },
+      {
+        "test": "other_user_cannot_see_or_enqueue_owner_jobs",
+        "passed": true
+      },
+      {
+        "test": "anonymous_job_read_is_denied",
+        "passed": true
+      },
+      {
+        "test": "reconciliation_keeps_conflicting_decisions_and_native_ids",
+        "passed": true
+      },
+      {
+        "test": "confirmed_alias_blocks_second_approval_without_provider_execution",
+        "passed": true
+      },
+      {
+        "test": "revocation_recorded_and_existing_approval_payload_preserved",
+        "passed": true
+      },
+      {
+        "test": "existing_sources_unchanged",
+        "passed": true
+      },
+      {
+        "test": "existing_decisions_unchanged",
+        "passed": true
+      },
+      {
+        "test": "existing_calendar_commands_unchanged",
+        "passed": true
+      },
+      {
+        "test": "existing_normalized_facts_unchanged",
+        "passed": true
+      },
+      {
+        "test": "connection_metadata_generation_unchanged",
+        "passed": true
+      }
+    ],
+    "passed": 26,
+    "checkedAt": "2026-11-02T17:16:01.381-05:00",
+    "modelCalls": 0,
+    "googleCalls": 0,
+    "fixtureClass": "Synthetic text/media/source metadata through actual RPCs and SQL roles; not OCR, signed-JWT, Storage HTTP or Google insertion proof",
+    "sequenceNote": "Review identity sequence can advance on rollback; real rows unchanged",
+    "storageHttpCalls": 0,
+    "persistentRowsChanged": 0,
+    "firstReleasePrecondition": "No extraction jobs; existing owned grant; credential values never selected into output",
+    "independentConnectionsTested": false
+  },
+  "allPersistentFixtureRowsRolledBack": true,
+  "credentialFilesRead": 0,
+  "providerCalls": 0,
+  "paidServices": 0,
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql",
+    "20261102194633_stage2_evidence_jobs.sql"
+  ]
+}

@@ -709,6 +709,28 @@ input[type=file]::file-selector-button {
 .saved-calendar-guidance>a {flex:none;font-weight:500;color:var(--garnet);}
 @media (max-width:760px) {.saved-calendar-guidance {align-items:flex-start;flex-direction:column;gap:6px;}}
 .stamp-save {font-size:24px;}
+.extraction-budget {border-block:1px solid var(--line);padding:12px 0;margin:20px 0;font-size:13px;line-height:1.6;}
+.extraction-budget p {margin:4px 0;}
+.extraction-layout {display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px;align-items:start;}
+.extraction-queue {display:grid;gap:6px;}
+.extraction-queue>a {display:grid;gap:5px;padding:12px;border:1px solid var(--line);border-radius:5px;font-size:12px;text-decoration:none;overflow-wrap:anywhere;}
+.extraction-queue>a[aria-current=page] {background:#eef0e9;border-color:#7f8b78;}
+.extraction-result {min-width:0;font-size:14px;line-height:1.6;}
+.extraction-result .notice {font-size:12px;}
+.extraction-candidate {padding:18px 0;margin:16px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere;}
+.extraction-candidate h3 {margin:5px 0 14px;}
+.extraction-fields {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px;margin:16px 0;}
+.extraction-fields>div {min-width:0;border-bottom:1px solid var(--line);padding-bottom:7px;}
+.extraction-fields dt {font-size:11px;color:var(--muted);}
+.extraction-fields dd {margin:4px 0 0;overflow-wrap:anywhere;}
+.extraction-claim {padding:6px 0;border-bottom:1px solid var(--line);}
+.extraction-claim h4 {font-size:12px;}
+.extraction-claim blockquote {margin:8px 0;padding-left:14px;border-left:2px solid var(--line);white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;}
+.extraction-source-text {white-space:pre-wrap;overflow-wrap:anywhere;max-height:360px;overflow:auto;font:12px/1.6 var(--font-body),sans-serif;}
+.extraction-units {padding-left:20px;font-size:12px;}
+.extraction-units>li {padding-block:8px;}
+.extraction-enqueue {margin:12px 0;}
+@media(max-width:760px){.extraction-layout {grid-template-columns:minmax(0,1fr);gap:20px;}.extraction-queue {max-height:220px;overflow:auto;}.extraction-fields {grid-template-columns:minmax(0,1fr);}}
 .full-description {
   white-space:pre-wrap;
 }

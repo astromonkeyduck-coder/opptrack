@@ -1,5 +1,11 @@
 # Stage plan
 
+## Current Stage 2 authorization — November 2, 2026
+
+The user explicitly said “Yes do it” after the Stage 2 scope was explained. Implement Stage 2 only; the historical Stage 1 stop below is superseded for this scope. Open Stage 1 checks remain open. Keep Meta repair paused, source access limits visible, calendar additions individually approved and paid upgrades/connectors/model API spending disabled.
+
+Stage 2 acceptance requires private all-asset/all-PDF-page processing with complete manifests; evidence-backed typed facts and explicit unknown/conflicting values; separate event/doors/application/ticket times; original publication context for relative dates; DST/recurrence exception correctness; stable identities and conservative reversible reconciliation preserving decisions and approvals; affirmative cancellation evidence and visible material changes. Evaluate roughly 100 varied accessible examples where practical, split by organizer/opportunity/media family, including negatives. Compare model/prompt candidates on the same human-reviewed development/holdout inputs and report field precision, event/action recall, wrong merges, retained duplicates, misses, uncertainty and measured costs. Synthetic tests and agent labels do not establish human-reviewed extraction accuracy. No automatic promotion of unreviewed suggestions or calendar writes follows from successful OCR.
+
 Stage 1 is explicitly authorized by the user on October 20, 2026. Stage 0 is preserved at Git tag stage-0-complete. Stop after Stage 1; later stages remain a continuation map, not permission to implement them. The user separately authorized the original Instagram watchlist/Meta setup, automatic monitoring for 16 proven accounts, read-only checks of 29 high-priority candidates, then automatic monitoring of the 11 additional successful candidates (27 total). This narrow extension does not authorize broader Stage 2 extraction or a completed social pilot; access remains account/format-specific.
 
 | Stage | Deliverable | Gate |

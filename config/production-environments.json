@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-01",
+  "updated_on": "2026-11-02",
   "status": "approval_calendar_owned_consent_and_primary_read_verified",
   "web_host": "netlify",
   "worker_host": "trigger.dev-cloud",
@@ -208,6 +208,13 @@
           "required": false,
           "type": "iso_instant",
           "secret": false
+        },
+        "STAGE2_EXTRACTION_ENABLED": {
+          "required": false,
+          "type": "boolean",
+          "secret": false,
+          "default": "false",
+          "note": "Stage2 private OCR/text queue only; SQL caps two newly started jobs and twelve attempted visual pages per UTC day. Calendar remains false."
         }
       },
       "forbidden_variables": [
@@ -506,5 +513,15 @@
     "calendar_write_insert_tested": false,
     "real_approval_commands": 0
   },
-  "historical_snapshot_notice": "notes, application_status and hosted_application_state retain the dated October 21 baseline. optional_features.google_calendar_readonly retains the original read-only release. For the current November 1 calendar grant, flag, deployment and validation, approved_calendar_write_extension supersedes those sections. Latest source-access state is in docs/status.md; historical token success does not establish current Instagram access."
+  "historical_snapshot_notice": "notes, application_status and hosted_application_state retain the dated October 21 baseline. optional_features.google_calendar_readonly retains the original read-only release. For the current November 1 calendar grant, flag, deployment and validation, approved_calendar_write_extension supersedes those sections. Latest source-access state is in docs/status.md; historical token success does not establish current Instagram access.",
+  "stage2_extension": {
+    "authorized_on": "2026-11-02",
+    "status": "implementation_and_evaluation_in_progress",
+    "model_api_spending_enabled": false,
+    "worker_feature_flag": "STAGE2_EXTRACTION_ENABLED",
+    "worker_feature_flag_verified": false,
+    "calendar_worker_enabled": false,
+    "human_reviewed_holdout_accepted": false,
+    "stage1_remaining_gates_waived": false
+  }
 }
