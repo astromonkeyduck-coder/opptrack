@@ -1,0 +1,86 @@
+{
+  "recordedAt": "2026-11-02 23:31:25.301657+00",
+  "evidenceClass": "Actual owner-authenticated Netlify intake, manual Production Trigger run and hosted Supabase commit; synthetic notes-only input, not OCR/Storage or scheduled/laptop-off proof",
+  "runtimeCommit": "c1bfab23debb3abbd3e60abd85d37a8d9e63578a",
+  "netlifyDeployId": "6ae91b9de754f72dfb3b6108",
+  "triggerDeployId": "3fqff5ic",
+  "triggerVersion": "20261102.7",
+  "workerFlag": {
+    "name": "STAGE2_EXTRACTION_ENABLED",
+    "value": true,
+    "environment": "Production only",
+    "observedSavedEastern": "2026-11-02 18:25"
+  },
+  "run": {
+    "id": "run_06gpt6g6fqap2codcf9j8loma2",
+    "test": true,
+    "environment": "Production",
+    "payload": {},
+    "triggeredAt": "2026-11-02T23:30:56.838Z",
+    "startedAt": "2026-11-02T23:31:00.283Z",
+    "finishedAt": "2026-11-02T23:31:02.523Z",
+    "state": "Completed",
+    "usageDurationMs": 969,
+    "invocationCostUsd": 0.000025,
+    "computeCostUsd": 0.0000327,
+    "totalEstimatedCostUsd": 0.0000577
+  },
+  "before": [
+    {
+      "observed_at": "2026-11-02 23:30:48.60882+00",
+      "id": "09d2d3f8-8aee-4598-9fc7-6e0e21890ce2",
+      "state": "queued",
+      "attempts": 0,
+      "input_hash": "8118e999b1868007ca5ca2de9c4feac62d35bc47df87a9e9887046efa6f1cc0e",
+      "created_at": "2026-11-02 23:29:13.513902+00",
+      "finished_at": null,
+      "error_code": null
+    }
+  ],
+  "after": [
+    {
+      "observed_at": "2026-11-02 23:31:25.301657+00",
+      "id": "09d2d3f8-8aee-4598-9fc7-6e0e21890ce2",
+      "state": "succeeded",
+      "attempts": 1,
+      "input_hash": "8118e999b1868007ca5ca2de9c4feac62d35bc47df87a9e9887046efa6f1cc0e",
+      "created_at": "2026-11-02 23:29:13.513902+00",
+      "finished_at": "2026-11-02 23:31:02.376255+00",
+      "error_code": null,
+      "candidate_count": 2,
+      "stats": {
+        "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5/stage2-rules-v1",
+        "elapsedMs": 96,
+        "expectedAssets": 0,
+        "processedPages": 0,
+        "processedAssets": 0
+      },
+      "recorded_attempts": [
+        {
+          "state": "succeeded",
+          "attempt": 1,
+          "startedAt": "2026-11-02T23:31:02.051294+00:00",
+          "finishedAt": "2026-11-02T23:31:02.376255+00:00",
+          "visualPages": 0
+        }
+      ],
+      "calendar_commands": 1
+    }
+  ],
+  "ownerUi": "Read complete · unverified; two separate event/action suggestions with source evidence; no catalog promotion/calendar approval form",
+  "privateScreenshot": "private/stage2-live-review.jpg",
+  "calendarCalls": 0,
+  "storageFilesUploaded": 0,
+  "modelCalls": 0,
+  "paidUpgrades": 0,
+  "failedMetadataQueries": [
+    {
+      "error": "42703",
+      "reason": "Mistaken source_kind column; corrected using committed migration"
+    },
+    {
+      "error": "42P01",
+      "reason": "Mistaken public.calendar_commands name; corrected to tracker_private.calendar_write_commands"
+    }
+  ]
+}

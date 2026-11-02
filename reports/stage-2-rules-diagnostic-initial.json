@@ -1,0 +1,4225 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "stage2-rules-v1",
+  "corpusVersion": "stage2-synthetic-v1",
+  "manifestSha256": "7d3532e8deed0eb62455276a45cde78458b9e269fd47018f5a84a6a6a9a68fd4",
+  "benchmarkClass": "Agent-labeled synthetic regression scoring unless separately marked human-reviewed; not campus-wide recall or live social proof",
+  "counts": {
+    "total": 28,
+    "development": 17,
+    "holdoutAssigned": 11,
+    "humanReviewed": 0,
+    "humanReviewedHoldout": 0,
+    "synthetic": 28,
+    "missingPredictions": []
+  },
+  "development": {
+    "cases": 17,
+    "passedCases": 0,
+    "fields": {
+      "expected": 94,
+      "predicted": 131,
+      "correct": 58,
+      "wrongOrUnsupported": 73,
+      "missed": 36,
+      "unsupported": 72,
+      "unsupportedCritical": 45,
+      "nullAbstentions": 10,
+      "precision": 0.44274809160305345,
+      "recall": 0.6170212765957447
+    },
+    "events": {
+      "expected": 16,
+      "predicted": 17,
+      "correct": 0,
+      "missed": 16,
+      "falsePositive": 17,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.1936076805344365
+      }
+    },
+    "actions": {
+      "expected": 4,
+      "predicted": 4,
+      "correct": 1,
+      "missed": 3,
+      "falsePositive": 3,
+      "recall": 0.25,
+      "recallWilson95": {
+        "low": 0.04558726080970055,
+        "high": 0.6993581574175981
+      }
+    },
+    "resources": {
+      "expected": 1,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 1,
+      "falsePositive": 0,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.7934506856227626
+      }
+    },
+    "media": {
+      "declared": 10,
+      "processed": 9,
+      "coverage": 0.9
+    },
+    "negatives": {
+      "cases": 2,
+      "correct": 1
+    },
+    "failures": [
+      {
+        "caseId": "film_explicit_interval",
+        "fields": {
+          "expected": 7,
+          "predicted": 9,
+          "correct": 5,
+          "wrongOrUnsupported": 4,
+          "missed": 2,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "fields": {
+          "expected": 14,
+          "predicted": 24,
+          "correct": 12,
+          "wrongOrUnsupported": 12,
+          "missed": 2,
+          "unsupported": 12,
+          "unsupportedCritical": 7,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 3,
+          "processedDeclared": 3,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "carousel_missing_middle_slide",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "missing_media"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 3,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "fields": {
+          "expected": 3,
+          "predicted": 16,
+          "correct": 1,
+          "wrongOrUnsupported": 15,
+          "missed": 2,
+          "unsupported": 14,
+          "unsupportedCritical": 11,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "date_conflict"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "fields": {
+          "expected": 10,
+          "predicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 9,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "fields": {
+          "expected": 5,
+          "predicted": 16,
+          "correct": 4,
+          "wrongOrUnsupported": 12,
+          "missed": 1,
+          "unsupported": 12,
+          "unsupportedCritical": 8,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "fields": {
+          "expected": 4,
+          "predicted": 6,
+          "correct": 3,
+          "wrongOrUnsupported": 3,
+          "missed": 1,
+          "unsupported": 3,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "disappearance_is_not_cancellation",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "source_disappeared"
+        ],
+        "statusMatch": false,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "deadline_without_time",
+        "fields": {
+          "expected": 4,
+          "predicted": 4,
+          "correct": 3,
+          "wrongOrUnsupported": 1,
+          "missed": 1,
+          "unsupported": 1,
+          "unsupportedCritical": 1,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "fields": {
+          "expected": 10,
+          "predicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 9,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "evergreen_research_resource",
+        "fields": {
+          "expected": 1,
+          "predicted": 3,
+          "correct": 0,
+          "wrongOrUnsupported": 3,
+          "missed": 1,
+          "unsupported": 3,
+          "unsupportedCritical": 3,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "fields": {
+          "expected": 5,
+          "predicted": 6,
+          "correct": 4,
+          "wrongOrUnsupported": 2,
+          "missed": 1,
+          "unsupported": 2,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 3
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "timezone_unknown"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "fields": {
+          "expected": 9,
+          "predicted": 13,
+          "correct": 8,
+          "wrongOrUnsupported": 5,
+          "missed": 1,
+          "unsupported": 5,
+          "unsupportedCritical": 3,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 1,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "fields": {
+          "expected": 7,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 3,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 2
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "ticket_date_unverified"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      }
+    ]
+  },
+  "holdoutAssigned": {
+    "cases": 11,
+    "passedCases": 0,
+    "fields": {
+      "expected": 59,
+      "predicted": 83,
+      "correct": 43,
+      "wrongOrUnsupported": 40,
+      "missed": 16,
+      "unsupported": 38,
+      "unsupportedCritical": 22,
+      "nullAbstentions": 7,
+      "precision": 0.5180722891566265,
+      "recall": 0.7288135593220338
+    },
+    "events": {
+      "expected": 10,
+      "predicted": 10,
+      "correct": 0,
+      "missed": 10,
+      "falsePositive": 10,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.2775327998628892
+      }
+    },
+    "actions": {
+      "expected": 2,
+      "predicted": 2,
+      "correct": 0,
+      "missed": 2,
+      "falsePositive": 2,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.6576197724933469
+      }
+    },
+    "resources": {
+      "expected": 0,
+      "predicted": 1,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 1,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "media": {
+      "declared": 3,
+      "processed": 2,
+      "coverage": 0.6666666666666666
+    },
+    "negatives": {
+      "cases": 1,
+      "correct": 1
+    },
+    "failures": [
+      {
+        "caseId": "old_flyer_repost",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 1,
+          "processedDeclared": 1,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "tomorrow_original_publication",
+        "fields": {
+          "expected": 6,
+          "predicted": 9,
+          "correct": 5,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "tomorrow_missing_publication",
+        "fields": {
+          "expected": 3,
+          "predicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 2,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 2
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "relative_date_without_publication"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "different_clubs_same_gbm",
+        "fields": {
+          "expected": 12,
+          "predicted": 18,
+          "correct": 8,
+          "wrongOrUnsupported": 10,
+          "missed": 4,
+          "unsupported": 8,
+          "unsupportedCritical": 6,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "sold_out_waitlist_separate_action",
+        "fields": {
+          "expected": 10,
+          "predicted": 15,
+          "correct": 7,
+          "wrongOrUnsupported": 8,
+          "missed": 3,
+          "unsupported": 8,
+          "unsupportedCritical": 5,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "doors_and_start_are_distinct",
+        "fields": {
+          "expected": 6,
+          "predicted": 10,
+          "correct": 5,
+          "wrongOrUnsupported": 5,
+          "missed": 1,
+          "unsupported": 5,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "dst_nonexistent_local_clock",
+        "fields": {
+          "expected": 4,
+          "predicted": 4,
+          "correct": 3,
+          "wrongOrUnsupported": 1,
+          "missed": 1,
+          "unsupported": 1,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 2
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "dst_gap"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "dst_ambiguous_local_clock",
+        "fields": {
+          "expected": 4,
+          "predicted": 4,
+          "correct": 3,
+          "wrongOrUnsupported": 1,
+          "missed": 1,
+          "unsupported": 1,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 2
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "dst_fold"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "irrelevant_thanks_photos",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "application_is_not_attendance",
+        "fields": {
+          "expected": 4,
+          "predicted": 6,
+          "correct": 3,
+          "wrongOrUnsupported": 3,
+          "missed": 1,
+          "unsupported": 3,
+          "unsupportedCritical": 3,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "pdf_unreadable_second_page",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "unreadable_media"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 1,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      }
+    ]
+  },
+  "humanReviewedHoldout": {
+    "cases": 0,
+    "passedCases": 0,
+    "fields": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "wrongOrUnsupported": 0,
+      "missed": 0,
+      "unsupported": 0,
+      "unsupportedCritical": 0,
+      "nullAbstentions": 0,
+      "precision": null,
+      "recall": null
+    },
+    "events": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 0,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "actions": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 0,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "resources": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 0,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "media": {
+      "declared": 0,
+      "processed": 0,
+      "coverage": null
+    },
+    "negatives": {
+      "cases": 0,
+      "correct": 0
+    },
+    "failures": []
+  },
+  "allRegressionCases": {
+    "cases": 28,
+    "passedCases": 0,
+    "fields": {
+      "expected": 153,
+      "predicted": 214,
+      "correct": 101,
+      "wrongOrUnsupported": 113,
+      "missed": 52,
+      "unsupported": 110,
+      "unsupportedCritical": 67,
+      "nullAbstentions": 17,
+      "precision": 0.4719626168224299,
+      "recall": 0.6601307189542484
+    },
+    "events": {
+      "expected": 26,
+      "predicted": 27,
+      "correct": 0,
+      "missed": 26,
+      "falsePositive": 27,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.1287289218592153
+      }
+    },
+    "actions": {
+      "expected": 6,
+      "predicted": 6,
+      "correct": 1,
+      "missed": 5,
+      "falsePositive": 5,
+      "recall": 0.16666666666666666,
+      "recallWilson95": {
+        "low": 0.030053369748306635,
+        "high": 0.5635028221864702
+      }
+    },
+    "resources": {
+      "expected": 1,
+      "predicted": 1,
+      "correct": 0,
+      "missed": 1,
+      "falsePositive": 1,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.7934506856227626
+      }
+    },
+    "media": {
+      "declared": 13,
+      "processed": 11,
+      "coverage": 0.8461538461538461
+    },
+    "negatives": {
+      "cases": 3,
+      "correct": 2
+    },
+    "failures": [
+      {
+        "caseId": "film_explicit_interval",
+        "fields": {
+          "expected": 7,
+          "predicted": 9,
+          "correct": 5,
+          "wrongOrUnsupported": 4,
+          "missed": 2,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "fields": {
+          "expected": 14,
+          "predicted": 24,
+          "correct": 12,
+          "wrongOrUnsupported": 12,
+          "missed": 2,
+          "unsupported": 12,
+          "unsupportedCritical": 7,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 3,
+          "processedDeclared": 3,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "carousel_missing_middle_slide",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "missing_media"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 3,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "old_flyer_repost",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 1,
+          "processedDeclared": 1,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "tomorrow_original_publication",
+        "fields": {
+          "expected": 6,
+          "predicted": 9,
+          "correct": 5,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "tomorrow_missing_publication",
+        "fields": {
+          "expected": 3,
+          "predicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 2,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 2
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "relative_date_without_publication"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "fields": {
+          "expected": 3,
+          "predicted": 16,
+          "correct": 1,
+          "wrongOrUnsupported": 15,
+          "missed": 2,
+          "unsupported": 14,
+          "unsupportedCritical": 11,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "date_conflict"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "fields": {
+          "expected": 10,
+          "predicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 9,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "different_clubs_same_gbm",
+        "fields": {
+          "expected": 12,
+          "predicted": 18,
+          "correct": 8,
+          "wrongOrUnsupported": 10,
+          "missed": 4,
+          "unsupported": 8,
+          "unsupportedCritical": 6,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "fields": {
+          "expected": 5,
+          "predicted": 16,
+          "correct": 4,
+          "wrongOrUnsupported": 12,
+          "missed": 1,
+          "unsupported": 12,
+          "unsupportedCritical": 8,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "fields": {
+          "expected": 4,
+          "predicted": 6,
+          "correct": 3,
+          "wrongOrUnsupported": 3,
+          "missed": 1,
+          "unsupported": 3,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "sold_out_waitlist_separate_action",
+        "fields": {
+          "expected": 10,
+          "predicted": 15,
+          "correct": 7,
+          "wrongOrUnsupported": 8,
+          "missed": 3,
+          "unsupported": 8,
+          "unsupportedCritical": 5,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "disappearance_is_not_cancellation",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "source_disappeared"
+        ],
+        "statusMatch": false,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "deadline_without_time",
+        "fields": {
+          "expected": 4,
+          "predicted": 4,
+          "correct": 3,
+          "wrongOrUnsupported": 1,
+          "missed": 1,
+          "unsupported": 1,
+          "unsupportedCritical": 1,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "doors_and_start_are_distinct",
+        "fields": {
+          "expected": 6,
+          "predicted": 10,
+          "correct": 5,
+          "wrongOrUnsupported": 5,
+          "missed": 1,
+          "unsupported": 5,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "dst_nonexistent_local_clock",
+        "fields": {
+          "expected": 4,
+          "predicted": 4,
+          "correct": 3,
+          "wrongOrUnsupported": 1,
+          "missed": 1,
+          "unsupported": 1,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 2
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "dst_gap"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "dst_ambiguous_local_clock",
+        "fields": {
+          "expected": 4,
+          "predicted": 4,
+          "correct": 3,
+          "wrongOrUnsupported": 1,
+          "missed": 1,
+          "unsupported": 1,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 2
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "dst_fold"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "fields": {
+          "expected": 10,
+          "predicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 9,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "irrelevant_thanks_photos",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "evergreen_research_resource",
+        "fields": {
+          "expected": 1,
+          "predicted": 3,
+          "correct": 0,
+          "wrongOrUnsupported": 3,
+          "missed": 1,
+          "unsupported": 3,
+          "unsupportedCritical": 3,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "application_is_not_attendance",
+        "fields": {
+          "expected": 4,
+          "predicted": 6,
+          "correct": 3,
+          "wrongOrUnsupported": 3,
+          "missed": 1,
+          "unsupported": 3,
+          "unsupportedCritical": 3,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "fields": {
+          "expected": 5,
+          "predicted": 6,
+          "correct": 4,
+          "wrongOrUnsupported": 2,
+          "missed": 1,
+          "unsupported": 2,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 3
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "timezone_unknown"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "fields": {
+          "expected": 9,
+          "predicted": 13,
+          "correct": 8,
+          "wrongOrUnsupported": 5,
+          "missed": 1,
+          "unsupported": 5,
+          "unsupportedCritical": 3,
+          "nullAbstentions": 1
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 1,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "pdf_unreadable_second_page",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 1,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "unreadable_media"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 1,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0
+        }
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "fields": {
+          "expected": 7,
+          "predicted": 8,
+          "correct": 4,
+          "wrongOrUnsupported": 4,
+          "missed": 3,
+          "unsupported": 4,
+          "unsupportedCritical": 2,
+          "nullAbstentions": 2
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "ticket_date_unverified"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": false,
+          "undeclaredProcessed": 0
+        }
+      }
+    ]
+  },
+  "caseScores": [
+    {
+      "caseId": "film_explicit_interval",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 7,
+        "predicted": 9,
+        "correct": 5,
+        "wrongOrUnsupported": 4,
+        "missed": 2,
+        "unsupported": 4,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "complete_three_slide_carousel",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 14,
+        "predicted": 24,
+        "correct": 12,
+        "wrongOrUnsupported": 12,
+        "missed": 2,
+        "unsupported": 12,
+        "unsupportedCritical": 7,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 2,
+          "predicted": 2,
+          "correct": 0,
+          "missed": 2,
+          "falsePositive": 2
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 3,
+        "processedDeclared": 3,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "carousel_missing_middle_slide",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 0,
+        "predicted": 0,
+        "correct": 0,
+        "wrongOrUnsupported": 0,
+        "missed": 0,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 3,
+        "processedDeclared": 2,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "missing_media"
+      ],
+      "negative": true,
+      "negativeCorrect": true,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "old_flyer_repost",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 8,
+        "correct": 4,
+        "wrongOrUnsupported": 4,
+        "missed": 1,
+        "unsupported": 4,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 1,
+        "processedDeclared": 1,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "tomorrow_original_publication",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 6,
+        "predicted": 9,
+        "correct": 5,
+        "wrongOrUnsupported": 4,
+        "missed": 1,
+        "unsupported": 4,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "tomorrow_missing_publication",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 3,
+        "predicted": 1,
+        "correct": 1,
+        "wrongOrUnsupported": 0,
+        "missed": 2,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 2
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "relative_date_without_publication"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "conflicting_year_across_slides",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 3,
+        "predicted": 16,
+        "correct": 1,
+        "wrongOrUnsupported": 15,
+        "missed": 2,
+        "unsupported": 14,
+        "unsupportedCritical": 11,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 2,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 2
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 2,
+        "processedDeclared": 2,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "date_conflict"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "same_title_two_performances",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 10,
+        "predicted": 1,
+        "correct": 1,
+        "wrongOrUnsupported": 0,
+        "missed": 9,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 2,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 2,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "different_clubs_same_gbm",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 12,
+        "predicted": 18,
+        "correct": 8,
+        "wrongOrUnsupported": 10,
+        "missed": 4,
+        "unsupported": 8,
+        "unsupportedCritical": 6,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 2,
+          "predicted": 2,
+          "correct": 0,
+          "missed": 2,
+          "falsePositive": 2
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "explicit_source_crosslink",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 16,
+        "correct": 4,
+        "wrongOrUnsupported": 12,
+        "missed": 1,
+        "unsupported": 12,
+        "unsupportedCritical": 8,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 2,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 2
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "missing_end_no_duration_guess",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 4,
+        "predicted": 6,
+        "correct": 3,
+        "wrongOrUnsupported": 3,
+        "missed": 1,
+        "unsupported": 3,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 1
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "missing_location_preserved",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 8,
+        "correct": 4,
+        "wrongOrUnsupported": 4,
+        "missed": 1,
+        "unsupported": 4,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 1
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "sold_out_waitlist_separate_action",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 10,
+        "predicted": 15,
+        "correct": 7,
+        "wrongOrUnsupported": 8,
+        "missed": 3,
+        "unsupported": 8,
+        "unsupportedCritical": 5,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "affirmative_cancellation",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 8,
+        "correct": 4,
+        "wrongOrUnsupported": 4,
+        "missed": 1,
+        "unsupported": 4,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "disappearance_is_not_cancellation",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 0,
+        "predicted": 0,
+        "correct": 0,
+        "wrongOrUnsupported": 0,
+        "missed": 0,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": false,
+      "missingIssues": [
+        "source_disappeared"
+      ],
+      "negative": true,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "deadline_without_time",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 4,
+        "predicted": 4,
+        "correct": 3,
+        "wrongOrUnsupported": 1,
+        "missed": 1,
+        "unsupported": 1,
+        "unsupportedCritical": 1,
+        "nullAbstentions": 1
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "doors_and_start_are_distinct",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 6,
+        "predicted": 10,
+        "correct": 5,
+        "wrongOrUnsupported": 5,
+        "missed": 1,
+        "unsupported": 5,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "dst_nonexistent_local_clock",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 4,
+        "predicted": 4,
+        "correct": 3,
+        "wrongOrUnsupported": 1,
+        "missed": 1,
+        "unsupported": 1,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 2
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "dst_gap"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "dst_ambiguous_local_clock",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 4,
+        "predicted": 4,
+        "correct": 3,
+        "wrongOrUnsupported": 1,
+        "missed": 1,
+        "unsupported": 1,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 2
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "dst_fold"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "weekly_recurrence_with_exception",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 10,
+        "predicted": 1,
+        "correct": 1,
+        "wrongOrUnsupported": 0,
+        "missed": 9,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 2,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 2,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "irrelevant_thanks_photos",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 0,
+        "predicted": 0,
+        "correct": 0,
+        "wrongOrUnsupported": 0,
+        "missed": 0,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": true,
+      "negativeCorrect": true,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "evergreen_research_resource",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 1,
+        "predicted": 3,
+        "correct": 0,
+        "wrongOrUnsupported": 3,
+        "missed": 1,
+        "unsupported": 3,
+        "unsupportedCritical": 3,
+        "nullAbstentions": 1
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 1
+        },
+        "resource": {
+          "expected": 1,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "retrieved_instruction_is_data",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 8,
+        "correct": 4,
+        "wrongOrUnsupported": 4,
+        "missed": 1,
+        "unsupported": 4,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "application_is_not_attendance",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 4,
+        "predicted": 6,
+        "correct": 3,
+        "wrongOrUnsupported": 3,
+        "missed": 1,
+        "unsupported": 3,
+        "unsupportedCritical": 3,
+        "nullAbstentions": 1
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 1
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "local_clock_without_timezone",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 6,
+        "correct": 4,
+        "wrongOrUnsupported": 2,
+        "missed": 1,
+        "unsupported": 2,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 3
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "timezone_unknown"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "pdf_second_page_has_deadline",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 9,
+        "predicted": 13,
+        "correct": 8,
+        "wrongOrUnsupported": 5,
+        "missed": 1,
+        "unsupported": 5,
+        "unsupportedCritical": 3,
+        "nullAbstentions": 1
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 1,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 2,
+        "processedDeclared": 2,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "pdf_unreadable_second_page",
+      "split": "holdout",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 8,
+        "correct": 4,
+        "wrongOrUnsupported": 4,
+        "missed": 1,
+        "unsupported": 4,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 2,
+        "processedDeclared": 1,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "unreadable_media"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "ticket_stray_date_not_release",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 7,
+        "predicted": 8,
+        "correct": 4,
+        "wrongOrUnsupported": 4,
+        "missed": 3,
+        "unsupported": 4,
+        "unsupportedCritical": 2,
+        "nullAbstentions": 2
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": false,
+        "undeclaredProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "ticket_date_unverified"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "duplicatePredictionKeys": 0
+    }
+  ],
+  "cost": {
+    "knownUsd": 0,
+    "measuredCases": 28,
+    "unmeasuredCases": 0,
+    "providerRequests": 0,
+    "invoiceOrMonthlyAverageEstablished": false
+  },
+  "acceptance": {
+    "state": "not_evaluated",
+    "stage2Accepted": false,
+    "reasons": [
+      "No human-reviewed holdout ground truth.",
+      "Human-reviewed holdout is below the declared 40-case target.",
+      "Reviewed holdout must include separate event and action units."
+    ],
+    "targetVariedHumanLabeledExamples": 100,
+    "limitation": "Scored thresholds alone do not establish Stage 2 acceptance, holdout non-exposure, real OCR/media handling, model comparison, reconciliation safety or source coverage."
+  },
+  "recordedAt": "2026-11-02T20:10:29.672Z",
+  "executionClass": "Synthetic text transcripts only; not real OCR or human-reviewed extraction accuracy",
+  "modelOrPromptComparisonRun": false,
+  "realMediaProbe": "reports/stage-2-native-media-supplied-probe.json"
+}

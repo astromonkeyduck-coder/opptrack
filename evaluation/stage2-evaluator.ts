@@ -162,7 +162,9 @@ function validatePrediction(prediction: Prediction) {
 export function scoreCase(item: EvaluationCase, prediction: Prediction) {
   validatePrediction(prediction);
   if (item.id !== prediction.caseId) throw new Error('Prediction belongs to another case.');
-  const fields = { expected: 0, predicted: 0, correct: 0, wrongOrUnsupported: 0, missed: 0, unsupported: 0, unsupportedCritical: 0, nullAbstentions: 0 };
+  const fields = { expected: 0, predicted: 0, labeledPredicted: 0, correct: 0, wrongOrUnsupported: 0, missed: 0, unsupported: 0, unsupportedCritical: 0, nullAbstentions: 0, unscoredPredicted: 0, unscoredMissingEvidence: 0 };
+  const unscoredFields: Array<{ key: string; kind: UnitKind; field: string; evidencePresent: boolean }> = [];
+  const criticalFieldFailures: Array<{ key: string; kind: UnitKind; field: string; reason: 'missing' | 'incorrect_or_unsupported' }> = [];
   const units = { event: counter(), action: counter(), resource: counter() };
   const unmatched = new Set(prediction.units.map((_, index) => index));
   for (const expected of item.expected.units) {
@@ -177,7 +179,10 @@ export function scoreCase(item: EvaluationCase, prediction: Prediction) {
       const correct = fieldEquivalent(field, truth, value) && (!present || supported);
       if (truth !== null) { fields.expected++; if (!correct) fields.missed++; }
       else if (!present) fields.nullAbstentions++;
-      if (expected.criticalFields.includes(field) && !correct) criticalCorrect = false;
+      if (expected.criticalFields.includes(field) && !correct) {
+        criticalCorrect = false;
+        criticalFieldFailures.push({ key: expected.key, kind: expected.kind, field, reason: !present && truth !== null ? 'missing' : 'incorrect_or_unsupported' });
+      }
     }
     if (criticalCorrect) units[expected.kind].correct++; else units[expected.kind].missed++;
     if (actual) {
@@ -186,6 +191,14 @@ export function scoreCase(item: EvaluationCase, prediction: Prediction) {
       for (const [field, value] of Object.entries(actual.fields)) {
         if (value === null) continue;
         fields.predicted++;
+        if (!Object.hasOwn(expected.fields, field)) {
+          const evidencePresent = actual.evidenceFields.includes(field);
+          fields.unscoredPredicted++;
+          if (!evidencePresent) fields.unscoredMissingEvidence++;
+          unscoredFields.push({ key: actual.key, kind: actual.kind, field, evidencePresent });
+          continue;
+        }
+        fields.labeledPredicted++;
         const truth = expected.fields[field];
         const supported = actual.evidenceFields.includes(field);
         if (truth !== undefined && truth !== null && fieldEquivalent(field, truth, value) && supported) fields.correct++;
@@ -195,24 +208,29 @@ export function scoreCase(item: EvaluationCase, prediction: Prediction) {
   }
   for (const index of unmatched) {
     const actual = prediction.units[index]; units[actual.kind].predicted++; units[actual.kind].falsePositive++;
-    for (const [field, value] of Object.entries(actual.fields)) if (value !== null) { fields.predicted++; fields.wrongOrUnsupported++; fields.unsupported++; if (criticalFields.has(field)) fields.unsupportedCritical++; }
+    // The expected unit list is complete: an unexpected unit is still an error,
+    // even though fields on a matched, partially labeled unit can be unscored.
+    for (const [field, value] of Object.entries(actual.fields)) if (value !== null) { fields.predicted++; fields.labeledPredicted++; fields.wrongOrUnsupported++; fields.unsupported++; if (criticalFields.has(field)) fields.unsupportedCritical++; }
   }
   const declared = unique(item.input.declaredMedia);
   const processed = unique(prediction.processedMedia);
   const media = { declared: declared.length, processedDeclared: declared.filter(id => processed.includes(id)).length,
     expectedProcessedMatch: sameSet(item.expected.processedMedia, prediction.processedMedia),
-    undeclaredProcessed: processed.filter(id => !item.input.units.some(unit => unit.id === id)).length };
+    undeclaredProcessed: processed.filter(id => !declared.includes(id)).length,
+    nonVisualProcessed: processed.filter(id => item.input.units.some(unit => unit.id === id && unit.kind === 'text')).length,
+    unavailableProcessed: processed.filter(id => item.input.units.some(unit => unit.id === id && unit.status !== 'available')).length };
   const missingIssues = item.expected.issues.filter(issue => !prediction.issues.includes(issue));
   const statusMatch = item.expected.status === prediction.status;
   const negativeCorrect = item.expected.units.length === 0 && prediction.units.length === 0 && statusMatch;
   return { caseId: item.id, split: item.split, labelStatus: item.labelStatus, provenance: item.provenance,
-    passed: fields.wrongOrUnsupported === 0 && fields.missed === 0 && Object.values(units).every(unit => unit.missed === 0 && unit.falsePositive === 0) && statusMatch && media.expectedProcessedMatch && media.undeclaredProcessed === 0 && missingIssues.length === 0,
+    passed: fields.wrongOrUnsupported === 0 && fields.missed === 0 && fields.unscoredMissingEvidence === 0 && Object.values(units).every(unit => unit.missed === 0 && unit.falsePositive === 0) && statusMatch && media.expectedProcessedMatch && media.undeclaredProcessed === 0 && media.nonVisualProcessed === 0 && media.unavailableProcessed === 0 && missingIssues.length === 0,
     fields, units, media, statusMatch, missingIssues, negative: item.expected.units.length === 0, negativeCorrect,
+    unscoredFields, criticalFieldFailures,
     duplicatePredictionKeys: prediction.units.length - new Set(prediction.units.map(unit => unit.kind + ':' + unit.key)).size };
 }
 
 function aggregate(scores: Array<ReturnType<typeof scoreCase>>) {
-  const fields = { expected: 0, predicted: 0, correct: 0, wrongOrUnsupported: 0, missed: 0, unsupported: 0, unsupportedCritical: 0, nullAbstentions: 0 };
+  const fields = { expected: 0, predicted: 0, labeledPredicted: 0, correct: 0, wrongOrUnsupported: 0, missed: 0, unsupported: 0, unsupportedCritical: 0, nullAbstentions: 0, unscoredPredicted: 0, unscoredMissingEvidence: 0 };
   const units = { event: counter(), action: counter(), resource: counter() };
   let mediaDeclared = 0, mediaProcessed = 0;
   for (const score of scores) {
@@ -222,23 +240,29 @@ function aggregate(scores: Array<ReturnType<typeof scoreCase>>) {
   }
   const recall = (value: Counter) => ({ ...value, recall: value.expected ? value.correct / value.expected : null, recallWilson95: wilsonInterval(value.correct, value.expected) });
   return { cases: scores.length, passedCases: scores.filter(score => score.passed).length,
-    fields: { ...fields, precision: fields.predicted ? fields.correct / fields.predicted : null, recall: fields.expected ? fields.correct / fields.expected : null },
+    fields: { ...fields, precision: fields.labeledPredicted ? fields.correct / fields.labeledPredicted : null, recall: fields.expected ? fields.correct / fields.expected : null,
+      precisionScope: 'Explicitly labeled fields and unexpected units only; unscored extra fields are excluded, not declared correct.', predictionLabelCoverage: fields.predicted ? fields.labeledPredicted / fields.predicted : null },
     events: recall(units.event), actions: recall(units.action), resources: recall(units.resource),
     media: { declared: mediaDeclared, processed: mediaProcessed, coverage: mediaDeclared ? mediaProcessed / mediaDeclared : null },
     negatives: { cases: scores.filter(score => score.negative).length, correct: scores.filter(score => score.negativeCorrect).length },
-    failures: scores.filter(score => !score.passed).map(score => ({ caseId: score.caseId, fields: score.fields, units: score.units, missingIssues: score.missingIssues, statusMatch: score.statusMatch, media: score.media })) };
+    unscoredFields: scores.flatMap(score => score.unscoredFields.map(field => ({ caseId: score.caseId, ...field }))),
+    criticalFieldFailures: scores.flatMap(score => score.criticalFieldFailures.map(field => ({ caseId: score.caseId, ...field }))),
+    failures: scores.filter(score => !score.passed).map(score => ({ caseId: score.caseId, fields: score.fields, units: score.units, missingIssues: score.missingIssues, statusMatch: score.statusMatch, media: score.media, criticalFieldFailures: score.criticalFieldFailures })) };
 }
 
-export function evaluatePredictions(corpus: EvaluationCorpus, manifest: SplitManifest, predictions: Prediction[], candidateId: string) {
+export function evaluatePredictions(corpus: EvaluationCorpus, manifest: SplitManifest, predictions: Prediction[], candidateId: string, scope: { splits?: Array<'development' | 'holdout'> } = {}) {
   const errors = validateSplitManifest(corpus, manifest); if (errors.length) throw new Error(errors.join('\n'));
   if (!candidateId.trim()) throw new Error('Candidate identity is required.');
+  const splits = scope.splits ?? ['development', 'holdout'];
+  if (!splits.length || splits.some(split => !['development', 'holdout'].includes(split))) throw new Error('Invalid evaluation split scope.');
+  const selectedCases = corpus.cases.filter(item => splits.includes(item.split));
   const byId = new Map<string, Prediction>();
   for (const prediction of predictions) {
-    if (byId.has(prediction.caseId) || !corpus.cases.some(item => item.id === prediction.caseId)) throw new Error('Duplicate or unknown prediction case.');
+    if (byId.has(prediction.caseId) || !selectedCases.some(item => item.id === prediction.caseId)) throw new Error('Duplicate, unknown or out-of-scope prediction case.');
     byId.set(prediction.caseId, prediction);
   }
-  const missing = corpus.cases.filter(item => !byId.has(item.id)).map(item => item.id);
-  const scores = corpus.cases.map(item => scoreCase(item, byId.get(item.id) ?? { caseId: item.id, units: [], processedMedia: [], status: 'blocked', issues: ['prediction_missing'] }));
+  const missing = selectedCases.filter(item => !byId.has(item.id)).map(item => item.id);
+  const scores = selectedCases.map(item => scoreCase(item, byId.get(item.id) ?? { caseId: item.id, units: [], processedMedia: [], status: 'blocked', issues: ['prediction_missing'] }));
   const reviewedHoldout = scores.filter(score => score.split === 'holdout' && score.labelStatus !== 'agent_labeled_unreviewed');
   const reviewed = scores.filter(score => score.labelStatus !== 'agent_labeled_unreviewed');
   const human = aggregate(reviewedHoldout), reasons: string[] = [];
@@ -247,12 +271,15 @@ export function evaluatePredictions(corpus: EvaluationCorpus, manifest: SplitMan
   if (!human.events.expected || !human.actions.expected) reasons.push('Reviewed holdout must include separate event and action units.');
   if (human.events.recall !== null && human.events.recall < corpus.recallTarget || human.actions.recall !== null && human.actions.recall < corpus.recallTarget) reasons.push('Reviewed event/action recall is below the declared target.');
   if (human.fields.unsupportedCritical > 0) reasons.push('Reviewed holdout contains unsupported or incorrect critical fields.');
+  if (human.fields.unscoredPredicted > 0) reasons.push('Reviewed holdout does not label all predicted fields; labeled-scope precision does not establish correctness of unscored fields.');
   if (human.events.falsePositive || human.actions.falsePositive || human.negatives.correct < human.negatives.cases) reasons.push('Reviewed holdout contains invented or incorrect event/action units.');
   if (missing.length) reasons.push('One or more case predictions are missing.');
   const knownCosts = predictions.filter(value => typeof value.costUsd === 'number' && Number.isFinite(value.costUsd) && value.costUsd >= 0);
   return { schemaVersion: 1, candidateId, corpusVersion: corpus.corpusVersion, manifestSha256: manifest.contentSha256,
+    evaluationScope: { selectedSplits: unique(splits), selectedCases: selectedCases.length, corpusCases: corpus.cases.length, holdoutScored: splits.includes('holdout') },
+    unitRecallDefinition: 'Strict labeled critical-field completeness, not title-only event detection. Missing required status or any other critical fact keeps a unit incorrect.',
     benchmarkClass: 'Agent-labeled synthetic regression scoring unless separately marked human-reviewed; not campus-wide recall or live social proof',
-    counts: { total: corpus.cases.length, development: scores.filter(score => score.split === 'development').length, holdoutAssigned: scores.filter(score => score.split === 'holdout').length, humanReviewed: reviewed.length, humanReviewedHoldout: reviewedHoldout.length, synthetic: scores.filter(score => score.provenance === 'synthetic').length, missingPredictions: missing },
+    counts: { total: selectedCases.length, corpusTotal: corpus.cases.length, development: scores.filter(score => score.split === 'development').length, holdoutAssigned: scores.filter(score => score.split === 'holdout').length, humanReviewed: reviewed.length, humanReviewedHoldout: reviewedHoldout.length, synthetic: scores.filter(score => score.provenance === 'synthetic').length, missingPredictions: missing },
     development: aggregate(scores.filter(score => score.split === 'development')), holdoutAssigned: aggregate(scores.filter(score => score.split === 'holdout')), humanReviewedHoldout: human,
     allRegressionCases: aggregate(scores), caseScores: scores,
     cost: { knownUsd: knownCosts.reduce((sum, value) => sum + value.costUsd!, 0), measuredCases: knownCosts.length, unmeasuredCases: predictions.length - knownCosts.length, providerRequests: predictions.reduce((sum, value) => sum + (value.providerRequests ?? 0), 0), invoiceOrMonthlyAverageEstablished: false },

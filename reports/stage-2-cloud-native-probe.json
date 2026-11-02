@@ -1,0 +1,148 @@
+{
+  "recordedDate": "2026-11-02",
+  "evidenceClass": "Actual manual/test Trigger Production execution on a real fixed public FSU PDF; not private Storage, semantic accuracy or scheduled/laptop-off proof",
+  "runtimeCommit": "90612d7b3e676a130412ac6d21dca48763767d12",
+  "triggerDeployId": "iaohc393",
+  "triggerVersion": "20261102.8",
+  "netlifyDeployId": "6ae91dd9395579873c5ee0fb",
+  "run": {
+    "id": "run_06gpt7k4u80g6jcgsg994f5ca2",
+    "test": true,
+    "state": "Completed",
+    "triggeredAt": "2026-11-02T23:35:51.299Z",
+    "startedAt": "2026-11-02T23:35:53.292Z",
+    "finishedAt": "2026-11-02T23:36:27.906Z",
+    "usageDurationSecondsDisplayed": 33.2,
+    "invocationCostUsd": 2.5e-05,
+    "computeCostUsd": 0.00112134,
+    "totalEstimatedCostUsd": 0.00114634
+  },
+  "output": {
+    "evidenceClass": "Manual fixed-public-PDF native Cloud probe; no private Storage or semantic-accuracy proof",
+    "source": "https://wertheim.fsu.edu/sites/g/files/upcbnu1771/files/Insurance%20Days%20-%20Prep%20for%20Career%20Fair%20Brochure.pdf",
+    "originalSource": "https://business.fsu.edu/sites/g/files/upcbnu1771/files/Insurance%20Days%20-%20Prep%20for%20Career%20Fair%20Brochure.pdf",
+    "requests": 1,
+    "bytes": 588276,
+    "sha256": "af63c73213c33d51eb7f129f24c1ed3da06de95987ecb8fe0852eaff2be6673c",
+    "complete": true,
+    "elapsedMs": 33109,
+    "readiness": {
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+      "tools": {
+        "tesseract": {
+          "available": true,
+          "version": "tesseract 5.3.0"
+        },
+        "pdfinfo": {
+          "available": true,
+          "version": "pdfinfo version 22.12.0"
+        },
+        "pdftotext": {
+          "available": true,
+          "version": "pdftotext version 22.12.0"
+        },
+        "pdftoppm": {
+          "available": true,
+          "version": "pdftoppm version 22.12.0"
+        }
+      },
+      "ready": true
+    },
+    "units": [
+      {
+        "page": 1,
+        "expectedPages": 6,
+        "status": "processed",
+        "attempted": true,
+        "textCharacters": 3252,
+        "wordBoxes": 211,
+        "issues": [
+          "pdf_text_and_visual_differ"
+        ]
+      },
+      {
+        "page": 2,
+        "expectedPages": 6,
+        "status": "processed",
+        "attempted": true,
+        "textCharacters": 5502,
+        "wordBoxes": 409,
+        "issues": [
+          "pdf_text_and_visual_differ"
+        ]
+      },
+      {
+        "page": 3,
+        "expectedPages": 6,
+        "status": "processed",
+        "attempted": true,
+        "textCharacters": 6170,
+        "wordBoxes": 426,
+        "issues": [
+          "pdf_text_and_visual_differ"
+        ]
+      },
+      {
+        "page": 4,
+        "expectedPages": 6,
+        "status": "processed",
+        "attempted": true,
+        "textCharacters": 6765,
+        "wordBoxes": 427,
+        "issues": [
+          "pdf_text_and_visual_differ"
+        ]
+      },
+      {
+        "page": 5,
+        "expectedPages": 6,
+        "status": "processed",
+        "attempted": true,
+        "textCharacters": 4240,
+        "wordBoxes": 316,
+        "issues": [
+          "pdf_text_and_visual_differ"
+        ]
+      },
+      {
+        "page": 6,
+        "expectedPages": 6,
+        "status": "processed",
+        "attempted": true,
+        "textCharacters": 6284,
+        "wordBoxes": 421,
+        "issues": [
+          "pdf_text_and_visual_differ"
+        ]
+      }
+    ],
+    "supabaseCalls": 0,
+    "calendarCalls": 0,
+    "modelCalls": 0
+  },
+  "earlierAttempts": [
+    {
+      "id": "run_06gpt5r9ntaugp39i5h3g8vsa2",
+      "version": "20261102.7",
+      "state": "Failed",
+      "startedAt": "2026-11-02T23:28:08.824Z",
+      "finishedAt": "2026-11-02T23:28:11.494Z",
+      "error": "Public probe redirect left the fixed source",
+      "estimatedCostUsd": 6.864e-05
+    },
+    {
+      "id": "run_06gpt7fafhmrp5dbi79sjbpla2",
+      "version": "20261102.8",
+      "state": "Completed",
+      "result": "idle",
+      "payload": {},
+      "reason": "Operator filled Tags before the JSON editor hydrated. Corrected by identifying the visible editor and verifying the payload before the next run. No queued work was changed.",
+      "startedAt": "2026-11-02T23:35:14.022Z",
+      "finishedAt": "2026-11-02T23:35:15.732Z",
+      "usageDurationMs": 342,
+      "estimatedCostUsd": 3.654e-05
+    }
+  ],
+  "rawTextOrCredentialsInReport": false,
+  "paidUpgrade": false
+}

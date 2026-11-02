@@ -72,6 +72,67 @@ test('wrong critical dates count as both a missed truth and an incorrect predict
   assert.equal(score.units.event.correct, 0);
 });
 
+test('fields outside partial labels are unscored, never silently correct or false positives', () => {
+  const item = one('film_explicit_interval'), prediction = oracle(item);
+  assert.equal(Object.hasOwn(item.expected.units[0].fields, 'diagnosticExtra'), false);
+  prediction.units[0].fields.diagnosticExtra = 'literal source fact without a gold label';
+  prediction.units[0].evidenceFields.push('diagnosticExtra');
+  const score = scoreCase(item, prediction);
+  assert.equal(score.passed, true);
+  assert.equal(score.fields.unscoredPredicted, 1);
+  assert.equal(score.fields.predicted, score.fields.labeledPredicted + 1);
+  assert.equal(score.fields.correct, score.fields.labeledPredicted);
+  assert.equal(score.fields.wrongOrUnsupported, 0);
+  assert.deepEqual(score.unscoredFields, [{ key: prediction.units[0].key, kind: 'event', field: 'diagnosticExtra', evidencePresent: true }]);
+  prediction.units[0].evidenceFields = prediction.units[0].evidenceFields.filter(field => field !== 'diagnosticExtra');
+  const unsupported = scoreCase(item, prediction);
+  assert.equal(unsupported.passed, false);
+  assert.equal(unsupported.fields.unscoredMissingEvidence, 1);
+});
+
+test('missing required status remains a strict unit failure rather than an inferred scheduled value', () => {
+  const item = one('film_explicit_interval'), prediction = oracle(item);
+  prediction.units[0].fields.status = null;
+  const score = scoreCase(item, prediction);
+  assert.equal(score.passed, false);
+  assert.equal(score.units.event.correct, 0);
+  assert.equal(score.units.event.missed, 1);
+  assert.ok(score.criticalFieldFailures.some(failure => failure.field === 'status' && failure.reason === 'missing'));
+  assert.ok(score.fields.correct > 0);
+});
+
+test('development scope never scores or requires predictions for the assigned holdout', () => {
+  const development = corpus.cases.filter(item => item.split === 'development');
+  const result = evaluatePredictions(corpus, manifest, development.map(oracle), 'scope-self-check', { splits: ['development'] });
+  assert.equal(result.counts.total, development.length);
+  assert.equal(result.counts.corpusTotal, 28);
+  assert.equal(result.holdoutAssigned.cases, 0);
+  assert.equal(result.evaluationScope.holdoutScored, false);
+  assert.deepEqual(result.counts.missingPredictions, []);
+  assert.ok(result.caseScores.every(score => score.split === 'development'));
+  assert.throws(() => evaluatePredictions(corpus, manifest, corpus.cases.map(oracle), 'out-of-scope', { splits: ['development'] }), /out-of-scope/);
+});
+
+test('labeled precision and prediction coverage expose unscored extras in separate denominators', () => {
+  const item = copy(one('film_explicit_interval'));
+  const scoped: EvaluationCorpus = { ...corpus, cases: [item] };
+  const prediction = oracle(item);
+  prediction.units[0].fields.diagnosticExtra = 'unlabeled literal';
+  prediction.units[0].evidenceFields.push('diagnosticExtra');
+  const report = evaluatePredictions(scoped, createSplitManifest(scoped, '2026-11-02T12:00:00Z'), [prediction], 'denominator-self-check');
+  const fields = report.allRegressionCases.fields;
+  assert.equal(fields.unscoredPredicted, 1);
+  assert.equal(fields.precision, 1);
+  assert.equal(fields.correct, fields.labeledPredicted);
+  assert.equal(fields.predictionLabelCoverage, fields.labeledPredicted / fields.predicted);
+  assert.ok(fields.predictionLabelCoverage! < 1);
+  item.split = 'holdout'; item.labelStatus = 'human_reviewed';
+  item.reviewedBy = 'Synthetic scorer test metadata, not a real review'; item.reviewedAt = '2026-11-02T12:00:00Z';
+  const reviewed = evaluatePredictions(scoped, createSplitManifest(scoped, '2026-11-02T12:00:00Z'), [prediction], 'unscored-acceptance-self-check');
+  assert.ok(reviewed.acceptance.reasons.some(reason => reason.includes('does not label all predicted fields')));
+  assert.equal(reviewed.acceptance.stage2Accepted, false);
+});
+
 test('negative captures penalize invented events rather than forcing one event per capture', () => {
   const item = one('irrelevant_thanks_photos'), prediction = oracle(item);
   prediction.units.push({ key: 'event:0', kind: 'event', fields: { title: 'Invented event', startAt: '2026-11-10T10:00:00Z' }, evidenceFields: ['title', 'startAt'] });
@@ -105,6 +166,21 @@ test('all media includes missing or unreadable units in its honest coverage deno
   const complete = one('complete_three_slide_carousel'), truncated = oracle(complete);
   truncated.processedMedia = ['slide-0'];
   assert.equal(scoreCase(complete, truncated).passed, false);
+});
+
+test('processing envelopes cannot count caption text or unavailable media as visual coverage', () => {
+  const item = copy(one('film_explicit_interval')), prediction = oracle(item);
+  item.input.units.push({ id: 'caption-only', kind: 'text', index: 99, text: 'Caption', status: 'available' });
+  prediction.processedMedia.push('caption-only');
+  const caption = scoreCase(item, prediction);
+  assert.equal(caption.media.nonVisualProcessed, 1);
+  assert.equal(caption.media.undeclaredProcessed, 1);
+  assert.equal(caption.passed, false);
+  const partial = copy(one('carousel_missing_middle_slide')), output = oracle(partial);
+  const missing = partial.input.units.find(unit => unit.status !== 'available')!;
+  output.processedMedia.push(missing.id);
+  assert.equal(scoreCase(partial, output).media.unavailableProcessed, 1);
+  assert.equal(scoreCase(partial, output).passed, false);
 });
 
 test('equivalent timezone offsets preserve instants while unknown local/date facts stay unknown', () => {

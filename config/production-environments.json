@@ -516,12 +516,24 @@
   "historical_snapshot_notice": "notes, application_status and hosted_application_state retain the dated October 21 baseline. optional_features.google_calendar_readonly retains the original read-only release. For the current November 1 calendar grant, flag, deployment and validation, approved_calendar_write_extension supersedes those sections. Latest source-access state is in docs/status.md; historical token success does not establish current Instagram access.",
   "stage2_extension": {
     "authorized_on": "2026-11-02",
-    "status": "implementation_and_evaluation_in_progress",
+    "status": "hosted_text_and_public_native_probes_verified_quality_and_private_media_gates_open",
     "model_api_spending_enabled": false,
     "worker_feature_flag": "STAGE2_EXTRACTION_ENABLED",
-    "worker_feature_flag_verified": false,
+    "worker_feature_flag_verified": true,
     "calendar_worker_enabled": false,
     "human_reviewed_holdout_accepted": false,
-    "stage1_remaining_gates_waived": false
+    "stage1_remaining_gates_waived": false,
+    "worker_feature_flag_environment": "Production only",
+    "worker_flag_saved_at_eastern": "2026-11-02 18:25",
+    "hosted_text_job_report": "reports/stage-2-hosted-text-job.json",
+    "release_report": "reports/stage-2-release.json",
+    "runtime_commit": "90612d7b3e676a130412ac6d21dca48763767d12",
+    "netlify_deploy_id": "6ae91dd9395579873c5ee0fb",
+    "trigger_deploy_id": "iaohc393",
+    "trigger_version": "20261102.8",
+    "native_readiness_verified": true,
+    "public_pdf_cloud_probe_report": "reports/stage-2-cloud-native-probe.json",
+    "private_media_cloud_verified": false,
+    "scheduled_extraction_observed": false
   }
 }

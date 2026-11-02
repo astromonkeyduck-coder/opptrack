@@ -1,6 +1,6 @@
 {
   "userDate": "2026-11-02",
-  "status": "hosted_schema_verified_runtime_release_pending",
+  "status": "hosted_text_and_public_native_probes_verified_quality_and_private_media_gates_open",
   "authorization": "User explicitly authorized Stage 2; Stage 1 gaps are not waived; stop before Stage 3.",
   "implementation": {
     "manualIntake": "Saved uploads enqueue immutable private extraction jobs; repeated submission opens the same job. Queue outage does not lose the saved intake.",
@@ -28,10 +28,18 @@
     "existingSuccessfulCalendarCommandsPreserved": 1,
     "existingReviewDecisionsPreserved": 58,
     "newAdvisorFindings": 0,
-    "advisorReport": "reports/stage-2-security-advisors.json"
+    "advisorReport": "reports/stage-2-security-advisors.json",
+    "postReleaseCheck": {
+      "observed_at": "2026-11-02 23:37:55.583963+00",
+      "extraction_jobs": 1,
+      "extraction_attempts": 1,
+      "reconciliation_links": 0,
+      "calendar_commands": 1,
+      "successful_calendar_commands": 1
+    }
   },
   "checks": {
-    "applicationTests": 377,
+    "applicationTests": 396,
     "localCoreSqlChecks": 185,
     "instagramWorkerReplays": 6,
     "hostedAuditReplayedLocally": 26,
@@ -40,7 +48,20 @@
     "nativeWorkerPipelineChecks": 8,
     "typecheck": "passed",
     "build": "passed",
-    "offlineChecks": "passed"
+    "offlineChecks": "passed",
+    "evaluatorAdapterTests": 27,
+    "diagnosticExitCode": 1,
+    "diagnosticExitReason": "Expected strict provisional development failures; not a passing extraction quality test",
+    "commands": [
+      "npm test:396 passed",
+      "npm run test:db:185 SQL checks +6 Instagram worker replays +26 local rollback-audit checks passed",
+      "npm run typecheck:passed",
+      "npm run build:passed",
+      "make check:passed",
+      "npm run evaluate:extraction:exit1 as expected, 17 synthetic development cases only",
+      "native public PDF Cloud probe:6/6 pages",
+      "hosted rollback policy audit:26/26 passed"
+    ]
   },
   "actualNativeEvidence": {
     "syntheticImages": 2,
@@ -50,7 +71,29 @@
     "pdfAllKnownPagesHaveExpectedCount": true,
     "nativeSqlStorage": "Actual local PostgreSQL; in-memory Storage substitute, not hosted Storage proof",
     "mediaReport": "reports/stage-2-native-media-supplied-probe.json",
-    "workerReport": "reports/stage-2-local-worker-proof.json"
+    "workerReport": "reports/stage-2-local-worker-proof.json",
+    "cloudReadiness": {
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+      "tools": {
+        "tesseract": {
+          "available": true,
+          "version": "tesseract 5.3.0"
+        },
+        "pdfinfo": {
+          "available": true,
+          "version": "pdfinfo version 22.12.0"
+        },
+        "pdftotext": {
+          "available": true,
+          "version": "pdftotext version 22.12.0"
+        },
+        "pdftoppm": {
+          "available": true,
+          "version": "pdftoppm version 22.12.0"
+        }
+      },
+      "ready": true
+    }
   },
   "evaluation": {
     "syntheticCases": 28,
@@ -67,22 +110,43 @@
       "predictedFields": 131,
       "expectedFields": 94,
       "eventCriticalRecall": "0/16",
-      "actionCriticalRecall": "1/4"
+      "actionCriticalRecall": "1/4",
+      "labeledPredictedFields": 81,
+      "unscoredPredictedFields": 50,
+      "labeledFieldPrecision": 0.7160493827160493,
+      "predictionLabelCoverage": 0.6183206106870229,
+      "wrongOrUnsupportedWithinLabelScope": 23,
+      "holdoutScored": false,
+      "mediaSetMismatchCases": 0
     },
-    "assessment": "Rules baseline fails the diagnostic quality gate. Synthetic transcripts are not OCR accuracy or a human-reviewed holdout. Suggestions stay quarantined.",
+    "assessment": "The corrected development-only diagnostic does not meet its provisional strict gate. Its 58/81 label-scoped correctness excludes 50 unscored extra predictions, which are not declared correct; 0/16 strict event completion reflects missing required status, not zero detected events. Synthetic scheduled-status labels remain unreviewed. Human extraction quality and holdout acceptance are not established; suggestions stay quarantined.",
     "modelComparison": "not run; no model provider credentials or spending authorized",
     "humanHoldoutAcceptance": "not_evaluated",
     "report": "reports/stage-2-rules-diagnostic.json",
-    "realInventoryReport": "reports/stage-2-real-review-inventory.json"
+    "realInventoryReport": "reports/stage-2-real-review-inventory.json",
+    "initialDiagnosticReport": "reports/stage-2-rules-diagnostic-initial.json",
+    "initialDiagnosticSuperseded": "Initial 58/131 figure penalized predictions outside partially labeled gold and incorrectly included text units in processed visual media. Frozen source/labels were not changed; adapter/scorer accounting corrected independently of answers."
   },
   "release": {
-    "runtimeCommit": null,
-    "netlifyDeployId": null,
-    "triggerDeployId": null,
-    "triggerVersion": null,
-    "workerFlagEnabledVerified": false,
-    "cloudNativeProbe": null,
-    "hostedPrivateJob": null
+    "runtimeCommit": "90612d7b3e676a130412ac6d21dca48763767d12",
+    "netlifyDeployId": "6ae91dd9395579873c5ee0fb",
+    "triggerDeployId": "iaohc393",
+    "triggerVersion": "20261102.8",
+    "workerFlagEnabledVerified": true,
+    "cloudNativeProbe": {
+      "report": "reports/stage-2-cloud-native-probe.json",
+      "runId": "run_06gpt7k4u80g6jcgsg994f5ca2",
+      "complete": true,
+      "processedPages": 6,
+      "expectedPages": 6,
+      "manualTest": true,
+      "privateStorage": false,
+      "semanticAccuracy": false,
+      "laptopOff": false
+    },
+    "hostedPrivateJob": "reports/stage-2-hosted-text-job.json",
+    "workerFlagEnvironment": "Production only",
+    "runtimeCommitNote": "Current runtime proof at90612d7; earlier text job verified c1bfab2. Documentation/evaluator changes do not alter runtime extraction."
   },
   "uploadBlock": {
     "tool": "Chrome extension normal file chooser",
@@ -98,7 +162,7 @@
     "newPaidServicesOrUpgrades": 0,
     "calendarProviderCallsByStage2": 0,
     "hostedSqlAndBuildUsageUsd": "unmeasured",
-    "cloudComputeUsd": "not yet observed",
+    "cloudComputeUsd": "Four observed Stage2 manual/test runs total $0.00130922 estimated, including failed redirect guard, text job, unintended idle check and succeeded public PDF. Excludes builds, other runs and account totals.",
     "manualPublicProbe": "Operator-only fixed public PDF; separate bounded diagnostic run, not part of the private-job daily quota."
   },
   "stage2Accepted": false,
