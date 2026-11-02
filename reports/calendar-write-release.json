@@ -1,0 +1,109 @@
+{
+  "recordedAt": "2026-11-02T02:31:59.604537Z",
+  "userDate": "2026-11-01",
+  "status": "implemented_pushed_new_routes_live; google_write_consent_and_owner_browser_verification_pending_mac_unlock",
+  "authorization": "User confirmed individually approved event/reminder writes after read-only grant explanation; no blanket additions or other later-stage work",
+  "runtimeCommit": "e7790d95a731bc46a4dd64d543fd4911cd600b6a",
+  "github": {
+    "workflowId": 41377805821,
+    "conclusion": "success",
+    "workflowTestsBeforeTwoTestOnlyFollowups": 301,
+    "triggerCheckId": 125061790436,
+    "triggerDeploymentId": "9tdnnbhc",
+    "triggerVersion": "20261102.1",
+    "triggerDeploymentCompletedAt": "2026-11-02T02:27:53Z",
+    "triggerWriteFlagChanged": false,
+    "triggerExecutorOrGoogleSecretsAdded": false
+  },
+  "netlify": {
+    "url": "https://luxury-longma-01d2fa.netlify.app/calendar",
+    "productionFlagSavedAndUiReadBack": true,
+    "flag": "CALENDAR_WRITES_ENABLED=true",
+    "previewBranchLocalContexts": "empty; unchanged",
+    "newApprovalAndRetryRoutesObservedLive": true,
+    "exactDashboardPublishedCommitVerified": false,
+    "authenticatedNewUiVerified": false,
+    "blocker": "Mac locked; native app explicitly required manual unlock after browser lost its debugger connection",
+    "newSecrets": 0,
+    "paidUpgrade": false
+  },
+  "database": {
+    "migration": "20261102021158_approved_calendar_writes.sql",
+    "hostedMigration": "20261102022214",
+    "hostedPolicyChecks": 32,
+    "hostedPolicyFailures": 0,
+    "policyScope": "Actual SQL roles/local claims with synthetic rollback facts and transactional scope fixture; not JWT HTTP or real Google write evidence",
+    "persistentAuditChanges": 0,
+    "auditGoogleCalls": 0,
+    "finalRealApprovals": 0,
+    "finalStoredScope": "https://www.googleapis.com/auth/calendar.events.readonly",
+    "credentialValuesReadOrPrinted": false,
+    "newAdvisorFindings": 0,
+    "existingAdvisorFindings": "Member RLS/older authenticated or anonymous definer functions and disabled leaked-password protection remain; old connection-put became invoker"
+  },
+  "http": {
+    "requestsCarryCredentials": false,
+    "home": 200,
+    "inbox": 307,
+    "privateMedia": 401,
+    "calendarPage": 307,
+    "calendarEvents": 401,
+    "approvePost": 401,
+    "retryPost": 401,
+    "privateNoStore": true,
+    "initialSandboxTransportFailuresPreservedInSession": true,
+    "legacyCheckerHeadingFailure": "HTTP200 with changed sign-in headline; checker corrected to require configured email/password form and rerun passed",
+    "fullHostedCheckerExit": 2,
+    "exitReason": "Other Stage1 credentials/owner/provider acceptance not supplied to that checker; not all hosted criteria accepted"
+  },
+  "validation": {
+    "applicationTests": 303,
+    "localSqlChecks": 155,
+    "instagramWorkerReplays": 6,
+    "pythonTests": 63,
+    "focusedWriterAndUiTests": 29,
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "registryScenariosEnvironmentContracts": "passed",
+    "providerFixtures": "Synthetic Google HTTP and credentials only",
+    "databaseFixtures": "Actual local PostgreSQL roles/RLS with synthetic Auth/Storage compatibility shells",
+    "sourceCollectionChanged": false
+  },
+  "boundaries": {
+    "individualApprovalRequired": true,
+    "savedCardsBackfilled": false,
+    "sourceIngestionCanWrite": false,
+    "createOnlyPrimaryCalendar": true,
+    "noAttendeesRecurrenceOrDefaultReminders": true,
+    "remindersAreUserTimedCalendarBlocks": true,
+    "unknownDurationAndAllDayWritesBlocked": true,
+    "destinationGenerationBound": true,
+    "sourceChangesBlockNewInsertButAllowExistingIdReconciliation": true,
+    "automaticRetries": false,
+    "calendarEventsCreatedOrChangedThisRelease": 0,
+    "metaRepair": "paused_by_user"
+  },
+  "costs": {
+    "newPaidServicesOrUpgrades": 0,
+    "modelCalls": 0,
+    "resendMessages": 0,
+    "realGoogleWriteCalls": 0,
+    "netlifyBuildAndSqlUsageUsd": "unmeasured",
+    "futurePerExplicitAttempt": "Normally one ID lookup plus one insert if absent/still eligible; uncertain insert adds at most one reconciliation lookup; expiry may add refresh",
+    "invoiceOrMonthlyAverageEstablished": false
+  },
+  "nextSteps": [
+    "User unlocks Mac; verify exact Netlify deployment and authenticated single-item preview/history",
+    "Open the explicit Google owned-event consent for the existing selected account and obtain action-time authorization or let the user complete it directly",
+    "Confirm stored owned-event grant and successful primary read without printing credentials",
+    "Actual Google insertion remains untested until the user explicitly selects and approves one event or reminder"
+  ],
+  "remainingLimits": [
+    "New consent rotates the authorization generation and intentionally blocks delivery of old uncertain approvals even for the same account; manual recovery required",
+    "Previously succeeded history does not re-verify current Google presence after manual edits/deletions",
+    "Google testing-mode grants may expire after seven days; renewal/reconnection durability remains unproven",
+    "All prior Stage1 Storage HTTP/intake/restore/retention/laptop-off gaps remain separate",
+    "Physical-phone and populated responsive browser checks not performed for this extension",
+    "Idempotency is per owner/native occurrence or milestone; separate cross-source representations can still require manual duplicate review"
+  ]
+}

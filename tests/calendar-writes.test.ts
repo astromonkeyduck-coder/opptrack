@@ -16,12 +16,12 @@ const command = { id, connectionGeneration: lease, kind: 'occurrence', targetId:
 const json = (value: unknown, status = 200, headers: Record<string, string> = {}) => new Response(JSON.stringify(value), { status, headers: { 'Content-Type': 'application/json', ...headers } });
 const event = () => ({ id: command.providerEventId, status: 'confirmed', ...structuredClone(command.payload) });
 const mockFetch = (fn: (url: URL, init: RequestInit) => Response | Promise<Response>): typeof fetch => (async (url, init) => fn(new URL(String(url)), init || {})) as typeof fetch;
-function fakeClient(options: { sourceChanged?: boolean; generationChanged?: boolean; scope?: typeof GOOGLE_CALENDAR_SCOPE | typeof GOOGLE_CALENDAR_WRITE_SCOPE; active?: boolean; state?: string; finishFailure?: boolean; approveFailure?: string } = {}) {
-  const calls: Array<{ name: string; params: Record<string, unknown> }> = [];
+function fakeClient(options: { sourceChanged?: boolean; generationChanged?: boolean; generationRace?: boolean; scope?: typeof GOOGLE_CALENDAR_SCOPE | typeof GOOGLE_CALENDAR_WRITE_SCOPE; active?: boolean; state?: string; finishFailure?: boolean; approveFailure?: string } = {}) {
+  const calls: Array<{ name: string; params: Record<string, unknown> }> = []; let connectionReads=0;
   const envelope = encryptCredentials({ accessToken: 'synthetic-access', refreshToken: 'synthetic-refresh', expiresAt: Date.now() + 3600000, scope: options.scope ?? GOOGLE_CALENDAR_WRITE_SCOPE }, config.encryptionKey, owner);
   const client = { rpc: async (name: string, params: Record<string, unknown> = {}) => {
     calls.push({ name, params });
-    if (name === 'calendar_connection_get') return { data: { encrypted_credentials: envelope, authorization_generation: options.generationChanged ? target : lease, revision: lease, connected_at: '', updated_at: '' }, error: null };
+    if (name === 'calendar_connection_get') return { data: { encrypted_credentials: envelope, authorization_generation: options.generationChanged || options.generationRace && ++connectionReads === 2 ? target : lease, revision: lease, connected_at: '', updated_at: '' }, error: null };
     if (name === 'calendar_write_preview') return { data: { canApprove: !options.sourceChanged, fingerprint: 'b'.repeat(64) }, error: null };
     if (name === 'calendar_write_approve' && options.approveFailure) return { data: null, error: { code: options.approveFailure } };
     if (name === 'calendar_write_get' || name === 'calendar_write_approve') return { data: { ...structuredClone(command), state: options.state ?? 'pending' }, error: null };
@@ -156,4 +156,16 @@ test('source cancellation or changed facts allow reconciliation but cannot inser
   const {client,calls}=fakeClient({sourceChanged:true});let requests=0;
   const result=await executeCalendarCommand(client,id,config,owner,mockFetch((_url,init)=>{requests++;assert.equal(init.method,'GET');return json({},404);}));
   assert.equal(result.state,'failed');assert.match(result.notice,/No new event was inserted/);assert.equal(requests,1);assert.equal(calls.at(-1)?.params.p_error_code,'source_changed');
+});
+
+test('a reconnect during token validation cannot substitute another destination before claiming', async () => {
+  const {client,calls}=fakeClient({generationRace:true});let requests=0;
+  await assert.rejects(()=>executeCalendarCommand(client,id,config,owner,mockFetch(()=>{requests++;return json({});})), /connection changed/);
+  assert.equal(requests,0); assert.ok(!calls.some(call=>call.name==='calendar_write_claim'));
+});
+
+test('changed source facts can confirm an already committed matching event without another insert', async () => {
+  const {client}=fakeClient({sourceChanged:true});let requests=0;
+  const result=await executeCalendarCommand(client,id,config,owner,mockFetch((_url,init)=>{requests++;assert.equal(init.method,'GET');return json(event());}));
+  assert.equal(result.state,'succeeded');assert.equal(requests,1);
 });

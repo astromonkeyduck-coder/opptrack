@@ -159,7 +159,7 @@ else {
   try {
     const app = origin(values.appUrl);
     const home = await read(app);
-    record('hosted_signin_page', ok(home) && home.bytes?.toString('utf8').includes('Sign in to your review inbox') ? 'passed' : 'failed', { httpStatus: home.status, boundary: 'Anonymous HTTP smoke only; owner browser login remains required' });
+    record('hosted_signin_page', ok(home) && ['name="email"', 'name="password"', 'type="password"'].every(marker => home.bytes?.toString('utf8').includes(marker)) ? 'passed' : 'failed', { httpStatus: home.status, boundary: 'Anonymous HTTP smoke only; owner browser login remains required' });
     const inbox = await read(`${app}/inbox`);
     let safeRedirect = false;
     try { const target = new URL(inbox.location, app); safeRedirect = target.origin === app && target.pathname === '/'; } catch { /* Missing/invalid redirect fails. */ }
