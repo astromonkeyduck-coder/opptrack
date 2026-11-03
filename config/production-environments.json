@@ -534,6 +534,8 @@
     "native_readiness_verified": true,
     "public_pdf_cloud_probe_report": "reports/stage-2-cloud-native-probe.json",
     "private_media_cloud_verified": false,
-    "scheduled_extraction_observed": false
+    "scheduled_extraction_observed": false,
+    "real_development_reference_units_owner_approved": 10,
+    "human_review_report": "reports/stage-2-first-ten-human-review.json"
   }
 }

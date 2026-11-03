@@ -97,7 +97,7 @@
   },
   "evaluation": {
     "syntheticCases": 28,
-    "humanReviewedLabels": 0,
+    "humanReviewedLabels": 10,
     "actualPublicReviewUnits": 100,
     "frozenPublicResponses": 20,
     "publicRoutes": 7,
@@ -125,7 +125,14 @@
     "report": "reports/stage-2-rules-diagnostic.json",
     "realInventoryReport": "reports/stage-2-real-review-inventory.json",
     "initialDiagnosticReport": "reports/stage-2-rules-diagnostic-initial.json",
-    "initialDiagnosticSuperseded": "Initial 58/131 figure penalized predictions outside partially labeled gold and incorrectly included text units in processed visual media. Frozen source/labels were not changed; adapter/scorer accounting corrected independently of answers."
+    "initialDiagnosticSuperseded": "Initial 58/131 figure penalized predictions outside partially labeled gold and incorrectly included text units in processed visual media. Frozen source/labels were not changed; adapter/scorer accounting corrected independently of answers.",
+    "humanReviewedLabelsScope": "Ten real development reference units approved by the owner; not Stage2 runtime predictions, independent adjudication, synthetic corpus labels or holdout.",
+    "humanReviewedRealDevelopmentUnits": 10,
+    "humanReviewedSyntheticCases": 0,
+    "humanReviewedHoldoutUnits": 0,
+    "remainingUnreviewedRealUnits": 90,
+    "humanReviewReport": "reports/stage-2-first-ten-human-review.json",
+    "firstTenApprovalRecordedAt": "2026-11-03T00:24:25Z"
   },
   "release": {
     "runtimeCommit": "90612d7b3e676a130412ac6d21dca48763767d12",

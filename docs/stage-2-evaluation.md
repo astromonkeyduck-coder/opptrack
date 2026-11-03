@@ -38,6 +38,14 @@ Costs distinguish known measurements from missing values. A missing cost is not 
 
 The packet starts the review process; synthetic labels alone will not meet the varied real-capture target. Add permitted actual JSON/ICS/HTML, real image flyers/carousels, newsletters, stored social captures where accessible, negatives and observed failures, grouped by organizer/opportunity/media family. Exclude blocked/private access from the accessible-source recall denominator while reporting those gaps explicitly. Keep personal captures private, store rights/access/retention metadata, and do not put credentials or private original media in Git.
 
+## Owner review of the first ten real development units
+
+The owner approved the entire first-ten real-source packet via chat, with no corrections. Confirmation was recorded at `2026-11-03T00:24:25Z`; the original viewing/review time is unknown. Exactly ten real development units are approved as reference facts, spanning 11 source-member records, eight occurrence claims and seven action claims. They remain separate from the 28 synthetic cases above, whose review fields are still blank. The other 90 real units remain unreviewed. This is a single-owner review, not independent adjudication, holdout acceptance or calendar approval.
+
+The ignored private approval overlay pins each original example and proposed-label hash. Frozen captures, examples, family grouping, parser-label provenance and inventory remain unchanged; only the mutable human packet received annotations. [Sanitized approval evidence](../reports/stage-2-first-ten-human-review.json) records the exact scope and counts. The historical inventory-preparation report correctly retains zero human reviews created by that earlier command; the later approval report is the current overlay. Regenerating the inventory must preserve and consult this overlay rather than infer current review status from the frozen `machine_silver_unreviewed` field alone.
+
+The approved packet has existing deterministic-adapter reference labels, not independent Stage 2 runtime predictions or canonical scored-field/processed-media gold. No accuracy percentage or benchmark pass is derived by comparing those labels with themselves. Human-approved development references can now support the next canonical evaluation preparation; no held-out or media accuracy result follows from this approval.
+
 ## Commands
 
 `node --import tsx --test tests/stage2-evaluator.test.ts tests/stage2-baseline-adapter.test.ts` tests scoring, exact evidence-span validation and adapter boundaries. The oracle used inside scorer tests merely checks arithmetic and must never be reported as runtime/model accuracy.
