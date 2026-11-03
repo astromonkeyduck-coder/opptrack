@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "stage": 2,
   "recordedDate": "2026-11-02 America/New_York; hosted execution November 3 UTC",
-  "status": "validated_local_migration_applied_runtime_publication_pending",
+  "status": "deployed_scheduled_v2_private_media_proven_quality_gates_open",
   "currentNewRequestVersion": "stage2-rules-v3",
   "supportedVersions": [
     "stage2-rules-v1",
@@ -53,7 +53,12 @@
     "syntheticCases": 17,
     "syntheticPassedCases": 2,
     "humanReviewedSyntheticLabels": 0,
-    "syntheticLabeledMatches": "74/95"
+    "syntheticLabeledMatches": "74/95",
+    "independentReview": "Two reported regressions fixed and reproduced; all three version/report/registry hashes verified",
+    "privateCredentialFilesExcluded": true,
+    "changedFileCredentialPatternScanMatches": 0,
+    "githubActionsVerified": false,
+    "githubActionsLimitation": "gh CLI unavailable; local required checks and provider deployment results verified separately"
   },
   "reviewedDevelopment": {
     "families": 10,
@@ -92,10 +97,28 @@
     "laptopOffVerified": false
   },
   "deployment": {
-    "runtimeCommit": null,
-    "netlifyPublished": false,
-    "triggerDeployed": false,
-    "environmentChanges": false
+    "runtimeCommit": "f94e170b9b765b8855138dc44887114725539c23",
+    "netlifyPublished": true,
+    "triggerDeployed": true,
+    "environmentChanges": false,
+    "netlifyDeployId": "6ae937c1e7c93a314a3bffd3",
+    "triggerDeployId": "iupoiw1g",
+    "triggerVersion": "20261103.3",
+    "triggerDeployedAt": "2026-11-03T01:25:05Z",
+    "ownerCompletedResultPreservedAfterDeployment": true,
+    "actualV3PrivateJobRun": false,
+    "privateEvidence": [
+      "private/stage2-v3-trigger-deployed.txt",
+      "private/stage2-v3-netlify-published.txt",
+      "private/stage2-scheduled-private-ocr-complete.jpg"
+    ],
+    "postPublicationDatabaseCheckedAt": "2026-11-03T01:26:06.205201Z",
+    "postPublicationRowFingerprintsUnchanged": {
+      "jobs": 2,
+      "attempts": 2,
+      "decisions": 58,
+      "calendarCommands": 1
+    }
   },
   "costs": {
     "modelCalls": 0,

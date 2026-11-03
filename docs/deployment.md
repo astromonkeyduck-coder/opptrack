@@ -4,6 +4,8 @@ Updated November 2, 2026. Next.js/Netlify, private Supabase and the single hourl
 
 ## November 2/3 parser v3 continuation
 
+Runtime f94e170 is published as Netlify 6ae937c1e7c93a314a3bffd3 and Trigger iupoiw1g / 20261103.3, deployed 2026-11-03T01:25:05Z. The owner’s completed private two-slide page was checked after publication.
+
 New requests default to stage2-rules-v3; archived v1/v2 jobs retain exact original execution. Migration 20261103011203_stage2_extractor_v3.sql is applied as hosted 20261103012026; existing job, attempt, decision and Calendar command hashes are unchanged. [V3 release](../reports/stage-2-v3-release.json) records current published runtime IDs. No environment variable or grant changed: extraction stays Production-only on the existing hourly schedule, Trigger calendar/email flags remain false, and Google secrets stay Netlify-only. The two-private-image scheduled proof is v2 evidence, not an actual v3 private job.
 
 ## November 2 Stage 2 runtime
