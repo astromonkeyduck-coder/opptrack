@@ -66,6 +66,21 @@ function sourceInstant(value:string):string|null {
   if(!match||!validDate(Number(match[1]),Number(match[2]),Number(match[3]))||Number(match[4])>23||Number(match[5])>59||Number(match[6]||0)>59||Number(match[9]||0)>14||Number(match[10]||0)>59||(Number(match[9])===14&&Number(match[10])!==0))return null;
   const parsed=Date.parse(value);return Number.isFinite(parsed)?new Date(parsed).toISOString():null;
 }
+function weekdayDateConflict(text:string,dates:Match[]) {
+  const days=['sun','mon','tue','wed','thu','fri','sat'],weekday='(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sun|Mon|Tue|Wed|Thu|Fri|Sat)';
+  return dates.some(date=>{
+    if(!date.date)return false;
+    const before=text.slice(Math.max(0,date.start-18),date.start).match(new RegExp(`\\b${weekday}\\.?[\\s,(]*$`,'i'));
+    const after=text.slice(date.end,date.end+18).match(new RegExp(`^[\\s,(]+${weekday}\\b`,'i'));
+    return [before,after].some(match=>match&&days.indexOf(match[1].slice(0,3).toLowerCase())!==new Date(`${date.date}T12:00:00Z`).getUTCDay());
+  });
+}
+function withholdInstants(item:ExtractionCandidate) {
+  for(const field of ['startAt','endAt','startLocal','endLocal']){item.fields[field]=null;item.claims=item.claims.filter(claim=>claim.field!==field);}
+  const dateClaim=item.claims.find(claim=>claim.field==='date');if(dateClaim)set(item,'datePrecision','date',dateClaim.evidence);
+}
+// "May 3" is a month/date; modal "may be closed" remains conditional.
+const conditional=/\b(?:if|unless|might|could|pending|depending|subject to|provided|in case)\b|\bmay\b(?!\s+\d{1,2}(?:st|nd|rd|th)?\b)/i;
 function temporal(candidate:ExtractionCandidate,unit:ExtractionUnit,start:number,end:number,context:ExtractionContext,action:boolean,options:TemporalOptions={}) {
   // Mask only excluded components, preserving UTF-16 positions for exact evidence.
   let text=unit.text.slice(start,end);
@@ -77,7 +92,9 @@ function temporal(candidate:ExtractionCandidate,unit:ExtractionUnit,start:number
   if(explicit&&!options.date){
     const value=sourceInstant(explicit[0]),day=explicit[0].slice(0,10),evidence=span(unit,start+explicit.index!,start+explicit.index!+explicit[0].length);
     if(!value){candidate.issues.push('invalid_date_or_source_instant');return;}
-    set(candidate,action?'occursOn':'date',day,evidence);set(candidate,action?'occursAt':'startAt',value,evidence);set(candidate,action?'actionLocal':'startLocal',explicit[0].slice(0,16),evidence);set(candidate,'datePrecision','instant',evidence);
+    set(candidate,action?'occursOn':'date',day,evidence);set(candidate,'datePrecision','date',evidence);
+    if(weekdayDateConflict(text,sourceDates(text,context))){candidate.issues.push('weekday_date_conflict_requires_review');return;}
+    set(candidate,action?'occursAt':'startAt',value,evidence);set(candidate,action?'actionLocal':'startLocal',explicit[0].slice(0,16),evidence);set(candidate,'datePrecision','instant',evidence);
     if(!action){const after=text.slice(explicit.index!+explicit[0].length),finish=after.match(/\bend\s*:\s*(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2}))\b/i),finishValue=finish?sourceInstant(finish[1]):null;if(finish&&finishValue&&Date.parse(finishValue)>Date.parse(value)){const at=start+explicit.index!+explicit[0].length+finish.index!+finish[0].indexOf(finish[1]),endEvidence=span(unit,at,at+finish[1].length);set(candidate,'endAt',finishValue,endEvidence);set(candidate,'endLocal',finish[1].slice(0,16),endEvidence);}else candidate.issues.push(finish?'end_time_conflict_or_overnight_requires_review':'end_time_missing');}
     return;
   }
@@ -89,6 +106,7 @@ function temporal(candidate:ExtractionCandidate,unit:ExtractionUnit,start:number
   if(!date)return;
   const dateEvidence=options.date?.evidence||[span(unit,start+first!.start,start+first!.end)];
   set(candidate,action?'occursOn':'date',date,dateEvidence);set(candidate,'datePrecision','date',dateEvidence);
+  if(!options.date&&weekdayDateConflict(text,dates)){candidate.issues.push('weekday_date_conflict_requires_review');return;}
   let zone=timeZone(text,context),zoneEvidence:EvidenceSpan|null=zone.match?span(unit,start+zone.match.index!,start+zone.match.index!+zone.match[0].length):null;
   if(!zone.match&&options.zoneLine){zone=timeZone(options.zoneLine.text,context);zoneEvidence=zone.match?span(unit,options.zoneLine.start+zone.match.index!,options.zoneLine.start+zone.match.index!+zone.match[0].length):null;}
   if(zone.conflict){candidate.issues.push('conflicting_timezones_require_review');return;}
@@ -166,7 +184,7 @@ type Recurrence = { dates:string[]; rule:Line; evidence:EvidenceSpan[] };
 function finiteRecurrence(unit:ExtractionUnit,lines:Line[],context:ExtractionContext):Recurrence|null {
   const weekdayNames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const rules=lines.filter(line=>/\b(?:every\s+(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)|(?:Mondays|Tuesdays|Wednesdays|Thursdays|Fridays|Saturdays|Sundays))\b/i.test(line.text)),rule=rules[0];
-  if(rules.length!==1||!rule||/\bexcept\b/i.test(rule.text)||!clockPattern.test(rule.text)||!timeZone(rule.text,{}).zone||lines.some(line=>line!==rule&&!/\b(?:except|no meeting|no session)\b/i.test(line.text)&&sourceDates(line.text,context).length))return null;
+  if(rules.length!==1||!rule||conditional.test(rule.text)||/\bexcept\b/i.test(rule.text)||!clockPattern.test(rule.text)||!timeZone(rule.text,{}).zone||lines.some(line=>line!==rule&&!/\b(?:except|no meeting|no session)\b/i.test(line.text)&&sourceDates(line.text,context).length))return null;
   let dates:string[]=[];
   const list=rule.text.match(new RegExp(`\\b(Sundays|Mondays|Tuesdays|Wednesdays|Thursdays|Fridays|Saturdays)\\s+(${monthNames})\\.?\\s+((?:\\d{1,2}(?:st|nd|rd|th)?(?:\\s*,\\s*|\\s+and\\s+))+\\d{1,2}(?:st|nd|rd|th)?)\\s*,\\s*(\\d{4})\\b`,'i'));
   if(list){
@@ -184,6 +202,7 @@ function finiteRecurrence(unit:ExtractionUnit,lines:Line[],context:ExtractionCon
   if(!dates.length||dates.length>20)return null;
   const exceptions=lines.filter(line=>/\b(?:except|no meeting|no session)\b/i.test(line.text)),evidence=[span(unit,rule.start,rule.end)];
   for(const exception of exceptions){
+    if(conditional.test(exception.text))return null;
     const excluded=sourceDates(exception.text,context);
     if(!excluded.length||excluded.some(date=>!date.date||!dates.includes(date.date)))return null;
     dates=dates.filter(date=>!excluded.some(excludedDate=>excludedDate.date===date));evidence.push(span(unit,exception.start,exception.end));
@@ -242,7 +261,8 @@ export function extractCandidates(units:ExtractionUnit[],context:ExtractionConte
       const item:ExtractionCandidate={key:'',kind:!eventDates.length&&guide?'resource':eventDates.length||eventWords?'event':'resource',fields:{title:null,date:null,startAt:null,endAt:null,timeZone:null,datePrecision:null,status:null,location:null,price:null,eligibility:null},claims:[],issues:['unreviewed_extraction','headline_rule_requires_review']};
       set(item,'title',title,span(unit,titleLine!.start,titleLine!.end));
       if(item.kind==='event'&&eventLines.length){
-        const structured=eventLines.find(line=>/^start\s*:\s*\d{4}-\d{2}-\d{2}T/i.test(line.text));
+        const structuredLines=eventLines.filter(line=>/^start\s*:\s*\d{4}-\d{2}-\d{2}T/i.test(line.text)),structured=structuredLines[0];
+        const structuredInstants=structuredLines.flatMap(line=>[...line.text.matchAll(/\bstart\s*:\s*(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2}))\b/gi)].map(match=>sourceInstant(match[1])||match[1]));
         const dateLine=plan.line||structured||eventLines.find(line=>!performanceLines.includes(line)&&sourceDates(line.text,context).length);
         if(dateLine){
           const index=usable.indexOf(dateLine);let next:Line|undefined;
@@ -250,7 +270,9 @@ export function extractCandidates(units:ExtractionUnit[],context:ExtractionConte
           if(!clockPattern.test(dateLine.text)&&!recurrence){for(const line of usable.slice(index+1,index+5)){if(actionComponent(line)||sourceDates(line.text,context).length||performanceLines.includes(line))break;if(/\bdoors\b/i.test(line.text))continue;if(clockPattern.test(line.text)){next=line;break;}}}
           const zoneLine=usable.find(line=>/^(?:time\s*zone|timezone)\s*:/i.test(line.text));
           temporal(item,unit,dateLine.start,next?.end??dateLine.end,context,false,{exclude:excluded,date:plan.date,zoneLine});
-          if(structured&&eventLines.some(line=>line!==structured&&/\b(?:starts?|begins?)\s+(?:at\s+)?\d{1,2}(?::\d{2})?\b/i.test(line.text))){item.issues.push('structured_and_description_start_require_review');if(descriptionStartConflict(structured,eventLines)){for(const field of ['startAt','endAt','startLocal','endLocal']){item.fields[field]=null;item.claims=item.claims.filter(claim=>claim.field!==field);}const dateClaim=item.claims.find(claim=>claim.field==='date');if(dateClaim)set(item,'datePrecision','date',dateClaim.evidence);item.issues.push('conflicting_event_start_times_require_review');}}
+          if(structured&&eventLines.some(line=>line!==structured&&/\b(?:starts?|begins?)\s+(?:at\s+)?\d{1,2}(?::\d{2})?\b/i.test(line.text))){item.issues.push('structured_and_description_start_require_review');if(descriptionStartConflict(structured,eventLines)){withholdInstants(item);item.issues.push('conflicting_event_start_times_require_review');}}
+          if(new Set(structuredInstants).size>1){withholdInstants(item);item.issues.push('conflicting_structured_start_times_require_review');}
+          if(eventLines.some(line=>weekdayDateConflict(line.text,sourceDates(line.text,context)))){withholdInstants(item);item.issues.push('weekday_date_conflict_requires_review');}
           if(!recurrence&&!separatePerformances&&new Set(eventDates.map(date=>date.date).filter(Boolean)).size>1){clearTime(item,false);item.issues.push('multiple_or_conflicting_dates_require_review');}
           if(recurrence){item.issues.push('finite_recurrence_materialized_requires_review');set(item,'recurrenceDerived',true,recurrence.evidence);}
         }else item.issues.push('date_unknown');
@@ -261,16 +283,20 @@ export function extractCandidates(units:ExtractionUnit[],context:ExtractionConte
         if(matchesDate||global)set(item,'status','cancelled',span(unit,cancelled.start,cancelled.end));else item.issues.push('cancellation_scope_requires_review');
       }
       const location=usable.find(line=>/^(?:location|venue|where)\s*:/i.test(line.text))||usable.find(venueOnly);
-      if(location){const value=location.text.replace(/^[^:]+:\s*/,'');if(/\b(?:sign in|log in|login)\b|^(?:restricted|members only|requires? (?:membership|login))\b/i.test(value))item.issues.push('location_access_restricted');else if(/^(?:TBA|TBD|to be (?:announced|determined)|unknown)$/i.test(value))item.issues.push('location_unknown');else set(item,'location',value,span(unit,location.start,location.end));}
+      const locationValues=usable.flatMap(line=>{const labeled=line.text.match(/\b(?:location|venue|where)\s*:\s*(.+)/i);return labeled?[labeled[1].trim().toLowerCase()]:venueOnly(line)?[line.text.toLowerCase()]:[];});
+      if(separatePerformances&&new Set(locationValues).size>1)item.issues.push('performance_location_scope_requires_review');
+      else if(location){const value=location.text.replace(/^[^:]+:\s*/,'');if(/\b(?:sign in|log in|login)\b|^(?:restricted|members only|requires? (?:membership|login))\b/i.test(value))item.issues.push('location_access_restricted');else if(/^(?:TBA|TBD|to be (?:announced|determined)|unknown)$/i.test(value))item.issues.push('location_unknown');else set(item,'location',value,span(unit,location.start,location.end));}
       const price=usable.find(line=>/\bfree (?:admission|entry|and open to the public)\b|(?:admission|tickets?|cost|price)\s*:\s*(?:\$\d+|free\b)/i.test(line.text));if(price)set(item,'price',price.text,span(unit,price.start,price.end));
       const eligibility=usable.find(line=>/^(?:eligibility|eligible|open to|for FSU students|FSU students only)\b/i.test(line.text));if(eligibility)set(item,'eligibility',eligibility.text,span(unit,eligibility.start,eligibility.end));
       const organizer=usable.find(line=>/^(?:organizer|host|hosted by)\s*:/i.test(line.text));if(organizer)set(item,'organizer',organizer.text.replace(/^[^:]+:\s*/,''),span(unit,organizer.start,organizer.end));
       if(recurrenceMention&&!recurrence)item.issues.push(recurrenceOverflow?'recurrence_expansion_exceeds_candidate_budget':'recurrence_or_exception_requires_review');
+      if(recurrenceMention&&usable.some(line=>/\b(?:except|no meeting|no session)\b/i.test(line.text)&&conditional.test(line.text)))item.issues.push('conditional_recurrence_exception_requires_review');
       const doors=usable.find(line=>/\bdoors\b/i.test(line.text));
       if(doors&&item.kind==='event'){
         item.issues.push('doors_time_separate_from_event_start');
         const match=doors.text.match(/\b(\d{1,2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?)\b/i),date=item.fields.date;
-        if(match&&typeof date==='string'){const dateEvidence=item.claims.find(claim=>claim.field==='date')?.evidence||[],probe:ExtractionCandidate={key:'',kind:'action',fields:{},claims:[],issues:[]};temporal(probe,unit,doors.start,doors.end,context,true,{date:{value:date,evidence:dateEvidence}});for(const [from,to] of [['actionLocal','doorsLocal'],['occursAt','doorsAt']]){const claim=probe.claims.find(claim=>claim.field===from);if(claim)set(item,to,claim.value,claim.evidence);}item.issues.push(...probe.issues);}
+        if(item.issues.includes('weekday_date_conflict_requires_review')){item.fields.doorsLocal=null;item.fields.doorsAt=null;item.issues.push('doors_date_conflict_requires_review');}
+        else if(match&&typeof date==='string'){const dateEvidence=item.claims.find(claim=>claim.field==='date')?.evidence||[],probe:ExtractionCandidate={key:'',kind:'action',fields:{},claims:[],issues:[]};temporal(probe,unit,doors.start,doors.end,context,true,{date:{value:date,evidence:dateEvidence}});for(const [from,to] of [['actionLocal','doorsLocal'],['occursAt','doorsAt']]){const claim=probe.claims.find(claim=>claim.field===from);if(claim)set(item,to,claim.value,claim.evidence);}item.issues.push(...probe.issues);}
         else if(/\b\d{1,2}(?::\d{2})?\b/.test(doors.text))item.issues.push('doors_time_meridiem_unknown');
       }
       if(suspicious)item.issues.push('source_contains_instruction_like_text');item.issues.push(...unit.issues);append(item,unit);

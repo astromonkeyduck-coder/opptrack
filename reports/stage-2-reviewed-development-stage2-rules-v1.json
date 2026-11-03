@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-11-03T00:46:59.637Z",
+  "recordedAt": "2026-11-03T01:16:23.146Z",
   "preparationVersion": "stage2-reviewed-development-v3",
   "sourceTransformVersion": "frozen-public-content-to-text-v1",
   "status": "real_owner_reviewed_development_partial_scope_diagnostic_not_acceptance",
@@ -34,12 +34,12 @@
     "file": "lib/extraction/text-v1.ts",
     "sha256": "2dc5376957c301ff56bc302ec60efdef2e96061922a5a75e86b60749b9c79c4a",
     "registryFile": "lib/extraction/versions.ts",
-    "registrySha256": "c20cb6df66cf9340a50f5047c22e6a99259d69fc87121226fe1619437ff6ac81",
+    "registrySha256": "74cab17f5d64a5b37866f757df6eedeadd4edfceead73966829f8e0efc1b7688",
     "independentSourceOnlyPrediction": true,
     "quoteSpansValidated": true,
     "validatedClaims": 42,
     "validatedSpans": 49,
-    "elapsedMs": 13.224333000000001,
+    "elapsedMs": 14.473749999999882,
     "originalMediaOrOcrRun": false
   },
   "scopedMeasurements": {
@@ -1846,7 +1846,7 @@
   ],
   "privateArtifacts": {
     "references": "private/stage2-reviewed/development-v3/references-225170534b7c712a.json",
-    "runtime": "private/stage2-reviewed/development-v3/runtime-2dc5376957c301ff-225170534b7c712a-2026-11-03T00-46-59-637Z.json",
+    "runtime": "private/stage2-reviewed/development-v3/runtime-2dc5376957c301ff-225170534b7c712a-2026-11-03T01-16-23-146Z.json",
     "fileMode": "0600",
     "directoryMode": "0700"
   },

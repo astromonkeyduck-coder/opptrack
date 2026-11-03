@@ -66,13 +66,13 @@ test('saved source URLs are retained context and never fetched by an extraction 
 
 test('immutable job versions select their implementation and keep accurate result provenance', async () => {
   const f = fixture();
-  for (const version of ['stage2-rules-v1', 'stage2-rules-v2']) {
+  for (const version of ['stage2-rules-v1', 'stage2-rules-v2', 'stage2-rules-v3']) {
     const value = { ...job(), extractor_version: version };
     const result = await extractLeasedJob(value, f.client, { media: mediaSuccess });
     assert.deepEqual(result.candidates, extractCandidatesForVersion(version, [providedTextUnit(note)], {}));
     assert.equal(result.stats.engine, `injected-test-media-v1/${version}`);
   }
-  assert.equal(EXTRACTOR_VERSION, 'stage2-rules-v2');
+  assert.equal(EXTRACTOR_VERSION, 'stage2-rules-v3');
 });
 
 test('old queued jobs retain the deployed v1 doors/show interpretation while v2 resolves the explicit interval', async () => {
@@ -87,6 +87,19 @@ test('old queued jobs retain the deployed v1 doors/show interpretation while v2 
   assert.equal(v2.candidates[0].fields.endAt, '2026-11-08T02:00:00.000Z');
   assert.equal(v2.candidates[0].fields.doorsAt, '2026-11-07T23:00:00.000Z');
   assert.equal(v1.candidates[0].fields.status, null); assert.equal(v2.candidates[0].fields.status, null);
+});
+
+test('queued v2 keeps its recorded interpretation while v3 withholds contradictory structured starts', async () => {
+  const f = fixture();
+  const source = 'Campus Concert\nStart: 2026-11-06T18:00:00-05:00\nStart: 2026-11-06T19:00:00-05:00\nEnd: 2026-11-06T20:00:00-05:00';
+  const v2 = await extractLeasedJob({ ...job([], { note: source }), extractor_version: 'stage2-rules-v2' }, f.client, { media: mediaSuccess });
+  const v3 = await extractLeasedJob({ ...job([], { note: source }), extractor_version: 'stage2-rules-v3' }, f.client, { media: mediaSuccess });
+  assert.equal(v2.candidates[0].fields.startAt, '2026-11-06T23:00:00.000Z');
+  assert.equal(v3.candidates[0].fields.startAt, null); assert.equal(v3.candidates[0].fields.endAt, null);
+  assert.equal(v3.candidates[0].fields.date, '2026-11-06');
+  assert.ok(v3.candidates[0].issues.includes('conflicting_structured_start_times_require_review'));
+  assert.equal(v2.stats.engine, 'injected-test-media-v1/stage2-rules-v2');
+  assert.equal(v3.stats.engine, 'injected-test-media-v1/stage2-rules-v3');
 });
 
 test('unsupported immutable job versions fail before Storage or native processing', async () => {

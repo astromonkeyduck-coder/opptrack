@@ -27,7 +27,8 @@ async function finish(job) {
 }
 try {
   await db.exec(await readFile('supabase/tests/bootstrap.sql', 'utf8'));
-  const migrations = (await readdir('supabase/migrations')).filter(name => name.endsWith('.sql')).sort();
+  // This historical rollout fixture intentionally freezes the schema at v2.
+  const migrations = (await readdir('supabase/migrations')).filter(name => name.endsWith('.sql') && name <= migration).sort();
   assert.equal(migrations.at(-1), migration);
   for (const file of migrations.filter(name => name !== migration)) await db.exec(await readFile('supabase/migrations/' + file, 'utf8'));
   await q('insert into auth.users(id) values($1)', [owner]);

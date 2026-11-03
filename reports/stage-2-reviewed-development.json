@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-11-03T00:48:03.996Z",
+  "recordedAt": "2026-11-03T01:23:08.214Z",
   "preparationVersion": "stage2-reviewed-development-v3",
   "sourceTransformVersion": "frozen-public-content-to-text-v1",
   "status": "real_owner_reviewed_development_partial_scope_diagnostic_not_acceptance",
@@ -30,16 +30,16 @@
     "originalFrozenArtifactsChanged": false
   },
   "runtime": {
-    "extractorVersion": "stage2-rules-v2",
+    "extractorVersion": "stage2-rules-v3",
     "file": "lib/extraction/text.ts",
-    "sha256": "e4d30a79ac26bd48f7fced0e36e5aa35d4e2cd6046bfaf32c56180ac8fe4d4a2",
+    "sha256": "b145201710b0e8ee41e901b0937213554c517e14165ca081fac8a3f45b93b119",
     "registryFile": "lib/extraction/versions.ts",
-    "registrySha256": "c20cb6df66cf9340a50f5047c22e6a99259d69fc87121226fe1619437ff6ac81",
+    "registrySha256": "74cab17f5d64a5b37866f757df6eedeadd4edfceead73966829f8e0efc1b7688",
     "independentSourceOnlyPrediction": true,
     "quoteSpansValidated": true,
     "validatedClaims": 56,
     "validatedSpans": 63,
-    "elapsedMs": 29.189832000000024,
+    "elapsedMs": 43.937541999999894,
     "originalMediaOrOcrRun": false
   },
   "scopedMeasurements": {
@@ -1761,7 +1761,7 @@
   ],
   "privateArtifacts": {
     "references": "private/stage2-reviewed/development-v3/references-225170534b7c712a.json",
-    "runtime": "private/stage2-reviewed/development-v3/runtime-e4d30a79ac26bd48-225170534b7c712a-2026-11-03T00-48-03-996Z.json",
+    "runtime": "private/stage2-reviewed/development-v3/runtime-b145201710b0e8ee-225170534b7c712a-2026-11-03T01-23-08-214Z.json",
     "fileMode": "0600",
     "directoryMode": "0700"
   },

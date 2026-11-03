@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "stage": 2,
+  "recordedDate": "2026-11-02 America/New_York; hosted execution November 3 UTC",
+  "status": "validated_local_migration_applied_runtime_publication_pending",
+  "currentNewRequestVersion": "stage2-rules-v3",
+  "supportedVersions": [
+    "stage2-rules-v1",
+    "stage2-rules-v2",
+    "stage2-rules-v3"
+  ],
+  "archives": {
+    "v1": "lib/extraction/text-v1.ts",
+    "v2": "lib/extraction/text-v2.ts"
+  },
+  "changes": [
+    "Contradictory structured start instants are withheld",
+    "Conditional recurrence exceptions abstain without excluding valid May dates",
+    "Weekday/date conflicts withhold event and derived doors instants",
+    "Ambiguous per-performance venues remain unknown"
+  ],
+  "migration": {
+    "local": "20261103011203_stage2_extractor_v3.sql",
+    "hosted": "20261103012026",
+    "report": "reports/stage-2-v3-hosted-rollout.json",
+    "existingRowFingerprintsPreserved": true,
+    "functionAccessPreserved": true,
+    "hostedV3FixtureRoleAuditRun": false
+  },
+  "validation": {
+    "applicationTests": 438,
+    "coreSqlChecks": 185,
+    "v2RolloutSqlChecks": 7,
+    "v3RolloutSqlChecks": 7,
+    "instagramReplayChecks": 6,
+    "originalAuditReplayChecks": 26,
+    "versionAuditReplayChecks": 8,
+    "versionAuditFailSafeChecks": 2,
+    "typecheck": "passed",
+    "build": "passed",
+    "offline": "passed",
+    "commands": [
+      "npm test",
+      "npm run test:db",
+      "npm run typecheck",
+      "npm run build",
+      "make check",
+      "npm run evaluate:extraction",
+      "node --import tsx scripts/prepare-stage2-reviewed-evaluation.ts --extractor=stage2-rules-v3"
+    ],
+    "diagnosticExpectedExitCode": 1,
+    "realEvaluationExpectedExitCode": 1,
+    "syntheticCases": 17,
+    "syntheticPassedCases": 2,
+    "humanReviewedSyntheticLabels": 0,
+    "syntheticLabeledMatches": "74/95"
+  },
+  "reviewedDevelopment": {
+    "families": 10,
+    "sameReferenceHash": "225170534b7c712ab000248e925a78a4c7263dda9286090961d847b43fe10174",
+    "allDevelopment": true,
+    "v1RecoveredFacts": "17/55",
+    "v2RecoveredFacts": "32/55",
+    "v3RecoveredFacts": "32/55",
+    "v3LabeledMatches": "32/35",
+    "unscoredV3Predictions": 21,
+    "scopedEventsComplete": "3/8",
+    "scopedActionsComplete": "3/6",
+    "scopedCasesComplete": "4/10",
+    "v3ImprovementOverV2MeasuredOnTheseFamilies": false,
+    "comparison": "reports/stage-2-reviewed-development-comparison.json"
+  },
+  "hostedProvenPath": {
+    "extractor": "stage2-rules-v2",
+    "realOwnerUpload": true,
+    "contents": "two synthetic generated images",
+    "originalBytes": 104545,
+    "privateStorageOriginalHashesMatch": true,
+    "genuineNonTestScheduledProcessing": true,
+    "parentRunId": "run_06gptt9a8uv9o82c78v8thhga2",
+    "childRunId": "run_06gpttg1k5fg0d5f8fku22eka2",
+    "jobId": "97818d6c-5368-4413-aa2a-86d6fb7b014f",
+    "finishedAt": "2026-11-03T01:11:31.967106Z",
+    "processedPages": 2,
+    "unverifiedSuggestions": 3,
+    "report": "reports/stage-2-scheduled-private-ocr.json",
+    "anonymousKnownObjectAppRouteDenials": 2,
+    "anonymousStatus": 401,
+    "ownerDownloadBodyVerified": false,
+    "otherUserSignedJwtVerified": false,
+    "actualV3PrivateJobRun": false,
+    "laptopOffVerified": false
+  },
+  "deployment": {
+    "runtimeCommit": null,
+    "netlifyPublished": false,
+    "triggerDeployed": false,
+    "environmentChanges": false
+  },
+  "costs": {
+    "modelCalls": 0,
+    "modelApiUsd": 0,
+    "paidUpgrades": 0,
+    "calendarCalls": 0,
+    "selectedScheduledOcrChildEstimateUsd": 0.00010644,
+    "selectedParentCollectionEstimateUsd": 0.00112879,
+    "privateStorageInputBytes": 104545,
+    "buildSqlStorageLocalCpuUsd": "unmeasured",
+    "invoiceOrMonthlyCostEstablished": false
+  },
+  "remaining": [
+    "Varied human-reviewed independent holdout and authorized model/prompt comparison",
+    "Real dated flyers/carousels, negative examples and semantic accuracy",
+    "Owner original download body integrity; other-user signed JWT and direct Storage HTTP",
+    "Retained Stage1 hosted restore, independent-session contention, physical phone and laptop-off window",
+    "Meta repair remains paused; social images/video/Stories unavailable"
+  ],
+  "stage2Accepted": false,
+  "stage3Started": false,
+  "calendarBoundary": "Individual Netlify approval only; extraction and Trigger cannot write calendars"
+}

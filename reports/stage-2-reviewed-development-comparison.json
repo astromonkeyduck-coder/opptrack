@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-11-03T00:48:03.996Z",
+  "recordedAt": "2026-11-03T01:23:08.214Z",
   "status": "same_contract_deterministic_development_comparison_not_acceptance",
   "preparationVersion": "stage2-reviewed-development-v3",
   "sourceTransformVersion": "frozen-public-content-to-text-v1",
@@ -12,18 +12,18 @@
     {
       "extractorVersion": "stage2-rules-v1",
       "report": "reports/stage-2-reviewed-development-stage2-rules-v1.json",
-      "reportSha256": "1443d9b6ed9ef7ca79d3ed552f79eb947412d9e598a95ebb81d85028a92cf127",
+      "reportSha256": "4b0bf7fdf72a4d76dfcf605e613f68fa1ae53846e22da687892a4ca1417a94d0",
       "runtime": {
         "extractorVersion": "stage2-rules-v1",
         "file": "lib/extraction/text-v1.ts",
         "sha256": "2dc5376957c301ff56bc302ec60efdef2e96061922a5a75e86b60749b9c79c4a",
         "registryFile": "lib/extraction/versions.ts",
-        "registrySha256": "c20cb6df66cf9340a50f5047c22e6a99259d69fc87121226fe1619437ff6ac81",
+        "registrySha256": "74cab17f5d64a5b37866f757df6eedeadd4edfceead73966829f8e0efc1b7688",
         "independentSourceOnlyPrediction": true,
         "quoteSpansValidated": true,
         "validatedClaims": 42,
         "validatedSpans": 49,
-        "elapsedMs": 13.224333000000001,
+        "elapsedMs": 14.473749999999882,
         "originalMediaOrOcrRun": false
       },
       "measurements": {
@@ -62,18 +62,68 @@
     {
       "extractorVersion": "stage2-rules-v2",
       "report": "reports/stage-2-reviewed-development-stage2-rules-v2.json",
-      "reportSha256": "98b7bfd36193c5e4990077ec93fbe028c9b227c0c74641939073205eda6db32b",
+      "reportSha256": "bdf6568fbc1d939400b8bb4db2200ac1783708e3e24f89a654b1b2bda3687bd3",
       "runtime": {
         "extractorVersion": "stage2-rules-v2",
-        "file": "lib/extraction/text.ts",
+        "file": "lib/extraction/text-v2.ts",
         "sha256": "e4d30a79ac26bd48f7fced0e36e5aa35d4e2cd6046bfaf32c56180ac8fe4d4a2",
         "registryFile": "lib/extraction/versions.ts",
-        "registrySha256": "c20cb6df66cf9340a50f5047c22e6a99259d69fc87121226fe1619437ff6ac81",
+        "registrySha256": "74cab17f5d64a5b37866f757df6eedeadd4edfceead73966829f8e0efc1b7688",
         "independentSourceOnlyPrediction": true,
         "quoteSpansValidated": true,
         "validatedClaims": 56,
         "validatedSpans": 63,
-        "elapsedMs": 29.189832000000024,
+        "elapsedMs": 21.038876000000016,
+        "originalMediaOrOcrRun": false
+      },
+      "measurements": {
+        "fields": {
+          "expected": 55,
+          "correct": 32,
+          "missed": 23,
+          "labeledPredicted": 35,
+          "wrongOrUnsupported": 3,
+          "unscoredMatchedFields": 10,
+          "totalPredictedNonnullFields": 56,
+          "unscoredExtraUnitFields": 11,
+          "unscoredTotal": 21,
+          "labeledScopePrecision": 0.9142857142857143,
+          "labeledFactRecovery": 0.5818181818181818,
+          "predictionLabelCoverage": 0.625
+        },
+        "criticalUnitCompleteness": {
+          "event": {
+            "expected": 8,
+            "correct": 3,
+            "missed": 5
+          },
+          "action": {
+            "expected": 6,
+            "correct": 3,
+            "missed": 3
+          }
+        },
+        "casesWithAllScoredFactsMatching": 4,
+        "cases": 10,
+        "extraPredictedUnitsUnscored": 5,
+        "notice": "Partial canonical reference scope only. Entity sets and null abstention boundaries were not exhaustively reviewed. Extra predictions are listed as unscored; complete precision, detection recall and full-case accuracy are not established."
+      }
+    },
+    {
+      "extractorVersion": "stage2-rules-v3",
+      "report": "reports/stage-2-reviewed-development-stage2-rules-v3.json",
+      "reportSha256": "19d2ab400fdec8eaa0f7edc45c11c0986062c5bcfdbf1716407e37cadff72443",
+      "runtime": {
+        "extractorVersion": "stage2-rules-v3",
+        "file": "lib/extraction/text.ts",
+        "sha256": "b145201710b0e8ee41e901b0937213554c517e14165ca081fac8a3f45b93b119",
+        "registryFile": "lib/extraction/versions.ts",
+        "registrySha256": "74cab17f5d64a5b37866f757df6eedeadd4edfceead73966829f8e0efc1b7688",
+        "independentSourceOnlyPrediction": true,
+        "quoteSpansValidated": true,
+        "validatedClaims": 56,
+        "validatedSpans": 63,
+        "elapsedMs": 43.937541999999894,
         "originalMediaOrOcrRun": false
       },
       "measurements": {

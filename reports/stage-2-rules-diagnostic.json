@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "candidateId": "stage2-rules-v2",
+  "candidateId": "stage2-rules-v3",
   "corpusVersion": "stage2-synthetic-v1",
   "manifestSha256": "7d3532e8deed0eb62455276a45cde78458b9e269fd47018f5a84a6a6a9a68fd4",
   "evaluationScope": {
@@ -4972,7 +4972,7 @@
     "targetVariedHumanLabeledExamples": 100,
     "limitation": "Scored thresholds alone do not establish Stage 2 acceptance, holdout non-exposure, real OCR/media handling, model comparison, reconciliation safety or source coverage."
   },
-  "recordedAt": "2026-11-03T00:48:44.184Z",
+  "recordedAt": "2026-11-03T01:23:07.776Z",
   "adapterVersion": "stage2-evaluation-adapter-v2",
   "executionClass": "Development synthetic supplied text transcripts only; not real OCR or human-reviewed extraction accuracy",
   "methodology": {

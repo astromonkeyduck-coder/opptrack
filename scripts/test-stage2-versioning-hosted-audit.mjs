@@ -14,7 +14,8 @@ async function snapshot() {
 }
 try {
   await db.exec(await readFile('supabase/tests/bootstrap.sql', 'utf8'));
-  const migrations = (await readdir('supabase/migrations')).filter(file => file.endsWith('.sql')).sort();
+  // Preserve replay of the exact v2-era hosted audit and its default-version contract.
+  const migrations = (await readdir('supabase/migrations')).filter(file => file.endsWith('.sql') && file <= '20261103003949_stage2_extractor_versions.sql').sort();
   for (const file of migrations) await db.exec(await readFile('supabase/migrations/' + file, 'utf8'));
   await q('insert into auth.users(id) values($1)', [owner]);
   await q('select public.configure_tracker_owner($1)', [owner]);

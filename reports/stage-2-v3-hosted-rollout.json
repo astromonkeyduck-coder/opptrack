@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "stage": 2,
+  "recordedAt": "2026-11-03 01:20:42.260371+00",
+  "localMigration": "supabase/migrations/20261103011203_stage2_extractor_v3.sql",
+  "hostedMigration": "20261103012026",
+  "defaultExtractor": "stage2-rules-v3",
+  "supportedExtractors": [
+    "stage2-rules-v1",
+    "stage2-rules-v2",
+    "stage2-rules-v3"
+  ],
+  "before": {
+    "checked_at": "2026-11-03 01:19:56.20795+00",
+    "jobs": 2,
+    "jobs_sha256": "f2fb5e066ec3d12656386a75904a72f2ac78487636a861bcd5054b5d8f4f5711",
+    "attempts": 2,
+    "attempts_sha256": "41234e7d0006ef7e55e9355e6809398f1a21cdeefd0b96f91206c348d5e365dc",
+    "decisions": 58,
+    "decisions_sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7",
+    "calendar_commands": 1,
+    "calendar_commands_sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37",
+    "function_access": [
+      {
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "worker": false,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": true
+      },
+      {
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": true,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": false
+      },
+      {
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": false,
+        "default": "'stage2-rules-v2'::text",
+        "definer": false,
+        "anonymous": false,
+        "authenticated": true
+      }
+    ]
+  },
+  "after": {
+    "checked_at": "2026-11-03 01:20:42.260371+00",
+    "jobs": 2,
+    "jobs_sha256": "f2fb5e066ec3d12656386a75904a72f2ac78487636a861bcd5054b5d8f4f5711",
+    "attempts": 2,
+    "attempts_sha256": "41234e7d0006ef7e55e9355e6809398f1a21cdeefd0b96f91206c348d5e365dc",
+    "decisions": 58,
+    "decisions_sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7",
+    "calendar_commands": 1,
+    "calendar_commands_sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37",
+    "function_access": [
+      {
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "worker": false,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": true
+      },
+      {
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": true,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": false
+      },
+      {
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": false,
+        "default": "'stage2-rules-v3'::text",
+        "definer": false,
+        "anonymous": false,
+        "authenticated": true
+      }
+    ]
+  },
+  "checks": {
+    "allExistingJobAttemptDecisionCalendarRowValuesPreserved": true,
+    "functionOidsAclSecurityConfigPreserved": true,
+    "onlyDefaultChangedToV3": true,
+    "localV3SqlChecks": 7,
+    "hostedV3FixtureRoleAuditRun": false,
+    "actualV3PrivateJobRun": false
+  },
+  "limits": [
+    "Existing v2 eight-check hosted rollback role audit retained; not rerun after the current UTC day began real private work.",
+    "No quota reset, user data rewrite, Auth user, Storage, model, Meta or Calendar call.",
+    "The scheduled real private image path used v2; v3 is tested locally and deployed separately."
+  ]
+}

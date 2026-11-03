@@ -1,0 +1,79 @@
+{
+  "evidenceClass": "Actual owner-authenticated two-image clipboard paste through normal live intake and private Storage; generated synthetic slides, not real opportunities or human OCR accuracy",
+  "runtimeCommit": "ef00f527011e0aa4b843720f6122732c05f54d35",
+  "netlify": {
+    "deployId": "6ae9318f07b9a300a28a1934",
+    "publishedCommit": "ef00f52"
+  },
+  "trigger": {
+    "deployId": "l4rzbotq",
+    "version": "20261103.2",
+    "deployedAtEastern": "2026-11-02 19:58:41"
+  },
+  "input": {
+    "synthetic": true,
+    "originalLocalFiles": [
+      "private/stage2-native-media/slide-1.png",
+      "private/stage2-native-media/slide-2.png"
+    ],
+    "route": "Normal clipboard PNG paste into visible production form, two consecutive paste events, ordered file list, one save",
+    "combinedBytes": 104545,
+    "localOriginalHashesMatchStoredManifest": true
+  },
+  "databaseQueued": {
+    "observed_at": "2026-11-03 01:00:31.586158+00",
+    "id": "97818d6c-5368-4413-aa2a-86d6fb7b014f",
+    "manual_intake_id": "8e3027ab-2447-4abb-bef1-a38392252cb7",
+    "state": "queued",
+    "extractor_version": "stage2-rules-v2",
+    "input_hash": "cd2d3850ab791b30a843811ac00c6664f9781d0e4ec30f0fdfe64972806ad61c",
+    "created_at": "2026-11-03 00:59:32.750122+00",
+    "attempts": 0,
+    "asset_count": 2,
+    "original_publication_at": null,
+    "media_manifest": [
+      {
+        "bytes": "46580",
+        "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa",
+        "assetId": "1",
+        "mimeType": "image/png",
+        "privateObjectExists": true
+      },
+      {
+        "bytes": "57965",
+        "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6",
+        "assetId": "2",
+        "mimeType": "image/png",
+        "privateObjectExists": true
+      }
+    ],
+    "bucket_public": false,
+    "calendar_commands": 1
+  },
+  "calendarProviderCalls": 0,
+  "modelCalls": 0,
+  "paidUpgrades": 0,
+  "anonymousKnownObjectDenial": "reports/stage-2-known-media-anonymous-check.json",
+  "ownerDownload": {
+    "verified": false,
+    "attempts": [
+      "locator.downloadMedia timed out after10000ms",
+      "Normal download event timed out; browser kernel reset, no downloaded body/hash verified"
+    ],
+    "permissionBypass": false,
+    "browserCredentialsRead": false
+  },
+  "nativePicker": {
+    "successful": false,
+    "normalFallbackInterrupted": true,
+    "saveClicked": false
+  },
+  "scheduledWorkerResult": {
+    "state": "succeeded",
+    "report": "reports/stage-2-scheduled-private-ocr.json",
+    "automaticNotManual": true,
+    "processedImages": 2,
+    "attempts": 1
+  },
+  "privateScreenshot": "private/stage2-paste-upload-ready.jpg"
+}

@@ -1,0 +1,35 @@
+{
+  "evidenceClass": "Actual anonymous HTTPS GETs for the two known synthetic original links from the owner UI; no cookies/Authorization/browser-session extraction",
+  "jobId": "97818d6c-5368-4413-aa2a-86d6fb7b014f",
+  "observations": [
+    {
+      "checkedAt": "2026-11-03T01:05:37.142Z",
+      "urlSha256": "81a83252389b80ccccd1237d35c1428127a26e5f413bc99b58baecfeb7a4618c",
+      "status": 401,
+      "bytes": 36,
+      "responseBodySha256": "7524c211c44ed1507a420de4edf6c8eb9dacee04a5ea1dc02d7092ba7f62b8f5",
+      "contentType": "application/json",
+      "cacheControl": "private, no-store",
+      "anonymousDenied": true
+    },
+    {
+      "checkedAt": "2026-11-03T01:05:37.279Z",
+      "urlSha256": "6803da5c15cf2166fa03e15ec9b3d6a98b0c92748aec0543dea8a10f44de1b53",
+      "status": 401,
+      "bytes": 36,
+      "responseBodySha256": "7524c211c44ed1507a420de4edf6c8eb9dacee04a5ea1dc02d7092ba7f62b8f5",
+      "contentType": "application/json",
+      "cacheControl": "private, no-store",
+      "anonymousDenied": true
+    }
+  ],
+  "allDenied": true,
+  "ownerDownloadVerified": false,
+  "otherUserSignedJwtVerified": false,
+  "credentialsRead": 0,
+  "calendarCalls": 0,
+  "modelCalls": 0,
+  "reproduceCommand": "node scripts/probe-stage2-private-media-access.mjs",
+  "executedFrom": "/private/tmp/opptrack-anonymous-media-probe.mjs",
+  "sourceSha256": "4225f4150e1930fa04dc884bedc84bb0a7df7a1af09c505eea8a664cf3abadbf"
+}

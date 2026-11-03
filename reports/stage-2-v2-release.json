@@ -1,6 +1,6 @@
 {
   "recordedDate": "2026-11-02 America/New_York (UTC execution extends November 3)",
-  "status": "migration_verified_runtime_release_prepared",
+  "status": "deployed_private_two_slide_scheduled_ocr_verified_quality_gates_open",
   "extractorVersionsSupported": [
     "stage2-rules-v1",
     "stage2-rules-v2"
@@ -51,12 +51,15 @@
     "inspection": "reports/stage-2-public-image-inspection.json"
   },
   "release": {
-    "commit": null,
-    "netlifyDeployId": null,
-    "triggerDeployId": null,
-    "triggerVersion": null,
-    "clipboardUploadVerified": false,
-    "automaticQueuedJobProcessedVerified": false
+    "commit": "ef00f527011e0aa4b843720f6122732c05f54d35",
+    "netlifyDeployId": "6ae9318f07b9a300a28a1934",
+    "triggerDeployId": "l4rzbotq",
+    "triggerVersion": "20261103.2",
+    "clipboardUploadVerified": true,
+    "automaticQueuedJobProcessedVerified": true,
+    "clipboardUploadReport": "reports/stage-2-hosted-two-slide-upload.json",
+    "anonymousKnownObjectDenialReport": "reports/stage-2-known-media-anonymous-check.json",
+    "scheduledPrivateOcrReport": "reports/stage-2-scheduled-private-ocr.json"
   },
   "checks": {
     "applicationTests": 430,
@@ -92,7 +95,9 @@
     "selectedAutomaticIdleChildEstimateUsd": 3.472e-05,
     "newPublicImageGets": 3,
     "newPublicImageBytes": 562772,
-    "localCpuAndHostedSqlBuildCost": "unmeasured"
+    "localCpuAndHostedSqlBuildCost": "unmeasured",
+    "scheduledPrivateOcrChildEstimateUsd": 0.00010644,
+    "scheduledParentIncludesCollectionEstimateUsd": 0.00112879
   },
   "stage2Accepted": false,
   "stage3Started": false,
@@ -100,8 +105,7 @@
     "Independent human-reviewed varied holdout and model/prompt comparison",
     "Full semantic accuracy, source conflicts and unresolved recurring patterns",
     "Actual dated flyers, complete carousels/social media and negative holdout variety",
-    "Private hosted upload/Storage HTTP, worker OCR correlation and independent signed-JWT denials",
-    "Genuine scheduled processing of a queued extraction job",
+    "Owner original-download body verification and independent other-user signed-JWT denials",
     "Existing Stage1 restore/contention/phone/laptop-off checks",
     "Meta repair remains paused; calendar stays individually approved"
   ]

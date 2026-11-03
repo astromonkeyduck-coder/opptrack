@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-03T00:57:23.281Z",
+  "recordedAt": "2026-11-03T01:16:00.311Z",
   "command": "node scripts/test-stage2-hosted-audit.mjs",
   "evidenceClass": "Exact hosted rollback SQL replayed locally in actual PGlite PostgreSQL with synthetic owner/Auth/Storage metadata. Not hosted execution.",
   "audit": {
@@ -110,7 +110,7 @@
       }
     ],
     "passed": 26,
-    "checkedAt": "2026-11-02T19:57:23.279-05:00",
+    "checkedAt": "2026-11-02T20:16:00.309-05:00",
     "modelCalls": 0,
     "googleCalls": 0,
     "fixtureClass": "Synthetic text/media/source metadata through actual RPCs and SQL roles; not OCR, signed-JWT, Storage HTTP or Google insertion proof",
@@ -135,6 +135,7 @@
     "20261021233742_official_milestone_monitoring.sql",
     "20261102021158_approved_calendar_writes.sql",
     "20261102194633_stage2_evidence_jobs.sql",
-    "20261103003949_stage2_extractor_versions.sql"
+    "20261103003949_stage2_extractor_versions.sql",
+    "20261103011203_stage2_extractor_v3.sql"
   ]
 }

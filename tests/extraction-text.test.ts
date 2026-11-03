@@ -118,3 +118,32 @@ test('recurrence expansion respects the global candidate limit including prior a
 test('more than thirty source candidates leave an explicit semantic truncation issue',()=>{
  const units=Array.from({length:31},(_,i)=>({...providedTextUnit(`Campus Lecture ${i}\nNovember 6, 2026 7 PM EST`),assetId:String(i)}));const items=extractCandidates(units);assert.equal(items.length,30);assert.ok(items.at(-1)!.issues.includes('candidate_limit_reached_additional_inputs_require_review'));
 });
+test('conflicting same-day structured starts withhold intervals while identical duplicates retain exact instants',()=>{
+ const conflict=read('Campus Concert\nStart: 2026-11-06T18:00:00-05:00\nStart: 2026-11-06T19:00:00-05:00\nEnd: 2026-11-06T20:00:00-05:00')[0];assert.equal(conflict.fields.date,'2026-11-06');for(const field of ['startAt','endAt','startLocal','endLocal'])assert.equal(conflict.fields[field],null);assert.ok(conflict.issues.includes('conflicting_structured_start_times_require_review'));
+ const duplicate=read('Campus Concert\nStart: 2026-11-06T18:00:00-05:00\nEnd: 2026-11-06T20:00:00-05:00\nStart: 2026-11-06T18:00:00-05:00')[0];assert.equal(duplicate.fields.startAt,'2026-11-06T23:00:00.000Z');assert.equal(duplicate.fields.endAt,'2026-11-07T01:00:00.000Z');assert.ok(!duplicate.issues.includes('conflicting_structured_start_times_require_review'));
+});
+test('conditional recurrence exceptions do not silently remove an occurrence',()=>{
+ const rule='Urban Research Group\nTuesdays November 3, 10 and 17, 2026, 5 PM–6 PM EST.';
+ for(const exception of ['No meeting November 10, 2026 IF the building is closed.','Except November 10, 2026, pending confirmation.','No session November 10, 2026 unless the room is available.']){const items=read(`${rule}\n${exception}`);assert.equal(items.length,1);assert.equal(items[0].fields.recurrenceDerived,undefined);assert.equal(items[0].fields.startAt,null);assert.ok(items[0].issues.includes('conditional_recurrence_exception_requires_review'));assert.ok(items[0].issues.includes('recurrence_or_exception_requires_review'));}
+ assert.deepEqual(read(`${rule}\nNo meeting November 10, 2026.`).map(item=>item.fields.date),['2026-11-03','2026-11-17']);
+});
+test('a stated weekday that contradicts an exact source date withholds the instant without inventing a correction',()=>{
+ for(const date of ['Friday November 7, 2026','November 7, 2026 (Friday)']){const event=read(`Campus Concert\n${date} 7 PM–9 PM EST`)[0];assert.equal(event.fields.date,'2026-11-07');assert.equal(event.fields.startAt,null);assert.equal(event.fields.endAt,null);assert.ok(event.issues.includes('weekday_date_conflict_requires_review'));}
+ assert.equal(read('Campus Concert\nSaturday November 7, 2026 7 PM–9 PM EST')[0].fields.startAt,'2026-11-08T00:00:00.000Z');
+ const separate=read('Campus Concert\nSaturday November 7, 2026 7 PM–9 PM EST\nApplications due Friday November 7, 2026 5 PM EST');assert.equal(separate.find(item=>item.kind==='event')!.fields.startAt,'2026-11-08T00:00:00.000Z');assert.equal(separate.find(item=>item.kind==='action')!.fields.occursAt,null);
+});
+test('separate performances with different location claims keep those locations unresolved',()=>{
+ const units=[providedTextUnit('Jazz Concert\nNovember 6, 2026 7 PM–9 PM EST\nLocation: Ruby Hall\nSecond performance: November 7, 2026 7 PM–9 PM EST\nLocation: Opal Hall')],items=extractCandidates(units);assert.equal(items.length,2);assert.deepEqual(items.map(item=>item.fields.date),['2026-11-06','2026-11-07']);assert.ok(items.every(item=>item.fields.location===null&&item.issues.includes('performance_location_scope_requires_review')));
+ assert.doesNotThrow(()=>validateExtractionResult({version:'stage2-result-v1',units,candidates:items,issues:[],complete:true,stats:{processedAssets:0,expectedAssets:0,processedPages:0,engine:'rules-test',elapsedMs:0}}));
+ const shared=read('Jazz Concert\nNovember 6, 2026 7 PM–9 PM EST\nLocation: Ruby Hall\nSecond performance: November 7, 2026 7 PM–9 PM EST\nLocation: Ruby Hall');assert.ok(shared.every(item=>item.fields.location==='Ruby Hall'));
+});
+test('May dates remain finite recurrence dates while modal may keeps an exception unresolved',()=>{
+ const rule='Campus Workshop\nEvery Monday from May 3, 2027 through May 31, 2027, 7–8 pm Eastern Time.';
+ const items=read(rule);assert.deepEqual(items.map(item=>item.fields.date),['2027-05-03','2027-05-10','2027-05-17','2027-05-24','2027-05-31']);assert.ok(items.every(item=>item.fields.startAt&&item.fields.recurrenceDerived===true));
+ assert.deepEqual(read(`${rule}\nNo meeting May 10, 2027.`).map(item=>item.fields.date),['2027-05-03','2027-05-17','2027-05-24','2027-05-31']);
+ const conditional=read(`${rule}\nExcept May 10, 2027, which may be canceled.`);assert.equal(conditional.length,1);assert.equal(conditional[0].fields.recurrenceDerived,undefined);assert.ok(conditional[0].issues.includes('conditional_recurrence_exception_requires_review'));
+});
+test('a conflicted date cannot create a doors time while an independent known-date doors clock survives start conflicts',()=>{
+ const dateConflict=read('Campus Concert\nFriday November 7, 2026 7 PM–9 PM EST\nDoors: 6 PM EST')[0];assert.equal(dateConflict.fields.startAt,null);assert.equal(dateConflict.fields.doorsLocal,null);assert.equal(dateConflict.fields.doorsAt,null);assert.ok(dateConflict.issues.includes('doors_date_conflict_requires_review'));
+ const startConflict=read('Campus Concert\nStart: 2026-11-07T19:00:00-05:00\nStart: 2026-11-07T20:00:00-05:00\nDoors: 6 PM EST')[0];assert.equal(startConflict.fields.startAt,null);assert.equal(startConflict.fields.doorsLocal,'2026-11-07T18:00');assert.equal(startConflict.fields.doorsAt,'2026-11-07T23:00:00.000Z');
+});

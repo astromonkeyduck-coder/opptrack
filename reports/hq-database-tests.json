@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-11-03T00:57:17.620Z",
+  "runAt": "2026-11-03T01:15:54.944Z",
   "migrations": [
     "202610200001_stage1.sql",
     "202610200002_hourly_cadence.sql",
@@ -11,7 +11,8 @@
     "20261021233742_official_milestone_monitoring.sql",
     "20261102021158_approved_calendar_writes.sql",
     "20261102194633_stage2_evidence_jobs.sql",
-    "20261103003949_stage2_extractor_versions.sql"
+    "20261103003949_stage2_extractor_versions.sql",
+    "20261103011203_stage2_extractor_v3.sql"
   ],
   "passed": 12,
   "checks": [

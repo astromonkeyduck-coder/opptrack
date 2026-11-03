@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-11-03T01:16:03.865Z",
+  "command": "node scripts/test-stage2-v3-versioning.mjs",
+  "engine": "PGlite 0.5.10 actual PostgreSQL WASM",
+  "migration": "20261103011203_stage2_extractor_v3.sql",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql",
+    "20261102194633_stage2_evidence_jobs.sql",
+    "20261103003949_stage2_extractor_versions.sql",
+    "20261103011203_stage2_extractor_v3.sql"
+  ],
+  "passed": 7,
+  "checks": [
+    "forward rollout preserves every existing completed v1/v2 and queued v2 job and attempt byte-for-byte as row values",
+    "replaced functions preserve OIDs, narrow ACLs, security mode and search paths",
+    "latest default is v3 while explicit v1/v2 requests remain idempotent and cannot rewrite history",
+    "unknown, empty and null versions are rejected before creating a queued row",
+    "claim leases old queued v2 and new v3 but skips an unsupported queued version",
+    "legacy and current versions share the same two-new-jobs UTC budget",
+    "all versioned input identities remain immutable and owner/worker/anonymous capabilities stay separate"
+  ],
+  "fixtureClass": "Local synthetic owner, inputs, completed v1/v2 rows, a queued v2 row, a new v3 request and deliberately unsupported privileged row; no hosted state or provider calls.",
+  "immutableLegacyHistoryPreserved": true,
+  "supportedVersions": [
+    "stage2-rules-v1",
+    "stage2-rules-v2",
+    "stage2-rules-v3"
+  ],
+  "latestDefault": "stage2-rules-v3",
+  "newJobsUtcDayBudgetShared": 2,
+  "providerCalls": 0,
+  "credentialReads": 0,
+  "hostedWrites": 0,
+  "notTested": [
+    "Hosted migration deployment",
+    "Independent PostgreSQL contention",
+    "Signed-JWT/Storage HTTP",
+    "Extraction factual accuracy"
+  ]
+}

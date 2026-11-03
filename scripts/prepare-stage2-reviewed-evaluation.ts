@@ -8,7 +8,7 @@ import { prepareReviewedReference, reviewedSha256, REVIEWED_PREPARATION_VERSION,
 
 const approvalFile = 'reports/stage-2-first-ten-human-review.json';
 const argumentsList = process.argv.slice(2);
-if (argumentsList.length > 1 || argumentsList.some(argument => !argument.startsWith('--extractor='))) throw new Error('Use only an optional --extractor=stage2-rules-v1 or --extractor=stage2-rules-v2.');
+if (argumentsList.length > 1 || argumentsList.some(argument => !argument.startsWith('--extractor='))) throw new Error('Use only an optional --extractor=stage2-rules-v1, stage2-rules-v2 or stage2-rules-v3.');
 const extractorVersion = argumentsList[0]?.slice('--extractor='.length) ?? EXTRACTOR_VERSION;
 if (!(SUPPORTED_EXTRACTOR_VERSIONS as readonly string[]).includes(extractorVersion)) throw new Error('Unsupported extractor version.');
 type ApprovalReport = { reviewId: string; confirmationRecordedAt: string; exactReviewTimeKnown: boolean; snapshotId: string; frozenInventorySha256: string; privateReviewOverlay: string; privateReviewOverlaySha256: string; examples: ApprovedReference[] };
@@ -54,7 +54,9 @@ const corpus: EvaluationCorpus = { schemaVersion: 1, corpusVersion: REVIEWED_PRE
   targetVariedHumanLabeledExamples: 100, recallTarget: 0.95, minimumHumanReviewedHoldout: 40, cases: prepared.map(item => item.item) };
 const corpusErrors = validateCorpus(corpus); if (corpusErrors.length) throw new Error(corpusErrors.join('\n'));
 const referenceHash = evaluationSha256({ corpus, scopes: prepared.map(item => item.scopeNotes), version: SOURCE_TRANSFORM_VERSION });
-const runtimeFile = extractorVersion === 'stage2-rules-v1' ? 'lib/extraction/text-v1.ts' : 'lib/extraction/text.ts';
+const runtimeFiles: Record<string,string> = { 'stage2-rules-v1':'lib/extraction/text-v1.ts', 'stage2-rules-v2':'lib/extraction/text-v2.ts', 'stage2-rules-v3':'lib/extraction/text.ts' };
+const runtimeFile = runtimeFiles[extractorVersion];
+if (!runtimeFile) throw new Error('Supported extractor lacks an explicit implementation-file mapping.');
 const registryFile = 'lib/extraction/versions.ts';
 const runtimeSha256 = reviewedSha256(await readFile(runtimeFile)), registrySha256 = reviewedSha256(await readFile(registryFile));
 const { extractCandidatesForVersion } = await import('../lib/extraction/versions');
@@ -113,7 +115,11 @@ const report = { schemaVersion: 1, recordedAt, preparationVersion: REVIEWED_PREP
 await mkdir('reports', { recursive: true });
 const versionReportPath = `reports/stage-2-reviewed-development-${extractorVersion}.json`;
 try {
-  const previousBytes = await readFile(versionReportPath), previous = JSON.parse(previousBytes.toString('utf8')) as { preparationVersion?: string };
+  const previousBytes = await readFile(versionReportPath), previous = JSON.parse(previousBytes.toString('utf8')) as { preparationVersion?: string; runtime?: { file?:string; sha256?:string; registrySha256?:string } };
+  if (previous.runtime?.file !== runtimeFile || previous.runtime?.sha256 !== runtimeSha256 || previous.runtime?.registrySha256 !== registrySha256) {
+    try { await writeFile(`reports/stage-2-reviewed-development-history-${extractorVersion}-${reviewedSha256(previousBytes).slice(0,16)}.json`, previousBytes, { flag:'wx' }); }
+    catch (error) { if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error; }
+  }
   if (previous.preparationVersion && previous.preparationVersion !== REVIEWED_PREPARATION_VERSION && /^stage2-reviewed-development-v\d+$/.test(previous.preparationVersion)) {
     const revision = previous.preparationVersion.split('-').at(-1);
     try { await writeFile(`reports/stage-2-reviewed-development-${revision}-${extractorVersion}.json`, previousBytes, { flag:'wx' }); }
@@ -127,17 +133,25 @@ try { await writeFile('reports/stage-2-reviewed-development-initial.json', JSON.
 const manifest = { schemaVersion:1, preparationVersion:REVIEWED_PREPARATION_VERSION, referenceHash, reviewId:approval.reviewId, reviewReportSha256:reviewedSha256(approvalBytes), split:'development_only_not_holdout', cases:prepared.map((item,index)=>({ id:item.item.id, familyId:item.item.familyId, originalExampleSha256:approval.examples[index].exampleContentSha256, originalLabelsSha256:approval.examples[index].originalLabelsSha256, inputSha256:evaluationSha256(item.input), projectedCaseSha256:evaluationSha256(item.item), canonicalScopeReviewPending:true })) };
 await frozenWrite(`evaluation/stage2-reviewed-development-${preparationRevision}-manifest.json`, manifest);
 try {
-  const files = ['reports/stage-2-reviewed-development-stage2-rules-v1.json','reports/stage-2-reviewed-development-stage2-rules-v2.json'];
+  const files = ['reports/stage-2-reviewed-development-stage2-rules-v1.json','reports/stage-2-reviewed-development-stage2-rules-v2.json','reports/stage-2-reviewed-development-stage2-rules-v3.json'];
   const bytes = await Promise.all(files.map(file => readFile(file)));
-  const [before,after] = bytes.map(value => JSON.parse(value.toString('utf8')) as typeof report);
-  const comparable = before.preparationVersion === after.preparationVersion && before.input.referenceHash === after.input.referenceHash && before.sourceTransformVersion === after.sourceTransformVersion && before.review.sha256 === after.review.sha256;
+  const versions = bytes.map(value => JSON.parse(value.toString('utf8')) as typeof report), before = versions[0];
+  const comparable = versions.every(value => before.preparationVersion === value.preparationVersion && before.input.referenceHash === value.input.referenceHash && before.sourceTransformVersion === value.sourceTransformVersion && before.review.sha256 === value.review.sha256);
   if (comparable) {
     const comparison = { schemaVersion:1, recordedAt, status:'same_contract_deterministic_development_comparison_not_acceptance', preparationVersion:before.preparationVersion, sourceTransformVersion:before.sourceTransformVersion, referenceHash:before.input.referenceHash,
       reviewedFamilies:10, allDevelopment:true, holdoutReadOrScored:false,
-      versions:[before,after].map((value,index)=>({ extractorVersion:value.runtime.extractorVersion, report:files[index], reportSha256:reviewedSha256(bytes[index]), runtime:value.runtime, measurements:value.scopedMeasurements })),
+      versions:versions.map((value,index)=>({ extractorVersion:value.runtime.extractorVersion, report:files[index], reportSha256:reviewedSha256(bytes[index]), runtime:value.runtime, measurements:value.scopedMeasurements })),
       interpretation:'The runtime implementations differ on the same frozen source-input and partial reference scope. These are development canonical-agreement results, not representative full factual accuracy or a model/prompt comparison. Contract-v1/v2 association/scope artifacts are excluded from this comparison.',
       remaining:['Human adjudication of canonical null boundaries, venue aliases, entity completeness and conflicting source facts.','Ninety real units and independent holdout remain unreviewed; real image/carousel/negative variety is missing.','Compact ICS support, unknown-year action context and explicit scheduled-status semantics remain incomplete.'],
       modelOrPromptComparisonRun:false, providerCalls:0, modelCostUsd:0, localCpuCostUsd:null, stage2Accepted:false, completeAccuracyEstablished:false };
+    try {
+      const previousComparison = await readFile('reports/stage-2-reviewed-development-comparison.json');
+      const previous = JSON.parse(previousComparison.toString('utf8')) as { versions?: unknown[] };
+      if (previous.versions?.length === 2) {
+        try { await writeFile('reports/stage-2-reviewed-development-comparison-before-v3.json',previousComparison,{flag:'wx'}); }
+        catch(error) { if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error; }
+      }
+    } catch(error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; }
     await writeFile('reports/stage-2-reviewed-development-comparison.json',JSON.stringify(comparison,null,2)+'\n');
   }
 } catch(error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; }

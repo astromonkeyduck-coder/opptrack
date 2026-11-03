@@ -527,24 +527,30 @@
     "worker_flag_saved_at_eastern": "2026-11-02 18:25",
     "hosted_text_job_report": "reports/stage-2-hosted-text-job.json",
     "release_report": "reports/stage-2-release.json",
-    "runtime_commit": "90612d7b3e676a130412ac6d21dca48763767d12",
-    "netlify_deploy_id": "6ae91dd9395579873c5ee0fb",
-    "trigger_deploy_id": "iaohc393",
-    "trigger_version": "20261102.8",
+    "runtime_commit": "ef00f527011e0aa4b843720f6122732c05f54d35",
+    "netlify_deploy_id": "6ae9318f07b9a300a28a1934",
+    "trigger_deploy_id": "l4rzbotq",
+    "trigger_version": "20261103.2",
     "native_readiness_verified": true,
     "public_pdf_cloud_probe_report": "reports/stage-2-cloud-native-probe.json",
-    "private_media_cloud_verified": false,
-    "scheduled_extraction_observed": false,
+    "private_media_cloud_verified": true,
+    "scheduled_extraction_observed": true,
     "real_development_reference_units_owner_approved": 10,
     "human_review_report": "reports/stage-2-first-ten-human-review.json",
-    "latest_continuation_report": "reports/stage-2-v2-release.json",
-    "latest_extractor_default": "stage2-rules-v2",
+    "latest_continuation_report": "reports/stage-2-v3-release.json",
+    "latest_extractor_default": "stage2-rules-v3",
     "supported_extractor_versions": [
       "stage2-rules-v1",
-      "stage2-rules-v2"
+      "stage2-rules-v2",
+      "stage2-rules-v3"
     ],
-    "hosted_version_migration": "20261103005000",
+    "hosted_version_migration": "20261103012026",
     "scheduled_invocation_observed": true,
-    "scheduled_processed_job_observed": false
+    "scheduled_processed_job_observed": true,
+    "private_two_slide_paste_upload_verified": true,
+    "anonymous_known_private_media_denials_verified": true,
+    "scheduled_private_media_report": "reports/stage-2-scheduled-private-ocr.json",
+    "scheduled_processed_extractor_version": "stage2-rules-v2",
+    "latest_v3_private_job_verified": false
   }
 }

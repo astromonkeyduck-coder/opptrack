@@ -1,0 +1,188 @@
+{
+  "recordedAt": "2026-11-03 01:13:46.750992+00",
+  "evidenceClass": "Actual owner-authenticated two-image upload → private Supabase Storage → genuine hourly Trigger parent/child → native OCR + SQL commit. Image contents are synthetic; not human extraction accuracy, independent signed-JWT isolation or laptop-off proof.",
+  "runtimeCommit": "ef00f527011e0aa4b843720f6122732c05f54d35",
+  "triggerVersion": "20261103.2",
+  "parent": {
+    "id": "run_06gptt9a8uv9o82c78v8thhga2",
+    "isTest": false,
+    "scheduleId": "sched_7piwpgtckcngy15icqk45",
+    "nominalAt": "2026-11-03T01:00:00Z",
+    "triggeredAt": "2026-11-03T01:10:46.320Z",
+    "startedAt": "2026-11-03T01:10:50.626Z",
+    "finishedAt": "2026-11-03T01:11:25.120Z",
+    "state": "Completed",
+    "sourceRunIds": [
+      "0ff34a2b-9d07-4df8-ace8-7d4f13ea8f66",
+      "945262f2-3097-462d-97bb-da3a94a8b7c3"
+    ],
+    "sourcesSuccessful": 2,
+    "requests": 21,
+    "estimatedCostUsd": 0.00112879
+  },
+  "child": {
+    "id": "run_06gpttg1k5fg0d5f8fku22eka2",
+    "parentId": "run_06gptt9a8uv9o82c78v8thhga2",
+    "idempotencyKey": "stage2:run_06gptt9a8uv9o82c78v8thhga2",
+    "isTest": false,
+    "triggeredAt": "2026-11-03T01:11:24.868Z",
+    "startedAt": "2026-11-03T01:11:28.348Z",
+    "finishedAt": "2026-11-03T01:11:32.203Z",
+    "state": "Completed",
+    "output": {
+      "status": "completed",
+      "jobs": [
+        {
+          "jobId": "97818d6c-5368-4413-aa2a-86d6fb7b014f",
+          "state": "succeeded",
+          "candidateCount": 3,
+          "processedPages": 2,
+          "errorCode": null
+        }
+      ]
+    },
+    "usageSecondsDisplayed": 2.4,
+    "invocationCostUsd": 0.000025,
+    "computeCostUsd": 0.00008144,
+    "estimatedCostUsd": 0.00010644
+  },
+  "database": {
+    "checked_at": "2026-11-03 01:13:46.750992+00",
+    "id": "97818d6c-5368-4413-aa2a-86d6fb7b014f",
+    "state": "succeeded",
+    "extractor_version": "stage2-rules-v2",
+    "input_hash": "cd2d3850ab791b30a843811ac00c6664f9781d0e4ec30f0fdfe64972806ad61c",
+    "created_at": "2026-11-03 00:59:32.750122+00",
+    "first_started_at": "2026-11-03 01:11:29.851227+00",
+    "finished_at": "2026-11-03 01:11:31.967106+00",
+    "attempts": 1,
+    "error_code": null,
+    "stats": {
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5/stage2-rules-v2",
+      "elapsedMs": 1944,
+      "expectedAssets": 2,
+      "processedPages": 2,
+      "processedAssets": 2
+    },
+    "unit_manifest": [
+      {
+        "issues": [],
+        "method": "provided-text",
+        "sha256": "6c32b251030a33437faf8163be7edf30ddcca27419d278a9d4e1841baa38ec9b",
+        "status": "processed",
+        "assetId": "text",
+        "textCharacters": 141
+      },
+      {
+        "issues": [],
+        "method": "ocr",
+        "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa",
+        "status": "processed",
+        "assetId": "1",
+        "textCharacters": 113
+      },
+      {
+        "issues": [],
+        "method": "ocr",
+        "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6",
+        "status": "processed",
+        "assetId": "2",
+        "textCharacters": 159
+      }
+    ],
+    "candidate_metadata": [
+      {
+        "kind": "event",
+        "issues": [
+          "unreviewed_extraction",
+          "headline_rule_requires_review"
+        ],
+        "fieldNames": [
+          "date",
+          "datePrecision",
+          "eligibility",
+          "endAt",
+          "endLocal",
+          "location",
+          "price",
+          "startAt",
+          "startLocal",
+          "status",
+          "timeZone",
+          "title"
+        ]
+      },
+      {
+        "kind": "action",
+        "issues": [
+          "unreviewed_extraction"
+        ],
+        "fieldNames": [
+          "actionType",
+          "datePrecision",
+          "occursAt",
+          "occursOn",
+          "timeZone",
+          "title"
+        ]
+      },
+      {
+        "kind": "action",
+        "issues": [
+          "unreviewed_extraction"
+        ],
+        "fieldNames": [
+          "actionType",
+          "datePrecision",
+          "occursAt",
+          "occursOn",
+          "timeZone",
+          "title"
+        ]
+      }
+    ],
+    "calendar_commands": 1,
+    "decisions": 58
+  },
+  "jobAttemptMetadata": {
+    "checked_at": "2026-11-03 01:12:18.141818+00",
+    "id": "97818d6c-5368-4413-aa2a-86d6fb7b014f",
+    "state": "succeeded",
+    "extractor_version": "stage2-rules-v2",
+    "attempts": 1,
+    "first_started_at": "2026-11-03 01:11:29.851227+00",
+    "finished_at": "2026-11-03 01:11:31.967106+00",
+    "error_code": null,
+    "stats": {
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5/stage2-rules-v2",
+      "elapsedMs": 1944,
+      "expectedAssets": 2,
+      "processedPages": 2,
+      "processedAssets": 2
+    },
+    "units": 3,
+    "candidates": 3,
+    "attempts_metadata": [
+      {
+        "state": "succeeded",
+        "number": 1,
+        "startedAt": "2026-11-03T01:11:29.851227+00:00",
+        "finishedAt": "2026-11-03T01:11:31.967106+00:00",
+        "visualPages": 2
+      }
+    ]
+  },
+  "originalImageHashesMatchProcessedUnits": true,
+  "calendarCommandsUnchanged": 1,
+  "reviewDecisionsUnchanged": 58,
+  "calendarCallsByExtraction": 0,
+  "modelCalls": 0,
+  "paidUpgrades": 0,
+  "laptopOffTested": false,
+  "ownerDownloadHttpBodyVerified": false,
+  "otherUserSignedJwtVerified": false,
+  "privateRawProviderOutputs": [
+    "private/stage2-private-ocr-parent-output.json",
+    "private/stage2-private-ocr-child-output.json"
+  ]
+}
