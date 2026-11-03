@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "sqlPath": "scripts/hosted-stage2-v3-policy-check.sql",
+  "sqlSha256": "0f8f42a640d22f19a6a2f3095a67e9630fb9b3acd834427eb06cd344cbd1c267",
+  "audit": {
+    "checks": [
+      {
+        "test": "owner_worker_rpc_and_rls_boundaries",
+        "passed": true
+      },
+      {
+        "test": "v3_default_and_v1_v2_explicit_requests_have_immutable_idempotent_identities",
+        "passed": true
+      },
+      {
+        "test": "unsupported_and_null_versions_never_enter_the_queue",
+        "passed": true
+      },
+      {
+        "test": "nonmember_local_claims_and_anonymous_cannot_read_or_enqueue_owner_work",
+        "passed": true
+      },
+      {
+        "test": "worker_leases_exact_remaining_fixture_slots_without_touching_existing_used_budget",
+        "passed": true,
+        "fixtureClaims": 1,
+        "baselineUsedJobSlots": 1
+      },
+      {
+        "test": "available_v3_fixture_finish_fences_lease_and_utf16_and_denies_early_owner_retry",
+        "passed": true,
+        "skipReason": null,
+        "finishActuallyTested": true
+      },
+      {
+        "test": "v1_v2_v3_share_remaining_utc_budget_without_resetting_existing_work",
+        "passed": true
+      },
+      {
+        "test": "all_existing_jobs_attempts_intakes_sources_facts_decisions_and_calendar_commands_keep_full_sha256",
+        "passed": true
+      }
+    ],
+    "passed": 8,
+    "checkedAt": "2026-11-03T03:50:36.939086+00:00",
+    "modelCalls": 0,
+    "googleCalls": 0,
+    "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
+    "fixtureClaims": 1,
+    "sourcesCreated": 0,
+    "claimedVersions": [
+      "stage2-rules-v3"
+    ],
+    "authUsersCreated": 0,
+    "existingJobCount": 2,
+    "storageHttpCalls": 0,
+    "safePreconditions": "Exactly one owner; no real queued/processing work; respects 2 minus existing current-UTC-day jobs; no real queued work; short table locks; repeatable read; 2s lock and 20s statement limits; no resets/deletes",
+    "baselineUsedUtcJobs": 1,
+    "baselineUtcAttempts": 1,
+    "firstClaimedVersion": "stage2-rules-v3",
+    "remainingUtcJobSlots": 1,
+    "persistentRowsChanged": 0,
+    "baselineUtcVisualPages": 2,
+    "v3FinishActuallyTested": true,
+    "independentConnectionsTested": false,
+    "v3ClaimedBeforeLegacyEnqueue": true,
+    "existingRealRowsFullHashesPreserved": true,
+    "functionDefinitionsOidsAclsAndConfigurationPreserved": true
+  },
+  "fixtureCorrection": "Current v3 is claimed before legacy fixture enqueue; same-transaction timestamps do not establish lease order. Original hosted run and local failure history retained separately.",
+  "priorHostedReport": "reports/stage-2-v3-hosted-policy-checks.json",
+  "localReplayReport": "reports/stage-2-v3-hosted-audit-replay.json"
+}

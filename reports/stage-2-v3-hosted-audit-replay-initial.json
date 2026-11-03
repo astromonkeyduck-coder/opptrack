@@ -1,0 +1,227 @@
+{
+  "checkedAt": "2026-11-03T03:43:18.653Z",
+  "command": "node scripts/test-stage2-v3-hosted-audit.mjs",
+  "sqlSha256": "99cd3ccafc8dd260a1ff083a0284fe426b4ad7ce12a4812c6db4928f7e62583f",
+  "evidenceClass": "Actual installed-function SQL-role audit replay in local PGlite using only synthetic fixtures; not hosted execution, signed JWTs, native OCR or independent-session contention.",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql",
+    "20261102194633_stage2_evidence_jobs.sql",
+    "20261103003949_stage2_extractor_versions.sql",
+    "20261103011203_stage2_extractor_v3.sql"
+  ],
+  "cases": [
+    {
+      "baselineUsedUtcJobs": 0,
+      "audit": {
+        "checks": [
+          {
+            "test": "owner_worker_rpc_and_rls_boundaries",
+            "passed": true
+          },
+          {
+            "test": "v3_default_and_v1_v2_explicit_requests_have_immutable_idempotent_identities",
+            "passed": true
+          },
+          {
+            "test": "unsupported_and_null_versions_never_enter_the_queue",
+            "passed": true
+          },
+          {
+            "test": "nonmember_local_claims_and_anonymous_cannot_read_or_enqueue_owner_work",
+            "passed": true
+          },
+          {
+            "test": "worker_leases_exact_remaining_fixture_slots_without_touching_existing_used_budget",
+            "passed": true,
+            "fixtureClaims": 2,
+            "baselineUsedJobSlots": 0
+          },
+          {
+            "test": "available_v3_fixture_finish_fences_lease_and_utf16_and_denies_early_owner_retry",
+            "passed": true,
+            "skipReason": null,
+            "finishActuallyTested": true
+          },
+          {
+            "test": "v1_v2_v3_share_remaining_utc_budget_without_resetting_existing_work",
+            "passed": true
+          },
+          {
+            "test": "all_existing_jobs_attempts_intakes_sources_facts_decisions_and_calendar_commands_keep_full_sha256",
+            "passed": true
+          }
+        ],
+        "passed": 8,
+        "checkedAt": "2026-11-02T22:43:18.615-05:00",
+        "modelCalls": 0,
+        "googleCalls": 0,
+        "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
+        "fixtureClaims": 2,
+        "sourcesCreated": 0,
+        "authUsersCreated": 0,
+        "existingJobCount": 1,
+        "storageHttpCalls": 0,
+        "safePreconditions": "Exactly one owner; no real queued/processing work; respects 2 minus existing current-UTC-day jobs; no real queued work; short table locks; repeatable read; 2s lock and 20s statement limits; no resets/deletes",
+        "baselineUsedUtcJobs": 0,
+        "baselineUtcAttempts": 0,
+        "remainingUtcJobSlots": 2,
+        "persistentRowsChanged": 0,
+        "baselineUtcVisualPages": 0,
+        "v3FinishActuallyTested": true,
+        "independentConnectionsTested": false,
+        "existingRealRowsFullHashesPreserved": true,
+        "functionDefinitionsOidsAclsAndConfigurationPreserved": true
+      },
+      "beforeAndAfterSnapshotSha256": "10566bcdaa7132f9ffbfd04b106b8cbc94923ed71cba70114586c92d527bdd7e",
+      "rollbackRowsPreserved": true
+    },
+    {
+      "baselineUsedUtcJobs": 1,
+      "audit": {
+        "checks": [
+          {
+            "test": "owner_worker_rpc_and_rls_boundaries",
+            "passed": true
+          },
+          {
+            "test": "v3_default_and_v1_v2_explicit_requests_have_immutable_idempotent_identities",
+            "passed": true
+          },
+          {
+            "test": "unsupported_and_null_versions_never_enter_the_queue",
+            "passed": true
+          },
+          {
+            "test": "nonmember_local_claims_and_anonymous_cannot_read_or_enqueue_owner_work",
+            "passed": true
+          },
+          {
+            "test": "worker_leases_exact_remaining_fixture_slots_without_touching_existing_used_budget",
+            "passed": true,
+            "fixtureClaims": 1,
+            "baselineUsedJobSlots": 1
+          },
+          {
+            "test": "available_v3_fixture_finish_fences_lease_and_utf16_and_denies_early_owner_retry",
+            "passed": true,
+            "skipReason": null,
+            "finishActuallyTested": true
+          },
+          {
+            "test": "v1_v2_v3_share_remaining_utc_budget_without_resetting_existing_work",
+            "passed": true
+          },
+          {
+            "test": "all_existing_jobs_attempts_intakes_sources_facts_decisions_and_calendar_commands_keep_full_sha256",
+            "passed": true
+          }
+        ],
+        "passed": 8,
+        "checkedAt": "2026-11-02T22:43:18.635-05:00",
+        "modelCalls": 0,
+        "googleCalls": 0,
+        "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
+        "fixtureClaims": 1,
+        "sourcesCreated": 0,
+        "authUsersCreated": 0,
+        "existingJobCount": 2,
+        "storageHttpCalls": 0,
+        "safePreconditions": "Exactly one owner; no real queued/processing work; respects 2 minus existing current-UTC-day jobs; no real queued work; short table locks; repeatable read; 2s lock and 20s statement limits; no resets/deletes",
+        "baselineUsedUtcJobs": 1,
+        "baselineUtcAttempts": 1,
+        "remainingUtcJobSlots": 1,
+        "persistentRowsChanged": 0,
+        "baselineUtcVisualPages": 2,
+        "v3FinishActuallyTested": true,
+        "independentConnectionsTested": false,
+        "existingRealRowsFullHashesPreserved": true,
+        "functionDefinitionsOidsAclsAndConfigurationPreserved": true
+      },
+      "beforeAndAfterSnapshotSha256": "24c5357bf3b30d324f3982713f4c22167b1fbbd4f420d43fa29c324e570d2acd",
+      "rollbackRowsPreserved": true
+    },
+    {
+      "baselineUsedUtcJobs": 2,
+      "audit": {
+        "checks": [
+          {
+            "test": "owner_worker_rpc_and_rls_boundaries",
+            "passed": true
+          },
+          {
+            "test": "v3_default_and_v1_v2_explicit_requests_have_immutable_idempotent_identities",
+            "passed": true
+          },
+          {
+            "test": "unsupported_and_null_versions_never_enter_the_queue",
+            "passed": true
+          },
+          {
+            "test": "nonmember_local_claims_and_anonymous_cannot_read_or_enqueue_owner_work",
+            "passed": true
+          },
+          {
+            "test": "worker_leases_exact_remaining_fixture_slots_without_touching_existing_used_budget",
+            "passed": true,
+            "fixtureClaims": 0,
+            "baselineUsedJobSlots": 2
+          },
+          {
+            "test": "available_v3_fixture_finish_fences_lease_and_utf16_and_denies_early_owner_retry",
+            "passed": true,
+            "skipReason": "Both real UTC slots already used; enqueue/denial tested, no fixture lease or finish claimed",
+            "finishActuallyTested": false
+          },
+          {
+            "test": "v1_v2_v3_share_remaining_utc_budget_without_resetting_existing_work",
+            "passed": true
+          },
+          {
+            "test": "all_existing_jobs_attempts_intakes_sources_facts_decisions_and_calendar_commands_keep_full_sha256",
+            "passed": true
+          }
+        ],
+        "passed": 8,
+        "checkedAt": "2026-11-02T22:43:18.646-05:00",
+        "modelCalls": 0,
+        "googleCalls": 0,
+        "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
+        "fixtureClaims": 0,
+        "sourcesCreated": 0,
+        "authUsersCreated": 0,
+        "existingJobCount": 3,
+        "storageHttpCalls": 0,
+        "safePreconditions": "Exactly one owner; no real queued/processing work; respects 2 minus existing current-UTC-day jobs; no real queued work; short table locks; repeatable read; 2s lock and 20s statement limits; no resets/deletes",
+        "baselineUsedUtcJobs": 2,
+        "baselineUtcAttempts": 2,
+        "remainingUtcJobSlots": 0,
+        "persistentRowsChanged": 0,
+        "baselineUtcVisualPages": 4,
+        "v3FinishActuallyTested": false,
+        "independentConnectionsTested": false,
+        "existingRealRowsFullHashesPreserved": true,
+        "functionDefinitionsOidsAclsAndConfigurationPreserved": true
+      },
+      "beforeAndAfterSnapshotSha256": "5d047b522fd4b9e753590fe7c97960f6da27da387e5e15df43ee7fd4a8d1baa2",
+      "rollbackRowsPreserved": true
+    }
+  ],
+  "checksPerBudgetCase": 8,
+  "casesPassed": 3,
+  "queuedWorkFailSafePassed": true,
+  "quotaResetsOrDeletesInAudit": 0,
+  "noFixtureChangesPersisted": true,
+  "hostedCalls": 0,
+  "authUsersCreatedHosted": 0,
+  "storageCalls": 0,
+  "modelCalls": 0,
+  "calendarCalls": 0
+}
