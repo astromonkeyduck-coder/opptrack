@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "evidenceClass": "Actual owner repeated Read flyer details through production UI; same completed immutable v3 job reopened, SQL confirms unchanged counts and old full row hashes",
+  "repeatedOwnerRequest": true,
+  "expectedReopenedJobId": "ef5178f5-a00b-4a3d-bb4a-338d0b575577",
+  "databaseAfterRepeat": {
+    "checked_at": "2026-11-03 04:56:40.544868+00",
+    "jobs": 3,
+    "attempts": 3,
+    "decisions": 58,
+    "calendar_commands": 1,
+    "used_utc_job_slots": 2,
+    "id": "ef5178f5-a00b-4a3d-bb4a-338d0b575577",
+    "state": "succeeded",
+    "extractor_version": "stage2-rules-v3",
+    "created_at": "2026-11-03 03:53:09.469982+00",
+    "finished_at": "2026-11-03 04:11:54.431601+00"
+  },
+  "priorHistoryCheck": {
+    "checked_at": "2026-11-03 04:57:36.011006+00",
+    "all_prior_jobs_unchanged": true,
+    "all_prior_attempts_unchanged": true,
+    "same_input_separate_immutable_version_identity": true
+  },
+  "newProcessingAttemptCreated": false,
+  "newCalendarCommandCreated": false,
+  "quotaReset": false,
+  "contents": "Previously uploaded synthetic two-image intake"
+}

@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-03T01:16:02.701Z",
+  "recordedAt": "2026-11-03T03:50:52.708Z",
   "command": "node scripts/test-stage2-versioning-hosted-audit.mjs",
   "sqlSha256": "982340f89e7e54948d1ffc854f180a6f0b7f7b3696a9ff8db74acaac3e9040e1",
   "evidenceClass": "Exact hosted SQL-role audit replayed in local PGlite with a synthetic owner and preexisting completed-v1 fixture. No hosted Auth user or service was touched.",
@@ -52,7 +52,7 @@
       }
     ],
     "passed": 8,
-    "checkedAt": "2026-11-02T20:16:02.689-05:00",
+    "checkedAt": "2026-11-02T22:50:52.697-05:00",
     "modelCalls": 0,
     "googleCalls": 0,
     "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -71,7 +71,7 @@
     "Already-used UTC budget stops the audit and stays untouched"
   ],
   "localGuardChecksPassed": 2,
-  "localFixtureSnapshotSha256BeforeAndAfter": "fd5a3236763856fd3a95822dcb8968430dd617fc64845080e2633d5e1d205997",
+  "localFixtureSnapshotSha256BeforeAndAfter": "ed4008c4c6bc7e0e9f76ead0be337df17671a65d94b171f42d26d89c96abf5c8",
   "hostedExecution": false,
   "credentialFilesRead": 0,
   "modelCalls": 0,

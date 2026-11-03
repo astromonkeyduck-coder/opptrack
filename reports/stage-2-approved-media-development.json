@@ -1,0 +1,630 @@
+{
+  "recordedAt": "2026-11-03T04:47:00.627Z",
+  "command": "node --import tsx scripts/evaluate-stage2-approved-media.ts",
+  "schemaVersion": 1,
+  "evidenceClass": "Original03:39 actual-media OCR/v3 predictions versus later single-owner-approved packet facts; scoped development agreement only",
+  "mapping": {
+    "version": "stage2-approved-media-scoped-v1",
+    "normalization": "Unicode NFKC and whitespace collapse only; no title/venue aliases, inferred years, instants or status.",
+    "association": "First event candidate in each event asset. Boren resource title uses first page-1 resource; process heading uses page-2 resource. Eligibility uses first nonnull resource eligibility within the same fixed asset. No expected value selects a candidate.",
+    "clockProjection": "startClock/endClock read only HH:mm from existing full startLocal/endLocal strings; never from OCR text.",
+    "actionScope": "Registration notice plus campus/national Boren notices are scoped source facts. Boren runtime action has no campus/national identity, so neither phase is assigned to it; it stays unscored. No prediction may satisfy both notices.",
+    "unknowns": "Only exact nulls in approved packet are checked. Absent or null projection is an abstention, not recovery of a positive fact. Other fields/conflicts/entity sets are unscored.",
+    "ranges": "NOV.16–17 is retained as an inclusive source date range, not converted into a timed interval or a single calendar occurrence."
+  },
+  "mappingSha256": "0130105bb47044d78824533a057f3d8ece9d93f1f2a88768573d252116192f53",
+  "approval": {
+    "path": "reports/stage-2-next25-human-review.json",
+    "sha256": "18fcbf68a2509baf46091c749525c431aaf6a25a49e9f9630fa7ae230e626fde",
+    "confirmationRecordedAt": "2026-11-03T04:42:16Z",
+    "overlayPath": "private/stage2-review-approvals/owner-next25-20261103T044216Z/media5-overlay.json",
+    "overlaySha256": "61381746186904546d189b36ab4942a0fdb7493f9fd0f79c211af81e103c7110",
+    "adjudicated": false
+  },
+  "sourceProbe": {
+    "path": "reports/stage-2-dated-media-probe.json",
+    "sha256": "4306cbc771aac25d0ae9b4ab1aeda52dd32db0396ff56a7fc9bd8a7224239246"
+  },
+  "referencePacket": {
+    "path": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/human-review.json",
+    "sha256": "6b0be62f55d2e798ee99642c1dbac1749cc6cd3426417c6ab8d8a0af21591c7e"
+  },
+  "totals": {
+    "nonnullFacts": 25,
+    "matchedNonnullFacts": 4,
+    "explicitUnknownChecks": 15,
+    "matchedExplicitUnknowns": 15,
+    "nonnullPredictions": 12,
+    "unscoredNonnullPredictions": 3,
+    "processedPages": 6,
+    "wordBoxes": 1079,
+    "events": 3,
+    "completeEvents": 0,
+    "actionNotices": 3,
+    "completeActionNotices": 0,
+    "negativePhotos": 1,
+    "negativeEventFalsePositives": 0,
+    "negativeActionFalsePositives": 0
+  },
+  "eventMisses": 3,
+  "actionNoticeMisses": 3,
+  "actionNotices": [
+    {
+      "source": "ornl-workshop",
+      "notice": "Register by Nov.9; unknown year/clock",
+      "assignedCandidate": null,
+      "complete": false,
+      "reason": "No registration action candidate was produced."
+    },
+    {
+      "source": "boren-process",
+      "notice": "Campus deadline: November2025, no exact day",
+      "assignedCandidate": null,
+      "complete": false,
+      "reason": "Runtime action has no explicit phase identity; assigning one candidate to two notices would fabricate completeness."
+    },
+    {
+      "source": "boren-process",
+      "notice": "National deadline: early February2026, no exact day",
+      "assignedCandidate": null,
+      "complete": false,
+      "reason": "Runtime action has no explicit phase identity; assigning one candidate to two notices would fabricate completeness."
+    }
+  ],
+  "fieldFactMisses": 21,
+  "cases": [
+    {
+      "id": "ornl-workshop",
+      "family": "engineering-ornl-nov2026",
+      "classification": "dated event flyer",
+      "sourceSha256": "3397f99fa3ad03366f2884ca22aec7b2cbc3bc6f1d4554aa967e607a2a3f70fa",
+      "predictionFileSha256": "1ce2d53783283a3217983f42099a43c7b3cc14b65f32babb66c25ca32b599dac",
+      "predictionCandidatesSha256": "67c3975c101965d1c5b720b9123d16b0d8c129eac539717804540c7e8b7b8624",
+      "ocrUnitsSha256": "21d38b9b2b3a8fbd1b9ab89d113b7f6835cfeda7c32f08a473b390033d9fc0d4",
+      "approvedReferenceSha256": "813c17a607ae50c741c63bdd75fc330c0f125d3f483c70b9bbb5477ef697012b",
+      "predictionCompletedAt": "2026-11-03T03:38:58.134Z",
+      "precedesOwnerApproval": true,
+      "units": [
+        {
+          "page": 1,
+          "status": "processed",
+          "expectedPages": 1,
+          "wordBoxes": 229,
+          "textCharacters": 3190,
+          "issues": [
+            "pdf_text_and_visual_differ"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "referenceField": "title",
+          "expected": "2nd Neutron Nexus Workshop: Engineering Materials",
+          "actual": "2 Neutron",
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "title"
+        },
+        {
+          "referenceField": "location",
+          "expected": "IRCB 1030, Tallahassee",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "location"
+        },
+        {
+          "referenceField": "startLocal",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "startLocal"
+        },
+        {
+          "referenceField": "endLocal",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "endLocal"
+        },
+        {
+          "referenceField": "timeZone",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "timeZone"
+        },
+        {
+          "referenceField": "status",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "status"
+        },
+        {
+          "referenceField": "registrationMonth",
+          "expected": 11,
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": null
+        },
+        {
+          "referenceField": "registrationDay",
+          "expected": 9,
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": null
+        },
+        {
+          "referenceField": "registrationYear",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": null
+        }
+      ],
+      "completeScopedEvent": false,
+      "unscoredNonnullPredictions": [],
+      "unscoredReferenceFields": [
+        "eventDateText",
+        "dateStart",
+        "dateEndInclusive",
+        "registrationText"
+      ],
+      "reviewIssues": [
+        "Printed poster contains no event hours or timezone. Do not borrow webpage clocks into a media-only result.",
+        "The registration date has no explicit year or clock. Keep exact deadline unresolved.",
+        "Original PDF is one page; plural filename does not prove multiple slides."
+      ],
+      "titleLoss": {
+        "expected": "2nd Neutron Nexus Workshop: Engineering Materials",
+        "observed": "2 Neutron",
+        "matched": false
+      }
+    },
+    {
+      "id": "marine-kim-miller",
+      "family": "marine-lab-media",
+      "classification": "dated flyer with missing year and timezone",
+      "sourceSha256": "7e850b7a5fb8e19dd9eca70e618dd62291ea58fbf22bee4540c8c94d00d18bfe",
+      "predictionFileSha256": "9f0e11eb2bc45c5c5f7524bb84a083d12d35978b8ca99635bd6b3cf6fe8f99fa",
+      "predictionCandidatesSha256": "b02c52862b41bae19818b1ac1ab20336b5597b636317d4e0cd789f91d31ef243",
+      "ocrUnitsSha256": "79f983a585161cd9a52532495c07843eba7f2cc67be0fbfe9cadc9d6d37bd053",
+      "approvedReferenceSha256": "459518c7e6e7fe4eeff278ae3bf40247f97f690a1995799a092a881fffb76514",
+      "predictionCompletedAt": "2026-11-03T03:38:59.071Z",
+      "precedesOwnerApproval": true,
+      "units": [
+        {
+          "page": null,
+          "status": "processed",
+          "wordBoxes": 211,
+          "textCharacters": 1507,
+          "issues": []
+        }
+      ],
+      "checks": [
+        {
+          "referenceField": "title",
+          "expected": "Apalachicola National Estuarine Research Reserve: Science, Partnerships, and Action",
+          "actual": "Kin Miffer",
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "title"
+        },
+        {
+          "referenceField": "speaker",
+          "expected": "Kim Miller",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "speaker"
+        },
+        {
+          "referenceField": "location",
+          "expected": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "location"
+        },
+        {
+          "referenceField": "timeZone",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "timeZone"
+        },
+        {
+          "referenceField": "status",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "status"
+        },
+        {
+          "referenceField": "priceText",
+          "expected": "Admission is Free!",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "price"
+        },
+        {
+          "referenceField": "startClock",
+          "expected": "19:00",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "startLocal"
+        },
+        {
+          "referenceField": "endClock",
+          "expected": "20:00",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "endLocal"
+        },
+        {
+          "referenceField": "year",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "date"
+        },
+        {
+          "referenceField": "month",
+          "expected": 11,
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "date"
+        },
+        {
+          "referenceField": "day",
+          "expected": 12,
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "date"
+        }
+      ],
+      "completeScopedEvent": false,
+      "unscoredNonnullPredictions": [],
+      "unscoredReferenceFields": [
+        "dateText"
+      ],
+      "reviewIssues": [
+        "Image itself has no explicit year or timezone. Do not infer year from the current page, filename or fetch time."
+      ],
+      "titleLoss": {
+        "expected": "Apalachicola National Estuarine Research Reserve: Science, Partnerships, and Action",
+        "observed": "Kin Miffer",
+        "matched": false
+      }
+    },
+    {
+      "id": "marine-rescheduled",
+      "family": "marine-lab-media",
+      "classification": "historical dated event flyer",
+      "sourceSha256": "7820059696391fe360f81d81a58b5b371f4493ab4f2f0a5ec4705c55b2edcbe8",
+      "predictionFileSha256": "dd899d536555eafc83399889c40c6c35464479267823924c7b409a8d4f3ab616",
+      "predictionCandidatesSha256": "e9b535dce2f440fcdfdaf80c9f5e325e21f7f872692eb99285805b1b2e3e542d",
+      "ocrUnitsSha256": "a1f0d186d963e1616c7371b1dd325e6e4e3ff655e8043290333c446f760d76e8",
+      "approvedReferenceSha256": "aab984d61f198d549c32699919909228971e3204b3914c50d892e7ce9aca52d4",
+      "predictionCompletedAt": "2026-11-03T03:38:59.694Z",
+      "precedesOwnerApproval": true,
+      "units": [
+        {
+          "page": null,
+          "status": "processed",
+          "wordBoxes": 170,
+          "textCharacters": 1038,
+          "issues": []
+        }
+      ],
+      "checks": [
+        {
+          "referenceField": "title",
+          "expected": "Science and Diving - SCUBA as a tool for research",
+          "actual": "Lecture Series",
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "title"
+        },
+        {
+          "referenceField": "speaker",
+          "expected": "Chris Peters",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "speaker"
+        },
+        {
+          "referenceField": "location",
+          "expected": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "location"
+        },
+        {
+          "referenceField": "timeZone",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "timeZone"
+        },
+        {
+          "referenceField": "status",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "status"
+        },
+        {
+          "referenceField": "priceText",
+          "expected": "Admission is free!",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "price"
+        },
+        {
+          "referenceField": "startClock",
+          "expected": "19:00",
+          "actual": "19:00",
+          "kind": "nonnull_fact",
+          "matches": true,
+          "predictionField": "startLocal"
+        },
+        {
+          "referenceField": "endClock",
+          "expected": "20:00",
+          "actual": "20:00",
+          "kind": "nonnull_fact",
+          "matches": true,
+          "predictionField": "endLocal"
+        },
+        {
+          "referenceField": "date",
+          "expected": "2026-02-12",
+          "actual": "2026-02-12",
+          "kind": "nonnull_fact",
+          "matches": true,
+          "predictionField": "date"
+        }
+      ],
+      "completeScopedEvent": false,
+      "unscoredNonnullPredictions": [
+        {
+          "candidate": "event:0",
+          "kind": "event",
+          "field": "datePrecision",
+          "value": "date"
+        }
+      ],
+      "unscoredReferenceFields": [],
+      "reviewIssues": [
+        "The filename says rescheduled, but the visible image does not state an old date or affirmative rescheduling/cancellation. Do not invent change history.",
+        "Historical date is preserved for evaluation; no calendar action follows.",
+        "Timezone is absent from the image."
+      ],
+      "titleLoss": {
+        "expected": "Science and Diving - SCUBA as a tool for research",
+        "observed": "Lecture Series",
+        "matched": false
+      }
+    },
+    {
+      "id": "boren-process",
+      "family": "onf-boren-2026",
+      "classification": "two-page application/resource flyer with cycle ambiguity",
+      "sourceSha256": "5e6571668a9f7ecf37200725a5eb9d01abf8aec09d713930da30e9425681bb50",
+      "predictionFileSha256": "42aadee4e0d5716e8e9dbe44a1b86b4bf2078dbbfb6c3afdb1ee03d8256291b0",
+      "predictionCandidatesSha256": "88ca6a83a61fba2b5da8de9b5baa9d470479a230096316d9a83816e90ff3709d",
+      "ocrUnitsSha256": "ae4b2be084a61d29ed7244ab1ce7216e9b90f617d0c1eb42636b97c628ff5efe",
+      "approvedReferenceSha256": "2ff6df50b317a989c739c19691e836aa515f5334c6d74f686c2e95479f74cac4",
+      "predictionCompletedAt": "2026-11-03T03:39:04.263Z",
+      "precedesOwnerApproval": true,
+      "units": [
+        {
+          "page": 1,
+          "status": "processed",
+          "expectedPages": 2,
+          "wordBoxes": 238,
+          "textCharacters": 6976,
+          "issues": [
+            "pdf_text_and_visual_differ"
+          ]
+        },
+        {
+          "page": 2,
+          "status": "processed",
+          "expectedPages": 2,
+          "wordBoxes": 223,
+          "textCharacters": 5522,
+          "issues": [
+            "pdf_text_and_visual_differ"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "referenceField": "title",
+          "expected": "Boren Awards",
+          "actual": "Florida State University",
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "title"
+        },
+        {
+          "referenceField": "processHeading",
+          "expected": "2026 INTERNAL BOREN APPLICATION PROCESS",
+          "actual": "2026 INTERNAL BOREN APPLICATION PROCESS",
+          "kind": "nonnull_fact",
+          "matches": true,
+          "predictionField": "title"
+        },
+        {
+          "referenceField": "eligibilityText",
+          "expected": "U.S. citizens at the time of the national application deadline",
+          "actual": "ELIGIBILITY",
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": "eligibility"
+        },
+        {
+          "referenceField": "campusDeadlineText",
+          "expected": "November 2025",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": null
+        },
+        {
+          "referenceField": "campusDeadlinePrecision",
+          "expected": "month",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": null
+        },
+        {
+          "referenceField": "campusDeadlineDay",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": null
+        },
+        {
+          "referenceField": "nationalDeadlineText",
+          "expected": "Early February, 2026",
+          "actual": null,
+          "kind": "nonnull_fact",
+          "matches": false,
+          "predictionField": null
+        },
+        {
+          "referenceField": "nationalDeadlineDay",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": null
+        },
+        {
+          "referenceField": "status",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "status"
+        }
+      ],
+      "completeScopedEvent": false,
+      "unscoredNonnullPredictions": [
+        {
+          "candidate": "action:0",
+          "kind": "action",
+          "field": "title",
+          "value": "2026 INTERNAL BOREN APPLICATION PROCESS"
+        },
+        {
+          "candidate": "action:0",
+          "kind": "action",
+          "field": "actionType",
+          "value": "application_deadline"
+        }
+      ],
+      "unscoredReferenceFields": [
+        "kind"
+      ],
+      "reviewIssues": [
+        "Page 1 gives a November 2025 campus timeline; page 2 is headed 2026 application process and refers only to \"the November deadline\". Human cycle interpretation is required.",
+        "Month/early-month statements cannot become exact days, clocks or instants.",
+        "Both pages belong to the same source/family and must remain together in any future split.",
+        "This is a real two-page PDF, not an Instagram carousel or proof of social access."
+      ],
+      "titleLoss": null
+    },
+    {
+      "id": "marine-boat-negative",
+      "family": "marine-lab-media",
+      "classification": "negative generic campus/research photograph",
+      "sourceSha256": "e89998accf148e9a27ebd7c3aa9180e5514ac978095536faa97d866c2a3a70cd",
+      "predictionFileSha256": "e781bcb52b03a4488e7a41b61230b072ec7d03f309a280fb6399dbe24a2ee711",
+      "predictionCandidatesSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "ocrUnitsSha256": "18d5ca1623571c8bc9b424adc846b0d760f08e18f475af6525806cd9d04885b2",
+      "approvedReferenceSha256": "9231f34405946942ef059638b15917732a24e917707ed84f758180e6bec4d39d",
+      "predictionCompletedAt": "2026-11-03T03:39:04.525Z",
+      "precedesOwnerApproval": true,
+      "units": [
+        {
+          "page": null,
+          "status": "processed",
+          "wordBoxes": 8,
+          "textCharacters": 20,
+          "issues": []
+        }
+      ],
+      "checks": [
+        {
+          "referenceField": "date",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "date"
+        },
+        {
+          "referenceField": "status",
+          "expected": null,
+          "actual": null,
+          "kind": "explicit_unknown",
+          "matches": true,
+          "predictionField": "status"
+        }
+      ],
+      "completeScopedEvent": false,
+      "unscoredNonnullPredictions": [],
+      "unscoredReferenceFields": [
+        "eventCount",
+        "actionCount"
+      ],
+      "reviewIssues": [
+        "Boat/building photograph contains no visible dated event invitation. A research/campus image is not sufficient event evidence."
+      ],
+      "titleLoss": null
+    }
+  ],
+  "modelCalls": 0,
+  "collectorCalls": 0,
+  "calendarCalls": 0,
+  "providerCostUsd": 0,
+  "localCpuCostUsd": null,
+  "stage2Accepted": false,
+  "independentHoldout": false,
+  "limitations": [
+    "Canonical projection itself was not separately human reviewed; these are scoped agreement/miss counts, not full factual precision or event/action recall.",
+    "Five selected development examples in three related families are not representative human accuracy or an independent holdout.",
+    "Source date ranges, missing years/timezones, month/early-month deadlines and source-cycle ambiguity are not converted into exact dates or instants.",
+    "The original stored predictions predate owner approval; no extractor/model/OCR was rerun or given approved references by this command. Original parser source hash was not recorded in the03:39 probe, so no retrospective source-hash attestation is claimed.",
+    "Extra prediction fields/entities and unmatched source facts remain explicitly unscored; unknown checks are abstentions, not recovered positive facts.",
+    "Original media/captures/proposals/approvals/holdout files are unchanged."
+  ],
+  "privateOutput": "private/stage2-approved-media-evaluation/1793681220628-d6fff5fff675296e.json"
+}

@@ -1,0 +1,4115 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-03T04:45:32.363Z",
+  "status": "newly_approved_twenty_development_partial_scope_diagnostic_not_acceptance",
+  "datasetVersion": "stage2-next20-approved-development-v1",
+  "preparationContract": "stage2-reviewed-development-v3",
+  "sourceTransform": "frozen-public-content-to-text-v1",
+  "projectionHash": "2d03391b3fe11d19bb7fd136e6e6eedbc8a7f78849814b04546e90cd2f21d873",
+  "approval": {
+    "path": "reports/stage-2-next25-human-review.json",
+    "sha256": "18fcbf68a2509baf46091c749525c431aaf6a25a49e9f9630fa7ae230e626fde",
+    "reviewId": "owner-next25-20261103T044216Z",
+    "confirmationRecordedAt": "2026-11-03T04:42:16Z",
+    "exactReviewTimeKnown": false,
+    "adjudicated": false,
+    "overlaySha256": "6d0c6f6736e8178ee01fe8045286027ed8c856243296cacb1b665467e8c6052b"
+  },
+  "inputs": {
+    "reviewedDevelopmentExamples": 20,
+    "sourceMembers": 41,
+    "retainedSourceTextUnits": 44,
+    "verifiedOriginalCaptures": 12,
+    "allDevelopment": true,
+    "holdoutReadOrScored": false,
+    "oldTenRepeated": false
+  },
+  "runtime": {
+    "version": "stage2-rules-v3",
+    "file": "lib/extraction/text.ts",
+    "sha256": "b145201710b0e8ee41e901b0937213554c517e14165ca081fac8a3f45b93b119",
+    "registryFile": "lib/extraction/versions.ts",
+    "registrySha256": "74cab17f5d64a5b37866f757df6eedeadd4edfceead73966829f8e0efc1b7688",
+    "sourceOnlyInputs": true,
+    "quotesValidated": true,
+    "elapsedMs": 33.14333199999987,
+    "validationFailures": []
+  },
+  "scopedMeasurements": {
+    "fields": {
+      "expected": 259,
+      "correct": 97,
+      "missed": 162,
+      "labeledPredicted": 101,
+      "wrongOrUnsupported": 4,
+      "totalPredictedNonnullFields": 151,
+      "unscoredMatchedFields": 38,
+      "unscoredExtraUnitFields": 12,
+      "unscoredTotal": 50,
+      "labeledPrecision": 0.9603960396039604,
+      "labeledFactRecovery": 0.3745173745173745,
+      "predictionLabelCoverage": 0.6688741721854304
+    },
+    "strictScopedUnits": {
+      "event": {
+        "expected": 36,
+        "complete": 3,
+        "missed": 33,
+        "completeness": 0.08333333333333333,
+        "wilson95": {
+          "low": 0.02874861133599338,
+          "high": 0.2182669124927263
+        }
+      },
+      "action": {
+        "expected": 9,
+        "complete": 7,
+        "missed": 2,
+        "completeness": 0.7777777777777778,
+        "wilson95": {
+          "low": 0.45258896910698887,
+          "high": 0.9367748928821533
+        }
+      }
+    },
+    "casesAllScopedFactsMatch": 6,
+    "cases": 20,
+    "extraPredictedUnitsUnscored": 7
+  },
+  "needsReview": {
+    "scopeNotes": 216,
+    "exhaustiveEntitySets": false,
+    "canonicalNullBoundaryAdjudication": false,
+    "semanticallyEquivalentVenueNamesAdjudicated": false
+  },
+  "cases": [
+    {
+      "caseId": "public-review-076-b60e4e9ee3",
+      "primarySource": "fsu-calendar-api",
+      "score": {
+        "caseId": "public-review-076-b60e4e9ee3",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 7,
+          "predicted": 8,
+          "labeledPredicted": 6,
+          "correct": 5,
+          "wrongOrUnsupported": 1,
+          "missed": 2,
+          "unsupported": 0,
+          "unsupportedCritical": 1,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "endLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "location",
+            "reason": "incorrect_or_unsupported"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 1,
+        "totalPredictedNonnullFields": 8
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-077-0ea4dac6ce",
+      "primarySource": "fsu-calendar-api",
+      "score": {
+        "caseId": "public-review-077-0ea4dac6ce",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 7,
+          "predicted": 8,
+          "labeledPredicted": 6,
+          "correct": 6,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "endLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 1,
+        "totalPredictedNonnullFields": 8
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-068-1c62f687f5",
+      "primarySource": "fsu-calendar-api",
+      "score": {
+        "caseId": "public-review-068-1c62f687f5",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 12,
+          "predicted": 0,
+          "labeledPredicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 12,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "location",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "location",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [
+          {
+            "key": "m0-source0:resource:0",
+            "kind": "resource",
+            "nonnullFields": [
+              "title",
+              "location"
+            ]
+          },
+          {
+            "key": "m1-source0:resource:0",
+            "kind": "resource",
+            "nonnullFields": [
+              "title",
+              "location"
+            ]
+          }
+        ],
+        "totalPredictedUnits": 2,
+        "totalPredictedNonnullFields": 4
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "endAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "endAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-069-f07994e617",
+      "primarySource": "fsu-calendar-api",
+      "score": {
+        "caseId": "public-review-069-f07994e617",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 15,
+          "predicted": 10,
+          "labeledPredicted": 8,
+          "correct": 8,
+          "wrongOrUnsupported": 0,
+          "missed": 7,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "endLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 2,
+        "totalPredictedNonnullFields": 10
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-070-03f4ccfcc5",
+      "primarySource": "fsu-calendar-api",
+      "score": {
+        "caseId": "public-review-070-03f4ccfcc5",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 7,
+          "predicted": 8,
+          "labeledPredicted": 6,
+          "correct": 6,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "endLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 1,
+        "totalPredictedNonnullFields": 8
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-050-00f4743508",
+      "primarySource": "fsu-hq-public-export",
+      "score": {
+        "caseId": "public-review-050-00f4743508",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 7,
+          "predicted": 0,
+          "labeledPredicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 7,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [
+          {
+            "key": "m0-source0:resource:0",
+            "kind": "resource",
+            "nonnullFields": [
+              "title"
+            ]
+          }
+        ],
+        "totalPredictedUnits": 1,
+        "totalPredictedNonnullFields": 1
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-043-306a8d2258",
+      "primarySource": "fsu-hq-public-export",
+      "score": {
+        "caseId": "public-review-043-306a8d2258",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 7,
+          "predicted": 1,
+          "labeledPredicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 6,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 1,
+        "totalPredictedNonnullFields": 1
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-044-1e81f379a6",
+      "primarySource": "fsu-hq-public-export",
+      "score": {
+        "caseId": "public-review-044-1e81f379a6",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 7,
+          "predicted": 1,
+          "labeledPredicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 6,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 1,
+        "totalPredictedNonnullFields": 1
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-045-cecfae1f18",
+      "primarySource": "fsu-hq-public-export",
+      "score": {
+        "caseId": "public-review-045-cecfae1f18",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 41,
+          "predicted": 12,
+          "labeledPredicted": 10,
+          "correct": 10,
+          "wrongOrUnsupported": 0,
+          "missed": 31,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 6,
+            "predicted": 6,
+            "correct": 0,
+            "missed": 6,
+            "falsePositive": 6
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "endLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 6,
+        "totalPredictedNonnullFields": 12
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 2,
+          "unitKey": "m2-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 2,
+          "unitKey": "m2-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 2,
+          "unitKey": "m2-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 2,
+          "unitKey": "m2-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 3,
+          "unitKey": "m3-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 3,
+          "unitKey": "m3-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 3,
+          "unitKey": "m3-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 3,
+          "unitKey": "m3-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 4,
+          "unitKey": "m4-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 4,
+          "unitKey": "m4-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 4,
+          "unitKey": "m4-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 4,
+          "unitKey": "m4-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 5,
+          "unitKey": "m5-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 5,
+          "unitKey": "m5-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 5,
+          "unitKey": "m5-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 5,
+          "unitKey": "m5-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-046-01f1fe406d",
+      "primarySource": "fsu-hq-public-export",
+      "score": {
+        "caseId": "public-review-046-01f1fe406d",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 103,
+          "predicted": 27,
+          "labeledPredicted": 23,
+          "correct": 23,
+          "wrongOrUnsupported": 0,
+          "missed": 80,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 15,
+            "predicted": 15,
+            "correct": 0,
+            "missed": 15,
+            "falsePositive": 15
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "endLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "startLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "endLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m1-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m2-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m3-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m4-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m5-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m6-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m6-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m6-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m6-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m6-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m6-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m7-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m7-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m7-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m7-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m7-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m7-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m8-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m8-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m8-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m8-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m8-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m8-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m9-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m9-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m9-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m9-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m9-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m9-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m10-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m10-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m10-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m10-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m10-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m10-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m11-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m11-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m11-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m11-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m11-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m11-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m12-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m12-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m12-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m12-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m12-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m12-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m13-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m13-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m13-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m13-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m13-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m13-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "m14-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m14-source0:event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m14-source0:event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "m14-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "m14-source0:event:0",
+            "kind": "event",
+            "field": "timeZone",
+            "reason": "missing"
+          },
+          {
+            "key": "m14-source0:event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 15,
+        "totalPredictedNonnullFields": 27
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 1,
+          "unitKey": "m1-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 2,
+          "unitKey": "m2-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 2,
+          "unitKey": "m2-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 2,
+          "unitKey": "m2-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 2,
+          "unitKey": "m2-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 3,
+          "unitKey": "m3-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 3,
+          "unitKey": "m3-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 3,
+          "unitKey": "m3-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 3,
+          "unitKey": "m3-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 4,
+          "unitKey": "m4-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 4,
+          "unitKey": "m4-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 4,
+          "unitKey": "m4-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 4,
+          "unitKey": "m4-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 5,
+          "unitKey": "m5-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 5,
+          "unitKey": "m5-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 5,
+          "unitKey": "m5-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 5,
+          "unitKey": "m5-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 6,
+          "unitKey": "m6-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 6,
+          "unitKey": "m6-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 6,
+          "unitKey": "m6-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 6,
+          "unitKey": "m6-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 7,
+          "unitKey": "m7-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 7,
+          "unitKey": "m7-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 7,
+          "unitKey": "m7-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 7,
+          "unitKey": "m7-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 8,
+          "unitKey": "m8-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 8,
+          "unitKey": "m8-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 8,
+          "unitKey": "m8-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 8,
+          "unitKey": "m8-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 9,
+          "unitKey": "m9-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 9,
+          "unitKey": "m9-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 9,
+          "unitKey": "m9-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 9,
+          "unitKey": "m9-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 10,
+          "unitKey": "m10-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 10,
+          "unitKey": "m10-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 10,
+          "unitKey": "m10-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 10,
+          "unitKey": "m10-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 11,
+          "unitKey": "m11-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 11,
+          "unitKey": "m11-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 11,
+          "unitKey": "m11-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 11,
+          "unitKey": "m11-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 12,
+          "unitKey": "m12-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 12,
+          "unitKey": "m12-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 12,
+          "unitKey": "m12-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 12,
+          "unitKey": "m12-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 13,
+          "unitKey": "m13-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 13,
+          "unitKey": "m13-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 13,
+          "unitKey": "m13-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 13,
+          "unitKey": "m13-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 14,
+          "unitKey": "m14-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 14,
+          "unitKey": "m14-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 14,
+          "unitKey": "m14-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 14,
+          "unitKey": "m14-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-003-173c87a9c0",
+      "primarySource": "fsu-music-events",
+      "score": {
+        "caseId": "public-review-003-173c87a9c0",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": true,
+        "fields": {
+          "expected": 3,
+          "predicted": 5,
+          "labeledPredicted": 3,
+          "correct": 3,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 1,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "location",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 1,
+        "totalPredictedNonnullFields": 5
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "startAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "endAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "status",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-004-432531518d",
+      "primarySource": "fsu-music-events",
+      "score": {
+        "caseId": "public-review-004-432531518d",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": true,
+        "fields": {
+          "expected": 3,
+          "predicted": 5,
+          "labeledPredicted": 3,
+          "correct": 3,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 1,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "location",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "startLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 1,
+        "totalPredictedNonnullFields": 5
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "startAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "endAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "status",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-013-45d59c38fe",
+      "primarySource": "fsu-cre-applications",
+      "score": {
+        "caseId": "public-review-013-45d59c38fe",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": true,
+        "fields": {
+          "expected": 8,
+          "predicted": 14,
+          "labeledPredicted": 8,
+          "correct": 8,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 6,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 2,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:action:application_open:0",
+            "kind": "action",
+            "field": "timeZone",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_open:0",
+            "kind": "action",
+            "field": "datePrecision",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_open:0",
+            "kind": "action",
+            "field": "actionLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "timeZone",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "datePrecision",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "actionLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 2,
+        "totalPredictedNonnullFields": 14
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "timeZone",
+          "reason": "Reference uses a fixed offset; equivalence to a named source zone needs canonical adjudication."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "datePrecision",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "availability",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "eligibility",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "timeZone",
+          "reason": "Reference uses a fixed offset; equivalence to a named source zone needs canonical adjudication."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "datePrecision",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "availability",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "eligibility",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": null,
+          "field": "resource_units",
+          "reason": "Program-to-resource unit mapping and exhaustive entities are not separately human labeled."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-014-4a08bb35fc",
+      "primarySource": "fsu-cre-applications",
+      "score": {
+        "caseId": "public-review-014-4a08bb35fc",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": true,
+        "fields": {
+          "expected": 8,
+          "predicted": 14,
+          "labeledPredicted": 8,
+          "correct": 8,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 6,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 2,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:action:application_open:0",
+            "kind": "action",
+            "field": "timeZone",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_open:0",
+            "kind": "action",
+            "field": "datePrecision",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_open:0",
+            "kind": "action",
+            "field": "actionLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "timeZone",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "datePrecision",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "actionLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 2,
+        "totalPredictedNonnullFields": 14
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "timeZone",
+          "reason": "Reference uses a fixed offset; equivalence to a named source zone needs canonical adjudication."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "datePrecision",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "availability",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "eligibility",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "timeZone",
+          "reason": "Reference uses a fixed offset; equivalence to a named source zone needs canonical adjudication."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "datePrecision",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "availability",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "eligibility",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": null,
+          "field": "resource_units",
+          "reason": "Program-to-resource unit mapping and exhaustive entities are not separately human labeled."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-015-571731eae2",
+      "primarySource": "fsu-cre-applications",
+      "score": {
+        "caseId": "public-review-015-571731eae2",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": true,
+        "fields": {
+          "expected": 8,
+          "predicted": 14,
+          "labeledPredicted": 8,
+          "correct": 8,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 6,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 2,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source0:action:application_open:0",
+            "kind": "action",
+            "field": "timeZone",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_open:0",
+            "kind": "action",
+            "field": "datePrecision",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_open:0",
+            "kind": "action",
+            "field": "actionLocal",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "timeZone",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "datePrecision",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "actionLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 2,
+        "totalPredictedNonnullFields": 14
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "timeZone",
+          "reason": "Reference uses a fixed offset; equivalence to a named source zone needs canonical adjudication."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "datePrecision",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "availability",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_open:0",
+          "field": "eligibility",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "timeZone",
+          "reason": "Reference uses a fixed offset; equivalence to a named source zone needs canonical adjudication."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "datePrecision",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "availability",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "eligibility",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": null,
+          "field": "resource_units",
+          "reason": "Program-to-resource unit mapping and exhaustive entities are not separately human labeled."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-025-515e321039",
+      "primarySource": "fsu-onf-dates",
+      "score": {
+        "caseId": "public-review-025-515e321039",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 2,
+          "predicted": 0,
+          "labeledPredicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 2,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "actionType",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [],
+        "totalPredictedUnits": 0,
+        "totalPredictedNonnullFields": 0
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "occursAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "occursOn",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "datePrecision",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "availability",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "eligibility",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": null,
+          "field": "resource_units",
+          "reason": "Program-to-resource unit mapping and exhaustive entities are not separately human labeled."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-023-1a6a367e96",
+      "primarySource": "fsu-onf-dates",
+      "score": {
+        "caseId": "public-review-023-1a6a367e96",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 2,
+          "predicted": 2,
+          "labeledPredicted": 2,
+          "correct": 1,
+          "wrongOrUnsupported": 1,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 1,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:action:application_deadline:0",
+            "kind": "action",
+            "field": "title",
+            "reason": "incorrect_or_unsupported"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [
+          {
+            "key": "m0-source0:resource:0",
+            "kind": "resource",
+            "nonnullFields": [
+              "title"
+            ]
+          }
+        ],
+        "totalPredictedUnits": 2,
+        "totalPredictedNonnullFields": 3
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "occursAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "occursOn",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "datePrecision",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "availability",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:action:application_deadline:0",
+          "field": "eligibility",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": null,
+          "field": "resource_units",
+          "reason": "Program-to-resource unit mapping and exhaustive entities are not separately human labeled."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-034-143fad4972",
+      "primarySource": "fsu-opening-nights",
+      "score": {
+        "caseId": "public-review-034-143fad4972",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": true,
+        "fields": {
+          "expected": 6,
+          "predicted": 8,
+          "labeledPredicted": 6,
+          "correct": 6,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 1,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 1,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [
+          {
+            "key": "m0-source1:action:ticket_release:0",
+            "kind": "action",
+            "field": "datePrecision",
+            "evidencePresent": true
+          },
+          {
+            "key": "m0-source1:action:ticket_release:0",
+            "kind": "action",
+            "field": "actionLocal",
+            "evidencePresent": true
+          }
+        ],
+        "criticalFieldFailures": [],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [
+          {
+            "key": "m0-source1:event:0",
+            "kind": "event",
+            "nonnullFields": [
+              "title",
+              "date",
+              "datePrecision"
+            ]
+          }
+        ],
+        "totalPredictedUnits": 3,
+        "totalPredictedNonnullFields": 11
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "startAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "endAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "status",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source1:action:ticket_release:0",
+          "field": "occursAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source1:action:ticket_release:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source1:action:ticket_release:0",
+          "field": "datePrecision",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source1:action:ticket_release:0",
+          "field": "availability",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source1:action:ticket_release:0",
+          "field": "eligibility",
+          "reason": "Canonical field semantics are not independently labeled by this reference."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-035-240b63dcf5",
+      "primarySource": "fsu-opening-nights",
+      "score": {
+        "caseId": "public-review-035-240b63dcf5",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 3,
+          "predicted": 1,
+          "labeledPredicted": 1,
+          "correct": 0,
+          "wrongOrUnsupported": 1,
+          "missed": 3,
+          "unsupported": 0,
+          "unsupportedCritical": 1,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "title",
+            "reason": "incorrect_or_unsupported"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [
+          {
+            "key": "m0-source1:event:0",
+            "kind": "event",
+            "nonnullFields": [
+              "title"
+            ]
+          }
+        ],
+        "totalPredictedUnits": 2,
+        "totalPredictedNonnullFields": 2
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "startAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "endAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "status",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": null,
+          "field": "ticket_link",
+          "reason": "A visible purchase link is not a timed release; canonical resource/action mapping and exhaustive entity labeling need review."
+        }
+      ],
+      "error": null
+    },
+    {
+      "caseId": "public-review-036-259ed35818",
+      "primarySource": "fsu-opening-nights",
+      "score": {
+        "caseId": "public-review-036-259ed35818",
+        "split": "development",
+        "labelStatus": "human_reviewed",
+        "provenance": "public_capture",
+        "passed": false,
+        "fields": {
+          "expected": 3,
+          "predicted": 1,
+          "labeledPredicted": 1,
+          "correct": 0,
+          "wrongOrUnsupported": 1,
+          "missed": 3,
+          "unsupported": 0,
+          "unsupportedCritical": 1,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "statusMatch": true,
+        "missingIssues": [],
+        "negative": false,
+        "negativeCorrect": false,
+        "unscoredFields": [],
+        "criticalFieldFailures": [
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "title",
+            "reason": "incorrect_or_unsupported"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "date",
+            "reason": "missing"
+          },
+          {
+            "key": "m0-source0:event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          }
+        ],
+        "duplicatePredictionKeys": 0,
+        "fullCaseAccepted": false,
+        "unitSetExhaustive": false,
+        "scopeNotice": "Only explicitly projected approved reference units/fields are scored. Extra entity predictions require labels, not an automatic correctness judgment. This is not complete precision or detection recall.",
+        "extraPredictedUnitsUnscored": [
+          {
+            "key": "m0-source1:event:0",
+            "kind": "event",
+            "nonnullFields": [
+              "title",
+              "location"
+            ]
+          }
+        ],
+        "totalPredictedUnits": 2,
+        "totalPredictedNonnullFields": 3
+      },
+      "scopeNotes": [
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "startAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "endAt",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "timeZone",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "status",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "location",
+          "reason": "Reference is null/unknown; canonical abstention boundary has not been separately adjudicated."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "doorsAt",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "cost",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": "m0-source0:event:0",
+          "field": "eligibility",
+          "reason": "No approved canonical field for this fact; any prediction stays unscored."
+        },
+        {
+          "memberIndex": 0,
+          "unitKey": null,
+          "field": "ticket_link",
+          "reason": "A visible purchase link is not a timed release; canonical resource/action mapping and exhaustive entity labeling need review."
+        }
+      ],
+      "error": null
+    }
+  ],
+  "preservation": {
+    "oldTenComparisonSha256": "dc0fc9ff49d6e5070114bbbe8193bb6949093e6a655dc9440cd4d7bc420d4ccd",
+    "oldTenManifestSha256": "97d6389ec135bc930a67de3c3e3906d765cc1c34ba5f35119c0928cb4d52ea54",
+    "oldTenFilesChanged": false,
+    "originalFactsOrSourcesChanged": false,
+    "privateRun": "private/stage2-reviewed/next20-approved-v1/v3-2d03391b3fe11d19-2026-11-03T04-45-32-363Z.json"
+  },
+  "boundaries": {
+    "newModelCalls": 0,
+    "approvedModelGenerationBudgetConsumed": true,
+    "httpRequests": 0,
+    "databaseCalls": 0,
+    "calendarCalls": 0,
+    "newHumanApprovals": 0
+  },
+  "limitations": [
+    "Single-owner-approved inherited source references, not independent adjudication or a representative holdout.",
+    "Only the existing fixed nonnull canonical scope is scored; null boundaries, venue equivalence, extra entities and source conflicts remain explicit review work.",
+    "Strict scoped completeness is not title-only detection recall; missing scheduled status remains a failure without inventing it.",
+    "Inputs are source-derived JSON/ICS/HTML text, not OCR. Five separately approved actual-media examples are excluded from this diagnostic.",
+    "Existing provisional family grouping is preserved without new organizer/alias adjudication.",
+    "A schema/evidence validation failure is a failed attempt, never a successful empty result.",
+    "Wilson intervals describe binomial arithmetic on scoped units; within-family dependence is not cluster-adjusted, so they do not establish independent-source uncertainty or campus coverage."
+  ],
+  "stage2Accepted": false,
+  "completeFactualAccuracyEstablished": false
+}

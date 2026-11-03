@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-03T04:00:55.548Z",
+  "status": "bounded_two_prompt_development_comparison_completed",
+  "stopReason": null,
+  "model": {
+    "id": "onnx-community/Qwen2.5-0.5B-Instruct",
+    "revision": "516c8d04add8a80c5228f32102b57953b8d421a9",
+    "dtype": "q4",
+    "backend": "onnxruntime-node/cpu",
+    "transformersJs": "3.8.1",
+    "artifactsSha256": "9496aa279ac843f73dda58a0b05ad2b5d19cfe8f073b88dde91c0df4357274df",
+    "assetBytes": 793197937,
+    "assets": [
+      {
+        "file": "config.json",
+        "bytes": 678,
+        "sha256": "777e01f0fbb3346eb229cb6fb278ed6533c1e4dcb9ebf4bed0f6e94ef17fa1b5"
+      },
+      {
+        "file": "generation_config.json",
+        "bytes": 242,
+        "sha256": "f7e7ce458658b2d40d9eb213b91b77a8bf698845ab89360976722d7ac46928a3"
+      },
+      {
+        "file": "tokenizer.json",
+        "bytes": 7031673,
+        "sha256": "a8506e7111b80c6d8635951a02eab0f4e1a8e4e5772da83846579e97b16f61bf"
+      },
+      {
+        "file": "tokenizer_config.json",
+        "bytes": 7306,
+        "sha256": "7e88129d9769a0b14b1587a7d5e829fe93ac0e1511636471fdfc0811951418e6"
+      },
+      {
+        "file": "special_tokens_map.json",
+        "bytes": 613,
+        "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd"
+      },
+      {
+        "file": "added_tokens.json",
+        "bytes": 605,
+        "sha256": "58b54bbe36fc752f79a24a271ef66a0a0830054b4dfad94bde757d851968060b"
+      },
+      {
+        "file": "onnx/model_q4.onnx",
+        "bytes": 786156820,
+        "sha256": "09235a3b1c135cd04ef570e5053b5c079e028078a2cc5f76ba6a251e91bf3296"
+      }
+    ],
+    "dependencyLockSha256": "e50f95e2faeee11d9547e5766f99bbb156e70c8cd2fae3ce8dc0d1858697ce94"
+  },
+  "authorizationPlan": {
+    "path": "docs/stage-2-free-model-plan.md",
+    "sha256": "3adff4e028f8933a4318cde49dcdb508b03e25a1169dd31e893318b4c20435ff"
+  },
+  "limits": {
+    "maximumGenerations": 20,
+    "actualGenerations": 20,
+    "maximumOutputTokens": 384,
+    "perGenerationWallMs": 60000,
+    "totalWallCapMs": 1200000,
+    "totalCpuWatchdogMs": 1200000,
+    "modelAssetByteCap": 900000000
+  },
+  "inputs": {
+    "approvedDevelopmentCases": 10,
+    "referenceHash": "225170534b7c712ab000248e925a78a4c7263dda9286090961d847b43fe10174",
+    "sourceOnlyPrompts": true,
+    "goldSentToModel": false,
+    "holdoutReadOrScored": false,
+    "scope": "Same55-fact partial canonical scope as deterministic real-development comparison; no full accuracy claim."
+  },
+  "prompts": [
+    {
+      "promptId": "schema-first-v1",
+      "promptSha256": "47c2e665b9450a34968d664454c2180361b601a26c277adfaff7a99ea20d3302",
+      "plannedCases": 10,
+      "attemptedCases": 10,
+      "notRunCases": 0,
+      "validated": 0,
+      "failed": 10,
+      "failures": [
+        {
+          "caseId": "public-review-066-a68aa8d396",
+          "failure": "evidence_validation_failed:A non-null field lacks evidence"
+        },
+        {
+          "caseId": "public-review-041-005f3c626f",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-002-108ec15688",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-022-383bba5401",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-012-fd05350e90",
+          "failure": "json_parse_failed"
+        },
+        {
+          "caseId": "public-review-001-1517e62390",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-032-e86e2b68c9",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-067-d844eeaf38",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-042-e38acc1407",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-033-0468722d86",
+          "failure": "schema_failed"
+        }
+      ],
+      "scopedFactsExpectedForAttemptedCases": 55,
+      "factsRecovered": 0,
+      "missedFactsForAttemptedCases": 55,
+      "labeledPredictions": 0,
+      "wrongOrUnsupportedLabeledPredictions": 0,
+      "totalNonnullPredictions": 0,
+      "unscoredPredictions": 0,
+      "events": {
+        "expected": 8,
+        "complete": 0
+      },
+      "actions": {
+        "expected": 6,
+        "complete": 0
+      },
+      "casesAllScoredFactsMatch": 0,
+      "completePlannedInputCoverage": true,
+      "labeledPrecisionOfValidatedPredictions": null,
+      "scopedFactRecoveryForAttemptedCases": 0,
+      "scopedEventCompleteness": 0,
+      "scopedEventWilson95": {
+        "low": 0,
+        "high": 0.32440756488388023
+      },
+      "scopedActionCompleteness": 0,
+      "scopedActionWilson95": {
+        "low": 2.7755575615628914e-17,
+        "high": 0.3903342879021653
+      },
+      "failedOutputsAreNotSuccessfulEmptyResults": true,
+      "rawUnvalidatedClaimPrecisionNotMeasured": true,
+      "inputMessageBytesForAttemptedGenerations": 20735,
+      "rawOutputBytes": 4674,
+      "wallMs": 195026,
+      "knownGenerationCpuMs": 225438.40099999995,
+      "unmeasuredGenerationCpuRuns": 0
+    },
+    {
+      "promptId": "evidence-first-v1",
+      "promptSha256": "46a74ff3a7626155088dbaf274a47686e4c72ed84f85792970f9b4e9fbad0a81",
+      "plannedCases": 10,
+      "attemptedCases": 10,
+      "notRunCases": 0,
+      "validated": 0,
+      "failed": 10,
+      "failures": [
+        {
+          "caseId": "public-review-066-a68aa8d396",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-041-005f3c626f",
+          "failure": "evidence_validation_failed:A non-null field lacks evidence"
+        },
+        {
+          "caseId": "public-review-002-108ec15688",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-022-383bba5401",
+          "failure": "evidence_quote_not_found"
+        },
+        {
+          "caseId": "public-review-012-fd05350e90",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-001-1517e62390",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-032-e86e2b68c9",
+          "failure": "schema_failed"
+        },
+        {
+          "caseId": "public-review-067-d844eeaf38",
+          "failure": "json_parse_failed"
+        },
+        {
+          "caseId": "public-review-042-e38acc1407",
+          "failure": "evidence_validation_failed:A non-null field lacks evidence"
+        },
+        {
+          "caseId": "public-review-033-0468722d86",
+          "failure": "schema_failed"
+        }
+      ],
+      "scopedFactsExpectedForAttemptedCases": 55,
+      "factsRecovered": 0,
+      "missedFactsForAttemptedCases": 55,
+      "labeledPredictions": 0,
+      "wrongOrUnsupportedLabeledPredictions": 0,
+      "totalNonnullPredictions": 0,
+      "unscoredPredictions": 0,
+      "events": {
+        "expected": 8,
+        "complete": 0
+      },
+      "actions": {
+        "expected": 6,
+        "complete": 0
+      },
+      "casesAllScoredFactsMatch": 0,
+      "completePlannedInputCoverage": true,
+      "labeledPrecisionOfValidatedPredictions": null,
+      "scopedFactRecoveryForAttemptedCases": 0,
+      "scopedEventCompleteness": 0,
+      "scopedEventWilson95": {
+        "low": 0,
+        "high": 0.32440756488388023
+      },
+      "scopedActionCompleteness": 0,
+      "scopedActionWilson95": {
+        "low": 2.7755575615628914e-17,
+        "high": 0.3903342879021653
+      },
+      "failedOutputsAreNotSuccessfulEmptyResults": true,
+      "rawUnvalidatedClaimPrecisionNotMeasured": true,
+      "inputMessageBytesForAttemptedGenerations": 20945,
+      "rawOutputBytes": 5866,
+      "wallMs": 197146,
+      "knownGenerationCpuMs": 227382.30700000006,
+      "unmeasuredGenerationCpuRuns": 0
+    }
+  ],
+  "runtime": {
+    "startedAt": "2026-11-03T03:54:21.003Z",
+    "readyAt": "2026-11-03T03:54:23.334Z",
+    "wallMs": 394546,
+    "parentCpuMs": 247.037,
+    "lastReportedChildCpuMs": 455478.435,
+    "sourceUploads": 0,
+    "remoteModelLoading": false,
+    "productionIntegration": false
+  },
+  "costs": {
+    "modelApiCalls": 0,
+    "modelApiUsd": 0,
+    "paidUpgrades": 0,
+    "localElectricityUsd": null
+  },
+  "privateArtifacts": {
+    "directory": "/Users/richarda/Documents/ChatGPT/Opportunity Tracking/private/stage2-free-model",
+    "prompts": "/Users/richarda/Documents/ChatGPT/Opportunity Tracking/private/stage2-free-model/prompts",
+    "journal": "/Users/richarda/Documents/ChatGPT/Opportunity Tracking/private/stage2-free-model/generation-journal.jsonl",
+    "runs": "/Users/richarda/Documents/ChatGPT/Opportunity Tracking/private/stage2-free-model/runs",
+    "originalRawOutputsRetained": true
+  },
+  "interpretation": "A zero-API-cost local development attempt, not a human holdout or semantic adjudication. Parse/schema/evidence failures remain failed collection/extraction attempts, not successful empty results. A validated quote is not proof of semantic entailment. No configuration is selected for production unless it meets the gates; this attempt cannot establish Stage2 acceptance.",
+  "stage2Accepted": false,
+  "stage3Authorized": false,
+  "calendarCalls": 0,
+  "databaseCalls": 0,
+  "verification": {
+    "generationJournalVerified": true,
+    "actualGenerationStarts": 20,
+    "uniqueJobs": true,
+    "maximumOutputTokenCapVerifiedFromRecordedConfig": 384,
+    "workerScriptSha256": "ec047db5427d080eac7d2b8c43fafc398b16d578318ce66da672e28db4a36785",
+    "runnerScriptSha256": "ac91a40ac840aed71206478ddbd2d0f21b20a9a382b1077e87a133b2a78788ac"
+  },
+  "failureCounts": {
+    "evidence_validation_failed:A non-null field lacks evidence": 3,
+    "schema_failed": 14,
+    "evidence_quote_not_found": 1,
+    "json_parse_failed": 2
+  },
+  "backendReady": true,
+  "deterministicBaseline": {
+    "path": "reports/stage-2-reviewed-development-stage2-rules-v3.json",
+    "reportSha256": "19d2ab400fdec8eaa0f7edc45c11c0986062c5bcfdbf1716407e37cadff72443",
+    "extractorVersion": "stage2-rules-v3",
+    "referenceHash": "225170534b7c712ab000248e925a78a4c7263dda9286090961d847b43fe10174",
+    "measurements": {
+      "fields": {
+        "expected": 55,
+        "correct": 32,
+        "missed": 23,
+        "labeledPredicted": 35,
+        "wrongOrUnsupported": 3,
+        "unscoredMatchedFields": 10,
+        "totalPredictedNonnullFields": 56,
+        "unscoredExtraUnitFields": 11,
+        "unscoredTotal": 21,
+        "labeledScopePrecision": 0.9142857142857143,
+        "labeledFactRecovery": 0.5818181818181818,
+        "predictionLabelCoverage": 0.625
+      },
+      "criticalUnitCompleteness": {
+        "event": {
+          "expected": 8,
+          "correct": 3,
+          "missed": 5
+        },
+        "action": {
+          "expected": 6,
+          "correct": 3,
+          "missed": 3
+        }
+      },
+      "casesWithAllScoredFactsMatching": 4,
+      "cases": 10,
+      "extraPredictedUnitsUnscored": 5,
+      "notice": "Partial canonical reference scope only. Entity sets and null abstention boundaries were not exhaustively reviewed. Extra predictions are listed as unscored; complete precision, detection recall and full-case accuracy are not established."
+    }
+  },
+  "configurationSelectedForProduction": false,
+  "selectionReason": "No automatic promotion is authorized; complete semantic/holdout gates remain open. Parse/schema/evidence failures cannot qualify a configuration even when API charges are zero.",
+  "setupFailureEvidence": [
+    "private/stage2-free-model/artifacts-initial-network-failure.json",
+    "private/stage2-free-model/npm-cache/_logs/"
+  ],
+  "telemetryLimitations": [
+    "Generation counts, raw output bytes, wall time and child CPU telemetry are measured. Actual generated token counts were not separately returned;384 is the enforced maximum_new_tokens setting.",
+    "CPU watchdog uses one-second heartbeats plus a hard wall cap; model/runtime initialization is included in the timed attempt. Download/install CPU and local electricity remain unmeasured.",
+    "The model artifact byte count excludes isolated npm dependencies/cache. No production dependencies were changed."
+  ]
+}

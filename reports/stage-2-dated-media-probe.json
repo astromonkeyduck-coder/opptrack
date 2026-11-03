@@ -1,0 +1,243 @@
+{
+  "recordedAt": "2026-11-03T03:39:04.525Z",
+  "command": "node --import tsx scripts/probe-stage2-dated-flyers.ts",
+  "evidenceClass": "Fresh fixed official public FSU media plus local all-page OCR and unreviewed v3 predictions; no human accuracy claim",
+  "runId": "2026-11-03T03-38-54.691Z",
+  "privateDirectory": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z",
+  "readiness": {
+    "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+    "tools": {
+      "tesseract": {
+        "available": true,
+        "version": "tesseract 5.5.4"
+      },
+      "pdfinfo": {
+        "available": true,
+        "version": "pdfinfo version 26.10.0"
+      },
+      "pdftotext": {
+        "available": true,
+        "version": "pdftotext version 26.10.0"
+      },
+      "pdftoppm": {
+        "available": true,
+        "version": "pdftoppm version 26.10.0"
+      }
+    },
+    "ready": true
+  },
+  "observations": [
+    {
+      "id": "ornl-workshop",
+      "family": "engineering-ornl-nov2026",
+      "kind": "official-event-pdf",
+      "page": "https://eng.famu.fsu.edu/event/2nd-neutron-nexus-workshop-engineering-materials",
+      "url": "https://eng.famu.fsu.edu/sites/default/files/2026-10/ORNL%20Neutron%20Nexus%20Fa2026%20Workshop%20Fliers%20%283%29%20%281%29.pdf",
+      "startedAt": "2026-11-03T03:38:54.953Z",
+      "finishedAt": "2026-11-03T03:38:58.134Z",
+      "state": "processed",
+      "httpStatus": 200,
+      "mime": "application/pdf",
+      "bytes": 1135884,
+      "sha256": "3397f99fa3ad03366f2884ca22aec7b2cbc3bc6f1d4554aa967e607a2a3f70fa",
+      "original": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/ornl-workshop-3397f99fa3ad.pdf",
+      "originalPublicationAt": null,
+      "publicationStatus": "unknown_not_inferred_from_fetch_or_filename",
+      "privateResult": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/ornl-workshop-ocr-and-predictions.json",
+      "complete": true,
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+      "elapsedNativeMs": 2566,
+      "units": [
+        {
+          "assetId": "ornl-workshop",
+          "page": 1,
+          "expectedPages": 1,
+          "status": "processed",
+          "attempted": true,
+          "sha256": "3397f99fa3ad03366f2884ca22aec7b2cbc3bc6f1d4554aa967e607a2a3f70fa",
+          "textCharacters": 3190,
+          "wordBoxes": 229,
+          "issues": [
+            "pdf_text_and_visual_differ"
+          ]
+        }
+      ],
+      "unreviewedCandidateCount": 1,
+      "unreviewedInstantCount": 0
+    },
+    {
+      "id": "marine-kim-miller",
+      "family": "marine-lecture-series-2026",
+      "kind": "official-event-flyer",
+      "page": "https://marinelab.fsu.edu/outreach-and-education/lectures/",
+      "url": "https://marinelab.fsu.edu/media/6795/kim-miller-lecture-flyer.jpg?mode=max&width=800&rnd=134362689490000000",
+      "startedAt": "2026-11-03T03:38:58.134Z",
+      "finishedAt": "2026-11-03T03:38:59.071Z",
+      "state": "processed",
+      "httpStatus": 200,
+      "mime": "image/jpeg",
+      "bytes": 263357,
+      "sha256": "7e850b7a5fb8e19dd9eca70e618dd62291ea58fbf22bee4540c8c94d00d18bfe",
+      "original": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/marine-kim-miller-7e850b7a5fb8.jpg",
+      "originalPublicationAt": null,
+      "publicationStatus": "unknown_not_inferred_from_fetch_or_filename",
+      "privateResult": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/marine-kim-miller-ocr-and-predictions.json",
+      "complete": true,
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+      "elapsedNativeMs": 819,
+      "units": [
+        {
+          "assetId": "marine-kim-miller",
+          "page": null,
+          "status": "processed",
+          "attempted": true,
+          "sha256": "7e850b7a5fb8e19dd9eca70e618dd62291ea58fbf22bee4540c8c94d00d18bfe",
+          "textCharacters": 1507,
+          "wordBoxes": 211,
+          "issues": []
+        }
+      ],
+      "unreviewedCandidateCount": 1,
+      "unreviewedInstantCount": 0
+    },
+    {
+      "id": "marine-rescheduled",
+      "family": "marine-lecture-series-2026",
+      "kind": "official-rescheduled-flyer",
+      "page": "https://marinelab.fsu.edu/outreach-and-education/lectures/",
+      "url": "https://marinelab.fsu.edu/media/6408/chris-peters_rescheduledpost.png?width=500&height=500",
+      "startedAt": "2026-11-03T03:38:59.071Z",
+      "finishedAt": "2026-11-03T03:38:59.694Z",
+      "state": "processed",
+      "httpStatus": 200,
+      "mime": "image/png",
+      "bytes": 294797,
+      "sha256": "7820059696391fe360f81d81a58b5b371f4493ab4f2f0a5ec4705c55b2edcbe8",
+      "original": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/marine-rescheduled-782005969639.png",
+      "originalPublicationAt": null,
+      "publicationStatus": "unknown_not_inferred_from_fetch_or_filename",
+      "privateResult": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/marine-rescheduled-ocr-and-predictions.json",
+      "complete": true,
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+      "elapsedNativeMs": 427,
+      "units": [
+        {
+          "assetId": "marine-rescheduled",
+          "page": null,
+          "status": "processed",
+          "attempted": true,
+          "sha256": "7820059696391fe360f81d81a58b5b371f4493ab4f2f0a5ec4705c55b2edcbe8",
+          "textCharacters": 1038,
+          "wordBoxes": 170,
+          "issues": []
+        }
+      ],
+      "unreviewedCandidateCount": 1,
+      "unreviewedInstantCount": 0
+    },
+    {
+      "id": "boren-process",
+      "family": "onf-boren-2026",
+      "kind": "official-application-process-pdf",
+      "page": "https://onf.fsu.edu/",
+      "url": "https://onf.fsu.edu/sites/g/files/upcbnu666/files/Boren%20Flyer%2025.pdf",
+      "startedAt": "2026-11-03T03:38:59.694Z",
+      "finishedAt": "2026-11-03T03:39:04.263Z",
+      "state": "processed",
+      "httpStatus": 200,
+      "mime": "application/pdf",
+      "bytes": 2362825,
+      "sha256": "5e6571668a9f7ecf37200725a5eb9d01abf8aec09d713930da30e9425681bb50",
+      "original": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/boren-process-5e6571668a9f.pdf",
+      "originalPublicationAt": null,
+      "publicationStatus": "unknown_not_inferred_from_fetch_or_filename",
+      "privateResult": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/boren-process-ocr-and-predictions.json",
+      "complete": true,
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+      "elapsedNativeMs": 3512,
+      "units": [
+        {
+          "assetId": "boren-process",
+          "page": 1,
+          "expectedPages": 2,
+          "status": "processed",
+          "attempted": true,
+          "sha256": "5e6571668a9f7ecf37200725a5eb9d01abf8aec09d713930da30e9425681bb50",
+          "textCharacters": 6976,
+          "wordBoxes": 238,
+          "issues": [
+            "pdf_text_and_visual_differ"
+          ]
+        },
+        {
+          "assetId": "boren-process",
+          "page": 2,
+          "expectedPages": 2,
+          "status": "processed",
+          "attempted": true,
+          "sha256": "5e6571668a9f7ecf37200725a5eb9d01abf8aec09d713930da30e9425681bb50",
+          "textCharacters": 5522,
+          "wordBoxes": 223,
+          "issues": [
+            "pdf_text_and_visual_differ"
+          ]
+        }
+      ],
+      "unreviewedCandidateCount": 3,
+      "unreviewedInstantCount": 0
+    },
+    {
+      "id": "marine-boat-negative",
+      "family": "marine-research-photo-negative",
+      "kind": "official-photo-negative",
+      "page": "https://marinelab.fsu.edu/outreach-and-education/lectures/",
+      "url": "https://marinelab.fsu.edu/media/1632/fsu-rv-wide-large.jpg?mode=max&width=600&rnd=132315884890000000",
+      "startedAt": "2026-11-03T03:39:04.263Z",
+      "finishedAt": "2026-11-03T03:39:04.525Z",
+      "state": "processed",
+      "httpStatus": 200,
+      "mime": "image/jpeg",
+      "bytes": 60867,
+      "sha256": "e89998accf148e9a27ebd7c3aa9180e5514ac978095536faa97d866c2a3a70cd",
+      "original": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/marine-boat-negative-e89998accf14.jpg",
+      "originalPublicationAt": null,
+      "publicationStatus": "unknown_not_inferred_from_fetch_or_filename",
+      "privateResult": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/marine-boat-negative-ocr-and-predictions.json",
+      "complete": true,
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+      "elapsedNativeMs": 112,
+      "units": [
+        {
+          "assetId": "marine-boat-negative",
+          "page": null,
+          "status": "processed",
+          "attempted": true,
+          "sha256": "e89998accf148e9a27ebd7c3aa9180e5514ac978095536faa97d866c2a3a70cd",
+          "textCharacters": 20,
+          "wordBoxes": 8,
+          "issues": []
+        }
+      ],
+      "unreviewedCandidateCount": 0,
+      "unreviewedInstantCount": 0
+    }
+  ],
+  "httpRequests": 5,
+  "successfulMediaReads": 5,
+  "combinedFetchedBytes": 4117730,
+  "humanReviewedLabels": 0,
+  "holdoutInputsRead": 0,
+  "frozenExamplesModified": 0,
+  "credentialFilesRead": 0,
+  "databaseCalls": 0,
+  "calendarCalls": 0,
+  "modelCalls": 0,
+  "paidServices": 0,
+  "limitations": [
+    "Each fixed asset is a separate bounded local native invocation; this diagnostic does not spend or bypass hosted SQL owner quotas.",
+    "Public original media and full OCR/predictions stay ignored/private; extracted candidates are not factual labels.",
+    "Original publication times remain unknown; fetch time and filenames are never event-year anchors.",
+    "A multi-page PDF is not an Instagram carousel and proves no Stories, social media-byte access or complete slide set.",
+    "Human review, representative negatives/conflicts and an independent holdout remain outstanding."
+  ]
+}

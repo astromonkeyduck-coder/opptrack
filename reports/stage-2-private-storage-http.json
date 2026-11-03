@@ -1,0 +1,153 @@
+{
+  "checkedAt": "2026-11-03T03:41:22.620Z",
+  "evidenceClass": "Fresh read-only HTTPS checks of two previously uploaded synthetic originals; optional independently supplied JWTs are verified by Supabase Auth before testing Storage.",
+  "sourceSha256": "b8e95c347ab4d30e12d3a0c7af6569f305fb11aad8fbbd4ea986b3767ab701d4",
+  "command": "node scripts/check-stage2-private-storage-http.mjs",
+  "priorUploadReport": "reports/stage-2-hosted-two-slide-upload.json",
+  "knownObjectReferences": [
+    {
+      "appUrlSha256": "81a83252389b80ccccd1237d35c1428127a26e5f413bc99b58baecfeb7a4618c",
+      "pathSha256": "4ff47484b2e563359b9e2e50b36e4e2851d8b2162bdc10a67791cfd3e3e374e2",
+      "expected": {
+        "bytes": 46580,
+        "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa"
+      }
+    },
+    {
+      "appUrlSha256": "6803da5c15cf2166fa03e15ec9b3d6a98b0c92748aec0543dea8a10f44de1b53",
+      "pathSha256": "7967364fd1065331e3d9dfcdf8db53145bca0805975039705e08b05f927590cf",
+      "expected": {
+        "bytes": 57965,
+        "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6"
+      }
+    }
+  ],
+  "credentialPresence": {
+    "publicKey": true,
+    "ownerAccessToken": false,
+    "otherUserAccessToken": false
+  },
+  "requests": 6,
+  "receivedBytes": 444,
+  "checks": [
+    {
+      "name": "app_anonymous_original_1",
+      "state": "passed",
+      "checkedAt": "2026-11-03T03:41:21.482Z",
+      "status": 401,
+      "bytes": 36,
+      "bodySha256": "7524c211c44ed1507a420de4edf6c8eb9dacee04a5ea1dc02d7092ba7f62b8f5",
+      "contentType": "application/json",
+      "cacheControl": "private, no-store",
+      "errorCode": null,
+      "bodyStatusCode": null
+    },
+    {
+      "name": "storage_public_url_original_1",
+      "state": "denied_observed",
+      "checkedAt": "2026-11-03T03:41:21.843Z",
+      "status": 400,
+      "bytes": 98,
+      "bodySha256": "cdaff975adcfebff6d6ee1f4d0116d6e86ce03d9718d0d90a3c364f229316aca",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": null,
+      "errorCode": "NoSuchBucket",
+      "bodyStatusCode": 404,
+      "existenceFreshlyConfirmed": false,
+      "boundary": "Public-URL denial; not authenticated ownership isolation."
+    },
+    {
+      "name": "storage_anonymous_original_1",
+      "state": "denied_observed",
+      "checkedAt": "2026-11-03T03:41:21.998Z",
+      "status": 400,
+      "bytes": 88,
+      "bodySha256": "9d2505709301f205e4135106c7c92c66a58d85a1009b5b823475c6a047de1a9c",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": null,
+      "errorCode": "NoSuchKey",
+      "bodyStatusCode": 404,
+      "publishableKeyUsed": true,
+      "existenceFreshlyConfirmed": false,
+      "boundary": "Anonymous publishable-key request; not another signed user."
+    },
+    {
+      "name": "app_anonymous_original_2",
+      "state": "passed",
+      "checkedAt": "2026-11-03T03:41:22.255Z",
+      "status": 401,
+      "bytes": 36,
+      "bodySha256": "7524c211c44ed1507a420de4edf6c8eb9dacee04a5ea1dc02d7092ba7f62b8f5",
+      "contentType": "application/json",
+      "cacheControl": "private, no-store",
+      "errorCode": null,
+      "bodyStatusCode": null
+    },
+    {
+      "name": "storage_public_url_original_2",
+      "state": "denied_observed",
+      "checkedAt": "2026-11-03T03:41:22.349Z",
+      "status": 400,
+      "bytes": 98,
+      "bodySha256": "cdaff975adcfebff6d6ee1f4d0116d6e86ce03d9718d0d90a3c364f229316aca",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": null,
+      "errorCode": "NoSuchBucket",
+      "bodyStatusCode": 404,
+      "existenceFreshlyConfirmed": false,
+      "boundary": "Public-URL denial; not authenticated ownership isolation."
+    },
+    {
+      "name": "storage_anonymous_original_2",
+      "state": "denied_observed",
+      "checkedAt": "2026-11-03T03:41:22.458Z",
+      "status": 400,
+      "bytes": 88,
+      "bodySha256": "9d2505709301f205e4135106c7c92c66a58d85a1009b5b823475c6a047de1a9c",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": null,
+      "errorCode": "NoSuchKey",
+      "bodyStatusCode": 404,
+      "publishableKeyUsed": true,
+      "existenceFreshlyConfirmed": false,
+      "boundary": "Anonymous publishable-key request; not another signed user."
+    },
+    {
+      "name": "owner_signed_jwt_storage",
+      "state": "setup_needed",
+      "reason": "Requires independently supplied existing user access token and public project key; no session or user created."
+    },
+    {
+      "name": "other_user_signed_jwt_storage",
+      "state": "setup_needed",
+      "reason": "Requires independently supplied existing user access token and public project key; no session or user created."
+    },
+    {
+      "name": "owner_app_route_body_integrity",
+      "state": "not_demonstrated",
+      "reason": "App route uses a real SSR cookie session. This script neither extracts browser credentials nor impersonates it with a bearer token."
+    }
+  ],
+  "allPrivateHttpCriteriaPassed": false,
+  "boundaries": {
+    "browserCredentialExtraction": false,
+    "serverKeysUsed": 0,
+    "authMutations": 0,
+    "createdUsers": 0,
+    "storageWrites": 0,
+    "databaseWrites": 0,
+    "signedUrlsCreated": 0,
+    "googleCalls": 0,
+    "modelCalls": 0,
+    "upgrades": 0
+  },
+  "costs": {
+    "newPaidServices": 0,
+    "meteredProviderCostMeasured": false,
+    "note": "GET request/body counts recorded; provider egress/log costs not independently billed or queried."
+  },
+  "references": [
+    "https://supabase.com/docs/guides/storage/serving/downloads",
+    "https://supabase.com/docs/guides/storage/security/access-control"
+  ]
+}

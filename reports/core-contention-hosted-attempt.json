@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "status": "not_executed_quiet_window_missed",
+  "firstPrecheck": "Automatic permission approval review did not finish before its deadline; no SQL execution result",
+  "retryCount": 1,
+  "retryPrecheck": {
+    "scope": "Read-only full-row fingerprints. Separate A/B observations prove only concurrent installed core source leasing; not extraction contention, HTTP, backup restore or laptop-off execution.",
+    "sources": {
+      "rows": 89,
+      "sha256": "b880b3778df00d739fe5a19121129dfb167cba1e352a46e1ec076e36de0891f8"
+    },
+    "decisions": {
+      "rows": 58,
+      "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+    },
+    "backendPid": 1379600,
+    "observedAt": "2026-11-03T05:10:38.217912+00:00",
+    "sourceRuns": {
+      "rows": 1922,
+      "sha256": "753ec3a0d9e65bb70bd65bf82c1f69b7982949136ffd17541f0ae546bacbb244"
+    },
+    "dueCoreSources": [
+      {
+        "sourceId": "fsu-calendar-api",
+        "nextDueAt": "2026-11-03T05:00:00+00:00"
+      }
+    ],
+    "committedLeases": 0,
+    "calendarCommands": {
+      "rows": 1,
+      "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+    }
+  },
+  "independentSessionAStarted": false,
+  "independentSessionBStarted": false,
+  "leaseMutationsExecuted": 0,
+  "reason": "Successful read-only retry returned at 05:10:38Z, overlapping the normal collector start window. No production lease locks were held during collection. Prepared A/B test remains unverified; missing overlap is not a pass.",
+  "localPreflightReport": "reports/core-contention-preflight-replay.json",
+  "testScope": "Concurrent installed core source leasing only; not extraction concurrency, recovery, restore or laptop-off operation",
+  "calendarCalls": 0,
+  "modelCalls": 0,
+  "paidUpgrades": 0
+}

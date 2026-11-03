@@ -1,0 +1,89 @@
+{
+  "recordedAt": "2026-11-03T03:41:38.331Z",
+  "command": "node --import tsx scripts/prepare-stage2-dated-media-review.ts",
+  "sourceProbe": "reports/stage-2-dated-media-probe.json",
+  "packetPath": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/human-review.json",
+  "markdownPath": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/human-review.md",
+  "cases": 5,
+  "sourceAssets": 5,
+  "visualPages": 6,
+  "families": 3,
+  "actualDatedFlyers": 3,
+  "realMultiPagePdfCases": 1,
+  "negativePhotos": 1,
+  "missingYearCases": 1,
+  "cycleAmbiguityCases": 1,
+  "humanReviewedCases": 0,
+  "independentHoldoutCases": 0,
+  "frozenInventoryChanged": false,
+  "modelCalls": 0,
+  "calendarCalls": 0,
+  "limitations": [
+    "All proposed facts are AI-unreviewed, development-exposed and cannot establish human accuracy or acceptance.",
+    "No Instagram carousel/Stories or new social-account access is proven.",
+    "PDF visual differences, OCR losses, missing years/zones and cycle ambiguity remain visible."
+  ],
+  "visuallyInspected": [
+    {
+      "id": "ornl-workshop",
+      "pages": 1,
+      "class": "dated event flyer",
+      "predictionLimitations": [
+        "Visual title spans several display lines; v3 currently proposes only \"2 Neutron\".",
+        "PDF text layer and visual OCR differ; both passes were retained."
+      ]
+    },
+    {
+      "id": "marine-kim-miller",
+      "pages": 1,
+      "class": "dated flyer with missing year and timezone",
+      "predictionLimitations": [
+        "Stylized speaker name was read as \"Kin Miffer\" by native OCR.",
+        "The flyer has complete visible local clock range; instant remains unknown."
+      ]
+    },
+    {
+      "id": "marine-rescheduled",
+      "pages": 1,
+      "class": "historical dated event flyer",
+      "predictionLimitations": [
+        "Native OCR misses much of the main title and reads the generic \"Lecture Series\" as title.",
+        "Visible clock range/date survive, but location and free-entry phrase need review."
+      ]
+    },
+    {
+      "id": "boren-process",
+      "pages": 2,
+      "class": "two-page application/resource flyer with cycle ambiguity",
+      "predictionLimitations": [
+        "Both PDF pages received separate text-layer and visual OCR passes.",
+        "Native OCR loses some graphical headings and eligibility bullets; text layer retains them.",
+        "Current v3 emits resources plus an undated action; these are predictions, not labels."
+      ]
+    },
+    {
+      "id": "marine-boat-negative",
+      "pages": 1,
+      "class": "negative generic campus/research photograph",
+      "predictionLimitations": [
+        "Native OCR contains image noise; v3 emitted zero candidates. One negative does not establish false-positive accuracy."
+      ]
+    }
+  ],
+  "uploadReady": [
+    {
+      "path": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/ornl-page-1.png",
+      "bytes": 1250186,
+      "sha256": "fbfd4fefe03974b3d152e233ff8618b362ddf60131fa6a3c2ccb32689841969c",
+      "derivative": true,
+      "visuallyInspectedBy": "AI agent; not human review"
+    },
+    {
+      "path": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/marine-rescheduled-782005969639.png",
+      "bytes": 294797,
+      "sha256": "7820059696391fe360f81d81a58b5b371f4493ab4f2f0a5ec4705c55b2edcbe8",
+      "derivative": false,
+      "visuallyInspectedBy": "AI agent; not human review"
+    }
+  ]
+}

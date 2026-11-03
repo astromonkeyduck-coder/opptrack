@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "stage": 2,
+  "status": "engineering_checks_advanced_quality_acceptance_failed",
+  "runtime": {
+    "commit": "f5688b1098b699b933ced43c3534348cb893a70e",
+    "netlifyPublished": true,
+    "netlifyDeployId": "6ae95a6680bf36b3ee6054fb",
+    "triggerDeployId": "6x0lqqmo",
+    "triggerVersion": "20261103.5",
+    "triggerDeployedAt": "2026-11-03T03:52:51Z",
+    "environmentChanges": false
+  },
+  "completedEngineering": {
+    "originalImagePreview": {
+      "state": "deployed",
+      "scope": "Owner-session PNG/JPEG only; original exact bytes, private no-store/nosniff/sandbox/same-origin; no SVG/HTML/PDF inline",
+      "ownerBodyReport": "reports/stage-2-owner-preview-body-integrity.json",
+      "verifiedOwnerResponseBodies": 2,
+      "verifiedOriginalBytes": 104545,
+      "anonymousKnownObjectDenials": true,
+      "directAnonymousStorageReport": "reports/stage-2-private-storage-http.json",
+      "signedOtherUserHttp": "not_tested_no_independent_auth_principal",
+      "attachmentDownloadFlow": "not_verified",
+      "directStorageOwnerJwt": "not_verified",
+      "objectExistenceIndependentlyConfirmedByOwnerBodies": true,
+      "anonymousLimit": "Direct Storage denials used existing publishable/no-user credentials; owner preview later confirms the known objects exist. Independent signed-user isolation is still not established."
+    },
+    "v3HostedPolicies": {
+      "state": "passed",
+      "checks": 8,
+      "temporaryV3ClaimAndFinishActuallyTested": true,
+      "existingUtcBudgetRespected": true,
+      "existingRowsAndFunctionHashesPreserved": true,
+      "persistentFixtureRows": 0,
+      "report": "reports/stage-2-v3-hosted-policy-checks-current.json"
+    },
+    "v3NaturalScheduledPrivateMedia": {
+      "state": "passed",
+      "scope": "Existing synthetic two-image intake re-read under immutable v3 identity; no new dated-flyer upload submitted",
+      "parentRunId": "run_06gpv6ed9smugo8alo9su2s8a2",
+      "childRunId": "run_06gpv6p4p5h9lm7n5qrluiava2",
+      "jobId": "ef5178f5-a00b-4a3d-bb4a-338d0b575577",
+      "jobFinishedAt": "2026-11-03T04:11:54.431601Z",
+      "visualPages": 2,
+      "attempts": 1,
+      "unverifiedCandidates": 3,
+      "report": "reports/stage-2-v3-scheduled-private-ocr.json",
+      "laptopOffTested": false
+    },
+    "realMediaAllPageProbe": {
+      "state": "passed_processing_only",
+      "officialMediaGets": 5,
+      "responseBytes": 4117730,
+      "processedPages": 6,
+      "wordBoxes": 1079,
+      "reviewedDevelopmentExamples": 5,
+      "report": "reports/stage-2-dated-media-probe.json",
+      "actualMediaEvaluation": "reports/stage-2-approved-media-development.json"
+    },
+    "coreIndependentSessionContention": {
+      "state": "not_executed_quiet_window_missed",
+      "localPreflightChecks": 5,
+      "report": "reports/core-contention-preflight-replay.json",
+      "limit": "Wait for naturally due core source quiet window; no timestamps/quotas/real leases reset.",
+      "hostedAttemptReport": "reports/core-contention-hosted-attempt.json",
+      "reason": "Initial read-only precheck approval review timed out; its single successful retry returned at05:10:38Z in the collection start window. No A/B lease mutations were attempted."
+    },
+    "ownerReadIdempotency": {
+      "state": "passed",
+      "report": "reports/stage-2-owner-read-idempotency.json",
+      "sameCompletedJobReopened": true,
+      "oldFullJobAttemptRowsPreserved": true,
+      "newProcessingOrCalendarAction": false
+    }
+  },
+  "humanReview": {
+    "newApprovedDevelopmentExamples": 25,
+    "previousApprovedDevelopmentExamples": 10,
+    "totalReviewedDevelopmentExamples": 35,
+    "frozenInventoryApproved": 30,
+    "frozenInventoryTotal": 100,
+    "frozenInventoryUnreviewed": 70,
+    "additionalActualMediaExamples": 5,
+    "independentReviewedHoldout": 0,
+    "independentlyAdjudicated": 0,
+    "report": "reports/stage-2-next25-human-review.json",
+    "calendarApprovalInferred": false
+  },
+  "qualityChecks": {
+    "new20SourceDiagnostic": {
+      "status": "failed_scoped_completeness_gate",
+      "labeledMatches": 97,
+      "labeledPredictions": 101,
+      "unscoredPredictions": 50,
+      "recoveredFacts": 97,
+      "scopedExpectedFacts": 259,
+      "strictScopedEvents": "3/36",
+      "strictScopedActions": "7/9",
+      "strictScopedCases": "6/20",
+      "report": "reports/stage-2-next20-reviewed-development.json"
+    },
+    "actualMediaDiagnostic": {
+      "status": "failed_scoped_fact_completion",
+      "recoveredNonnullFacts": "4/25",
+      "explicitUnknownsPreserved": "15/15",
+      "strictScopedEvents": "0/3",
+      "strictScopedActionNotices": "0/3",
+      "negativePhotoEventActionFalsePositives": 0,
+      "unscoredNonnullExtras": 3,
+      "report": "reports/stage-2-approved-media-development.json"
+    },
+    "boundedFreeLocalComparison": {
+      "status": "completed_no_qualifying_configuration",
+      "prompts": 2,
+      "generations": 20,
+      "validatedOutputs": 0,
+      "schemaFailures": 14,
+      "jsonParseFailures": 2,
+      "missingEvidenceFailures": 3,
+      "quoteNotFoundFailures": 1,
+      "acceptedOutputPrecision": null,
+      "scope": "Original ten approved development inputs and same55-fact partial reference; neither holdout nor production model",
+      "apiUsd": 0,
+      "modelAssetBytes": 793197937,
+      "wallMs": 394546,
+      "reportedChildCpuMs": 455478,
+      "remainingAuthorizedGenerations": 0,
+      "selectedForProduction": false,
+      "report": "reports/stage-2-free-local-model-comparison.json"
+    },
+    "realReconciliationAccuracy": {
+      "state": "unmeasured",
+      "reason": "Synthetic safe-reconciliation checks exist; independent human-reviewed real relation pairs/wrong-merge and duplicate-retention rates remain absent."
+    }
+  },
+  "validation": {
+    "applicationTests": 445,
+    "applicationTestsPassed": true,
+    "coreSqlChecks": 185,
+    "legacyV2RolloutChecks": 7,
+    "v3RolloutChecks": 7,
+    "instagramReplays": 6,
+    "originalAuditReplayChecks": 26,
+    "versionAuditReplayChecks": 8,
+    "versionAuditFailSafeChecks": 2,
+    "newV3BudgetAuditRandomizedCases": 30,
+    "newV3AuditChecksPerCase": 8,
+    "queuedWorkFailSafePassed": true,
+    "typecheck": "passed",
+    "build": "passed",
+    "offline": "passed",
+    "commands": [
+      "npm test",
+      "npm run test:db",
+      "npm run typecheck",
+      "npm run build",
+      "make check",
+      "node --import tsx scripts/probe-stage2-dated-flyers.ts",
+      "node scripts/check-stage2-private-storage-http.mjs",
+      "node --import tsx scripts/probe-stage2-private-preview-local.ts",
+      "node --import tsx scripts/run-stage2-free-model.ts",
+      "node scripts/summarize-stage2-free-model.mjs",
+      "node --import tsx scripts/evaluate-stage2-next20-reviewed.ts",
+      "node --import tsx scripts/evaluate-stage2-approved-media.ts"
+    ],
+    "retainedFailures": [
+      "Initial full database rerun failed on nondeterministic same-transaction fixture lease order; current fixture claims v3 before legacy enqueue and30 randomized repeats pass. Original exact successful hosted SQL/report retained.",
+      "New dated-flyer paste was interrupted by browser disconnect; no Save was submitted. Reused existing stored synthetic media for genuine v3 scheduled execution.",
+      "Owner response export tool took about44 minutes; body integrity passed after completion. Do not repeat routine browser asset export.",
+      "Ignored generated duplicate .next/types/routes.d 2.ts caused type conflicts; only that duplicate was removed before final successful typecheck.",
+      "Quality diagnostics exit1 for actual omissions; HTTP probe exits2 for incomplete signed-user checks. These are not empty-source successes.",
+      "Live concurrent-lease A/B test was not executed after the approval-review timeout consumed its quiet window; local preflight is not a hosted concurrency pass."
+    ],
+    "coreContentionPreflightCommand": "node scripts/test-core-contention-preflight.mjs",
+    "humanReviewRecordingCommand": "node --import tsx scripts/record-stage2-next25-review.ts",
+    "recordedBeforeFinalCommit": "2026-11-03T05:19:00Z"
+  },
+  "costs": {
+    "paidUpgrades": 0,
+    "modelApiUsd": 0,
+    "calendarWritesByChecks": 0,
+    "selectedScheduledExtractionChildEstimateUsd": 0.00010398,
+    "selectedCollectionParentEstimateUsd": 0.0018073,
+    "modelDownloadBytes": 793197937,
+    "actualMediaGetBytes": 4117730,
+    "ownerPreviewExportBytes": 104545,
+    "sqlStorageBuildBrowserLocalCpuUsd": "unmeasured",
+    "invoiceOrMonthlyTotalEstablished": false
+  },
+  "remainingStage2Gates": [
+    "Independent family-separated human-reviewed holdout with complete canonical/entity/unknown/conflict labels",
+    "Event/action recall and semantic extraction quality meeting the declared gate; current diagnostics fail",
+    "Human-reviewed real reconciliation pairs and measured wrong merges/retained duplicates",
+    "Signed independent nonmember HTTP/Storage isolation; direct owner-JWT/attachment download routes remain separate unverified checks",
+    "Independent live concurrent leasing/recovery checks remain unverified; current hosted attempt made read-only prechecks only"
+  ],
+  "carriedStage1Gates": [
+    "Verified isolated hosted database plus Storage restoration",
+    "Further independent-session recovery/contention beyond the bounded core lease test",
+    "Physical phone verification",
+    "User-confirmed laptop-off interval spanning Music six-hour due window",
+    "Retention/orphan cleanup and credential renewal"
+  ],
+  "unchangedBoundaries": {
+    "instagramRepair": "paused",
+    "calendar": "Netlify individually approved create-only actions; extraction/Trigger writes disabled",
+    "resend": "optional_unconfigured_no_delivery",
+    "paidConnectorsOrUpgrades": false,
+    "stage3Started": false
+  },
+  "stage2Accepted": false,
+  "stage1RetroactivelyAccepted": false,
+  "nextDecision": "Finish only remaining safe engineering checks independently. Quality failure and absent holdout cannot be relabeled as acceptance; further model generations or new authenticated principals need a concrete separately authorized route."
+}

@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-11-03T03:47:15.679Z",
+  "command": "node scripts/test-core-contention-preflight.mjs",
+  "evidenceClass": "Single-backend local PGlite replay: exact A executes/rolls back; B safely rejects absent independent A; active-lease and no-due guards preserve local fixtures. This does NOT demonstrate concurrent sessions.",
+  "sqlFiles": [
+    {
+      "file": "scripts/hosted-core-contention-a.sql",
+      "sha256": "cfa033d0ad882a1bd121de357405e6b7cab9da138439233ddeb9e09920634fde"
+    },
+    {
+      "file": "scripts/hosted-core-contention-b.sql",
+      "sha256": "b3fbb9e8198872a74a664633be3d8b7b98072fb2d71c6c25578215d69f583610"
+    },
+    {
+      "file": "scripts/hosted-core-contention-fingerprint.sql",
+      "sha256": "3938f9ccd9148fe1d24134c4376e4c5d0a30c04b5a17808344cb328669555748"
+    }
+  ],
+  "localChecksPassed": 5,
+  "localChecks": [
+    "A claims one existing local due source, sleeps, verifies protected rows and rolls back",
+    "B rejects absent independently sleeping A without mutation",
+    "A rejects committed active lease unchanged",
+    "B rejects committed active lease unchanged",
+    "A rejects no-due window unchanged"
+  ],
+  "localAObservation": {
+    "session": "A",
+    "startedAt": "2026-11-02T22:47:07.657-05:00",
+    "backendPid": 42,
+    "finishedAt": "2026-11-02T22:47:15.663-05:00",
+    "afterSleepAt": "2026-11-02T22:47:15.661-05:00",
+    "sleepSeconds": 8,
+    "calendarCalls": 0,
+    "heldSourceIds": [
+      "fsu-music-events"
+    ],
+    "persistentWrites": 0,
+    "collectionHttpCalls": 0,
+    "dueSourceIdsAtStart": [
+      "fsu-calendar-api",
+      "fsu-music-events"
+    ],
+    "sourcesBeforeSha256": "45a70f303c2bae7b9d2c32d28f0db8adf9f4b64e9a6f02a764af023bc6ba6352",
+    "protectedBeforeSha256": "d8d708556e733ef14ccdc6ef8dc687817adea7e3904de9a486b61b712ab76ec4",
+    "otherSourceRowsPreserved": true,
+    "runsDecisionsCalendarPreserved": true,
+    "requiresIndependentBObservation": true,
+    "leaseFunctionOidsAclsDefinitionsPreserved": true
+  },
+  "fullBeforeAfterFingerprintsPreserved": true,
+  "hostedExecution": false,
+  "independentSessionContentionDemonstrated": false,
+  "hostedAuthUsersCreated": 0,
+  "hostedSourceRowsCreated": 0,
+  "collectionCalls": 0,
+  "calendarCalls": 0
+}

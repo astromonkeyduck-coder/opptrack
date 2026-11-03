@@ -1,0 +1,62 @@
+{
+  "recordedAt": "2026-11-03T03:41:53.105Z",
+  "requestTimes": "not separately recorded; no fetch time used as publication context",
+  "attempts": [
+    {
+      "mode": "sandboxed Node fetch",
+      "requestCount": 4,
+      "responses": 0,
+      "state": "transport_failed",
+      "urls": [
+        "https://marinelab.fsu.edu/outreach-and-education/lectures/",
+        "https://eng.famu.fsu.edu/event/2nd-neutron-nexus-workshop-engineering-materials",
+        "https://www.eoas.fsu.edu/",
+        "https://announcements.fsu.edu/article/college-social-work-doctoral-program-information-session-november-18"
+      ]
+    },
+    {
+      "mode": "approved fixed official public reads",
+      "requestCount": 4,
+      "results": [
+        {
+          "url": "https://marinelab.fsu.edu/outreach-and-education/lectures/",
+          "status": 200,
+          "file": "private/stage2-dated-flyers/discovery-1.html",
+          "bytes": 62910,
+          "sha256": "f3dc24f0dcc70da5b45f54ff1857c2101169e90ab02f2ef08e26f12c84bdf3b3"
+        },
+        {
+          "url": "https://eng.famu.fsu.edu/event/2nd-neutron-nexus-workshop-engineering-materials",
+          "status": 200,
+          "file": "private/stage2-dated-flyers/discovery-2.html",
+          "bytes": 43878,
+          "sha256": "c20721aa53623e412bebbe8d8e4bc3f6725b60446c50abf6c6a9c74e45eacf45"
+        },
+        {
+          "url": "https://www.eoas.fsu.edu/",
+          "status": null,
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://announcements.fsu.edu/article/college-social-work-doctoral-program-information-session-november-18",
+          "status": 301,
+          "file": "private/stage2-dated-flyers/discovery-4.html",
+          "reason": "redirect not followed in discovery",
+          "bytes": 630,
+          "sha256": "e3ec9ae86bb80a1388a4514cd8ab0237f1fa438b463fa1f02b345cb97a8592be"
+        }
+      ]
+    }
+  ],
+  "successfulHtmlPages": 2,
+  "redirectResponses": 1,
+  "unresolvedTransportFailures": 1,
+  "mediaProbe": "reports/stage-2-dated-media-probe.json",
+  "limitations": [
+    "Discovery failures and redirects remain distinct from no-new-event outcomes.",
+    "Search-engine/web-reader internal request counts are unavailable and excluded from these Node HTTP counts."
+  ],
+  "credentialReads": 0,
+  "modelCalls": 0,
+  "calendarCalls": 0
+}

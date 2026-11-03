@@ -1,0 +1,49 @@
+{
+  "recordedAt": "2026-11-03T03:45:08.615Z",
+  "command": "node --import tsx scripts/probe-stage2-private-preview-local.ts",
+  "evidenceClass": "Actual freshly downloaded public flyer bytes through local HTTP response helper with synthetic owner and in-memory Storage substitute",
+  "results": [
+    {
+      "sourcePath": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/ornl-page-1.png",
+      "bytes": 1250186,
+      "originalSha256": "fbfd4fefe03974b3d152e233ff8618b362ddf60131fa6a3c2ccb32689841969c",
+      "responseSha256": "fbfd4fefe03974b3d152e233ff8618b362ddf60131fa6a3c2ccb32689841969c",
+      "status": 200,
+      "headers": {
+        "cache-control": "private, no-store, max-age=0",
+        "content-disposition": "inline; filename=\"private-intake-image.png\"",
+        "content-length": "1250186",
+        "content-security-policy": "default-src 'none'; sandbox",
+        "content-type": "image/png",
+        "cross-origin-resource-policy": "same-origin",
+        "x-content-type-options": "nosniff"
+      },
+      "exactBytes": true
+    },
+    {
+      "sourcePath": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/marine-rescheduled-782005969639.png",
+      "bytes": 294797,
+      "originalSha256": "7820059696391fe360f81d81a58b5b371f4493ab4f2f0a5ec4705c55b2edcbe8",
+      "responseSha256": "7820059696391fe360f81d81a58b5b371f4493ab4f2f0a5ec4705c55b2edcbe8",
+      "status": 200,
+      "headers": {
+        "cache-control": "private, no-store, max-age=0",
+        "content-disposition": "inline; filename=\"private-intake-image.png\"",
+        "content-length": "294797",
+        "content-security-policy": "default-src 'none'; sandbox",
+        "content-type": "image/png",
+        "cross-origin-resource-policy": "same-origin",
+        "x-content-type-options": "nosniff"
+      },
+      "exactBytes": true
+    }
+  ],
+  "hostedRequests": 0,
+  "realAuthSessions": 0,
+  "modelCalls": 0,
+  "calendarCalls": 0,
+  "limitations": [
+    "This proves exact local response-helper bytes and headers, not a hosted owner download, signed-user isolation or browser rendering.",
+    "Root must verify the deployed authenticated route separately."
+  ]
+}

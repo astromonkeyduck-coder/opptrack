@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "method": "Authenticated owner rendered-image response bodies exported with documented browser pageAssets; no browser cookies/tokens extracted",
+  "route": "/api/private-media?preview=image&path=<known-owner-object>",
+  "jobId": "ef5178f5-a00b-4a3d-bb4a-338d0b575577",
+  "intakeId": "8e3027ab-2447-4abb-bef1-a38392252cb7",
+  "runtimeCommitPrefix": "f5688b1",
+  "contents": "two previously uploaded synthetic generated images",
+  "images": [
+    {
+      "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa",
+      "bytes": 46580,
+      "contentType": "image/png",
+      "matchesStoredOriginal": true
+    },
+    {
+      "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6",
+      "bytes": 57965,
+      "contentType": "image/png",
+      "matchesStoredOriginal": true
+    }
+  ],
+  "totalBytes": 104545,
+  "ownerBodyIntegrityVerified": true,
+  "otherUserSignedJwtVerified": false,
+  "attachmentDownloadDispositionFlowVerified": false,
+  "directStorageOwnerJwtVerified": false,
+  "exporterElapsedMs": 2638772.3575,
+  "exporterLimit": "Tool took about44minutes; do not repeat this export for routine checks",
+  "rawBodiesPrivate": true,
+  "calendarCalls": 0,
+  "bodyHashVerificationObservedAt": "2026-11-03T04:38:31Z",
+  "timestampScope": "Tool clock observed immediately before local body hash verification; export start/finish timestamps are not separately claimed"
+}

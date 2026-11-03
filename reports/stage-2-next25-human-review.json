@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "owner-next25-20261103T044216Z",
+  "confirmationRecordedAt": "2026-11-03T04:42:16Z",
+  "exactReviewTimeKnown": false,
+  "reviewer": "project_owner",
+  "reviewMethod": "explicit_batch_chat_confirmation",
+  "adjudicated": false,
+  "scope": "Exactly20 frozen public-source reference examples plus five separately prepared actual-media examples; approval of proposed packet facts only. No calendar/catalog action, independent holdout, full canonical null/entity adjudication or overall Stage2 acceptance.",
+  "confirmation": {
+    "responseAsRelayed": "All25arecorrect",
+    "context": "Explicit reply to the question covering next20-f54d1f028b53d3b7 and the five-media human-review.md packet."
+  },
+  "canonicalProjectionSeparatelyReviewed": false,
+  "exhaustiveEntitySetsAdjudicated": false,
+  "nullBoundaryAdjudicationBeyondPacket": false,
+  "modelGenerationsAdded": 0,
+  "calendarApproval": false,
+  "status": "exact_next25_development_packet_facts_approved",
+  "savedAt": "2026-11-03T04:42:17.375Z",
+  "packetSources": [
+    {
+      "report": "reports/stage-2-next-review-packet.json",
+      "sha256": "2ff32f9ed672dfa9036b093c9256ed1acb2964584550bc727f399a2e9fb5535f"
+    },
+    {
+      "report": "reports/stage-2-dated-media-review.json",
+      "sha256": "c3734656621ec92d2f7103dfec889a07db37f414f6f0a523f6da346f1d5ead9b"
+    }
+  ],
+  "inventoryExamples": [
+    {
+      "exampleId": "public-review-076-b60e4e9ee3",
+      "familyId": "b60e4e9ee328acb848e36fb6f080b9e4861d9738ba046cc6fead52ff7543d9ce",
+      "exampleContentSha256": "16e62b42bf4c1fc13c6840aa2fa2a747ead9205940f3d26a301323c9eed3aff1",
+      "proposedFactsSha256": "934daca37e1b7bcd7c6d9340b6b73d8c7a523f791c13aa973230abe195356a94",
+      "source": "fsu-calendar-api"
+    },
+    {
+      "exampleId": "public-review-077-0ea4dac6ce",
+      "familyId": "0ea4dac6ce81f4eb669368361e9b2234288458bc1c8a2709da6f362210875da7",
+      "exampleContentSha256": "f10e6f82de118caba6abb807b46d9cf1821acd0bbd556ae806a99a0180b0a4f9",
+      "proposedFactsSha256": "fa9a453511bb5423ca6c5d11337f8297bfd253b4bd4ed180d8e9449f01aa576d",
+      "source": "fsu-calendar-api"
+    },
+    {
+      "exampleId": "public-review-068-1c62f687f5",
+      "familyId": "1c62f687f51ef7a0457d8fee6bb096350fa935682a91e7556ecb8839bfb5f24e",
+      "exampleContentSha256": "1d516fd28bca11b58ca0355c1bfa3a7afec1f31e3056d637f779fd623708ee59",
+      "proposedFactsSha256": "8ba77a55522f4490c3403c421c099a491a68f986607fc567623d2acd564b7540",
+      "source": "fsu-calendar-api"
+    },
+    {
+      "exampleId": "public-review-069-f07994e617",
+      "familyId": "f07994e61746689bf7df3a81a6019ea00990ba1d0cfe2074409e395c06056b0c",
+      "exampleContentSha256": "81c2b589c1a6d6c4f116fdc335c5a3f9133c86060931370b582cde1566bed606",
+      "proposedFactsSha256": "1b05a39b65e9559c8551d4d27181b3791ead32ce32d540c064058e31bc31fbcf",
+      "source": "fsu-calendar-api"
+    },
+    {
+      "exampleId": "public-review-070-03f4ccfcc5",
+      "familyId": "03f4ccfcc527caa8867242f28b2a430fd969e361099f8906e79a3f944ee21edf",
+      "exampleContentSha256": "435bc5765b746395717289d0756dd162ef4dccb43b9722f93b669461a3bcaa32",
+      "proposedFactsSha256": "5e59b6f8c4b84b9e1124b3db97bb164257ad937b4a063177be7d244eabe9493d",
+      "source": "fsu-calendar-api"
+    },
+    {
+      "exampleId": "public-review-050-00f4743508",
+      "familyId": "00f4743508eead265eaff7b4ed72db9ecf2730c40ee38b0802dc0807263f52d6",
+      "exampleContentSha256": "e2dd98567fc2d77c3ac204d3e858505253bc3bb5c2ebe017c3e04f29d2c965d2",
+      "proposedFactsSha256": "055e1aa8bf53c4c1c9f8fd8bcc08442bc68ace8a911a5b83332982f70a8ded04",
+      "source": "fsu-hq-public-export"
+    },
+    {
+      "exampleId": "public-review-043-306a8d2258",
+      "familyId": "306a8d2258cd506a0b514017dee781f50b17810d053e1b34f31ad87b596d46b2",
+      "exampleContentSha256": "b1f25ea18611bbf7991140ab7da44e25c6dd82ec3ed185a70df0c12bcdecad27",
+      "proposedFactsSha256": "9691449967fdbb613c3d6cd174f0c6eefa8456d6705cc52e580c2c0402a3a949",
+      "source": "fsu-hq-public-export"
+    },
+    {
+      "exampleId": "public-review-044-1e81f379a6",
+      "familyId": "1e81f379a6cf8a17964eb16ccc1517a441cb290d760869a813c6eb6ba3d9947a",
+      "exampleContentSha256": "e9fe022a902a1b4fbed56b67760e010f0718495cc1d80779ceb809970d7a7ae3",
+      "proposedFactsSha256": "860e8e5dd1746a90473d4fd3827f589e4e8b1518865aa4fb8289c5f7fb5d1b25",
+      "source": "fsu-hq-public-export"
+    },
+    {
+      "exampleId": "public-review-045-cecfae1f18",
+      "familyId": "cecfae1f18caa0e8d35d60b89342ad6903198340e0942445bcd1fd33518b1f22",
+      "exampleContentSha256": "c0cfe7b122f3f014e56756d7f8e0efdaea7774c1b73a9b97d6c9f06a8f0d694a",
+      "proposedFactsSha256": "94e1014e14a76346e379dfec91a60ce38b77e22ed695897c24f71e72d72c6695",
+      "source": "fsu-hq-public-export"
+    },
+    {
+      "exampleId": "public-review-046-01f1fe406d",
+      "familyId": "01f1fe406d3914a6d8e107c83de61f8eda5b059993fd2ac4f0a008501c51e496",
+      "exampleContentSha256": "ff020864e7429b868dd4e6d22278a19b5c8d2637428c7a5e431c807d83c43dbd",
+      "proposedFactsSha256": "f5b681bfa5b2b02ddb1a7a37e990fc1b2e4c77de08be44d94c35bfccec9e9873",
+      "source": "fsu-hq-public-export"
+    },
+    {
+      "exampleId": "public-review-003-173c87a9c0",
+      "familyId": "173c87a9c02b6e5590630845a96aae752e4b490c06935f07fe1e59ef6d5132c7",
+      "exampleContentSha256": "33127af26772304c7a88f4796b8104da7ee970b5a7d14797d9cd6a2c1094ea28",
+      "proposedFactsSha256": "d227bf9649ec61ab49e0139cbfb5c2823bf0a123c05480517b5532e7a86df327",
+      "source": "fsu-music-events"
+    },
+    {
+      "exampleId": "public-review-004-432531518d",
+      "familyId": "432531518d217c3cdb06082c2c191f748507b046b951e29c583d076f06487112",
+      "exampleContentSha256": "8d4c0267e8c2533b293f81fb2da5032ff019625e3ab4f046bfd2bd9dc25867f7",
+      "proposedFactsSha256": "dd4822f1642f066f93d4bab8cd5867253711e7de1115853cc82c1292e68b34a4",
+      "source": "fsu-music-events"
+    },
+    {
+      "exampleId": "public-review-013-45d59c38fe",
+      "familyId": "45d59c38fecb54decaabc6c10a3e4356ec98a7a4bc36091a4f2db3765fb1ca5f",
+      "exampleContentSha256": "06d713f7f7a5541a35a0a5a94db3e9fbfd4e7e860e0fd07ca670aa185d8e430e",
+      "proposedFactsSha256": "31ad201e1d56a19fce87564439cbfc570c4649dedc1aa7557b92f8f87ea35fdd",
+      "source": "fsu-cre-applications"
+    },
+    {
+      "exampleId": "public-review-014-4a08bb35fc",
+      "familyId": "4a08bb35fc25eca6911543f8fbb4694726a8a7d9989f62916eb6fd9b5b92e9a6",
+      "exampleContentSha256": "532d9f11e529d2fbdc3aafc0ef505815842e267123dc65bc1714920af842a16d",
+      "proposedFactsSha256": "b1adbede38298c6561aa2ff989d51a7313d67ddc593b3894dc46b2693e535dff",
+      "source": "fsu-cre-applications"
+    },
+    {
+      "exampleId": "public-review-015-571731eae2",
+      "familyId": "571731eae28d83f28348bf0528f0a80a63e99b0d0a31702ccdd3d4e7250facb8",
+      "exampleContentSha256": "8ab53c591b33fe3e3a47e6e54f48bbdf03269d9738e8f8fd464d9e6492950057",
+      "proposedFactsSha256": "3b1a07fd53d9e9422841e9bd6cba26f057340ee0685d71d01c01a9d846d70371",
+      "source": "fsu-cre-applications"
+    },
+    {
+      "exampleId": "public-review-025-515e321039",
+      "familyId": "515e321039936ff765f36ce7261f164885ceed359b0eefa55ad33d91b2162d41",
+      "exampleContentSha256": "b97ed15fc66ed989d7f8f9c2541e24de8a57940c93b730ac73a5d9d11c43bd0f",
+      "proposedFactsSha256": "a64af3582aa37e47b56fafb4363992f9320267743aae3b5b443df6c34d4c9c6b",
+      "source": "fsu-onf-dates"
+    },
+    {
+      "exampleId": "public-review-023-1a6a367e96",
+      "familyId": "1a6a367e9652181737e0a1d211ef8a4ea31c01f98bf514695bb583aaf627677f",
+      "exampleContentSha256": "8f6919f81ea773f570c7f4568b932101cadb72ad7a3d98039fa88839c5232d5b",
+      "proposedFactsSha256": "c1c50e90ec991169dc68ad409f968eff0dee927559e3c5a0cb7b7aa3ae6b7baf",
+      "source": "fsu-onf-dates"
+    },
+    {
+      "exampleId": "public-review-034-143fad4972",
+      "familyId": "143fad4972d70a428edd5bc555fba6c20b7dc39cbddf932df7882c7bbf93ca81",
+      "exampleContentSha256": "173d2c386eb915f4017294a45fe3a2fe7ff23cb93b9e32cd20beeda2882ff8b7",
+      "proposedFactsSha256": "928ca4139b90154497f5baecee6d0f5d1b135d640c3885f1e9e607daa657bbf7",
+      "source": "fsu-opening-nights"
+    },
+    {
+      "exampleId": "public-review-035-240b63dcf5",
+      "familyId": "240b63dcf50b07b05d8233d6e17810eab45b30d41cee923acfd8ffd037aeb04f",
+      "exampleContentSha256": "154a28bcff9b1815fb9e683cbb900ad21c463d5d877eac9c3d4a74369b7f92a1",
+      "proposedFactsSha256": "3b6c5a578190d9d6aabe97c4c17a945f544b8477fc4e033606b5a136e7d66dab",
+      "source": "fsu-opening-nights"
+    },
+    {
+      "exampleId": "public-review-036-259ed35818",
+      "familyId": "259ed35818231ab4c0e51dfb5cbd5bd4dd5d78e704aa5bee730fb5f038a4d286",
+      "exampleContentSha256": "76a86690a28b116051c4dc94d6c0da97b3f5b7190c3870e9b22372d62d8f0166",
+      "proposedFactsSha256": "3e258399258c8ae4b390e344295719236158cd7b64ddf441c3aae28b51561945",
+      "source": "fsu-opening-nights"
+    }
+  ],
+  "mediaExamples": [
+    {
+      "exampleId": "ornl-workshop",
+      "familyId": "engineering-ornl-nov2026",
+      "proposedFactsSha256": "813c17a607ae50c741c63bdd75fc330c0f125d3f483c70b9bbb5477ef697012b",
+      "originalSha256": "3397f99fa3ad03366f2884ca22aec7b2cbc3bc6f1d4554aa967e607a2a3f70fa",
+      "previewSha256": [
+        "fbfd4fefe03974b3d152e233ff8618b362ddf60131fa6a3c2ccb32689841969c"
+      ]
+    },
+    {
+      "exampleId": "marine-kim-miller",
+      "familyId": "marine-lab-media",
+      "proposedFactsSha256": "459518c7e6e7fe4eeff278ae3bf40247f97f690a1995799a092a881fffb76514",
+      "originalSha256": "7e850b7a5fb8e19dd9eca70e618dd62291ea58fbf22bee4540c8c94d00d18bfe",
+      "previewSha256": [
+        "7e850b7a5fb8e19dd9eca70e618dd62291ea58fbf22bee4540c8c94d00d18bfe"
+      ]
+    },
+    {
+      "exampleId": "marine-rescheduled",
+      "familyId": "marine-lab-media",
+      "proposedFactsSha256": "aab984d61f198d549c32699919909228971e3204b3914c50d892e7ce9aca52d4",
+      "originalSha256": "7820059696391fe360f81d81a58b5b371f4493ab4f2f0a5ec4705c55b2edcbe8",
+      "previewSha256": [
+        "7820059696391fe360f81d81a58b5b371f4493ab4f2f0a5ec4705c55b2edcbe8"
+      ]
+    },
+    {
+      "exampleId": "boren-process",
+      "familyId": "onf-boren-2026",
+      "proposedFactsSha256": "2ff6df50b317a989c739c19691e836aa515f5334c6d74f686c2e95479f74cac4",
+      "originalSha256": "5e6571668a9f7ecf37200725a5eb9d01abf8aec09d713930da30e9425681bb50",
+      "previewSha256": [
+        "d8a4fc089f0e93309e8e8163228bb7027f7dcdc666073cf8189a8ac95a23bade",
+        "43fd542600b00d126e00a9cdf128808d385f03404b1433507d4166a2c4e414f1"
+      ]
+    },
+    {
+      "exampleId": "marine-boat-negative",
+      "familyId": "marine-lab-media",
+      "proposedFactsSha256": "9231f34405946942ef059638b15917732a24e917707ed84f758180e6bec4d39d",
+      "originalSha256": "e89998accf148e9a27ebd7c3aa9180e5514ac978095536faa97d866c2a3a70cd",
+      "previewSha256": [
+        "e89998accf148e9a27ebd7c3aa9180e5514ac978095536faa97d866c2a3a70cd"
+      ]
+    }
+  ],
+  "counts": {
+    "newInventoryDevelopmentExamples": 20,
+    "newActualMediaExamples": 5,
+    "newReviewedExamples": 25,
+    "previousReviewedExamples": 10,
+    "totalReviewedDevelopmentExamples": 35,
+    "totalReviewedInventoryExamples": 30,
+    "remainingUnreviewedInventoryExamples": 70,
+    "totalReviewedActualMediaExamples": 5,
+    "independentHumanHoldoutExamples": 0,
+    "newReviewedSyntheticExamples": 0,
+    "independentlyAdjudicatedExamples": 0
+  },
+  "privateOverlays": [
+    {
+      "path": "private/stage2-review-approvals/owner-next25-20261103T044216Z/inventory20-overlay.json",
+      "sha256": "6d0c6f6736e8178ee01fe8045286027ed8c856243296cacb1b665467e8c6052b"
+    },
+    {
+      "path": "private/stage2-review-approvals/owner-next25-20261103T044216Z/media5-overlay.json",
+      "sha256": "61381746186904546d189b36ab4942a0fdb7493f9fd0f79c211af81e103c7110"
+    }
+  ],
+  "packetAnnotations": {
+    "before": [
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review.json",
+        "backup": "private/stage2-review-approvals/owner-next25-20261103T044216Z/53be3a3886d5337d-review.json",
+        "sha256": "6d895e4731e309fdbf56c43a10bdadcddd79b4aa25a3e56bdf4bd2a66db47059"
+      },
+      {
+        "path": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/human-review.json",
+        "backup": "private/stage2-review-approvals/owner-next25-20261103T044216Z/61bc09d98846c2ff-human-review.json",
+        "sha256": "d51e7caec834af7828c0a75974d5650d4eb9ee15eea39ecb4f963a6e577f5bb3"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/index.md",
+        "backup": "private/stage2-review-approvals/owner-next25-20261103T044216Z/ce50d51ad7b0ffa5-index.md",
+        "sha256": "785117964fd5e5424f9fa4aa624eeb4c799c86a4fc8ede639e3d8bef67eafc2e"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review-01-05.md",
+        "backup": "private/stage2-review-approvals/owner-next25-20261103T044216Z/cb20cd564e512ce2-review-01-05.md",
+        "sha256": "b9a1abb78e05a55d08fa3e7309375bc39ad9d829c2d5eff8354dd45f754df977"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review-06-10.md",
+        "backup": "private/stage2-review-approvals/owner-next25-20261103T044216Z/2c5f95d651a26108-review-06-10.md",
+        "sha256": "16c5275ff7aeb894557a05f313eef1373869321ef31b502d3ef549c17a5dc578"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review-11-15.md",
+        "backup": "private/stage2-review-approvals/owner-next25-20261103T044216Z/4fbf8ec38eee75aa-review-11-15.md",
+        "sha256": "f14f2ca7ebb6b5011252ef55d111ccaa2efabbdeda061921c73f048b82a09e81"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review-16-20.md",
+        "backup": "private/stage2-review-approvals/owner-next25-20261103T044216Z/0fb59a7cfed09078-review-16-20.md",
+        "sha256": "fea7c2613e5c2e4c03c5cbf55cdbe3cc516a856613ed0b0744ceb7b07262097e"
+      },
+      {
+        "path": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/human-review.md",
+        "backup": "private/stage2-review-approvals/owner-next25-20261103T044216Z/a07f31411ecf5e4e-human-review.md",
+        "sha256": "dc373ccb2cd4ba8c3aff7defecd962a34cccd3e7a0e1bd9bb836c0bee0023880"
+      }
+    ],
+    "after": [
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review.json",
+        "sha256": "b68a6161f846d57d352f047457f006f387b4d3eb0b410ca8198539831c36d810"
+      },
+      {
+        "path": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/human-review.json",
+        "sha256": "6b0be62f55d2e798ee99642c1dbac1749cc6cd3426417c6ab8d8a0af21591c7e"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/index.md",
+        "sha256": "41a40f750ea7f1aef296021a1e2d72457c37118edf5094c2a42eef760576ccbb"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review-01-05.md",
+        "sha256": "6a59f662765cb8fbb5f88696b96c78aa16f76cfd96c408a437e177700de8f761"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review-06-10.md",
+        "sha256": "944e8aea89de5d1f29a9c71be590433b93a07d750d372397ed5f54d99bb98f68"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review-11-15.md",
+        "sha256": "7bca238c271401615c29ae3a6934b64011eaab1560c78df3713677ee2439906e"
+      },
+      {
+        "path": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review-16-20.md",
+        "sha256": "9951f6a82c3621e5f4c4c862a00ebc672f972527d6c6d626c6c9735b6b6af636"
+      },
+      {
+        "path": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/human-review.md",
+        "sha256": "58a67a8067bc9dc6ba7c926e9c8d47842fb9e3014a1757fd6d6c263012a9e1a9"
+      }
+    ]
+  },
+  "originalSourceFilesVerifiedUnchanged": 40,
+  "boundaries": {
+    "original100ExamplesAndCapturesChanged": false,
+    "mediaOriginalsChanged": false,
+    "proposedFactValuesChanged": false,
+    "canonicalReferenceProjectionChanged": false,
+    "databaseCalls": 0,
+    "calendarCalls": 0,
+    "modelCalls": 0,
+    "modelBudgetConsumed": true,
+    "newModelInferenceAuthorized": false
+  },
+  "stage2Accepted": false,
+  "independentHoldoutAccepted": false,
+  "limitations": [
+    "Thirty-five reviewed development examples are not thirty-five independent families, captures, events or accepted runtime predictions.",
+    "Packet facts were approved with no corrections; canonical scope outside those facts, entity completeness and independent adjudication remain open.",
+    "Historical preparation reports retain zero reviews created by their earlier preparation commands; these approval overlays are the later status record.",
+    "The existing20-generation local-model budget remains consumed; this script performs no inference."
+  ]
+}

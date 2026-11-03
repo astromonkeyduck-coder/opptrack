@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-03T03:44:04.179Z",
+  "status": "stage2_not_accepted_open_gates_separated_from_carried_stage1",
+  "basis": "Read-only criteria/evidence audit; no hosted checks or human approvals performed by this report.",
+  "evidence": [
+    {
+      "path": "docs/stage-plan.md",
+      "sha256": "0440bd567505028b24126991605a2e003951fed214dda6d359ca8d86b4d6ddea"
+    },
+    {
+      "path": "docs/engineering-instructions.md",
+      "sha256": "e41e5583667b055ec04481421f54a47a68f4cea10a6a77d28e563a0dc85ff43e"
+    },
+    {
+      "path": "docs/stage-2-free-model-plan.md",
+      "sha256": "3adff4e028f8933a4318cde49dcdb508b03e25a1169dd31e893318b4c20435ff"
+    },
+    {
+      "path": "reports/stage-2-v3-release.json",
+      "sha256": "6feab846d9efa3c876623cca135189be710d4531f2513a7ba06e1e51b02fe53d"
+    },
+    {
+      "path": "reports/stage-2-scheduled-private-ocr.json",
+      "sha256": "c5c8c457cb59d4fcb9d9924c2d0083a987b18523b8f08e7b4def10721e4c53af"
+    },
+    {
+      "path": "reports/stage-2-known-media-anonymous-check.json",
+      "sha256": "29a77c4d800f47beb17d09078e44572925d7f518fee57d943011379322c0acee"
+    },
+    {
+      "path": "reports/stage-2-reviewed-development-comparison.json",
+      "sha256": "dc0fc9ff49d6e5070114bbbe8193bb6949093e6a655dc9440cd4d7bc420d4ccd"
+    },
+    {
+      "path": "reports/stage-2-first-ten-human-review.json",
+      "sha256": "13a871352cbff7624e730da02093aa60faa4e7a0576d33fc53ac4bfbaed52aef"
+    },
+    {
+      "path": "reports/stage-2-next-review-packet.json",
+      "sha256": "2ff32f9ed672dfa9036b093c9256ed1acb2964584550bc727f399a2e9fb5535f"
+    },
+    {
+      "path": "reports/stage-1-local-recovery.json",
+      "sha256": "e44edaf8e0990034c504bed43fa8e838055fdf598899fd3870625ba1ab54ef86"
+    },
+    {
+      "path": "reports/stage-1-hosted-reingestion-checks.json",
+      "sha256": "0bf97b5233ab39b5cae51447c05e396ca9b598a4aa3c99e74ca7eda1e029a240"
+    }
+  ],
+  "established": [
+    {
+      "id": "private_native_path",
+      "finding": "Actual owner two-image upload, private original manifests/hash checks and genuine non-test scheduled v2 OCR processing are proven. Contents are synthetic, not a human accuracy benchmark.",
+      "evidence": [
+        "reports/stage-2-hosted-two-slide-upload.json",
+        "reports/stage-2-scheduled-private-ocr.json"
+      ]
+    },
+    {
+      "id": "public_pdf_all_pages",
+      "finding": "A real public six-page PDF was processed with text+visual passes in local and actual Trigger execution; this does not prove private hosted PDF upload/download.",
+      "evidence": [
+        "reports/stage-2-cloud-native-probe.json"
+      ]
+    },
+    {
+      "id": "guards_and_version_history",
+      "finding": "Exact v1/v2 source archives, immutable per-job versioning and budget/access checks are implemented; current v3 is deployed. v3 has not yet processed a private hosted job.",
+      "evidence": [
+        "reports/stage-2-v3-release.json",
+        "reports/stage-2-v3-versioning-database-tests.json"
+      ]
+    },
+    {
+      "id": "evidence_quarantine",
+      "finding": "Claims have exact retained span validation, partial/blocked states and private unverified suggestions. Extraction does not promote facts or write calendars.",
+      "evidence": [
+        "reports/stage-2-v3-release.json"
+      ]
+    }
+  ],
+  "openStage2": [
+    {
+      "id": "S2-varied-real-corpus",
+      "criterion": "Roughly100 varied accessible examples, including real dated flyers/carousels, negatives and realistic failures.",
+      "state": "partial",
+      "actual": "100 positive public-source review units share20 captured responses; only10 are owner-approved development references. Current published image probe found zero dated flyers. Twenty further units are prepared, unapproved.",
+      "closure": "Collect permitted dated media and negatives, preserve every supplied unit/page, document rights/access/windows and family identity, obtain independent human labels.",
+      "currentAuthorization": "Public evidence collection and local/native work are authorized; media agent is handling actual dated flyers. No expanded social access or Meta repair."
+    },
+    {
+      "id": "S2-human-labels-and-canonical-scope",
+      "criterion": "Human factual labels for dates, separate actions/doors, eligibility, unknowns, conflicts, cancellation and complete entity sets.",
+      "state": "partial",
+      "actual": "Ten single-owner batch-approved source references remain partial canonical scope, with venue aliases/null boundaries/source conflicts not adjudicated. The next20 packet has zero new approvals.",
+      "closure": "Human approve/correct the concrete packet, explicitly check null boundaries/entity counts/status/aliases, resolve critical disagreements through a separate adjudication record.",
+      "currentAuthorization": "Packet preparation is feasible now; only the human can supply approval/corrections. Agent approval invention is prohibited."
+    },
+    {
+      "id": "S2-independent-holdout",
+      "criterion": "Family-separated development and independent human-reviewed holdout, without tuning on answers.",
+      "state": "open",
+      "actual": "Zero human-reviewed independent holdout. The28 synthetic cases are unreviewed; their assigned holdout was exposed by its initial diagnostic. The100 public inventory has no acceptance holdout assignment.",
+      "closure": "Reserve fresh organizer/opportunity/media families before runtime tuning, freeze labels/access metadata and evaluate without development feedback leakage. Remaining inventory units are not automatically an untouched holdout.",
+      "currentAuthorization": "Prepare a development packet now. A future holdout needs human labeling and exposure control; the newly approved local-model plan permits only10 development inputs, not holdout generations."
+    },
+    {
+      "id": "S2-model-prompt-comparison",
+      "criterion": "Compare candidate runtime models/prompts on the same human-reviewed inputs and choose a least-cost combination meeting the gates.",
+      "state": "bounded_development_comparison_completed_no_qualifying_configuration",
+      "actual": "Exactly20 authorized local generations completed across two fixed prompts and the original10 development inputs. Zero outputs passed schema/evidence validation;14schema,2JSON parse,3missing-evidence and1quote-not-found failures were retained. Each prompt recovered0/55 accepted scoped facts; validated-output precision is null. No production model was selected.",
+      "closure": "The bounded development attempt is completed, but no candidate meets gates. Further configurations or holdout inference require a new explicit bounded authorization; human canonical/holdout/media-quality work remains open.",
+      "currentAuthorization": "The20-generation approval is consumed. Offline artifact inspection/scoring can continue; no extra inference, paid provider, production integration or API spend is authorized.",
+      "priorAuditState": "authorized_bounded_attempt_not_run_at_audit"
+    },
+    {
+      "id": "S2-semantic-quality",
+      "criterion": "Report field precision, separate event/action recall, misses, uncertainty and sample size; target95% recall only in the sufficiently varied labeled accessible set.",
+      "state": "not_met_or_not_established",
+      "actual": "Current v3 real partial scope recovers32/55 facts, matches32/35 labeled predictions with21 unscored; scoped completion3/8 events,3/6 actions,4/10 cases. This is not complete factual accuracy or detection recall. Synthetic dev2/17 strict cases is not human accuracy.",
+      "closure": "Label complete scope, fix material failures with versioned implementations, then evaluate an adequate independent varied set with absolute misses and intervals.",
+      "currentAuthorization": "Development diagnostics and fixes are authorized; no invented status/timezone/duration, label rewrites to hide failures, or acceptance claim."
+    },
+    {
+      "id": "S2-reconciliation-quality",
+      "criterion": "Conservative reversible cross-source reconciliation, separate occurrences/actions, decision/approval preservation, affirmative cancellation and material-change review.",
+      "state": "implementation_and_sql_evidence_partial_human_outcomes_open",
+      "actual": "Relations/reversible review and preservation guards are implemented; synthetic pair labels/tests and SQL-role audits exist. No independently human-reviewed merge-error/retained-duplicate benchmark is established.",
+      "closure": "Human-label real same/separate/review pairs and verify source changes invalidate stale relation review, decisions/approvals persist and ambiguous performances/clubs remain separate.",
+      "currentAuthorization": "Read-only proposals and synthetic rollback/reversible workflow checks can progress with current access. Real relation confirmations require explicit owner review; calendar approvals remain separate."
+    },
+    {
+      "id": "S2-current-runtime-hosted-media",
+      "criterion": "Current deployed runtime processes all supplied private assets/pages with complete manifests, retries and visible failures.",
+      "state": "v2_private_images_proven_v3_and_private_pdf_open",
+      "actual": "Two private synthetic images were genuinely scheduled on v2; v3 is deployed but no actual v3 private job is recorded. Public six-page PDF processing is proven, not private hosted PDF execution.",
+      "closure": "Use normal owner intake and natural daily budgets for a bounded v3 job/private PDF, correlate scheduled parent/child/job IDs and every asset/page/hash. Do not reset quotas or mark idle/manual runs as scheduled processing.",
+      "currentAuthorization": "Feasible with existing owner/provider access and remaining natural quota or a later UTC window; no upgrade or new credential is needed in principle."
+    },
+    {
+      "id": "S2-measured-cost-and-uncertainty",
+      "criterion": "Measured extraction/model cost, failures and uncertainty for compared candidates.",
+      "state": "partial",
+      "actual": "Selected actual Trigger run estimates exist, model API cost is zero and local/native timing exists. Builds/SQL/Storage/electricity and representative long-run cost remain unmeasured.",
+      "closure": "Record actual bounded model/local timing/bytes/failures and worker billing estimates with explicit exclusions; do not infer monthly invoices or unlimited free capacity.",
+      "currentAuthorization": "Can improve with current authorized telemetry/local attempt. No API spend or service purchase."
+    }
+  ],
+  "carriedStage1": [
+    {
+      "id": "S1-private-storage-http",
+      "state": "partial",
+      "actual": "Owner upload and worker reads with original hashes are proven; anonymous known-object app URLs return401. Owner downloaded-body integrity, signed other-user denial and direct Storage HTTP are unverified.",
+      "feasibleNext": "Retry normal owner original download with byte/hash verification. Independent other-user signed-JWT proof requires a separately authenticated nonowner principal; SQL-role simulation is not equivalent.",
+      "authorizationLimit": "Do not read browser credentials or bypass file/auth restrictions. Anonymous app-route denial does not close direct Storage policy proof."
+    },
+    {
+      "id": "S1-independent-contention",
+      "state": "open",
+      "actual": "Local/SQL-role lease, expiry and retry checks pass; independent concurrent hosted sessions remain unproven.",
+      "feasibleNext": "Use two independent clients against isolated synthetic fixtures with existing authorized access; record simultaneous lease/idempotency/recovery outcomes.",
+      "authorizationLimit": "Do not mutate real decisions or claim sequential rollback checks prove distributed contention."
+    },
+    {
+      "id": "S1-hosted-restore",
+      "state": "open",
+      "actual": "Twenty-check local synthetic database/object restore drill exists; hosted isolated database+Storage restoration is unverified.",
+      "feasibleNext": "Prepare a hashed backup/restore manifest now; execute only against a verified isolated test target with matching private object bodies.",
+      "authorizationLimit": "Do not overwrite production or buy/provision a paid target. Availability of a safe isolated target is unverified."
+    },
+    {
+      "id": "S1-phone",
+      "state": "open",
+      "actual": "Earlier desktop390x844 viewport proof is distinct from a physical phone check; current physical-phone result is unrecorded.",
+      "feasibleNext": "Owner opens the production URL on a phone and checks authenticated cards/calendar toggle/intake/review navigation.",
+      "authorizationLimit": "Human/device participation is needed for a physical-phone claim."
+    },
+    {
+      "id": "S1-laptop-off",
+      "state": "open",
+      "actual": "Genuine scheduled cloud collection and private OCR exist; no user-confirmed powered-off interval is recorded.",
+      "feasibleNext": "Record an owner-confirmed off window, then correlate genuine scheduled Central and a Music six-hour due window plus database updates while it is off.",
+      "authorizationLimit": "User confirmation/time window is needed; cloud scheduling alone is not a verified laptop-off observation."
+    },
+    {
+      "id": "S1-retention-orphan-recovery",
+      "state": "not_closed_by_current_release_evidence",
+      "actual": "Historical Stage1 checklist retained safe retention/orphan cleanup; current release does not supply a hosted completion record.",
+      "feasibleNext": "Audit current retention dry-run and synthetic orphan/idempotent cleanup/recovery evidence before marking this gate closed.",
+      "authorizationLimit": "Do not delete private original evidence merely to complete an audit; use bounded synthetic fixtures."
+    }
+  ],
+  "coverageGapsNotNewStageWork": [
+    {
+      "route": "Instagram media/video/Stories and expired/restricted access",
+      "state": "blocked_or_unavailable",
+      "boundary": "Meta repair remains paused; no new accounts/scopes or workaround collection is authorized. Retained caption text is partial, not complete carousel/Stories coverage."
+    },
+    {
+      "route": "HQ private/member content",
+      "state": "unproven_or_manual_only",
+      "boundary": "The proven public feed does not establish private/member coverage."
+    },
+    {
+      "route": "Resend inbound/delivery",
+      "state": "optional_unconfigured",
+      "boundary": "Not necessary to claim the authorized manual intake path; do not enable delivery or buy domain/services for this audit."
+    }
+  ],
+  "nextHumanAction": {
+    "status": "initial_twenty_plus_five_reference_approval_fulfilled",
+    "approvalReport": "reports/stage-2-next25-human-review.json",
+    "scope": "All25 exact packet references were approved; no further approval of those same examples is pending. Canonical entity/null adjudication and independent holdout labeling remain different gates."
+  },
+  "stage2Accepted": false,
+  "stage1RetroactivelyAccepted": false,
+  "stage3Authorized": false,
+  "newHttpRequests": 0,
+  "newDatabaseCalls": 0,
+  "newCalendarCalls": 0,
+  "newHumanApprovals": 0,
+  "modelComparisonCheckpoint": {
+    "recordedAt": "2026-11-03T04:03:46.977Z",
+    "report": "reports/stage-2-free-local-model-comparison.json",
+    "sha256": "651305d15419a41827da3615dca7eac6f5dca2f0d3f05fa9b985126c14044d26",
+    "status": "bounded_two_prompt_development_comparison_completed",
+    "actualGenerations": 20,
+    "validatedOutputs": 0,
+    "apiCostUsd": 0,
+    "configurationSelectedForProduction": false,
+    "scope": "Exactly the authorized20 generations on the original10 owner-approved development inputs; no further inference is authorized by this consumed budget.",
+    "remaining": "No qualifying local prompt/configuration; human canonical labels, independent holdout and other semantic gates remain open."
+  },
+  "sampleTargets": {
+    "variedExamples": "roughly100 where practical, including negatives/media",
+    "independentReviewedHoldout": 0,
+    "currentProvisionalScorerHoldoutTarget": 40,
+    "provisionalTargetIsNotUniversalPackMinimum": true,
+    "accessibleLabeledEventActionRecallTarget": 0.95,
+    "noCampusWideCoverageDenominator": true
+  },
+  "latestReadOnlyEvidenceCheckpoints": [
+    {
+      "path": "reports/stage-2-private-storage-http.json",
+      "sha256": "cfb51b794b11e2745d793f8dc856d747899d736b0a50129704b3459077756d89"
+    },
+    {
+      "path": "reports/stage-2-dated-media-review.json",
+      "sha256": "c3734656621ec92d2f7103dfec889a07db37f414f6f0a523f6da346f1d5ead9b"
+    }
+  ],
+  "latestReadOnlyEvidenceNotes": [
+    "Fresh direct public/anonymous Storage routes returned denials, but fresh object existence, owner-body integrity and signed-other-user isolation remain unproven; allPrivateHttpCriteriaPassed remains false.",
+    "New official media packet now contains five cases/six pages, including three dated flyers and one negative photo. Human reviews and independent holdout remain zero; this advances collection variety without closing semantic acceptance."
+  ],
+  "historicalHumanActionAtInitialAudit": {
+    "packet": "reports/stage-2-next-review-packet.json",
+    "scope": "Review the20 exact development IDs and correct facts/unknowns/conflicts. No blanket source activation, calendar approval or holdout acceptance is requested."
+  },
+  "currentFollowupCheckpoint": {
+    "recordedAt": "2026-11-03T04:47:09.558Z",
+    "preservesHistoricalAuditBasis": true,
+    "evidence": [
+      {
+        "role": "approval",
+        "path": "reports/stage-2-next25-human-review.json",
+        "sha256": "18fcbf68a2509baf46091c749525c431aaf6a25a49e9f9630fa7ae230e626fde"
+      },
+      {
+        "role": "new20",
+        "path": "reports/stage-2-next20-reviewed-development.json",
+        "sha256": "9fe5447adcf903024222ca39961fc9873880d49f8e20e7bb441ed4bbd91bbc83"
+      },
+      {
+        "role": "ownerBodies",
+        "path": "reports/stage-2-owner-preview-body-integrity.json",
+        "sha256": "836068dff83f89eb540be27fbc827a311ffa132d2ea9b85f84ae3d05050a0332"
+      },
+      {
+        "role": "hostedV3Policy",
+        "path": "reports/stage-2-v3-hosted-policy-checks-current.json",
+        "sha256": "b6626d1503d40bcc40b20e2032bd315d94642ee411041c668e5632ecaf495ae8"
+      },
+      {
+        "role": "scheduledV3",
+        "path": "reports/stage-2-v3-scheduled-private-ocr.json",
+        "sha256": "6334af5346d3af18c00d9191065ad19b9ef796b54e052952ada7f0843826c5ab"
+      },
+      {
+        "role": "localModel",
+        "path": "reports/stage-2-free-local-model-comparison.json",
+        "sha256": "651305d15419a41827da3615dca7eac6f5dca2f0d3f05fa9b985126c14044d26"
+      }
+    ],
+    "reviewedDevelopmentExamples": 35,
+    "reviewedInventoryReferences": 30,
+    "reviewedActualMediaExamples": 5,
+    "independentReviewedHoldoutExamples": 0,
+    "newlyReviewed20Diagnostic": {
+      "correctLabeled": 97,
+      "labeledPredictions": 101,
+      "totalPredictions": 151,
+      "unscoredPredictions": 50,
+      "recoveredFacts": 97,
+      "scopedFacts": 259,
+      "eventsComplete": "3/36",
+      "actionsComplete": "7/9",
+      "casesComplete": "6/20",
+      "validationFailures": 0,
+      "exitCode": 1,
+      "meaning": "Limited canonical-agreement facts only; high labeled precision does not establish full accuracy or meet event/action recall gates."
+    },
+    "ownerAccess": {
+      "renderedPreviewResponseBodiesVerified": 2,
+      "originalBytesVerified": 104545,
+      "method": "Authenticated owner pageAssets response-body export; exact original hashes",
+      "attachmentDownloadFlowVerified": false,
+      "directOwnerStorageJwtVerified": false,
+      "signedOtherUserStorageVerified": false
+    },
+    "hostedV3Policy": {
+      "passed": 8,
+      "role": "Transaction-local SQL owner/worker/anonymous fixtures; not signed JWT/Storage HTTP/independent sessions",
+      "existingRealRowsPreserved": true
+    },
+    "naturalV3ScheduledPrivateProcessing": {
+      "nominalAt": "2026-11-03T04:00:00Z",
+      "parentRunId": "run_06gpv6ed9smugo8alo9su2s8a2",
+      "childRunId": "run_06gpv6p4p5h9lm7n5qrluiava2",
+      "jobId": "ef5178f5-a00b-4a3d-bb4a-338d0b575577",
+      "processedImages": 2,
+      "attempts": 1,
+      "contents": "Previously uploaded synthetic images, not real dated-flyer accuracy",
+      "laptopOffVerified": false
+    },
+    "localModel": {
+      "generationBudgetConsumed": 20,
+      "validatedOutputs": 0,
+      "qualifyingConfiguration": false,
+      "furtherInferenceAuthorized": false
+    },
+    "supersedesInitialClaims": [
+      "Initial next20 review request is fulfilled.",
+      "Current-v3 natural scheduled private-image execution is now proven; private-PDF hosted processing remains separate.",
+      "Owner preview response-body integrity for two original images is proven; attachment-download/direct owner JWT/signed other-user proof remains open.",
+      "Corrected hosted-v3 SQL-role audit passed8/8 while preserving real rows and quotas."
+    ],
+    "stillOpen": [
+      "Complete canonical/negative/media/entity labels and independent human holdout.",
+      "Semantic/event-action recall and reconciliation-quality acceptance.",
+      "Hosted private PDF/all-page proof, attachment flow, direct owner JWT and signed other-user HTTP.",
+      "Carried isolated hosted restore, independent contention, physical phone and confirmed laptop-off window."
+    ],
+    "latestAggregateMaintainedByRoot": "reports/stage-2-remaining-checks.json",
+    "stage2Accepted": false
+  }
+}

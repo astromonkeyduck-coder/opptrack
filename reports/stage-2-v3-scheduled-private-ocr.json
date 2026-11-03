@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-03 04:41:53.091225+00",
+  "runtimeCommit": "f5688b1098b699b933ced43c3534348cb893a70e",
+  "triggerVersion": "20261103.5",
+  "netlifyDeployId": "6ae95a6680bf36b3ee6054fb",
+  "triggerDeployId": "6x0lqqmo",
+  "triggerDeployedAt": "2026-11-03T03:52:51Z",
+  "evidenceClass": "Actual authenticated owner request on existing synthetic-image intake -> genuine non-test scheduled parent -> Production v3 child -> exact private Storage bytes/native OCR/SQL result. No new real dated flyer upload was submitted.",
+  "parent": {
+    "id": "run_06gpv6ed9smugo8alo9su2s8a2",
+    "nominalAt": "2026-11-03T04:00:00Z",
+    "scheduleId": "sched_7piwpgtckcngy15icqk45",
+    "isTest": false,
+    "triggeredAt": "2026-11-03T04:10:46.320Z",
+    "startedAt": "2026-11-03T04:10:52.918Z",
+    "finishedAt": "2026-11-03T04:11:47.572Z",
+    "sourceRunIds": [
+      "dceb359a-ca66-4db7-a5ae-aca86738a9ce",
+      "3f02c34d-facf-4394-a375-2713d7f3a964"
+    ],
+    "sourceSuccesses": 2,
+    "sourceRequests": 21,
+    "billedSeconds": 52.8,
+    "estimatedUsd": 0.0018073
+  },
+  "child": {
+    "id": "run_06gpv6p4p5h9lm7n5qrluiava2",
+    "parentId": "run_06gpv6ed9smugo8alo9su2s8a2",
+    "isTest": false,
+    "idempotency": "stage2:run_06gpv6ed9smugo8alo9su2s8a2",
+    "triggeredAt": "2026-11-03T04:11:47.308Z",
+    "startedAt": "2026-11-03T04:11:50.983Z",
+    "finishedAt": "2026-11-03T04:11:54.659Z",
+    "billedSeconds": 2.3,
+    "invocationUsd": 0.000025,
+    "computeUsd": 0.00007898,
+    "estimatedUsd": 0.00010398,
+    "candidateCount": 3,
+    "processedPages": 2,
+    "errorCode": null
+  },
+  "job": {
+    "id": "ef5178f5-a00b-4a3d-bb4a-338d0b575577",
+    "state": "succeeded",
+    "extractor_version": "stage2-rules-v3",
+    "created_at": "2026-11-03 03:53:09.469982+00",
+    "first_started_at": "2026-11-03 04:11:52.428482+00",
+    "finished_at": "2026-11-03 04:11:54.431601+00",
+    "attempts": 1,
+    "error_code": null,
+    "input_hash": "54b9ed7bd8dd1ce5f5fe1b11d3fba66f40eefd643a2ece86e12d44c09a43ed22",
+    "stats": {
+      "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5/stage2-rules-v3",
+      "elapsedMs": 1911,
+      "expectedAssets": 2,
+      "processedPages": 2,
+      "processedAssets": 2
+    },
+    "attempts_metadata": [
+      {
+        "pages": 2,
+        "state": "succeeded",
+        "attempt": 1,
+        "startedAt": "2026-11-03T04:11:52.428482+00:00",
+        "finishedAt": "2026-11-03T04:11:54.431601+00:00"
+      }
+    ]
+  },
+  "manifest": {
+    "checked_at": "2026-11-03 04:41:53.091225+00",
+    "units": 3,
+    "candidates": 3,
+    "manifest": [
+      {
+        "method": "provided-text",
+        "sha256": "6c32b251030a33437faf8163be7edf30ddcca27419d278a9d4e1841baa38ec9b",
+        "status": "processed",
+        "assetId": "text"
+      },
+      {
+        "method": "ocr",
+        "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa",
+        "status": "processed",
+        "assetId": "1"
+      },
+      {
+        "method": "ocr",
+        "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6",
+        "status": "processed",
+        "assetId": "2"
+      }
+    ],
+    "decisions": 58,
+    "calendar_commands": 1
+  },
+  "ownerResponseBodyProof": "reports/stage-2-owner-preview-body-integrity.json",
+  "sourceContents": "Previously uploaded synthetic images, not real-event accuracy evidence",
+  "newDatedFlyerUploadSubmitted": false,
+  "laptopOffVerified": false,
+  "calendarCalls": 0,
+  "modelCalls": 0,
+  "paidUpgrades": 0,
+  "privateRawEvidence": [
+    "private/stage2-v3-parent-detail.txt",
+    "private/stage2-v3-child-overview.txt",
+    "private/stage2-v3-child-detail.txt"
+  ]
+}
