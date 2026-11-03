@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { extractCandidates } from '../lib/extraction/text';
-import { extractionUnitId, type ExtractionCandidate } from '../lib/extraction/contracts';
+import { EXTRACTOR_VERSION, extractionUnitId, type ExtractionCandidate } from '../lib/extraction/contracts';
 import type { ExtractionUnit } from '../lib/extraction/media-types';
 import { evaluatePredictions, validateSplitManifest, type CanonicalUnit, type EvaluationCase, type EvaluationCorpus, type Prediction, type SplitManifest } from './stage2-evaluator';
 
@@ -71,8 +71,8 @@ async function main() {
   if (errors.length) throw new Error(errors.join('\n'));
   const predictions = corpus.cases.filter(item => item.split === 'development').map(item => predictStage2Baseline(item.id, item.input));
   await mkdir('private/stage2-evaluation', { recursive: true, mode: 0o700 });
-  await writeFile('private/stage2-evaluation/rules-development-predictions.json', JSON.stringify({ candidateId: 'stage2-rules-v1', adapterVersion: BASELINE_ADAPTER_VERSION, predictions }, null, 2) + '\n', { mode: 0o600 });
-  const report = evaluatePredictions(corpus, manifest, predictions, 'stage2-rules-v1', { splits: ['development'] });
+  await writeFile(`private/stage2-evaluation/rules-development-predictions-${EXTRACTOR_VERSION}.json`, JSON.stringify({ candidateId: EXTRACTOR_VERSION, adapterVersion: BASELINE_ADAPTER_VERSION, predictions }, null, 2) + '\n', { mode: 0o600 });
+  const report = evaluatePredictions(corpus, manifest, predictions, EXTRACTOR_VERSION, { splits: ['development'] });
   const initialReportPath = 'reports/stage-2-rules-diagnostic-initial.json';
   const initialSha256 = createHash('sha256').update(await readFile(initialReportPath)).digest('hex');
   const result = {
@@ -85,6 +85,14 @@ async function main() {
     },
     modelOrPromptComparisonRun: false, realMediaProbe: 'reports/stage-2-native-media-supplied-probe.json',
   };
+  // Preserve the last report of the previous extractor before an active-version rerun.
+  const previousBytes = await readFile('reports/stage-2-rules-diagnostic.json');
+  const previous = JSON.parse(previousBytes.toString('utf8')) as { candidateId?: string };
+  if (previous.candidateId && previous.candidateId !== EXTRACTOR_VERSION && /^stage2-rules-v\d+$/.test(previous.candidateId)) {
+    try { await writeFile(`reports/stage-2-rules-diagnostic-${previous.candidateId}.json`, previousBytes, { flag: 'wx' }); }
+    catch (error) { if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error; }
+  }
+  await writeFile(`reports/stage-2-rules-diagnostic-${EXTRACTOR_VERSION}.json`, JSON.stringify(result, null, 2) + '\n');
   await writeFile('reports/stage-2-rules-diagnostic.json', JSON.stringify(result, null, 2) + '\n');
   console.log(JSON.stringify({ candidateId: report.candidateId, adapterVersion: BASELINE_ADAPTER_VERSION, cases: predictions.length, passedCases: report.development.passedCases, report: 'reports/stage-2-rules-diagnostic.json', humanReviewedAcceptance: report.acceptance.state, providerRequests: 0 }));
   process.exitCode = report.development.passedCases === report.development.cases ? 0 : 1;

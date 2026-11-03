@@ -182,5 +182,6 @@
     "Physical canonical merge/collapsed display and decision propagation (current relations preserve separate rows)",
     "Open Stage 1 isolated hosted backup/Storage restore, independent-session contention, phone layout and confirmed laptop-off checks",
     "Meta access repair remains paused; no images, videos or Stories collected"
-  ]
+  ],
+  "latestContinuationReport": "reports/stage-2-v2-release.json"
 }

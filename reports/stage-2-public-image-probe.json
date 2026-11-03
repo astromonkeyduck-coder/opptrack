@@ -1,0 +1,121 @@
+{
+  "recordedAt": "2026-11-03T00:44:01.814Z",
+  "command": "node --import tsx scripts/probe-stage2-live-flyers.ts",
+  "evidenceClass": "Fresh reads of three fixed public event image references plus local native OCR; not necessarily event flyers or complete slide sets",
+  "originalBatch": "private/stage1-reingestion-live/fsu-calendar-api.json",
+  "originalBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+  "requestedSamples": 3,
+  "observations": [
+    {
+      "id": 54299152068755,
+      "source": "https://localist-images.azureedge.net/photos/54303280356289/huge/c1d6a3454eed0450c6415fec5b655e016189e0c2.jpg",
+      "sourceEventUrl": "https://calendar.fsu.edu/event/smoke-signals-1998-film-screening",
+      "originalPublicationAt": "2026-10-21T03:52:36-04:00",
+      "observedAt": "2026-11-03T00:43:52.123Z",
+      "state": "fetched",
+      "httpStatus": 200,
+      "mimeType": "image/jpeg",
+      "bytes": 60344,
+      "sha256": "64e2167d591b076fa3a2d7d7916d011206470c2fd9e6e759010c7bb02116b3f4",
+      "privatePath": "private/stage2-public-flyers/54299152068755-64e2167d591b.jpg"
+    },
+    {
+      "id": 54125713843124,
+      "source": "https://localist-images.azureedge.net/photos/54125728117755/huge/7d6a561a46d153add5cd236ad9d87e2161dee194.jpg",
+      "sourceEventUrl": "https://calendar.fsu.edu/event/short-films",
+      "originalPublicationAt": "2026-10-01T13:23:44-04:00",
+      "observedAt": "2026-11-03T00:43:52.379Z",
+      "state": "fetched",
+      "httpStatus": 200,
+      "mimeType": "image/jpeg",
+      "bytes": 199757,
+      "sha256": "53e2b1d579ed2f12805fb23de2cb56ba55f37a06dd018345e860ed935cad5155",
+      "privatePath": "private/stage2-public-flyers/54125713843124-53e2b1d579ed.jpg"
+    },
+    {
+      "id": 54246054417952,
+      "source": "https://localist-images.azureedge.net/photos/46925843632338/huge/21e150d55b32c326203cb491cbb19101457bcce0.jpg",
+      "sourceEventUrl": "https://calendar.fsu.edu/event/flute-ensemble-concert-4482",
+      "originalPublicationAt": "2026-10-15T03:50:25-04:00",
+      "observedAt": "2026-11-03T00:44:00.958Z",
+      "state": "fetched",
+      "httpStatus": 200,
+      "mimeType": "image/jpeg",
+      "bytes": 302671,
+      "sha256": "cd04d6ba6e8603e605265a0c15b5ef36ebba2936a223d8d651a2189ebbb18d99",
+      "privatePath": "private/stage2-public-flyers/54246054417952-cd04d6ba6e86.jpg"
+    }
+  ],
+  "combinedFetchedBytes": 562772,
+  "readiness": {
+    "engine": "native-media-v1/tesseract-eng+poppler/sharp-0.35.5",
+    "tools": {
+      "tesseract": {
+        "available": true,
+        "version": "tesseract 5.5.4"
+      },
+      "pdfinfo": {
+        "available": true,
+        "version": "pdfinfo version 26.10.0"
+      },
+      "pdftotext": {
+        "available": true,
+        "version": "pdftotext version 26.10.0"
+      },
+      "pdftoppm": {
+        "available": true,
+        "version": "pdftoppm version 26.10.0"
+      }
+    },
+    "ready": true
+  },
+  "elapsedNativeMs": 612,
+  "complete": true,
+  "units": [
+    {
+      "assetId": "public-54299152068755",
+      "status": "processed",
+      "method": "ocr",
+      "attempted": true,
+      "textCharacters": 21,
+      "wordBoxes": 8,
+      "issues": [],
+      "sha256": "64e2167d591b076fa3a2d7d7916d011206470c2fd9e6e759010c7bb02116b3f4"
+    },
+    {
+      "assetId": "public-54125713843124",
+      "status": "processed",
+      "method": "ocr",
+      "attempted": true,
+      "textCharacters": 59,
+      "wordBoxes": 21,
+      "issues": [],
+      "sha256": "53e2b1d579ed2f12805fb23de2cb56ba55f37a06dd018345e860ed935cad5155"
+    },
+    {
+      "assetId": "public-54246054417952",
+      "status": "processed",
+      "method": "ocr",
+      "attempted": true,
+      "textCharacters": 107,
+      "wordBoxes": 35,
+      "issues": [],
+      "sha256": "cd04d6ba6e8603e605265a0c15b5ef36ebba2936a223d8d651a2189ebbb18d99"
+    }
+  ],
+  "privateResult": "private/stage2-public-flyers/ocr-result.json",
+  "humanLabels": 0,
+  "stage2PredictionsScored": 0,
+  "credentialsRead": 0,
+  "databaseCalls": 0,
+  "modelCalls": 0,
+  "calendarCalls": 0,
+  "paidServices": 0,
+  "limitations": [
+    "Public event image references may be generic artwork or movie posters, not dated opportunity flyers. Visual inspection is required before classification.",
+    "One supplied image per event does not establish all-slide/carousel completeness.",
+    "OCR execution and retained text are not factual field accuracy or holdout acceptance.",
+    "No private hosted upload/Storage or Cloud OCR path is exercised.",
+    "Original image bytes and full OCR remain ignored/private; no original media is published."
+  ]
+}

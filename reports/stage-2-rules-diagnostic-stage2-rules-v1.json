@@ -1,0 +1,5358 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "stage2-rules-v1",
+  "corpusVersion": "stage2-synthetic-v1",
+  "manifestSha256": "7d3532e8deed0eb62455276a45cde78458b9e269fd47018f5a84a6a6a9a68fd4",
+  "evaluationScope": {
+    "selectedSplits": [
+      "development"
+    ],
+    "selectedCases": 17,
+    "corpusCases": 28,
+    "holdoutScored": false
+  },
+  "unitRecallDefinition": "Strict labeled critical-field completeness, not title-only event detection. Missing required status or any other critical fact keeps a unit incorrect.",
+  "benchmarkClass": "Agent-labeled synthetic regression scoring unless separately marked human-reviewed; not campus-wide recall or live social proof",
+  "counts": {
+    "total": 17,
+    "corpusTotal": 28,
+    "development": 17,
+    "holdoutAssigned": 0,
+    "humanReviewed": 0,
+    "humanReviewedHoldout": 0,
+    "synthetic": 17,
+    "missingPredictions": []
+  },
+  "development": {
+    "cases": 17,
+    "passedCases": 0,
+    "fields": {
+      "expected": 94,
+      "predicted": 131,
+      "labeledPredicted": 81,
+      "correct": 58,
+      "wrongOrUnsupported": 23,
+      "missed": 36,
+      "unsupported": 22,
+      "unsupportedCritical": 19,
+      "nullAbstentions": 10,
+      "unscoredPredicted": 50,
+      "unscoredMissingEvidence": 0,
+      "precision": 0.7160493827160493,
+      "recall": 0.6170212765957447,
+      "precisionScope": "Explicitly labeled fields and unexpected units only; unscored extra fields are excluded, not declared correct.",
+      "predictionLabelCoverage": 0.6183206106870229
+    },
+    "events": {
+      "expected": 16,
+      "predicted": 17,
+      "correct": 0,
+      "missed": 16,
+      "falsePositive": 17,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.1936076805344365
+      }
+    },
+    "actions": {
+      "expected": 4,
+      "predicted": 4,
+      "correct": 1,
+      "missed": 3,
+      "falsePositive": 3,
+      "recall": 0.25,
+      "recallWilson95": {
+        "low": 0.04558726080970055,
+        "high": 0.6993581574175981
+      }
+    },
+    "resources": {
+      "expected": 1,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 1,
+      "falsePositive": 0,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.7934506856227626
+      }
+    },
+    "media": {
+      "declared": 10,
+      "processed": 9,
+      "coverage": 0.9
+    },
+    "negatives": {
+      "cases": 2,
+      "correct": 1
+    },
+    "unscoredFields": [
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "action:0",
+        "kind": "action",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "action:0",
+        "kind": "action",
+        "field": "datePrecision",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "action:0",
+        "kind": "action",
+        "field": "actionLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "deadline_without_time",
+        "key": "action:0",
+        "kind": "action",
+        "field": "datePrecision",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "action:0",
+        "kind": "action",
+        "field": "datePrecision",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      }
+    ],
+    "criticalFieldFailures": [
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "cost",
+        "reason": "missing"
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "action:0",
+        "kind": "action",
+        "field": "occursOn",
+        "reason": "incorrect_or_unsupported"
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "incorrect_or_unsupported"
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "incorrect_or_unsupported"
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "incorrect_or_unsupported"
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "title",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "deadline_without_time",
+        "key": "action:0",
+        "kind": "action",
+        "field": "eligibility",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "title",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "evergreen_research_resource",
+        "key": "resource:0",
+        "kind": "resource",
+        "field": "title",
+        "reason": "missing"
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "action:0",
+        "kind": "action",
+        "field": "title",
+        "reason": "missing"
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "action:0",
+        "kind": "action",
+        "field": "actionType",
+        "reason": "missing"
+      }
+    ],
+    "failures": [
+      {
+        "caseId": "film_explicit_interval",
+        "fields": {
+          "expected": 7,
+          "predicted": 9,
+          "labeledPredicted": 5,
+          "correct": 5,
+          "wrongOrUnsupported": 0,
+          "missed": 2,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "cost",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "fields": {
+          "expected": 14,
+          "predicted": 24,
+          "labeledPredicted": 13,
+          "correct": 12,
+          "wrongOrUnsupported": 1,
+          "missed": 2,
+          "unsupported": 1,
+          "unsupportedCritical": 1,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 11,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 3,
+          "processedDeclared": 3,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "action:0",
+            "kind": "action",
+            "field": "occursOn",
+            "reason": "incorrect_or_unsupported"
+          }
+        ]
+      },
+      {
+        "caseId": "carousel_missing_middle_slide",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "labeledPredicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "missing_media"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 3,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": []
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "fields": {
+          "expected": 3,
+          "predicted": 16,
+          "labeledPredicted": 12,
+          "correct": 1,
+          "wrongOrUnsupported": 11,
+          "missed": 2,
+          "unsupported": 10,
+          "unsupportedCritical": 9,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "date_conflict"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "incorrect_or_unsupported"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "incorrect_or_unsupported"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "incorrect_or_unsupported"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "fields": {
+          "expected": 10,
+          "predicted": 1,
+          "labeledPredicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 9,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "fields": {
+          "expected": 5,
+          "predicted": 16,
+          "labeledPredicted": 12,
+          "correct": 4,
+          "wrongOrUnsupported": 8,
+          "missed": 1,
+          "unsupported": 8,
+          "unsupportedCritical": 6,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "fields": {
+          "expected": 4,
+          "predicted": 6,
+          "labeledPredicted": 3,
+          "correct": 3,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 3,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "disappearance_is_not_cancellation",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "labeledPredicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "source_disappeared"
+        ],
+        "statusMatch": false,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": []
+      },
+      {
+        "caseId": "deadline_without_time",
+        "fields": {
+          "expected": 4,
+          "predicted": 4,
+          "labeledPredicted": 3,
+          "correct": 3,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 1,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "action:0",
+            "kind": "action",
+            "field": "eligibility",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "fields": {
+          "expected": 10,
+          "predicted": 1,
+          "labeledPredicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 9,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "evergreen_research_resource",
+        "fields": {
+          "expected": 1,
+          "predicted": 3,
+          "labeledPredicted": 3,
+          "correct": 0,
+          "wrongOrUnsupported": 3,
+          "missed": 1,
+          "unsupported": 3,
+          "unsupportedCritical": 3,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "resource:0",
+            "kind": "resource",
+            "field": "title",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "fields": {
+          "expected": 5,
+          "predicted": 6,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 3,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "timezone_unknown"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "fields": {
+          "expected": 9,
+          "predicted": 13,
+          "labeledPredicted": 8,
+          "correct": 8,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 5,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 1,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "fields": {
+          "expected": 7,
+          "predicted": 8,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 3,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 2,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "ticket_date_unverified"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "action:0",
+            "kind": "action",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "action:0",
+            "kind": "action",
+            "field": "actionType",
+            "reason": "missing"
+          }
+        ]
+      }
+    ]
+  },
+  "holdoutAssigned": {
+    "cases": 0,
+    "passedCases": 0,
+    "fields": {
+      "expected": 0,
+      "predicted": 0,
+      "labeledPredicted": 0,
+      "correct": 0,
+      "wrongOrUnsupported": 0,
+      "missed": 0,
+      "unsupported": 0,
+      "unsupportedCritical": 0,
+      "nullAbstentions": 0,
+      "unscoredPredicted": 0,
+      "unscoredMissingEvidence": 0,
+      "precision": null,
+      "recall": null,
+      "precisionScope": "Explicitly labeled fields and unexpected units only; unscored extra fields are excluded, not declared correct.",
+      "predictionLabelCoverage": null
+    },
+    "events": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 0,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "actions": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 0,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "resources": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 0,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "media": {
+      "declared": 0,
+      "processed": 0,
+      "coverage": null
+    },
+    "negatives": {
+      "cases": 0,
+      "correct": 0
+    },
+    "unscoredFields": [],
+    "criticalFieldFailures": [],
+    "failures": []
+  },
+  "humanReviewedHoldout": {
+    "cases": 0,
+    "passedCases": 0,
+    "fields": {
+      "expected": 0,
+      "predicted": 0,
+      "labeledPredicted": 0,
+      "correct": 0,
+      "wrongOrUnsupported": 0,
+      "missed": 0,
+      "unsupported": 0,
+      "unsupportedCritical": 0,
+      "nullAbstentions": 0,
+      "unscoredPredicted": 0,
+      "unscoredMissingEvidence": 0,
+      "precision": null,
+      "recall": null,
+      "precisionScope": "Explicitly labeled fields and unexpected units only; unscored extra fields are excluded, not declared correct.",
+      "predictionLabelCoverage": null
+    },
+    "events": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 0,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "actions": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 0,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "resources": {
+      "expected": 0,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 0,
+      "falsePositive": 0,
+      "recall": null,
+      "recallWilson95": null
+    },
+    "media": {
+      "declared": 0,
+      "processed": 0,
+      "coverage": null
+    },
+    "negatives": {
+      "cases": 0,
+      "correct": 0
+    },
+    "unscoredFields": [],
+    "criticalFieldFailures": [],
+    "failures": []
+  },
+  "allRegressionCases": {
+    "cases": 17,
+    "passedCases": 0,
+    "fields": {
+      "expected": 94,
+      "predicted": 131,
+      "labeledPredicted": 81,
+      "correct": 58,
+      "wrongOrUnsupported": 23,
+      "missed": 36,
+      "unsupported": 22,
+      "unsupportedCritical": 19,
+      "nullAbstentions": 10,
+      "unscoredPredicted": 50,
+      "unscoredMissingEvidence": 0,
+      "precision": 0.7160493827160493,
+      "recall": 0.6170212765957447,
+      "precisionScope": "Explicitly labeled fields and unexpected units only; unscored extra fields are excluded, not declared correct.",
+      "predictionLabelCoverage": 0.6183206106870229
+    },
+    "events": {
+      "expected": 16,
+      "predicted": 17,
+      "correct": 0,
+      "missed": 16,
+      "falsePositive": 17,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.1936076805344365
+      }
+    },
+    "actions": {
+      "expected": 4,
+      "predicted": 4,
+      "correct": 1,
+      "missed": 3,
+      "falsePositive": 3,
+      "recall": 0.25,
+      "recallWilson95": {
+        "low": 0.04558726080970055,
+        "high": 0.6993581574175981
+      }
+    },
+    "resources": {
+      "expected": 1,
+      "predicted": 0,
+      "correct": 0,
+      "missed": 1,
+      "falsePositive": 0,
+      "recall": 0,
+      "recallWilson95": {
+        "low": 0,
+        "high": 0.7934506856227626
+      }
+    },
+    "media": {
+      "declared": 10,
+      "processed": 9,
+      "coverage": 0.9
+    },
+    "negatives": {
+      "cases": 2,
+      "correct": 1
+    },
+    "unscoredFields": [
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "action:0",
+        "kind": "action",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "action:0",
+        "kind": "action",
+        "field": "datePrecision",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "action:0",
+        "kind": "action",
+        "field": "actionLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "deadline_without_time",
+        "key": "action:0",
+        "kind": "action",
+        "field": "datePrecision",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "action:0",
+        "kind": "action",
+        "field": "datePrecision",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      }
+    ],
+    "criticalFieldFailures": [
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "film_explicit_interval",
+        "key": "event:0",
+        "kind": "event",
+        "field": "cost",
+        "reason": "missing"
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "event:1",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "key": "action:0",
+        "kind": "action",
+        "field": "occursOn",
+        "reason": "incorrect_or_unsupported"
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "incorrect_or_unsupported"
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "incorrect_or_unsupported"
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "incorrect_or_unsupported"
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "title",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "missing"
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "deadline_without_time",
+        "key": "action:0",
+        "kind": "action",
+        "field": "eligibility",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "title",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endAt",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "datePrecision",
+        "reason": "missing"
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "evergreen_research_resource",
+        "key": "resource:0",
+        "kind": "resource",
+        "field": "title",
+        "reason": "missing"
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "event:0",
+        "kind": "event",
+        "field": "status",
+        "reason": "missing"
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "action:0",
+        "kind": "action",
+        "field": "title",
+        "reason": "missing"
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "key": "action:0",
+        "kind": "action",
+        "field": "actionType",
+        "reason": "missing"
+      }
+    ],
+    "failures": [
+      {
+        "caseId": "film_explicit_interval",
+        "fields": {
+          "expected": 7,
+          "predicted": 9,
+          "labeledPredicted": 5,
+          "correct": 5,
+          "wrongOrUnsupported": 0,
+          "missed": 2,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "cost",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "complete_three_slide_carousel",
+        "fields": {
+          "expected": 14,
+          "predicted": 24,
+          "labeledPredicted": 13,
+          "correct": 12,
+          "wrongOrUnsupported": 1,
+          "missed": 2,
+          "unsupported": 1,
+          "unsupportedCritical": 1,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 11,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 3,
+          "processedDeclared": 3,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "action:0",
+            "kind": "action",
+            "field": "occursOn",
+            "reason": "incorrect_or_unsupported"
+          }
+        ]
+      },
+      {
+        "caseId": "carousel_missing_middle_slide",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "labeledPredicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "missing_media"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 3,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": []
+      },
+      {
+        "caseId": "conflicting_year_across_slides",
+        "fields": {
+          "expected": 3,
+          "predicted": 16,
+          "labeledPredicted": 12,
+          "correct": 1,
+          "wrongOrUnsupported": 11,
+          "missed": 2,
+          "unsupported": 10,
+          "unsupportedCritical": 9,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "date_conflict"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "incorrect_or_unsupported"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "incorrect_or_unsupported"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "incorrect_or_unsupported"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "fields": {
+          "expected": 10,
+          "predicted": 1,
+          "labeledPredicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 9,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "explicit_source_crosslink",
+        "fields": {
+          "expected": 5,
+          "predicted": 16,
+          "labeledPredicted": 12,
+          "correct": 4,
+          "wrongOrUnsupported": 8,
+          "missed": 1,
+          "unsupported": 8,
+          "unsupportedCritical": 6,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 2,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 2
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "missing_end_no_duration_guess",
+        "fields": {
+          "expected": 4,
+          "predicted": 6,
+          "labeledPredicted": 3,
+          "correct": 3,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 3,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "missing_location_preserved",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "affirmative_cancellation",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "disappearance_is_not_cancellation",
+        "fields": {
+          "expected": 0,
+          "predicted": 0,
+          "labeledPredicted": 0,
+          "correct": 0,
+          "wrongOrUnsupported": 0,
+          "missed": 0,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "source_disappeared"
+        ],
+        "statusMatch": false,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": []
+      },
+      {
+        "caseId": "deadline_without_time",
+        "fields": {
+          "expected": 4,
+          "predicted": 4,
+          "labeledPredicted": 3,
+          "correct": 3,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 1,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "action:0",
+            "kind": "action",
+            "field": "eligibility",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "fields": {
+          "expected": 10,
+          "predicted": 1,
+          "labeledPredicted": 1,
+          "correct": 1,
+          "wrongOrUnsupported": 0,
+          "missed": 9,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 2,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 2,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "startAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "endAt",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "datePrecision",
+            "reason": "missing"
+          },
+          {
+            "key": "event:1",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "evergreen_research_resource",
+        "fields": {
+          "expected": 1,
+          "predicted": 3,
+          "labeledPredicted": 3,
+          "correct": 0,
+          "wrongOrUnsupported": 3,
+          "missed": 1,
+          "unsupported": 3,
+          "unsupportedCritical": 3,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 0,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 1
+          },
+          "resource": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "resource:0",
+            "kind": "resource",
+            "field": "title",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "retrieved_instruction_is_data",
+        "fields": {
+          "expected": 5,
+          "predicted": 8,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 0,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "local_clock_without_timezone",
+        "fields": {
+          "expected": 5,
+          "predicted": 6,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 3,
+          "unscoredPredicted": 2,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "timezone_unknown"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "pdf_second_page_has_deadline",
+        "fields": {
+          "expected": 9,
+          "predicted": 13,
+          "labeledPredicted": 8,
+          "correct": 8,
+          "wrongOrUnsupported": 0,
+          "missed": 1,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 1,
+          "unscoredPredicted": 5,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 1,
+            "missed": 0,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [],
+        "statusMatch": true,
+        "media": {
+          "declared": 2,
+          "processedDeclared": 2,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          }
+        ]
+      },
+      {
+        "caseId": "ticket_stray_date_not_release",
+        "fields": {
+          "expected": 7,
+          "predicted": 8,
+          "labeledPredicted": 4,
+          "correct": 4,
+          "wrongOrUnsupported": 0,
+          "missed": 3,
+          "unsupported": 0,
+          "unsupportedCritical": 0,
+          "nullAbstentions": 2,
+          "unscoredPredicted": 4,
+          "unscoredMissingEvidence": 0
+        },
+        "units": {
+          "event": {
+            "expected": 1,
+            "predicted": 1,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 1
+          },
+          "action": {
+            "expected": 1,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 1,
+            "falsePositive": 0
+          },
+          "resource": {
+            "expected": 0,
+            "predicted": 0,
+            "correct": 0,
+            "missed": 0,
+            "falsePositive": 0
+          }
+        },
+        "missingIssues": [
+          "ticket_date_unverified"
+        ],
+        "statusMatch": true,
+        "media": {
+          "declared": 0,
+          "processedDeclared": 0,
+          "expectedProcessedMatch": true,
+          "undeclaredProcessed": 0,
+          "nonVisualProcessed": 0,
+          "unavailableProcessed": 0
+        },
+        "criticalFieldFailures": [
+          {
+            "key": "event:0",
+            "kind": "event",
+            "field": "status",
+            "reason": "missing"
+          },
+          {
+            "key": "action:0",
+            "kind": "action",
+            "field": "title",
+            "reason": "missing"
+          },
+          {
+            "key": "action:0",
+            "kind": "action",
+            "field": "actionType",
+            "reason": "missing"
+          }
+        ]
+      }
+    ]
+  },
+  "caseScores": [
+    {
+      "caseId": "film_explicit_interval",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 7,
+        "predicted": 9,
+        "labeledPredicted": 5,
+        "correct": 5,
+        "wrongOrUnsupported": 0,
+        "missed": 2,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 4,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "cost",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "complete_three_slide_carousel",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 14,
+        "predicted": 24,
+        "labeledPredicted": 13,
+        "correct": 12,
+        "wrongOrUnsupported": 1,
+        "missed": 2,
+        "unsupported": 1,
+        "unsupportedCritical": 1,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 11,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 2,
+          "predicted": 2,
+          "correct": 0,
+          "missed": 2,
+          "falsePositive": 2
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 3,
+        "processedDeclared": 3,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "action:0",
+          "kind": "action",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "action:0",
+          "kind": "action",
+          "field": "datePrecision",
+          "evidencePresent": true
+        },
+        {
+          "key": "action:0",
+          "kind": "action",
+          "field": "actionLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        },
+        {
+          "key": "action:0",
+          "kind": "action",
+          "field": "occursOn",
+          "reason": "incorrect_or_unsupported"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "carousel_missing_middle_slide",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 0,
+        "predicted": 0,
+        "labeledPredicted": 0,
+        "correct": 0,
+        "wrongOrUnsupported": 0,
+        "missed": 0,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 0,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 3,
+        "processedDeclared": 2,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "missing_media"
+      ],
+      "negative": true,
+      "negativeCorrect": true,
+      "unscoredFields": [],
+      "criticalFieldFailures": [],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "conflicting_year_across_slides",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 3,
+        "predicted": 16,
+        "labeledPredicted": 12,
+        "correct": 1,
+        "wrongOrUnsupported": 11,
+        "missed": 2,
+        "unsupported": 10,
+        "unsupportedCritical": 9,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 4,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 2,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 2
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 2,
+        "processedDeclared": 2,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "date_conflict"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startAt",
+          "reason": "incorrect_or_unsupported"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endAt",
+          "reason": "incorrect_or_unsupported"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "datePrecision",
+          "reason": "incorrect_or_unsupported"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "same_title_two_performances",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 10,
+        "predicted": 1,
+        "labeledPredicted": 1,
+        "correct": 1,
+        "wrongOrUnsupported": 0,
+        "missed": 9,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 0,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 2,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 2,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startAt",
+          "reason": "missing"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endAt",
+          "reason": "missing"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "datePrecision",
+          "reason": "missing"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "title",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "startAt",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "endAt",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "datePrecision",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "explicit_source_crosslink",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 16,
+        "labeledPredicted": 12,
+        "correct": 4,
+        "wrongOrUnsupported": 8,
+        "missed": 1,
+        "unsupported": 8,
+        "unsupportedCritical": 6,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 4,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 2,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 2
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "missing_end_no_duration_guess",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 4,
+        "predicted": 6,
+        "labeledPredicted": 3,
+        "correct": 3,
+        "wrongOrUnsupported": 0,
+        "missed": 1,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 1,
+        "unscoredPredicted": 3,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "missing_location_preserved",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 8,
+        "labeledPredicted": 4,
+        "correct": 4,
+        "wrongOrUnsupported": 0,
+        "missed": 1,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 1,
+        "unscoredPredicted": 4,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "affirmative_cancellation",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 8,
+        "labeledPredicted": 4,
+        "correct": 4,
+        "wrongOrUnsupported": 0,
+        "missed": 1,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 4,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "disappearance_is_not_cancellation",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 0,
+        "predicted": 0,
+        "labeledPredicted": 0,
+        "correct": 0,
+        "wrongOrUnsupported": 0,
+        "missed": 0,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 0,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": false,
+      "missingIssues": [
+        "source_disappeared"
+      ],
+      "negative": true,
+      "negativeCorrect": false,
+      "unscoredFields": [],
+      "criticalFieldFailures": [],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "deadline_without_time",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 4,
+        "predicted": 4,
+        "labeledPredicted": 3,
+        "correct": 3,
+        "wrongOrUnsupported": 0,
+        "missed": 1,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 1,
+        "unscoredPredicted": 1,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "action:0",
+          "kind": "action",
+          "field": "datePrecision",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "action:0",
+          "kind": "action",
+          "field": "eligibility",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "weekly_recurrence_with_exception",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 10,
+        "predicted": 1,
+        "labeledPredicted": 1,
+        "correct": 1,
+        "wrongOrUnsupported": 0,
+        "missed": 9,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 0,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 2,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 2,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startAt",
+          "reason": "missing"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endAt",
+          "reason": "missing"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "datePrecision",
+          "reason": "missing"
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "title",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "startAt",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "endAt",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "datePrecision",
+          "reason": "missing"
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "evergreen_research_resource",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 1,
+        "predicted": 3,
+        "labeledPredicted": 3,
+        "correct": 0,
+        "wrongOrUnsupported": 3,
+        "missed": 1,
+        "unsupported": 3,
+        "unsupportedCritical": 3,
+        "nullAbstentions": 1,
+        "unscoredPredicted": 0,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 0,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 1
+        },
+        "resource": {
+          "expected": 1,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [],
+      "criticalFieldFailures": [
+        {
+          "key": "resource:0",
+          "kind": "resource",
+          "field": "title",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "retrieved_instruction_is_data",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 8,
+        "labeledPredicted": 4,
+        "correct": 4,
+        "wrongOrUnsupported": 0,
+        "missed": 1,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 0,
+        "unscoredPredicted": 4,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "local_clock_without_timezone",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 5,
+        "predicted": 6,
+        "labeledPredicted": 4,
+        "correct": 4,
+        "wrongOrUnsupported": 0,
+        "missed": 1,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 3,
+        "unscoredPredicted": 2,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "timezone_unknown"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "pdf_second_page_has_deadline",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 9,
+        "predicted": 13,
+        "labeledPredicted": 8,
+        "correct": 8,
+        "wrongOrUnsupported": 0,
+        "missed": 1,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 1,
+        "unscoredPredicted": 5,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 1,
+          "missed": 0,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 2,
+        "processedDeclared": 2,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "action:0",
+          "kind": "action",
+          "field": "datePrecision",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    },
+    {
+      "caseId": "ticket_stray_date_not_release",
+      "split": "development",
+      "labelStatus": "agent_labeled_unreviewed",
+      "provenance": "synthetic",
+      "passed": false,
+      "fields": {
+        "expected": 7,
+        "predicted": 8,
+        "labeledPredicted": 4,
+        "correct": 4,
+        "wrongOrUnsupported": 0,
+        "missed": 3,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
+        "nullAbstentions": 2,
+        "unscoredPredicted": 4,
+        "unscoredMissingEvidence": 0
+      },
+      "units": {
+        "event": {
+          "expected": 1,
+          "predicted": 1,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 1
+        },
+        "action": {
+          "expected": 1,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 1,
+          "falsePositive": 0
+        },
+        "resource": {
+          "expected": 0,
+          "predicted": 0,
+          "correct": 0,
+          "missed": 0,
+          "falsePositive": 0
+        }
+      },
+      "media": {
+        "declared": 0,
+        "processedDeclared": 0,
+        "expectedProcessedMatch": true,
+        "undeclaredProcessed": 0,
+        "nonVisualProcessed": 0,
+        "unavailableProcessed": 0
+      },
+      "statusMatch": true,
+      "missingIssues": [
+        "ticket_date_unverified"
+      ],
+      "negative": false,
+      "negativeCorrect": false,
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        }
+      ],
+      "criticalFieldFailures": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "status",
+          "reason": "missing"
+        },
+        {
+          "key": "action:0",
+          "kind": "action",
+          "field": "title",
+          "reason": "missing"
+        },
+        {
+          "key": "action:0",
+          "kind": "action",
+          "field": "actionType",
+          "reason": "missing"
+        }
+      ],
+      "duplicatePredictionKeys": 0
+    }
+  ],
+  "cost": {
+    "knownUsd": 0,
+    "measuredCases": 17,
+    "unmeasuredCases": 0,
+    "providerRequests": 0,
+    "invoiceOrMonthlyAverageEstablished": false
+  },
+  "acceptance": {
+    "state": "not_evaluated",
+    "stage2Accepted": false,
+    "reasons": [
+      "No human-reviewed holdout ground truth.",
+      "Human-reviewed holdout is below the declared 40-case target.",
+      "Reviewed holdout must include separate event and action units."
+    ],
+    "targetVariedHumanLabeledExamples": 100,
+    "limitation": "Scored thresholds alone do not establish Stage 2 acceptance, holdout non-exposure, real OCR/media handling, model comparison, reconciliation safety or source coverage."
+  },
+  "recordedAt": "2026-11-02T23:41:11.415Z",
+  "adapterVersion": "stage2-evaluation-adapter-v2",
+  "executionClass": "Development synthetic supplied text transcripts only; not real OCR or human-reviewed extraction accuracy",
+  "methodology": {
+    "initialReport": {
+      "path": "reports/stage-2-rules-diagnostic-initial.json",
+      "sha256": "df8f62a96b5e055778f50944978b936d11610284ff60ee573cb60e594f8047db",
+      "notice": "Original diagnostic preserved byte-for-byte. It mixed a visual-media adapter error with penalties for fields absent from partial gold; its synthetic holdout was exposed by the original run."
+    },
+    "changes": [
+      "Development cases only; assigned holdout answers not scored or diagnosed in this rerun.",
+      "Only nontext units can be processedMedia.",
+      "Canonical field alias price→cost is fixed without consulting answers; literal values remain unchanged.",
+      "Every evidence flag requires a matching runtime field value and exact retained source quote/offsets.",
+      "Matched-unit fields absent from partial labels are unscored, separately counted and never called correct. Explicit null labels and unexpected units remain penalized.",
+      "No scheduled status is inferred. Strict critical-field unit recall still fails when required status or other facts are missing."
+    ],
+    "remainingLimits": [
+      "Source quotes require human semantic review.",
+      "Synthetic required scheduled-status labels are unreviewed and require adjudication; strict failure is not zero event detection and does not justify inventing status.",
+      "Issue-code vocabularies and extraction-versus-reconciliation boundaries remain unresolved; missing required flags are still failures.",
+      "The zero cost measurement is provider charges only: no provider requests occurred; local CPU cost was not measured.",
+      "No model comparison, human-reviewed holdout, original-media accuracy or production extraction acceptance was established."
+    ]
+  },
+  "modelOrPromptComparisonRun": false,
+  "realMediaProbe": "reports/stage-2-native-media-supplied-probe.json"
+}

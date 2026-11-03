@@ -1,0 +1,52 @@
+{
+  "sql": "scripts/hosted-stage2-versioning-check.sql",
+  "sqlSha256": "982340f89e7e54948d1ffc854f180a6f0b7f7b3696a9ff8db74acaac3e9040e1",
+  "evidenceClass": "Actual hosted SQL-role rollback checks after forward migration; synthetic fixtures, no signed-JWT/Storage HTTP/contention proof",
+  "checks": [
+    {
+      "test": "owner_worker_rpc_and_rls_boundaries",
+      "passed": true
+    },
+    {
+      "test": "v2_default_and_v1_explicit_requests_have_immutable_idempotent_identities",
+      "passed": true
+    },
+    {
+      "test": "unsupported_and_null_versions_never_enter_the_queue",
+      "passed": true
+    },
+    {
+      "test": "nonmember_local_claims_and_anonymous_cannot_read_or_enqueue_owner_work",
+      "passed": true
+    },
+    {
+      "test": "worker_leases_only_the_two_fixture_versions_and_excludes_active_leases",
+      "passed": true
+    },
+    {
+      "test": "v2_finish_fences_lease_validates_exact_utf16_spans_and_retains_result",
+      "passed": true
+    },
+    {
+      "test": "v1_and_v2_share_the_two_new_jobs_utc_budget_without_resetting_it",
+      "passed": true
+    },
+    {
+      "test": "all_existing_jobs_attempts_intakes_sources_facts_decisions_and_calendar_commands_keep_full_sha256",
+      "passed": true
+    }
+  ],
+  "passed": 8,
+  "checkedAt": "2026-11-03T00:56:41.27783+00:00",
+  "modelCalls": 0,
+  "googleCalls": 0,
+  "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
+  "sourcesCreated": 0,
+  "authUsersCreated": 0,
+  "existingJobCount": 1,
+  "storageHttpCalls": 0,
+  "safePreconditions": "Exactly one owner; no real queued/processing work; no current-UTC-day budget used; short table locks; repeatable read; 2s lock and 20s statement limits; no resets/deletes",
+  "persistentRowsChanged": 0,
+  "independentConnectionsTested": false,
+  "existingRealRowsFullHashesPreserved": true
+}

@@ -536,6 +536,15 @@
     "private_media_cloud_verified": false,
     "scheduled_extraction_observed": false,
     "real_development_reference_units_owner_approved": 10,
-    "human_review_report": "reports/stage-2-first-ten-human-review.json"
+    "human_review_report": "reports/stage-2-first-ten-human-review.json",
+    "latest_continuation_report": "reports/stage-2-v2-release.json",
+    "latest_extractor_default": "stage2-rules-v2",
+    "supported_extractor_versions": [
+      "stage2-rules-v1",
+      "stage2-rules-v2"
+    ],
+    "hosted_version_migration": "20261103005000",
+    "scheduled_invocation_observed": true,
+    "scheduled_processed_job_observed": false
   }
 }

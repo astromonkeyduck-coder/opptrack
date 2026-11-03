@@ -1,0 +1,81 @@
+{
+  "recordedAt": "2026-11-03T00:57:25.486Z",
+  "command": "node scripts/test-stage2-versioning-hosted-audit.mjs",
+  "sqlSha256": "982340f89e7e54948d1ffc854f180a6f0b7f7b3696a9ff8db74acaac3e9040e1",
+  "evidenceClass": "Exact hosted SQL-role audit replayed in local PGlite with a synthetic owner and preexisting completed-v1 fixture. No hosted Auth user or service was touched.",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql",
+    "20261102194633_stage2_evidence_jobs.sql",
+    "20261103003949_stage2_extractor_versions.sql"
+  ],
+  "audit": {
+    "checks": [
+      {
+        "test": "owner_worker_rpc_and_rls_boundaries",
+        "passed": true
+      },
+      {
+        "test": "v2_default_and_v1_explicit_requests_have_immutable_idempotent_identities",
+        "passed": true
+      },
+      {
+        "test": "unsupported_and_null_versions_never_enter_the_queue",
+        "passed": true
+      },
+      {
+        "test": "nonmember_local_claims_and_anonymous_cannot_read_or_enqueue_owner_work",
+        "passed": true
+      },
+      {
+        "test": "worker_leases_only_the_two_fixture_versions_and_excludes_active_leases",
+        "passed": true
+      },
+      {
+        "test": "v2_finish_fences_lease_validates_exact_utf16_spans_and_retains_result",
+        "passed": true
+      },
+      {
+        "test": "v1_and_v2_share_the_two_new_jobs_utc_budget_without_resetting_it",
+        "passed": true
+      },
+      {
+        "test": "all_existing_jobs_attempts_intakes_sources_facts_decisions_and_calendar_commands_keep_full_sha256",
+        "passed": true
+      }
+    ],
+    "passed": 8,
+    "checkedAt": "2026-11-02T19:57:25.475-05:00",
+    "modelCalls": 0,
+    "googleCalls": 0,
+    "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
+    "sourcesCreated": 0,
+    "authUsersCreated": 0,
+    "existingJobCount": 1,
+    "storageHttpCalls": 0,
+    "safePreconditions": "Exactly one owner; no real queued/processing work; no current-UTC-day budget used; short table locks; repeatable read; 2s lock and 20s statement limits; no resets/deletes",
+    "persistentRowsChanged": 0,
+    "independentConnectionsTested": false,
+    "existingRealRowsFullHashesPreserved": true
+  },
+  "rollbackRowsAndFullHashesPreserved": true,
+  "localGuardChecks": [
+    "Existing queued work stops the audit and stays untouched",
+    "Already-used UTC budget stops the audit and stays untouched"
+  ],
+  "localGuardChecksPassed": 2,
+  "localFixtureSnapshotSha256BeforeAndAfter": "67a43b6713a5e0010bc19fe6fa0a8edfb3bf7fef99b49593cdc7ce7e3b4b84a4",
+  "hostedExecution": false,
+  "credentialFilesRead": 0,
+  "modelCalls": 0,
+  "storageCalls": 0,
+  "calendarCalls": 0,
+  "independentConnectionsTested": false
+}

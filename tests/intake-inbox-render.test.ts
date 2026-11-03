@@ -3,6 +3,18 @@ import { test } from 'node:test';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { InboxList, OpportunityCard, type InboxRow } from '../app/inbox/components';
+import IntakeForm from '../app/intake/upload-form';
+
+test('private intake offers screenshot paste and one controlled ordered upload list', () => {
+  const html = renderToStaticMarkup(createElement(IntakeForm));
+  assert.match(html, /paste screenshots anywhere in this form/);
+  assert.match(html, /No files selected/);
+  assert.match(html, /4 MiB each and 4 MiB total/);
+  assert.match(html, /<fieldset/);
+  assert.equal(/type="file"[^>]*name="files"/.test(html), false);
+  assert.match(html, /name="note"/);
+  assert.match(html, /name="source_url"/);
+});
 
 // Explicit synthetic render fixtures; integration evidence comes from fresh captures.
 const syntheticRow: InboxRow = {

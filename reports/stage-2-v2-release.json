@@ -1,0 +1,108 @@
+{
+  "recordedDate": "2026-11-02 America/New_York (UTC execution extends November 3)",
+  "status": "migration_verified_runtime_release_prepared",
+  "extractorVersionsSupported": [
+    "stage2-rules-v1",
+    "stage2-rules-v2"
+  ],
+  "currentNewRequestVersion": "stage2-rules-v2",
+  "oldImplementation": "lib/extraction/text-v1.ts exact deployed source; immutable old jobs keep v1 behavior",
+  "migration": {
+    "local": "20261103003949_stage2_extractor_versions.sql",
+    "hosted": "20261103005000",
+    "report": "reports/stage-2-versioning-hosted-rollout.json",
+    "realRowFingerprintsPreserved": true
+  },
+  "changes": [
+    "Evidence-scoped doors/show/application/ticket clocks; source conflicts withhold disputed instants",
+    "Finite source-backed weekday/weekly recurrence with exact exceptions and strict count/time bounds",
+    "Restricted-location placeholders stay unknown; cancellation scope and negative/resource handling strengthened",
+    "Normal screenshot paste and ordered file selection/removal; unchanged retries preserve identity, deliberate edits get a fresh identity"
+  ],
+  "evaluation": {
+    "humanApprovedRealDevelopmentUnits": 10,
+    "independentHumanHoldoutUnits": 0,
+    "realSameContractComparison": "reports/stage-2-reviewed-development-comparison.json",
+    "sameReferenceHash": "225170534b7c712ab000248e925a78a4c7263dda9286090961d847b43fe10174",
+    "v1FactsRecovered": 17,
+    "v2FactsRecovered": 32,
+    "scopedReferenceFacts": 55,
+    "v2LabeledPredictionsMatched": 32,
+    "v2LabeledPredictions": 35,
+    "v2TotalPredictions": 56,
+    "v2UnscoredPredictions": 21,
+    "v2ScopedEventCompleteness": "3/8",
+    "v2ScopedActionCompleteness": "3/6",
+    "v2CasesAllScoredFactsMatch": "4/10",
+    "bothDiagnosticsExitCode": 1,
+    "completeAccuracyEstablished": false,
+    "modelOrPromptComparison": false,
+    "humanHoldoutAccepted": false
+  },
+  "automaticCloudInvocation": "reports/stage-2-automatic-invocation.json",
+  "publicImages": {
+    "freshGets": 3,
+    "bytes": 562772,
+    "localOcrUnitsProcessed": 3,
+    "actualDatedFlyers": 0,
+    "humanLabels": 0,
+    "nonNullPredictedInstants": 0,
+    "report": "reports/stage-2-public-image-probe.json",
+    "inspection": "reports/stage-2-public-image-inspection.json"
+  },
+  "release": {
+    "commit": null,
+    "netlifyDeployId": null,
+    "triggerDeployId": null,
+    "triggerVersion": null,
+    "clipboardUploadVerified": false,
+    "automaticQueuedJobProcessedVerified": false
+  },
+  "checks": {
+    "applicationTests": 430,
+    "newVersionSql": 7,
+    "existingCoreSql": 185,
+    "instagramWorkerReplays": 6,
+    "localRollbackAudit": 26,
+    "typecheck": "passed",
+    "build": "passed",
+    "offline": "passed",
+    "hostedVersionSqlRoleAudit": 8,
+    "localVersionAuditReplay": 8,
+    "localVersionAuditFailSafeGuards": 2,
+    "commands": [
+      "npm test:430 passed",
+      "npm run test:db:185 core SQL +7 version SQL +6 Instagram replays +26 rollback-audit replay passed; new8-check version audit with2 fail-safe guards also passed locally",
+      "npm run typecheck:passed",
+      "npm run build:passed",
+      "make check:passed",
+      "npm run evaluate:extraction:exit1,17synthetic development cases only",
+      "node --import tsx scripts/prepare-stage2-reviewed-evaluation.ts --extractor=stage2-rules-v1:exit1 expected incomplete",
+      "node --import tsx scripts/prepare-stage2-reviewed-evaluation.ts --extractor=stage2-rules-v2:exit1 expected incomplete",
+      "node --import tsx scripts/probe-stage2-live-flyers.ts:3 fresh public images read/OCR complete",
+      "Hosted version audit:8/8rollback checks passed"
+    ]
+  },
+  "costs": {
+    "modelCalls": 0,
+    "modelApiUsd": 0,
+    "paidUpgrades": 0,
+    "calendarCalls": 0,
+    "selectedExistingScheduledParentEstimateUsd": 0.0013778,
+    "selectedAutomaticIdleChildEstimateUsd": 3.472e-05,
+    "newPublicImageGets": 3,
+    "newPublicImageBytes": 562772,
+    "localCpuAndHostedSqlBuildCost": "unmeasured"
+  },
+  "stage2Accepted": false,
+  "stage3Started": false,
+  "remaining": [
+    "Independent human-reviewed varied holdout and model/prompt comparison",
+    "Full semantic accuracy, source conflicts and unresolved recurring patterns",
+    "Actual dated flyers, complete carousels/social media and negative holdout variety",
+    "Private hosted upload/Storage HTTP, worker OCR correlation and independent signed-JWT denials",
+    "Genuine scheduled processing of a queued extraction job",
+    "Existing Stage1 restore/contention/phone/laptop-off checks",
+    "Meta repair remains paused; calendar stays individually approved"
+  ]
+}

@@ -4,6 +4,8 @@ Updated November 2, 2026. Next.js/Netlify, private Supabase and the single hourl
 
 ## November 2 Stage 2 runtime
 
+The current v2 continuation uses forward migration `20261103003949_stage2_extractor_versions.sql` (hosted `20261103005000`), archived immutable v1 execution and default v2 for new requests. Private intake adds normal screenshot paste through its existing owner-authenticated multipart route; no environment variable or permission expansion is required. [V2 release evidence](../reports/stage-2-v2-release.json) records its publication checks; the following initial foundation deployment remains history.
+
 Migration `20261102194633_stage2_evidence_jobs.sql` is applied as hosted `20261102221746`; its 26-check hosted rollback policy audit passed. Runtime commit `90612d7b3e676a130412ac6d21dca48763767d12` is published on Netlify as `6ae91dd9395579873c5ee0fb` and deployed on Trigger as `iaohc393` / version `20261102.8`. The initial text path used `c1bfab2` / Netlify `6ae91b9de754f72dfb3b6108` / Trigger `3fqff5ic` (`20261102.7`). Trigger's `STAGE2_EXTRACTION_ENABLED=true` is saved in **Production only**; its example default remains false.
 
 Netlify queues owner-only immutable extraction snapshots after durable intake and never receives a Supabase worker secret. Trigger retains calendar/email flags false and receives no Google/model secret. The existing hourly dispatcher starts a separate bounded extraction task; no faster cron or paid upgrade is introduced. SQL limits two newly started jobs and twelve attempted visual pages per owner per UTC day. Results stay private unverified suggestions, without catalog promotion or calendar authority.

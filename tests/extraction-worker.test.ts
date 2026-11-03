@@ -5,6 +5,8 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { EXTRACTOR_VERSION, validateExtractionResult, type ExtractionResult } from '../lib/extraction/contracts';
 import { extractLeasedJob, extractionWorkerClient, runExtractionDispatcher } from '../lib/extraction/worker';
 import type { ExtractionUnit, MediaAsset, processMediaAssets } from '../lib/extraction/media';
+import { extractCandidatesForVersion } from '../lib/extraction/versions';
+import { providedTextUnit } from '../lib/extraction/text-v1';
 
 const owner = '11111111-1111-4111-8111-111111111111';
 const other = '22222222-2222-4222-8222-222222222222';
@@ -60,6 +62,46 @@ test('saved source URLs are retained context and never fetched by an extraction 
     }
   } finally { globalThis.fetch = original; }
   assert.equal(requests, 0); assert.equal(f.downloads.length, 0);
+});
+
+test('immutable job versions select their implementation and keep accurate result provenance', async () => {
+  const f = fixture();
+  for (const version of ['stage2-rules-v1', 'stage2-rules-v2']) {
+    const value = { ...job(), extractor_version: version };
+    const result = await extractLeasedJob(value, f.client, { media: mediaSuccess });
+    assert.deepEqual(result.candidates, extractCandidatesForVersion(version, [providedTextUnit(note)], {}));
+    assert.equal(result.stats.engine, `injected-test-media-v1/${version}`);
+  }
+  assert.equal(EXTRACTOR_VERSION, 'stage2-rules-v2');
+});
+
+test('old queued jobs retain the deployed v1 doors/show interpretation while v2 resolves the explicit interval', async () => {
+  const f = fixture();
+  const source = 'Community Concert\nNovember 7, 2026\nDoors: 6 PM EST; Show: 7 PM–9 PM EST';
+  const v1 = await extractLeasedJob({ ...job([], { note: source }), extractor_version: 'stage2-rules-v1' }, f.client, { media: mediaSuccess });
+  const v2 = await extractLeasedJob({ ...job([], { note: source }), extractor_version: 'stage2-rules-v2' }, f.client, { media: mediaSuccess });
+  assert.equal(v1.candidates.length, 1); assert.equal(v2.candidates.length, 1);
+  assert.equal(v1.candidates[0].fields.startAt, null); assert.equal(v1.candidates[0].fields.endAt, null);
+  assert.equal(v1.candidates[0].fields.doorsAt, '2026-11-07T23:00:00.000Z');
+  assert.equal(v2.candidates[0].fields.startAt, '2026-11-08T00:00:00.000Z');
+  assert.equal(v2.candidates[0].fields.endAt, '2026-11-08T02:00:00.000Z');
+  assert.equal(v2.candidates[0].fields.doorsAt, '2026-11-07T23:00:00.000Z');
+  assert.equal(v1.candidates[0].fields.status, null); assert.equal(v2.candidates[0].fields.status, null);
+});
+
+test('unsupported immutable job versions fail before Storage or native processing', async () => {
+  const f = fixture(); let mediaCalls = 0;
+  await assert.rejects(extractLeasedJob({ ...job([asset()]), extractor_version: 'unsupported-v99' }, f.client, {
+    media: async () => { mediaCalls++; throw new Error('Unsupported version must not perform native work'); },
+  }));
+  assert.equal(f.downloads.length, 0); assert.equal(f.rpcCalls.length, 0); assert.equal(mediaCalls, 0);
+  assert.throws(() => extractCandidatesForVersion('unsupported-v99', [providedTextUnit(note)]), /Unsupported extractor/);
+});
+
+test('failed old-version processing retains the old version in failure provenance', async () => {
+  const f = fixture([{ ...job([asset()]), extractor_version: 'stage2-rules-v1' }]);
+  await runExtractionDispatcher(f.client, { environment, media: async () => { throw new Error('Synthetic native failure'); } });
+  assert.equal((f.completions[0].p_result as ExtractionResult).stats.engine, 'stage2-rules-v1');
 });
 
 test('another owner prefix, path traversal and unsupported MIME cannot reach Storage', async () => {

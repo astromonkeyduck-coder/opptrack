@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "preparationVersion": "stage2-reviewed-development-v1",
+  "referenceHash": "013ed59200c353ef9baed413fb57cf94c6506a3a4a20d00a059a391ff96f19ed",
+  "reviewId": "owner-first-ten-20261103T002425Z",
+  "reviewReportSha256": "13a871352cbff7624e730da02093aa60faa4e7a0576d33fc53ac4bfbaed52aef",
+  "split": "development_only_not_holdout",
+  "cases": [
+    {
+      "id": "public-review-066-a68aa8d396",
+      "familyId": "a68aa8d396761d19d822daf252da8587a158664a0abeb89fe7855f1d50256f3b",
+      "originalExampleSha256": "4c5e0a0d4df5df46e9cc91e15e719e4517b8e60c4d506f2edd0bbbd645cc2a17",
+      "originalLabelsSha256": "d9947658316401d46f3cbf19e347a52f70528508eab7c1c575b15f54e4cf648d",
+      "inputSha256": "3707d9d377413b43a29b4bbcfd5cb1ef0c884b59b28eb9def39f92200985224c",
+      "projectedCaseSha256": "da2c30201ed38492bc6ff918b9e2bf50ec9c57fd007a07156ea81213f214e020",
+      "canonicalScopeReviewPending": true
+    },
+    {
+      "id": "public-review-041-005f3c626f",
+      "familyId": "005f3c626f6be03f984aea75441bda67a0921ffdce3bc6edcd59ec0214d4fde2",
+      "originalExampleSha256": "5c9e084ac8b3c0c63899aa077726f0467dabe82b4288479bcf6d62f517870b15",
+      "originalLabelsSha256": "cb70fc723f87b3b2a0cdc6b6e7d831c9c34031f36d34eb982be539c936c68e66",
+      "inputSha256": "5b2d5262a17cdbf9af92a309e3f3570f8d03afc00159ac961044eb17be611677",
+      "projectedCaseSha256": "84b266e61edcffcaf407394d79598f7a10c1aea5130cfaff7a29b0beea356472",
+      "canonicalScopeReviewPending": true
+    },
+    {
+      "id": "public-review-002-108ec15688",
+      "familyId": "108ec156888191ccfd60bd250399ece60a2b9ed352ac21647690697e60b3d8cc",
+      "originalExampleSha256": "5295c3171e81f0c2bc303c09f0740869b195c97d9fa8f1390437e4c43527861b",
+      "originalLabelsSha256": "59a45f6e10394588e8f0a656cc07654687dda935cb48d874155e0383f63caf31",
+      "inputSha256": "05a67a24315e54d66130510b66adb1e775ee585914a6b863db918644d79ed7a3",
+      "projectedCaseSha256": "5b70b2433b1434877810a563f091522eeea53ef70060e868da6e0236e3f7fd99",
+      "canonicalScopeReviewPending": true
+    },
+    {
+      "id": "public-review-022-383bba5401",
+      "familyId": "383bba5401f0db3652d557e8636b1231f18e2870ceb7eaf51725f4f51191186c",
+      "originalExampleSha256": "28867514bcbef9ce8167b0da61dd64245b118dbf33a983682ae4524c297f90f9",
+      "originalLabelsSha256": "a866ac501a1b1a7ef3a656ce1942456afdff171536afef56fe8e5dab55b1a950",
+      "inputSha256": "740bce27bd50b9e0bc2ddbf2506a2311ff0e5815e57136a9ed57b049bb1bae49",
+      "projectedCaseSha256": "f033ea88f183e7b7c095ad98c42aec7895c23d170cd44a6503579cd0337fb161",
+      "canonicalScopeReviewPending": true
+    },
+    {
+      "id": "public-review-012-fd05350e90",
+      "familyId": "fd05350e90f43c8924ed187b9e1660f8df5e325466c2b74864f9b8f1ee638405",
+      "originalExampleSha256": "e847897df87e6513df74b50225b54c11619ea5114c3e1836c55b1d7f3c136c17",
+      "originalLabelsSha256": "d6e56f3917de4c7a77b634c07968f39f4a950b052c251f9bfff6153a9c240054",
+      "inputSha256": "9245779bf01b48b705260ac819e28c934eea45a2e6940c3a8f05026917b527d7",
+      "projectedCaseSha256": "34a2b3b2be10d861692e3e39310366f0cbba766605518918a49b1328a0883540",
+      "canonicalScopeReviewPending": true
+    },
+    {
+      "id": "public-review-001-1517e62390",
+      "familyId": "1517e62390660b5cb228158877f6976232e75e6834df0dd062b7e233f59d6a1b",
+      "originalExampleSha256": "4e676cb6e5ff6a938786d8e2d41293fcaf30c27b596d6519f97c04993b89d480",
+      "originalLabelsSha256": "48147ebb59fe02342aa8e460db17004ffa5eb27be0809ef242133e6a84834de1",
+      "inputSha256": "0fbf28ffa5b895b42fb8e48d41ba63cf0b544cafa03ba97c4a31172a71f7d8ce",
+      "projectedCaseSha256": "f484294c436f6607709379f88bb9e2554cc76e4c798a87f5a4908aab79b48e8d",
+      "canonicalScopeReviewPending": true
+    },
+    {
+      "id": "public-review-032-e86e2b68c9",
+      "familyId": "e86e2b68c99adce74efce1aed55d9737a6f9181c46a7d4091f1399f03200b384",
+      "originalExampleSha256": "3c08f022ef9bb036dae514941d5f10b0dbbd37f5df63c9c3b6800234f241e9d1",
+      "originalLabelsSha256": "1c2128cfa21161fe32a46eb96aa3f1bfadad2da2b2ac955228bd9e86abcf8810",
+      "inputSha256": "6f80d147171b689d70317456ff0277562af2f784e2e1dc193f0e5874910fcfa5",
+      "projectedCaseSha256": "c7cca570e3f57398eed0a761f99ed97ee8ac616bf7601c73f74ff1920fc2f1cc",
+      "canonicalScopeReviewPending": true
+    },
+    {
+      "id": "public-review-067-d844eeaf38",
+      "familyId": "d844eeaf38c3c098ce30f93773fc52592df71356c23fb6c96bff65796852ff33",
+      "originalExampleSha256": "3d2f11965f58c5d4bd60ce0c29e9ceb5c58f79b47cdd7077106db5ce39502212",
+      "originalLabelsSha256": "0ae35a56a291f1818d38a5fa7fc9c67da37e88423007cf4e462ed937a14d19fe",
+      "inputSha256": "d1a70c872aa9fcacb52f2d72a0d6751bef0dd1393d6d26a694c187fdd4b40581",
+      "projectedCaseSha256": "d1696ed606a9054bc4d30c87a845cd280071d78618ead25c20e408f02f14218e",
+      "canonicalScopeReviewPending": true
+    },
+    {
+      "id": "public-review-042-e38acc1407",
+      "familyId": "e38acc14076ab3e508191ee9fc049249272780f046ba1298c115347b53c64b6c",
+      "originalExampleSha256": "befd32c9282117896a26367b83bc2d383ca1f0ae79e3dc391f46bd1eb8a96ed1",
+      "originalLabelsSha256": "351817ba62334c7a6fdec0cb2afc7c9f3e9eb9c21ff130e18ca4471699bf0c87",
+      "inputSha256": "acdf30a1a1879d2b6778f7da041b8df24fde2adb85eab44397429d242f129f6e",
+      "projectedCaseSha256": "0e00db3b331a6a7bcd99a807c5b6300833a4c63bd88a5afdf920e34cb9ff800f",
+      "canonicalScopeReviewPending": true
+    },
+    {
+      "id": "public-review-033-0468722d86",
+      "familyId": "0468722d86dbddfb4d8b1cf10567b3801cfceed7eed76ecbc33ea058b8747704",
+      "originalExampleSha256": "56a268eb948dc0971d55fd79e2c8ee3bf75b0394908e16bd92c2a350cd29baae",
+      "originalLabelsSha256": "6ddd2a6ade18ba4a435d169dc52cd78385a370497fee9c93fca6710ed4d0b607",
+      "inputSha256": "5849f15fe22366280766556fd68c9e3e7817de09ae82e8b827f880d51dd36b55",
+      "projectedCaseSha256": "e75cd47521ecc11e417e4cbda73d4aee51d1600c66c34f4db32ab630c8a83faf",
+      "canonicalScopeReviewPending": true
+    }
+  ]
+}

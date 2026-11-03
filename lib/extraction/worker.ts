@@ -3,13 +3,14 @@ import { createHash } from 'node:crypto';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { z } from 'zod';
 import { ownsStoragePath } from '../intake/validation';
-import { EXTRACTOR_VERSION, RESULT_VERSION, validateExtractionResult, type ExtractionResult } from './contracts';
+import { SUPPORTED_EXTRACTOR_VERSIONS, RESULT_VERSION, validateExtractionResult, type ExtractionResult } from './contracts';
 import { processMediaAssets, type ExtractionUnit, type MediaAsset } from './media';
-import { extractCandidates, providedTextUnit } from './text';
+import { providedTextUnit } from './text-v1';
+import { extractCandidatesForVersion } from './versions';
 
 const mediaInput=z.object({assetId:z.string().min(1).max(80),storagePath:z.string().max(1024).optional(),mimeType:z.string().max(100).optional(),byteCount:z.number().int().nonnegative().optional(),sha256:z.string().regex(/^[a-f0-9]{64}$/).nullish(),available:z.boolean().optional()}).passthrough();
 const snapshotSchema=z.object({kind:z.enum(['manual','instagram']),targetId:z.uuid(),note:z.string().max(5000).nullish(),caption:z.string().max(20000).nullish(),publishedAt:z.string().nullish(),sourceUrl:z.string().max(2048).nullish(),childrenComplete:z.boolean().optional(),media:z.array(mediaInput).max(100)}).passthrough();
-const jobSchema=z.object({id:z.uuid(),owner_id:z.uuid(),extractor_version:z.literal(EXTRACTOR_VERSION),lease_token:z.uuid(),visual_page_budget:z.number().int().min(0).max(12),input_snapshot:snapshotSchema}).passthrough();
+const jobSchema=z.object({id:z.uuid(),owner_id:z.uuid(),extractor_version:z.enum(SUPPORTED_EXTRACTOR_VERSIONS),lease_token:z.uuid(),visual_page_budget:z.number().int().min(0).max(12),input_snapshot:snapshotSchema}).passthrough();
 type Job=z.infer<typeof jobSchema>;
 type MediaProcessor=typeof processMediaAssets;
 class PreparedExtractionFailure extends Error { constructor(public result:ExtractionResult){super('Extraction validation failed');} }
@@ -64,8 +65,8 @@ export async function extractLeasedJob(jobValue:unknown,client:SupabaseClient,op
   if(input.childrenComplete===false)issues.push('source_carousel_manifest_incomplete');
   if(!input.media.length&&!units[0].text.trim()&&input.sourceUrl)issues.push('saved_link_content_not_fetched');
   const complete=input.kind!=='instagram'&&media.complete&&units.every(unit=>unit.status==='processed')&&!issues.some(issue=>['source_carousel_manifest_incomplete','saved_link_content_not_fetched'].includes(issue));
-  const result:ExtractionResult={version:RESULT_VERSION,units,candidates:extractCandidates(units,{publishedAt:input.publishedAt}),issues,complete,
-    stats:{processedAssets:new Set(units.filter(unit=>unit.assetId!=='text'&&unit.status==='processed').map(unit=>unit.assetId)).size,expectedAssets:input.media.length,processedPages:units.filter(unit=>unit.assetId!=='text'&&unit.status==='processed').length,engine:`${media.engine}/${EXTRACTOR_VERSION}`,elapsedMs:Math.max(0,now()-started)}};
+  const result:ExtractionResult={version:RESULT_VERSION,units,candidates:extractCandidatesForVersion(job.extractor_version,units,{publishedAt:input.publishedAt}),issues,complete,
+    stats:{processedAssets:new Set(units.filter(unit=>unit.assetId!=='text'&&unit.status==='processed').map(unit=>unit.assetId)).size,expectedAssets:input.media.length,processedPages:units.filter(unit=>unit.assetId!=='text'&&unit.status==='processed').length,engine:`${media.engine}/${job.extractor_version}`,elapsedMs:Math.max(0,now()-started)}};
   try{return validateExtractionResult(result);}catch{
     // Failed semantic/result validation must still charge attempted OCR pages.
     const fallback=failureResult(job,'extraction_result_invalid',Math.max(0,now()-started));
@@ -75,7 +76,7 @@ export async function extractLeasedJob(jobValue:unknown,client:SupabaseClient,op
 }
 function failureResult(job:Job,issue:string,elapsedMs=0):ExtractionResult {
   return {version:RESULT_VERSION,units:[providedTextUnit(job.input_snapshot.note??job.input_snapshot.caption??''),...job.input_snapshot.media.map(item=>unavailable(item,issue))],candidates:[],issues:[issue],complete:false,
-    stats:{processedAssets:0,expectedAssets:job.input_snapshot.media.length,processedPages:0,engine:EXTRACTOR_VERSION,elapsedMs}};
+    stats:{processedAssets:0,expectedAssets:job.input_snapshot.media.length,processedPages:0,engine:job.extractor_version,elapsedMs}};
 }
 export async function runExtractionDispatcher(client?:SupabaseClient,options:{enabled?:boolean;media?:MediaProcessor;now?:()=>number;environment?:Record<string,string|undefined>}={}) {
   const environment=options.environment??process.env;

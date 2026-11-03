@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "candidateId": "stage2-rules-v1",
+  "candidateId": "stage2-rules-v2",
   "corpusVersion": "stage2-synthetic-v1",
   "manifestSha256": "7d3532e8deed0eb62455276a45cde78458b9e269fd47018f5a84a6a6a9a68fd4",
   "evaluationScope": {
@@ -25,42 +25,42 @@
   },
   "development": {
     "cases": 17,
-    "passedCases": 0,
+    "passedCases": 2,
     "fields": {
       "expected": 94,
-      "predicted": 131,
-      "labeledPredicted": 81,
-      "correct": 58,
-      "wrongOrUnsupported": 23,
-      "missed": 36,
-      "unsupported": 22,
-      "unsupportedCritical": 19,
+      "predicted": 163,
+      "labeledPredicted": 95,
+      "correct": 74,
+      "wrongOrUnsupported": 21,
+      "missed": 20,
+      "unsupported": 19,
+      "unsupportedCritical": 17,
       "nullAbstentions": 10,
-      "unscoredPredicted": 50,
+      "unscoredPredicted": 68,
       "unscoredMissingEvidence": 0,
-      "precision": 0.7160493827160493,
-      "recall": 0.6170212765957447,
+      "precision": 0.7789473684210526,
+      "recall": 0.7872340425531915,
       "precisionScope": "Explicitly labeled fields and unexpected units only; unscored extra fields are excluded, not declared correct.",
-      "predictionLabelCoverage": 0.6183206106870229
+      "predictionLabelCoverage": 0.5828220858895705
     },
     "events": {
       "expected": 16,
-      "predicted": 17,
-      "correct": 0,
-      "missed": 16,
+      "predicted": 18,
+      "correct": 1,
+      "missed": 15,
       "falsePositive": 17,
-      "recall": 0,
+      "recall": 0.0625,
       "recallWilson95": {
-        "low": 0,
-        "high": 0.1936076805344365
+        "low": 0.01111934476464252,
+        "high": 0.28328737570298945
       }
     },
     "actions": {
       "expected": 4,
-      "predicted": 4,
+      "predicted": 3,
       "correct": 1,
       "missed": 3,
-      "falsePositive": 3,
+      "falsePositive": 2,
       "recall": 0.25,
       "recallWilson95": {
         "low": 0.04558726080970055,
@@ -69,14 +69,14 @@
     },
     "resources": {
       "expected": 1,
-      "predicted": 0,
-      "correct": 0,
-      "missed": 1,
+      "predicted": 1,
+      "correct": 1,
+      "missed": 0,
       "falsePositive": 0,
-      "recall": 0,
+      "recall": 1,
       "recallWilson95": {
-        "low": 0,
-        "high": 0.7934506856227626
+        "low": 0.20654931437723745,
+        "high": 1
       }
     },
     "media": {
@@ -223,6 +223,62 @@
         "evidencePresent": true
       },
       {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
         "caseId": "explicit_source_crosslink",
         "key": "event:0",
         "kind": "event",
@@ -332,6 +388,76 @@
         "key": "action:0",
         "kind": "action",
         "field": "datePrecision",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "recurrenceDerived",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "recurrenceDerived",
         "evidencePresent": true
       },
       {
@@ -453,7 +579,7 @@
         "key": "event:0",
         "kind": "event",
         "field": "cost",
-        "reason": "missing"
+        "reason": "incorrect_or_unsupported"
       },
       {
         "caseId": "complete_three_slide_carousel",
@@ -508,56 +634,7 @@
         "caseId": "same_title_two_performances",
         "key": "event:0",
         "kind": "event",
-        "field": "startAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:0",
-        "kind": "event",
-        "field": "endAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:0",
-        "kind": "event",
-        "field": "datePrecision",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:0",
-        "kind": "event",
         "field": "status",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:1",
-        "kind": "event",
-        "field": "title",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:1",
-        "kind": "event",
-        "field": "startAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:1",
-        "kind": "event",
-        "field": "endAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:1",
-        "kind": "event",
-        "field": "datePrecision",
         "reason": "missing"
       },
       {
@@ -589,13 +666,6 @@
         "reason": "missing"
       },
       {
-        "caseId": "affirmative_cancellation",
-        "key": "event:0",
-        "kind": "event",
-        "field": "status",
-        "reason": "missing"
-      },
-      {
         "caseId": "deadline_without_time",
         "key": "action:0",
         "kind": "action",
@@ -606,27 +676,6 @@
         "caseId": "weekly_recurrence_with_exception",
         "key": "event:0",
         "kind": "event",
-        "field": "startAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:0",
-        "kind": "event",
-        "field": "endAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:0",
-        "kind": "event",
-        "field": "datePrecision",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:0",
-        "kind": "event",
         "field": "status",
         "reason": "missing"
       },
@@ -634,42 +683,7 @@
         "caseId": "weekly_recurrence_with_exception",
         "key": "event:1",
         "kind": "event",
-        "field": "title",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:1",
-        "kind": "event",
-        "field": "startAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:1",
-        "kind": "event",
-        "field": "endAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:1",
-        "kind": "event",
-        "field": "datePrecision",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:1",
-        "kind": "event",
         "field": "status",
-        "reason": "missing"
-      },
-      {
-        "caseId": "evergreen_research_resource",
-        "key": "resource:0",
-        "kind": "resource",
-        "field": "title",
         "reason": "missing"
       },
       {
@@ -720,13 +734,13 @@
         "caseId": "film_explicit_interval",
         "fields": {
           "expected": 7,
-          "predicted": 9,
-          "labeledPredicted": 5,
+          "predicted": 10,
+          "labeledPredicted": 6,
           "correct": 5,
-          "wrongOrUnsupported": 0,
+          "wrongOrUnsupported": 1,
           "missed": 2,
           "unsupported": 0,
-          "unsupportedCritical": 0,
+          "unsupportedCritical": 1,
           "nullAbstentions": 0,
           "unscoredPredicted": 4,
           "unscoredMissingEvidence": 0
@@ -775,7 +789,7 @@
             "key": "event:0",
             "kind": "event",
             "field": "cost",
-            "reason": "missing"
+            "reason": "incorrect_or_unsupported"
           }
         ]
       },
@@ -981,24 +995,24 @@
         "caseId": "same_title_two_performances",
         "fields": {
           "expected": 10,
-          "predicted": 1,
-          "labeledPredicted": 1,
-          "correct": 1,
+          "predicted": 16,
+          "labeledPredicted": 8,
+          "correct": 8,
           "wrongOrUnsupported": 0,
-          "missed": 9,
+          "missed": 2,
           "unsupported": 0,
           "unsupportedCritical": 0,
           "nullAbstentions": 0,
-          "unscoredPredicted": 0,
+          "unscoredPredicted": 8,
           "unscoredMissingEvidence": 0
         },
         "units": {
           "event": {
             "expected": 2,
-            "predicted": 1,
+            "predicted": 2,
             "correct": 0,
             "missed": 2,
-            "falsePositive": 1
+            "falsePositive": 2
           },
           "action": {
             "expected": 0,
@@ -1029,49 +1043,7 @@
           {
             "key": "event:0",
             "kind": "event",
-            "field": "startAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "endAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "datePrecision",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
             "field": "status",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "title",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "startAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "endAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "datePrecision",
             "reason": "missing"
           },
           {
@@ -1254,63 +1226,6 @@
         ]
       },
       {
-        "caseId": "affirmative_cancellation",
-        "fields": {
-          "expected": 5,
-          "predicted": 8,
-          "labeledPredicted": 4,
-          "correct": 4,
-          "wrongOrUnsupported": 0,
-          "missed": 1,
-          "unsupported": 0,
-          "unsupportedCritical": 0,
-          "nullAbstentions": 0,
-          "unscoredPredicted": 4,
-          "unscoredMissingEvidence": 0
-        },
-        "units": {
-          "event": {
-            "expected": 1,
-            "predicted": 1,
-            "correct": 0,
-            "missed": 1,
-            "falsePositive": 1
-          },
-          "action": {
-            "expected": 0,
-            "predicted": 0,
-            "correct": 0,
-            "missed": 0,
-            "falsePositive": 0
-          },
-          "resource": {
-            "expected": 0,
-            "predicted": 0,
-            "correct": 0,
-            "missed": 0,
-            "falsePositive": 0
-          }
-        },
-        "missingIssues": [],
-        "statusMatch": true,
-        "media": {
-          "declared": 0,
-          "processedDeclared": 0,
-          "expectedProcessedMatch": true,
-          "undeclaredProcessed": 0,
-          "nonVisualProcessed": 0,
-          "unavailableProcessed": 0
-        },
-        "criticalFieldFailures": [
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "status",
-            "reason": "missing"
-          }
-        ]
-      },
-      {
         "caseId": "disappearance_is_not_cancellation",
         "fields": {
           "expected": 0,
@@ -1423,24 +1338,24 @@
         "caseId": "weekly_recurrence_with_exception",
         "fields": {
           "expected": 10,
-          "predicted": 1,
-          "labeledPredicted": 1,
-          "correct": 1,
+          "predicted": 18,
+          "labeledPredicted": 8,
+          "correct": 8,
           "wrongOrUnsupported": 0,
-          "missed": 9,
+          "missed": 2,
           "unsupported": 0,
           "unsupportedCritical": 0,
           "nullAbstentions": 0,
-          "unscoredPredicted": 0,
+          "unscoredPredicted": 10,
           "unscoredMissingEvidence": 0
         },
         "units": {
           "event": {
             "expected": 2,
-            "predicted": 1,
+            "predicted": 2,
             "correct": 0,
             "missed": 2,
-            "falsePositive": 1
+            "falsePositive": 2
           },
           "action": {
             "expected": 0,
@@ -1471,112 +1386,13 @@
           {
             "key": "event:0",
             "kind": "event",
-            "field": "startAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "endAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "datePrecision",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
             "field": "status",
             "reason": "missing"
           },
           {
             "key": "event:1",
             "kind": "event",
-            "field": "title",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "startAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "endAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "datePrecision",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
             "field": "status",
-            "reason": "missing"
-          }
-        ]
-      },
-      {
-        "caseId": "evergreen_research_resource",
-        "fields": {
-          "expected": 1,
-          "predicted": 3,
-          "labeledPredicted": 3,
-          "correct": 0,
-          "wrongOrUnsupported": 3,
-          "missed": 1,
-          "unsupported": 3,
-          "unsupportedCritical": 3,
-          "nullAbstentions": 1,
-          "unscoredPredicted": 0,
-          "unscoredMissingEvidence": 0
-        },
-        "units": {
-          "event": {
-            "expected": 0,
-            "predicted": 1,
-            "correct": 0,
-            "missed": 0,
-            "falsePositive": 1
-          },
-          "action": {
-            "expected": 0,
-            "predicted": 1,
-            "correct": 0,
-            "missed": 0,
-            "falsePositive": 1
-          },
-          "resource": {
-            "expected": 1,
-            "predicted": 0,
-            "correct": 0,
-            "missed": 1,
-            "falsePositive": 0
-          }
-        },
-        "missingIssues": [],
-        "statusMatch": true,
-        "media": {
-          "declared": 0,
-          "processedDeclared": 0,
-          "expectedProcessedMatch": true,
-          "undeclaredProcessed": 0,
-          "nonVisualProcessed": 0,
-          "unavailableProcessed": 0
-        },
-        "criticalFieldFailures": [
-          {
-            "key": "resource:0",
-            "kind": "resource",
-            "field": "title",
             "reason": "missing"
           }
         ]
@@ -1949,42 +1765,42 @@
   },
   "allRegressionCases": {
     "cases": 17,
-    "passedCases": 0,
+    "passedCases": 2,
     "fields": {
       "expected": 94,
-      "predicted": 131,
-      "labeledPredicted": 81,
-      "correct": 58,
-      "wrongOrUnsupported": 23,
-      "missed": 36,
-      "unsupported": 22,
-      "unsupportedCritical": 19,
+      "predicted": 163,
+      "labeledPredicted": 95,
+      "correct": 74,
+      "wrongOrUnsupported": 21,
+      "missed": 20,
+      "unsupported": 19,
+      "unsupportedCritical": 17,
       "nullAbstentions": 10,
-      "unscoredPredicted": 50,
+      "unscoredPredicted": 68,
       "unscoredMissingEvidence": 0,
-      "precision": 0.7160493827160493,
-      "recall": 0.6170212765957447,
+      "precision": 0.7789473684210526,
+      "recall": 0.7872340425531915,
       "precisionScope": "Explicitly labeled fields and unexpected units only; unscored extra fields are excluded, not declared correct.",
-      "predictionLabelCoverage": 0.6183206106870229
+      "predictionLabelCoverage": 0.5828220858895705
     },
     "events": {
       "expected": 16,
-      "predicted": 17,
-      "correct": 0,
-      "missed": 16,
+      "predicted": 18,
+      "correct": 1,
+      "missed": 15,
       "falsePositive": 17,
-      "recall": 0,
+      "recall": 0.0625,
       "recallWilson95": {
-        "low": 0,
-        "high": 0.1936076805344365
+        "low": 0.01111934476464252,
+        "high": 0.28328737570298945
       }
     },
     "actions": {
       "expected": 4,
-      "predicted": 4,
+      "predicted": 3,
       "correct": 1,
       "missed": 3,
-      "falsePositive": 3,
+      "falsePositive": 2,
       "recall": 0.25,
       "recallWilson95": {
         "low": 0.04558726080970055,
@@ -1993,14 +1809,14 @@
     },
     "resources": {
       "expected": 1,
-      "predicted": 0,
-      "correct": 0,
-      "missed": 1,
+      "predicted": 1,
+      "correct": 1,
+      "missed": 0,
       "falsePositive": 0,
-      "recall": 0,
+      "recall": 1,
       "recallWilson95": {
-        "low": 0,
-        "high": 0.7934506856227626
+        "low": 0.20654931437723745,
+        "high": 1
       }
     },
     "media": {
@@ -2147,6 +1963,62 @@
         "evidencePresent": true
       },
       {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "same_title_two_performances",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
         "caseId": "explicit_source_crosslink",
         "key": "event:0",
         "kind": "event",
@@ -2256,6 +2128,76 @@
         "key": "action:0",
         "kind": "action",
         "field": "datePrecision",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:0",
+        "kind": "event",
+        "field": "recurrenceDerived",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "date",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "timeZone",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "startLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "endLocal",
+        "evidencePresent": true
+      },
+      {
+        "caseId": "weekly_recurrence_with_exception",
+        "key": "event:1",
+        "kind": "event",
+        "field": "recurrenceDerived",
         "evidencePresent": true
       },
       {
@@ -2377,7 +2319,7 @@
         "key": "event:0",
         "kind": "event",
         "field": "cost",
-        "reason": "missing"
+        "reason": "incorrect_or_unsupported"
       },
       {
         "caseId": "complete_three_slide_carousel",
@@ -2432,56 +2374,7 @@
         "caseId": "same_title_two_performances",
         "key": "event:0",
         "kind": "event",
-        "field": "startAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:0",
-        "kind": "event",
-        "field": "endAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:0",
-        "kind": "event",
-        "field": "datePrecision",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:0",
-        "kind": "event",
         "field": "status",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:1",
-        "kind": "event",
-        "field": "title",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:1",
-        "kind": "event",
-        "field": "startAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:1",
-        "kind": "event",
-        "field": "endAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "same_title_two_performances",
-        "key": "event:1",
-        "kind": "event",
-        "field": "datePrecision",
         "reason": "missing"
       },
       {
@@ -2513,13 +2406,6 @@
         "reason": "missing"
       },
       {
-        "caseId": "affirmative_cancellation",
-        "key": "event:0",
-        "kind": "event",
-        "field": "status",
-        "reason": "missing"
-      },
-      {
         "caseId": "deadline_without_time",
         "key": "action:0",
         "kind": "action",
@@ -2530,27 +2416,6 @@
         "caseId": "weekly_recurrence_with_exception",
         "key": "event:0",
         "kind": "event",
-        "field": "startAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:0",
-        "kind": "event",
-        "field": "endAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:0",
-        "kind": "event",
-        "field": "datePrecision",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:0",
-        "kind": "event",
         "field": "status",
         "reason": "missing"
       },
@@ -2558,42 +2423,7 @@
         "caseId": "weekly_recurrence_with_exception",
         "key": "event:1",
         "kind": "event",
-        "field": "title",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:1",
-        "kind": "event",
-        "field": "startAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:1",
-        "kind": "event",
-        "field": "endAt",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:1",
-        "kind": "event",
-        "field": "datePrecision",
-        "reason": "missing"
-      },
-      {
-        "caseId": "weekly_recurrence_with_exception",
-        "key": "event:1",
-        "kind": "event",
         "field": "status",
-        "reason": "missing"
-      },
-      {
-        "caseId": "evergreen_research_resource",
-        "key": "resource:0",
-        "kind": "resource",
-        "field": "title",
         "reason": "missing"
       },
       {
@@ -2644,13 +2474,13 @@
         "caseId": "film_explicit_interval",
         "fields": {
           "expected": 7,
-          "predicted": 9,
-          "labeledPredicted": 5,
+          "predicted": 10,
+          "labeledPredicted": 6,
           "correct": 5,
-          "wrongOrUnsupported": 0,
+          "wrongOrUnsupported": 1,
           "missed": 2,
           "unsupported": 0,
-          "unsupportedCritical": 0,
+          "unsupportedCritical": 1,
           "nullAbstentions": 0,
           "unscoredPredicted": 4,
           "unscoredMissingEvidence": 0
@@ -2699,7 +2529,7 @@
             "key": "event:0",
             "kind": "event",
             "field": "cost",
-            "reason": "missing"
+            "reason": "incorrect_or_unsupported"
           }
         ]
       },
@@ -2905,24 +2735,24 @@
         "caseId": "same_title_two_performances",
         "fields": {
           "expected": 10,
-          "predicted": 1,
-          "labeledPredicted": 1,
-          "correct": 1,
+          "predicted": 16,
+          "labeledPredicted": 8,
+          "correct": 8,
           "wrongOrUnsupported": 0,
-          "missed": 9,
+          "missed": 2,
           "unsupported": 0,
           "unsupportedCritical": 0,
           "nullAbstentions": 0,
-          "unscoredPredicted": 0,
+          "unscoredPredicted": 8,
           "unscoredMissingEvidence": 0
         },
         "units": {
           "event": {
             "expected": 2,
-            "predicted": 1,
+            "predicted": 2,
             "correct": 0,
             "missed": 2,
-            "falsePositive": 1
+            "falsePositive": 2
           },
           "action": {
             "expected": 0,
@@ -2953,49 +2783,7 @@
           {
             "key": "event:0",
             "kind": "event",
-            "field": "startAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "endAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "datePrecision",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
             "field": "status",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "title",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "startAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "endAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "datePrecision",
             "reason": "missing"
           },
           {
@@ -3178,63 +2966,6 @@
         ]
       },
       {
-        "caseId": "affirmative_cancellation",
-        "fields": {
-          "expected": 5,
-          "predicted": 8,
-          "labeledPredicted": 4,
-          "correct": 4,
-          "wrongOrUnsupported": 0,
-          "missed": 1,
-          "unsupported": 0,
-          "unsupportedCritical": 0,
-          "nullAbstentions": 0,
-          "unscoredPredicted": 4,
-          "unscoredMissingEvidence": 0
-        },
-        "units": {
-          "event": {
-            "expected": 1,
-            "predicted": 1,
-            "correct": 0,
-            "missed": 1,
-            "falsePositive": 1
-          },
-          "action": {
-            "expected": 0,
-            "predicted": 0,
-            "correct": 0,
-            "missed": 0,
-            "falsePositive": 0
-          },
-          "resource": {
-            "expected": 0,
-            "predicted": 0,
-            "correct": 0,
-            "missed": 0,
-            "falsePositive": 0
-          }
-        },
-        "missingIssues": [],
-        "statusMatch": true,
-        "media": {
-          "declared": 0,
-          "processedDeclared": 0,
-          "expectedProcessedMatch": true,
-          "undeclaredProcessed": 0,
-          "nonVisualProcessed": 0,
-          "unavailableProcessed": 0
-        },
-        "criticalFieldFailures": [
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "status",
-            "reason": "missing"
-          }
-        ]
-      },
-      {
         "caseId": "disappearance_is_not_cancellation",
         "fields": {
           "expected": 0,
@@ -3347,24 +3078,24 @@
         "caseId": "weekly_recurrence_with_exception",
         "fields": {
           "expected": 10,
-          "predicted": 1,
-          "labeledPredicted": 1,
-          "correct": 1,
+          "predicted": 18,
+          "labeledPredicted": 8,
+          "correct": 8,
           "wrongOrUnsupported": 0,
-          "missed": 9,
+          "missed": 2,
           "unsupported": 0,
           "unsupportedCritical": 0,
           "nullAbstentions": 0,
-          "unscoredPredicted": 0,
+          "unscoredPredicted": 10,
           "unscoredMissingEvidence": 0
         },
         "units": {
           "event": {
             "expected": 2,
-            "predicted": 1,
+            "predicted": 2,
             "correct": 0,
             "missed": 2,
-            "falsePositive": 1
+            "falsePositive": 2
           },
           "action": {
             "expected": 0,
@@ -3395,112 +3126,13 @@
           {
             "key": "event:0",
             "kind": "event",
-            "field": "startAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "endAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
-            "field": "datePrecision",
-            "reason": "missing"
-          },
-          {
-            "key": "event:0",
-            "kind": "event",
             "field": "status",
             "reason": "missing"
           },
           {
             "key": "event:1",
             "kind": "event",
-            "field": "title",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "startAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "endAt",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
-            "field": "datePrecision",
-            "reason": "missing"
-          },
-          {
-            "key": "event:1",
-            "kind": "event",
             "field": "status",
-            "reason": "missing"
-          }
-        ]
-      },
-      {
-        "caseId": "evergreen_research_resource",
-        "fields": {
-          "expected": 1,
-          "predicted": 3,
-          "labeledPredicted": 3,
-          "correct": 0,
-          "wrongOrUnsupported": 3,
-          "missed": 1,
-          "unsupported": 3,
-          "unsupportedCritical": 3,
-          "nullAbstentions": 1,
-          "unscoredPredicted": 0,
-          "unscoredMissingEvidence": 0
-        },
-        "units": {
-          "event": {
-            "expected": 0,
-            "predicted": 1,
-            "correct": 0,
-            "missed": 0,
-            "falsePositive": 1
-          },
-          "action": {
-            "expected": 0,
-            "predicted": 1,
-            "correct": 0,
-            "missed": 0,
-            "falsePositive": 1
-          },
-          "resource": {
-            "expected": 1,
-            "predicted": 0,
-            "correct": 0,
-            "missed": 1,
-            "falsePositive": 0
-          }
-        },
-        "missingIssues": [],
-        "statusMatch": true,
-        "media": {
-          "declared": 0,
-          "processedDeclared": 0,
-          "expectedProcessedMatch": true,
-          "undeclaredProcessed": 0,
-          "nonVisualProcessed": 0,
-          "unavailableProcessed": 0
-        },
-        "criticalFieldFailures": [
-          {
-            "key": "resource:0",
-            "kind": "resource",
-            "field": "title",
             "reason": "missing"
           }
         ]
@@ -3760,13 +3392,13 @@
       "passed": false,
       "fields": {
         "expected": 7,
-        "predicted": 9,
-        "labeledPredicted": 5,
+        "predicted": 10,
+        "labeledPredicted": 6,
         "correct": 5,
-        "wrongOrUnsupported": 0,
+        "wrongOrUnsupported": 1,
         "missed": 2,
         "unsupported": 0,
-        "unsupportedCritical": 0,
+        "unsupportedCritical": 1,
         "nullAbstentions": 0,
         "unscoredPredicted": 4,
         "unscoredMissingEvidence": 0
@@ -3843,7 +3475,7 @@
           "key": "event:0",
           "kind": "event",
           "field": "cost",
-          "reason": "missing"
+          "reason": "incorrect_or_unsupported"
         }
       ],
       "duplicatePredictionKeys": 0
@@ -4170,24 +3802,24 @@
       "passed": false,
       "fields": {
         "expected": 10,
-        "predicted": 1,
-        "labeledPredicted": 1,
-        "correct": 1,
+        "predicted": 16,
+        "labeledPredicted": 8,
+        "correct": 8,
         "wrongOrUnsupported": 0,
-        "missed": 9,
+        "missed": 2,
         "unsupported": 0,
         "unsupportedCritical": 0,
         "nullAbstentions": 0,
-        "unscoredPredicted": 0,
+        "unscoredPredicted": 8,
         "unscoredMissingEvidence": 0
       },
       "units": {
         "event": {
           "expected": 2,
-          "predicted": 1,
+          "predicted": 2,
           "correct": 0,
           "missed": 2,
-          "falsePositive": 1
+          "falsePositive": 2
         },
         "action": {
           "expected": 0,
@@ -4216,54 +3848,61 @@
       "missingIssues": [],
       "negative": false,
       "negativeCorrect": false,
-      "unscoredFields": [],
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        }
+      ],
       "criticalFieldFailures": [
         {
           "key": "event:0",
           "kind": "event",
-          "field": "startAt",
-          "reason": "missing"
-        },
-        {
-          "key": "event:0",
-          "kind": "event",
-          "field": "endAt",
-          "reason": "missing"
-        },
-        {
-          "key": "event:0",
-          "kind": "event",
-          "field": "datePrecision",
-          "reason": "missing"
-        },
-        {
-          "key": "event:0",
-          "kind": "event",
           "field": "status",
-          "reason": "missing"
-        },
-        {
-          "key": "event:1",
-          "kind": "event",
-          "field": "title",
-          "reason": "missing"
-        },
-        {
-          "key": "event:1",
-          "kind": "event",
-          "field": "startAt",
-          "reason": "missing"
-        },
-        {
-          "key": "event:1",
-          "kind": "event",
-          "field": "endAt",
-          "reason": "missing"
-        },
-        {
-          "key": "event:1",
-          "kind": "event",
-          "field": "datePrecision",
           "reason": "missing"
         },
         {
@@ -4544,14 +4183,14 @@
       "split": "development",
       "labelStatus": "agent_labeled_unreviewed",
       "provenance": "synthetic",
-      "passed": false,
+      "passed": true,
       "fields": {
         "expected": 5,
-        "predicted": 8,
-        "labeledPredicted": 4,
-        "correct": 4,
+        "predicted": 9,
+        "labeledPredicted": 5,
+        "correct": 5,
         "wrongOrUnsupported": 0,
-        "missed": 1,
+        "missed": 0,
         "unsupported": 0,
         "unsupportedCritical": 0,
         "nullAbstentions": 0,
@@ -4562,9 +4201,9 @@
         "event": {
           "expected": 1,
           "predicted": 1,
-          "correct": 0,
-          "missed": 1,
-          "falsePositive": 1
+          "correct": 1,
+          "missed": 0,
+          "falsePositive": 0
         },
         "action": {
           "expected": 0,
@@ -4619,14 +4258,7 @@
           "evidencePresent": true
         }
       ],
-      "criticalFieldFailures": [
-        {
-          "key": "event:0",
-          "kind": "event",
-          "field": "status",
-          "reason": "missing"
-        }
-      ],
+      "criticalFieldFailures": [],
       "duplicatePredictionKeys": 0
     },
     {
@@ -4769,24 +4401,24 @@
       "passed": false,
       "fields": {
         "expected": 10,
-        "predicted": 1,
-        "labeledPredicted": 1,
-        "correct": 1,
+        "predicted": 18,
+        "labeledPredicted": 8,
+        "correct": 8,
         "wrongOrUnsupported": 0,
-        "missed": 9,
+        "missed": 2,
         "unsupported": 0,
         "unsupportedCritical": 0,
         "nullAbstentions": 0,
-        "unscoredPredicted": 0,
+        "unscoredPredicted": 10,
         "unscoredMissingEvidence": 0
       },
       "units": {
         "event": {
           "expected": 2,
-          "predicted": 1,
+          "predicted": 2,
           "correct": 0,
           "missed": 2,
-          "falsePositive": 1
+          "falsePositive": 2
         },
         "action": {
           "expected": 0,
@@ -4815,54 +4447,73 @@
       "missingIssues": [],
       "negative": false,
       "negativeCorrect": false,
-      "unscoredFields": [],
+      "unscoredFields": [
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:0",
+          "kind": "event",
+          "field": "recurrenceDerived",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "date",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "timeZone",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "startLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "endLocal",
+          "evidencePresent": true
+        },
+        {
+          "key": "event:1",
+          "kind": "event",
+          "field": "recurrenceDerived",
+          "evidencePresent": true
+        }
+      ],
       "criticalFieldFailures": [
         {
           "key": "event:0",
           "kind": "event",
-          "field": "startAt",
-          "reason": "missing"
-        },
-        {
-          "key": "event:0",
-          "kind": "event",
-          "field": "endAt",
-          "reason": "missing"
-        },
-        {
-          "key": "event:0",
-          "kind": "event",
-          "field": "datePrecision",
-          "reason": "missing"
-        },
-        {
-          "key": "event:0",
-          "kind": "event",
           "field": "status",
-          "reason": "missing"
-        },
-        {
-          "key": "event:1",
-          "kind": "event",
-          "field": "title",
-          "reason": "missing"
-        },
-        {
-          "key": "event:1",
-          "kind": "event",
-          "field": "startAt",
-          "reason": "missing"
-        },
-        {
-          "key": "event:1",
-          "kind": "event",
-          "field": "endAt",
-          "reason": "missing"
-        },
-        {
-          "key": "event:1",
-          "kind": "event",
-          "field": "datePrecision",
           "reason": "missing"
         },
         {
@@ -4879,16 +4530,16 @@
       "split": "development",
       "labelStatus": "agent_labeled_unreviewed",
       "provenance": "synthetic",
-      "passed": false,
+      "passed": true,
       "fields": {
         "expected": 1,
-        "predicted": 3,
-        "labeledPredicted": 3,
-        "correct": 0,
-        "wrongOrUnsupported": 3,
-        "missed": 1,
-        "unsupported": 3,
-        "unsupportedCritical": 3,
+        "predicted": 1,
+        "labeledPredicted": 1,
+        "correct": 1,
+        "wrongOrUnsupported": 0,
+        "missed": 0,
+        "unsupported": 0,
+        "unsupportedCritical": 0,
         "nullAbstentions": 1,
         "unscoredPredicted": 0,
         "unscoredMissingEvidence": 0
@@ -4896,23 +4547,23 @@
       "units": {
         "event": {
           "expected": 0,
-          "predicted": 1,
+          "predicted": 0,
           "correct": 0,
           "missed": 0,
-          "falsePositive": 1
+          "falsePositive": 0
         },
         "action": {
           "expected": 0,
-          "predicted": 1,
+          "predicted": 0,
           "correct": 0,
           "missed": 0,
-          "falsePositive": 1
+          "falsePositive": 0
         },
         "resource": {
           "expected": 1,
-          "predicted": 0,
-          "correct": 0,
-          "missed": 1,
+          "predicted": 1,
+          "correct": 1,
+          "missed": 0,
           "falsePositive": 0
         }
       },
@@ -4929,14 +4580,7 @@
       "negative": false,
       "negativeCorrect": false,
       "unscoredFields": [],
-      "criticalFieldFailures": [
-        {
-          "key": "resource:0",
-          "kind": "resource",
-          "field": "title",
-          "reason": "missing"
-        }
-      ],
+      "criticalFieldFailures": [],
       "duplicatePredictionKeys": 0
     },
     {
@@ -5328,7 +4972,7 @@
     "targetVariedHumanLabeledExamples": 100,
     "limitation": "Scored thresholds alone do not establish Stage 2 acceptance, holdout non-exposure, real OCR/media handling, model comparison, reconciliation safety or source coverage."
   },
-  "recordedAt": "2026-11-02T23:41:11.415Z",
+  "recordedAt": "2026-11-03T00:48:44.184Z",
   "adapterVersion": "stage2-evaluation-adapter-v2",
   "executionClass": "Development synthetic supplied text transcripts only; not real OCR or human-reviewed extraction accuracy",
   "methodology": {

@@ -1,7 +1,9 @@
 import { z } from 'zod';
 import type { ExtractionUnit } from './media-types';
 
-export const EXTRACTOR_VERSION = 'stage2-rules-v1';
+export const SUPPORTED_EXTRACTOR_VERSIONS = ['stage2-rules-v1', 'stage2-rules-v2'] as const;
+export type ExtractorVersion = typeof SUPPORTED_EXTRACTOR_VERSIONS[number];
+export const EXTRACTOR_VERSION = 'stage2-rules-v2' satisfies ExtractorVersion;
 export const RESULT_VERSION = 'stage2-result-v1';
 export type Primitive = string | number | boolean | null;
 export type EvidenceSpan = { unitId: string; start: number; end: number; quote: string };

@@ -1,0 +1,128 @@
+{
+  "recordedAt": "2026-11-03 00:50:22.24924+00",
+  "migrationFile": "supabase/migrations/20261103003949_stage2_extractor_versions.sql",
+  "hostedMigration": {
+    "version": "20261103005000",
+    "name": "stage2_extractor_versions"
+  },
+  "result": "applied_and_read_back",
+  "before": {
+    "checked_at": "2026-11-03 00:48:43.745233+00",
+    "jobs": 1,
+    "jobs_sha256": "dda55dcc45e70e5a6f54ab4027c313550198d0f14ffe6b1ceb90cd545b7e5108",
+    "attempts": 1,
+    "attempts_sha256": "1c53651b0448117249cc61c6fb72365dcad06db5436cd7eb01257311cfc47775",
+    "decisions": 58,
+    "decisions_sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7",
+    "calendar_commands": 1,
+    "calendar_commands_sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37",
+    "function_access": [
+      {
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "worker": false,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": true
+      },
+      {
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": true,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": false
+      },
+      {
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": false,
+        "default": "'stage2-rules-v1'::text",
+        "definer": false,
+        "anonymous": false,
+        "authenticated": true
+      }
+    ]
+  },
+  "after": {
+    "checked_at": "2026-11-03 00:50:22.24924+00",
+    "jobs": 1,
+    "jobs_sha256": "dda55dcc45e70e5a6f54ab4027c313550198d0f14ffe6b1ceb90cd545b7e5108",
+    "attempts": 1,
+    "attempts_sha256": "1c53651b0448117249cc61c6fb72365dcad06db5436cd7eb01257311cfc47775",
+    "decisions": 58,
+    "decisions_sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7",
+    "calendar_commands": 1,
+    "calendar_commands_sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37",
+    "function_access": [
+      {
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "worker": false,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": true
+      },
+      {
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": true,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": false
+      },
+      {
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": false,
+        "default": "'stage2-rules-v2'::text",
+        "definer": false,
+        "anonymous": false,
+        "authenticated": true
+      }
+    ]
+  },
+  "rowFingerprintsPreserved": true,
+  "functionOidsSecurityConfigAndRolePrivilegesPreserved": true,
+  "newDefault": "stage2-rules-v2",
+  "existingV1QueueAndResultsRewritten": false,
+  "hostedRoleRollbackAudit": {
+    "passed": 8,
+    "report": "reports/stage-2-v2-hosted-policy-checks.json",
+    "checkedAt": "2026-11-03T00:56:41.277830Z",
+    "existingRealRowsFullHashesPreserved": true
+  },
+  "providerCalls": 0,
+  "calendarCalls": 0,
+  "modelCalls": 0,
+  "newCredentials": 0,
+  "newAuthUsers": 0,
+  "limitations": [
+    "Row fingerprints and function metadata are not signed-JWT/Storage HTTP or distributed contention checks.",
+    "No real jobs were claimed/retried/completed as part of migration verification."
+  ]
+}

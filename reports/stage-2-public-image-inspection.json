@@ -1,0 +1,42 @@
+{
+  "recordedAt": "2026-11-03T00:53:00.123Z",
+  "probe": "reports/stage-2-public-image-probe.json",
+  "probeSha256": "3aad379bcbc99c9c2951ce3888a3d4a2a7e56a47694c7bff8e872581c823205c",
+  "classificationMethod": "Agent visual inspection of the three original bytes; not human labels or adjudication",
+  "observations": [
+    {
+      "assetId": "public-54299152068755",
+      "sha256": "64e2167d591b076fa3a2d7d7916d011206470c2fd9e6e759010c7bb02116b3f4",
+      "classification": "Movie artwork with title; no visible campus screening date/time",
+      "datedEventFlyer": false
+    },
+    {
+      "assetId": "public-54125713843124",
+      "sha256": "53e2b1d579ed2f12805fb23de2cb56ba55f37a06dd018345e860ed935cad5155",
+      "classification": "Filmmaking activity photo; no visible event schedule",
+      "datedEventFlyer": false
+    },
+    {
+      "assetId": "public-54246054417952",
+      "sha256": "cd04d6ba6e8603e605265a0c15b5ef36ebba2936a223d8d651a2189ebbb18d99",
+      "classification": "Campus building photo; no visible event schedule",
+      "datedEventFlyer": false
+    }
+  ],
+  "actualDatedFlyers": 0,
+  "humanLabels": 0,
+  "extractorVersion": "stage2-rules-v2",
+  "predictedCandidates": 0,
+  "predictedKinds": [],
+  "nonnullInstantFields": 0,
+  "privatePredictions": "private/stage2-public-flyers/extraction-candidates.json",
+  "sourceScope": "Three event-image references, not whole event pages or complete carousels. A nondated image cannot establish that its linked event page has no schedule.",
+  "semanticAccuracyEstablished": false,
+  "modelCalls": 0,
+  "calendarCalls": 0,
+  "databaseCalls": 0,
+  "limitations": [
+    "These are public event visuals, not three dated opportunity flyers. Do not count them as the missing real all-slide flyer benchmark.",
+    "Source-only image text extraction remains unverified; no source occurrence is created or promoted."
+  ]
+}

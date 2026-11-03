@@ -1,6 +1,34 @@
-import { IntakeValidationError } from './validation';
+import { IntakeValidationError, validateUploadSet } from './validation';
 
 export class IntakeSubmissionError extends Error {}
+
+/** Files only: ordinary text paste must keep the browser's default behavior. */
+export function clipboardIntakeFiles(clipboard: { files: ArrayLike<File> }): File[] {
+  return Array.from(clipboard.files);
+}
+
+/** Picker selections and pasted images share one ordered, bounded upload set. */
+export function appendIntakeFiles(current: readonly File[], added: readonly File[]): File[] {
+  const files = [...current, ...added];
+  validateUploadSet(files);
+  return files;
+}
+
+/** Native input fields must not duplicate the controlled selection in multipart. */
+export function setIntakeFiles(data: FormData, files: readonly File[]): void {
+  validateUploadSet([...files]);
+  data.delete('files');
+  files.forEach((file, index) => data.append('files', file, file.name || `pasted-file-${index + 1}`));
+}
+
+/** A retry checks the same durable submission; deliberate edits start a new one. */
+export class IntakeSubmissionIdentity {
+  private key: string | undefined;
+  forSubmission(createKey: () => string = () => crypto.randomUUID()): string {
+    return this.key ??= createKey();
+  }
+  edited(): void { this.key = undefined; }
+}
 
 const retryMessage = 'The save could not be confirmed. Retry this form to check or finish the same submission.';
 
