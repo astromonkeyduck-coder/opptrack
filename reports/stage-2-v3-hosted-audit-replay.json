@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-03T03:50:55.255Z",
+  "checkedAt": "2026-11-03T16:45:38.509Z",
   "command": "node scripts/test-stage2-v3-hosted-audit.mjs",
   "sqlSha256": "0f8f42a640d22f19a6a2f3095a67e9630fb9b3acd834427eb06cd344cbd1c267",
   "evidenceClass": "Actual installed-function SQL-role audit replay in local PGlite using only synthetic fixtures; not hosted execution, signed JWTs, native OCR or independent-session contention.",
@@ -64,7 +64,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:54.933-05:00",
+        "checkedAt": "2026-11-03T11:45:38.301-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -90,7 +90,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -136,7 +136,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:54.949-05:00",
+        "checkedAt": "2026-11-03T11:45:38.313-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -162,7 +162,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -208,7 +208,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:54.961-05:00",
+        "checkedAt": "2026-11-03T11:45:38.321-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -216,7 +216,7 @@
         "sourcesCreated": 0,
         "claimedVersions": [
           "stage2-rules-v3",
-          "stage2-rules-v2"
+          "stage2-rules-v1"
         ],
         "authUsersCreated": 0,
         "existingJobCount": 1,
@@ -234,7 +234,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -280,7 +280,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:54.972-05:00",
+        "checkedAt": "2026-11-03T11:45:38.329-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -288,7 +288,7 @@
         "sourcesCreated": 0,
         "claimedVersions": [
           "stage2-rules-v3",
-          "stage2-rules-v1"
+          "stage2-rules-v2"
         ],
         "authUsersCreated": 0,
         "existingJobCount": 1,
@@ -306,7 +306,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -352,7 +352,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:54.984-05:00",
+        "checkedAt": "2026-11-03T11:45:38.337-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -360,7 +360,7 @@
         "sourcesCreated": 0,
         "claimedVersions": [
           "stage2-rules-v3",
-          "stage2-rules-v1"
+          "stage2-rules-v2"
         ],
         "authUsersCreated": 0,
         "existingJobCount": 1,
@@ -378,7 +378,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -424,7 +424,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:54.994-05:00",
+        "checkedAt": "2026-11-03T11:45:38.344-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -450,7 +450,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -496,7 +496,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.006-05:00",
+        "checkedAt": "2026-11-03T11:45:38.351-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -522,7 +522,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -568,7 +568,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.018-05:00",
+        "checkedAt": "2026-11-03T11:45:38.359-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -594,7 +594,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -640,7 +640,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.03-05:00",
+        "checkedAt": "2026-11-03T11:45:38.367-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -666,7 +666,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -712,7 +712,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.041-05:00",
+        "checkedAt": "2026-11-03T11:45:38.374-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -720,7 +720,7 @@
         "sourcesCreated": 0,
         "claimedVersions": [
           "stage2-rules-v3",
-          "stage2-rules-v1"
+          "stage2-rules-v2"
         ],
         "authUsersCreated": 0,
         "existingJobCount": 1,
@@ -738,7 +738,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "53cbce8d57c66f4f6d16b01d1fbb5352e9921b8133386c3008f6a0bf5e50bd11",
+      "beforeAndAfterSnapshotSha256": "f26410acf9dda39fc66acc049adfad7a0a0ad29f7e5ceb40c8bf22280a37475c",
       "rollbackRowsPreserved": true
     },
     {
@@ -784,7 +784,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.056-05:00",
+        "checkedAt": "2026-11-03T11:45:38.384-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -809,7 +809,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -855,7 +855,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.067-05:00",
+        "checkedAt": "2026-11-03T11:45:38.392-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -880,7 +880,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -926,7 +926,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.078-05:00",
+        "checkedAt": "2026-11-03T11:45:38.399-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -951,7 +951,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -997,7 +997,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.088-05:00",
+        "checkedAt": "2026-11-03T11:45:38.406-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1022,7 +1022,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -1068,7 +1068,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.1-05:00",
+        "checkedAt": "2026-11-03T11:45:38.413-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1093,7 +1093,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -1139,7 +1139,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.11-05:00",
+        "checkedAt": "2026-11-03T11:45:38.42-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1164,7 +1164,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -1210,7 +1210,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.121-05:00",
+        "checkedAt": "2026-11-03T11:45:38.427-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1235,7 +1235,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -1281,7 +1281,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.132-05:00",
+        "checkedAt": "2026-11-03T11:45:38.434-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1306,7 +1306,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -1352,7 +1352,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.142-05:00",
+        "checkedAt": "2026-11-03T11:45:38.441-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1377,7 +1377,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -1423,7 +1423,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.153-05:00",
+        "checkedAt": "2026-11-03T11:45:38.448-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1448,7 +1448,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "4080629d2d58506caa62dd2ad4ae17dfefbc2d55b559b749ed9f0a66f5a43a48",
+      "beforeAndAfterSnapshotSha256": "fe218c815caa5a5691bd68fcdd8e9674ae17f84fa08a058c0e87026540ebd7e9",
       "rollbackRowsPreserved": true
     },
     {
@@ -1494,7 +1494,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.163-05:00",
+        "checkedAt": "2026-11-03T11:45:38.454-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1517,7 +1517,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     },
     {
@@ -1563,7 +1563,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.172-05:00",
+        "checkedAt": "2026-11-03T11:45:38.459-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1586,7 +1586,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     },
     {
@@ -1632,7 +1632,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.18-05:00",
+        "checkedAt": "2026-11-03T11:45:38.465-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1655,7 +1655,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     },
     {
@@ -1701,7 +1701,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.189-05:00",
+        "checkedAt": "2026-11-03T11:45:38.47-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1724,7 +1724,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     },
     {
@@ -1770,7 +1770,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.199-05:00",
+        "checkedAt": "2026-11-03T11:45:38.476-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1793,7 +1793,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     },
     {
@@ -1839,7 +1839,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.208-05:00",
+        "checkedAt": "2026-11-03T11:45:38.481-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1862,7 +1862,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     },
     {
@@ -1908,7 +1908,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.218-05:00",
+        "checkedAt": "2026-11-03T11:45:38.487-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -1931,7 +1931,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     },
     {
@@ -1977,7 +1977,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.228-05:00",
+        "checkedAt": "2026-11-03T11:45:38.493-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -2000,7 +2000,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     },
     {
@@ -2046,7 +2046,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.238-05:00",
+        "checkedAt": "2026-11-03T11:45:38.498-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -2069,7 +2069,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     },
     {
@@ -2115,7 +2115,7 @@
           }
         ],
         "passed": 8,
-        "checkedAt": "2026-11-02T22:50:55.247-05:00",
+        "checkedAt": "2026-11-03T11:45:38.504-05:00",
         "modelCalls": 0,
         "googleCalls": 0,
         "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
@@ -2138,7 +2138,7 @@
         "existingRealRowsFullHashesPreserved": true,
         "functionDefinitionsOidsAclsAndConfigurationPreserved": true
       },
-      "beforeAndAfterSnapshotSha256": "a5f47f37459367632935f67b5753c6c3693a6722924d6f984dc0198ab64d6cb3",
+      "beforeAndAfterSnapshotSha256": "acf145036aa705bdbfd4651a1cd7fc0b222c32b60efb90ecb9a21b99622a31d0",
       "rollbackRowsPreserved": true
     }
   ],

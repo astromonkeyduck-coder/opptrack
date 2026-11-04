@@ -1,0 +1,25 @@
+{
+  "version": "stage2-owner-source-contract-adjudication-v1",
+  "confirmationRecordedAt": "2026-11-03T21:06:43.117582+00:00",
+  "exactHumanReviewTimeKnown": false,
+  "reviewer": "project_owner",
+  "method": "explicit_chat_confirmation",
+  "response": "Confirm the source-backed rules",
+  "reviewSheet": "private/stage2-acceptance-preparation/5b4f9738242e13a5/adjudication-first.md",
+  "reviewSheetSha256": "f05f29442317080c239407badbe752a75a06a2e8c025d1ce68714279e4974eb2",
+  "confirmedRuleCount": 6,
+  "scope": [
+    "Missing event status remains unknown unless a provider contract affirmatively supports it; publishing visibility is separate.",
+    "Per-source extraction observations and canonical occurrence/reconciliation metrics remain separate.",
+    "Literal source dates and event-local dates remain separate; conversions require a stated zone.",
+    "Multi-day ranges and partial dates/clocks remain explicit; no missing year/day/instant is invented.",
+    "Connected organizer/opportunity/recurring/media families must stay in one split; the listed development aliases stay together.",
+    "Use the stricter near-100 independent human holdout target;34 or40 alone does not pass."
+  ],
+  "notApproved": [
+    "No approval of future holdout family/exposure assignments or factual labels.",
+    "No automatic label rewrite, unreviewed alias assignment, predictions or Stage2 acceptance.",
+    "No calendar action, paid spending, Meta repair or further model inference."
+  ],
+  "stage2Accepted": false
+}

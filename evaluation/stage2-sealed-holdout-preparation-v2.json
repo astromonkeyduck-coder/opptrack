@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "packetId": "6f54cc7b2cfb74f3465a82795666cd030a98bb4dfc47e98762ff3bd75e8565d2",
+  "status": "sealed_unassigned_unlabeled_no_predictions",
+  "sourceCount": 100,
+  "strictWorkingHoldoutTarget": 100,
+  "assignmentFrozen": false,
+  "candidateFreezeCompleted": false,
+  "humanReviewed": 0,
+  "predictions": 0,
+  "sourceIntegrityManifestSha256": "f3bfded6a11754b775f7284fb6413537080936f318e8791ea93dca2736a4eac5",
+  "privateManifest": "private/stage2-sealed-holdout/6f54cc7b2cfb74f3/integrity-manifest.json",
+  "publicReport": "reports/stage-2-sealed-holdout-preparation.json",
+  "contentAndAnswersDisclosedToRuntimeEngineer": false,
+  "stage2Accepted": false
+}

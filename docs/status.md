@@ -1,5 +1,23 @@
 # Project status
 
+## Stage 2 extraction quality repairs — November 3
+
+The owner requested continued repair until Stage2 passes, with no paid upgrade, Meta repair paused and Calendar additions individually approved. **Stage2 remains unaccepted.** The v4 candidate is tested; hosted web/worker publication is the next release check. The database allowlist/default migration is applied.
+
+V4 retains explicit ICS/JSON intervals and separate occurrences, fixes colon/category/program titles, composes evidenced building/room venues, preserves fixed EST/EDT offsets without inventing geography, and distinguishes a recruiting posting notice from application opening. Native-media-v2 uses two bounded complementary OCR passes; v1/v2/v3 and native-media-v1 remain byte-identical. Missing years/zones, date ranges, source disagreements and phase-only deadlines stay explicit. Results remain private unverified suggestions, separate from catalog/calendar approvals.
+
+Actual validation: **518 application tests, type checking, production build, the complete database suite and offline contracts pass**. The unchanged30 development comparison recovers265/314 scoped facts versus129/314 for archivedv3;265/265 labeled predictions match, while178 predictions remain unscored. Strict completeness still fails under the preserved old references:6/44 events,12/15 actions,11/30 cases. The bounded engineering audit found no confirmed unsupported fact among40 examined unscored critical fields,55 spans and10 extra entity scopes; this is not human adjudication. [Validation](../reports/stage-2-v4-runtime-checkpoint-validation.json), [same-reference comparison](../reports/stage-2-reviewed-v4-same-contract-comparison.json), [bounded audit](../reports/stage-2-v4-unscored-critical-audit.json).
+
+On five already reviewed real-media development examples, the identical new partial-fact mapping scores archivedv3 at4/27 positive facts, v4 on old OCR at24/27, and v4/native2 at26/27. All15 explicitly unknown values remain unknown; the negative photo yields no event/action. One program-title mismatch and extra unscored predictions remain. All six actual pages processed locally; this is not a representative holdout or live social-media proof. [Media comparison](../reports/stage-2-media-v4-comparison.json).
+
+The forward v4 migration preserved complete hashes of the existing3 jobs/3 attempts/58 decisions/1 Calendar command and function OIDs/access/security settings. The hosted rollback audit exercised seven checks; its v4 claim/finish/UTF-16/retry check was explicitly skipped because both real UTC daily job slots were already used. Thirty local randomized budget replays cover those paths without resetting production quotas. [Migration proof](../reports/stage-2-v4-hosted-rollout.json), [hosted policy scope](../reports/stage-2-v4-hosted-policy-checks.json).
+
+The owner confirmed the six source-backed representation rules, including missing-status uncertainty, separate source/canonical denominators, partial/range dates and the stricter near100 holdout target. This does not approve future holdout families or factual labels. One hundred source-only cases are sealed across58 provisional publisher groups, with all five pages of two core PDFs retained. Family/exposure review and direct human annotation remain required before scoring. No holdout prediction or label has been opened. [Rule confirmation](../reports/stage-2-owner-contract-adjudication.json), [sealed preparation](../reports/stage-2-sealed-holdout-preparation.json).
+
+One owner-authenticated original attachment download finally returned46,580 bytes with the exact stored PNG hash. Its requested20-second browser timeout was ineffective: the browser call took7,849seconds. **Do not repeat browser downloads or asset exports.** This one-file attachment proof does not establish the second attachment, direct-owner Storage JWT or signed-other-user HTTP checks. Independent core lease contention is also still unproven; rollback safeguards preserved real rows when the second session failed to overlap. [Attachment proof](../reports/stage-2-owner-attachment-download.json).
+
+No model/API spending, paid upgrade, new Auth user, Meta repair, Resend delivery or Calendar provider call was introduced. Stage3 has not started.
+
 ## Remaining Stage 2 checks — November 2/3
 
 The owner requested the remaining checks, keeping paid upgrades disabled, Meta repair paused and Calendar additions individually approved. **Stage 2 is not accepted: measured extraction completeness still fails, and an independent human-reviewed holdout is absent.** This is a quality failure, not successful empty collection. [Current evidence and commands](../reports/stage-2-remaining-checks.json).

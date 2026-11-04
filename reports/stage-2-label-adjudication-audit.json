@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-03T16:34:30.498582+00:00",
+  "status": "source_backed_development_diagnosis_requires_human_contract_adjudication",
+  "scope": "Read-only diagnosis of the recorded new-twenty development result and five approved-media results, within the thirty-five approved development-reference universe. No runtime/scorer/model execution or holdout-answer inspection.",
+  "criteria": {
+    "buildPackPath": "/Users/richarda/Downloads/FSU_Opportunity_Tracker_Build_Pack.txt",
+    "stage2Lines": [
+      298,
+      300,
+      302
+    ],
+    "stage2Requirements": [
+      "Roughly one hundred varied accessible examples where practical, separated into development and holdout; include negatives and realistic failures.",
+      "Evidence, relative dates, timezone/DST, recurrence exceptions, separate doors/event/action times, eligibility, unknown deadline times and conflict review.",
+      "Conservative cross-source deduplication, separate occurrences/milestones and preserved decisions; prefer explicit IDs/links over same-title similarity.",
+      "Compare candidate models/prompts on the same labeled inputs and report field precision, event/action recall, duplicate merge errors, misses, sample size and costs; schema validity alone is insufficient."
+    ],
+    "releaseGateLines": [
+      245,
+      246,
+      250
+    ],
+    "releaseGateRequirements": [
+      "No unsupported critical facts in reviewed extraction fixtures.",
+      "Target at least ninety-five percent event/action recall within a sufficiently varied labeled set and audited accessible sources/windows, with sample size, misses and uncertainty.",
+      "Human-labeled holdout near one hundred diverse examples, including negative captures; no unquestioned self-scoring."
+    ],
+    "repositoryCriteria": "docs/stage-plan.md:7",
+    "gateOrLabelChangesAuthorizedByThisAudit": false
+  },
+  "evidence": {
+    "recordedDiagnostic": "reports/stage-2-next20-reviewed-development.json",
+    "developmentResults": "private/stage2-reviewed/next20-approved-v1/v3-2d03391b3fe11d19-2026-11-03T04-45-32-363Z.json",
+    "developmentPacket": "private/stage2-review-packets/next20-f54d1f028b53d3b7/review.json",
+    "humanApproval": "reports/stage-2-next25-human-review.json",
+    "mediaDiagnostic": "reports/stage-2-approved-media-development.json",
+    "sourcePreparation": "evaluation/stage2-reviewed-contract.ts",
+    "scorer": "evaluation/stage2-evaluator.ts"
+  },
+  "recordedMetrics": {
+    "newDevelopmentCases": 20,
+    "scopedFacts": 259,
+    "recoveredScopedFacts": 97,
+    "labeledPredictions": 101,
+    "matchedLabeledPredictions": 97,
+    "unscoredPredictions": 50,
+    "strictEventCompleteness": {
+      "complete": 3,
+      "expectedSourceObservationUnits": 36
+    },
+    "strictActionCompleteness": {
+      "complete": 7,
+      "expectedSourceObservationUnits": 9
+    },
+    "casesWithAllScopedFactsMatching": 6,
+    "interpretation": "These are recorded partial-scope development metrics. Strict event completeness requires the listed critical facts and is not pure opportunity-detection recall. A source observation, a canonical occurrence and a family are distinct denominators.",
+    "canonicalOccurrenceDenominator": "not adjudicated; do not silently deduplicate or substitute a new denominator",
+    "offsetEquivalence": "The current scorer already compares equivalent ISO instants by parsed timestamp; offset-vs-Z formatting is not a demonstrated scoring defect."
+  },
+  "adjudicationItems": [
+    {
+      "id": "scheduled-status-contract",
+      "type": "unresolved_reference_contract_not_permission_to_remove_penalties",
+      "observation": "Thirty-one critical missing-status penalties depend on gold scheduled values. Nine transformed inputs contain only publishing status live; twenty-two retained ICS inputs contain no STATUS property. Packet approval did not separately adjudicate provider-specific canonical status inference.",
+      "counts": {
+        "missingScheduledCriticalFields": 31,
+        "withOnlyPublishedLiveEvidence": 9,
+        "icsWithoutRetainedStatus": 22
+      },
+      "exampleCases": [
+        "public-review-070-03f4ccfcc5",
+        "public-review-069-f07994e617",
+        "public-review-045-cecfae1f18"
+      ],
+      "sourceEvidence": [
+        "Localist originalPointer /events/45/event",
+        "HQ originalPointer ics-vevent:911",
+        "HQ originalPointer ics-vevent:927"
+      ],
+      "humanQuestion": "For each provider, does its documented active-listing contract establish scheduled event status, or should status remain unknown without an affirmative event-status statement?",
+      "constraint": "Do not infer scheduled, relabel gold, remove the critical field or report a passing result merely to improve this score. Any reviewed contract change needs its own version and preserved prior results."
+    },
+    {
+      "id": "source-observations-versus-canonical-occurrences",
+      "type": "denominator_and_association_contract",
+      "observation": "Four identical-interval pairs are confirmed by the same explicit HQ Event Details IDs across Central and HQ observations. Per-source extraction must remain measurable, while canonical occurrence/reconciliation metrics must not count those pairs as unrelated opportunities.",
+      "duplicateIntervalGroups": [
+        {
+          "caseId": "public-review-069-f07994e617",
+          "hqEventId": "378354",
+          "units": [
+            "m0-source0:event:0",
+            "m1-source0:event:0"
+          ]
+        },
+        {
+          "caseId": "public-review-045-cecfae1f18",
+          "hqEventId": "375865",
+          "units": [
+            "m0-source0:event:0",
+            "m3-source0:event:0"
+          ]
+        },
+        {
+          "caseId": "public-review-046-01f1fe406d",
+          "hqEventId": "376704",
+          "units": [
+            "m0-source0:event:0",
+            "m5-source0:event:0"
+          ]
+        },
+        {
+          "caseId": "public-review-046-01f1fe406d",
+          "hqEventId": "376705",
+          "units": [
+            "m1-source0:event:0",
+            "m6-source0:event:0"
+          ]
+        }
+      ],
+      "confirmedDuplicateIntervalGroups": 4,
+      "sourceObservationUnitsInThoseGroups": 8,
+      "humanQuestion": "Confirm which observations describe the same occurrence and freeze separate source-observation extraction, canonical occurrence recall and duplicate/reconciliation metrics.",
+      "constraint": "Do not merge distinct performances or generic same-title Practice records solely because their titles match; use the explicit source IDs/links and reviewed intervals."
+    },
+    {
+      "id": "source-date-versus-event-date",
+      "type": "canonical_time_semantics",
+      "caseId": "public-review-045-cecfae1f18",
+      "hqEventId": "375865",
+      "observation": "The same exact interval has date November 4 in the Central source-local representation and November 5 in its UTC ICS representation. Both retain explicit instants; the date field meaning is not a reviewed cross-source canonical contract.",
+      "units": [
+        "m0-source0:event:0",
+        "m3-source0:event:0"
+      ],
+      "humanQuestion": "Should date mean the literal source calendar date, an explicitly zoned event-local date, or a separate display date? Which source evidence establishes any event-local timezone?",
+      "constraint": "Retain source expressions and do not assume Eastern time from campus affiliation or silently overwrite one source date."
+    },
+    {
+      "id": "provisional-family-leakage",
+      "type": "holdout_split_contamination_risk",
+      "caseIds": [
+        "public-review-003-173c87a9c0",
+        "public-review-070-03f4ccfcc5"
+      ],
+      "observation": "These separate provisional family IDs describe the same Megan Boutin recital: matching title, November 2, 2026 at 7:30 pm and Longmire venue. The Music card has a date/clock; Central also supplies an explicit interval.",
+      "sourcePointers": [
+        "music-card:/event/guest-artist-recital-of-megan-boutin-trombone/",
+        "/events/45/event"
+      ],
+      "humanQuestion": "Confirm cross-source opportunity and organizer family grouping before any fresh holdout allocation.",
+      "constraint": "Exclude semantic, explicit-link, occurrence and organizer overlaps with development; existing family hashes alone are insufficient. No holdout answers were opened in this audit."
+    },
+    {
+      "id": "multi-day-range-projection",
+      "type": "reference_projection_requires_adjudication",
+      "caseIds": [
+        "public-review-035-240b63dcf5",
+        "public-review-036-259ed35818"
+      ],
+      "observation": "Alash has an October 27\u201329, 2026 source range and Barron Ryan a December 9\u201311, 2026 range, while the recorded reference projects only the first date. No per-day performance clocks are supplied by these snippets.",
+      "sourcePointers": [
+        "official-ticket:alash-ensemble-masters-of-tuvan-throat-singing:listing",
+        "official-ticket:barron-ryan-classic-meets-cool:listing"
+      ],
+      "humanQuestion": "Should these be an inclusive date-range program, multiple explicitly evidenced occurrences, or an unresolved schedule? Confirm the target representation and date-precision contract.",
+      "constraint": "Do not invent every daily occurrence or delete source range facts. The parser selecting Education as the title is an independent genuine miss."
+    },
+    {
+      "id": "partial-media-facts-and-milestone-association",
+      "type": "representation_and_mapping_contract",
+      "caseIds": [
+        "ornl-workshop",
+        "marine-kim-miller",
+        "boren-process"
+      ],
+      "observation": "Approved media references include registration month/day without a year, visible clocks without a year/timezone, and distinct campus/national month-only deadline notices. The current mapping derives clock values only from full startLocal/endLocal and has no prediction mapping for several partial deadline fields. One generic Boren action lacks campus/national phase identity and cannot satisfy both notices.",
+      "humanQuestions": [
+        "Confirm canonical partial date/clock fields and their evidence while preserving unknown year, day, timezone or instant.",
+        "Confirm separate campus and national action identities and how their source-cycle ambiguity is represented.",
+        "Confirm the scoped field-to-unit mapping before scoring a new candidate that expresses these facts under a new typed schema."
+      ],
+      "constraint": "Do not borrow dates from filenames/fetch time or convert month-only deadlines to exact instants. Do not remove supported positive facts to fit the current runtime schema."
+    }
+  ],
+  "genuineRuntimeMisses": [
+    {
+      "type": "compact_ics_timestamp_unsupported",
+      "caseIds": [
+        "public-review-069-f07994e617",
+        "public-review-043-306a8d2258",
+        "public-review-044-1e81f379a6",
+        "public-review-045-cecfae1f18",
+        "public-review-046-01f1fe406d"
+      ],
+      "evidence": "Retained source text includes compact DTSTART/DTEND UTC values; recorded candidates retain titles but lose dates/intervals. This is not explained away by scheduled-status adjudication."
+    },
+    {
+      "type": "event_resource_misclassification",
+      "caseIds": [
+        "public-review-068-1c62f687f5"
+      ],
+      "evidence": "Global Exchanges source units contain explicit ISO Start values for two dated information sessions, yet both recorded candidates are resources with missing timing."
+    },
+    {
+      "type": "room_or_title_loss",
+      "caseIds": [
+        "public-review-076-b60e4e9ee3",
+        "public-review-023-1a6a367e96",
+        "public-review-035-240b63dcf5",
+        "public-review-036-259ed35818"
+      ],
+      "evidence": "The BFA source contains the room separately from its building; the candidate omits it. Rhodes selects link text as title; Opening Nights selects Education navigation rather than the opportunity title. Exact punctuation/alias policy cannot explain the missing content."
+    },
+    {
+      "type": "dated_action_missing",
+      "caseIds": [
+        "public-review-025-515e321039"
+      ],
+      "evidence": "The Rhodes campus-deadline snippet explicitly describes a deadline, but the recorded prediction is empty. Unknown full date/year does not justify losing the action notice and title."
+    },
+    {
+      "type": "media_title_eligibility_and_source_fact_loss",
+      "caseIds": [
+        "ornl-workshop",
+        "marine-kim-miller",
+        "marine-rescheduled",
+        "boren-process"
+      ],
+      "evidence": "Recorded media candidates choose truncated/person/series/institution headings instead of opportunity titles and Boren emits the ELIGIBILITY heading rather than the citizenship requirement. All pages were processed; processing completeness is not semantic correctness."
+    }
+  ],
+  "requiredHumanWork": [
+    "Answer the provider-status, source/canonical identity, date/range, partial-fact and phase-association questions using original evidence.",
+    "Record adjudication separately from the existing packet-fact approvals; preserve old labels, overlays and diagnostics unchanged.",
+    "Freeze a source-backed typed schema, canonical unit-association policy and source-observation/canonical metrics before opening independent holdout labels or predictions.",
+    "Keep all current failures visible until a new candidate passes the frozen reviewed contract and independent holdout; synthetic/local successes cannot accept Stage 2."
+  ],
+  "boundaries": {
+    "runtimeExecutions": 0,
+    "scorerExecutions": 0,
+    "modelCalls": 0,
+    "networkCalls": 0,
+    "databaseCalls": 0,
+    "labelsChanged": 0,
+    "gatesChanged": 0,
+    "holdoutAnswersOpened": 0,
+    "existingFilesChanged": 0,
+    "onlyNewFile": "reports/stage-2-label-adjudication-audit.json"
+  },
+  "stage2Accepted": false
+}

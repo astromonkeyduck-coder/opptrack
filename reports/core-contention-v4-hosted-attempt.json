@@ -1,0 +1,80 @@
+{
+  "recordedAt": "2026-11-03T17:15:03.222Z",
+  "status": "not_proven_quiet_window_guard_stopped_both_sessions_before_any_lease",
+  "before": {
+    "scope": "Read-only full-row fingerprints. Separate A/B observations prove only concurrent installed core source leasing; not extraction contention, HTTP, backup restore or laptop-off execution.",
+    "sources": {
+      "rows": 89,
+      "sha256": "96c6772990a6a75175be7fe100109b43a61796e60a126494b8aee30d316191e2"
+    },
+    "decisions": {
+      "rows": 58,
+      "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+    },
+    "backendPid": 1430733,
+    "observedAt": "2026-11-03T17:05:17.537091+00:00",
+    "sourceRuns": {
+      "rows": 1956,
+      "sha256": "3ff6df2f49a3e240625f9e46bbe0eb032f4c4900fc4be07f9e8b1bc23fea8ed5"
+    },
+    "dueCoreSources": [
+      {
+        "sourceId": "fsu-calendar-api",
+        "nextDueAt": "2026-11-03T17:00:00+00:00"
+      }
+    ],
+    "committedLeases": 0,
+    "calendarCommands": {
+      "rows": 1,
+      "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+    }
+  },
+  "after": {
+    "scope": "Read-only full-row fingerprints. Separate A/B observations prove only concurrent installed core source leasing; not extraction contention, HTTP, backup restore or laptop-off execution.",
+    "sources": {
+      "rows": 89,
+      "sha256": "59bbeb54f12d3093a4d3d499891a96a56d8af6d1183b1767ad4dd76ce297997e"
+    },
+    "decisions": {
+      "rows": 58,
+      "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+    },
+    "backendPid": 1431452,
+    "observedAt": "2026-11-03T17:14:23.152933+00:00",
+    "sourceRuns": {
+      "rows": 1958,
+      "sha256": "d49264d8ed17268e29f36b3d4fbee39ba3dc7da85597552b9ab556056924f456"
+    },
+    "dueCoreSources": [],
+    "committedLeases": 0,
+    "calendarCommands": {
+      "rows": 1,
+      "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+    }
+  },
+  "sessionResults": [
+    {
+      "session": "A",
+      "fulfilled": true,
+      "error": [
+        "{\"error\":{\"name\":\"HttpException\",\"message\":\"Failed to run sql query: ERROR:  P0001: Outside quiet window; no lease audit\\nCONTEXT:  PL/pgSQL function inline_code_block line 1 at RAISE\\n\"}}"
+      ]
+    },
+    {
+      "session": "B",
+      "fulfilled": true,
+      "error": [
+        "{\"error\":{\"name\":\"HttpException\",\"message\":\"Failed to run sql query: ERROR:  P0001: Outside quiet window; no lease audit\\nCONTEXT:  PL/pgSQL function inline_code_block line 1 at RAISE\\n\"}}"
+      ]
+    }
+  ],
+  "quietWindowGuard": "UTC minute must be between0 and6; inserted before any lock/lease statement.",
+  "leaseStatementsExecuted": false,
+  "calendarCalls": 0,
+  "paidUpgrades": 0,
+  "sourceCountsChangedByConcurrentRealScheduledCollector": true,
+  "decisionsPreserved": true,
+  "calendarCommandsPreserved": true,
+  "nextAttempt": "Natural due quiet window only; never move due timestamps, reset leases or suspend the production collector.",
+  "passed": false
+}

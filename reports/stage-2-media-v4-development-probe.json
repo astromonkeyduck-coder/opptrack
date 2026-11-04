@@ -1,0 +1,91 @@
+{
+  "version": "stage2-media-v4-development-probe-v1",
+  "startedAt": "2026-11-03T21:14:27.177Z",
+  "finishedAt": "2026-11-03T21:14:38.409Z",
+  "sourcePacketSha256": "6b0be62f55d2e798ee99642c1dbac1749cc6cd3426417c6ab8d8a0af21591c7e",
+  "implementation": {
+    "lib/extraction/contracts.ts": "e88ac8f820ed91112502106188b766b8dbb8e2a53c0c7caf61b903cb24907863",
+    "lib/extraction/media-types.ts": "bc55ccc334b56a8a5b7a3662da1c6a76cf9427331e3067598939fa2ef51891fa",
+    "lib/extraction/media-v2.ts": "9a87fe48dc066e98d54f504de940635de9915c03fd21978a2cbbd1849ca1744a",
+    "lib/extraction/media.ts": "02a0a15e34ca8a82ff52feae494209b9d7aacf4ace053a149f92a3172434898b",
+    "lib/extraction/public-probe.ts": "f7ddf3f35751b1d0801acee897b5ffa69f399c8543c8adf73253d4f43a41b310",
+    "lib/extraction/reconciliation.ts": "4be9cf83d956be7b26d662234705fe92a2481ec6d93435f89a09e50e0041d783",
+    "lib/extraction/structured.ts": "93d792d22622fb610a6dcc703220a883c86d51106893a8084713833c65d38c92",
+    "lib/extraction/text-media-v4.ts": "b2ed69f9650633e6e77b0e5f33418d318cc9f8b096cd370c6a6351b83a865b29",
+    "lib/extraction/text-prose-v4.ts": "1b6bf3420e7d2c3fb4faca374b764594ae8b99db277b633841eb0cfd6c2122de",
+    "lib/extraction/text-v1.ts": "2dc5376957c301ff56bc302ec60efdef2e96061922a5a75e86b60749b9c79c4a",
+    "lib/extraction/text-v2.ts": "e4d30a79ac26bd48f7fced0e36e5aa35d4e2cd6046bfaf32c56180ac8fe4d4a2",
+    "lib/extraction/text-v4.ts": "2e3fa233773a86e66f9353ece15323395e1033da07fd8b6e6fe02926de6dc58f",
+    "lib/extraction/text.ts": "b145201710b0e8ee41e901b0937213554c517e14165ca081fac8a3f45b93b119",
+    "lib/extraction/versions.ts": "40d755ca235757db5a062bfa836ebcc3b205442ba95d56f42822c3ce8a3ca2c3",
+    "lib/extraction/worker.ts": "97adce85ca28e34d73d56df3b8a1654bf60be77ca6d34274f7a4f097393fc7a9",
+    "lib/calendar/time.ts": "141077b5ed2199d77df6a9160367f95372f7fd1168e82cdbf242e64a2e6bee5a",
+    "lib/intake/validation.ts": "8848ffa819ae8c7b27e757ae4aedf3428d9cfb13b2331a37450c8b69fe51e732",
+    "package-lock.json": "2191e6c16030acf0425b6aa771a2adda42aa936eedfcbaecde41e254dae188c8",
+    "evaluation/stage2-approved-media-mapping-v2.json": "629cb4fa04659e0862f4b9c90ba0c64240c54c62ed70ec8055fd47f572318f24"
+  },
+  "observations": [
+    {
+      "id": "ornl-workshop",
+      "originalSha256": "3397f99fa3ad03366f2884ca22aec7b2cbc3bc6f1d4554aa967e607a2a3f70fa",
+      "originalBytes": 1135884,
+      "output": "private/stage2-media-v4-development/2026-11-03T21-14-27-177Z/ornl-workshop.json",
+      "resultSha256": "3494e493dc8a1380c7917d06a7b8fe66104b9ebffdde22abf3e4eea16f5593c8",
+      "pages": 1,
+      "complete": true,
+      "elapsedMs": 2431,
+      "engine": "native-media-v2/tesseract-eng-dual+poppler/sharp-0.35.5"
+    },
+    {
+      "id": "marine-kim-miller",
+      "originalSha256": "7e850b7a5fb8e19dd9eca70e618dd62291ea58fbf22bee4540c8c94d00d18bfe",
+      "originalBytes": 263357,
+      "output": "private/stage2-media-v4-development/2026-11-03T21-14-27-177Z/marine-kim-miller.json",
+      "resultSha256": "3eff0ead48b116076f3343a36765a7e37910f1a7a261b8004671e529d35b575c",
+      "pages": 1,
+      "complete": true,
+      "elapsedMs": 2012,
+      "engine": "native-media-v2/tesseract-eng-dual+poppler/sharp-0.35.5"
+    },
+    {
+      "id": "marine-rescheduled",
+      "originalSha256": "7820059696391fe360f81d81a58b5b371f4493ab4f2f0a5ec4705c55b2edcbe8",
+      "originalBytes": 294797,
+      "output": "private/stage2-media-v4-development/2026-11-03T21-14-27-177Z/marine-rescheduled.json",
+      "resultSha256": "e109206db38f8f350cbfde921fdb9f4156e0ea0faab2b12024f09d06cf51a70b",
+      "pages": 1,
+      "complete": true,
+      "elapsedMs": 1759,
+      "engine": "native-media-v2/tesseract-eng-dual+poppler/sharp-0.35.5"
+    },
+    {
+      "id": "boren-process",
+      "originalSha256": "5e6571668a9f7ecf37200725a5eb9d01abf8aec09d713930da30e9425681bb50",
+      "originalBytes": 2362825,
+      "output": "private/stage2-media-v4-development/2026-11-03T21-14-27-177Z/boren-process.json",
+      "resultSha256": "e2b8b4bb4d8c5eafb478eb1138e02ee44adc2c6abe62ba34467ddd0906cee266",
+      "pages": 2,
+      "complete": true,
+      "elapsedMs": 4119,
+      "engine": "native-media-v2/tesseract-eng-dual+poppler/sharp-0.35.5"
+    },
+    {
+      "id": "marine-boat-negative",
+      "originalSha256": "e89998accf148e9a27ebd7c3aa9180e5514ac978095536faa97d866c2a3a70cd",
+      "originalBytes": 60867,
+      "output": "private/stage2-media-v4-development/2026-11-03T21-14-27-177Z/marine-boat-negative.json",
+      "resultSha256": "da60ef5004a9e31cd8214bea0e1c86acff3b058d868d9312ced9ce986e69b6a5",
+      "pages": 1,
+      "complete": true,
+      "elapsedMs": 882,
+      "engine": "native-media-v2/tesseract-eng-dual+poppler/sharp-0.35.5"
+    }
+  ],
+  "candidateLabelsPassedToExtractor": false,
+  "modelCalls": 0,
+  "networkCalls": 0,
+  "calendarCalls": 0,
+  "providerChargesUsd": 0,
+  "localCpuCostUsd": null,
+  "stage2Accepted": false
+}

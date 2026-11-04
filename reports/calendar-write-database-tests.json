@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-11-03T03:50:48.066Z",
+  "run_at": "2026-11-03T16:45:33.164Z",
   "engine": "PGlite 0.5.10 (PostgreSQL WASM)",
   "migrations": [
     "202610200001_stage1.sql",
@@ -13,7 +13,8 @@
     "20261102021158_approved_calendar_writes.sql",
     "20261102194633_stage2_evidence_jobs.sql",
     "20261103003949_stage2_extractor_versions.sql",
-    "20261103011203_stage2_extractor_v3.sql"
+    "20261103011203_stage2_extractor_v3.sql",
+    "20261103164127_stage2_extractor_v4.sql"
   ],
   "passed": 39,
   "checks": [

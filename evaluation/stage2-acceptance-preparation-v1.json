@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "version": "stage2-acceptance-preparation-v1",
+  "packetId": "5b4f9738242e13a5cfb82618657e5c412908449bc240768b728823e587f21a0c",
+  "status": "candidate_preparation_only_not_assigned_or_human_reviewed",
+  "target": {
+    "stageSpecificRoughCombinedExamples": 100,
+    "repositoryProvisionalHoldoutMinimum": 40,
+    "generalReleaseNear100Holdout": 100,
+    "workingHoldoutTargetPendingOwnerScopeAdjudication": 100,
+    "proposedDevelopmentExamples": 60,
+    "prospectiveCombinedWithWorkingHoldoutTarget": 160,
+    "recallTargetUnchanged": 0.95
+  },
+  "candidateFreezeCompleted": false,
+  "holdoutAssigned": false,
+  "holdoutLabelsCreated": 0,
+  "holdoutPredictionsRun": 0,
+  "missingStrata": [
+    "Human-confirmed independent negatives and realistic source/processing failures in holdout",
+    "Actual unexposed flyer/image/all-page PDF families in holdout",
+    "Separate supported application/ticket/deadline action units in holdout",
+    "True carousel bytes and complete source manifest unavailable under current social access; no substitute claim",
+    "Independent duplicate/nonduplicate reconciliation pair labels tied to whole family groups"
+  ],
+  "nextActions": [
+    "Freeze v4 and all candidate/config/prompt/scorer hashes before factual holdout annotation or prediction",
+    "Human-review family aliases/exposure; reject overlaps as whole connected groups",
+    "Adjudicate conflicting corpus-size wording; the working target remains near100 independent human holdout, not40 alone",
+    "Collect permitted fresh independent action/media/negative/failure examples to replace/supplement this JSON-heavy roster before final split",
+    "Review source-only development batches and adjudication audit separately",
+    "Have human annotate the finalized holdout without model proposals, then run frozen candidates once"
+  ],
+  "stage2Accepted": false,
+  "publicSourceCaseIdentities": [
+    {
+      "id": "holdout-candidate-central-54125816936310",
+      "organizerGroup": "publisher-organizer:0e4fe6cc98ecdd4a102e69ff",
+      "opportunityFamily": "localist:54125816936310",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "e675e6a2c431e213dd07b3cf5d20513b4a17836d354c38e5e2a7db077a1a56ad"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-53823213223088",
+      "organizerGroup": "publisher-organizer:207a0eb27f85989d04e27a3b",
+      "opportunityFamily": "localist:53823213223088",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "7d7e059600dc276d77e57f8b6a3cff44ef46c4ec109a7c5d2916744a5103c544"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54000596131555",
+      "organizerGroup": "publisher-organizer:2fc46ce82bbe0e81847935f4",
+      "opportunityFamily": "localist:54000596131555",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "f813876cc4cfc42ba1907625a2842c5991deb38ed0cd2ce2a65aaa925d380116"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-53566944026955",
+      "organizerGroup": "publisher-organizer:3484a8584f5930730b3aa543",
+      "opportunityFamily": "localist:53566944026955",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "183a6c4fed69dc529ca3a6ed9c800280532c9078e7455396aa463bf74142858b"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54355812131428",
+      "organizerGroup": "publisher-organizer:393196573b55dd01d931d1c6",
+      "opportunityFamily": "localist:54355812131428",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "d5c59c7e952f4a5e953f338f013f1b4f433c9327f169b0a9821e1777b5a8711d",
+        "201996f89a5490afa8f88b920abf132905705c0e495f4eb26d524a4692892fdc",
+        "fdf683e16e10eb6138063fde9c43b190a1e5da13e4c6901b336e5bcd17b8d726",
+        "d26362646dbcd66a8f7a200d8ac1a84ff707be19f06af7a867b2e29e09951a0d",
+        "7e622ba2cb2926278b45047e8cd3b8198e0d5cd822bf964d95874a4d1a8173d9",
+        "81f6746f9dd27a50acca812dba7de574e03c6cab17ba5c5b3d6a9148d7e7fb9a",
+        "2e5177e1492a91a3a7662368c9df41e074070203af440e5993cbae023f7c41a1"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54359866884361",
+      "organizerGroup": "publisher-organizer:6cb2713dfb528b18f3ea4f3d",
+      "opportunityFamily": "localist:54359866884361",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "965f0e24cba7dcf5d9c6749276e22b1f74919852a37fa03b5f22a8dcf8fefbc0"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54363666164041",
+      "organizerGroup": "publisher-organizer:7881aca1a856e603b485092e",
+      "opportunityFamily": "localist:54363666164041",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "7999ee4cad617a10c99ba8a938aa88d638db6ea057803b68d8317d760b2ed3e6"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54228383664710",
+      "organizerGroup": "publisher-organizer:b8b742dd5d5769c02a40b42c",
+      "opportunityFamily": "localist:54228383664710",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "b4dcee77fdf35243452227adbf5824e3f939af60dba57b3846559d70350c7e0b"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-51374164110948",
+      "organizerGroup": "publisher-organizer:c5b88ecf6f0ec1a8bb90d694",
+      "opportunityFamily": "localist:51374164110948",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "8c6438a93f847cd744d9f39e4facc98b4ac7f7de68b0754a9c1e42fedec471b0"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54232257621170",
+      "organizerGroup": "publisher-organizer:c91aac5628faef85aee65547",
+      "opportunityFamily": "localist:54232257621170",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "a8364b1472cf653e718e7ad4fbfa379f3155045081cbaf0da015ef7f37428c69"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54125713843124",
+      "organizerGroup": "publisher-organizer:0e4fe6cc98ecdd4a102e69ff",
+      "opportunityFamily": "localist:54125713843124",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "10ab614fd2b625b63a85670a62223f5bd24681261458dff9769501fb4482e3c7"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-52215679987025",
+      "organizerGroup": "publisher-organizer:2fc46ce82bbe0e81847935f4",
+      "opportunityFamily": "localist:52215679987025",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "f8a5215ff8f484cd883fff040b755a4e72d8a362fa2d0b49e910e8e9c62a12a2"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54196229713371",
+      "organizerGroup": "publisher-organizer:3484a8584f5930730b3aa543",
+      "opportunityFamily": "localist:54196229713371",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "3c47f070b63431c388f9b0983caf99a3226d544a6302937f5c811ba237e90676"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54360165858723",
+      "organizerGroup": "publisher-organizer:6cb2713dfb528b18f3ea4f3d",
+      "opportunityFamily": "localist:54360165858723",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "674854271589648f792e7140843fbd40bd8b33ac33f18f9371301b21752f8fac"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54254913021490",
+      "organizerGroup": "publisher-organizer:b8b742dd5d5769c02a40b42c",
+      "opportunityFamily": "localist:54254913021490",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "87c558f307919c6d25b1ed5e41e474366b64e34bbb2efb7c60c83d66eb248fac"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-51532588664170",
+      "organizerGroup": "publisher-organizer:c5b88ecf6f0ec1a8bb90d694",
+      "opportunityFamily": "localist:51532588664170",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "c1e7d8148944c9f1dd8d1cff04805b22c7f3ade1d291f318475d1768e95c3709"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54232274368639",
+      "organizerGroup": "publisher-organizer:c91aac5628faef85aee65547",
+      "opportunityFamily": "localist:54232274368639",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "c180c21a737d29d6d2e596751471a107d4cedb948685487aa038cf235a248987"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-51765095974506",
+      "organizerGroup": "publisher-organizer:2fc46ce82bbe0e81847935f4",
+      "opportunityFamily": "localist:51765095974506",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "00fb662eff9683877b9d581e690c138e7c9237cbc0f6f2bdd1dc3b8fcde5a22f",
+        "efe59dba7b5250cd6aeef2260a1715b2fff6788d4e44a9cb46e0e4d8cda09d77"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-53541082235035",
+      "organizerGroup": "publisher-organizer:3484a8584f5930730b3aa543",
+      "opportunityFamily": "localist:53541082235035",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "1b978ecd501ba1dd72f5bc9080667c1157dc92cba41cc27028f0e8609b3c3074"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54360242624084",
+      "organizerGroup": "publisher-organizer:6cb2713dfb528b18f3ea4f3d",
+      "opportunityFamily": "localist:54360242624084",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "88892f88779ce6f66b5c68205a4cdff5e3222dc0f2e332c1ce566e6745e75106"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54316848959888",
+      "organizerGroup": "publisher-organizer:b8b742dd5d5769c02a40b42c",
+      "opportunityFamily": "localist:54316848959888",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "d5b3b45e61a5236d69b46ddb0dac5ef6f94a36ccec37ea4023d86647405a4f07"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-53558619086318",
+      "organizerGroup": "publisher-organizer:3484a8584f5930730b3aa543",
+      "opportunityFamily": "localist:53558619086318",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "7b4dd0373de7a64dee5c075c75d3012d199d2d2dd033d51a8fe692785897d14d"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54360094915008",
+      "organizerGroup": "publisher-organizer:6cb2713dfb528b18f3ea4f3d",
+      "opportunityFamily": "localist:54360094915008",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "738eab047be71a0cecdfd68bf45ca113e6196c1270a6559627af8bf68d5b5562"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54299145545592",
+      "organizerGroup": "publisher-organizer:b8b742dd5d5769c02a40b42c",
+      "opportunityFamily": "localist:54299145545592",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "93d60048a5f785eda5d7966d444cf5989787d3ea9a4d04f974fc31ce7df1ccf7"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-53560470148424",
+      "organizerGroup": "publisher-organizer:3484a8584f5930730b3aa543",
+      "opportunityFamily": "localist:53560470148424",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "9b7aa229086125015755362d5fb5b73579cf2bbb638997043d40ec8a8fb0f238"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54360136068118",
+      "organizerGroup": "publisher-organizer:6cb2713dfb528b18f3ea4f3d",
+      "opportunityFamily": "localist:54360136068118",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "6903702a589742adae254e360184c7af4faf7b3aff269d9e4bb5d887c2076b14"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54299147165656",
+      "organizerGroup": "publisher-organizer:b8b742dd5d5769c02a40b42c",
+      "opportunityFamily": "localist:54299147165656",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "35b45b639c5374bdbe1ab8c19847fbbfce25df2566141f7e7d1199211c8a6b07"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-53578710388670",
+      "organizerGroup": "publisher-organizer:3484a8584f5930730b3aa543",
+      "opportunityFamily": "localist:53578710388670",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "51dae5a4e17be5bef6b0c6afdbd5f9d34a180dbfb4ee6f5144b20856e1d1d12f"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54360225351740",
+      "organizerGroup": "publisher-organizer:6cb2713dfb528b18f3ea4f3d",
+      "opportunityFamily": "localist:54360225351740",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "713253977f13aadbc143d873e6712dfdb28e561f5fce5b309110568e03809427"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54334502820711",
+      "organizerGroup": "publisher-organizer:b8b742dd5d5769c02a40b42c",
+      "opportunityFamily": "localist:54334502820711",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "79fe3728ee0ae10ee587e21c4844dfffaaf2fc4454591e33773b730b8a9b8c76"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-53673827618204",
+      "organizerGroup": "publisher-organizer:3484a8584f5930730b3aa543",
+      "opportunityFamily": "localist:53673827618204",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "cf8400de787f5e5dcf08f3d89860e670be4b9ee008ff66d3dc0a1c11a68731a8"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54360195474157",
+      "organizerGroup": "publisher-organizer:6cb2713dfb528b18f3ea4f3d",
+      "opportunityFamily": "localist:54360195474157",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "bcc31a8bb54aacf89f7b25691b22612fbc75b73a8dc1b9b51c63f1c19c8a0954"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54307971939203",
+      "organizerGroup": "publisher-organizer:b8b742dd5d5769c02a40b42c",
+      "opportunityFamily": "localist:54307971939203",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "e96b4d0a3c1e8be1aa5a651514e0dfa41b3602b824620f3cfe3e3a96ecae7ae1"
+      ]
+    },
+    {
+      "id": "holdout-candidate-central-54086795886539",
+      "organizerGroup": "publisher-organizer:b8b742dd5d5769c02a40b42c",
+      "opportunityFamily": "localist:54086795886539",
+      "sourceBatchSha256": "7ceabc2a03d24e547b467aeff726becfcdfd5b9e43a9cefc8baf7dd17883d79f",
+      "sourcePayloadSha256s": [
+        "badf912556b81304ffae25665c2c7a9f51a9ef5ee5e4b8248fc78d2cb4df84f8"
+      ]
+    }
+  ],
+  "privateManifest": "private/stage2-acceptance-preparation/5b4f9738242e13a5/manifest.json"
+}

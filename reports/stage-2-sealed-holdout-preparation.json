@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 2,
+  "packetId": "6f54cc7b2cfb74f3465a82795666cd030a98bb4dfc47e98762ff3bd75e8565d2",
+  "status": "sealed_unassigned_unlabeled_no_predictions",
+  "completeCoreSourceCases": 100,
+  "separateChallengeCases": 1,
+  "formatCounts": {
+    "json": 34,
+    "ics": 54,
+    "html": 5,
+    "pdf": 2,
+    "png": 4,
+    "jpeg": 1
+  },
+  "selectionIntentCategoryCountsNotGold": {
+    "other_campus": 5,
+    "career": 2,
+    "research": 12,
+    "music": 1,
+    "social": 10,
+    "speaker": 1,
+    "deadline_or_registration_candidate": 11,
+    "film": 1,
+    "arts_media": 9,
+    "civic_service": 9,
+    "outdoors_recreation": 9,
+    "social_clubs": 9,
+    "speaker_research": 9,
+    "application_deadline_resource": 1,
+    "static_resource_negative_candidate": 2,
+    "eligibility_resource": 1,
+    "application_resource": 1,
+    "actual_media_source": 7
+  },
+  "provisionalPublisherGroups": 58,
+  "sourceOpportunityGroups": 100,
+  "humanReviewedHoldout": 0,
+  "goldLabelsCreated": 0,
+  "candidatePredictionsRun": 0,
+  "holdoutAssigned": false,
+  "candidateFreezeCompleted": false,
+  "strictWorkingHoldoutTarget": 100,
+  "corpusSizeScopeAdjudicationPending": true,
+  "existingApprovedDevelopment": 35,
+  "additionalExposedDevelopmentExcluded": 25,
+  "wholeRecurrenceFamiliesTogether": true,
+  "completeSmallPdfDocuments": 2,
+  "renderedOriginalPdfPages": 5,
+  "largePdfChallengePages": 123,
+  "realSocialCarouselCaptured": false,
+  "network": {
+    "maximumGetsAuthorized": 80,
+    "actualGets": 20,
+    "maximumBodyBytesAuthorized": 16777216,
+    "actualBodyBytes": 5242881,
+    "overallWithinAuthorizedCaps": true,
+    "helperAllocationOverrunBytes": 1,
+    "helperAllocationOverrunDisclosed": true,
+    "furtherRequestsIssuedAfterOverrun": 0,
+    "completeFreshBodies": 14,
+    "helperCasesExcludedForDevelopmentProducerOverlap": 1,
+    "incompleteBodiesNeverCalledEmptySuccess": 6,
+    "incompletePartialBodiesRetained": 0,
+    "failureMetadataOnlyRecords": 6
+  },
+  "calls": {
+    "model": 0,
+    "candidateExtractor": 0,
+    "scorer": 0,
+    "database": 0,
+    "calendar": 0
+  },
+  "sealedArtifacts": {
+    "directory": "private/stage2-sealed-holdout/6f54cc7b2cfb74f3",
+    "integrityManifest": "private/stage2-sealed-holdout/6f54cc7b2cfb74f3/integrity-manifest.json",
+    "integrityManifestSha256": "f3bfded6a11754b775f7284fb6413537080936f318e8791ea93dca2736a4eac5",
+    "releasePolicySha256": "95a2c6931d32a09537db04f7235afe002a2c79f9e8557a20f30aa63530df77b5"
+  },
+  "sourceExposureLimits": [
+    "All35 reviewed and25 newly exposed development families are screened; publisher aliases/hierarchies/media reuse still need independent human review before assignment.",
+    "Prior public collection response exposure is recorded;100 sources do not by themselves prove an untouched independent holdout.34JSON candidate IDs/source-only preparation files existed before isolation; runtime-engineer exposure must be explicitly checked, not assumed absent.",
+    "Categories are source-selection intents, not event/action/negative ground truth.",
+    "Factual labels, source-to-canonical mapping and a candidate/scorer freeze remain absent; strict pass/fail cannot be evaluated.",
+    "True social carousels remain an explicit unavailable-access stratum, with no permission expansion."
+  ],
+  "preservation": {
+    "originalHundredExamplesHashesVerified": 100,
+    "originalExamplesLabelsOverlaysChanged": false,
+    "existingSyntheticHoldoutAnswersRead": false
+  },
+  "stage2Accepted": false
+}

@@ -1,5 +1,23 @@
 # Stage 2 private extraction runbook
 
+## V4 repair checkpoint
+
+New work uses stage2-rules-v4 with native-media-v2; old jobs retain exact v1/v2/v3/native1 behavior. Hosted migration20261103164127_stage2_extractor_v4.sql is applied before the new web/worker release. Do not reset job/page limits, rewrite existing results or infer scheduled status to improve scores. Two new jobs and12 visual pages per owner/UTC day remain the limits; a third new-version job may queue until the next UTC day.
+
+Actual commands for this checkpoint:
+- npm test —518 passed.
+- npm run typecheck; npm run build —passed.
+- npm run test:db; make check —passed; retained reports distinguish local SQL replays from hosted checks.
+- node --import tsx scripts/compare-stage2-reviewed-v4.ts —intentional exit1:265/314 old scoped facts,178 unscored predictions; not acceptance.
+- node --import tsx scripts/probe-stage2-media-v4.ts —six actual local media pages processed; source-only extraction, no network/model calls.
+- node --import tsx scripts/compare-stage2-media-v4.ts —intentional exit1:26/27 mapped positive facts,15/15 explicit unknowns, one title mismatch.
+- node scripts/test-stage2-v4-versioning.mjs; node scripts/test-stage2-v4-hosted-audit.mjs —local compatibility/randomized audit checks pass.
+
+The six confirmed representation rules are recorded in reports/stage-2-owner-contract-adjudication.json. They do not label the sealed100 or approve unknown family exposure. Freeze the final runtime/transform/matcher/scorer/media/protocol before direct human annotation and one held-out comparison. Keep failed diagnostics and old references intact.
+
+Hosted SQL audit7checks exercised/1claim-finish skip is not signed-user Storage HTTP or actual v4 native processing. Owner original attachment1 has exact-byte proof; attachment2/direct-owner JWT/independent nonmember HTTP remain distinct. Browser download/asset-export calls have ignored timeouts for up to130minutes: use retained proof and do not repeat them. No paid upgrade, Meta repair, new model inference or automatic Calendar addition is authorized.
+
+
 The user authorized this stage on November 2, 2026 and explicitly requested continuation after the first ten reference approvals. Stop before Stage 3. Stage 1 gaps remain open. Preserve `stage-0-complete` and `stage-1-pre-stage2`. Never print credentials, export real secrets into fixtures, or publish private OCR/captures/labels.
 
 ## Remaining-check continuation — November 2 evening / November 3 UTC

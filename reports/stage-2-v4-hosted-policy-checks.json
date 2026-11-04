@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "evidenceClass": "Actual hosted v4 installed-function SQL-role rollback audit. Seven checks exercised; v4 lease/finish/UTF16/retry branch skipped because both real UTC job slots were already used. Not signed-JWT, Storage HTTP, native execution or independent-session contention proof.",
+  "project": "nuywbvlcwetqjalqvxzb",
+  "sqlPath": "scripts/hosted-stage2-v4-policy-check.sql",
+  "sqlSha256": "3029476a49d2f13621f1f66f2fb0aa3c6aad92e9b3d9cc39de5f78886fa26644",
+  "fingerprintSqlPath": "scripts/hosted-stage2-v4-audit-fingerprint.sql",
+  "localProof": {
+    "command": "node scripts/test-stage2-v4-hosted-audit.mjs",
+    "report": "reports/stage-2-v4-hosted-audit-replay.json",
+    "randomizedCasesPassed": 30,
+    "baselineBudgets": [
+      0,
+      1,
+      2
+    ],
+    "repetitionsPerBudget": 10,
+    "queuedWorkFailSafePassed": true,
+    "v4FinishActuallyTestedLocally": true,
+    "sqlSha256VerifiedBeforeHostedCall": true
+  },
+  "executedCommands": [
+    {
+      "tool": "supabase.execute_sql",
+      "queryFile": "scripts/hosted-stage2-v4-audit-fingerprint.sql",
+      "purpose": "Read-only quiet-queue/full-row/OID/ACL/definition precheck"
+    },
+    {
+      "tool": "supabase.execute_sql",
+      "queryFile": "scripts/hosted-stage2-v4-policy-check.sql",
+      "purpose": "Bounded transaction-local fixture audit with final ROLLBACK"
+    },
+    {
+      "tool": "supabase.execute_sql",
+      "queryFile": "scripts/hosted-stage2-v4-audit-fingerprint.sql",
+      "purpose": "Independent read-only post-rollback fingerprint/counter check"
+    }
+  ],
+  "before": {
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "definer": true,
+        "definitionSha256": "cbc85ea32e22f9b14af089b316aa57f9c9d2242a1506e8a1fd79f15d40a83340"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34703",
+        "name": "tracker_private.extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "0632a64ac7db858931eb8c18264074d29e0f2d5dface4cdb6d478718a2af6b75"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "b50365cdf26f13322cc5e0a0f12c7e61e005f4948427c8400ca195904a3d2cea"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34706",
+        "name": "tracker_private.extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "efd26fcd51ed02f809e235eb38c5e9c934aaaf2174a7cb10f950512b15ff5fbd"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "080ede6ad8b6885f8c9b64a43237a1747d4f971582d960945043b19166312b5c"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34709",
+        "name": "extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "dc6fcfcab7a2413781d6b296cbc2175445969faab64863d6721d024cd4ec0071"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34710",
+        "name": "extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "8ffbbd7bcb6d43ec987c0da6224070db2351cfe486120d708da31447f328134c"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34711",
+        "name": "extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "c781846a9bbaf575d9ec6666c200382103e0aad9eca501f48a7b8cd6752f3514"
+      }
+    ],
+    "observedAt": "2026-11-03T17:20:15.683062+00:00",
+    "ownerCount": 1,
+    "authUserCount": 1,
+    "protectedRows": {
+      "jobs": {
+        "rows": 3,
+        "sha256": "e54e50bea846f8fe28c5d452ce235c2db2d55845d39135a216d7905d0531b84c"
+      },
+      "intakes": {
+        "rows": 5,
+        "sha256": "97a661fe49fcf9e2853eb2d359b2525b46dc912a8f6c10b84f6e1d00201d2add"
+      },
+      "sources": {
+        "rows": 89,
+        "sha256": "59bbeb54f12d3093a4d3d499891a96a56d8af6d1183b1767ad4dd76ce297997e"
+      },
+      "attempts": {
+        "rows": 3,
+        "sha256": "72cca2ce3b64d3aa2260bee3c21216184cc107b4e3ea3ef64c4292f25b7281d1"
+      },
+      "decisions": {
+        "rows": 58,
+        "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+      },
+      "milestones": {
+        "rows": 70,
+        "sha256": "b408b2c9f465f46afce66a824c85ee07c62699e441c25b92c3301ea512526230"
+      },
+      "occurrences": {
+        "rows": 1606,
+        "sha256": "098e68e6a937a5cc335af431ae8e6843f30109555f942c9602f9a895580336a0"
+      },
+      "opportunities": {
+        "rows": 1485,
+        "sha256": "73920ae5719f077c81c4edc7d0611a0ee05f12a3d00e212594e0a973b1872f81"
+      },
+      "calendarCommands": {
+        "rows": 1,
+        "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+      }
+    },
+    "enqueueDefault": "'stage2-rules-v4'::text",
+    "realQueuedJobs": 0,
+    "usedUtcAttempts": 2,
+    "usedUtcJobSlots": 2,
+    "activeSourceLeases": 0,
+    "realProcessingJobs": 0,
+    "usedUtcVisualPages": 4
+  },
+  "audit": {
+    "checks": [
+      {
+        "test": "owner_worker_rpc_and_rls_boundaries",
+        "passed": true
+      },
+      {
+        "test": "v4_default_and_v1_v2_v3_explicit_requests_have_immutable_idempotent_identities",
+        "passed": true
+      },
+      {
+        "test": "unsupported_and_null_versions_never_enter_the_queue",
+        "passed": true
+      },
+      {
+        "test": "nonmember_local_claims_and_anonymous_cannot_read_or_enqueue_owner_work",
+        "passed": true
+      },
+      {
+        "test": "worker_leases_exact_remaining_fixture_slots_without_touching_existing_used_budget",
+        "passed": true,
+        "fixtureClaims": 0,
+        "baselineUsedJobSlots": 2
+      },
+      {
+        "test": "available_v4_fixture_finish_fences_lease_and_utf16_and_denies_early_owner_retry",
+        "passed": true,
+        "skipReason": "Both real UTC slots already used; enqueue/denial tested, no fixture lease or finish claimed",
+        "finishActuallyTested": false
+      },
+      {
+        "test": "v1_v2_v3_v4_share_remaining_utc_budget_without_resetting_existing_work",
+        "passed": true
+      },
+      {
+        "test": "all_existing_jobs_attempts_intakes_sources_facts_decisions_and_calendar_commands_keep_full_sha256",
+        "passed": true
+      }
+    ],
+    "passed": 8,
+    "checkedAt": "2026-11-03T17:21:16.402099+00:00",
+    "modelCalls": 0,
+    "googleCalls": 0,
+    "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
+    "fixtureClaims": 0,
+    "skippedChecks": [
+      "v4_lease_finish_utf16_retry_guards_budget_exhausted"
+    ],
+    "sourcesCreated": 0,
+    "claimedVersions": [],
+    "authUsersCreated": 0,
+    "existingJobCount": 3,
+    "storageHttpCalls": 0,
+    "safePreconditions": "Exactly one owner; no real queued/processing work; respects 2 minus existing current-UTC-day jobs; no real queued work; short table locks; repeatable read; 2s lock and 20s statement limits; no resets/deletes",
+    "baselineUsedUtcJobs": 2,
+    "baselineUtcAttempts": 2,
+    "firstClaimedVersion": null,
+    "remainingUtcJobSlots": 0,
+    "persistentRowsChanged": 0,
+    "baselineUtcVisualPages": 4,
+    "v4FinishActuallyTested": false,
+    "checksActuallyExercised": 7,
+    "independentConnectionsTested": false,
+    "v4ClaimedBeforeLegacyEnqueue": false,
+    "existingRealRowsFullHashesPreserved": true,
+    "functionDefinitionsOidsAclsAndConfigurationPreserved": true
+  },
+  "after": {
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "definer": true,
+        "definitionSha256": "cbc85ea32e22f9b14af089b316aa57f9c9d2242a1506e8a1fd79f15d40a83340"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34703",
+        "name": "tracker_private.extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "0632a64ac7db858931eb8c18264074d29e0f2d5dface4cdb6d478718a2af6b75"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "b50365cdf26f13322cc5e0a0f12c7e61e005f4948427c8400ca195904a3d2cea"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34706",
+        "name": "tracker_private.extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "efd26fcd51ed02f809e235eb38c5e9c934aaaf2174a7cb10f950512b15ff5fbd"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "080ede6ad8b6885f8c9b64a43237a1747d4f971582d960945043b19166312b5c"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34709",
+        "name": "extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "dc6fcfcab7a2413781d6b296cbc2175445969faab64863d6721d024cd4ec0071"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34710",
+        "name": "extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "8ffbbd7bcb6d43ec987c0da6224070db2351cfe486120d708da31447f328134c"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34711",
+        "name": "extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "c781846a9bbaf575d9ec6666c200382103e0aad9eca501f48a7b8cd6752f3514"
+      }
+    ],
+    "observedAt": "2026-11-03T17:21:30.577723+00:00",
+    "ownerCount": 1,
+    "authUserCount": 1,
+    "protectedRows": {
+      "jobs": {
+        "rows": 3,
+        "sha256": "e54e50bea846f8fe28c5d452ce235c2db2d55845d39135a216d7905d0531b84c"
+      },
+      "intakes": {
+        "rows": 5,
+        "sha256": "97a661fe49fcf9e2853eb2d359b2525b46dc912a8f6c10b84f6e1d00201d2add"
+      },
+      "sources": {
+        "rows": 89,
+        "sha256": "59bbeb54f12d3093a4d3d499891a96a56d8af6d1183b1767ad4dd76ce297997e"
+      },
+      "attempts": {
+        "rows": 3,
+        "sha256": "72cca2ce3b64d3aa2260bee3c21216184cc107b4e3ea3ef64c4292f25b7281d1"
+      },
+      "decisions": {
+        "rows": 58,
+        "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+      },
+      "milestones": {
+        "rows": 70,
+        "sha256": "b408b2c9f465f46afce66a824c85ee07c62699e441c25b92c3301ea512526230"
+      },
+      "occurrences": {
+        "rows": 1606,
+        "sha256": "098e68e6a937a5cc335af431ae8e6843f30109555f942c9602f9a895580336a0"
+      },
+      "opportunities": {
+        "rows": 1485,
+        "sha256": "73920ae5719f077c81c4edc7d0611a0ee05f12a3d00e212594e0a973b1872f81"
+      },
+      "calendarCommands": {
+        "rows": 1,
+        "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+      }
+    },
+    "enqueueDefault": "'stage2-rules-v4'::text",
+    "realQueuedJobs": 0,
+    "usedUtcAttempts": 2,
+    "usedUtcJobSlots": 2,
+    "activeSourceLeases": 0,
+    "realProcessingJobs": 0,
+    "usedUtcVisualPages": 4
+  },
+  "fullProtectedRowsPreserved": true,
+  "functionOidsAclSecurityConfigDefinitionsPreserved": true,
+  "ownerAuthQueueAndBudgetCountersPreserved": true,
+  "persistentRowsChanged": 0,
+  "coverageGaps": [
+    "Hosted v4 lease/finish/UTF16/retry branch was not executed: both real daily slots already used; only local randomized fixtures prove that branch.",
+    "Transaction-local role claims are not signed user sessions or HTTP authorization proof.",
+    "No Storage object, native OCR, model, Calendar provider or independent-session contention was exercised."
+  ],
+  "calls": {
+    "supabaseSql": 3,
+    "authUsersCreated": 0,
+    "newSources": 0,
+    "storage": 0,
+    "models": 0,
+    "calendar": 0,
+    "externalCollectionHttp": 0,
+    "quotaResets": 0,
+    "leaseResets": 0,
+    "paidUpgrades": 0
+  },
+  "costs": {
+    "newPaidServices": 0,
+    "modelApiUsd": 0,
+    "sqlComputeCostMeasured": false
+  },
+  "stage2Accepted": false,
+  "fingerprintSqlSha256": "c17d9667a8e8427def4478788d8657eda2ae4bc7bfe2569a90b08b5c16d62a76"
+}

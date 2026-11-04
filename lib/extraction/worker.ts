@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { ownsStoragePath } from '../intake/validation';
 import { SUPPORTED_EXTRACTOR_VERSIONS, RESULT_VERSION, validateExtractionResult, type ExtractionResult } from './contracts';
 import { processMediaAssets, type ExtractionUnit, type MediaAsset } from './media';
+import { processMediaAssets as processMediaAssetsV2 } from './media-v2';
 import { providedTextUnit } from './text-v1';
 import { extractCandidatesForVersion } from './versions';
 
@@ -52,7 +53,7 @@ export async function extractLeasedJob(jobValue:unknown,client:SupabaseClient,op
     }catch{units.push(unavailable(item,'private_asset_read_failed'));}
   }
   let media:Awaited<ReturnType<MediaProcessor>>;
-  try{media=await (options.media??processMediaAssets)(assets,{maxVisualPages:job.visual_page_budget});}
+  try{media=await (options.media??(job.extractor_version==='stage2-rules-v4'?processMediaAssetsV2:processMediaAssets))(assets,{maxVisualPages:job.visual_page_budget});}
   catch{
     const fallback=failureResult(job,'native_work_unconfirmed',Math.max(0,now()-started));
     if(assets.length)fallback.stats.visualWorkUncertain=true;

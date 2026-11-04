@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-03T21:12:47.279Z",
+  "sourceSha256": "11bd80b0bad487a6ce81f02fc4bd33ca731d4fd7d6f41732d2ac31d2bf208960",
+  "command": "node --import tsx scripts/audit-stage2-v4-unscored.ts",
+  "evidenceClass": "Source-backed engineering audit of the existing30 development predictions and old-contract unscored critical fields; not independent human annotation, factual-accuracy scoring or holdout acceptance.",
+  "current": {
+    "report": "reports/stage-2-reviewed-v4-same-contract-comparison.json",
+    "sha256": "a72556be5f82a0b719b8a25f80101b3881240618cbc5c5d0fea3f7c529357617",
+    "criticalUnscoredFieldsChecked": 40,
+    "exactEvidenceSpansChecked": 55,
+    "confirmedUnsupportedCriticalFields": 0,
+    "unsupportedAttendanceEntities": 0,
+    "extraEntityScopesChecked": 10,
+    "classifications": {
+      "explicit_year_date_precision_source_supported": 6,
+      "literal_source_surface_supported_entity_scope_unadjudicated": 13,
+      "explicit_source_abbreviation_retained_as_fixed_offset": 8,
+      "explicit_date_clock_and_source_offset_precision_supported": 7,
+      "explicit_source_application_deadline_type_supported": 1,
+      "literal_source_program_and_term_title_composition_supported": 1,
+      "explicit_opportunity_posted_notice_not_application_open": 1,
+      "explicit_source_calendar_date_normalization_supported": 3
+    },
+    "unresolvedSurfaceSemanticChecks": 0
+  },
+  "history": [
+    {
+      "report": "reports/stage-2-reviewed-v4-comparison-history-1e2ca7f01d731793.json",
+      "sha256": "1e2ca7f01d7317934f18940c600f50278f24ec183fea52ed3b04d820c3285377",
+      "criticalUnscoredFieldsChecked": 38,
+      "exactEvidenceSpansChecked": 52,
+      "confirmedUnsupportedCriticalFields": 0,
+      "unsupportedAttendanceEntities": 0,
+      "extraEntityScopesChecked": 9,
+      "classifications": {
+        "explicit_year_date_precision_source_supported": 6,
+        "literal_source_surface_supported_entity_scope_unadjudicated": 13,
+        "explicit_source_abbreviation_retained_as_fixed_offset": 8,
+        "explicit_date_clock_and_source_offset_precision_supported": 7,
+        "explicit_source_application_deadline_type_supported": 1,
+        "explicit_source_calendar_date_normalization_supported": 3
+      },
+      "unresolvedSurfaceSemanticChecks": 0
+    },
+    {
+      "report": "reports/stage-2-reviewed-v4-comparison-history-65bae22a9d1b90e6.json",
+      "sha256": "65bae22a9d1b90e62cfa5b3e98316061fbd33532ab8ff65710b5a65338d72096",
+      "criticalUnscoredFieldsChecked": 40,
+      "exactEvidenceSpansChecked": 55,
+      "confirmedUnsupportedCriticalFields": 0,
+      "unsupportedAttendanceEntities": 0,
+      "extraEntityScopesChecked": 10,
+      "classifications": {
+        "explicit_year_date_precision_source_supported": 6,
+        "literal_source_surface_supported_entity_scope_unadjudicated": 13,
+        "explicit_source_abbreviation_retained_as_fixed_offset": 8,
+        "explicit_date_clock_and_source_offset_precision_supported": 7,
+        "explicit_source_application_deadline_type_supported": 1,
+        "literal_source_program_and_term_title_composition_supported": 1,
+        "explicit_opportunity_posted_notice_not_application_open": 1,
+        "explicit_source_calendar_date_normalization_supported": 3
+      },
+      "unresolvedSurfaceSemanticChecks": 0
+    },
+    {
+      "report": "reports/stage-2-reviewed-v4-comparison-history-68bc4be223b55270.json",
+      "sha256": "68bc4be223b55270496dbb366bf70a054b1492f0f6b3cc913aba1b5b06465834",
+      "criticalUnscoredFieldsChecked": 40,
+      "exactEvidenceSpansChecked": 55,
+      "confirmedUnsupportedCriticalFields": 0,
+      "unsupportedAttendanceEntities": 0,
+      "extraEntityScopesChecked": 10,
+      "classifications": {
+        "explicit_year_date_precision_source_supported": 6,
+        "literal_source_surface_supported_entity_scope_unadjudicated": 13,
+        "explicit_source_abbreviation_retained_as_fixed_offset": 8,
+        "explicit_date_clock_and_source_offset_precision_supported": 7,
+        "explicit_source_application_deadline_type_supported": 1,
+        "literal_source_program_and_term_title_composition_supported": 1,
+        "explicit_opportunity_posted_notice_not_application_open": 1,
+        "explicit_source_calendar_date_normalization_supported": 3
+      },
+      "unresolvedSurfaceSemanticChecks": 0
+    },
+    {
+      "report": "reports/stage-2-reviewed-v4-comparison-history-aeb994ceaa6c5aa2.json",
+      "sha256": "aeb994ceaa6c5aa26d498077ff6cf547bd989c599a9aebf18aa8d3115bd87746",
+      "criticalUnscoredFieldsChecked": 38,
+      "exactEvidenceSpansChecked": 52,
+      "confirmedUnsupportedCriticalFields": 10,
+      "unsupportedAttendanceEntities": 1,
+      "extraEntityScopesChecked": 9,
+      "classifications": {
+        "explicit_year_date_precision_source_supported": 6,
+        "literal_source_surface_supported_entity_scope_unadjudicated": 11,
+        "unsupported_geographic_zone_inferred_from_fixed_source_abbreviation": 8,
+        "explicit_date_clock_and_source_offset_precision_supported": 7,
+        "explicit_source_application_deadline_type_supported": 1,
+        "explicit_source_calendar_date_normalization_supported": 3,
+        "unsupported_category_heading_as_opportunity_title": 2
+      },
+      "unresolvedSurfaceSemanticChecks": 0
+    },
+    {
+      "report": "reports/stage-2-reviewed-v4-comparison-history-ce224fba5b871269.json",
+      "sha256": "ce224fba5b8712699e9330f03c5078d92588b3dd64860bb88141df4bcb61b19a",
+      "criticalUnscoredFieldsChecked": 40,
+      "exactEvidenceSpansChecked": 55,
+      "confirmedUnsupportedCriticalFields": 0,
+      "unsupportedAttendanceEntities": 0,
+      "extraEntityScopesChecked": 10,
+      "classifications": {
+        "explicit_year_date_precision_source_supported": 6,
+        "literal_source_surface_supported_entity_scope_unadjudicated": 13,
+        "explicit_source_abbreviation_retained_as_fixed_offset": 8,
+        "explicit_date_clock_and_source_offset_precision_supported": 7,
+        "explicit_source_application_deadline_type_supported": 1,
+        "literal_source_program_and_term_title_composition_supported": 1,
+        "explicit_opportunity_posted_notice_not_application_open": 1,
+        "explicit_source_calendar_date_normalization_supported": 3
+      },
+      "unresolvedSurfaceSemanticChecks": 0
+    },
+    {
+      "report": "reports/stage-2-reviewed-v4-comparison-history-e1a0822baecc25fc.json",
+      "sha256": "e1a0822baecc25fc2145b7bb91c975b817b5b6a4dadaa115fb1d4881d2c230db",
+      "criticalUnscoredFieldsChecked": 38,
+      "exactEvidenceSpansChecked": 52,
+      "confirmedUnsupportedCriticalFields": 0,
+      "unsupportedAttendanceEntities": 0,
+      "extraEntityScopesChecked": 9,
+      "classifications": {
+        "explicit_year_date_precision_source_supported": 6,
+        "literal_source_surface_supported_entity_scope_unadjudicated": 13,
+        "explicit_source_abbreviation_retained_as_fixed_offset": 8,
+        "explicit_date_clock_and_source_offset_precision_supported": 7,
+        "explicit_source_application_deadline_type_supported": 1,
+        "explicit_source_calendar_date_normalization_supported": 3
+      },
+      "unresolvedSurfaceSemanticChecks": 0
+    }
+  ],
+  "privateAudit": {
+    "path": "private/stage2-reviewed/v4-critical-audit/audit-2026-11-03T21-12-47-279Z.json",
+    "sha256": "7eb00a7b39712b5b96f365568ff619ff4af611e7242a5931d39c6d73150d463d",
+    "containsEveryCheckedFieldQuoteAndEntityScope": true,
+    "mode": "0600"
+  },
+  "interpretation": [
+    "Exact quote identity is checked for every selected field but alone does not prove semantic correctness.",
+    "Initial source-backed findings exposed category headings used as titles, a recruiting timeline emitted as attendance and geographical IANA precision inferred from EST/EDT. Generic v4 prose repairs are regression-tested without altering frozen references.",
+    "Source-supported surface facts and unscored entity/duplicate scopes still require human adjudication. This audit does not promote them into gold or change the comparison scorer.",
+    "Known scored field failures and strict-completeness gaps remain visible in the unchanged-contract comparison. A zero count in this narrow engineering audit does not pass Stage2."
+  ],
+  "boundaries": {
+    "holdoutRead": false,
+    "sourceOrReferenceChanged": false,
+    "newHumanLabels": 0,
+    "providerCalls": 0,
+    "calendarCalls": 0,
+    "modelCalls": 0
+  },
+  "stage2Accepted": false,
+  "independentHumanReview": false
+}

@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-03T03:50:49.357Z",
+  "recordedAt": "2026-11-03T16:45:34.088Z",
   "command": "node scripts/test-stage2-database.mjs",
   "engine": "PGlite 0.5.10 actual PostgreSQL WASM",
   "migrations": [
@@ -14,7 +14,8 @@
     "20261102021158_approved_calendar_writes.sql",
     "20261102194633_stage2_evidence_jobs.sql",
     "20261103003949_stage2_extractor_versions.sql",
-    "20261103011203_stage2_extractor_v3.sql"
+    "20261103011203_stage2_extractor_v3.sql",
+    "20261103164127_stage2_extractor_v4.sql"
   ],
   "passed": 30,
   "checks": [

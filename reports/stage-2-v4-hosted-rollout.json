@@ -1,0 +1,114 @@
+{
+  "recordedAt": "2026-11-03T16:50:00.615Z",
+  "migration": "supabase/migrations/20261103164127_stage2_extractor_v4.sql",
+  "migrationSha256": "cd96debce595ceeb14dad69361e13dfa90ee066ca2ebc9bc8dcdc71c6682e979",
+  "project": "nuywbvlcwetqjalqvxzb",
+  "before": {
+    "checked_at": "2026-11-03 16:48:33.073997+00",
+    "jobs": 3,
+    "jobs_sha256": "e54e50bea846f8fe28c5d452ce235c2db2d55845d39135a216d7905d0531b84c",
+    "attempts": 3,
+    "attempts_sha256": "72cca2ce3b64d3aa2260bee3c21216184cc107b4e3ea3ef64c4292f25b7281d1",
+    "decisions": 58,
+    "decisions_sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7",
+    "calendar_commands": 1,
+    "calendar_commands_sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37",
+    "function_access": [
+      {
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "worker": false,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": true
+      },
+      {
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": true,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": false
+      },
+      {
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": false,
+        "default": "'stage2-rules-v3'::text",
+        "definer": false,
+        "anonymous": false,
+        "authenticated": true
+      }
+    ]
+  },
+  "after": {
+    "checked_at": "2026-11-03 16:50:00.488791+00",
+    "jobs": 3,
+    "jobs_sha256": "e54e50bea846f8fe28c5d452ce235c2db2d55845d39135a216d7905d0531b84c",
+    "attempts": 3,
+    "attempts_sha256": "72cca2ce3b64d3aa2260bee3c21216184cc107b4e3ea3ef64c4292f25b7281d1",
+    "decisions": 58,
+    "decisions_sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7",
+    "calendar_commands": 1,
+    "calendar_commands_sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37",
+    "function_access": [
+      {
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "worker": false,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": true
+      },
+      {
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": true,
+        "default": null,
+        "definer": true,
+        "anonymous": false,
+        "authenticated": false
+      },
+      {
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "worker": false,
+        "default": "'stage2-rules-v4'::text",
+        "definer": false,
+        "anonymous": false,
+        "authenticated": true
+      }
+    ]
+  },
+  "fullProtectedRowsPreserved": true,
+  "functionOidsAclSecurityConfigPreserved": true,
+  "defaultAdvancedToV4": true,
+  "calendarCalls": 0,
+  "modelCalls": 0,
+  "newJobs": 0,
+  "quotaResets": 0,
+  "acceptance": false
+}

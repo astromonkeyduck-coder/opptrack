@@ -1,0 +1,51 @@
+{
+  "recordedAt": "2026-11-03T16:45:39.313Z",
+  "command": "node scripts/test-stage2-v4-versioning.mjs",
+  "engine": "PGlite0.5.10 actual PostgreSQL WASM",
+  "migration": "20261103164127_stage2_extractor_v4.sql",
+  "migrationSha256": "cd96debce595ceeb14dad69361e13dfa90ee066ca2ebc9bc8dcdc71c6682e979",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql",
+    "20261102194633_stage2_evidence_jobs.sql",
+    "20261103003949_stage2_extractor_versions.sql",
+    "20261103011203_stage2_extractor_v3.sql",
+    "20261103164127_stage2_extractor_v4.sql"
+  ],
+  "passed": 7,
+  "checks": [
+    "forward migration preserves all completed v1/v2/v3 and queued v3 rows and attempts exactly",
+    "same function OIDs, ACLs, definer/invoker modes and security configuration survive rollout",
+    "default v4 is a separate immutable identity; explicit old requests remain idempotent without reprocessing",
+    "unknown, empty and null versions fail before a queued row is added",
+    "worker leases old queued v3 and current v4 while skipping unsupported privileged corruption",
+    "all four versions share the unchanged two-new-jobs UTC budget",
+    "old source versions cannot be rewritten; RLS/owner/worker/anonymous/calendar boundaries remain intact"
+  ],
+  "fixtureClass": "Local synthetic sole owner, completed v1/v2/v3 history, queued v3/current v4, deliberately unsupported privileged row. No hosted state or provider calls.",
+  "immutableLegacyHistoryPreserved": true,
+  "supportedVersions": [
+    "stage2-rules-v1",
+    "stage2-rules-v2",
+    "stage2-rules-v3",
+    "stage2-rules-v4"
+  ],
+  "latestDefault": "stage2-rules-v4",
+  "newJobsUtcDayBudgetShared": 2,
+  "providerCalls": 0,
+  "credentialReads": 0,
+  "hostedWrites": 0,
+  "notTested": [
+    "Hosted migration/deployment",
+    "Independent connection contention",
+    "Signed-JWT/Storage HTTP",
+    "Extraction accuracy/holdout acceptance"
+  ]
+}

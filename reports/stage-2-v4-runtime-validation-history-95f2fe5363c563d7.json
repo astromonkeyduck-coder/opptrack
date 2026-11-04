@@ -1,0 +1,302 @@
+{
+  "recordedAt": "2026-11-03T21:10:42.066821+00:00",
+  "scope": "Final local runtime checkpoint only; no label/gate changes, sealed holdout contents, deployments or provider calls",
+  "extractor": "stage2-rules-v4",
+  "runtimeFiles": [
+    {
+      "file": "lib/extraction/contracts.ts",
+      "sha256": "e88ac8f820ed91112502106188b766b8dbb8e2a53c0c7caf61b903cb24907863"
+    },
+    {
+      "file": "lib/extraction/versions.ts",
+      "sha256": "40d755ca235757db5a062bfa836ebcc3b205442ba95d56f42822c3ce8a3ca2c3"
+    },
+    {
+      "file": "lib/extraction/worker.ts",
+      "sha256": "97adce85ca28e34d73d56df3b8a1654bf60be77ca6d34274f7a4f097393fc7a9"
+    },
+    {
+      "file": "lib/extraction/structured.ts",
+      "sha256": "93d792d22622fb610a6dcc703220a883c86d51106893a8084713833c65d38c92"
+    },
+    {
+      "file": "lib/extraction/text-v4.ts",
+      "sha256": "2e3fa233773a86e66f9353ece15323395e1033da07fd8b6e6fe02926de6dc58f"
+    },
+    {
+      "file": "lib/extraction/text-prose-v4.ts",
+      "sha256": "a1d25932121cbcde560ead90bd47ec4c0c64e01d656c05c79eb541f55e27e375"
+    },
+    {
+      "file": "lib/extraction/text-media-v4.ts",
+      "sha256": "a0df2632cd92b2f5f13b690743860cc370aefdb2cdaf724c34e3a92596fc7b8c"
+    },
+    {
+      "file": "lib/extraction/media-v2.ts",
+      "sha256": "9a87fe48dc066e98d54f504de940635de9915c03fd21978a2cbbd1849ca1744a"
+    }
+  ],
+  "legacyImplementationBytesPreserved": true,
+  "legacySha256": {
+    "lib/extraction/text-v1.ts": "2dc5376957c301ff56bc302ec60efdef2e96061922a5a75e86b60749b9c79c4a",
+    "lib/extraction/text-v2.ts": "e4d30a79ac26bd48f7fced0e36e5aa35d4e2cd6046bfaf32c56180ac8fe4d4a2",
+    "lib/extraction/text.ts": "b145201710b0e8ee41e901b0937213554c517e14165ca081fac8a3f45b93b119",
+    "lib/extraction/media.ts": "02a0a15e34ca8a82ff52feae494209b9d7aacf4ace053a149f92a3172434898b"
+  },
+  "commands": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": 517,
+      "failed": 0,
+      "log": "private/stage2-v4-checkpoint-app-tests.log"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "log": "private/stage2-v4-checkpoint-typecheck.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "private/stage2-v4-checkpoint-build.log"
+    },
+    {
+      "command": "node --import tsx scripts/compare-stage2-reviewed-v4.ts",
+      "exitCode": 1,
+      "meaning": "Intentional unchanged-contract diagnostic failure: old references remain unmet; this is not an execution/schema failure",
+      "report": "reports/stage-2-reviewed-v4-same-contract-comparison.json",
+      "reportSha256": "ce224fba5b8712699e9330f03c5078d92588b3dd64860bb88141df4bcb61b19a"
+    },
+    {
+      "command": "node --import tsx scripts/audit-stage2-v4-unscored.ts",
+      "exitCode": 0,
+      "meaning": "Bounded engineering check of unscored critical facts, not human factual adjudication",
+      "report": "reports/stage-2-v4-unscored-critical-audit.json",
+      "reportSha256": "da5f2edea1194c6eeb49f7103efb298515abdc73bf887d79b0219e08cdc8ad2d"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "sameUnchanged30DevelopmentInputs": [
+    {
+      "version": "stage2-rules-v3",
+      "measurements": {
+        "cases": 30,
+        "fields": {
+          "expected": 314,
+          "correct": 129,
+          "missed": 185,
+          "labeledPredicted": 136,
+          "wrongOrUnsupported": 7,
+          "totalPredictedNonnullFields": 207,
+          "unscoredMatchedFields": 48,
+          "unscoredExtraUnitFields": 23,
+          "unscoredTotal": 71,
+          "labeledScopePrecision": 0.9485294117647058,
+          "scopedFactRecovery": 0.410828025477707,
+          "predictionLabelCoverage": 0.6570048309178744
+        },
+        "strictScopedUnits": {
+          "event": {
+            "expected": 44,
+            "complete": 6,
+            "missed": 38
+          },
+          "action": {
+            "expected": 15,
+            "complete": 10,
+            "missed": 5
+          }
+        },
+        "casesAllScopedFactsMatch": 10,
+        "extraPredictedUnitsUnscored": 12,
+        "validationFailures": [],
+        "elapsedMs": 34.29124700000057,
+        "criticalMissClasses": {
+          "action:actionType": {
+            "missing": 3,
+            "incorrectOrUnsupported": 0
+          },
+          "action:title": {
+            "missing": 3,
+            "incorrectOrUnsupported": 2
+          },
+          "event:date": {
+            "missing": 28,
+            "incorrectOrUnsupported": 0
+          },
+          "event:datePrecision": {
+            "missing": 28,
+            "incorrectOrUnsupported": 0
+          },
+          "event:endAt": {
+            "missing": 25,
+            "incorrectOrUnsupported": 0
+          },
+          "event:location": {
+            "missing": 2,
+            "incorrectOrUnsupported": 3
+          },
+          "event:startAt": {
+            "missing": 26,
+            "incorrectOrUnsupported": 0
+          },
+          "event:status": {
+            "missing": 36,
+            "incorrectOrUnsupported": 0
+          },
+          "event:timeZone": {
+            "missing": 24,
+            "incorrectOrUnsupported": 0
+          },
+          "event:title": {
+            "missing": 3,
+            "incorrectOrUnsupported": 2
+          }
+        },
+        "unscoredMatchedFieldClasses": {
+          "action:actionLocal": 9,
+          "action:datePrecision": 9,
+          "action:timeZone": 7,
+          "event:datePrecision": 1,
+          "event:endLocal": 7,
+          "event:location": 3,
+          "event:startLocal": 12
+        }
+      }
+    },
+    {
+      "version": "stage2-rules-v4",
+      "measurements": {
+        "cases": 30,
+        "fields": {
+          "expected": 314,
+          "correct": 265,
+          "missed": 49,
+          "labeledPredicted": 265,
+          "wrongOrUnsupported": 0,
+          "totalPredictedNonnullFields": 443,
+          "unscoredMatchedFields": 155,
+          "unscoredExtraUnitFields": 23,
+          "unscoredTotal": 178,
+          "labeledScopePrecision": 1,
+          "scopedFactRecovery": 0.8439490445859873,
+          "predictionLabelCoverage": 0.5981941309255079
+        },
+        "strictScopedUnits": {
+          "event": {
+            "expected": 44,
+            "complete": 6,
+            "missed": 38
+          },
+          "action": {
+            "expected": 15,
+            "complete": 12,
+            "missed": 3
+          }
+        },
+        "casesAllScopedFactsMatch": 11,
+        "extraPredictedUnitsUnscored": 10,
+        "validationFailures": [],
+        "elapsedMs": 21.444752999997945,
+        "criticalMissClasses": {
+          "action:actionType": {
+            "missing": 3,
+            "incorrectOrUnsupported": 0
+          },
+          "action:title": {
+            "missing": 3,
+            "incorrectOrUnsupported": 0
+          },
+          "event:date": {
+            "missing": 2,
+            "incorrectOrUnsupported": 0
+          },
+          "event:datePrecision": {
+            "missing": 2,
+            "incorrectOrUnsupported": 0
+          },
+          "event:endAt": {
+            "missing": 1,
+            "incorrectOrUnsupported": 0
+          },
+          "event:location": {
+            "missing": 2,
+            "incorrectOrUnsupported": 0
+          },
+          "event:status": {
+            "missing": 36,
+            "incorrectOrUnsupported": 0
+          }
+        },
+        "unscoredMatchedFieldClasses": {
+          "action:actionLocal": 9,
+          "action:datePrecision": 9,
+          "action:sourceTimeZoneAbbreviation": 7,
+          "action:timeZone": 7,
+          "action:utcOffset": 7,
+          "event:building": 3,
+          "event:datePrecision": 1,
+          "event:endLocal": 31,
+          "event:location": 3,
+          "event:room": 5,
+          "event:startLocal": 38,
+          "event:utcOffset": 35
+        }
+      }
+    }
+  ],
+  "sourceBackedPostingVersusOpeningNote": {
+    "postingVersusOpeningNotes": [
+      {
+        "caseId": "public-review-001-1517e62390",
+        "unitId": "m0-source0:0",
+        "sourceTextSha256": "c1e2cf69b6c253943fc45c275dd9d3317605cc26c57bae4401f51618072cde2d",
+        "evidence": {
+          "start": 46,
+          "end": 105,
+          "quote": "Intern FSU experiences posted in NoleNetwork |\nOctober 15 |"
+        },
+        "oldApplicationOpenReferenceRetained": true,
+        "sourceBackedInterpretation": "A posting/publication date establishes an opportunity-posted notice. It does not establish when applications open, and a program term does not establish the posting-date year. The unchanged application_open reference remains scored as before; it is not silently satisfied by opportunity_posted."
+      }
+    ],
+    "referenceChanged": false,
+    "pendingHumanAdjudicationApplied": false
+  },
+  "criticalUnscoredEngineeringAudit": {
+    "report": "reports/stage-2-reviewed-v4-same-contract-comparison.json",
+    "sha256": "ce224fba5b8712699e9330f03c5078d92588b3dd64860bb88141df4bcb61b19a",
+    "criticalUnscoredFieldsChecked": 40,
+    "exactEvidenceSpansChecked": 55,
+    "confirmedUnsupportedCriticalFields": 0,
+    "unsupportedAttendanceEntities": 0,
+    "extraEntityScopesChecked": 10,
+    "classifications": {
+      "explicit_year_date_precision_source_supported": 6,
+      "literal_source_surface_supported_entity_scope_unadjudicated": 13,
+      "explicit_source_abbreviation_retained_as_fixed_offset": 8,
+      "explicit_date_clock_and_source_offset_precision_supported": 7,
+      "explicit_source_application_deadline_type_supported": 1,
+      "literal_source_program_and_term_title_composition_supported": 1,
+      "explicit_opportunity_posted_notice_not_application_open": 1,
+      "explicit_source_calendar_date_normalization_supported": 3
+    },
+    "unresolvedSurfaceSemanticChecks": 0
+  },
+  "runtimeSummary": [
+    "V4 dispatches explicit structured calendar/field records before conservative provided-text/media rules; independent source/page evidence is preserved.",
+    "V4 alone selects the new bounded native processor. Existing jobs use exact v1/v2/v3 text and original native execution, without automatic reruns.",
+    "Category headings, joint programme titles, recruiting timelines, source-local abbreviations and posting/opening semantics remain explicit; disputed or missing instants/status stay unknown."
+  ],
+  "limitations": [
+    "517 application tests and production build do not establish hosted v4 native execution or Stage2 acceptance.",
+    "The old30 development reference scorer and labels are unchanged, including36 expected scheduled statuses unsupported by the retained source units.",
+    "Source posting/publication dates do not silently become application openings or infer a calendar year from a programme term.",
+    "Unscored predictions remain unadjudicated; no sealed holdout contents were read or scored."
+  ],
+  "stage2Accepted": false
+}

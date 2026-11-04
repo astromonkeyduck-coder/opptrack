@@ -1,0 +1,28 @@
+{
+  "version": "approved-media-partial-facts-v2",
+  "scope": "Fixed projection of the five owner-approved development references; not canonical, exhaustive or independent holdout accuracy.",
+  "normalization": "NFKC and collapsed whitespace; casing and punctuation retained. No source-specific value rewriting.",
+  "baseline": "Recompute the identical mapping for frozen v3 original predictions, v4 on original OCR and v4 on new versioned OCR.",
+  "fields": {
+    "ornl-workshop": {
+      "title": "event.title", "location": "event.location", "dateStart": "event.dateStart", "dateEndInclusive": "event.dateEndInclusive",
+      "startLocal": "event.startLocal", "endLocal": "event.endLocal", "timeZone": "event.timeZone", "status": "event.status",
+      "registrationMonth": "registration_deadline.month", "registrationDay": "registration_deadline.day", "registrationYear": "registration_deadline.year"
+    },
+    "marine-kim-miller": {
+      "title": "event.title", "speaker": "event.speaker", "year": "event.year/date.year", "month": "event.month/date.month", "day": "event.day/date.day",
+      "startClock": "event.startClock/startLocal.clock", "endClock": "event.endClock/endLocal.clock", "timeZone": "event.timeZone", "status": "event.status", "location": "event.location", "priceText": "event.price"
+    },
+    "marine-rescheduled": {
+      "title": "event.title", "speaker": "event.speaker", "date": "event.date", "startClock": "event.startClock/startLocal.clock", "endClock": "event.endClock/endLocal.clock", "timeZone": "event.timeZone", "status": "event.status", "location": "event.location", "priceText": "event.price"
+    },
+    "boren-process": {
+      "title": "resource.page1.title", "processHeading": "resource.page2.title", "eligibilityText": "resource.eligibility",
+      "campusDeadlineText": "action.campus.dateText", "campusDeadlinePrecision": "action.campus.datePrecision", "campusDeadlineDay": "action.campus.day",
+      "nationalDeadlineText": "action.national.dateText", "nationalDeadlineDay": "action.national.day", "status": "any.status"
+    },
+    "marine-boat-negative": { "date": "any.date", "status": "any.status" }
+  },
+  "entityChecks": "Three event notices, separate registration/campus/national action notices, and photo negative. Full canonical/entity-set adjudication remains required.",
+  "unscored": "Any reference field absent from this map and any nonnull predicted field without a mapped pair remains explicitly unscored. Do not count it as correct."
+}
