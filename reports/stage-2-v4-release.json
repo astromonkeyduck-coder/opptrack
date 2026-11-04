@@ -1,0 +1,69 @@
+{
+  "recordedAt": "2026-11-04T01:00:07.295Z",
+  "commit": "a0aa13806eb6e377d535217c858caa414d83ba74",
+  "netlify": {
+    "state": "published",
+    "deployId": "6aea824e26ca006199bd845d",
+    "observedAtUtc": "2026-11-04T00:55:00Z",
+    "observedMinuteOnly": true,
+    "ui": "https://app.netlify.com/projects/luxury-longma-01d2fa/deploys/6aea824e26ca006199bd845d",
+    "screenshot": "private/stage2-v4-netlify-published.jpg"
+  },
+  "trigger": {
+    "state": "deployed_current",
+    "deploymentId": "4gdeg20d",
+    "version": "20261104.1",
+    "deployedAt": "2026-11-04T00:55:25Z",
+    "nodeVersion": "24.18.0",
+    "tasks": 3,
+    "planObserved": "Free Plan",
+    "ui": "https://cloud.trigger.dev/orgs/plangplangplang-6ce7/projects/opptrack-BrDD/env/prod/deployments/4gdeg20d?page=1",
+    "screenshot": "private/stage2-v4-trigger-deployed.jpg"
+  },
+  "queuedActual": {
+    "job": {
+      "id": "5aab53bd-b30c-4999-9093-2cc931ba6bd3",
+      "media": [
+        {
+          "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa",
+          "assetId": "1",
+          "mimeType": "image/png",
+          "byteCount": "46580"
+        },
+        {
+          "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6",
+          "assetId": "2",
+          "mimeType": "image/png",
+          "byteCount": "57965"
+        }
+      ],
+      "state": "queued",
+      "stats": null,
+      "attempts": 0,
+      "createdAt": "2026-11-04T00:58:25.09204+00:00",
+      "inputHash": "8d6e0da1721484acfbf8fed1b46c043de33d000401ba85ca9ae8861df7db1184",
+      "firstStartedAt": null,
+      "extractorVersion": "stage2-rules-v4"
+    },
+    "jobs": 4,
+    "attempts": 3,
+    "checkedAt": "2026-11-04T00:59:25.211613+00:00",
+    "decisions": 58,
+    "calendarCommands": 1,
+    "newJobsStartedUtc": 0
+  },
+  "queueScreenshot": "private/stage2-v4-owner-queued.jpg",
+  "live": "Published web/worker and actual authenticated private job queued; scheduled native-v4 execution still pending.",
+  "testContents": "The two stored PNG files are synthetic test slides, not real opportunities or calendar approvals.",
+  "limits": {
+    "newJobsPerOwnerUtcDay": 2,
+    "visualPagesPerOwnerUtcDay": 12,
+    "hourlyDispatcherUnchanged": true
+  },
+  "environmentVariablesChanged": false,
+  "modelCalls": 0,
+  "paidUpgrades": 0,
+  "stage2Accepted": false,
+  "calendarWriteCalls": 0,
+  "calendarReadRequests": "Existing owner inbox Calendar view loaded; provider request count unmetered."
+}

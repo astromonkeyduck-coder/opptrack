@@ -1,0 +1,210 @@
+{
+  "recordedAt": "2026-11-04T01:00:07.256Z",
+  "trials": [
+    {
+      "id": "immediate-observation",
+      "before": {
+        "scope": "Read-only full-row fingerprints. Separate A/B observations prove only concurrent installed core source leasing; not extraction contention, HTTP, backup restore or laptop-off execution.",
+        "sources": {
+          "rows": 89,
+          "sha256": "11385b338d1e9b18aeb84a616d6714c5d07eecfd2765c501bfd576718a5a6a80"
+        },
+        "decisions": {
+          "rows": 58,
+          "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+        },
+        "backendPid": 1447791,
+        "observedAt": "2026-11-03T21:02:16.482065+00:00",
+        "sourceRuns": {
+          "rows": 1996,
+          "sha256": "c77f90f395e598d80c6ab58fd247ad3e2a41fe576cc51b264443a812ea1e6b99"
+        },
+        "dueCoreSources": [
+          {
+            "sourceId": "fsu-calendar-api",
+            "nextDueAt": "2026-11-03T21:00:00+00:00"
+          }
+        ],
+        "committedLeases": 0,
+        "calendarCommands": {
+          "rows": 1,
+          "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+        }
+      },
+      "after": {
+        "scope": "Read-only full-row fingerprints. Separate A/B observations prove only concurrent installed core source leasing; not extraction contention, HTTP, backup restore or laptop-off execution.",
+        "sources": {
+          "rows": 89,
+          "sha256": "11385b338d1e9b18aeb84a616d6714c5d07eecfd2765c501bfd576718a5a6a80"
+        },
+        "decisions": {
+          "rows": 58,
+          "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+        },
+        "backendPid": 1447812,
+        "observedAt": "2026-11-03T21:02:43.580476+00:00",
+        "sourceRuns": {
+          "rows": 1996,
+          "sha256": "c77f90f395e598d80c6ab58fd247ad3e2a41fe576cc51b264443a812ea1e6b99"
+        },
+        "dueCoreSources": [
+          {
+            "sourceId": "fsu-calendar-api",
+            "nextDueAt": "2026-11-03T21:00:00+00:00"
+          }
+        ],
+        "committedLeases": 0,
+        "calendarCommands": {
+          "rows": 1,
+          "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+        }
+      },
+      "sessions": [
+        {
+          "session": "A",
+          "result": {
+            "core_contention_a": {
+              "session": "A",
+              "startedAt": "2026-11-03T21:02:22.947275+00:00",
+              "backendPid": 1447792,
+              "finishedAt": "2026-11-03T21:02:31.213367+00:00",
+              "afterSleepAt": "2026-11-03T21:02:31.084067+00:00",
+              "sleepSeconds": 8,
+              "calendarCalls": 0,
+              "heldSourceIds": [
+                "fsu-calendar-api"
+              ],
+              "persistentWrites": 0,
+              "collectionHttpCalls": 0,
+              "dueSourceIdsAtStart": [
+                "fsu-calendar-api"
+              ],
+              "sourcesBeforeSha256": "11385b338d1e9b18aeb84a616d6714c5d07eecfd2765c501bfd576718a5a6a80",
+              "protectedBeforeSha256": "7c364231317828e802678e534f54b04ddd7cb2fd46a56685747ba190982a74d3",
+              "otherSourceRowsPreserved": true,
+              "runsDecisionsCalendarPreserved": true,
+              "requiresIndependentBObservation": true,
+              "leaseFunctionOidsAclsDefinitionsPreserved": true
+            }
+          }
+        },
+        {
+          "session": "B",
+          "result": {
+            "error": {
+              "name": "HttpException",
+              "message": "Failed to run sql query: ERROR:  P0001: Contention B stopped: independent A backend is not actively sleeping\nCONTEXT:  PL/pgSQL function inline_code_block line 29 at RAISE\n"
+            }
+          }
+        }
+      ],
+      "completeFingerprintsPreserved": true,
+      "passed": false
+    },
+    {
+      "id": "bounded-observation",
+      "before": {
+        "scope": "Read-only full-row fingerprints. Separate A/B observations prove only concurrent installed core source leasing; not extraction contention, HTTP, backup restore or laptop-off execution.",
+        "sources": {
+          "rows": 89,
+          "sha256": "11385b338d1e9b18aeb84a616d6714c5d07eecfd2765c501bfd576718a5a6a80"
+        },
+        "decisions": {
+          "rows": 58,
+          "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+        },
+        "backendPid": 1447827,
+        "observedAt": "2026-11-03T21:03:58.110971+00:00",
+        "sourceRuns": {
+          "rows": 1996,
+          "sha256": "c77f90f395e598d80c6ab58fd247ad3e2a41fe576cc51b264443a812ea1e6b99"
+        },
+        "dueCoreSources": [
+          {
+            "sourceId": "fsu-calendar-api",
+            "nextDueAt": "2026-11-03T21:00:00+00:00"
+          }
+        ],
+        "committedLeases": 0,
+        "calendarCommands": {
+          "rows": 1,
+          "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+        }
+      },
+      "after": {
+        "scope": "Read-only full-row fingerprints. Separate A/B observations prove only concurrent installed core source leasing; not extraction contention, HTTP, backup restore or laptop-off execution.",
+        "sources": {
+          "rows": 89,
+          "sha256": "11385b338d1e9b18aeb84a616d6714c5d07eecfd2765c501bfd576718a5a6a80"
+        },
+        "decisions": {
+          "rows": 58,
+          "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+        },
+        "backendPid": 1447834,
+        "observedAt": "2026-11-03T21:04:27.437169+00:00",
+        "sourceRuns": {
+          "rows": 1996,
+          "sha256": "c77f90f395e598d80c6ab58fd247ad3e2a41fe576cc51b264443a812ea1e6b99"
+        },
+        "dueCoreSources": [
+          {
+            "sourceId": "fsu-calendar-api",
+            "nextDueAt": "2026-11-03T21:00:00+00:00"
+          }
+        ],
+        "committedLeases": 0,
+        "calendarCommands": {
+          "rows": 1,
+          "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+        }
+      },
+      "sessions": [
+        {
+          "session": "A",
+          "result": {
+            "core_contention_a": {
+              "session": "A",
+              "startedAt": "2026-11-03T21:04:13.886805+00:00",
+              "backendPid": 1447831,
+              "finishedAt": "2026-11-03T21:04:22.155834+00:00",
+              "afterSleepAt": "2026-11-03T21:04:22.025429+00:00",
+              "sleepSeconds": 8,
+              "calendarCalls": 0,
+              "heldSourceIds": [
+                "fsu-calendar-api"
+              ],
+              "persistentWrites": 0,
+              "collectionHttpCalls": 0,
+              "dueSourceIdsAtStart": [
+                "fsu-calendar-api"
+              ],
+              "sourcesBeforeSha256": "11385b338d1e9b18aeb84a616d6714c5d07eecfd2765c501bfd576718a5a6a80",
+              "protectedBeforeSha256": "7c364231317828e802678e534f54b04ddd7cb2fd46a56685747ba190982a74d3",
+              "otherSourceRowsPreserved": true,
+              "runsDecisionsCalendarPreserved": true,
+              "requiresIndependentBObservation": true,
+              "leaseFunctionOidsAclsDefinitionsPreserved": true
+            }
+          }
+        },
+        {
+          "session": "B",
+          "result": {
+            "error": {
+              "name": "HttpException",
+              "message": "Failed to run sql query: ERROR:  P0001: Contention B stopped: no independently active A after bounded wait; B pid 1447830, started 2026-11-03 21:04:02.401938+00, ended 2026-11-03 21:04:07.686151+00\nCONTEXT:  PL/pgSQL function inline_code_block line 34 at RAISE\n"
+            }
+          }
+        }
+      ],
+      "completeFingerprintsPreserved": true,
+      "passed": false
+    }
+  ],
+  "status": "A_claimed_and_rolled_back_B_did_not_overlap_no_concurrency_pass",
+  "persistentWrites": 0,
+  "calendarCalls": 0,
+  "sourceScheduleChanged": false,
+  "nextMethod": "scripts/hosted-core-contention-b-preobserve.sql waits on read-only activity before table locks; natural quiet due window only."
+}

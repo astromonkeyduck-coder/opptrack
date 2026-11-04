@@ -2,7 +2,7 @@
 
 ## Stage 2 extraction quality repairs — November 3
 
-The owner requested continued repair until Stage2 passes, with no paid upgrade, Meta repair paused and Calendar additions individually approved. **Stage2 remains unaccepted.** The v4 candidate is tested; hosted web/worker publication is the next release check. The database allowlist/default migration is applied.
+The owner requested continued repair until Stage2 passes, with no paid upgrade, Meta repair paused and Calendar additions individually approved. **Stage2 remains unaccepted.** Runtime a0aa138 is published on Netlify6aea824e26ca006199bd845d and deployed on Trigger4gdeg20d /20261104.1 (November4,00:55:25Z). The database allowlist/default migration is applied. Actual private job5aab53bd-b30c-4999-9093-2cc931ba6bd3 was queued through the owner UI at00:58:25Z for the natural hourly worker; it reuses the two stored synthetic slides. This is queued work, not a completed v4 execution claim.
 
 V4 retains explicit ICS/JSON intervals and separate occurrences, fixes colon/category/program titles, composes evidenced building/room venues, preserves fixed EST/EDT offsets without inventing geography, and distinguishes a recruiting posting notice from application opening. Native-media-v2 uses two bounded complementary OCR passes; v1/v2/v3 and native-media-v1 remain byte-identical. Missing years/zones, date ranges, source disagreements and phase-only deadlines stay explicit. Results remain private unverified suggestions, separate from catalog/calendar approvals.
 
@@ -16,7 +16,7 @@ The owner confirmed the six source-backed representation rules, including missin
 
 One owner-authenticated original attachment download finally returned46,580 bytes with the exact stored PNG hash. Its requested20-second browser timeout was ineffective: the browser call took7,849seconds. **Do not repeat browser downloads or asset exports.** This one-file attachment proof does not establish the second attachment, direct-owner Storage JWT or signed-other-user HTTP checks. Independent core lease contention is also still unproven; rollback safeguards preserved real rows when the second session failed to overlap. [Attachment proof](../reports/stage-2-owner-attachment-download.json).
 
-No model/API spending, paid upgrade, new Auth user, Meta repair, Resend delivery or Calendar provider call was introduced. Stage3 has not started.
+No model/API spending, paid upgrade, new Auth user, Meta repair, Resend delivery or Calendar write was introduced. The owner inbox used its existing read-only Calendar view; those read requests were not metered. Stage3 has not started.
 
 ## Remaining Stage 2 checks — November 2/3
 
