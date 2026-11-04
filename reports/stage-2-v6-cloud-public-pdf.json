@@ -1,0 +1,416 @@
+{
+  "recordedAt": "2026-11-04T02:44:35.935146+00:00",
+  "evidenceClass": "Actual manual/test Production fixed-public-PDF native2/v6 diagnostic; complete6-page processing and evidence validation. Does not prove private Storage intake, scheduledv6 processing or human semantic accuracy.",
+  "runtimeCommit": "f46714d1adc378da5a546ba12d02e61635c44c22",
+  "run": {
+    "id": "run_06gq8rv0b757f5lqb3n3hfeta2",
+    "environment": "Production",
+    "isTest": true,
+    "version": "20261104.4",
+    "nodeVersion": "24.18.0",
+    "triggeredAt": "2026-11-04T02:42:37.987Z",
+    "dequeuedAt": "2026-11-04T02:42:38.250Z",
+    "startedAt": "2026-11-04T02:42:41.192Z",
+    "finishedAt": "2026-11-04T02:43:31.302Z",
+    "payload": {
+      "publicPdfProbeV6": true
+    },
+    "requestedIdempotencyKey": "stage2-v6-fixed-public-pdf-20261104-v1",
+    "observedIdempotencyDisplay": "–",
+    "idempotencyProven": false,
+    "createdRuns": 1,
+    "usageSeconds": 48.7,
+    "invocationUsd": 0.000025,
+    "computeUsd": 0.00164609,
+    "estimatedUsd": 0.00167109
+  },
+  "source": {
+    "url": "https://wertheim.fsu.edu/sites/g/files/upcbnu1771/files/Insurance%20Days%20-%20Prep%20for%20Career%20Fair%20Brochure.pdf",
+    "requests": 1,
+    "bytes": 588276,
+    "sha256": "af63c73213c33d51eb7f129f24c1ed3da06de95987ecb8fe0852eaff2be6673c",
+    "declaredPages": 6,
+    "processedPages": 6,
+    "complete": true,
+    "elapsedMs": 48528
+  },
+  "units": [
+    {
+      "page": 1,
+      "textCharacters": 4489,
+      "wordBoxes": 400,
+      "expectedPages": 6,
+      "status": "processed",
+      "attempted": true,
+      "issues": [
+        "ocr_passes_differ",
+        "pdf_text_and_visual_differ"
+      ]
+    },
+    {
+      "page": 2,
+      "textCharacters": 8060,
+      "wordBoxes": 807,
+      "expectedPages": 6,
+      "status": "processed",
+      "attempted": true,
+      "issues": [
+        "ocr_passes_differ",
+        "pdf_text_and_visual_differ"
+      ]
+    },
+    {
+      "page": 3,
+      "textCharacters": 8833,
+      "wordBoxes": 852,
+      "expectedPages": 6,
+      "status": "processed",
+      "attempted": true,
+      "issues": [
+        "ocr_passes_differ",
+        "pdf_text_and_visual_differ"
+      ]
+    },
+    {
+      "page": 4,
+      "textCharacters": 9432,
+      "wordBoxes": 875,
+      "expectedPages": 6,
+      "status": "processed",
+      "attempted": true,
+      "issues": [
+        "ocr_passes_differ",
+        "pdf_text_and_visual_differ"
+      ]
+    },
+    {
+      "page": 5,
+      "textCharacters": 6229,
+      "wordBoxes": 641,
+      "expectedPages": 6,
+      "status": "processed",
+      "attempted": true,
+      "issues": [
+        "ocr_passes_differ",
+        "pdf_text_and_visual_differ"
+      ]
+    },
+    {
+      "page": 6,
+      "textCharacters": 8878,
+      "wordBoxes": 845,
+      "expectedPages": 6,
+      "status": "processed",
+      "attempted": true,
+      "issues": [
+        "ocr_passes_differ",
+        "pdf_text_and_visual_differ"
+      ]
+    }
+  ],
+  "extraction": {
+    "candidates": 6,
+    "events": 0,
+    "actions": 0,
+    "resources": 6,
+    "processorHeadingTitles": 0,
+    "sourceUnits": 6,
+    "evidenceValidated": true,
+    "engine": "native-media-v2/tesseract-eng-dual+poppler/sharp-0.35.5/stage2-rules-v6/public-diagnostic"
+  },
+  "cloudNativeVersions": {
+    "tesseract": "5.3.0",
+    "pdfinfo": "22.12.0",
+    "pdftotext": "22.12.0",
+    "pdftoppm": "22.12.0",
+    "sharp": "0.35.5"
+  },
+  "localFrozenNativeVersions": {
+    "node": "22.19.0",
+    "tesseract": "5.5.4",
+    "poppler": "26.10.0",
+    "sharp": "0.35.5"
+  },
+  "localCloudNativeEquivalenceEstablished": false,
+  "before": {
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "definer": true,
+        "definitionSha256": "cb2640ce456c43297383839896406162e61160d3508ea2308c96002df54d9289"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34703",
+        "name": "tracker_private.extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "0632a64ac7db858931eb8c18264074d29e0f2d5dface4cdb6d478718a2af6b75"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "7d4e202295c868e1d0af62a14873e4926b24eb61078eb6d527d3d76ce3da70b0"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34706",
+        "name": "tracker_private.extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "efd26fcd51ed02f809e235eb38c5e9c934aaaf2174a7cb10f950512b15ff5fbd"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "a54c3726cba56575875b56df085ae7e21b0837afa2b0d24b79ece0e75c5b09dd"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34709",
+        "name": "extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "dc6fcfcab7a2413781d6b296cbc2175445969faab64863d6721d024cd4ec0071"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34710",
+        "name": "extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "8ffbbd7bcb6d43ec987c0da6224070db2351cfe486120d708da31447f328134c"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34711",
+        "name": "extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "c781846a9bbaf575d9ec6666c200382103e0aad9eca501f48a7b8cd6752f3514"
+      }
+    ],
+    "observedAt": "2026-11-04T02:42:28.329202+00:00",
+    "ownerCount": 1,
+    "authUserCount": 1,
+    "protectedRows": {
+      "jobs": {
+        "rows": 5,
+        "sha256": "060b2c0761190353876f1f77ff467008a3d42ce0029780b0a840bed65e49060f"
+      },
+      "intakes": {
+        "rows": 5,
+        "sha256": "97a661fe49fcf9e2853eb2d359b2525b46dc912a8f6c10b84f6e1d00201d2add"
+      },
+      "sources": {
+        "rows": 89,
+        "sha256": "57deb6b2397e5024f56ce94773124d79b84100ef2b01e1f8c576ffafa55994dc"
+      },
+      "attempts": {
+        "rows": 5,
+        "sha256": "0fcae5d975309b15e499ad245df61f23a4786a1f69af7460dbb8879727bd6cdf"
+      },
+      "decisions": {
+        "rows": 58,
+        "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+      },
+      "milestones": {
+        "rows": 70,
+        "sha256": "76da103b7d7eb9d785e566edf947aa423221d3722f92eec89e69f8d94ccb49a6"
+      },
+      "occurrences": {
+        "rows": 1638,
+        "sha256": "c2f5d7b9061d4e7258b1cb791c41c84f7bd73ac3835833131bc745635ef62134"
+      },
+      "opportunities": {
+        "rows": 1517,
+        "sha256": "d42c30aee584e96f4179af87befc0f937ba35fca748dc6224837fd0cf567b0e5"
+      },
+      "calendarCommands": {
+        "rows": 1,
+        "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+      }
+    },
+    "enqueueDefault": "'stage2-rules-v6'::text",
+    "realQueuedJobs": 0,
+    "usedUtcAttempts": 2,
+    "usedUtcJobSlots": 2,
+    "activeSourceLeases": 0,
+    "realProcessingJobs": 0,
+    "usedUtcVisualPages": 4
+  },
+  "after": {
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "definer": true,
+        "definitionSha256": "cb2640ce456c43297383839896406162e61160d3508ea2308c96002df54d9289"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34703",
+        "name": "tracker_private.extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "0632a64ac7db858931eb8c18264074d29e0f2d5dface4cdb6d478718a2af6b75"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "7d4e202295c868e1d0af62a14873e4926b24eb61078eb6d527d3d76ce3da70b0"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34706",
+        "name": "tracker_private.extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "efd26fcd51ed02f809e235eb38c5e9c934aaaf2174a7cb10f950512b15ff5fbd"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "a54c3726cba56575875b56df085ae7e21b0837afa2b0d24b79ece0e75c5b09dd"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34709",
+        "name": "extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "dc6fcfcab7a2413781d6b296cbc2175445969faab64863d6721d024cd4ec0071"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34710",
+        "name": "extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "8ffbbd7bcb6d43ec987c0da6224070db2351cfe486120d708da31447f328134c"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34711",
+        "name": "extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "c781846a9bbaf575d9ec6666c200382103e0aad9eca501f48a7b8cd6752f3514"
+      }
+    ],
+    "observedAt": "2026-11-04T02:44:35.935146+00:00",
+    "ownerCount": 1,
+    "authUserCount": 1,
+    "protectedRows": {
+      "jobs": {
+        "rows": 5,
+        "sha256": "060b2c0761190353876f1f77ff467008a3d42ce0029780b0a840bed65e49060f"
+      },
+      "intakes": {
+        "rows": 5,
+        "sha256": "97a661fe49fcf9e2853eb2d359b2525b46dc912a8f6c10b84f6e1d00201d2add"
+      },
+      "sources": {
+        "rows": 89,
+        "sha256": "57deb6b2397e5024f56ce94773124d79b84100ef2b01e1f8c576ffafa55994dc"
+      },
+      "attempts": {
+        "rows": 5,
+        "sha256": "0fcae5d975309b15e499ad245df61f23a4786a1f69af7460dbb8879727bd6cdf"
+      },
+      "decisions": {
+        "rows": 58,
+        "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+      },
+      "milestones": {
+        "rows": 70,
+        "sha256": "76da103b7d7eb9d785e566edf947aa423221d3722f92eec89e69f8d94ccb49a6"
+      },
+      "occurrences": {
+        "rows": 1638,
+        "sha256": "c2f5d7b9061d4e7258b1cb791c41c84f7bd73ac3835833131bc745635ef62134"
+      },
+      "opportunities": {
+        "rows": 1517,
+        "sha256": "d42c30aee584e96f4179af87befc0f937ba35fca748dc6224837fd0cf567b0e5"
+      },
+      "calendarCommands": {
+        "rows": 1,
+        "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+      }
+    },
+    "enqueueDefault": "'stage2-rules-v6'::text",
+    "realQueuedJobs": 0,
+    "usedUtcAttempts": 2,
+    "usedUtcJobSlots": 2,
+    "activeSourceLeases": 0,
+    "realProcessingJobs": 0,
+    "usedUtcVisualPages": 4
+  },
+  "allNineTablesAndEightFunctionsPreserved": true,
+  "currentUtcPrivateJobsBefore": 2,
+  "currentUtcPrivateJobsAfter": 2,
+  "currentUtcPrivatePagesBefore": 4,
+  "currentUtcPrivatePagesAfter": 4,
+  "privateJobsClaimed": 0,
+  "sourceContentsReturned": false,
+  "supabaseCallsInDiagnostic": 0,
+  "calendarCalls": 0,
+  "modelCalls": 0,
+  "paidUpgrades": 0,
+  "semanticAccuracyEstablished": false,
+  "stage2Accepted": false,
+  "costScope": "Run dashboard estimate; not invoice or monthly total.",
+  "screenshot": "private/stage2-v6-public-pdf-complete.jpg"
+}

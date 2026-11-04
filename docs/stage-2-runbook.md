@@ -1,5 +1,31 @@
 # Stage 2 private extraction runbook
 
+## Current v6 release — November 4 UTC
+
+Runtime `f46714d` is published on Netlify `6aea9afb2bbce3a89d639173` and Trigger `wgg5yn17` / `20261104.4`. The v6 migration is applied. Versions 1–5 retain their exact implementations and historical results. The previous v5 acceptance freeze was withdrawn before any holdout access after source-independent engineering checks found conflicting OCR/zone handling; its artifacts remain recoverable from Git.
+
+`npm test` passed **651** tests. Type checking, production build, the complete existing database suite, the separate eight-check v6 version suite, and `make check` passed. The current hosted v6 audit exercised seven checks and explicitly skipped one lease/finish guard because both real UTC job slots were used. All nine protected tables, eight function identities/access/configuration and real quota counters stayed unchanged. Do not reset counters or timestamps to manufacture coverage. [Validation](../reports/stage-2-v6-runtime-validation.json), [hosted policy scope](../reports/stage-2-v6-hosted-policy-checks.json).
+
+The current private execution proof is the natural02:00Z v5 scheduled chain in reports/stage-2-v5-scheduled-private-ocr.json. The manual v6 fixed-public-PDF diagnostic processed all **six** original pages, 588,276bytes, in one public GET. It validated evidence and produced six resource suggestions, zero event/action suggestions and zero processor-header titles. It did not read private Storage, touch Supabase, claim a private job or change quota. This is real Cloud native execution with no semantic-accuracy claim; private v6 job856f58f7-fefb-4110-8b1d-e8790138a1d3 remains queued with0 attempts. It first becomes budget-eligible after2026-11-05T00:00Z; leave it for the natural hourly worker and do not force/reset its quota. See reports/stage-2-v6-private-check-queued.json. The run estimate is$0.00167109. Cloud native versions differ from the local frozen environment, so do not project local human accuracy to Cloud without verification. [Cloud diagnostic](../reports/stage-2-v6-cloud-public-pdf.json).
+
+The exact v6 candidate freeze is `evaluation/stage2-acceptance-freeze-v6-20261104.json`, fingerprint `f64a03f40038c7b1e7204dee9eb50953bdf30cd48de8d66234fcaa2724d964a0`. Do not change its44 bound artifacts after this freeze. Its100 source-only cases remain blind;0 human factual labels and0 family/exposure judgments are completed. Use the fresh worksheet under `private/stage2-acceptance-human-review/v6-20261104/`; the original six-rule confirmation is already bound once and needs no repeat confirmation. [Human annotation guide](stage-2-v6-human-annotation-guide.md).
+
+Commands for this version:
+
+```sh
+node --import tsx scripts/stage2-acceptance-v6.ts check-freeze evaluation/stage2-acceptance-freeze-v6-20261104.json
+node scripts/test-stage2-v6-versioning.mjs
+node scripts/test-stage2-v6-hosted-audit.mjs
+node --import tsx scripts/prove-stage2-v6-retained-native.ts
+node --import tsx scripts/compare-stage2-reviewed-v6.ts
+node --import tsx scripts/compare-stage2-media-v6.ts
+```
+
+The last two commands deliberately exit1 while preserved development references remain incomplete:265/314 scoped text facts and26/27 positive media facts. All15 explicit media unknowns remain unknown; unscored outputs remain unscored. The media replay uses exact retained native2 units and does not run new OCR. Original sources, reference mappings and labels remain unchanged. The initial21/27 v6 media regression is archived separately.
+
+Keep Meta repair paused, source failure/staleness visible and Calendar additions individually approved. Opening Nights recovery still needs its normal eligible scheduled run. Signed-user HTTP requires a real nonmember login and values entered directly into the ignored0600 local file; no passwords or keys in chat. Private PDF Storage upload/processing, isolated hosted restore, real contention, physical phone/laptop-off, retention and renewal checks remain separate unresolved gates. Do not repeat browser download/asset-export calls that ignored timeouts.
+
+
 ## Current rollout checkpoint — November 4 UTC
 
 V5 runtime0a72e71 is pushed and published on Netlify6aea902fd8b5c5a882879c03 and Triggerloklin25/20261104.3 at01:54:44Z. Hosted migration `20261104014240_stage2_extractor_v5.sql` is applied: the database supports v1–v5 and defaults to v5. Before/after fingerprints preserve all nine protected row sets, including four jobs/four attempts, 58 decisions and one Calendar command, and all eight function identities/access/security settings. After verifying both deployments, owner UI queued job7ba62bcd-ff4b-4954-a891-7e7ea824da80 at01:59:47Z on the existing two synthetic slides for the natural02:00Z schedule. Its completion remains pending. Old clients and jobs keep their immutable v1–v4 behavior; no result is automatically rewritten or reprocessed. Native2 and the four v4 helpers remain byte-identical. [Schema rollout](../reports/stage-2-v5-hosted-rollout.json), [local version checks](../reports/stage-2-v5-versioning-database-tests.json).

@@ -1,0 +1,38 @@
+{
+  "recordedAt": "2026-11-04T02:51:40.293204+00:00",
+  "evidenceClass": "Actual owner-authenticated request on existing stored synthetic two-slide intake, queued as immutable v6. Not executed or successful yet.",
+  "actual": {
+    "job": {
+      "id": "856f58f7-fefb-4110-8b1d-e8790138a1d3",
+      "state": "queued",
+      "stats": null,
+      "units": null,
+      "attempts": 0,
+      "complete": null,
+      "createdAt": "2026-11-04T02:50:32.04501+00:00",
+      "errorCode": null,
+      "inputHash": "1441462f637cbb9e8b469ab2535975143b9d5a0849651736cb99e44570257198",
+      "finishedAt": null,
+      "candidateCount": null,
+      "firstStartedAt": null,
+      "extractorVersion": "stage2-rules-v6"
+    },
+    "checkedAt": "2026-11-04T02:51:40.293204+00:00",
+    "decisions": 58,
+    "attemptRows": null,
+    "calendarCommands": 1
+  },
+  "originalIntakeId": "8e3027ab-2447-4abb-bef1-a38392252cb7",
+  "currentUtcNewJobSlotsUsed": 2,
+  "unchangedDailyNewJobLimit": 2,
+  "unchangedVisualPageLimit": 12,
+  "earliestBudgetReset": "2026-11-05T00:00:00Z",
+  "nextExecutionTiming": "A natural hourly worker after the UTC budget reset, subject to scheduling jitter, concurrency, availability and retained media. Completion is unverified.",
+  "quotaReset": false,
+  "forceRun": false,
+  "calendarWriteCalls": 0,
+  "paidUpgrades": 0,
+  "stage2Accepted": false,
+  "screenshot": "private/stage2-v6-owner-queued.jpg",
+  "nextCheck": "Read this job through the owner UI or exact hosted SQL after it has naturally run. Correlate real parent/child IDs, timestamps, original hashes and database updates. Do not call a queued job a completed extraction."
+}

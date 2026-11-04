@@ -281,5 +281,8 @@
   "quotaReset": false,
   "calendarCalls": 0,
   "paidUpgrades": 0,
-  "stage2Accepted": false
+  "stage2Accepted": false,
+  "hostedMigrationHistoryVersion": "20261104022743",
+  "hostedMigrationHistoryName": "stage2_extractor_v6",
+  "localHistoryMappingNote": "Supabase MCP generated this hosted history version; the exact applied SQL hash matches the separately CLI-generated local migration file."
 }

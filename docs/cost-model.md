@@ -1,5 +1,12 @@
 # Cost model and measured usage
 
+## Latest v6 measurements — November 4 UTC
+
+No paid plan, connector or model API was enabled. The current native6 manual fixed-public-PDF diagnostic used one GET/588,276bytes and processed all six pages. Trigger displayed48.7 usage seconds, $0.000025 invocation plus$0.00164609 compute = **$0.00167109 estimated**. It touched no Supabase/private queue/Calendar/model route, and independent before/after fingerprints preserve all real private counters at2 jobs/4 pages. This is a separate bounded public diagnostic, not a way around the private-job limits. [Actual run](../reports/stage-2-v6-cloud-public-pdf.json).
+
+The genuine02:00Z scheduled v5 private-slide child displayed **$0.00020624**; its parent public collection displayed **$0.00098421**. The separate01:00Z v4 child/parent estimates below remain retained history. These are dashboard run estimates, not invoices, remaining credit balances or monthly charges. Existing Supabase/Netlify/Trigger account costs and local CPU electricity remain unmeasured here. Native versions differ between local and Cloud, so low observed cost does not establish equivalent extraction accuracy. No further local-model generations are authorized under the consumed20-run comparison.
+
+
 ## Current measured checkpoint — November 4 UTC
 
 The genuine `01:00Z` scheduled v4 parent `run_06gq86shkjkktpk1mabeul1fa2` displayed **30.6 billed seconds / $0.00106075 estimated**, including existing source collection/dispatch. Its non-test extraction child `run_06gq872o09v25225u02f7o7ma2` displayed **5.3 billed seconds / $0.00020556 estimated**: $0.000025 invocation plus $0.00018056 compute. The two selected estimates sum to **$0.00126631**, not a marginal extraction-only total, account invoice or monthly forecast. SQL confirms one v4 job/attempt and two processed synthetic image pages; processing completion is separate from the actual processor-header title error. [Run-level evidence](../reports/stage-2-v4-scheduled-private-ocr.json).

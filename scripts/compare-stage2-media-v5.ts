@@ -14,7 +14,7 @@ const mappingPath = 'evaluation/stage2-approved-media-mapping-v2.json', mappingB
 const probeBytes = await readFile('reports/stage-2-media-v4-development-probe.json'), probe = JSON.parse(probeBytes.toString());
 assert.equal(hash(packetBytes), probe.sourcePacketSha256);
 for (const path of ['lib/extraction/media-v2.ts','lib/extraction/text-v4.ts','lib/extraction/structured.ts','lib/extraction/text-prose-v4.ts','lib/extraction/text-media-v4.ts']) assert.equal(hash(await readFile(path)), probe.implementation[path], `Frozen native2/v4 dependency changed: ${path}`);
-const implementation = Object.fromEntries(await Promise.all(['lib/extraction/text-v5.ts','lib/extraction/text-media-v5.ts','lib/extraction/structured-v5.ts','lib/extraction/contracts.ts','lib/extraction/text-prose-v4.ts','lib/extraction/text-media-v4.ts','lib/extraction/text.ts','lib/extraction/media-v2.ts','package-lock.json'].map(async path => [path,hash(await readFile(path))]))); 
+const implementation = Object.fromEntries(await Promise.all(['lib/extraction/text-v5.ts','lib/extraction/text-media-v5.ts','lib/extraction/structured-v5.ts','lib/extraction/contracts.ts','lib/extraction/text-prose-v4.ts','lib/extraction/text-media-v4.ts','lib/extraction/text.ts','lib/extraction/media-v2.ts','package-lock.json'].map(async path => [path,hash(await readFile(path))])));
 const approval = JSON.parse(await readFile('reports/stage-2-next25-human-review.json','utf8'));
 const overlayRef = approval.privateOverlays.find((o:{path:string}) => o.path.endsWith('media5-overlay.json'));
 const overlayBytes = await readFile(overlayRef.path); assert.equal(hash(overlayBytes), overlayRef.sha256);
