@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-03T16:45:34.979Z",
+  "recordedAt": "2026-11-04T02:28:36.777Z",
   "command": "node scripts/test-stage2-hosted-audit.mjs",
   "evidenceClass": "Exact hosted rollback SQL replayed locally in actual PGlite PostgreSQL with synthetic owner/Auth/Storage metadata. Not hosted execution.",
   "audit": {
@@ -110,7 +110,7 @@
       }
     ],
     "passed": 26,
-    "checkedAt": "2026-11-03T11:45:34.977-05:00",
+    "checkedAt": "2026-11-03T21:28:36.775-05:00",
     "modelCalls": 0,
     "googleCalls": 0,
     "fixtureClass": "Synthetic text/media/source metadata through actual RPCs and SQL roles; not OCR, signed-JWT, Storage HTTP or Google insertion proof",
@@ -137,6 +137,8 @@
     "20261102194633_stage2_evidence_jobs.sql",
     "20261103003949_stage2_extractor_versions.sql",
     "20261103011203_stage2_extractor_v3.sql",
-    "20261103164127_stage2_extractor_v4.sql"
+    "20261103164127_stage2_extractor_v4.sql",
+    "20261104014240_stage2_extractor_v5.sql",
+    "20261104020754_stage2_extractor_v6.sql"
   ]
 }

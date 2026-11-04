@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T02:34:15.833132+00:00",
+  "status": "actual_v6_candidate_frozen_pending_direct_human_family_exposure_review",
+  "freeze": {
+    "path": "evaluation/stage2-acceptance-freeze-v6-20261104.json",
+    "freezeSha256": "f64a03f40038c7b1e7204dee9eb50953bdf30cd48de8d66234fcaa2724d964a0",
+    "fileSha256": "30abe09c8f7c213d3789829f294f03a3d448572dc02caf73a51088aa93d98e7d",
+    "createdAt": "2026-11-04T02:31:50.320Z",
+    "sourceCustodySha256": "f3bfded6a11754b775f7284fb6413537080936f318e8791ea93dca2736a4eac5",
+    "caseRosterSha256": "8e7bae87085a364d82dd535f6b1046434da7676ca23febddb8b106abc378502b",
+    "caseCount": 100,
+    "candidateIds": [
+      "native-v6-local-deterministic"
+    ],
+    "artifactCount": 44,
+    "environment": {
+      "runtime": "node/local-offline-acceptance",
+      "nodeVersion": "v22.19.0",
+      "timeZone": "UTC",
+      "locale": "C",
+      "nativeTools": {
+        "tesseract": "tesseract 5.5.4",
+        "pdfinfo": "pdfinfo version 26.10.0",
+        "pdftotext": "pdftotext version 26.10.0",
+        "pdftoppm": "pdftoppm version 26.10.0",
+        "sharp": "0.35.5"
+      },
+      "maximumVisualPages": 12,
+      "maximumFileBytes": 4194304,
+      "modelInferenceEnabled": false,
+      "calendarWritesEnabled": false,
+      "emailDeliveryEnabled": false,
+      "modelApiCalls": 0
+    },
+    "mediaV6Sha256": "77140ced7e875401abc30be7f17ccc7d63e2cf264f707c603b3ec3f376d3df5e",
+    "textV5ComposerMandatory": true
+  },
+  "v5History": {
+    "freezeSha256": "98e79184cb0d50ccb41ac09e9bec13852e4d2ac79100cf1e7bf471123b39a75e",
+    "status": "withdrawn_before_any_source_prediction_or_gold_due_to_failed_engineering_review",
+    "withdrawalReport": "reports/stage-2-v5-acceptance-freeze-withdrawal.json",
+    "sourceCustodyAndRosterUnchanged": true,
+    "originalV5ControlsAndFreezePreserved": true,
+    "legacyWorksheetPath": "private/stage2-acceptance-human-review/v5-20261104/family-exposure-review.md",
+    "approvalTransferred": false
+  },
+  "representationRules": {
+    "boundOnceForV6": true,
+    "confirmedRuleCount": 6,
+    "privateBindingPath": "private/stage2-acceptance-human-review/v6-20261104/confirmed-representation-rules.json",
+    "bindingSha256": "497af0f19379f2a93c679b9bd57f07bd4428da521b4746c3e1c0c2c6bb49d6b2",
+    "originalConfirmationTimePreserved": true,
+    "repeatConfirmationRequired": false,
+    "futureFamilyExposureOrFactualGoldApproved": false
+  },
+  "humanReview": {
+    "sheetPath": "private/stage2-acceptance-human-review/v6-20261104/family-exposure-review.md",
+    "sheetSha256": "82adaffc2a5868f80641c8425c3f1d6d2742b83e3bd0a8ed7d827172dae0ee3f",
+    "blankJudgmentsPath": "private/stage2-acceptance-human-review/v6-20261104/family-exposure-review-blank.json",
+    "blankJudgmentsSha256": "f2a57e5a83789c4f86f3851edc54f601c33609d4dd1e646acdc917df486f7e67",
+    "provisionalOrganizerGroups": 58,
+    "cases": 100,
+    "filledJudgments": 0,
+    "reviewer": null,
+    "reviewedAt": null,
+    "holdoutAssigned": false,
+    "fieldGuidePath": "docs/stage-2-v6-human-annotation-guide.md",
+    "fieldGuideSha256": "6d1c23f2a0a210930f5639dd937638f7bbe761f0ff913578168ac9fe0fac587e",
+    "fieldGuideSourceOnlyNoProposedFactualValues": true
+  },
+  "validation": {
+    "focusedAcceptanceTests": 72,
+    "passed": 72,
+    "failed": 0,
+    "typecheckExitCode": 0,
+    "independentControlReview": "No remaining material findings after requiring text-v5 reachable composer.",
+    "runtimeQualityReportedByRoot": {
+      "scope": "same five old human-approved development media; no label/mapping/source changes",
+      "positiveFactsRecovered": 26,
+      "positiveFactsDenominator": 27,
+      "unknownFactsCorrect": 15,
+      "unknownFactsDenominator": 15,
+      "unscoredFields": 27,
+      "independentHoldout": false
+    }
+  },
+  "commands": [
+    {
+      "command": "node --import tsx --test tests/stage2-acceptance-*.test.ts",
+      "exitCode": 0,
+      "inputScope": "synthetic only"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "node --import tsx scripts/stage2-acceptance-v6.ts freeze private/stage2-acceptance-preparation/actual-freeze-v6-20261104/freeze-input.json evaluation/stage2-acceptance-freeze-v6-20261104.json",
+      "exitCode": 0,
+      "sourceReads": "sealed integrity manifest metadata only; code and native version metadata"
+    },
+    {
+      "command": "node --import tsx scripts/stage2-acceptance-v6.ts bind-confirmed-rules evaluation/stage2-acceptance-freeze-v6-20261104.json private/stage2-acceptance-human-review/v6-20261104/confirmed-representation-rules.json",
+      "exitCode": 0
+    },
+    {
+      "command": "node --import tsx scripts/stage2-acceptance-v6.ts check-freeze evaluation/stage2-acceptance-freeze-v6-20261104.json",
+      "exitCode": 0,
+      "freezeVerified": true,
+      "goldRead": false
+    }
+  ],
+  "sourceAccess": {
+    "integrityManifestMetadataRead": true,
+    "sourceRecordsRead": 0,
+    "rawAssetsRead": 0,
+    "sourceViewsExported": 0,
+    "realCandidateExtractions": 0,
+    "realPredictionsGenerated": 0,
+    "realHumanGoldRead": 0,
+    "modelCalls": 0,
+    "calendarCalls": 0,
+    "networkCalls": 0,
+    "realCohortClaimExists": false
+  },
+  "verificationScope": "All44 frozen code/config/protocol/rule artifact fingerprints and the sealed integrity-manifest metadata hash verify. Actual source-record and asset bodies remain unread here; future ordered source-only preparation revalidates retained originals.",
+  "limitations": [
+    "Local Node/native version verification does not establish Cloud OCR equivalence.",
+    "All human family/exposure/factual judgments remain pending; none transfers from the six-rule record or v5 worksheet.",
+    "The shared v1 protocol retains historical v5 candidate prose; the actual v6 freeze explicitly selects native-v6-local-deterministic while retaining unchanged criteria.",
+    "Original sealed integrity metadata retains its historical preparation flags; this separate immutable freeze records the new candidate checkpoint."
+  ],
+  "nextStep": "Independent human completes the fresh blank v6 family/exposure worksheet. Resolve any rejected/uncertain family or exposure before direct factual annotation, prediction or score.",
+  "stage2Accepted": false
+}

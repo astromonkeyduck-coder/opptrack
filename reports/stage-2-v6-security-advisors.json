@@ -1,0 +1,173 @@
+{
+  "evidenceClass": "Actual security-advisor query after v6 migration; no Auth/settings changes.",
+  "findingIdentitiesUnchanged": true,
+  "advisors": {
+    "lints": [
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "count": 1,
+        "findings": [
+          {
+            "detail": "Table \\`public.tracker_members\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "tracker_members",
+              "type": "table",
+              "schema": "public"
+            },
+            "observed_at": "2026-11-04T02:31:48.636Z"
+          }
+        ]
+      },
+      {
+        "name": "anon_security_definer_function_executable",
+        "title": "Public Can Execute SECURITY DEFINER Function",
+        "level": "WARN",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects `SECURITY DEFINER` functions that are callable without signing in. Revoke `EXECUTE`, switch the function to `SECURITY INVOKER`, or move it out of your exposed API schema if it is not meant to be public.",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable",
+        "count": 1,
+        "findings": [
+          {
+            "detail": "Function `public.is_tracker_member()` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/is_tracker_member`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+            "metadata": {
+              "name": "is_tracker_member",
+              "schema": "public",
+              "language": "sql",
+              "arguments": "",
+              "security_definer": true
+            },
+            "observed_at": "2026-11-04T02:31:48.636Z"
+          }
+        ]
+      },
+      {
+        "name": "authenticated_security_definer_function_executable",
+        "title": "Signed-In Users Can Execute SECURITY DEFINER Function",
+        "level": "WARN",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects `SECURITY DEFINER` functions that are callable by signed-in users. Revoke `EXECUTE`, switch the function to `SECURITY INVOKER`, or move it out of your exposed API schema if signed-in users should not call it.",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable",
+        "count": 7,
+        "findings": [
+          {
+            "detail": "Function `public.calendar_connection_delete(p_expected_revision uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/calendar_connection_delete`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+            "metadata": {
+              "name": "calendar_connection_delete",
+              "schema": "public",
+              "language": "plpgsql",
+              "arguments": "p_expected_revision uuid",
+              "security_definer": true
+            },
+            "observed_at": "2026-11-04T02:31:48.636Z"
+          },
+          {
+            "detail": "Function `public.calendar_connection_get()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/calendar_connection_get`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+            "metadata": {
+              "name": "calendar_connection_get",
+              "schema": "public",
+              "language": "plpgsql",
+              "arguments": "",
+              "security_definer": true
+            },
+            "observed_at": "2026-11-04T02:31:48.636Z"
+          },
+          {
+            "detail": "Function `public.is_tracker_member()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/is_tracker_member`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+            "metadata": {
+              "name": "is_tracker_member",
+              "schema": "public",
+              "language": "sql",
+              "arguments": "",
+              "security_definer": true
+            },
+            "observed_at": "2026-11-04T02:31:48.636Z"
+          },
+          {
+            "detail": "Function `public.record_decision(p_occurrence_id uuid, p_action text, p_expected_revision integer)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/record_decision`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+            "metadata": {
+              "name": "record_decision",
+              "schema": "public",
+              "language": "plpgsql",
+              "arguments": "p_occurrence_id uuid, p_action text, p_expected_revision integer",
+              "security_definer": true
+            },
+            "observed_at": "2026-11-04T02:31:48.636Z"
+          },
+          {
+            "detail": "Function `public.record_review_decision(p_occurrence_id uuid, p_action text, p_expected_revision integer)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/record_review_decision`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+            "metadata": {
+              "name": "record_review_decision",
+              "schema": "public",
+              "language": "plpgsql",
+              "arguments": "p_occurrence_id uuid, p_action text, p_expected_revision integer",
+              "security_definer": true
+            },
+            "observed_at": "2026-11-04T02:31:48.636Z"
+          },
+          {
+            "detail": "Function `public.restore_review_decision(p_occurrence_id uuid, p_expected_revision integer, p_expected_action text, p_previous_action text, p_expected_decision_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/restore_review_decision`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+            "metadata": {
+              "name": "restore_review_decision",
+              "schema": "public",
+              "language": "plpgsql",
+              "arguments": "p_occurrence_id uuid, p_expected_revision integer, p_expected_action text, p_previous_action text, p_expected_decision_id uuid",
+              "security_definer": true
+            },
+            "observed_at": "2026-11-04T02:31:48.636Z"
+          },
+          {
+            "detail": "Function `public.submit_manual_intake(p_source_url text, p_note text, p_media jsonb, p_submission_key uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/submit_manual_intake`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+            "metadata": {
+              "name": "submit_manual_intake",
+              "schema": "public",
+              "language": "plpgsql",
+              "arguments": "p_source_url text, p_note text, p_media jsonb, p_submission_key uuid",
+              "security_definer": true
+            },
+            "observed_at": "2026-11-04T02:31:48.636Z"
+          }
+        ]
+      },
+      {
+        "name": "auth_leaked_password_protection",
+        "title": "Leaked Password Protection Disabled",
+        "level": "WARN",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Leaked password protection is currently disabled.",
+        "remediation": "https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection",
+        "count": 1,
+        "findings": [
+          {
+            "detail": "Supabase Auth prevents the use of compromised passwords by checking against HaveIBeenPwned.org. Enable this feature to enhance security.",
+            "metadata": {
+              "type": "auth",
+              "entity": "Auth"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "existingFindingInterpretation": "reports/stage-2-v5-security-advisors.json",
+  "sqlPolicyVerification": "reports/stage-2-v6-hosted-policy-checks.json",
+  "signedUserHttpTested": false,
+  "paidUpgrades": 0,
+  "stage2Accepted": false
+}

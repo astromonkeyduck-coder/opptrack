@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T01:55:30.852430+00:00",
+  "status": "actual_v5_candidate_frozen_pending_direct_human_family_exposure_review",
+  "freeze": {
+    "path": "evaluation/stage2-acceptance-freeze-v5-20261104.json",
+    "freezeSha256": "98e79184cb0d50ccb41ac09e9bec13852e4d2ac79100cf1e7bf471123b39a75e",
+    "fileSha256": "94d4af33b585f01f0f7a8128598d2c5ca30c233ed7e60c806332baa46d1d3070",
+    "createdAt": "2026-11-04T01:53:08.825Z",
+    "sourceCustodySha256": "f3bfded6a11754b775f7284fb6413537080936f318e8791ea93dca2736a4eac5",
+    "caseRosterSha256": "8e7bae87085a364d82dd535f6b1046434da7676ca23febddb8b106abc378502b",
+    "caseCount": 100,
+    "candidateIds": [
+      "native-v5-local-deterministic"
+    ],
+    "artifactCount": 40,
+    "environment": {
+      "runtime": "node/local-offline-acceptance",
+      "nodeVersion": "v22.19.0",
+      "timeZone": "UTC",
+      "locale": "C",
+      "nativeTools": {
+        "tesseract": "tesseract 5.5.4",
+        "pdfinfo": "pdfinfo version 26.10.0",
+        "pdftotext": "pdftotext version 26.10.0",
+        "pdftoppm": "pdftoppm version 26.10.0",
+        "sharp": "0.35.5"
+      },
+      "maximumVisualPages": 12,
+      "maximumFileBytes": 4194304,
+      "modelInferenceEnabled": false,
+      "calendarWritesEnabled": false,
+      "emailDeliveryEnabled": false,
+      "modelApiCalls": 0
+    }
+  },
+  "representationRules": {
+    "boundOnce": true,
+    "confirmedRuleCount": 6,
+    "privateBindingPath": "private/stage2-acceptance-human-review/v5-20261104/confirmed-representation-rules.json",
+    "bindingSha256": "d81d9870a4565d9c02435b18e9b9edf354966843fec361d66f830624b94e38bc",
+    "repeatConfirmationRequired": false,
+    "futureFamilyExposureOrFactualGoldApproved": false
+  },
+  "humanReview": {
+    "sheetPath": "private/stage2-acceptance-human-review/v5-20261104/family-exposure-review.md",
+    "sheetSha256": "545a3f580006026adaac12283878790a9c05463135d6f598fae30656bb50c88a",
+    "blankJudgmentsPath": "private/stage2-acceptance-human-review/v5-20261104/family-exposure-review-blank.json",
+    "blankJudgmentsSha256": "69d6e2acee624dd0d8c13de9fcc4f8b75d54523ac54bc31625e17110f9d4f730",
+    "provisionalOrganizerGroups": 58,
+    "cases": 100,
+    "filledJudgments": 0,
+    "reviewer": null,
+    "reviewedAt": null,
+    "holdoutAssigned": false
+  },
+  "commands": [
+    {
+      "command": "node --import tsx scripts/stage2-acceptance-tool.ts freeze private/stage2-acceptance-preparation/actual-freeze-v5-20261104/freeze-input.json evaluation/stage2-acceptance-freeze-v5-20261104.json",
+      "exitCode": 0,
+      "sourceReads": "sealed integrity manifest metadata only; code and version metadata"
+    },
+    {
+      "command": "node --import tsx scripts/stage2-acceptance-tool.ts bind-confirmed-rules evaluation/stage2-acceptance-freeze-v5-20261104.json private/stage2-acceptance-human-review/v5-20261104/confirmed-representation-rules.json",
+      "exitCode": 0,
+      "reads": "existing confirmation record, six-rule sheet and integrity metadata; no prospective source contents"
+    },
+    {
+      "command": "node --import tsx scripts/stage2-acceptance-tool.ts check-freeze evaluation/stage2-acceptance-freeze-v5-20261104.json",
+      "exitCode": 0,
+      "freezeVerified": true,
+      "caseCount": 100,
+      "goldRead": false
+    }
+  ],
+  "sourceAccess": {
+    "integrityManifestMetadataRead": true,
+    "sourceRecordsRead": 0,
+    "rawAssetsRead": 0,
+    "sourceViewsExported": 0,
+    "candidateExtractions": 0,
+    "predictionsGenerated": 0,
+    "humanGoldRead": 0,
+    "modelCalls": 0,
+    "calendarCalls": 0,
+    "networkCalls": 0
+  },
+  "limitations": [
+    "Freeze captures local Node/native versions; it does not establish Cloud OCR equivalence.",
+    "All family/exposure judgments remain blank and cannot be supplied by the six-rule approval.",
+    "Original/transformed source-view export, factual annotations, predictions and scoring remain blocked until their respective ordered prerequisites.",
+    "The source integrity manifest remains the original preparation artifact; its historical candidateFreezeCompleted=false flag is not rewritten. This separate immutable freeze/report records the new checkpoint."
+  ],
+  "nextStep": "Independent human completes the blank whole-family/exposure worksheet; resolve rejections/unknowns before direct factual annotation.",
+  "stage2Accepted": false,
+  "verificationScope": "All40 frozen code/config/protocol/rule artifact fingerprints and the sealed integrity-manifest metadata hash verified. Actual source-record/asset bodies were not read in this task; the source-only runner revalidates those retained originals after the separate human prerequisites."
+}

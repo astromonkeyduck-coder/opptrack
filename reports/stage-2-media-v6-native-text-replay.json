@@ -1,0 +1,1852 @@
+{
+  "version": "approved-media-v6-native-text-replay-v1",
+  "implementation": {
+    "lib/extraction/text-v6.ts": "ce425430342b361db21d395a1d6e5f9f203059881c79e903e59fc26d3bd47f81",
+    "lib/extraction/text-media-v6.ts": "77140ced7e875401abc30be7f17ccc7d63e2cf264f707c603b3ec3f376d3df5e",
+    "lib/extraction/structured-v6.ts": "6054ef5b2d2b176d63b518df136e524390b23d4098a7977fef80c885d4681cba",
+    "lib/extraction/text-v5.ts": "8a5547e5e7f62bddad3477df9d4e4cf5047ac82c60806556e37c2e4bd2d70215",
+    "lib/extraction/text-media-v5.ts": "f094183ebf4475132bd949389954e74da93a8f949305380663cdb9f9bf3dd8e1",
+    "lib/extraction/structured-v5.ts": "17c2605a9ec824456b2e87ddebf57762155032a83a4dfc367f7a4642650e5fc8",
+    "lib/extraction/contracts.ts": "e910895203e947a42dac838bd526af377c08f93be24a682a166b160339d6e070",
+    "lib/extraction/text-prose-v4.ts": "1b6bf3420e7d2c3fb4faca374b764594ae8b99db277b633841eb0cfd6c2122de",
+    "lib/extraction/text-media-v4.ts": "b2ed69f9650633e6e77b0e5f33418d318cc9f8b096cd370c6a6351b83a865b29",
+    "lib/extraction/text.ts": "b145201710b0e8ee41e901b0937213554c517e14165ca081fac8a3f45b93b119",
+    "lib/extraction/media-v2.ts": "9a87fe48dc066e98d54f504de940635de9915c03fd21978a2cbbd1849ca1744a",
+    "package-lock.json": "2191e6c16030acf0425b6aa771a2adda42aa936eedfcbaecde41e254dae188c8"
+  },
+  "evidenceClass": "Local parser replay of all retained native2 page units on five human-approved development media sources; original bytes and page outputs hash-verified. No new OCR run, hostedv5 result or independent holdout claim.",
+  "recordedAt": "2026-11-04T02:26:38.503Z",
+  "mapping": {
+    "path": "evaluation/stage2-approved-media-mapping-v2.json",
+    "sha256": "629cb4fa04659e0862f4b9c90ba0c64240c54c62ed70ec8055fd47f572318f24"
+  },
+  "reference": {
+    "path": "private/stage2-dated-flyers/run-2026-11-03T03-38-54.691Z/human-review.json",
+    "sha256": "6b0be62f55d2e798ee99642c1dbac1749cc6cd3426417c6ab8d8a0af21591c7e",
+    "humanApprovedDevelopment": true,
+    "independentAdjudication": false,
+    "overlaySha256": "61381746186904546d189b36ab4942a0fdb7493f9fd0f79c211af81e103c7110"
+  },
+  "probe": {
+    "path": "reports/stage-2-media-v4-development-probe.json",
+    "sha256": "3bf5574063605fdb7cc94cde80d32a368804537d4e7d53b4b628022f45c577e7"
+  },
+  "totals": {
+    "v4-native-v2-recorded": {
+      "nonnullFacts": 27,
+      "matchedNonnullFacts": 26,
+      "explicitUnknowns": 15,
+      "matchedExplicitUnknowns": 15,
+      "casesAllMappedFactsMatch": 4,
+      "negativeEventActionFalsePositives": 0,
+      "unscoredNonnullPredictions": 26
+    },
+    "v4-native-v2-fresh": {
+      "nonnullFacts": 27,
+      "matchedNonnullFacts": 26,
+      "explicitUnknowns": 15,
+      "matchedExplicitUnknowns": 15,
+      "casesAllMappedFactsMatch": 4,
+      "negativeEventActionFalsePositives": 0,
+      "unscoredNonnullPredictions": 26
+    },
+    "v6-native-v2-text-replay": {
+      "nonnullFacts": 27,
+      "matchedNonnullFacts": 26,
+      "explicitUnknowns": 15,
+      "matchedExplicitUnknowns": 15,
+      "casesAllMappedFactsMatch": 4,
+      "negativeEventActionFalsePositives": 0,
+      "unscoredNonnullPredictions": 27
+    }
+  },
+  "results": {
+    "v4-native-v2-recorded": [
+      {
+        "id": "ornl-workshop",
+        "checks": [
+          {
+            "field": "title",
+            "path": "event.title",
+            "expected": "2nd Neutron Nexus Workshop: Engineering Materials",
+            "actual": "2nd Neutron Nexus Workshop: Engineering Materials",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "location",
+            "path": "event.location",
+            "expected": "IRCB 1030, Tallahassee",
+            "actual": "IRCB 1030, Tallahassee",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "dateStart",
+            "path": "event.dateStart",
+            "expected": "2026-11-16",
+            "actual": "2026-11-16",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "dateEndInclusive",
+            "path": "event.dateEndInclusive",
+            "expected": "2026-11-17",
+            "actual": "2026-11-17",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "startLocal",
+            "path": "event.startLocal",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "endLocal",
+            "path": "event.endLocal",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "timeZone",
+            "path": "event.timeZone",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "event.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "registrationMonth",
+            "path": "registration_deadline.month",
+            "expected": 11,
+            "actual": 11,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "registrationDay",
+            "path": "registration_deadline.day",
+            "expected": 9,
+            "actual": 9,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "registrationYear",
+            "path": "registration_deadline.year",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 1,
+        "actionPhases": [
+          {
+            "type": "registration_deadline",
+            "phase": null
+          }
+        ],
+        "unscoredNonnull": [
+          {
+            "candidate": "event:v4:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "datePrecision",
+            "value": "date_range"
+          },
+          {
+            "candidate": "event:v4:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "month",
+            "value": 11
+          },
+          {
+            "candidate": "event:v4:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "day",
+            "value": 16
+          },
+          {
+            "candidate": "event:v4:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "year",
+            "value": 2026
+          },
+          {
+            "candidate": "action:v4:4cadb9b0116d0e582687752c7418f6d5514d0eb2",
+            "kind": "action",
+            "field": "actionType",
+            "value": "registration_deadline"
+          },
+          {
+            "candidate": "action:v4:4cadb9b0116d0e582687752c7418f6d5514d0eb2",
+            "kind": "action",
+            "field": "dateText",
+            "value": "Register by Nov. 9"
+          },
+          {
+            "candidate": "action:v4:4cadb9b0116d0e582687752c7418f6d5514d0eb2",
+            "kind": "action",
+            "field": "datePrecision",
+            "value": "month_day"
+          }
+        ],
+        "unscoredReferenceFields": [
+          "eventDateText",
+          "registrationText"
+        ],
+        "predictionSha256": "0a812e9567c8e480d73a1c8be02b57b833fb366c019ef827265c5e13af589d27"
+      },
+      {
+        "id": "marine-kim-miller",
+        "checks": [
+          {
+            "field": "title",
+            "path": "event.title",
+            "expected": "Apalachicola National Estuarine Research Reserve: Science, Partnerships, and Action",
+            "actual": "Apalachicola National Estuarine Research Reserve: Science, Partnerships, and Action",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "speaker",
+            "path": "event.speaker",
+            "expected": "Kim Miller",
+            "actual": "Kim Miller",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "year",
+            "path": "event.year/date.year",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "month",
+            "path": "event.month/date.month",
+            "expected": 11,
+            "actual": 11,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "day",
+            "path": "event.day/date.day",
+            "expected": 12,
+            "actual": 12,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "startClock",
+            "path": "event.startClock/startLocal.clock",
+            "expected": "19:00",
+            "actual": "19:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "endClock",
+            "path": "event.endClock/endLocal.clock",
+            "expected": "20:00",
+            "actual": "20:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "timeZone",
+            "path": "event.timeZone",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "event.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "location",
+            "path": "event.location",
+            "expected": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "actual": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "priceText",
+            "path": "event.price",
+            "expected": "Admission is Free!",
+            "actual": "Admission is Free!",
+            "matches": true,
+            "type": "nonnull_fact"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 1,
+        "actionPhases": [],
+        "unscoredNonnull": [],
+        "unscoredReferenceFields": [
+          "dateText"
+        ],
+        "predictionSha256": "a3b9353ca249ec03b0f9a0fccc0805bc8bf361e37bd990c653254673d75fad5a"
+      },
+      {
+        "id": "marine-rescheduled",
+        "checks": [
+          {
+            "field": "title",
+            "path": "event.title",
+            "expected": "Science and Diving - SCUBA as a tool for research",
+            "actual": "Science and Diving - SCUBA as a tool for research",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "speaker",
+            "path": "event.speaker",
+            "expected": "Chris Peters",
+            "actual": "Chris Peters",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "date",
+            "path": "event.date",
+            "expected": "2026-02-12",
+            "actual": "2026-02-12",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "startClock",
+            "path": "event.startClock/startLocal.clock",
+            "expected": "19:00",
+            "actual": "19:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "endClock",
+            "path": "event.endClock/endLocal.clock",
+            "expected": "20:00",
+            "actual": "20:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "timeZone",
+            "path": "event.timeZone",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "event.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "location",
+            "path": "event.location",
+            "expected": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "actual": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "priceText",
+            "path": "event.price",
+            "expected": "Admission is free!",
+            "actual": "Admission is free!",
+            "matches": true,
+            "type": "nonnull_fact"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 1,
+        "actionPhases": [],
+        "unscoredNonnull": [
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "datePrecision",
+            "value": "date"
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "startLocal",
+            "value": "2026-02-12T19:00"
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "endLocal",
+            "value": "2026-02-12T20:00"
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "month",
+            "value": 2
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "day",
+            "value": 12
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "year",
+            "value": 2026
+          }
+        ],
+        "unscoredReferenceFields": [],
+        "predictionSha256": "9950cd0e59dfa9fad1cfef409ba70839f19a3e90702f5afcc135184adcc510ea"
+      },
+      {
+        "id": "boren-process",
+        "checks": [
+          {
+            "field": "title",
+            "path": "resource.page1.title",
+            "expected": "Boren Awards",
+            "actual": "INTENSIVE LANGUAGE STUDY AND CULTURAL IMMERSION",
+            "matches": false,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "processHeading",
+            "path": "resource.page2.title",
+            "expected": "2026 INTERNAL BOREN APPLICATION PROCESS",
+            "actual": "2026 INTERNAL BOREN APPLICATION PROCESS",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "eligibilityText",
+            "path": "resource.eligibility",
+            "expected": "U.S. citizens at the time of the national application deadline",
+            "actual": "U.S. citizens at the time of the national application deadline",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "campusDeadlineText",
+            "path": "action.campus.dateText",
+            "expected": "November 2025",
+            "actual": "November 2025",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "campusDeadlinePrecision",
+            "path": "action.campus.datePrecision",
+            "expected": "month",
+            "actual": "month",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "campusDeadlineDay",
+            "path": "action.campus.day",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "nationalDeadlineText",
+            "path": "action.national.dateText",
+            "expected": "Early February, 2026",
+            "actual": "Early February, 2026",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "nationalDeadlineDay",
+            "path": "action.national.day",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "any.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          }
+        ],
+        "completeScopedFacts": false,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 0,
+        "actionPhases": [
+          {
+            "type": "application_deadline",
+            "phase": "campus"
+          },
+          {
+            "type": "application_deadline",
+            "phase": "national"
+          },
+          {
+            "type": "application_deadline",
+            "phase": null
+          }
+        ],
+        "unscoredNonnull": [
+          {
+            "candidate": "action:v4:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "actionType",
+            "value": "application_deadline"
+          },
+          {
+            "candidate": "action:v4:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "actionPhase",
+            "value": "campus"
+          },
+          {
+            "candidate": "action:v4:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "month",
+            "value": 11
+          },
+          {
+            "candidate": "action:v4:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "year",
+            "value": 2025
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "actionType",
+            "value": "application_deadline"
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "actionPhase",
+            "value": "national"
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "month",
+            "value": 2
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "year",
+            "value": 2026
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "datePrecision",
+            "value": "part_of_month"
+          },
+          {
+            "candidate": "action:v4:a6e2cef3adb1715d5acdd9ec30ad09471a02552f",
+            "kind": "action",
+            "field": "title",
+            "value": "2026 INTERNAL BOREN APPLICATION PROCESS"
+          },
+          {
+            "candidate": "action:v4:a6e2cef3adb1715d5acdd9ec30ad09471a02552f",
+            "kind": "action",
+            "field": "actionType",
+            "value": "application_deadline"
+          },
+          {
+            "candidate": "resource:v4:d486d8d5c0033e5a9906a551d47242fe2f9cda41",
+            "kind": "resource",
+            "field": "eligibilityHeading",
+            "value": "ELIGIBILITY"
+          },
+          {
+            "candidate": "resource:v4:d486d8d5c0033e5a9906a551d47242fe2f9cda41",
+            "kind": "resource",
+            "field": "eligibilityText",
+            "value": "ELIGIBILITY\n       U.S. citizens at the time of the national                  Matriculated for the duration of their Boren\n       application deadline                                       Awards-funded program in an undergraduate or\n       A high school graduate, or have earned a GED               graduate degree program located within the\n                                                                  United States and accredited by a body\n       At least 18 years of age or older at the                   recognized by the U.S. Department of Education\n       time of the national application deadline\n                                                                  (For ROTC cadets and midshipmen and\n       Planning an overseas program in a country                  members of the military Reserves or National\n       outside of Western Europe, Canada, Australia,              Guard) In inactive, non-drilling status for the\n       or New Zealand                                             duration of their Boren Awards-funded program\n       Planning to study in a country of which they are\n       not a citizen\n\n\n\n                                                                       "
+          }
+        ],
+        "unscoredReferenceFields": [
+          "kind"
+        ],
+        "predictionSha256": "dc12ca67421a7751fee2dd3ee7dcd722b17b24e801f7d260c72f642e4ce404f0"
+      },
+      {
+        "id": "marine-boat-negative",
+        "checks": [
+          {
+            "field": "date",
+            "path": "any.date",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "any.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": true,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 0,
+        "actionPhases": [],
+        "unscoredNonnull": [],
+        "unscoredReferenceFields": [
+          "eventCount",
+          "actionCount"
+        ],
+        "predictionSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    ],
+    "v4-native-v2-fresh": [
+      {
+        "id": "ornl-workshop",
+        "checks": [
+          {
+            "field": "title",
+            "path": "event.title",
+            "expected": "2nd Neutron Nexus Workshop: Engineering Materials",
+            "actual": "2nd Neutron Nexus Workshop: Engineering Materials",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "location",
+            "path": "event.location",
+            "expected": "IRCB 1030, Tallahassee",
+            "actual": "IRCB 1030, Tallahassee",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "dateStart",
+            "path": "event.dateStart",
+            "expected": "2026-11-16",
+            "actual": "2026-11-16",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "dateEndInclusive",
+            "path": "event.dateEndInclusive",
+            "expected": "2026-11-17",
+            "actual": "2026-11-17",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "startLocal",
+            "path": "event.startLocal",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "endLocal",
+            "path": "event.endLocal",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "timeZone",
+            "path": "event.timeZone",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "event.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "registrationMonth",
+            "path": "registration_deadline.month",
+            "expected": 11,
+            "actual": 11,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "registrationDay",
+            "path": "registration_deadline.day",
+            "expected": 9,
+            "actual": 9,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "registrationYear",
+            "path": "registration_deadline.year",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 1,
+        "actionPhases": [
+          {
+            "type": "registration_deadline",
+            "phase": null
+          }
+        ],
+        "unscoredNonnull": [
+          {
+            "candidate": "event:v4:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "datePrecision",
+            "value": "date_range"
+          },
+          {
+            "candidate": "event:v4:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "month",
+            "value": 11
+          },
+          {
+            "candidate": "event:v4:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "day",
+            "value": 16
+          },
+          {
+            "candidate": "event:v4:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "year",
+            "value": 2026
+          },
+          {
+            "candidate": "action:v4:4cadb9b0116d0e582687752c7418f6d5514d0eb2",
+            "kind": "action",
+            "field": "actionType",
+            "value": "registration_deadline"
+          },
+          {
+            "candidate": "action:v4:4cadb9b0116d0e582687752c7418f6d5514d0eb2",
+            "kind": "action",
+            "field": "dateText",
+            "value": "Register by Nov. 9"
+          },
+          {
+            "candidate": "action:v4:4cadb9b0116d0e582687752c7418f6d5514d0eb2",
+            "kind": "action",
+            "field": "datePrecision",
+            "value": "month_day"
+          }
+        ],
+        "unscoredReferenceFields": [
+          "eventDateText",
+          "registrationText"
+        ],
+        "predictionSha256": "0a812e9567c8e480d73a1c8be02b57b833fb366c019ef827265c5e13af589d27"
+      },
+      {
+        "id": "marine-kim-miller",
+        "checks": [
+          {
+            "field": "title",
+            "path": "event.title",
+            "expected": "Apalachicola National Estuarine Research Reserve: Science, Partnerships, and Action",
+            "actual": "Apalachicola National Estuarine Research Reserve: Science, Partnerships, and Action",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "speaker",
+            "path": "event.speaker",
+            "expected": "Kim Miller",
+            "actual": "Kim Miller",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "year",
+            "path": "event.year/date.year",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "month",
+            "path": "event.month/date.month",
+            "expected": 11,
+            "actual": 11,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "day",
+            "path": "event.day/date.day",
+            "expected": 12,
+            "actual": 12,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "startClock",
+            "path": "event.startClock/startLocal.clock",
+            "expected": "19:00",
+            "actual": "19:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "endClock",
+            "path": "event.endClock/endLocal.clock",
+            "expected": "20:00",
+            "actual": "20:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "timeZone",
+            "path": "event.timeZone",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "event.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "location",
+            "path": "event.location",
+            "expected": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "actual": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "priceText",
+            "path": "event.price",
+            "expected": "Admission is Free!",
+            "actual": "Admission is Free!",
+            "matches": true,
+            "type": "nonnull_fact"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 1,
+        "actionPhases": [],
+        "unscoredNonnull": [],
+        "unscoredReferenceFields": [
+          "dateText"
+        ],
+        "predictionSha256": "a3b9353ca249ec03b0f9a0fccc0805bc8bf361e37bd990c653254673d75fad5a"
+      },
+      {
+        "id": "marine-rescheduled",
+        "checks": [
+          {
+            "field": "title",
+            "path": "event.title",
+            "expected": "Science and Diving - SCUBA as a tool for research",
+            "actual": "Science and Diving - SCUBA as a tool for research",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "speaker",
+            "path": "event.speaker",
+            "expected": "Chris Peters",
+            "actual": "Chris Peters",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "date",
+            "path": "event.date",
+            "expected": "2026-02-12",
+            "actual": "2026-02-12",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "startClock",
+            "path": "event.startClock/startLocal.clock",
+            "expected": "19:00",
+            "actual": "19:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "endClock",
+            "path": "event.endClock/endLocal.clock",
+            "expected": "20:00",
+            "actual": "20:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "timeZone",
+            "path": "event.timeZone",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "event.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "location",
+            "path": "event.location",
+            "expected": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "actual": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "priceText",
+            "path": "event.price",
+            "expected": "Admission is free!",
+            "actual": "Admission is free!",
+            "matches": true,
+            "type": "nonnull_fact"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 1,
+        "actionPhases": [],
+        "unscoredNonnull": [
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "datePrecision",
+            "value": "date"
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "startLocal",
+            "value": "2026-02-12T19:00"
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "endLocal",
+            "value": "2026-02-12T20:00"
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "month",
+            "value": 2
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "day",
+            "value": 12
+          },
+          {
+            "candidate": "event:v4:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "year",
+            "value": 2026
+          }
+        ],
+        "unscoredReferenceFields": [],
+        "predictionSha256": "9950cd0e59dfa9fad1cfef409ba70839f19a3e90702f5afcc135184adcc510ea"
+      },
+      {
+        "id": "boren-process",
+        "checks": [
+          {
+            "field": "title",
+            "path": "resource.page1.title",
+            "expected": "Boren Awards",
+            "actual": "INTENSIVE LANGUAGE STUDY AND CULTURAL IMMERSION",
+            "matches": false,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "processHeading",
+            "path": "resource.page2.title",
+            "expected": "2026 INTERNAL BOREN APPLICATION PROCESS",
+            "actual": "2026 INTERNAL BOREN APPLICATION PROCESS",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "eligibilityText",
+            "path": "resource.eligibility",
+            "expected": "U.S. citizens at the time of the national application deadline",
+            "actual": "U.S. citizens at the time of the national application deadline",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "campusDeadlineText",
+            "path": "action.campus.dateText",
+            "expected": "November 2025",
+            "actual": "November 2025",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "campusDeadlinePrecision",
+            "path": "action.campus.datePrecision",
+            "expected": "month",
+            "actual": "month",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "campusDeadlineDay",
+            "path": "action.campus.day",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "nationalDeadlineText",
+            "path": "action.national.dateText",
+            "expected": "Early February, 2026",
+            "actual": "Early February, 2026",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "nationalDeadlineDay",
+            "path": "action.national.day",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "any.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          }
+        ],
+        "completeScopedFacts": false,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 0,
+        "actionPhases": [
+          {
+            "type": "application_deadline",
+            "phase": "campus"
+          },
+          {
+            "type": "application_deadline",
+            "phase": "national"
+          },
+          {
+            "type": "application_deadline",
+            "phase": null
+          }
+        ],
+        "unscoredNonnull": [
+          {
+            "candidate": "action:v4:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "actionType",
+            "value": "application_deadline"
+          },
+          {
+            "candidate": "action:v4:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "actionPhase",
+            "value": "campus"
+          },
+          {
+            "candidate": "action:v4:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "month",
+            "value": 11
+          },
+          {
+            "candidate": "action:v4:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "year",
+            "value": 2025
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "actionType",
+            "value": "application_deadline"
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "actionPhase",
+            "value": "national"
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "month",
+            "value": 2
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "year",
+            "value": 2026
+          },
+          {
+            "candidate": "action:v4:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "datePrecision",
+            "value": "part_of_month"
+          },
+          {
+            "candidate": "action:v4:a6e2cef3adb1715d5acdd9ec30ad09471a02552f",
+            "kind": "action",
+            "field": "title",
+            "value": "2026 INTERNAL BOREN APPLICATION PROCESS"
+          },
+          {
+            "candidate": "action:v4:a6e2cef3adb1715d5acdd9ec30ad09471a02552f",
+            "kind": "action",
+            "field": "actionType",
+            "value": "application_deadline"
+          },
+          {
+            "candidate": "resource:v4:d486d8d5c0033e5a9906a551d47242fe2f9cda41",
+            "kind": "resource",
+            "field": "eligibilityHeading",
+            "value": "ELIGIBILITY"
+          },
+          {
+            "candidate": "resource:v4:d486d8d5c0033e5a9906a551d47242fe2f9cda41",
+            "kind": "resource",
+            "field": "eligibilityText",
+            "value": "ELIGIBILITY\n       U.S. citizens at the time of the national                  Matriculated for the duration of their Boren\n       application deadline                                       Awards-funded program in an undergraduate or\n       A high school graduate, or have earned a GED               graduate degree program located within the\n                                                                  United States and accredited by a body\n       At least 18 years of age or older at the                   recognized by the U.S. Department of Education\n       time of the national application deadline\n                                                                  (For ROTC cadets and midshipmen and\n       Planning an overseas program in a country                  members of the military Reserves or National\n       outside of Western Europe, Canada, Australia,              Guard) In inactive, non-drilling status for the\n       or New Zealand                                             duration of their Boren Awards-funded program\n       Planning to study in a country of which they are\n       not a citizen\n\n\n\n                                                                       "
+          }
+        ],
+        "unscoredReferenceFields": [
+          "kind"
+        ],
+        "predictionSha256": "dc12ca67421a7751fee2dd3ee7dcd722b17b24e801f7d260c72f642e4ce404f0"
+      },
+      {
+        "id": "marine-boat-negative",
+        "checks": [
+          {
+            "field": "date",
+            "path": "any.date",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "any.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": true,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 0,
+        "actionPhases": [],
+        "unscoredNonnull": [],
+        "unscoredReferenceFields": [
+          "eventCount",
+          "actionCount"
+        ],
+        "predictionSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    ],
+    "v6-native-v2-text-replay": [
+      {
+        "id": "ornl-workshop",
+        "checks": [
+          {
+            "field": "title",
+            "path": "event.title",
+            "expected": "2nd Neutron Nexus Workshop: Engineering Materials",
+            "actual": "2nd Neutron Nexus Workshop: Engineering Materials",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "location",
+            "path": "event.location",
+            "expected": "IRCB 1030, Tallahassee",
+            "actual": "IRCB 1030, Tallahassee",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "dateStart",
+            "path": "event.dateStart",
+            "expected": "2026-11-16",
+            "actual": "2026-11-16",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "dateEndInclusive",
+            "path": "event.dateEndInclusive",
+            "expected": "2026-11-17",
+            "actual": "2026-11-17",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "startLocal",
+            "path": "event.startLocal",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "endLocal",
+            "path": "event.endLocal",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "timeZone",
+            "path": "event.timeZone",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "event.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "registrationMonth",
+            "path": "registration_deadline.month",
+            "expected": 11,
+            "actual": 11,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "registrationDay",
+            "path": "registration_deadline.day",
+            "expected": 9,
+            "actual": 9,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "registrationYear",
+            "path": "registration_deadline.year",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 1,
+        "actionPhases": [
+          {
+            "type": "registration_deadline",
+            "phase": null
+          }
+        ],
+        "unscoredNonnull": [
+          {
+            "candidate": "event:v6:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "datePrecision",
+            "value": "date_range"
+          },
+          {
+            "candidate": "event:v6:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "month",
+            "value": 11
+          },
+          {
+            "candidate": "event:v6:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "day",
+            "value": 16
+          },
+          {
+            "candidate": "event:v6:9a59c44435afe7c07dbfd81359dd9824fec5d997",
+            "kind": "event",
+            "field": "year",
+            "value": 2026
+          },
+          {
+            "candidate": "action:v6:4cadb9b0116d0e582687752c7418f6d5514d0eb2",
+            "kind": "action",
+            "field": "actionType",
+            "value": "registration_deadline"
+          },
+          {
+            "candidate": "action:v6:4cadb9b0116d0e582687752c7418f6d5514d0eb2",
+            "kind": "action",
+            "field": "dateText",
+            "value": "Register by Nov. 9"
+          },
+          {
+            "candidate": "action:v6:4cadb9b0116d0e582687752c7418f6d5514d0eb2",
+            "kind": "action",
+            "field": "datePrecision",
+            "value": "month_day"
+          }
+        ],
+        "unscoredReferenceFields": [
+          "eventDateText",
+          "registrationText"
+        ],
+        "predictionSha256": "e4ffbc8c9e63b7bb198103df1b37c9300c779c5eae2fbc73aedd139db8cdacac"
+      },
+      {
+        "id": "marine-kim-miller",
+        "checks": [
+          {
+            "field": "title",
+            "path": "event.title",
+            "expected": "Apalachicola National Estuarine Research Reserve: Science, Partnerships, and Action",
+            "actual": "Apalachicola National Estuarine Research Reserve: Science, Partnerships, and Action",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "speaker",
+            "path": "event.speaker",
+            "expected": "Kim Miller",
+            "actual": "Kim Miller",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "year",
+            "path": "event.year/date.year",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "month",
+            "path": "event.month/date.month",
+            "expected": 11,
+            "actual": 11,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "day",
+            "path": "event.day/date.day",
+            "expected": 12,
+            "actual": 12,
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "startClock",
+            "path": "event.startClock/startLocal.clock",
+            "expected": "19:00",
+            "actual": "19:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "endClock",
+            "path": "event.endClock/endLocal.clock",
+            "expected": "20:00",
+            "actual": "20:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "timeZone",
+            "path": "event.timeZone",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "event.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "location",
+            "path": "event.location",
+            "expected": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "actual": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "priceText",
+            "path": "event.price",
+            "expected": "Admission is Free!",
+            "actual": "Admission is Free!",
+            "matches": true,
+            "type": "nonnull_fact"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 1,
+        "actionPhases": [],
+        "unscoredNonnull": [],
+        "unscoredReferenceFields": [
+          "dateText"
+        ],
+        "predictionSha256": "02029c34dcdc28e913b3e9316e50655147a0aedd6d2b005b64319d90f6a99358"
+      },
+      {
+        "id": "marine-rescheduled",
+        "checks": [
+          {
+            "field": "title",
+            "path": "event.title",
+            "expected": "Science and Diving - SCUBA as a tool for research",
+            "actual": "Science and Diving - SCUBA as a tool for research",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "speaker",
+            "path": "event.speaker",
+            "expected": "Chris Peters",
+            "actual": "Chris Peters",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "date",
+            "path": "event.date",
+            "expected": "2026-02-12",
+            "actual": "2026-02-12",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "startClock",
+            "path": "event.startClock/startLocal.clock",
+            "expected": "19:00",
+            "actual": "19:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "endClock",
+            "path": "event.endClock/endLocal.clock",
+            "expected": "20:00",
+            "actual": "20:00",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "timeZone",
+            "path": "event.timeZone",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "event.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "location",
+            "path": "event.location",
+            "expected": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "actual": "3618 Coastal Hwy 98, St. Teresa, FL 32358",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "priceText",
+            "path": "event.price",
+            "expected": "Admission is free!",
+            "actual": "Admission is free!",
+            "matches": true,
+            "type": "nonnull_fact"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 1,
+        "actionPhases": [],
+        "unscoredNonnull": [
+          {
+            "candidate": "event:v6:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "datePrecision",
+            "value": "date"
+          },
+          {
+            "candidate": "event:v6:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "startLocal",
+            "value": "2026-02-12T19:00"
+          },
+          {
+            "candidate": "event:v6:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "endLocal",
+            "value": "2026-02-12T20:00"
+          },
+          {
+            "candidate": "event:v6:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "month",
+            "value": 2
+          },
+          {
+            "candidate": "event:v6:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "day",
+            "value": 12
+          },
+          {
+            "candidate": "event:v6:b7091d89c75d2edb6bb4e0b3a79d129c114887e8",
+            "kind": "event",
+            "field": "year",
+            "value": 2026
+          }
+        ],
+        "unscoredReferenceFields": [],
+        "predictionSha256": "59e5abe9e7d54fe3addf64684e68644b63b46dca56874bd2831b4f8e3731deef"
+      },
+      {
+        "id": "boren-process",
+        "checks": [
+          {
+            "field": "title",
+            "path": "resource.page1.title",
+            "expected": "Boren Awards",
+            "actual": null,
+            "matches": false,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "processHeading",
+            "path": "resource.page2.title",
+            "expected": "2026 INTERNAL BOREN APPLICATION PROCESS",
+            "actual": "2026 INTERNAL BOREN APPLICATION PROCESS",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "eligibilityText",
+            "path": "resource.eligibility",
+            "expected": "U.S. citizens at the time of the national application deadline",
+            "actual": "U.S. citizens at the time of the national application deadline",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "campusDeadlineText",
+            "path": "action.campus.dateText",
+            "expected": "November 2025",
+            "actual": "November 2025",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "campusDeadlinePrecision",
+            "path": "action.campus.datePrecision",
+            "expected": "month",
+            "actual": "month",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "campusDeadlineDay",
+            "path": "action.campus.day",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "nationalDeadlineText",
+            "path": "action.national.dateText",
+            "expected": "Early February, 2026",
+            "actual": "Early February, 2026",
+            "matches": true,
+            "type": "nonnull_fact"
+          },
+          {
+            "field": "nationalDeadlineDay",
+            "path": "action.national.day",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "any.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          }
+        ],
+        "completeScopedFacts": false,
+        "negative": false,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 0,
+        "actionPhases": [
+          {
+            "type": "application_deadline",
+            "phase": "campus"
+          },
+          {
+            "type": "application_deadline",
+            "phase": "national"
+          },
+          {
+            "type": "application_deadline",
+            "phase": null
+          }
+        ],
+        "unscoredNonnull": [
+          {
+            "candidate": "resource:v6:41b8abc11c4c5168c26fe519c8fcd14ded43e7c9",
+            "kind": "resource",
+            "field": "sourceHeading",
+            "value": "INTENSIVE LANGUAGE STUDY AND CULTURAL IMMERSION"
+          },
+          {
+            "candidate": "action:v6:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "actionType",
+            "value": "application_deadline"
+          },
+          {
+            "candidate": "action:v6:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "actionPhase",
+            "value": "campus"
+          },
+          {
+            "candidate": "action:v6:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "month",
+            "value": 11
+          },
+          {
+            "candidate": "action:v6:24c6069d04f9216e321fb8f6a0c3dcafdeafcde9",
+            "kind": "action",
+            "field": "year",
+            "value": 2025
+          },
+          {
+            "candidate": "action:v6:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "actionType",
+            "value": "application_deadline"
+          },
+          {
+            "candidate": "action:v6:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "actionPhase",
+            "value": "national"
+          },
+          {
+            "candidate": "action:v6:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "month",
+            "value": 2
+          },
+          {
+            "candidate": "action:v6:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "year",
+            "value": 2026
+          },
+          {
+            "candidate": "action:v6:18919550f7a0c44dacef0f0711e5671dc228b6c6",
+            "kind": "action",
+            "field": "datePrecision",
+            "value": "part_of_month"
+          },
+          {
+            "candidate": "action:v6:a6e2cef3adb1715d5acdd9ec30ad09471a02552f",
+            "kind": "action",
+            "field": "title",
+            "value": "2026 INTERNAL BOREN APPLICATION PROCESS"
+          },
+          {
+            "candidate": "action:v6:a6e2cef3adb1715d5acdd9ec30ad09471a02552f",
+            "kind": "action",
+            "field": "actionType",
+            "value": "application_deadline"
+          },
+          {
+            "candidate": "resource:v6:d486d8d5c0033e5a9906a551d47242fe2f9cda41",
+            "kind": "resource",
+            "field": "eligibilityHeading",
+            "value": "ELIGIBILITY"
+          },
+          {
+            "candidate": "resource:v6:d486d8d5c0033e5a9906a551d47242fe2f9cda41",
+            "kind": "resource",
+            "field": "eligibilityText",
+            "value": "ELIGIBILITY\n       U.S. citizens at the time of the national                  Matriculated for the duration of their Boren\n       application deadline                                       Awards-funded program in an undergraduate or\n       A high school graduate, or have earned a GED               graduate degree program located within the\n                                                                  United States and accredited by a body\n       At least 18 years of age or older at the                   recognized by the U.S. Department of Education\n       time of the national application deadline\n                                                                  (For ROTC cadets and midshipmen and\n       Planning an overseas program in a country                  members of the military Reserves or National\n       outside of Western Europe, Canada, Australia,              Guard) In inactive, non-drilling status for the\n       or New Zealand                                             duration of their Boren Awards-funded program\n       Planning to study in a country of which they are\n       not a citizen\n\n\n\n                                                                       "
+          }
+        ],
+        "unscoredReferenceFields": [
+          "kind"
+        ],
+        "predictionSha256": "71a583ae12ce11a10210668b8a79c8cc1ac0401adba2d61b7cfd1610899196e3"
+      },
+      {
+        "id": "marine-boat-negative",
+        "checks": [
+          {
+            "field": "date",
+            "path": "any.date",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          },
+          {
+            "field": "status",
+            "path": "any.status",
+            "expected": null,
+            "actual": null,
+            "matches": true,
+            "type": "explicit_unknown"
+          }
+        ],
+        "completeScopedFacts": true,
+        "negative": true,
+        "negativeFalsePositives": 0,
+        "detectedEvents": 0,
+        "actionPhases": [],
+        "unscoredNonnull": [],
+        "unscoredReferenceFields": [
+          "eventCount",
+          "actionCount"
+        ],
+        "predictionSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    ]
+  },
+  "privateOutput": "private/stage2-media-v6-native-text-replay/2026-11-04T02-26-38-503Z/results.json",
+  "stage2Accepted": false,
+  "holdout": false,
+  "modelCalls": 0,
+  "networkCalls": 0,
+  "calendarCalls": 0,
+  "limitations": [
+    "Same fixed partial mapping across recordedv4, freshv4 and freshv6 on identical native2 units; old v1 scoped report is preserved. This mapping additionally measures already-approved date-range and partial clock/day/month/phase facts.",
+    "No full canonical entity/extra-field adjudication, representative field precision or event/action recall is established. Extra predictions remain unscored, not correct.",
+    "This small exposed development set has five examples in three related families. One negative cannot establish false-positive accuracy."
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "protocolId": "stage2-acceptance-protocol-v1",
+  "protocolSha256": "7d0f15a7e7824f8adabf07b8f046665f1abeb3601af10e1798e2a4cdcef0d515",
+  "representationRuleRecordSha256": "838fc01fbbde680f42f97fa78b71d14607f6ec205214e19a8bbff2e2525f546f",
+  "sourceCustodySha256": "f3bfded6a11754b775f7284fb6413537080936f318e8791ea93dca2736a4eac5",
+  "sourceCustodyPath": "private/stage2-sealed-holdout/6f54cc7b2cfb74f3/integrity-manifest.json",
+  "caseRosterSha256": "8e7bae87085a364d82dd535f6b1046434da7676ca23febddb8b106abc378502b",
+  "caseIds": [
+    "H001",
+    "H002",
+    "H003",
+    "H004",
+    "H005",
+    "H006",
+    "H007",
+    "H008",
+    "H009",
+    "H010",
+    "H011",
+    "H012",
+    "H013",
+    "H014",
+    "H015",
+    "H016",
+    "H017",
+    "H018",
+    "H019",
+    "H020",
+    "H021",
+    "H022",
+    "H023",
+    "H024",
+    "H025",
+    "H026",
+    "H027",
+    "H028",
+    "H029",
+    "H030",
+    "H031",
+    "H032",
+    "H033",
+    "H034",
+    "H035",
+    "H036",
+    "H037",
+    "H038",
+    "H039",
+    "H040",
+    "H041",
+    "H042",
+    "H043",
+    "H044",
+    "H045",
+    "H046",
+    "H047",
+    "H048",
+    "H049",
+    "H050",
+    "H051",
+    "H052",
+    "H053",
+    "H054",
+    "H055",
+    "H056",
+    "H057",
+    "H058",
+    "H059",
+    "H060",
+    "H061",
+    "H062",
+    "H063",
+    "H064",
+    "H065",
+    "H066",
+    "H067",
+    "H068",
+    "H069",
+    "H070",
+    "H071",
+    "H072",
+    "H073",
+    "H074",
+    "H075",
+    "H076",
+    "H077",
+    "H078",
+    "H079",
+    "H080",
+    "H081",
+    "H082",
+    "H083",
+    "H084",
+    "H085",
+    "H086",
+    "H087",
+    "H088",
+    "H089",
+    "H090",
+    "H091",
+    "H092",
+    "H093",
+    "H094",
+    "H095",
+    "H096",
+    "H097",
+    "H098",
+    "H099",
+    "H100"
+  ],
+  "artifacts": [
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-v4.ts",
+      "sha256": "2e3fa233773a86e66f9353ece15323395e1033da07fd8b6e6fe02926de6dc58f"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-prose-v4.ts",
+      "sha256": "1b6bf3420e7d2c3fb4faca374b764594ae8b99db277b633841eb0cfd6c2122de"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-media-v4.ts",
+      "sha256": "b2ed69f9650633e6e77b0e5f33418d318cc9f8b096cd370c6a6351b83a865b29"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/structured.ts",
+      "sha256": "93d792d22622fb610a6dcc703220a883c86d51106893a8084713833c65d38c92"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text.ts",
+      "sha256": "b145201710b0e8ee41e901b0937213554c517e14165ca081fac8a3f45b93b119"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-v1.ts",
+      "sha256": "2dc5376957c301ff56bc302ec60efdef2e96061922a5a75e86b60749b9c79c4a"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-v2.ts",
+      "sha256": "e4d30a79ac26bd48f7fced0e36e5aa35d4e2cd6046bfaf32c56180ac8fe4d4a2"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/versions.ts",
+      "sha256": "2b91373f2cd30f982e9b1de17e64e51375736bcf840bfd65b9d5450bfb7c137f"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/contracts.ts",
+      "sha256": "96ae35bd9b29688a665d72bd80ef98f5db1d883b3f44bcaab614a295377a26fd"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/media-types.ts",
+      "sha256": "bc55ccc334b56a8a5b7a3662da1c6a76cf9427331e3067598939fa2ef51891fa"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/calendar/time.ts",
+      "sha256": "141077b5ed2199d77df6a9160367f95372f7fd1168e82cdbf242e64a2e6bee5a"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/intake/validation.ts",
+      "sha256": "8848ffa819ae8c7b27e757ae4aedf3428d9cfb13b2331a37450c8b69fe51e732"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/collection/types.ts",
+      "sha256": "878294c6a42ba39f5d69f6f6cf5f10d7a9864ab5e45fb9a9dcd5f58685f2eeec"
+    },
+    {
+      "group": "runtime",
+      "path": "package.json",
+      "sha256": "c244a4dc99fc4971c255d93721f2e956f4189b0a0220584296643a61140d4dc7"
+    },
+    {
+      "group": "runtime",
+      "path": "package-lock.json",
+      "sha256": "2191e6c16030acf0425b6aa771a2adda42aa936eedfcbaecde41e254dae188c8"
+    },
+    {
+      "group": "media",
+      "path": "lib/extraction/media-v2.ts",
+      "sha256": "9a87fe48dc066e98d54f504de940635de9915c03fd21978a2cbbd1849ca1744a"
+    },
+    {
+      "group": "media",
+      "path": "lib/extraction/media.ts",
+      "sha256": "02a0a15e34ca8a82ff52feae494209b9d7aacf4ace053a149f92a3172434898b"
+    },
+    {
+      "group": "source_transform",
+      "path": "evaluation/stage2-source-only-transform-v2.ts",
+      "sha256": "e44fac8acb7215788ce4ef0ea97a86541fbff1a067bd6992f96b23bb27ff6798"
+    },
+    {
+      "group": "source_transform",
+      "path": "evaluation/stage2-reviewed-contract.ts",
+      "sha256": "d9f6cee14142663867490b2f99e0aa54c553e4d4122d573ce7adaa9ae47a2477"
+    },
+    {
+      "group": "matcher",
+      "path": "lib/extraction/reconciliation.ts",
+      "sha256": "4be9cf83d956be7b26d662234705fe92a2481ec6d93435f89a09e50e0041d783"
+    },
+    {
+      "group": "protocol",
+      "path": "evaluation/stage2-acceptance-protocol-v1.json",
+      "sha256": "7d0f15a7e7824f8adabf07b8f046665f1abeb3601af10e1798e2a4cdcef0d515"
+    },
+    {
+      "group": "adjudication",
+      "path": "reports/stage-2-owner-contract-adjudication.json",
+      "sha256": "838fc01fbbde680f42f97fa78b71d14607f6ec205214e19a8bbff2e2525f546f"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-guards.ts",
+      "sha256": "a73bcc1c1560fa07ac12f03c457b171ce0eb500700fc831cdc2986d6e7248de7"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-files.ts",
+      "sha256": "a1ce371a2eac88e4aa071679b20ff12f0efc008520bc40086267c4d0dd3f7203"
+    },
+    {
+      "group": "runner",
+      "path": "scripts/stage2-acceptance-tool.ts",
+      "sha256": "c61e6ac85eb507a531049d592daa72869e1cd06cc490a8e04b45054d1a4ebd4d"
+    },
+    {
+      "group": "matcher",
+      "path": "evaluation/stage2-acceptance-matcher.ts",
+      "sha256": "6f5aaa9dbd049a8f0e1357f43bfd22b13c5feb19334aa3601578a67f1decb783"
+    },
+    {
+      "group": "scorer",
+      "path": "evaluation/stage2-acceptance-scorer.ts",
+      "sha256": "304be734e8fc51ec65c71de2de5670a1142f0d1a6b700a2b9cd02c21f5694c02"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-predictions.ts",
+      "sha256": "b2b193144be90611899d88d9b958d71a5f04385d20bdae9adc1a113455f38dfe"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-runner.ts",
+      "sha256": "fde7211a248f85574cdb5e184d2aee9b794273011e05fb8db3d7a06abb85b7b4"
+    },
+    {
+      "group": "runner",
+      "path": "scripts/stage2-score-acceptance.ts",
+      "sha256": "dd9982073c4dda8f766ae96bd8123e29d209f44d558737cab073188662be8bdc"
+    },
+    {
+      "group": "runtime",
+      "path": "evaluation/stage2-evaluator.ts",
+      "sha256": "17eec8f9ee00f18b6dc06ce777b2c55bd0b6bc90a63255b198882ce646e741cf"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-environment.ts",
+      "sha256": "56af824e7c8f88a6184e4874773b51f74431e5b4d8b6bb34c666c546f7b9acbd"
+    },
+    {
+      "group": "scorer",
+      "path": "evaluation/stage2-acceptance-canonical.ts",
+      "sha256": "22c06cd308bcc713d0132f81a539f485e60b809fc077c53595b543047a325865"
+    },
+    {
+      "group": "prompts",
+      "path": "scripts/run-stage2-free-model.ts",
+      "sha256": "ac91a40ac840aed71206478ddbd2d0f21b20a9a382b1077e87a133b2a78788ac"
+    },
+    {
+      "group": "matcher",
+      "path": "evaluation/stage2-acceptance-reconciliation.ts",
+      "sha256": "5ca07a6e19c594aa9747f5722d1b4a9fb23605d04b1e5ee70edf65a576625492"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-v5.ts",
+      "sha256": "8a5547e5e7f62bddad3477df9d4e4cf5047ac82c60806556e37c2e4bd2d70215"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/structured-v5.ts",
+      "sha256": "17c2605a9ec824456b2e87ddebf57762155032a83a4dfc367f7a4642650e5fc8"
+    },
+    {
+      "group": "source_transform",
+      "path": "evaluation/stage2-source-only-transform-v3.ts",
+      "sha256": "54c977751f5ae925e94641aa20608c199afdb3a947d66d300c5db66308e0707b"
+    },
+    {
+      "group": "scorer",
+      "path": "evaluation/stage2-acceptance-critical-fields.ts",
+      "sha256": "da4d9666210c26edc5209b38372980f75f6be185acbf5a41d93d70cb6360f4a4"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-media-v5.ts",
+      "sha256": "f094183ebf4475132bd949389954e74da93a8f949305380663cdb9f9bf3dd8e1"
+    }
+  ],
+  "environment": {
+    "runtime": "node/local-offline-acceptance",
+    "nodeVersion": "v22.19.0",
+    "timeZone": "UTC",
+    "locale": "C",
+    "nativeTools": {
+      "tesseract": "tesseract 5.5.4",
+      "pdfinfo": "pdfinfo version 26.10.0",
+      "pdftotext": "pdftotext version 26.10.0",
+      "pdftoppm": "pdftoppm version 26.10.0",
+      "sharp": "0.35.5"
+    },
+    "maximumVisualPages": 12,
+    "maximumFileBytes": 4194304,
+    "modelInferenceEnabled": false,
+    "calendarWritesEnabled": false,
+    "emailDeliveryEnabled": false,
+    "modelApiCalls": 0
+  },
+  "environmentSha256": "c35d0eb945f19bab88d63be08db133b290e5212db15ef853c27b76a6459ae715",
+  "candidates": [
+    {
+      "id": "native-v5-local-deterministic",
+      "modelInference": false,
+      "promptIds": []
+    }
+  ],
+  "createdAt": "2026-11-04T01:53:08.825Z",
+  "freezeSha256": "98e79184cb0d50ccb41ac09e9bec13852e4d2ac79100cf1e7bf471123b39a75e"
+}

@@ -1,0 +1,131 @@
+{
+  "recordedAt": "2026-11-04T02:18:07.279Z",
+  "status": "local_v6_ready_for_root_review_not_hosted_rollout",
+  "scope": "Additive version6 registry/composer/native2 worker routing; new structured6 timezone guards; independent reviewer owns new media6 pass-consensus fixes. No old5 runtime bytes or package edits.",
+  "ownedFileSha256": {
+    "lib/extraction/text-v6.ts": "ce425430342b361db21d395a1d6e5f9f203059881c79e903e59fc26d3bd47f81",
+    "lib/extraction/structured-v6.ts": "6054ef5b2d2b176d63b518df136e524390b23d4098a7977fef80c885d4681cba",
+    "lib/extraction/contracts.ts": "e910895203e947a42dac838bd526af377c08f93be24a682a166b160339d6e070",
+    "lib/extraction/versions.ts": "bb4dd1ded4ec9542513e8fbd38045c3dd3f4b560161b708bfa6269731bf12b29",
+    "lib/extraction/worker.ts": "28491894720e27f7a534157c276ce1a6aa2ebbc9967a5587e6aea0021a07a7d8",
+    "tests/extraction-structured-v6.test.ts": "9ee66ea40d17beb3d2b369f0223de1a5efc0fcc9b873a44d0c646a70e9261567",
+    "tests/extraction-worker.test.ts": "450e286ed04a7d1855c2e6cbb4c2f30ef8032a9f022196cb3994a4b3df9a8216",
+    "tests/extraction-structured-v5.test.ts": "a08ddd9497467f9c168090c6133d10f47d5bed155aa80ab9b0bfb9728560ec88",
+    "supabase/migrations/20261104020754_stage2_extractor_v6.sql": "b7aa34138f4066eba5efb6de03934c6340128adab760cbe33f92643ff3913b67",
+    "scripts/test-stage2-v6-versioning.mjs": "61fc0c9659879dc0217b6070df3e463c8c196be70ac4f6789fb5449d50362112"
+  },
+  "immutablePriorImplementationSha256": {
+    "lib/extraction/text-v1.ts": "2dc5376957c301ff56bc302ec60efdef2e96061922a5a75e86b60749b9c79c4a",
+    "lib/extraction/text-v2.ts": "e4d30a79ac26bd48f7fced0e36e5aa35d4e2cd6046bfaf32c56180ac8fe4d4a2",
+    "lib/extraction/text.ts": "b145201710b0e8ee41e901b0937213554c517e14165ca081fac8a3f45b93b119",
+    "lib/extraction/media.ts": "02a0a15e34ca8a82ff52feae494209b9d7aacf4ace053a149f92a3172434898b",
+    "lib/extraction/structured.ts": "93d792d22622fb610a6dcc703220a883c86d51106893a8084713833c65d38c92",
+    "lib/extraction/text-v4.ts": "2e3fa233773a86e66f9353ece15323395e1033da07fd8b6e6fe02926de6dc58f",
+    "lib/extraction/text-prose-v4.ts": "1b6bf3420e7d2c3fb4faca374b764594ae8b99db277b633841eb0cfd6c2122de",
+    "lib/extraction/text-media-v4.ts": "b2ed69f9650633e6e77b0e5f33418d318cc9f8b096cd370c6a6351b83a865b29",
+    "lib/extraction/media-v2.ts": "9a87fe48dc066e98d54f504de940635de9915c03fd21978a2cbbd1849ca1744a",
+    "lib/extraction/structured-v5.ts": "17c2605a9ec824456b2e87ddebf57762155032a83a4dfc367f7a4642650e5fc8",
+    "lib/extraction/text-v5.ts": "8a5547e5e7f62bddad3477df9d4e4cf5047ac82c60806556e37c2e4bd2d70215",
+    "lib/extraction/text-media-v5.ts": "f094183ebf4475132bd949389954e74da93a8f949305380663cdb9f9bf3dd8e1"
+  },
+  "frozenPackageSha256": "c244a4dc99fc4971c255d93721f2e956f4189b0a0220584296643a61140d4dc7",
+  "independentMedia6": {
+    "path": "lib/extraction/text-media-v6.ts",
+    "sha256": "b2ff47a266b895e34e68d193cb8b7f6029453102dbb36ac2056ed204b30200ad",
+    "testPath": "tests/extraction-media-v6.test.ts",
+    "testSha256": "9f340d40a51e504103e909d45e95a7be214694d6e295be3cb11981895d3d12bd",
+    "ownership": "Independent reviewer; imported API extractMediaCandidates(unit,context). Current integrated test proof includes its11 cases; root review still required."
+  },
+  "supportedVersions": [
+    "stage2-rules-v1",
+    "stage2-rules-v2",
+    "stage2-rules-v3",
+    "stage2-rules-v4",
+    "stage2-rules-v5",
+    "stage2-rules-v6"
+  ],
+  "defaultVersion": "stage2-rules-v6",
+  "structuredGuards": [
+    "Malformed or any parameterized TIMEZONE value cannot provide a zone-derived instant; original date/local clock remain reviewable.",
+    "Conflicting source zones no longer erase an independently valid date or select one source zone.",
+    "Valid bare IANA zones retain DST-aware intervals with exact source evidence; explicit numeric-offset/UTC instants keep independent support.",
+    "A discarded zone field cannot authorize a source-local comparison against an otherwise independent UTC stamp.",
+    "Parameter-bearing Start aliases remain in structured validation; an unsupported date/time type cannot escape into prose fallback.",
+    "V5 continues its original behavior under its stored immutable version; the actual queued/finished v5 job was not changed."
+  ],
+  "migration": {
+    "path": "20261104020754_stage2_extractor_v6.sql",
+    "sha256": "b7aa34138f4066eba5efb6de03934c6340128adab760cbe33f92643ff3913b67",
+    "generatedBy": "Official cached SupabaseCLI2.121.0 migration new stage2_extractor_v6; help was previously discovered on this same CLI.",
+    "telemetryDisabledForCommand": true,
+    "homeVariableChanged": false,
+    "cliUpgraded": false,
+    "hostedAppliedByThisTask": false,
+    "changes": "Only version1–6 allowlists and default6 in existing functions; no row/table/RLS/cadence/quota rewrites."
+  },
+  "validation": [
+    {
+      "command": "node --import tsx --test tests/extraction-structured-v6.test.ts tests/extraction-media-v6.test.ts tests/extraction-public-probe-v6.test.ts tests/extraction-worker.test.ts tests/extraction-versioning.test.ts tests/extraction-structured-v5.test.ts",
+      "exitCode": 0,
+      "passed": 53,
+      "failed": 0,
+      "privateLog": "private/stage2-v6-versioning-focused.log",
+      "privateLogSha256": "d61be603bad9c6fc3d479f04194b248bae8d569141a9efe7318db8238686dc99",
+      "evidenceClass": "Synthetic parser/media cases, mocked private worker/provider boundaries and exact source-byte pins; no new native inference or live HTTP."
+    },
+    {
+      "command": "node scripts/test-stage2-v6-versioning.mjs",
+      "exitCode": 0,
+      "passed": 8,
+      "report": "reports/stage-2-v6-versioning-database-tests.json",
+      "reportSha256": "472cad85cc344816cb7f672a68c8fa78ed94205f32b7ed8cca2af0e8990e0700",
+      "evidenceClass": "Local synthetic sole owner, completed v1/v2/v3/v4/v5 history, queued v5/current v6, deliberately unsupported privileged row. No hosted state or provider calls."
+    },
+    {
+      "command": "./node_modules/.bin/tsc --noEmit",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "compatibility": {
+    "immutableLegacyJobsAndAttemptsPreservedLocally": true,
+    "allEightFunctionOidsAclSecurityPreservedLocally": true,
+    "oldQueuedVersion5LeaseSupported": true,
+    "unknownVersionsRejected": true,
+    "sharedTwoNewJobsUtcDayBudget": true,
+    "native2SelectedOnlyForVersions": [
+      4,
+      5,
+      6
+    ],
+    "explicitMediaInjectionPreserved": true,
+    "packageEdited": false,
+    "newSqlTestAddedToPackage": false,
+    "manualSqlCommandRequired": true
+  },
+  "rolloutRisks": [
+    "Root must run full application/database/build validation and review the new media6 implementation before deployment. This is not an actual candidate freeze or hosted acceptance proof.",
+    "Do not enqueue version6 until its worker is deployed; old1–5 inputs/results keep their version and must not be automatically reprocessed.",
+    "The existing queued/finished version5 production job and already-used UTC budget are preserved. A new parser version does not reset the two-job/twelve-page daily limits.",
+    "Historical v5 freeze remains historical after additive shared registry/worker changes; all frozen5 normal parser behavior remains selectable and byte-pinned.",
+    "No holdout, reference, gold label or acceptance threshold was read/changed by this task."
+  ],
+  "boundaries": {
+    "hostedCalls": 0,
+    "hostedDataWrites": 0,
+    "queuedRealJobsMutated": 0,
+    "quotaResets": 0,
+    "authUsersCreated": 0,
+    "credentialReads": 0,
+    "modelCalls": 0,
+    "googleCalls": 0,
+    "paidUpgrades": 0,
+    "metaRepair": false,
+    "automaticCalendarAdditions": false,
+    "stage3Started": false
+  },
+  "stage2Accepted": false
+}

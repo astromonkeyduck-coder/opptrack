@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-04T01:48:31.219Z",
+  "recordedAt": "2026-11-04T02:28:45.043Z",
   "command": "node scripts/test-stage2-v5-versioning.mjs",
   "engine": "PGlite0.5.10 actual PostgreSQL WASM",
   "migration": "20261104014240_stage2_extractor_v5.sql",

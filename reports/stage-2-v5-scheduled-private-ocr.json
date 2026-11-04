@@ -1,0 +1,135 @@
+{
+  "recordedAt": "2026-11-04T02:15:07.643571+00:00",
+  "runtimeCommit": "0a72e71c8a1b3d7a36eee246747942a0275c1a43",
+  "extractor": "stage2-rules-v5",
+  "triggerVersion": "20261104.3",
+  "evidenceClass": "Actual authenticated owner request on existing synthetic slides; natural hourly non-test Production parent and child; SQL result and live completed owner UI. This proves execution on these bytes, not human factual accuracy.",
+  "parent": {
+    "id": "run_06gq8kiqkoibu4hrpsh2vikda2",
+    "nominalAt": "2026-11-04T02:00:00Z",
+    "scheduleId": "sched_7piwpgtckcngy15icqk45",
+    "triggeredAt": "2026-11-04T02:10:46.320Z",
+    "dequeuedAt": "2026-11-04T02:10:48.470Z",
+    "startedAt": "2026-11-04T02:10:51.821Z",
+    "finishedAt": "2026-11-04T02:11:22.011Z",
+    "usageSeconds": 28.4,
+    "estimatedUsd": 0.00098421,
+    "isTest": false
+  },
+  "child": {
+    "id": "run_06gq8kq01livk07kgd6ltrpca2",
+    "parentId": "run_06gq8kiqkoibu4hrpsh2vikda2",
+    "environment": "Production",
+    "isTest": false,
+    "idempotency": "stage2:run_06gq8kiqkoibu4hrpsh2vikda2",
+    "triggeredAt": "2026-11-04T02:11:21.773Z",
+    "dequeuedAt": "2026-11-04T02:11:22.016Z",
+    "startedAt": "2026-11-04T02:11:25.231Z",
+    "finishedAt": "2026-11-04T02:11:31.907Z",
+    "usageSeconds": 5.3,
+    "invocationUsd": 0.000025,
+    "computeUsd": 0.00018124,
+    "estimatedUsd": 0.00020624
+  },
+  "actual": {
+    "job": {
+      "id": "7ba62bcd-ff4b-4954-a891-7e7ea824da80",
+      "state": "succeeded",
+      "stats": {
+        "engine": "native-media-v2/tesseract-eng-dual+poppler/sharp-0.35.5/stage2-rules-v5",
+        "elapsedMs": 4830,
+        "expectedAssets": 2,
+        "processedPages": 2,
+        "processedAssets": 2
+      },
+      "units": [
+        {
+          "page": null,
+          "sha256": "6c32b251030a33437faf8163be7edf30ddcca27419d278a9d4e1841baa38ec9b",
+          "status": "processed",
+          "assetId": "text",
+          "hasSparse": false,
+          "wordBoxes": null,
+          "hasAdaptive": false
+        },
+        {
+          "page": null,
+          "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa",
+          "status": "processed",
+          "assetId": "1",
+          "hasSparse": true,
+          "wordBoxes": 42,
+          "hasAdaptive": true
+        },
+        {
+          "page": null,
+          "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6",
+          "status": "processed",
+          "assetId": "2",
+          "hasSparse": true,
+          "wordBoxes": 46,
+          "hasAdaptive": true
+        }
+      ],
+      "attempts": 1,
+      "complete": true,
+      "createdAt": "2026-11-04T01:59:47.398792+00:00",
+      "errorCode": null,
+      "inputHash": "89f4ef82c5467930f62f13f7343f9ceee7db4c7cda9a3ba3df30bc3c1553f0b2",
+      "finishedAt": "2026-11-04T02:11:31.773985+00:00",
+      "candidateCount": 3,
+      "firstStartedAt": "2026-11-04T02:11:26.775662+00:00",
+      "extractorVersion": "stage2-rules-v5"
+    },
+    "checkedAt": "2026-11-04T02:11:35.812196+00:00",
+    "decisions": 58,
+    "attemptRows": [
+      {
+        "id": "e380e356-a6d7-4c15-a080-ca49846c976d",
+        "state": "succeeded",
+        "errorCode": null,
+        "startedAt": "2026-11-04T02:11:26.775662+00:00",
+        "finishedAt": "2026-11-04T02:11:31.773985+00:00",
+        "visualPages": 2,
+        "attemptNumber": 1
+      }
+    ],
+    "calendarCommands": 1
+  },
+  "source": {
+    "checkedAt": "2026-11-04T02:15:07.643571+00:00",
+    "sourceRun": {
+      "id": "826df2b1-417d-464c-ab15-9c32689d6ba7",
+      "outcome": "success",
+      "sourceId": "fsu-calendar-api",
+      "byteCount": 998303,
+      "startedAt": "2026-11-04T02:10:53.899+00:00",
+      "finishedAt": "2026-11-04T02:11:16.607+00:00",
+      "sourceSlot": "2026-11-04T02:00:00+00:00",
+      "occurrences": 319,
+      "scheduledAt": "2026-11-04T02:00:00+00:00",
+      "requestCount": 4,
+      "triggerRunId": "run_06gq8kiqkoibu4hrpsh2vikda2",
+      "opportunities": 280,
+      "invocationKind": "scheduled",
+      "paginationComplete": true
+    },
+    "newJobsStartedUtc": 2,
+    "visualPagesUsedUtc": 4
+  },
+  "ownerUiCompleteVerified": true,
+  "processorHeadingTitlesInOwnerUi": 0,
+  "ownerScreenshot": "private/stage2-v5-owner-complete.jpg",
+  "childScreenshot": "private/stage2-v5-child-production.jpg",
+  "newJobsPerOwnerUtcDay": 2,
+  "realUtcSlotsConsumed": 2,
+  "realVisualPagesConsumed": 4,
+  "quotaReset": false,
+  "modelCalls": 0,
+  "calendarWriteCalls": 0,
+  "paidUpgrades": 0,
+  "laptopOffVerified": false,
+  "stage2Accepted": false,
+  "costScope": "Run-level dashboard estimates, not account invoice or monthly total.",
+  "qualityLimitation": "Independent synthetic code review subsequently found cross-pass disagreement and malformed-timezone problems. V5 history/freeze are preserved; its acceptance candidacy is withdrawn before any real holdout prediction/gold access. The proposed v6 repair does not alter this run."
+}

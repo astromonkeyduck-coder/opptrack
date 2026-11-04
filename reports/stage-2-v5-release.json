@@ -1,0 +1,47 @@
+{
+  "recordedAt": "2026-11-04T02:00:11Z",
+  "runtimeCommit": "0a72e71c8a1b3d7a36eee246747942a0275c1a43",
+  "netlify": {
+    "state": "published",
+    "deployId": "6aea902fd8b5c5a882879c03",
+    "ui": "https://app.netlify.com/projects/luxury-longma-01d2fa/deploys/6aea902fd8b5c5a882879c03",
+    "screenshot": "private/stage2-v5-netlify-published.jpg"
+  },
+  "trigger": {
+    "state": "deployed_current",
+    "deploymentId": "loklin25",
+    "version": "20261104.3",
+    "deployedAt": "2026-11-04T01:54:44Z",
+    "nodeVersion": "24.18.0",
+    "tasks": 3,
+    "planObserved": "Free Plan",
+    "ui": "https://cloud.trigger.dev/orgs/plangplangplang-6ce7/projects/opptrack-BrDD/env/prod/deployments/loklin25?page=1",
+    "screenshot": "private/stage2-v5-trigger-deployed.jpg"
+  },
+  "database": "reports/stage-2-v5-hosted-rollout.json",
+  "hostedPolicyAudit": "reports/stage-2-v5-hosted-policy-checks.json",
+  "actualQueuedJob": {
+    "id": "7ba62bcd-ff4b-4954-a891-7e7ea824da80",
+    "extractorVersion": "stage2-rules-v5",
+    "state": "queued",
+    "createdAt": "2026-11-04T01:59:47.398792Z",
+    "inputHash": "89f4ef82c5467930f62f13f7343f9ceee7db4c7cda9a3ba3df30bc3c1553f0b2",
+    "checkedAt": "2026-11-04T02:00:11.131781Z",
+    "attempts": 0,
+    "usedRealUtcSlotsBefore": 1,
+    "queueScreenshot": "private/stage2-v5-owner-queued.jpg",
+    "testContents": "Same previously stored synthetic two-slide private intake. No new real opportunity or Calendar approval."
+  },
+  "validation": "reports/stage-2-v5-runtime-validation.json",
+  "quality": "Actual hosted v4 native-output local replay removes three processor-heading titles. Thirty unchanged development references remain incomplete at265/314 scoped facts;178 outputs remain unscored. V5 hosted native execution is still pending.",
+  "sourceRepair": "Opening Nights audience-scoped ticket-notice repair is deployed. Current source remains partial pending its normal eligible scheduled retry after02:19Z; no early retry or backoff reset.",
+  "environmentValuesChanged": false,
+  "newAuthUsersCreated": 0,
+  "modelCalls": 0,
+  "paidUpgrades": 0,
+  "calendarWriteCalls": 0,
+  "calendarReadRequests": "Existing inbox read view; unmetered.",
+  "stage2Accepted": false,
+  "instagramRepair": "paused",
+  "calendarPolicy": "Each event occurrence/action reminder still needs explicit separate owner approval; extraction and source ingestion have no calendar authority."
+}

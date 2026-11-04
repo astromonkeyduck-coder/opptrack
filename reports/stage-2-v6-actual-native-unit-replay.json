@@ -1,0 +1,27 @@
+{
+  "recordedAt": "2026-11-04T02:35:45.201Z",
+  "evidenceClass": "Local v6 replay on exact retained native2 units from hosted v4 synthetic-slide job. Real native output, synthetic contents; no hosted private-v6 execution or human accuracy claim.",
+  "hostedOriginalJob": "5aab53bd-b30c-4999-9093-2cc931ba6bd3",
+  "originalUnitsSha256": "c86431b003107eb2d7e85f1ca1c48b39ce992c07ccf637d2d1202172fbb24e22",
+  "oldVersion": "stage2-rules-v5",
+  "newVersion": "stage2-rules-v6",
+  "oldCandidates": 3,
+  "newCandidates": 3,
+  "oldTitles": [
+    "SYNTHETIC OCR TEST - SLIDE ONE",
+    "SYNTHETIC OCR TEST - SLIDE TWO",
+    "SYNTHETIC OCR TEST - SLIDE TWO"
+  ],
+  "newTitles": [
+    "SYNTHETIC OCR TEST - SLIDE ONE",
+    "SYNTHETIC OCR TEST - SLIDE TWO",
+    "SYNTHETIC OCR TEST - SLIDE TWO"
+  ],
+  "newProcessorHeadingTitles": 0,
+  "originalUnitsUnchanged": true,
+  "evidenceValidationPassed": true,
+  "modelCalls": 0,
+  "networkCalls": 0,
+  "calendarCalls": 0,
+  "stage2Accepted": false
+}

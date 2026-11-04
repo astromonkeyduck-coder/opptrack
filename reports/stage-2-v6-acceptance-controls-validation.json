@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T02:18:58.804942+00:00",
+  "status": "v6_generic_controls_ready_for_independent_review_no_actual_v6_freeze",
+  "candidateId": "native-v6-local-deterministic",
+  "commands": [
+    {
+      "command": "node --import tsx --test tests/stage2-acceptance-*.test.ts",
+      "passed": 72,
+      "failed": 0,
+      "exitCode": 0,
+      "scope": "synthetic only; includes10 new versioned runner/CLI regressions"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    }
+  ],
+  "newFiles": [
+    {
+      "path": "evaluation/stage2-acceptance-runner-factory.ts",
+      "sha256": "ee431f3f6431f9d8dbb24edaab6f59ca2b650c48e75bdf962841162d60f7b7fc"
+    },
+    {
+      "path": "evaluation/stage2-acceptance-runner-v6.ts",
+      "sha256": "9a949de7f2341bfdafd3dd0f426b90f1fd5e229c59d15d2922271d7a736c4d8c"
+    },
+    {
+      "path": "evaluation/stage2-acceptance-versioned-cli.ts",
+      "sha256": "1830f6f1024d4c23bcad6b7a9a90e21fc07dd08022d6bb1ea5e5ebce1ca7803a"
+    },
+    {
+      "path": "scripts/stage2-acceptance-v6.ts",
+      "sha256": "85e39ffe096a0746abec96b557904591d00191b7188371b754419275b1e01c7c"
+    },
+    {
+      "path": "evaluation/stage2-acceptance-freeze-template-v6.json",
+      "sha256": "f24513503d9c1b0bfe53c674d9f693ca1d7982d75f1a82e61b514919f6ace7e4"
+    },
+    {
+      "path": "tests/stage2-acceptance-v6-runner.test.ts",
+      "sha256": "850c0b61d51363c6924dd221a86ec6bfb3097912e8017d8dcecb71f8f226dccf"
+    },
+    {
+      "path": "tests/stage2-acceptance-v6-cli.test.ts",
+      "sha256": "90fdb66b3924d82e734281e58b0fb43e4fee553d1ab8d850feebea01bb74d6b4"
+    },
+    {
+      "path": "docs/stage-2-acceptance-v6.md",
+      "sha256": "92975064f09c272c3b5e7e9f97591e5c71ccb56362eb9ac1c2993dae94ff4076"
+    }
+  ],
+  "artifactClosure": {
+    "relativeReachableCodeFiles": 33,
+    "templateArtifactPaths": 44,
+    "missing": []
+  },
+  "templateOnly": true,
+  "implementationReady": true,
+  "actualV6FreezeCreated": false,
+  "v5WithdrawalReport": "reports/stage-2-v5-acceptance-freeze-withdrawal.json",
+  "immutableV5ControlsModified": false,
+  "sourceRecordsOrAssetsRead": 0,
+  "sourceViewsExported": 0,
+  "candidatePredictionsGenerated": 0,
+  "realHumanGoldRead": 0,
+  "modelCalls": 0,
+  "networkCalls": 0,
+  "calendarCalls": 0,
+  "familyOrFactualApprovalTransferred": false,
+  "remaining": [
+    "Independent review of new factory/CLI binding and full v6 runtime checks.",
+    "Actual v6 freeze only after the root requests it after stable checks.",
+    "Bind original six-rule record without fabricating a new human review time.",
+    "Independent human whole-family/exposure review and direct annotation remain prerequisites; v5 worksheet judgments do not transfer automatically."
+  ],
+  "stage2Accepted": false,
+  "runtimeQualityCheckpoint": {
+    "reportedBy": "root",
+    "scope": "same five previously human-approved development media, unchanged source bytes/mapping/labels",
+    "v5PositiveFactsRecovered": 26,
+    "v6PositiveFactsRecoveredBeforeRepair": 21,
+    "positiveFactDenominator": 27,
+    "passed": false,
+    "repairInProgress": true,
+    "actualV6FreezeBlockedUntilStableChecksAndRootRequest": true,
+    "independentHoldoutOpened": false
+  }
+}

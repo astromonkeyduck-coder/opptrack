@@ -1,0 +1,325 @@
+{
+  "templateOnly": true,
+  "finalScorerMatcherBindingReady": true,
+  "schemaVersion": 1,
+  "protocolId": "stage2-acceptance-protocol-v1",
+  "sourceCustodyPath": "private/stage2-sealed-holdout/6f54cc7b2cfb74f3/integrity-manifest.json",
+  "caseIds": [
+    "H001",
+    "H002",
+    "H003",
+    "H004",
+    "H005",
+    "H006",
+    "H007",
+    "H008",
+    "H009",
+    "H010",
+    "H011",
+    "H012",
+    "H013",
+    "H014",
+    "H015",
+    "H016",
+    "H017",
+    "H018",
+    "H019",
+    "H020",
+    "H021",
+    "H022",
+    "H023",
+    "H024",
+    "H025",
+    "H026",
+    "H027",
+    "H028",
+    "H029",
+    "H030",
+    "H031",
+    "H032",
+    "H033",
+    "H034",
+    "H035",
+    "H036",
+    "H037",
+    "H038",
+    "H039",
+    "H040",
+    "H041",
+    "H042",
+    "H043",
+    "H044",
+    "H045",
+    "H046",
+    "H047",
+    "H048",
+    "H049",
+    "H050",
+    "H051",
+    "H052",
+    "H053",
+    "H054",
+    "H055",
+    "H056",
+    "H057",
+    "H058",
+    "H059",
+    "H060",
+    "H061",
+    "H062",
+    "H063",
+    "H064",
+    "H065",
+    "H066",
+    "H067",
+    "H068",
+    "H069",
+    "H070",
+    "H071",
+    "H072",
+    "H073",
+    "H074",
+    "H075",
+    "H076",
+    "H077",
+    "H078",
+    "H079",
+    "H080",
+    "H081",
+    "H082",
+    "H083",
+    "H084",
+    "H085",
+    "H086",
+    "H087",
+    "H088",
+    "H089",
+    "H090",
+    "H091",
+    "H092",
+    "H093",
+    "H094",
+    "H095",
+    "H096",
+    "H097",
+    "H098",
+    "H099",
+    "H100"
+  ],
+  "artifacts": [
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-v4.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-prose-v4.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-media-v4.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/structured.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-v1.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-v2.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/versions.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/contracts.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/media-types.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/calendar/time.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/intake/validation.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/collection/types.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "package.json"
+    },
+    {
+      "group": "runtime",
+      "path": "package-lock.json"
+    },
+    {
+      "group": "media",
+      "path": "lib/extraction/media-v2.ts"
+    },
+    {
+      "group": "media",
+      "path": "lib/extraction/media.ts"
+    },
+    {
+      "group": "source_transform",
+      "path": "evaluation/stage2-source-only-transform-v2.ts"
+    },
+    {
+      "group": "source_transform",
+      "path": "evaluation/stage2-reviewed-contract.ts"
+    },
+    {
+      "group": "matcher",
+      "path": "lib/extraction/reconciliation.ts"
+    },
+    {
+      "group": "protocol",
+      "path": "evaluation/stage2-acceptance-protocol-v1.json"
+    },
+    {
+      "group": "adjudication",
+      "path": "reports/stage-2-owner-contract-adjudication.json"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-guards.ts"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-files.ts"
+    },
+    {
+      "group": "matcher",
+      "path": "evaluation/stage2-acceptance-matcher.ts"
+    },
+    {
+      "group": "scorer",
+      "path": "evaluation/stage2-acceptance-scorer.ts"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-predictions.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "evaluation/stage2-evaluator.ts"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-environment.ts"
+    },
+    {
+      "group": "scorer",
+      "path": "evaluation/stage2-acceptance-canonical.ts"
+    },
+    {
+      "group": "prompts",
+      "path": "scripts/run-stage2-free-model.ts"
+    },
+    {
+      "group": "matcher",
+      "path": "evaluation/stage2-acceptance-reconciliation.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-v5.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/structured-v5.ts"
+    },
+    {
+      "group": "source_transform",
+      "path": "evaluation/stage2-source-only-transform-v3.ts"
+    },
+    {
+      "group": "scorer",
+      "path": "evaluation/stage2-acceptance-critical-fields.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-media-v5.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-v6.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/text-media-v6.ts"
+    },
+    {
+      "group": "runtime",
+      "path": "lib/extraction/structured-v6.ts"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-runner-factory.ts"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-runner-v6.ts"
+    },
+    {
+      "group": "runner",
+      "path": "evaluation/stage2-acceptance-versioned-cli.ts"
+    },
+    {
+      "group": "runner",
+      "path": "scripts/stage2-acceptance-v6.ts"
+    }
+  ],
+  "environment": {
+    "runtime": "node/local-offline-acceptance",
+    "nodeVersion": "v22.19.0",
+    "timeZone": "UTC",
+    "locale": "C",
+    "nativeTools": {
+      "tesseract": "tesseract 5.5.4",
+      "pdfinfo": "pdfinfo version 26.10.0",
+      "pdftotext": "pdftotext version 26.10.0",
+      "pdftoppm": "pdftoppm version 26.10.0",
+      "sharp": "0.35.5"
+    },
+    "maximumVisualPages": 12,
+    "maximumFileBytes": 4194304,
+    "modelInferenceEnabled": false,
+    "calendarWritesEnabled": false,
+    "emailDeliveryEnabled": false,
+    "modelApiCalls": 0
+  },
+  "candidates": [
+    {
+      "id": "native-v6-local-deterministic",
+      "modelInference": false,
+      "promptIds": []
+    }
+  ],
+  "confirmedRepresentationRuleRecordSha256": "838fc01fbbde680f42f97fa78b71d14607f6ec205214e19a8bbff2e2525f546f",
+  "disqualifiedDevelopmentPrompts": {
+    "ids": [
+      "schema-first-v1",
+      "evidence-first-v1"
+    ],
+    "authorizedGenerationsConsumed": 20,
+    "validatedOutputs": 0,
+    "holdoutInferenceAuthorized": false,
+    "archiveDefinitionArtifact": "scripts/run-stage2-free-model.ts",
+    "archiveOnlyNotSelected": true
+  }
+}

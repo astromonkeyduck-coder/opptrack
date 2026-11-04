@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-11-04T02:23:04.154962+00:00",
+  "diagnostic": "Actual retained native2 units for five previously human-approved development sources; unchanged source bytes and mapping",
+  "initialV6Report": "reports/stage-2-media-v6-development-attempt-initial-3b97a161c4dff433.json",
+  "initialV6ReportSha256": "3b97a161c4dff433e5f8f33b60839ba19774e5c0bf1bbe6b383a7739212f5172",
+  "v5PositiveFacts": 26,
+  "positiveFactDenominator": 27,
+  "initialV6PositiveFacts": 21,
+  "explicitUnknownsPreserved": 15,
+  "wrongGenericTitleObserved": true,
+  "runtimeAccepted": false,
+  "nextStep": "Repair source-view association and quoted-title handling using development evidence; preserve real contradictions and missing umbrella names as unknown. No real holdout access.",
+  "reportPathCorrection": {
+    "initialV6RunnerUsedV5PublicReportPath": true,
+    "correctedBeforeCommit": true,
+    "v5PrivateOriginalPredictionsPreserved": true,
+    "v5ReportReproducedFromSameFrozenSourcesMappingAndImplementation": true,
+    "v5RestoredMetricsUnchanged": true
+  },
+  "sourceGoldLabelsChanged": false,
+  "gateLowered": false,
+  "holdoutRead": false,
+  "calendarCalls": 0,
+  "modelCalls": 0
+}

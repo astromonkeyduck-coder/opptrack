@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-11-04T02:16:46.705Z",
+  "command": "node scripts/test-stage2-v6-versioning.mjs",
+  "engine": "PGlite0.5.10 actual PostgreSQL WASM",
+  "migration": "20261104020754_stage2_extractor_v6.sql",
+  "migrationSha256": "b7aa34138f4066eba5efb6de03934c6340128adab760cbe33f92643ff3913b67",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql",
+    "20261102194633_stage2_evidence_jobs.sql",
+    "20261103003949_stage2_extractor_versions.sql",
+    "20261103011203_stage2_extractor_v3.sql",
+    "20261103164127_stage2_extractor_v4.sql",
+    "20261104014240_stage2_extractor_v5.sql",
+    "20261104020754_stage2_extractor_v6.sql"
+  ],
+  "passed": 8,
+  "checks": [
+    "forward migration preserves all completed v1/v2/v3/v4/v5 and queued v5 rows and attempts exactly",
+    "all eight function OIDs, ACLs, definer/invoker modes and security configuration survive rollout",
+    "default v6 is a separate immutable identity; explicit old requests remain idempotent without reprocessing",
+    "unknown, empty and null versions fail before a queued row is added",
+    "worker leases old queued v5 and current v6 while skipping unsupported privileged corruption",
+    "all six versions share the unchanged two-new-jobs UTC budget",
+    "old source versions cannot be rewritten; RLS/owner/worker/anonymous/calendar boundaries remain intact",
+    "authenticated nonmember cannot see old or new jobs or enqueue and anonymous cannot read jobs"
+  ],
+  "fixtureClass": "Local synthetic sole owner, completed v1/v2/v3/v4/v5 history, queued v5/current v6, deliberately unsupported privileged row. No hosted state or provider calls.",
+  "immutableLegacyHistoryPreserved": true,
+  "supportedVersions": [
+    "stage2-rules-v1",
+    "stage2-rules-v2",
+    "stage2-rules-v3",
+    "stage2-rules-v4",
+    "stage2-rules-v5",
+    "stage2-rules-v6"
+  ],
+  "latestDefault": "stage2-rules-v6",
+  "newJobsUtcDayBudgetShared": 2,
+  "providerCalls": 0,
+  "credentialReads": 0,
+  "hostedWrites": 0,
+  "notTested": [
+    "Hosted migration/deployment",
+    "Independent connection contention",
+    "Signed-JWT/Storage HTTP",
+    "Extraction accuracy/holdout acceptance"
+  ]
+}

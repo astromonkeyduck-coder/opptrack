@@ -194,7 +194,9 @@
     ]
   },
   "costScope": "Run-level dashboard estimates; not invoice, total monthly charges or a paid upgrade. Other platform usage and browser Calendar reads are unmetered.",
-  "ownerUiCompleteVerified": false,
+  "ownerUiCompleteVerified": true,
+  "ownerUiScreenshot": "private/stage2-v4-owner-complete-title-bug.jpg",
+  "ownerUiQualityFailure": "All three titles were the internal sparse OCR processor heading. Original completed v4 history is preserved; v5 repairs the title selection. Execution success is not factual accuracy.",
   "laptopOffVerified": false,
   "newRealFlyerUploaded": false,
   "sourceContents": "Previously uploaded synthetic test slides",

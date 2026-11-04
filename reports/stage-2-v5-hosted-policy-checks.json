@@ -1,0 +1,352 @@
+{
+  "recordedAt": "2026-11-04T01:58:53.786662+00:00",
+  "evidenceClass": "Actual hosted installed v5 SQL-role rollback audit; eight checks exercised, none skipped. One temporary fixture was claimed/finished inside the remaining real UTC budget, then all fixture writes rolled back. Not signed JWT, native OCR, HTTP Storage or independent contention.",
+  "sqlPath": "scripts/hosted-stage2-v5-policy-check.sql",
+  "sqlSha256": "8b9e2cfd49713b6b62f5e02fc19e2b2e0a8efd9c0798a04cd2eb985d5234f86e",
+  "executedSnapshot": "scripts/hosted-stage2-v5-policy-check-executed-20261104-015834.sql",
+  "fingerprintSqlPath": "scripts/hosted-stage2-v5-audit-fingerprint.sql",
+  "fingerprintSqlSha256": "dc77d137990ad3f25f0071c312ce8160d99af1ecbc9e03a0f5f80892e7b61ede",
+  "localRandomizedReplay": "reports/stage-2-v5-hosted-audit-replay.json",
+  "before": {
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "definer": true,
+        "definitionSha256": "0081402d830d46cac479136044300755bb08c201a22e67c238d62bc4af1a18a5"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34703",
+        "name": "tracker_private.extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "0632a64ac7db858931eb8c18264074d29e0f2d5dface4cdb6d478718a2af6b75"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "f912bfe706599f3b8b8054de89f955be6d0b3563de7ce5159099b989f15b9289"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34706",
+        "name": "tracker_private.extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "efd26fcd51ed02f809e235eb38c5e9c934aaaf2174a7cb10f950512b15ff5fbd"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "2883265c1cb1c7fb26a39ef1ed2a134118088818e9aa180ed9b54b010b33d90b"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34709",
+        "name": "extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "dc6fcfcab7a2413781d6b296cbc2175445969faab64863d6721d024cd4ec0071"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34710",
+        "name": "extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "8ffbbd7bcb6d43ec987c0da6224070db2351cfe486120d708da31447f328134c"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34711",
+        "name": "extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "c781846a9bbaf575d9ec6666c200382103e0aad9eca501f48a7b8cd6752f3514"
+      }
+    ],
+    "observedAt": "2026-11-04T01:58:18.860981+00:00",
+    "ownerCount": 1,
+    "authUserCount": 1,
+    "protectedRows": {
+      "jobs": {
+        "rows": 4,
+        "sha256": "989ce8b53bedcdd8b776ac4890b7989a5791cd62752a3eaff0ddc39d5a173248"
+      },
+      "intakes": {
+        "rows": 5,
+        "sha256": "97a661fe49fcf9e2853eb2d359b2525b46dc912a8f6c10b84f6e1d00201d2add"
+      },
+      "sources": {
+        "rows": 89,
+        "sha256": "8313cd5724c32cab69c242eb5c6599cfa28f927ef18127a364ca6f7e9c971644"
+      },
+      "attempts": {
+        "rows": 4,
+        "sha256": "9123c5f033d26b22ba44082e842f071d3f046b2db9d0b9cc8dcd026b406bf9a3"
+      },
+      "decisions": {
+        "rows": 58,
+        "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+      },
+      "milestones": {
+        "rows": 70,
+        "sha256": "76da103b7d7eb9d785e566edf947aa423221d3722f92eec89e69f8d94ccb49a6"
+      },
+      "occurrences": {
+        "rows": 1638,
+        "sha256": "afb50e0180e18a9e05e6d6ffe60b72f682cc8298d1b5ec035ed2710196d9eace"
+      },
+      "opportunities": {
+        "rows": 1517,
+        "sha256": "2c4162b9a23495665f0a3c9cbaa3abdcf9be7f6d39c55efc0877323c502b659d"
+      },
+      "calendarCommands": {
+        "rows": 1,
+        "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+      }
+    },
+    "enqueueDefault": "'stage2-rules-v5'::text",
+    "realQueuedJobs": 0,
+    "usedUtcAttempts": 1,
+    "usedUtcJobSlots": 1,
+    "activeSourceLeases": 0,
+    "realProcessingJobs": 0,
+    "usedUtcVisualPages": 2
+  },
+  "result": {
+    "checks": [
+      {
+        "test": "owner_worker_rpc_and_rls_boundaries",
+        "passed": true
+      },
+      {
+        "test": "v5_default_and_v1_v2_v3_v4_explicit_requests_have_immutable_idempotent_identities",
+        "passed": true
+      },
+      {
+        "test": "unsupported_and_null_versions_never_enter_the_queue",
+        "passed": true
+      },
+      {
+        "test": "nonmember_local_claims_and_anonymous_cannot_read_or_enqueue_owner_work",
+        "passed": true
+      },
+      {
+        "test": "worker_leases_exact_remaining_fixture_slots_without_touching_existing_used_budget",
+        "passed": true,
+        "fixtureClaims": 1,
+        "baselineUsedJobSlots": 1
+      },
+      {
+        "test": "available_v5_fixture_finish_fences_lease_and_utf16_and_denies_early_owner_retry",
+        "passed": true,
+        "skipReason": null,
+        "finishActuallyTested": true
+      },
+      {
+        "test": "v1_v2_v3_v4_v5_share_remaining_utc_budget_without_resetting_existing_work",
+        "passed": true
+      },
+      {
+        "test": "all_existing_jobs_attempts_intakes_sources_facts_decisions_and_calendar_commands_keep_full_sha256",
+        "passed": true
+      }
+    ],
+    "passed": 8,
+    "checkedAt": "2026-11-04T01:58:34.390425+00:00",
+    "modelCalls": 0,
+    "googleCalls": 0,
+    "fixtureClass": "Temporary synthetic notes through installed owner/worker RPCs and transaction-local SQL role claims; not native processing, signed-JWT, Storage HTTP or independent-session contention",
+    "fixtureClaims": 1,
+    "skippedChecks": [],
+    "sourcesCreated": 0,
+    "claimedVersions": [
+      "stage2-rules-v5"
+    ],
+    "authUsersCreated": 0,
+    "existingJobCount": 4,
+    "storageHttpCalls": 0,
+    "safePreconditions": "Exactly one owner; no real queued/processing work; respects 2 minus existing current-UTC-day jobs; no real queued work; short table locks; repeatable read; 2s lock and 20s statement limits; no resets/deletes",
+    "baselineUsedUtcJobs": 1,
+    "baselineUtcAttempts": 1,
+    "firstClaimedVersion": "stage2-rules-v5",
+    "remainingUtcJobSlots": 1,
+    "persistentRowsChanged": 0,
+    "baselineUtcVisualPages": 2,
+    "v5FinishActuallyTested": true,
+    "checksActuallyExercised": 8,
+    "independentConnectionsTested": false,
+    "v5ClaimedBeforeLegacyEnqueue": true,
+    "existingRealRowsFullHashesPreserved": true,
+    "functionDefinitionsOidsAclsAndConfigurationPreserved": true
+  },
+  "after": {
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34702",
+        "name": "tracker_private.extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "TimeZone=UTC"
+        ],
+        "definer": true,
+        "definitionSha256": "0081402d830d46cac479136044300755bb08c201a22e67c238d62bc4af1a18a5"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34703",
+        "name": "tracker_private.extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "0632a64ac7db858931eb8c18264074d29e0f2d5dface4cdb6d478718a2af6b75"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34704",
+        "name": "tracker_private.extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "f912bfe706599f3b8b8054de89f955be6d0b3563de7ce5159099b989f15b9289"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34706",
+        "name": "tracker_private.extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": true,
+        "definitionSha256": "efd26fcd51ed02f809e235eb38c5e9c934aaaf2174a7cb10f950512b15ff5fbd"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34708",
+        "name": "extraction_enqueue(text,uuid,text)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "2883265c1cb1c7fb26a39ef1ed2a134118088818e9aa180ed9b54b010b33d90b"
+      },
+      {
+        "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+        "oid": "34709",
+        "name": "extraction_retry(uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "dc6fcfcab7a2413781d6b296cbc2175445969faab64863d6721d024cd4ec0071"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34710",
+        "name": "extraction_claim(integer,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "8ffbbd7bcb6d43ec987c0da6224070db2351cfe486120d708da31447f328134c"
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "oid": "34711",
+        "name": "extraction_finish(uuid,uuid,text,jsonb,text,integer)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "definer": false,
+        "definitionSha256": "c781846a9bbaf575d9ec6666c200382103e0aad9eca501f48a7b8cd6752f3514"
+      }
+    ],
+    "observedAt": "2026-11-04T01:58:53.786662+00:00",
+    "ownerCount": 1,
+    "authUserCount": 1,
+    "protectedRows": {
+      "jobs": {
+        "rows": 4,
+        "sha256": "989ce8b53bedcdd8b776ac4890b7989a5791cd62752a3eaff0ddc39d5a173248"
+      },
+      "intakes": {
+        "rows": 5,
+        "sha256": "97a661fe49fcf9e2853eb2d359b2525b46dc912a8f6c10b84f6e1d00201d2add"
+      },
+      "sources": {
+        "rows": 89,
+        "sha256": "8313cd5724c32cab69c242eb5c6599cfa28f927ef18127a364ca6f7e9c971644"
+      },
+      "attempts": {
+        "rows": 4,
+        "sha256": "9123c5f033d26b22ba44082e842f071d3f046b2db9d0b9cc8dcd026b406bf9a3"
+      },
+      "decisions": {
+        "rows": 58,
+        "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+      },
+      "milestones": {
+        "rows": 70,
+        "sha256": "76da103b7d7eb9d785e566edf947aa423221d3722f92eec89e69f8d94ccb49a6"
+      },
+      "occurrences": {
+        "rows": 1638,
+        "sha256": "afb50e0180e18a9e05e6d6ffe60b72f682cc8298d1b5ec035ed2710196d9eace"
+      },
+      "opportunities": {
+        "rows": 1517,
+        "sha256": "2c4162b9a23495665f0a3c9cbaa3abdcf9be7f6d39c55efc0877323c502b659d"
+      },
+      "calendarCommands": {
+        "rows": 1,
+        "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+      }
+    },
+    "enqueueDefault": "'stage2-rules-v5'::text",
+    "realQueuedJobs": 0,
+    "usedUtcAttempts": 1,
+    "usedUtcJobSlots": 1,
+    "activeSourceLeases": 0,
+    "realProcessingJobs": 0,
+    "usedUtcVisualPages": 2
+  },
+  "allNineTablesAndEightFunctionsPreserved": true,
+  "realJobSlotsBefore": 1,
+  "realJobSlotsAfter": 1,
+  "realQueuedJobsAfter": 0,
+  "quotaReset": false,
+  "persistentFixtureRows": 0,
+  "paidUpgrades": 0,
+  "calendarCalls": 0,
+  "stage2Accepted": false
+}

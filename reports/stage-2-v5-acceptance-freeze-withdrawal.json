@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T02:12:01.068326+00:00",
+  "status": "withdrawn_before_any_source_prediction_or_gold_due_to_failed_engineering_review",
+  "freezePath": "evaluation/stage2-acceptance-freeze-v5-20261104.json",
+  "freezeSha256": "98e79184cb0d50ccb41ac09e9bec13852e4d2ac79100cf1e7bf471123b39a75e",
+  "freezeFileSha256": "94d4af33b585f01f0f7a8128598d2c5ca30c233ed7e60c806332baa46d1d3070",
+  "historicalCode": {
+    "commit": "0a72e71c8a1b3d7a36eee246747942a0275c1a43",
+    "artifactCount": 40,
+    "allArtifactHashesVerifiedAgainstHistoricalCommit": true,
+    "mismatchedPaths": []
+  },
+  "reason": [
+    "Synthetic engineering review found different native-OCR titles sharing one clock could silently choose the first.",
+    "A clock line could be promoted to a title when the first real heading was absent.",
+    "Conflicting price/eligibility observations could silently choose the first.",
+    "A new v6 media/structured candidate is being repaired and must receive its own pre-gold freeze."
+  ],
+  "preservation": {
+    "freeze5BytesUnchanged": true,
+    "v5ProtocolRunnerTemplateControlBytesRetained": true,
+    "v5WorkerJobsPreserved": true,
+    "sharedContractUpgradeWillInvalidateFreeze5InChangedCheckout": true,
+    "historicalReproductionRequiresExactPreservedCommit": true
+  },
+  "cohort": {
+    "sourceCustodySha256": "f3bfded6a11754b775f7284fb6413537080936f318e8791ea93dca2736a4eac5",
+    "caseRosterSha256": "8e7bae87085a364d82dd535f6b1046434da7676ca23febddb8b106abc378502b",
+    "caseCount": 100,
+    "sourceRecordsOrAssetsOpenedForThisWork": 0,
+    "realPredictionSealsCreated": 0,
+    "realGoldOpenedOrScored": 0,
+    "holdoutConsumed": false,
+    "familyOrFactualApprovalAutomaticallyTransferred": false
+  },
+  "v6Status": "No actual v6 freeze or real source/gold run has been created in this task. Wait for stable code/tests and explicit root freeze request.",
+  "stage2Accepted": false
+}

@@ -5,7 +5,7 @@ import { readFile } from 'node:fs/promises';
 import { extractStructuredCandidates } from '../lib/extraction/structured-v5';
 import { extractCandidatesForVersion } from '../lib/extraction/versions';
 import { providedTextUnit } from '../lib/extraction/text-v1';
-import { SUPPORTED_EXTRACTOR_VERSIONS, EXTRACTOR_VERSION, validateExtractionResult } from '../lib/extraction/contracts';
+import { SUPPORTED_EXTRACTOR_VERSIONS, validateExtractionResult } from '../lib/extraction/contracts';
 
 function parse(text: string) {
   const source = providedTextUnit(text), candidates = extractStructuredCandidates(source)!;
@@ -72,7 +72,7 @@ test('v4 keeps the deployed metadata omission while only v5 fixes the exact stru
   assert.equal(old.fields.price, undefined); assert.equal(old.fields.eligibility, undefined); assert.equal(old.fields.organizer, undefined);
   assert.equal(current.fields.price, 'Free'); assert.equal(current.fields.eligibility, 'FSU students'); assert.equal(current.fields.organizer, 'Campus Club');
   assert.equal(current.fields.startAt, old.fields.startAt); assert.equal(current.fields.endAt, old.fields.endAt); assert.notEqual(current.key, old.key);
-  assert.equal(EXTRACTOR_VERSION, 'stage2-rules-v5'); assert.equal(SUPPORTED_EXTRACTOR_VERSIONS.length, 5);
+  assert.ok(SUPPORTED_EXTRACTOR_VERSIONS.includes('stage2-rules-v5'), 'Future defaults must keep the immutable v5 implementation selectable.');
 });
 test('all four deployed v4 helpers and dual-pass native2 implementation remain byte-identical', async () => {
   for (const [name, expected] of [
