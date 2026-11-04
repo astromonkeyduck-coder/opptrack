@@ -53,7 +53,7 @@ export async function extractLeasedJob(jobValue:unknown,client:SupabaseClient,op
     }catch{units.push(unavailable(item,'private_asset_read_failed'));}
   }
   let media:Awaited<ReturnType<MediaProcessor>>;
-  try{media=await (options.media??(job.extractor_version==='stage2-rules-v4'?processMediaAssetsV2:processMediaAssets))(assets,{maxVisualPages:job.visual_page_budget});}
+  try{media=await (options.media??(['stage2-rules-v4','stage2-rules-v5'].includes(job.extractor_version)?processMediaAssetsV2:processMediaAssets))(assets,{maxVisualPages:job.visual_page_budget});}
   catch{
     const fallback=failureResult(job,'native_work_unconfirmed',Math.max(0,now()-started));
     if(assets.length)fallback.stats.visualWorkUncertain=true;

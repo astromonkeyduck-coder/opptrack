@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-11-04T01:48:31.219Z",
+  "command": "node scripts/test-stage2-v5-versioning.mjs",
+  "engine": "PGlite0.5.10 actual PostgreSQL WASM",
+  "migration": "20261104014240_stage2_extractor_v5.sql",
+  "migrationSha256": "dbe008f56dd10bf3ee6c6eef5c0bfa43ff8684e2135d4014f15da26f95311b16",
+  "migrations": [
+    "202610200001_stage1.sql",
+    "202610200002_hourly_cadence.sql",
+    "202610200003_instagram_monitoring.sql",
+    "202610200004_instagram_27_accounts.sql",
+    "202610200005_review_undo.sql",
+    "202610200006_google_calendar_readonly.sql",
+    "20261021193109_hq_public_collector.sql",
+    "20261021233742_official_milestone_monitoring.sql",
+    "20261102021158_approved_calendar_writes.sql",
+    "20261102194633_stage2_evidence_jobs.sql",
+    "20261103003949_stage2_extractor_versions.sql",
+    "20261103011203_stage2_extractor_v3.sql",
+    "20261103164127_stage2_extractor_v4.sql",
+    "20261104014240_stage2_extractor_v5.sql"
+  ],
+  "passed": 8,
+  "checks": [
+    "forward migration preserves all completed v1/v2/v3/v4 and queued v4 rows and attempts exactly",
+    "all eight function OIDs, ACLs, definer/invoker modes and security configuration survive rollout",
+    "default v5 is a separate immutable identity; explicit old requests remain idempotent without reprocessing",
+    "unknown, empty and null versions fail before a queued row is added",
+    "worker leases old queued v4 and current v5 while skipping unsupported privileged corruption",
+    "all five versions share the unchanged two-new-jobs UTC budget",
+    "old source versions cannot be rewritten; RLS/owner/worker/anonymous/calendar boundaries remain intact",
+    "authenticated nonmember cannot see old or new jobs or enqueue and anonymous cannot read jobs"
+  ],
+  "fixtureClass": "Local synthetic sole owner, completed v1/v2/v3/v4 history, queued v4/current v5, deliberately unsupported privileged row. No hosted state or provider calls.",
+  "immutableLegacyHistoryPreserved": true,
+  "supportedVersions": [
+    "stage2-rules-v1",
+    "stage2-rules-v2",
+    "stage2-rules-v3",
+    "stage2-rules-v4",
+    "stage2-rules-v5"
+  ],
+  "latestDefault": "stage2-rules-v5",
+  "newJobsUtcDayBudgetShared": 2,
+  "providerCalls": 0,
+  "credentialReads": 0,
+  "hostedWrites": 0,
+  "notTested": [
+    "Hosted migration/deployment",
+    "Independent connection contention",
+    "Signed-JWT/Storage HTTP",
+    "Extraction accuracy/holdout acceptance"
+  ]
+}

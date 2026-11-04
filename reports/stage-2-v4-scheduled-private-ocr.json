@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T01:14:06.736612+00:00",
+  "runtimeCommits": {
+    "parent": "a0aa13806eb6e377d535217c858caa414d83ba74",
+    "child": "fed65f7",
+    "extractorDifferencesBetweenCommits": false
+  },
+  "evidenceClass": "Actual authenticated owner request on existing synthetic two-slide intake; natural hourly Production parent and non-test child; correlated SQL native-media-v2 result. This proves execution, not real-event extraction accuracy or laptop-off operation.",
+  "parent": {
+    "id": "run_06gq86shkjkktpk1mabeul1fa2",
+    "version": "20261104.1",
+    "nominalAt": "2026-11-04T01:00:00Z",
+    "scheduleId": "sched_7piwpgtckcngy15icqk45",
+    "triggeredAt": "2026-11-04T01:10:46.320Z",
+    "startedAt": "2026-11-04T01:10:51.085Z",
+    "finishedAt": "2026-11-04T01:11:23.650Z",
+    "invocationKind": "scheduled",
+    "usageSeconds": 30.6,
+    "estimatedUsd": 0.00106075,
+    "sourceRun": {
+      "id": "187d1099-4d8e-4982-a3cb-497e7cc353b3",
+      "outcome": "success",
+      "sourceId": "fsu-calendar-api",
+      "byteCount": 998303,
+      "startedAt": "2026-11-04T01:10:53.497+00:00",
+      "finishedAt": "2026-11-04T01:11:18.17+00:00",
+      "requestCount": 4,
+      "triggerRunId": "run_06gq86shkjkktpk1mabeul1fa2",
+      "invocationKind": "scheduled",
+      "occurrenceCount": 319,
+      "scheduledPollAt": "2026-11-04T01:00:00+00:00",
+      "opportunityCount": 280,
+      "paginationComplete": true,
+      "dispatcherScheduledAt": "2026-11-04T01:00:00+00:00"
+    }
+  },
+  "child": {
+    "id": "run_06gq872o09v25225u02f7o7ma2",
+    "version": "20261104.2",
+    "parentId": "run_06gq86shkjkktpk1mabeul1fa2",
+    "environment": "Production",
+    "isTest": false,
+    "idempotency": "stage2:run_06gq86shkjkktpk1mabeul1fa2",
+    "triggeredAt": "2026-11-04T01:11:23.421Z",
+    "startedAt": "2026-11-04T01:11:27.475Z",
+    "finishedAt": "2026-11-04T01:11:34.272Z",
+    "usageSeconds": 5.3,
+    "invocationUsd": 0.000025,
+    "computeUsd": 0.00018056,
+    "estimatedUsd": 0.00020556,
+    "candidateCount": 3,
+    "processedPages": 2,
+    "errorCode": null
+  },
+  "actual": {
+    "job": {
+      "id": "5aab53bd-b30c-4999-9093-2cc931ba6bd3",
+      "state": "succeeded",
+      "stats": {
+        "engine": "native-media-v2/tesseract-eng-dual+poppler/sharp-0.35.5/stage2-rules-v4",
+        "elapsedMs": 4966,
+        "expectedAssets": 2,
+        "processedPages": 2,
+        "processedAssets": 2
+      },
+      "units": [
+        {
+          "page": null,
+          "sha256": "6c32b251030a33437faf8163be7edf30ddcca27419d278a9d4e1841baa38ec9b",
+          "status": "processed",
+          "assetId": "text",
+          "hasSparse": false,
+          "wordBoxes": null,
+          "hasAdaptive": false
+        },
+        {
+          "page": null,
+          "sha256": "9f73107408095c5b30d5597b4b580a6636d993c0d5dc2f36f986dad191a9bbfa",
+          "status": "processed",
+          "assetId": "1",
+          "hasSparse": true,
+          "wordBoxes": 42,
+          "hasAdaptive": true
+        },
+        {
+          "page": null,
+          "sha256": "4769b6f83b9276a2d2aa29bb66fe5ffa516eca4112540be7ef107e685e099fb6",
+          "status": "processed",
+          "assetId": "2",
+          "hasSparse": true,
+          "wordBoxes": 46,
+          "hasAdaptive": true
+        }
+      ],
+      "attempts": 1,
+      "complete": true,
+      "createdAt": "2026-11-04T00:58:25.09204+00:00",
+      "errorCode": null,
+      "inputHash": "8d6e0da1721484acfbf8fed1b46c043de33d000401ba85ca9ae8861df7db1184",
+      "finishedAt": "2026-11-04T01:11:34.034365+00:00",
+      "candidateCount": 3,
+      "firstStartedAt": "2026-11-04T01:11:28.954565+00:00",
+      "extractorVersion": "stage2-rules-v4"
+    },
+    "checkedAt": "2026-11-04T01:14:06.736612+00:00",
+    "decisions": 58,
+    "attemptRows": [
+      {
+        "id": "5eb96400-9d83-40eb-84bb-ae4081866165",
+        "state": "succeeded",
+        "errorCode": null,
+        "startedAt": "2026-11-04T01:11:28.954565+00:00",
+        "finishedAt": "2026-11-04T01:11:34.034365+00:00",
+        "visualPages": 2,
+        "attemptNumber": 1
+      }
+    ],
+    "calendarCommands": 1
+  },
+  "publicSourceHealth": {
+    "checkedAt": "2026-11-04T01:23:53.373066+00:00",
+    "sources": [
+      {
+        "id": "fsu-calendar-api",
+        "status": "success",
+        "adapter": "localist-v1",
+        "nextPollAt": "2026-11-04T02:00:00+00:00",
+        "lastSuccessAt": "2026-11-04T01:11:18.17+00:00",
+        "cadenceSeconds": 3600,
+        "retryNotBefore": null,
+        "consecutiveFailures": 0
+      },
+      {
+        "id": "fsu-career-deadlines",
+        "status": "success",
+        "adapter": "official-deadlines-v1",
+        "nextPollAt": "2026-11-04T06:00:00+00:00",
+        "lastSuccessAt": "2026-11-04T00:11:34.909+00:00",
+        "cadenceSeconds": 21600,
+        "retryNotBefore": null,
+        "consecutiveFailures": 0
+      },
+      {
+        "id": "fsu-cre-applications",
+        "status": "success",
+        "adapter": "official-deadlines-v1",
+        "nextPollAt": "2026-11-04T06:00:00+00:00",
+        "lastSuccessAt": "2026-11-04T00:11:36.102+00:00",
+        "cadenceSeconds": 21600,
+        "retryNotBefore": null,
+        "consecutiveFailures": 0
+      },
+      {
+        "id": "fsu-hq-public-export",
+        "status": "success",
+        "adapter": "hq-ics-v1",
+        "nextPollAt": "2026-11-04T06:00:00+00:00",
+        "lastSuccessAt": "2026-11-04T00:11:25.577+00:00",
+        "cadenceSeconds": 21600,
+        "retryNotBefore": null,
+        "consecutiveFailures": 0
+      },
+      {
+        "id": "fsu-music-events",
+        "status": "success",
+        "adapter": "music-v1",
+        "nextPollAt": "2026-11-04T06:00:00+00:00",
+        "lastSuccessAt": "2026-11-04T00:11:27.709+00:00",
+        "cadenceSeconds": 21600,
+        "retryNotBefore": null,
+        "consecutiveFailures": 0
+      },
+      {
+        "id": "fsu-onf-dates",
+        "status": "success",
+        "adapter": "official-deadlines-v1",
+        "nextPollAt": "2026-11-04T06:00:00+00:00",
+        "lastSuccessAt": "2026-11-04T00:11:37.4+00:00",
+        "cadenceSeconds": 21600,
+        "retryNotBefore": null,
+        "consecutiveFailures": 0
+      },
+      {
+        "id": "fsu-opening-nights",
+        "status": "partial",
+        "adapter": "official-tickets-v1",
+        "nextPollAt": "2026-11-03T16:00:00+00:00",
+        "lastSuccessAt": "2026-11-03T15:11:25.457+00:00",
+        "cadenceSeconds": 3600,
+        "retryNotBefore": "2026-11-04T02:19:36.766679+00:00",
+        "consecutiveFailures": 8
+      }
+    ]
+  },
+  "costScope": "Run-level dashboard estimates; not invoice, total monthly charges or a paid upgrade. Other platform usage and browser Calendar reads are unmetered.",
+  "ownerUiCompleteVerified": false,
+  "laptopOffVerified": false,
+  "newRealFlyerUploaded": false,
+  "sourceContents": "Previously uploaded synthetic test slides",
+  "paidUpgrades": 0,
+  "modelCalls": 0,
+  "calendarWriteCalls": 0,
+  "stage2Accepted": false,
+  "privateScreenshots": [
+    "private/stage2-v4-child-production.jpg"
+  ],
+  "gaps": [
+    "Current Opening Nights status is partial with eight consecutive parser failures; replay-tested repair not yet deployed/recovered.",
+    "Human independent holdout, signed-other-user HTTP, isolated restore, independent core contention and other carried gates remain open."
+  ]
+}

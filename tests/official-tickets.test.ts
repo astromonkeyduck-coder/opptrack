@@ -181,3 +181,68 @@ test("elapsed budget is checked before issuing another detail request", async t 
   assert.equal(result.status, "partial"); assert.equal(requests, 1);
   assert.match(result.reason!, /before another request/); assert.equal(result.cursor, null);
 });
+
+// These two action elements were observed in the live rendered official DOM on
+// November 4. The surrounding synthetic document is a reconstruction, not an
+// original HTTP response or a human-reviewed extraction accuracy label.
+const audienceAction = (href = target, text = "Sponsors and Members Click Here For Tickets") => `<a class="btn btn-white-outline dr-show-action" href="${href}">${text}</a>`;
+const withAudienceAction = (body: string, action = audienceAction(), before = false) => body.replace('<div class="dr-show-hero-actions">', `<div class="dr-show-hero-actions">${before ? action : ""}`).replace('</div></main>', `${before ? "" : action}</div></main>`);
+
+test("observed DOM notice scopes preserve an announced release beside an explicitly restricted ticket link", async () => {
+  const { batch, requests } = await collect(page(card()), withAudienceAction(detail()));
+  assert.equal(batch.status, "success"); assert.deepEqual(requests, [OPENING_NIGHTS_LISTING_URL, show]);
+  const notice = batch.milestones![0];
+  assert.equal(notice.kind, "ticket_release"); assert.equal(notice.availability, "announced_release");
+  assert.equal(notice.occursOn, "2026-11-30"); assert.equal(notice.occursAt, null); assert.equal(notice.timezone, null);
+  assert.match(notice.uncertainty!, /Sponsors and Members Click Here For Tickets/);
+  assert.ok(notice.uncertainty!.includes(target));
+  assert.match(notice.uncertainty!, /do not establish your eligibility, an unrestricted sale, available seats or an earlier release/);
+  assert.ok(batch.observations.warnings.some(message => message.includes("audience-labeled")));
+  assert.doesNotThrow(() => assertOfficialTicketEvidence(batch.sourceId, notice, batch.pages[1]));
+});
+
+test("audience scoping is independent of DOM order and never changes native event or notice identities", async () => {
+  const baseline = (await collect()).batch;
+  const after = (await collect(page(card()), withAudienceAction(detail()))).batch;
+  const before = (await collect(page(card()), withAudienceAction(detail(), audienceAction(), true))).batch;
+  assert.equal(after.status, "success"); assert.equal(before.status, "success");
+  assert.deepEqual(after.milestones, before.milestones);
+  assert.deepEqual(after.opportunities, baseline.opportunities); assert.deepEqual(after.occurrences, baseline.occurrences);
+  assert.equal(after.milestones![0].nativeId, baseline.milestones![0].nativeId);
+  assert.notEqual(after.milestones![0].contentSha256, baseline.milestones![0].contentSha256, "New restricted source claim has its own semantic revision.");
+});
+
+test("restricted-only access stays unknown and does not become an unrestricted link or release", async () => {
+  const batch = (await collect(page(card()), withAudienceAction(detail("")))).batch;
+  assert.equal(batch.status, "success"); const notice = batch.milestones![0];
+  assert.equal(notice.kind, "ticket_link"); assert.equal(notice.availability, "unknown"); assert.equal(notice.actionUrl, null);
+  assert.equal(notice.occursOn, null); assert.equal(notice.occursAt, null); assert.equal(notice.sourceLocalText, null);
+  assert.match(notice.uncertainty!, /Sponsors and Members/);
+});
+
+test("an active restricted link never supplies a missing year for a general sale notice", async () => {
+  const batch = (await collect(page(card()), withAudienceAction(detail("Tickets go on sale Nov 30 at 11:00 AM")))).batch;
+  assert.equal(batch.status, "partial"); assert.equal(batch.milestones!.length, 0);
+  assert.equal(batch.observations.paginationComplete, false); assert.match(batch.reason!, /unsupported notice/);
+});
+
+test("conflicting unscoped releases remain incomplete despite a restricted action", async () => {
+  const extra = `<a class="dr-show-action disabled" href="${target}">Tickets go on sale Dec 2, 2026 at 10:00 AM</a>${audienceAction()}`;
+  for (const first of [true, false]) {
+    const batch = (await collect(page(card()), withAudienceAction(detail(), extra, first))).batch;
+    assert.equal(batch.status, "partial"); assert.equal(batch.milestones!.length, 0); assert.match(batch.reason!, /ambiguous ticket notices/);
+    assert.equal(batch.cursor, null); assert.equal(batch.observations.paginationComplete, false);
+  }
+});
+
+test("two general ticket targets are still ambiguous and unrecognized audience copy is not discarded", async () => {
+  for (const extra of [`<a class="dr-show-action" href="${target.replace('1234', '5678')}">GET TICKETS</a>${audienceAction()}`, audienceAction(target, "Members can buy tickets now")]) {
+    const batch = (await collect(page(card()), withAudienceAction(detail("GET TICKETS", false), extra))).batch;
+    assert.equal(batch.status, "partial"); assert.equal(batch.milestones!.length, 0); assert.match(batch.reason!, /ambiguous ticket notices/);
+  }
+});
+
+test("restricted ticket targets obey the original URL allowlist and are never fetched", async () => {
+  const { batch, requests } = await collect(page(card()), withAudienceAction(detail(), audienceAction("https://attacker.invalid/cart")));
+  assert.equal(batch.status, "partial"); assert.equal(requests.length, 2); assert.match(batch.reason!, /unrecognized ticket route/);
+});

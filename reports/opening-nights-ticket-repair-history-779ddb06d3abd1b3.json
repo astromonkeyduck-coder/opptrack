@@ -1,0 +1,181 @@
+{
+  "checkedAt": "2026-11-04T01:34:52.711Z",
+  "command": "node --import tsx scripts/prove-opening-nights-ticket-repair.ts",
+  "sourceId": "fsu-opening-nights",
+  "parserVersion": "official-tickets-v1",
+  "evidenceClass": "Actual hosted public-source health metadata; current rendered DOM facts; offline raw-capture and DOM-reconstruction replays. Current full raw-HTTP collection remains unproven.",
+  "originalAdapter": {
+    "archive": "private/opening-nights-ticket-repair/adapter-before-repair.ts",
+    "sourceSha256": "321db61d92c1224787f6440bc0e647580a4c6e1f62c030db4268e7489ac72e50",
+    "baselineCommit": "fed65f7d0a876478b5c3e53af9de1260acace1fa",
+    "importableCopy": "private/opening-nights-ticket-repair/adapter-before-importable.ts",
+    "importResolutionOnlyChanged": true
+  },
+  "currentAdapter": {
+    "path": "lib/collection/official-tickets.ts",
+    "sourceSha256": "5d93aaea5dd2129d009c45cdb18773ef601e72b1daf33740265481a6954133b9"
+  },
+  "scriptSha256": "7af3b22769a7f28c7a07c6721255a667675b406320787de0576fe834a96e5001",
+  "observedFailure": {
+    "sourceHealth": "partial",
+    "consecutiveFailures": 8,
+    "lastSuccessAt": "2026-11-03T15:11:25.457+00:00",
+    "nextPollAt": "2026-11-03T16:00:00+00:00",
+    "retryNotBefore": "2026-11-04T02:19:36.766679+00:00",
+    "latestRun": {
+      "id": "3f6c8da9-dcc5-4bd8-8841-3a3aeec9a693",
+      "error": "Opening Nights detail has ambiguous ticket notices; collection is incomplete",
+      "outcome": "partial",
+      "requests": 9,
+      "startedAt": "2026-11-04T00:11:28.031+00:00",
+      "httpStatus": 200
+    },
+    "latestFailingDetail": {
+      "bytes": 87223,
+      "purged": false,
+      "sha256": "f61cebb189b79e83cfff5d80fc78c8c2bf388aae5b8e6bdee84354d2db59bd8f",
+      "nativeId": "detail:new-york-gilbert-and-sullivan-players-pirates-of-penzance",
+      "fetchedAt": "2026-11-04T00:11:30.359+00:00",
+      "sourceUrl": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance"
+    },
+    "providerRateLimitObservedInLastEight": false,
+    "diagnosis": "Two separate audience scopes were counted as competing general notices: a disabled explicit on-sale announcement and an explicitly Sponsor/Member-labeled action. This is not evidence of open unrestricted sales or inventory."
+  },
+  "recordedDom": {
+    "path": "private/opening-nights-ticket-repair/observed-dom-facts.json",
+    "sha256": "8648cb3ff1dd1e9af5a7a127d2084d64e0f9c39caf85300eff69e6989207c414",
+    "sourceUrl": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance",
+    "recordedAt": "2026-11-04T01:33:04.489Z",
+    "evidenceClass": "Read-only live rendered DOM observed through Chrome; normalized observed facts, not original HTTP bytes. No ticket actions clicked.",
+    "actions": [
+      {
+        "text": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+        "href": "https://tickets.openingnights.fsu.edu/main/seats/1362",
+        "class": "btn btn-primary dr-show-action disabled",
+        "role": "button",
+        "ariaDisabled": null
+      },
+      {
+        "text": "Sponsors and Members Click Here For Tickets",
+        "href": "https://tickets.openingnights.fsu.edu/main/seats/1362",
+        "class": "btn btn-white-outline dr-show-action",
+        "role": null,
+        "ariaDisabled": null
+      }
+    ],
+    "rawHttpBodyObtained": false
+  },
+  "rawProbeAttempts": {
+    "attempts": 4,
+    "responses": 0,
+    "receivedBytes": 0,
+    "knownCause": "ENOTFOUND",
+    "methods": [
+      "fetchPage in sandbox",
+      "fetchPage with approved escalation",
+      "underlying fetch cause diagnostic",
+      "separate Node runtime fetch"
+    ],
+    "completedCollection": false
+  },
+  "cachedWebReader": {
+    "sourceUrl": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance",
+    "reportedCrawled": "2 weeks ago",
+    "freshEvidence": false
+  },
+  "browserNavigation": {
+    "count": 1,
+    "rawCapture": false,
+    "subresourceBytesAndRequestCountMeasured": false,
+    "ticketActionsClicked": 0
+  },
+  "retainedRawReplay": {
+    "capturePath": "private/official-tickets-live/latest.json",
+    "captureSha256": "1ad191d18db282144981b31ac38b277b73c3962f9962a9ac37261f9a20dc2834",
+    "capturedAt": "2026-10-21T23:44:16.943Z",
+    "pages": 19,
+    "originalStatus": "success",
+    "repairedStatus": "success",
+    "opportunities": 18,
+    "occurrences": 18,
+    "milestones": 18,
+    "allNormalizedFactsAndNativeIdentitiesIdentical": true,
+    "evidenceItemsRevalidated": 54
+  },
+  "observedDomReconstruction": {
+    "evidenceClass": "Offline parser replay using actual observed rendered-DOM action facts and a constructed document wrapper; not raw HTTP integration or accuracy evaluation.",
+    "originalStatus": "partial",
+    "originalReason": "Opening Nights detail has ambiguous ticket notices; collection is incomplete",
+    "repairedStatus": "success",
+    "opportunityAndOccurrenceFactsUnchanged": true,
+    "stableOpportunityNativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance",
+    "stableOccurrenceNativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance#performance",
+    "stableMilestoneNativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance#ticket-notice",
+    "milestone": {
+      "nativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance#ticket-notice",
+      "opportunityNativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance",
+      "occurrenceNativeId": "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance#performance",
+      "kind": "ticket_release",
+      "occursAt": null,
+      "occursOn": "2026-11-30",
+      "sourceLocalText": "Tickets go on sale Nov 30, 2026 at 11:00 AM",
+      "timezone": null,
+      "availability": "announced_release",
+      "actionUrl": "https://tickets.openingnights.fsu.edu/main/seats/1362",
+      "uncertainty": "Organizer explicitly announces this local release date/time; timezone is unstated, so no instant/reminder is inferred. First announcement and actual inventory are unknown. Separate explicitly audience-labeled ticket actions: \"Sponsors and Members Click Here For Tickets\" (https://tickets.openingnights.fsu.edu/main/seats/1362). These links do not establish your eligibility, an unrestricted sale, available seats or an earlier release time.",
+      "contentSha256": "307eeb5a20d73f37ba3e7dbdffc77da3d9a6d8429bb1bcd7e40153e065b96630",
+      "captureNativeId": "detail:new-york-gilbert-and-sullivan-players-pirates-of-penzance",
+      "evidencePointer": "official-ticket:new-york-gilbert-and-sullivan-players-pirates-of-penzance:ticket-notice"
+    },
+    "warnings": [
+      "https://www.openingnights.fsu.edu/show-details/new-york-gilbert-and-sullivan-players-pirates-of-penzance: explicitly audience-labeled ticket links are preserved separately in notice uncertainty; eligibility, unrestricted sale and inventory remain unverified",
+      "Complete current organizer listing and every linked show detail only; no campus-wide ticket completeness",
+      "Ticket vendor URLs are retained as action links and never fetched; no seat availability, reservation or purchase",
+      "Sale dates are extracted only from explicit visible hero action copy with a year; timezone remains unknown",
+      "Semantic revisions record observed ticket-link/release changes; polling does not prove the first public announcement; disappearance never means sold out or cancellation"
+    ]
+  },
+  "safetyRules": [
+    "Explicit Sponsor/Member links remain quoted with their URL in notice uncertainty; they never establish this user's eligibility, inventory, unrestricted access or an earlier sale time.",
+    "Competing unscoped releases/links remain partial, regardless of DOM order. Unknown audience wording is not discarded.",
+    "A restricted-only route produces an unknown notice, without a general action URL or invented release.",
+    "Yearless/unsupported general sale copy still fails; timezone and exact instant remain unknown.",
+    "Original show, occurrence and single current notice native identities remain stable; new audience text can revise only the relevant notice facts.",
+    "Provider Retry-After and application cadence/backoff are not reset or changed."
+  ],
+  "deployment": {
+    "applied": false,
+    "sourceHealthCleared": false,
+    "scheduledRecoveryVerified": false,
+    "nextStep": "Deploy existing-source adapter, then wait for normal hourly dispatcher after the retained retry floor. Require actual full current listing/detail success before claiming recovered health."
+  },
+  "gaps": [
+    "Direct raw HTTP failed locally at DNS resolution; this is distinct from the hosted HTTP200 semantic failure.",
+    "The cached web-reader result is not current-source proof.",
+    "The current 17-show raw listing and every detail were not freshly collected under this investigation's cap; rendered DOM is not an original response capture.",
+    "The browser's automatic subresource requests/bytes were not metered; no claim that aggregate browser traffic fits the separate raw-probe byte cap.",
+    "This repair does not establish seat inventory, buyer eligibility or ticket release/announcement history.",
+    "No Stage2 human holdout or other acceptance gate was satisfied by this source repair."
+  ],
+  "boundaries": {
+    "actualSupabaseReadOnlySqlCalls": 2,
+    "databaseWrites": 0,
+    "authUsersCreated": 0,
+    "credentialsRead": false,
+    "storageReads": 0,
+    "ticketVendorRequestsByProbe": 0,
+    "ticketActionsClicked": 0,
+    "calendarCalls": 0,
+    "modelCalls": 0,
+    "paidConnectors": 0,
+    "cadenceChanges": 0,
+    "retryResets": 0,
+    "newSources": 0,
+    "holdoutAccess": false
+  },
+  "costs": {
+    "newPaidServices": 0,
+    "providerApiUsd": 0,
+    "readSqlAndBrowserNetworkComputeMeasured": false
+  }
+}

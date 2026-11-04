@@ -1,0 +1,146 @@
+{
+  "recordedAt": "2026-11-04T01:52:45.614168+00:00",
+  "extractor": "stage2-rules-v5",
+  "runtimeFiles": [
+    {
+      "file": "lib/extraction/contracts.ts",
+      "sha256": "96ae35bd9b29688a665d72bd80ef98f5db1d883b3f44bcaab614a295377a26fd"
+    },
+    {
+      "file": "lib/extraction/media-types.ts",
+      "sha256": "bc55ccc334b56a8a5b7a3662da1c6a76cf9427331e3067598939fa2ef51891fa"
+    },
+    {
+      "file": "lib/extraction/media-v2.ts",
+      "sha256": "9a87fe48dc066e98d54f504de940635de9915c03fd21978a2cbbd1849ca1744a"
+    },
+    {
+      "file": "lib/extraction/media.ts",
+      "sha256": "02a0a15e34ca8a82ff52feae494209b9d7aacf4ace053a149f92a3172434898b"
+    },
+    {
+      "file": "lib/extraction/public-probe.ts",
+      "sha256": "f7ddf3f35751b1d0801acee897b5ffa69f399c8543c8adf73253d4f43a41b310"
+    },
+    {
+      "file": "lib/extraction/reconciliation.ts",
+      "sha256": "4be9cf83d956be7b26d662234705fe92a2481ec6d93435f89a09e50e0041d783"
+    },
+    {
+      "file": "lib/extraction/structured-v5.ts",
+      "sha256": "17c2605a9ec824456b2e87ddebf57762155032a83a4dfc367f7a4642650e5fc8"
+    },
+    {
+      "file": "lib/extraction/structured.ts",
+      "sha256": "93d792d22622fb610a6dcc703220a883c86d51106893a8084713833c65d38c92"
+    },
+    {
+      "file": "lib/extraction/text-media-v4.ts",
+      "sha256": "b2ed69f9650633e6e77b0e5f33418d318cc9f8b096cd370c6a6351b83a865b29"
+    },
+    {
+      "file": "lib/extraction/text-media-v5.ts",
+      "sha256": "f094183ebf4475132bd949389954e74da93a8f949305380663cdb9f9bf3dd8e1"
+    },
+    {
+      "file": "lib/extraction/text-prose-v4.ts",
+      "sha256": "1b6bf3420e7d2c3fb4faca374b764594ae8b99db277b633841eb0cfd6c2122de"
+    },
+    {
+      "file": "lib/extraction/text-v1.ts",
+      "sha256": "2dc5376957c301ff56bc302ec60efdef2e96061922a5a75e86b60749b9c79c4a"
+    },
+    {
+      "file": "lib/extraction/text-v2.ts",
+      "sha256": "e4d30a79ac26bd48f7fced0e36e5aa35d4e2cd6046bfaf32c56180ac8fe4d4a2"
+    },
+    {
+      "file": "lib/extraction/text-v4.ts",
+      "sha256": "2e3fa233773a86e66f9353ece15323395e1033da07fd8b6e6fe02926de6dc58f"
+    },
+    {
+      "file": "lib/extraction/text-v5.ts",
+      "sha256": "8a5547e5e7f62bddad3477df9d4e4cf5047ac82c60806556e37c2e4bd2d70215"
+    },
+    {
+      "file": "lib/extraction/text.ts",
+      "sha256": "b145201710b0e8ee41e901b0937213554c517e14165ca081fac8a3f45b93b119"
+    },
+    {
+      "file": "lib/extraction/versions.ts",
+      "sha256": "2b91373f2cd30f982e9b1de17e64e51375736bcf840bfd65b9d5450bfb7c137f"
+    },
+    {
+      "file": "lib/extraction/worker.ts",
+      "sha256": "94a0885d59ff75b53d15dcb0a2a0bd31b7ff4e200a7d8b93e80022f6c3dfe387"
+    },
+    {
+      "file": "evaluation/stage2-source-only-transform-v3.ts",
+      "sha256": "54c977751f5ae925e94641aa20608c199afdb3a947d66d300c5db66308e0707b"
+    },
+    {
+      "file": "package.json",
+      "sha256": "c244a4dc99fc4971c255d93721f2e956f4189b0a0220584296643a61140d4dc7"
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "2191e6c16030acf0425b6aa771a2adda42aa936eedfcbaecde41e254dae188c8"
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "log": "private/stage2-v5-app-tests-final.log",
+      "logSha256": "193becec218c2de9e167c3426e589f890500208d2b46b974241b05bf16a0ecdc",
+      "passed": 618,
+      "failed": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "log": "private/stage2-v5-typecheck-final.log",
+      "logSha256": "474bb0d0d89efa88bf4764e5b5cb59d8bdc5b0c7178e303b712073b25c12ee4f"
+    },
+    {
+      "command": "npm run test:db",
+      "exitCode": 0,
+      "log": "private/stage2-v5-database-tests.log",
+      "logSha256": "ba038f8d61897ed620018a829e4389f967ae4c18a78ddda3f73604b52f872204"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "private/stage2-v5-build.log",
+      "logSha256": "85c2ee50804fdb625dcb4bb142d5e4d1132e8d97fc5b0a4d7be667357d4e9e0d"
+    },
+    {
+      "command": "make check",
+      "exitCode": 0,
+      "log": "private/stage2-v5-offline-check.log",
+      "logSha256": "e5835fa137f2cffe1521539f0378c1c57cc7661896431d182e6f80b98df257be",
+      "pythonTestsPassed": 63
+    },
+    {
+      "command": "node --import tsx scripts/compare-stage2-reviewed-v5.ts",
+      "exitCode": 1,
+      "log": "private/stage2-v5-unchanged-development.log",
+      "logSha256": "7750e3285844ff28ab3e9717bf3dd5b0aaed2d01a9bf861b5aa9b7fc4202bddb",
+      "meaning": "Intentional unchanged-reference development failure, not an execution failure.265/314 scoped facts;49 misses;178 unscored outputs; strict completeness fails."
+    }
+  ],
+  "initialApplicationAttempt": {
+    "log": "private/stage2-v5-app-tests.log",
+    "passed": 616,
+    "failed": 1,
+    "cause": "A synthetic acceptance test still asserted v2 eligibility omission after transformv3 intentionally preserved it; regression now checks a genuinely unsupported doors metadata field and still requires original raw facts in annotation scope."
+  },
+  "nativeHeaderRepair": "reports/stage-2-v5-actual-native-unit-replay.json",
+  "localPolicyScope": "Actual PGlite PostgreSQL and synthetic owner/other-role fixtures; not hosted signed JWT/Storage HTTP/concurrency",
+  "mockedBehavior": "Synthetic application transports/fixtures, including618passing tests and62focused acceptance tests; they do not establish human extraction accuracy.",
+  "stage2Accepted": false,
+  "independentHoldoutRead": false,
+  "calendarWriteCalls": 0,
+  "modelCalls": 0,
+  "paidUpgrades": 0
+}

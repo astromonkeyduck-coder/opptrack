@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T01:02:45.059Z",
+  "command": "node --import tsx scripts/prepare-stage2-real-reconciliation-review.ts",
+  "version": "stage2-real-development-reconciliation-review-v1",
+  "packetId": "dd5f2cf51dd1c6b93883fb8722da529180e5e134cbb6396efdee02bb23700900",
+  "sourceSha256": "1490ce9d759e7e521c9ab1b9ce42872b37edcfcced6f1bb1355a1eb1714c50d4",
+  "status": "real_development_pair_proposals_ready_zero_human_pair_labels",
+  "counts": {
+    "approvedDevelopmentExamplesAllowed": 30,
+    "explicitCompleteNativeRecordsAvailable": 29,
+    "strongPositiveCandidatePool": 4,
+    "differentOccurrenceNegativeCandidatePool": 28,
+    "differentClubCandidatePool": 0,
+    "selectedPairs": 8,
+    "sameOccurrenceProposals": 4,
+    "separateOccurrenceProposals": 4,
+    "selectedNativeRecords": 10,
+    "selectedFrozenFamilies": 3,
+    "verifiedOriginalCaptures": 5,
+    "humanPairLabels": 0,
+    "syntheticPairsAdded": 0
+  },
+  "privateArtifacts": {
+    "directory": "private/stage2-reconciliation-review/dd5f2cf51dd1c6b9",
+    "packet": "private/stage2-reconciliation-review/dd5f2cf51dd1c6b9/packet.json",
+    "review": "private/stage2-reconciliation-review/dd5f2cf51dd1c6b9/review.md",
+    "packetSha256": "bde17ee87f97f16d0a5aa857874f3184b1b120d062c527aff15a70debcc82b77",
+    "reviewSha256": "5b216943de9dc48bbaaad5f169bd51e64450342161b29b3a4cd3aef2b5376d30",
+    "fileMode": "0600",
+    "directoryMode": "0700"
+  },
+  "pairs": [
+    {
+      "id": "real-reconcile-3cf10e033ee77c84",
+      "proposedRelation": "same_occurrence",
+      "category": "cross_source_explicit_authority_link_and_identical_interval",
+      "leftIdentitySha256": "2366d11f6532e28fc23c8dc5189d49f9a9d34f784e1b734e0f9fdd96038a8a35",
+      "rightIdentitySha256": "6b941b84af98642149933a5299b604080e0f7abbdc64c2458a425323ed302484",
+      "beforeAfterIdentitySnapshotSha256": "c1748683c47308c15bc3b7314024adcad50af70aec54dbef871057b73529cad5",
+      "humanDecision": null
+    },
+    {
+      "id": "real-reconcile-652f07c89bd46fe5",
+      "proposedRelation": "same_occurrence",
+      "category": "cross_source_explicit_authority_link_and_identical_interval",
+      "leftIdentitySha256": "e38a8a0fa5487d0ab300fa71f670026c133e63c5a7f2808d3d1094ef661a263a",
+      "rightIdentitySha256": "ab166aabdc9eb37ea260e506f2d185832001f99a7e9275b010e01dc67ac9051f",
+      "beforeAfterIdentitySnapshotSha256": "84c427cfec34b3194f36ffe9b789a5f3e0c6921b942ca81afaa05a8572e3c9da",
+      "humanDecision": null
+    },
+    {
+      "id": "real-reconcile-7bc1355a898ff9f8",
+      "proposedRelation": "same_occurrence",
+      "category": "cross_source_explicit_authority_link_and_identical_interval",
+      "leftIdentitySha256": "ac0b083a6ba3e6066884701f9b489d76b884ee66fb9d57d731989834c4c8ec95",
+      "rightIdentitySha256": "b381252c3ed85858ffe918695de1f316f64bd474ca0fd84fe600d82a3c7d14d9",
+      "beforeAfterIdentitySnapshotSha256": "7bfdc0f1bdf81b3cb6011b413d83b691021db98ddf7633cbf22260875ef3a5fd",
+      "humanDecision": null
+    },
+    {
+      "id": "real-reconcile-c4ff556b159d312b",
+      "proposedRelation": "same_occurrence",
+      "category": "cross_source_explicit_authority_link_and_identical_interval",
+      "leftIdentitySha256": "8cf59b2e8449c31a07e89084408f929425af6405af705671fe216e9cecb3dd13",
+      "rightIdentitySha256": "3e5e0737379690a549d9226f605180fb4b852aefb38e911366cd20bc75769d2f",
+      "beforeAfterIdentitySnapshotSha256": "99170ff81c18b4d2d71397477e8da67a466183a905ed54c94768562ebc55ab77",
+      "humanDecision": null
+    },
+    {
+      "id": "real-reconcile-690de37eb7e3bc3e",
+      "proposedRelation": "separate_occurrences",
+      "category": "same_title_different_explicit_event_ids_and_disjoint_intervals",
+      "leftIdentitySha256": "2366d11f6532e28fc23c8dc5189d49f9a9d34f784e1b734e0f9fdd96038a8a35",
+      "rightIdentitySha256": "ab166aabdc9eb37ea260e506f2d185832001f99a7e9275b010e01dc67ac9051f",
+      "beforeAfterIdentitySnapshotSha256": "9bfdd539e85bf9719dac614387c4e52d8da5e5961dc9f1aca5864e53ea6a2fa9",
+      "humanDecision": null
+    },
+    {
+      "id": "real-reconcile-ad71c746dfb7bc81",
+      "proposedRelation": "separate_occurrences",
+      "category": "same_title_different_explicit_event_ids_and_disjoint_intervals",
+      "leftIdentitySha256": "e38a8a0fa5487d0ab300fa71f670026c133e63c5a7f2808d3d1094ef661a263a",
+      "rightIdentitySha256": "6b941b84af98642149933a5299b604080e0f7abbdc64c2458a425323ed302484",
+      "beforeAfterIdentitySnapshotSha256": "3cd924c5032a0bbbd0738f69bf59c252f72258232788dfeb043e28855f7a82d9",
+      "humanDecision": null
+    },
+    {
+      "id": "real-reconcile-f1cb5b72d8b40e8c",
+      "proposedRelation": "separate_occurrences",
+      "category": "same_title_different_explicit_event_ids_and_disjoint_intervals",
+      "leftIdentitySha256": "ac0b083a6ba3e6066884701f9b489d76b884ee66fb9d57d731989834c4c8ec95",
+      "rightIdentitySha256": "1df556b481b3c0ac448e8e5bde13c7ee21be6e24c7f641ab4a8ba3ce433011d5",
+      "beforeAfterIdentitySnapshotSha256": "7229e09a0aa99ca6f833cdfa99500c307c2ee0b4da565e9e85e4a225df293fbd",
+      "humanDecision": null
+    },
+    {
+      "id": "real-reconcile-1e214667492dc4ae",
+      "proposedRelation": "separate_occurrences",
+      "category": "same_title_different_explicit_event_ids_and_disjoint_intervals",
+      "leftIdentitySha256": "ac0b083a6ba3e6066884701f9b489d76b884ee66fb9d57d731989834c4c8ec95",
+      "rightIdentitySha256": "85a7a4595a9dcc4d54ebcfba89e7e55903d634a527b934e737b434932dc96ebe",
+      "beforeAfterIdentitySnapshotSha256": "01d76f61c7019c0510cd2edccb2337c3a5fba387ee54451c70605782ec88c09f",
+      "humanDecision": null
+    }
+  ],
+  "excludedOrUnsupportedRecords": [
+    {
+      "exampleId": "public-review-002-108ec15688",
+      "sourceId": "fsu-music-events",
+      "reason": "No unique original source anchor for this occurrence."
+    },
+    {
+      "exampleId": "public-review-032-e86e2b68c9",
+      "sourceId": "fsu-opening-nights",
+      "reason": "No independently explicit complete interval/native-ID route supported for this review packet."
+    },
+    {
+      "exampleId": "public-review-067-d844eeaf38",
+      "sourceId": "fsu-calendar-api",
+      "reason": "A complete valid source interval and explicit event-specific HQ URL are required; partial/unknown values are not filled."
+    },
+    {
+      "exampleId": "public-review-067-d844eeaf38",
+      "sourceId": "fsu-calendar-api",
+      "reason": "A complete valid source interval and explicit event-specific HQ URL are required; partial/unknown values are not filled."
+    },
+    {
+      "exampleId": "public-review-033-0468722d86",
+      "sourceId": "fsu-opening-nights",
+      "reason": "No independently explicit complete interval/native-ID route supported for this review packet."
+    },
+    {
+      "exampleId": "public-review-076-b60e4e9ee3",
+      "sourceId": "fsu-calendar-api",
+      "reason": "A complete valid source interval and explicit event-specific HQ URL are required; partial/unknown values are not filled."
+    },
+    {
+      "exampleId": "public-review-077-0ea4dac6ce",
+      "sourceId": "fsu-calendar-api",
+      "reason": "A complete valid source interval and explicit event-specific HQ URL are required; partial/unknown values are not filled."
+    },
+    {
+      "exampleId": "public-review-068-1c62f687f5",
+      "sourceId": "fsu-calendar-api",
+      "reason": "A complete valid source interval and explicit event-specific HQ URL are required; partial/unknown values are not filled."
+    },
+    {
+      "exampleId": "public-review-068-1c62f687f5",
+      "sourceId": "fsu-calendar-api",
+      "reason": "A complete valid source interval and explicit event-specific HQ URL are required; partial/unknown values are not filled."
+    },
+    {
+      "exampleId": "public-review-070-03f4ccfcc5",
+      "sourceId": "fsu-calendar-api",
+      "reason": "A complete valid source interval and explicit event-specific HQ URL are required; partial/unknown values are not filled."
+    },
+    {
+      "exampleId": "public-review-003-173c87a9c0",
+      "sourceId": "fsu-music-events",
+      "reason": "No unique original source anchor for this occurrence."
+    },
+    {
+      "exampleId": "public-review-004-432531518d",
+      "sourceId": "fsu-music-events",
+      "reason": "No unique original source anchor for this occurrence."
+    },
+    {
+      "exampleId": "public-review-034-143fad4972",
+      "sourceId": "fsu-opening-nights",
+      "reason": "No independently explicit complete interval/native-ID route supported for this review packet."
+    },
+    {
+      "exampleId": "public-review-035-240b63dcf5",
+      "sourceId": "fsu-opening-nights",
+      "reason": "No independently explicit complete interval/native-ID route supported for this review packet."
+    },
+    {
+      "exampleId": "public-review-036-259ed35818",
+      "sourceId": "fsu-opening-nights",
+      "reason": "No independently explicit complete interval/native-ID route supported for this review packet."
+    }
+  ],
+  "coverageGaps": [
+    "No same-title/different-club hard negative can be asserted from this bounded approved set unless explicitly present; no fabricated clubs or pairs are added.",
+    "Date-only/unknown-time sources cannot prove identical instants and are excluded from strong positives.",
+    "These pairs cluster within three previously exposed source families and are not an acceptance holdout or a representative merge benchmark.",
+    "Native source status and local date may differ from older normalized references; original facts are preserved, not silently harmonized.",
+    "No actual decision/approval associations or exhaustive historical claims were queried; the preservation checklist is an expectation for later testing."
+  ],
+  "originalSourceAndLabelFilesChanged": false,
+  "existingSyntheticCasesOpened": false,
+  "existingSyntheticCasesRelabeled": false,
+  "runtimeFilesChanged": false,
+  "currentValidationChanged": false,
+  "providerCalls": 0,
+  "databaseCalls": 0,
+  "calendarCalls": 0,
+  "modelCalls": 0,
+  "holdoutRead": false,
+  "stage2Accepted": false,
+  "realReconciliationAccuracyEstablished": false
+}

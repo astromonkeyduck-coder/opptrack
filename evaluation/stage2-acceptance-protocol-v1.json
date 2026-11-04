@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "protocolId": "stage2-acceptance-protocol-v1",
+  "status": "representation_rules_confirmed_pending_candidate_freeze_and_independent_holdout_review",
+  "criteriaSources": {
+    "buildPackStage2": "FSU_Opportunity_Tracker_Build_Pack.txt:298-302",
+    "buildPackGeneralRelease": "FSU_Opportunity_Tracker_Build_Pack.txt:245-250",
+    "repository": "docs/stage-plan.md and docs/stage-2-evaluation.md",
+    "sizeWording": "Owner confirmed the stricter near100 independent human holdout target. The Stage2 roughly100 combined wording and historical provisional40 minimum remain recorded history;34 or40 alone does not pass."
+  },
+  "workingHumanHoldoutTarget": 100,
+  "minimumEventRecall": 0.95,
+  "minimumActionRecall": 0.95,
+  "maximumUnsupportedCriticalFacts": 0,
+  "maximumInventedEventActionUnits": 0,
+  "allPredictionFieldsMustBeHumanLabeled": true,
+  "completeEntitySetsRequired": true,
+  "fieldPrecision": "Report all labeled nonnull predictions, correct facts, unsupported facts, null abstentions, omissions and label coverage; no unscored extra prediction can be silently accepted.",
+  "denominators": {
+    "sourceObservation": "Each actual source observation is retained and evaluated with its literal source context.",
+    "canonical": "Separately human-identified distinct occurrences, milestones and resources; source aliases map to the same canonical unit only with reviewed evidence. Source observation counts and canonical occurrence counts are reported separately.",
+    "eventAndActionRecall": "Report event/action detection and strict critical-field completeness separately, with absolute misses and uncertainty; the strict minimum95% applies to represented, correct event/action units, not title-only detection.",
+    "negative": "Explicit human no-event/action judgment, never an empty output inferred from access/collection/processing failure.",
+    "reconciliation": "Report wrong merges, distinct performances merged, retained duplicates and unresolved pairs against separately reviewed relations; no physical merging or decision propagation is implied."
+  },
+  "humanContracts": {
+    "S1_status": "Confirmed representation rule: Missing event status remains unknown unless a provider contract affirmatively supports it; publishing visibility is separate.",
+    "S2_units": "Confirmed representation rule: Per-source extraction observations and canonical occurrence/reconciliation metrics remain separate.",
+    "S3_dates": "Confirmed representation rule: Literal source dates and event-local dates remain separate; conversions require a stated zone.",
+    "S4_ranges_partials": "Confirmed representation rule: Multi-day ranges and partial dates/clocks remain explicit; no missing year/day/instant is invented.",
+    "S5_family_exposure": "Confirmed representation rule: Connected organizer/opportunity/recurring/media families must stay in one split; the listed development aliases stay together.",
+    "S6_corpus_scope": "Confirmed representation rule: Use the stricter near-100 independent human holdout target;34 or40 alone does not pass."
+  },
+  "annotation": {
+    "origin": "human_direct_source_annotation",
+    "aiGoldProposalsAllowed": false,
+    "candidatePredictionsVisibleToLabeler": false,
+    "allSuppliedAssetsAndKnownPagesReviewed": true,
+    "unknowns": "Every critical field has an explicit known/unknown/not_applicable state. Null means an explicitly reviewed unknown/not-applicable value, never a missing annotation.",
+    "evidence": "Known facts require exact frozen text spans or original-media hash/page/region evidence. Structural validity and quote presence do not prove semantic entailment.",
+    "requiredEventFields": [
+      "title",
+      "date",
+      "startAt",
+      "endAt",
+      "timeZone",
+      "status",
+      "location",
+      "cost",
+      "eligibility"
+    ],
+    "requiredActionFields": [
+      "title",
+      "actionType",
+      "occursOn",
+      "occursAt",
+      "timeZone",
+      "availability",
+      "eligibility"
+    ],
+    "requiredResourceFields": [
+      "title",
+      "eligibility"
+    ],
+    "additionalPartialFields": "Preserve separately adjudicated source-date, event-local-date, date-range, local-clock, doors, deadline month/day/year/precision and competing source claims. The exact mapping/matcher must freeze before labels/predictions are opened.",
+    "originalSourceScope": "Original text is retained alongside the frozen transformed text. Human entity/field enumeration covers original supplied source content, including fields lost by a transform. A retained-field prediction needs exact citation in its actual transformed representation; raw and transformed offsets are not interchangeable.",
+    "criticalFieldRegistry": {
+      "artifact": "evaluation/stage2-acceptance-critical-fields.ts",
+      "rule": "Required fields and semantic temporal/partial/range/precision/phase/status/availability/cost/eligibility/venue/building/organizer/identity/routing fields must remain critical. Noncritical prose mistakes are reported without inventing an all-facts zero-error gate."
+    }
+  },
+  "releaseSequence": [
+    "Hash and freeze exact source custody/roster, runtime candidates, media implementation, native environment/limits, source-only transform, canonical matcher, scorer, protocol and selected prompts/config.",
+    "Bind the existing six-rule owner confirmation record to the freeze without asking again, then obtain the separate independent human whole-family/exposure review. Unknown/contaminated exposure or missing future annotations still blocks assignment and gold access.",
+    "Independent human directly labels all source observations, canonical units, explicit unknowns, negatives and relations, without AI factual proposals or candidate outputs. A curator validates structure/integrity without disclosing answers to runtime engineers.",
+    "Generate every frozen candidate prediction from source only, seal its digest, and claim the exclusive source-cohort scoring receipt before any scoring process reads gold.",
+    "Run one frozen holdout comparison. Retain every failed attempt. No tuning/relabeling/gate lowering after results; further candidate development needs a new independently sourced holdout."
+  ],
+  "candidates": {
+    "proposedSelected": "native-v5 deterministic extraction with native-media-v2 and source-only-text-v3; no model inference or prompt is required",
+    "promotionStatus": "unselected_for_acceptance_until_frozen_human_holdout_gates_pass",
+    "disqualifiedDevelopmentOnly": {
+      "model": "Qwen2.5-0.5B-Instruct q4",
+      "prompts": [
+        "schema-first-v1",
+        "evidence-first-v1"
+      ],
+      "consumedGenerations": 20,
+      "validatedOutputs": 0,
+      "holdoutInferenceAuthorized": false
+    }
+  },
+  "unchangedBoundaries": [
+    "No old scorer, label or gate is changed by this protocol or six-rule confirmation. New source-backed development projections must preserve old artifacts and disclose representation changes separately from runtime improvements.",
+    "No automatic calendar addition, Meta repair, paid API/upgrade, new Auth user or later-stage work.",
+    "True social carousel/image/video access is unproven and cannot be replaced by a PDF coverage claim.",
+    "A scored threshold does not alone establish Stage2 acceptance or waive carried Stage1 gates."
+  ],
+  "stage2Accepted": false,
+  "representationRuleConfirmation": {
+    "confirmed": true,
+    "confirmedRuleCount": 6,
+    "recordPath": "reports/stage-2-owner-contract-adjudication.json",
+    "recordSha256": "838fc01fbbde680f42f97fa78b71d14607f6ec205214e19a8bbff2e2525f546f",
+    "reviewSheetSha256": "f05f29442317080c239407badbe752a75a06a2e8c025d1ce68714279e4974eb2",
+    "confirmationRecordedAt": "2026-11-03T21:06:43.117582+00:00",
+    "exactHumanReviewTimeKnown": false,
+    "scope": "Six source-representation rules only. No future holdout grouping/exposure/annotation, label rewrite, prediction or Stage2 acceptance approval.",
+    "repeatConfirmationRequired": false
+  },
+  "finalBinding": {
+    "readyForSyntheticValidation": true,
+    "matcher": "evaluation/stage2-acceptance-matcher.ts",
+    "scorer": "evaluation/stage2-acceptance-scorer.ts",
+    "sourceOnlyRunner": "evaluation/stage2-acceptance-runner.ts",
+    "canonicalProjection": "evaluation/stage2-acceptance-canonical.ts",
+    "actualFreezeCreated": false,
+    "actualHumanHoldoutRun": false,
+    "sourceTransform": "evaluation/stage2-source-only-transform-v3.ts",
+    "criticalFields": "evaluation/stage2-acceptance-critical-fields.ts",
+    "reconciliation": "evaluation/stage2-acceptance-reconciliation.ts"
+  },
+  "coverageGates": {
+    "humanReviewedCases": 100,
+    "humanNegativeCasesMinimum": 1,
+    "humanCanonicalDuplicateGroupsMinimum": 1,
+    "humanDistinctPerformanceRelationsMinimum": 1,
+    "humanNonduplicateRelationsMinimum": 1,
+    "purpose": "Prevent vacuous extraction/reconciliation passes; these are source-backed human strata, never labels inferred from empty predictions. No old evaluation gate is changed."
+  },
+  "canonicalComparison": {
+    "projection": "Actual source predictions are scored against exhaustive source observations first. Canonical correct-unit recall separately requires one complete correctly matched source candidate to represent the human canonical unit; partial candidates are never blended. Canonical date uses an explicit event/action-local date when emitted or a valid instant plus a stated named/fixed zone. No offset alone invents campus-local date. Without that information the canonical date abstains; date-only facts retain their explicit literal date.",
+    "fieldAccounting": "Every actual nonnull source prediction is human labeled and scored. Canonical comparison uses the human canonical field scope only, rather than relabeling all source-specific claims as new canonical runtime claims. Canonical disagreements/misses are separate diagnostics and correct-unit recall; source-field quality gates remain on actual source outputs.",
+    "reconciliation": "Duplicate membership is supplied by human canonical associations. Distinct-unit relations are explicitly human reviewed. Duplicate/conflicting unordered relation labels and same-occurrence aliases split across canonical IDs are invalid. Human unresolved truth with an unresolved proposal is reported as correct uncertainty abstention; unresolved predictions on resolved truth and invented resolutions still fail. The frozen production adapter proposes positive same-occurrence suggestions only. A human-reviewed negative pair with no positive suggestion is a keep-separate outcome, not a runtime claim of semantic different. Missing positive duplicate suggestions remain retained duplicates/misses. Expected blocked challenges are reported separately and never counted as semantic negatives."
+  }
+}

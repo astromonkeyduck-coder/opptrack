@@ -69,24 +69,36 @@ export function openingNightsCards(body: string): OpeningNightsCard[] {
   });
   return cards;
 }
-interface Notice { actionUrl: string | null; availability: string; releaseDate: string | null; releaseText: string | null }
+interface Notice { actionUrl: string | null; availability: string; releaseDate: string | null; releaseText: string | null; restrictedNotices?: string[] }
 function ticketNotice(body: string, expectedTitle: string): Notice {
   const $ = html(body), titles = $("main .dr-show-hero-copy h1");
   if (titles.length !== 1 || clean(titles.text()).toLowerCase() !== expectedTitle.toLowerCase()) invalid("detail title does not match its listing card");
   const actions = $("main .dr-show-hero-actions a.dr-show-action");
   const ticketActions = actions.filter((_, element) => /tickets|on sale|sold out|waitlist|unavailable/i.test(clean($(element).text())));
-  if (ticketActions.length > 1) invalid("detail has ambiguous ticket notices");
-  if (!ticketActions.length) return { actionUrl: null, availability: "unknown", releaseDate: null, releaseText: null };
-  const action = ticketActions.first(), text = clean(action.text()), target = actionUrl(action.attr("href"));
+  if (ticketActions.length > 8) invalid("detail exceeds the bounded ticket-notice limit");
+  // An explicitly audience-labeled link is a separate source claim, not proof
+  // that the unscoped sale has opened. Preserve its exact copy and pinned URL
+  // in uncertainty; never select between competing unscoped notices by order.
+  const restrictedLabel = /^(?:Sponsors?(?: and Members?)?|Members?(?: and Sponsors?)?) Click Here For Tickets$/i;
+  const restricted = ticketActions.filter((_, element) => restrictedLabel.test(clean($(element).text())));
+  const restrictedNotices = restricted.map((_, element) => {
+    const action = $(element), text = clean(action.text()), target = actionUrl(action.attr("href"));
+    if (!target) invalid("audience-labeled ticket notice has no verified action URL");
+    return `"${text}" (${target})`;
+  }).get().sort();
+  const unscoped = ticketActions.filter((_, element) => !restrictedLabel.test(clean($(element).text())));
+  if (unscoped.length > 1) invalid("detail has ambiguous ticket notices");
+  if (!unscoped.length) return { actionUrl: null, availability: "unknown", releaseDate: null, releaseText: null, restrictedNotices };
+  const action = unscoped.first(), text = clean(action.text()), target = actionUrl(action.attr("href"));
   const release = text.match(/^Tickets go on sale\s+([A-Za-z]{3,9}) (\d{1,2}), (20\d{2}) at (\d{1,2}):(\d{2}) (AM|PM)$/i);
   if (release) {
     if (+release[4] < 1 || +release[4] > 12 || +release[5] > 59) invalid("release notice contains an invalid local clock");
-    return { actionUrl: target, availability: "announced_release", releaseDate: date(release[1], release[2], release[3]), releaseText: text };
+    return { actionUrl: target, availability: "announced_release", releaseDate: date(release[1], release[2], release[3]), releaseText: text, restrictedNotices };
   }
   if (/on sale|tickets go|sale begins|sale opens|sold out|waitlist|unavailable/i.test(text)) invalid("ticket status changed to an unsupported notice; no availability was guessed");
   if (/^(?:buy|get) tickets$/i.test(text) && !action.hasClass("disabled") && action.attr("aria-disabled") !== "true") {
     if (!target) invalid("active ticket notice has no valid action URL");
-    return { actionUrl: target, availability: "link_observed", releaseDate: null, releaseText: null };
+    return { actionUrl: target, availability: "link_observed", releaseDate: null, releaseText: null, restrictedNotices };
   }
   invalid("ticket action no longer matches the verified notice format");
 }
@@ -101,7 +113,9 @@ function occurrenceFacts(card: OpeningNightsCard): Omit<NormalizedOccurrence, Ev
 }
 function milestoneFacts(nativeUrl: string, notice: Notice): Omit<NormalizedMilestone, EvidenceMetadata> {
   const kind = notice.releaseDate ? "ticket_release" : "ticket_link";
-  return { nativeId: `${nativeUrl}#ticket-notice`, opportunityNativeId: nativeUrl, occurrenceNativeId: `${nativeUrl}#performance`, kind, occursAt: null, occursOn: notice.releaseDate, sourceLocalText: notice.releaseText, timezone: null, availability: notice.availability, actionUrl: notice.actionUrl, uncertainty: kind === "ticket_release" ? "Organizer explicitly announces this local release date/time; timezone is unstated, so no instant/reminder is inferred. First announcement and actual inventory are unknown." : "Observed organizer link/notice only. Missing or disabled links do not mean sold out or cancellation. Prior release timing is no longer a current verified claim. Polling detects a later observed change, not the true first release time." };
+  const uncertainty = kind === "ticket_release" ? "Organizer explicitly announces this local release date/time; timezone is unstated, so no instant/reminder is inferred. First announcement and actual inventory are unknown." : "Observed organizer link/notice only. Missing or disabled links do not mean sold out or cancellation. Prior release timing is no longer a current verified claim. Polling detects a later observed change, not the true first release time.";
+  const restriction = notice.restrictedNotices?.length ? ` Separate explicitly audience-labeled ticket actions: ${notice.restrictedNotices.join("; ")}. These links do not establish your eligibility, an unrestricted sale, available seats or an earlier release time.` : "";
+  return { nativeId: `${nativeUrl}#ticket-notice`, opportunityNativeId: nativeUrl, occurrenceNativeId: `${nativeUrl}#performance`, kind, occursAt: null, occursOn: notice.releaseDate, sourceLocalText: notice.releaseText, timezone: null, availability: notice.availability, actionUrl: notice.actionUrl, uncertainty: uncertainty + restriction };
 }
 function assertExactFacts(item: EvidenceItem, expected: object): void {
   const actual = Object.fromEntries(Object.keys(expected).map(key => [key, (item as unknown as Record<string, unknown>)[key]]));
@@ -152,6 +166,7 @@ export async function collectOfficialTickets(options: CollectionOptions = {}): P
     batch.observations.nativeRows = cards.length;
     for (const card of cards) {
       const detail = await fetcher(card.nativeId, `detail:${card.slug}`), notice = ticketNotice(detail.body, card.title);
+      if (notice.restrictedNotices?.length) batch.observations.warnings.push(`${card.nativeId}: explicitly audience-labeled ticket links are preserved separately in notice uncertainty; eligibility, unrestricted sale and inventory remain unverified`);
       if (card.listingTicketUrl && notice.actionUrl !== card.listingTicketUrl) invalid("listing and detail ticket targets disagree; retry a stable snapshot");
       const facts = opportunityFacts(card);
       batch.opportunities.push({ ...facts, contentSha256: stableHash(facts), captureNativeId: listing.nativeId, evidencePointer: `official-ticket:${card.slug}:listing` });

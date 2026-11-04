@@ -66,13 +66,13 @@ test('saved source URLs are retained context and never fetched by an extraction 
 
 test('immutable job versions select their implementation and keep accurate result provenance', async () => {
   const f = fixture();
-  for (const version of ['stage2-rules-v1', 'stage2-rules-v2', 'stage2-rules-v3', 'stage2-rules-v4']) {
+  for (const version of ['stage2-rules-v1', 'stage2-rules-v2', 'stage2-rules-v3', 'stage2-rules-v4', 'stage2-rules-v5']) {
     const value = { ...job(), extractor_version: version };
     const result = await extractLeasedJob(value, f.client, { media: mediaSuccess });
     assert.deepEqual(result.candidates, extractCandidatesForVersion(version, [providedTextUnit(note)], {}));
     assert.equal(result.stats.engine, `injected-test-media-v1/${version}`);
   }
-  assert.equal(EXTRACTOR_VERSION, 'stage2-rules-v4');
+  assert.equal(EXTRACTOR_VERSION, 'stage2-rules-v5');
 });
 
 test('old queued jobs retain the deployed v1 doors/show interpretation while v2 resolves the explicit interval', async () => {
@@ -89,14 +89,27 @@ test('old queued jobs retain the deployed v1 doors/show interpretation while v2 
   assert.equal(v1.candidates[0].fields.status, null); assert.equal(v2.candidates[0].fields.status, null);
 });
 
-test('only v4 selects the new native processor by default while explicit media injection remains authoritative', async () => {
+test('only v4 and v5 select native2 by default while explicit media injection remains authoritative', async () => {
   const f = fixture();
   const old = await extractLeasedJob({ ...job(), extractor_version: 'stage2-rules-v3' }, f.client);
   const current = await extractLeasedJob({ ...job(), extractor_version: 'stage2-rules-v4' }, f.client);
   assert.match(old.stats.engine, /^native-media-v1\//); assert.match(current.stats.engine, /^native-media-v2\//);
   assert.equal(old.stats.processedPages, 0); assert.equal(current.stats.processedPages, 0);
+  const v5 = await extractLeasedJob({ ...job(), extractor_version: 'stage2-rules-v5' }, f.client);
+  assert.match(v5.stats.engine, /^native-media-v2\/.*\/stage2-rules-v5$/); assert.equal(v5.stats.processedPages, 0);
   const injected = await extractLeasedJob({ ...job(), extractor_version: 'stage2-rules-v4' }, f.client, { media: mediaSuccess });
   assert.equal(injected.stats.engine, 'injected-test-media-v1/stage2-rules-v4'); assert.equal(f.downloads.length, 0);
+});
+
+test('v5 private note worker retains explicit record metadata while v4 keeps its original omission', async () => {
+  const f = fixture();
+  const source = 'Title: Synthetic Campus Workshop\nStart: 2026-11-20T18:00:00-05:00\nEnd: 2026-11-20T19:00:00-05:00\nPrice: Free\nEligibility: FSU students\nOrganizer: Campus Arts Council';
+  const old = await extractLeasedJob({ ...job([], { note: source }), extractor_version: 'stage2-rules-v4' }, f.client, { media: mediaSuccess });
+  const current = await extractLeasedJob({ ...job([], { note: source }), extractor_version: 'stage2-rules-v5' }, f.client, { media: mediaSuccess });
+  assert.equal(old.candidates[0].fields.price, undefined); assert.equal(current.candidates[0].fields.price, 'Free');
+  assert.equal(current.candidates[0].fields.eligibility, 'FSU students'); assert.equal(current.candidates[0].fields.organizer, 'Campus Arts Council');
+  assert.equal(current.stats.processedPages, 0); assert.equal(current.stats.expectedAssets, 0); assert.equal(f.downloads.length, 0);
+  assert.deepEqual(validateExtractionResult(current), current);
 });
 
 test('queued v2 keeps its recorded interpretation while v3 withholds contradictory structured starts', async () => {

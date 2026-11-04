@@ -1,0 +1,98 @@
+{
+  "recordedAt": "2026-11-04T01:49:03.378Z",
+  "status": "ready_for_root_review_not_hosted_rollout",
+  "scope": "V5 explicit structured record metadata; v1–v4 implementations and native2 are preserved. Root separately owns the new media5 processor-header title guard.",
+  "ownedFileSha256": {
+    "lib/extraction/structured-v5.ts": "17c2605a9ec824456b2e87ddebf57762155032a83a4dfc367f7a4642650e5fc8",
+    "lib/extraction/text-v5.ts": "8a5547e5e7f62bddad3477df9d4e4cf5047ac82c60806556e37c2e4bd2d70215",
+    "lib/extraction/contracts.ts": "96ae35bd9b29688a665d72bd80ef98f5db1d883b3f44bcaab614a295377a26fd",
+    "lib/extraction/versions.ts": "2b91373f2cd30f982e9b1de17e64e51375736bcf840bfd65b9d5450bfb7c137f",
+    "lib/extraction/worker.ts": "94a0885d59ff75b53d15dcb0a2a0bd31b7ff4e200a7d8b93e80022f6c3dfe387",
+    "tests/extraction-structured-v5.test.ts": "9ddaccbf04740e5e5ddbd310356548d8614fb571f5c29cbbbffa3d592d5759f6",
+    "tests/extraction-worker.test.ts": "6225a0d68de747944bc46a5393240aa9fa74486a5601e76bbb2a5e074ed3a4fb",
+    "scripts/test-stage2-v5-versioning.mjs": "0af5d94d6c7d7300645c5e63a453c66033228354660190058f0a4ae673e4055f",
+    "supabase/migrations/20261104014240_stage2_extractor_v5.sql": "dbe008f56dd10bf3ee6c6eef5c0bfa43ff8684e2135d4014f15da26f95311b16",
+    "package.json": "c244a4dc99fc4971c255d93721f2e956f4189b0a0220584296643a61140d4dc7"
+  },
+  "immutableV4AndNative2Sha256": {
+    "lib/extraction/structured.ts": "93d792d22622fb610a6dcc703220a883c86d51106893a8084713833c65d38c92",
+    "lib/extraction/text-v4.ts": "2e3fa233773a86e66f9353ece15323395e1033da07fd8b6e6fe02926de6dc58f",
+    "lib/extraction/text-prose-v4.ts": "1b6bf3420e7d2c3fb4faca374b764594ae8b99db277b633841eb0cfd6c2122de",
+    "lib/extraction/text-media-v4.ts": "b2ed69f9650633e6e77b0e5f33418d318cc9f8b096cd370c6a6351b83a865b29",
+    "lib/extraction/media-v2.ts": "9a87fe48dc066e98d54f504de940635de9915c03fd21978a2cbbd1849ca1744a"
+  },
+  "supportedVersions": [
+    "stage2-rules-v1",
+    "stage2-rules-v2",
+    "stage2-rules-v3",
+    "stage2-rules-v4",
+    "stage2-rules-v5"
+  ],
+  "latestDefault": "stage2-rules-v5",
+  "metadataRules": [
+    "Only explicit same-record Price/Cost, Eligibility and Organizer fields become literal claims with exact original UTF16 evidence offsets. Price is literal source copy, not an inferred numeric/currency/free flag.",
+    "Missing, unknown, conflicting, malformed or unsupported price/eligibility parameter semantics stay null and reviewable. Free:false never produces a price.",
+    "Description continuations are not promoted to structured metadata or spread into another record. Explicit fields should precede Description or follow a subsequent core Start/End boundary.",
+    "ICS properties remain within their own VEVENT. Explicit organizer CN display text is evidence-backed; no other record, global venue or description fallback supplies missing metadata.",
+    "Only native ocr/pdf units bearing exact standalone processor headers delegate to the root-owned media5 wrapper before structured parsing. Provided-text remains literal."
+  ],
+  "migration": {
+    "path": "20261104014240_stage2_extractor_v5.sql",
+    "sha256": "dbe008f56dd10bf3ee6c6eef5c0bfa43ff8684e2135d4014f15da26f95311b16",
+    "generatedBy": "Official cached Supabase CLI2.121.0 migration new stage2_extractor_v5 after migration/new help discovery.",
+    "cliCommands": [
+      "SUPABASE_TELEMETRY_DISABLED=1 DO_NOT_TRACK=1 [cached official CLI] --version",
+      "SUPABASE_TELEMETRY_DISABLED=1 DO_NOT_TRACK=1 [cached official CLI] migration --help",
+      "SUPABASE_TELEMETRY_DISABLED=1 DO_NOT_TRACK=1 [cached official CLI] migration new --help",
+      "SUPABASE_TELEMETRY_DISABLED=1 DO_NOT_TRACK=1 [cached official CLI] migration new stage2_extractor_v5"
+    ],
+    "cliUpgrade": false,
+    "homeVariableChanged": false,
+    "hostedApplied": false,
+    "changes": "Only supported version lists1–5 and default5 in existing enqueue/claim functions; no row/table/RLS/budget rewrite."
+  },
+  "validation": [
+    {
+      "command": "node --import tsx --test tests/extraction-structured-v5.test.ts tests/extraction-worker.test.ts tests/extraction-versioning.test.ts",
+      "exitCode": 0,
+      "passed": 33,
+      "failed": 0,
+      "fixtureClass": "Synthetic explicit source units and mocked worker transports; exact immutable source-byte tests. No native image inference performed."
+    },
+    {
+      "command": "node scripts/test-stage2-v5-versioning.mjs",
+      "exitCode": 0,
+      "passed": 8,
+      "report": "reports/stage-2-v5-versioning-database-tests.json",
+      "reportSha256": "7f21e8e6fac7caad33c5cdda5276c38b25182b0daf66a171591eee282abed79d",
+      "fixtureClass": "Local synthetic sole owner, completed v1/v2/v3/v4 history, queued v4/current v5, deliberately unsupported privileged row. No hosted state or provider calls."
+    },
+    {
+      "command": "./node_modules/.bin/tsc --noEmit",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "deploymentRisks": [
+    "Do not enqueue v5 before the worker implementing v5 is deployed. Historical clients/queued jobs1–4 remain supported and are not automatically reprocessed.",
+    "Root must finish its media5 focused checks and run the integrated full application/database/build checks before rollout. This report is not global runtime freeze or hosted execution proof.",
+    "Owner-source metadata checks are new synthetic regressions, not measured accuracy gains on the old human-reviewed development set. No holdout/reference/gold changes were made."
+  ],
+  "bounds": {
+    "newJobsPerOwnerUtcDay": 2,
+    "visualPagesPerOwnerUtcDay": 12,
+    "hostedWrites": 0,
+    "hostedAuthUsersCreated": 0,
+    "credentialReads": 0,
+    "providerModelCalls": 0,
+    "googleCalls": 0,
+    "paidUpgrades": 0,
+    "metaRepair": false,
+    "holdoutRead": false,
+    "calendarAutomaticAdditions": false
+  },
+  "stage2Accepted": false
+}

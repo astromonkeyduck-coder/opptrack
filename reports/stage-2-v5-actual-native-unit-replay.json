@@ -1,0 +1,16 @@
+{
+  "recordedAt": "2026-11-04T01:47:37.540Z",
+  "evidenceClass": "Source-only local replay of actual hosted native2 units, synthetic slide contents; not new hostedv5 run or human accuracy evaluation",
+  "hostedJobId": "5aab53bd-b30c-4999-9093-2cc931ba6bd3",
+  "originalUnitsSha256": "c86431b003107eb2d7e85f1ca1c48b39ce992c07ccf637d2d1202172fbb24e22",
+  "oldTitleProcessorHeaderCount": 3,
+  "newTitleProcessorHeaderCount": 0,
+  "oldCandidateCount": 3,
+  "newCandidateCount": 3,
+  "originalBytesProvenancePreserved": true,
+  "evidenceValidatorPassed": true,
+  "networkCalls": 0,
+  "modelCalls": 0,
+  "calendarCalls": 0,
+  "stage2Accepted": false
+}

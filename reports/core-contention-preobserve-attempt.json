@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T01:01:18.056911+00:00",
+  "method": "Natural due-row rollback A; read-only 20-second B preobservation before table locks; exact before/after fingerprints.",
+  "before": {
+    "scope": "Read-only full-row fingerprints. Separate A/B observations prove only concurrent installed core source leasing; not extraction contention, HTTP, backup restore or laptop-off execution.",
+    "sources": {
+      "rows": 89,
+      "sha256": "26ec8c0e9fb1a9232f2a35762b8c76a266be024a4673f2c4cf12f8fbe95b3542"
+    },
+    "decisions": {
+      "rows": 58,
+      "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+    },
+    "backendPid": 1464221,
+    "observedAt": "2026-11-04T01:00:30.685626+00:00",
+    "sourceRuns": {
+      "rows": 2008,
+      "sha256": "ada364cd0dbfd051ea94c2ed833fcaf215afc0eed82fdc4d78b0b13fce769caf"
+    },
+    "dueCoreSources": [
+      {
+        "sourceId": "fsu-calendar-api",
+        "nextDueAt": "2026-11-04T01:00:00+00:00"
+      }
+    ],
+    "committedLeases": 0,
+    "calendarCommands": {
+      "rows": 1,
+      "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+    }
+  },
+  "after": {
+    "scope": "Read-only full-row fingerprints. Separate A/B observations prove only concurrent installed core source leasing; not extraction contention, HTTP, backup restore or laptop-off execution.",
+    "sources": {
+      "rows": 89,
+      "sha256": "26ec8c0e9fb1a9232f2a35762b8c76a266be024a4673f2c4cf12f8fbe95b3542"
+    },
+    "decisions": {
+      "rows": 58,
+      "sha256": "5d84b9ce215d62fc5154396ae03b51b0a30ddb3d72488114315894ad586d91a7"
+    },
+    "backendPid": 1464234,
+    "observedAt": "2026-11-04T01:01:18.056911+00:00",
+    "sourceRuns": {
+      "rows": 2008,
+      "sha256": "ada364cd0dbfd051ea94c2ed833fcaf215afc0eed82fdc4d78b0b13fce769caf"
+    },
+    "dueCoreSources": [
+      {
+        "sourceId": "fsu-calendar-api",
+        "nextDueAt": "2026-11-04T01:00:00+00:00"
+      }
+    ],
+    "committedLeases": 0,
+    "calendarCommands": {
+      "rows": 1,
+      "sha256": "f505dad49dd889241cc206a28a73e5ae9c162f2c8492ea3740d445c3d66b3a37"
+    }
+  },
+  "sessions": [
+    {
+      "session": "A",
+      "result": {
+        "core_contention_a": {
+          "session": "A",
+          "startedAt": "2026-11-04T01:00:35.989165+00:00",
+          "backendPid": 1464223,
+          "finishedAt": "2026-11-04T01:00:44.265988+00:00",
+          "afterSleepAt": "2026-11-04T01:00:44.136655+00:00",
+          "sleepSeconds": 8,
+          "calendarCalls": 0,
+          "heldSourceIds": [
+            "fsu-calendar-api"
+          ],
+          "persistentWrites": 0,
+          "collectionHttpCalls": 0,
+          "dueSourceIdsAtStart": [
+            "fsu-calendar-api"
+          ],
+          "sourcesBeforeSha256": "26ec8c0e9fb1a9232f2a35762b8c76a266be024a4673f2c4cf12f8fbe95b3542",
+          "protectedBeforeSha256": "85a616202a4c01e8bf00d1013de3d416f4beabad3da37c08b18bc3051e4db2bb",
+          "otherSourceRowsPreserved": true,
+          "runsDecisionsCalendarPreserved": true,
+          "requiresIndependentBObservation": true,
+          "leaseFunctionOidsAclsDefinitionsPreserved": true
+        }
+      }
+    },
+    {
+      "session": "B",
+      "result": {
+        "error": {
+          "name": "HttpException",
+          "message": "Failed to run sql query: ERROR:  P0001: No independent A observed before table locks\nCONTEXT:  PL/pgSQL function inline_code_block line 8 at RAISE\n"
+        }
+      }
+    }
+  ],
+  "completeFingerprintsPreserved": true,
+  "passed": false,
+  "status": "A claimed naturally due Central and rolled back; B did not observe overlap. Independent-session contention remains unproven.",
+  "persistentWrites": 0,
+  "calendarCalls": 0,
+  "sourceScheduleChanged": false,
+  "nextMethod": "Do not repeat timing guesses over this tool route; require a different proven independent-session route. Do not reset leases, cadence or quotas."
+}

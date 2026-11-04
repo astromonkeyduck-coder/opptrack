@@ -1,0 +1,114 @@
+{
+  "preparedAt": "2026-11-04T01:15:29.318Z",
+  "evidenceClass": "Preparation and synthetic mocked HTTP guard tests only; no live Auth, Storage or database request executed.",
+  "script": "scripts/check-stage2-signed-user-http.mjs",
+  "scriptSha256": "941ceda3276b3476e3d5ed85c2ab930a8a437cd4864f9afa12da21c5535bd22e",
+  "tests": "tests/stage2-signed-user-http.test.ts",
+  "testSha256": "9455fc8c363dd56ab7b2f4dd16ed7b3fd2087c0cd3ea2937bc7ae5753a5c1e4a",
+  "mockTests": {
+    "passed": 23,
+    "failed": 0,
+    "liveEvidence": false
+  },
+  "credentialFile": {
+    "path": ".env.stage2-access-check.local",
+    "mode": "600",
+    "gitignored": true,
+    "createdWithEmptyPlaceholders": true,
+    "existingValuesOverwritten": false,
+    "publishableKey": true,
+    "ownerEmail": false,
+    "ownerPassword": false,
+    "otherEmail": false,
+    "otherPassword": false,
+    "readyForExplicitLiveRun": false
+  },
+  "oldCheckerPreservation": {
+    "path": "scripts/check-stage2-private-storage-http.mjs",
+    "expectedSha256": "b8e95c347ab4d30e12d3a0c7af6569f305fb11aad8fbbd4ea986b3767ab701d4",
+    "actualSha256": "b8e95c347ab4d30e12d3a0c7af6569f305fb11aad8fbbd4ea986b3767ab701d4",
+    "unchanged": true,
+    "priorReportsModified": false
+  },
+  "validation": [
+    {
+      "command": "node scripts/check-stage2-signed-user-http.mjs --self-test",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "passed": true,
+      "privateLog": "private/stage2-signed-user-http-mock-tests.log",
+      "privateLogSha256": "7ceaafdc39d18df0e40e3431ca666f0cddc0c7d639eab51319b57a0bc814e1c3"
+    },
+    {
+      "command": "node scripts/check-stage2-signed-user-http.mjs --check-config",
+      "exitCode": 2,
+      "expectedExitCode": 2,
+      "passed": true,
+      "privateLog": "private/stage2-signed-user-http-config-check.log",
+      "privateLogSha256": "0a9bdfd8ef2345355f133f9216df25c762289bdc3450374ce6acf1f2a3122952"
+    },
+    {
+      "command": "./node_modules/.bin/tsc --noEmit",
+      "exitCode": 0,
+      "passed": true,
+      "privateLog": "private/stage2-signed-user-http-typecheck.log"
+    },
+    {
+      "command": "git check-ignore .env.stage2-access-check.local private/stage2-storage-http.env",
+      "exitCode": 0,
+      "passed": true
+    }
+  ],
+  "futureExplicitLiveCommand": "node scripts/check-stage2-signed-user-http.mjs --run-live",
+  "liveNotExecuted": true,
+  "actualRequests": 0,
+  "actualAuthMutations": 0,
+  "actualNewCost": 0,
+  "livePath": {
+    "origin": "https://nuywbvlcwetqjalqvxzb.supabase.co",
+    "maximumRequests": 20,
+    "plannedSuccessfulPathRequests": 16,
+    "mainDeadlineMs": 120000,
+    "perRequestTimeoutMs": 15000,
+    "cleanupTimeoutMsPerSession": 10000,
+    "maximumCreatedSessions": 2,
+    "maximumObjectBodyBytes": 4194304,
+    "maximumJsonBodyBytes": 65536,
+    "login": "Normal email/password Auth only from the ignored file; publishable API key only.",
+    "identity": "GET /auth/v1/user verifies exact existing known-object owner or distinct user; RPC is_tracker_member must return true for owner and false for other.",
+    "controls": "Owner must first read the exact known manual/extraction rows and match both original image byte sizes and SHA256 hashes. Other-user REST must return actual 200 empty row-filter results; Storage must return a recognized object/access denial. Gateway/JWT failures, arbitrary HTTP errors or missing owner controls do not pass.",
+    "cleanup": "Finally POST /auth/v1/logout?scope=local for only each session returned by this checker, even after policy/identity/body failure. Never global/others/admin logout, refresh, browser credential extraction or user creation.",
+    "reports": "Each explicit live run writes a new immutable sanitized timestamped report; no emails/passwords/tokens/object paths/user metadata/row bodies are saved."
+  },
+  "remainingAccessRequirements": [
+    "Owner must enter existing owner email/password directly into the private file; no credentials in chat.",
+    "A genuinely distinct existing Supabase Auth email/password user, not a tracker member, is required. The most recent recorded hosted audit had one Auth user; a second account is not established. This script does not create users or change membership/passwords.",
+    "After configuration and explicit live execution, owner body/REST and signed-nonmember denials remain unverified until the real requests succeed.",
+    "If MFA or another Auth policy prevents a plain password session, fail closed and report that requirement; do not bypass it."
+  ],
+  "limitations": [
+    "Mock tests do not establish hosted access-policy behavior.",
+    "Local logout revokes the created refresh session; already-issued access JWTs can remain valid until expiration. Tokens are discarded, never persisted.",
+    "The check reads two previously uploaded synthetic original objects and two known owner rows, not all private data or application cookie-session routes.",
+    "Owner browser download, phone layout, backup restoration, independent session contention and human holdout acceptance remain separate checks."
+  ],
+  "boundaries": {
+    "newAuthUsers": 0,
+    "passwordChanges": 0,
+    "serverKeysUsed": 0,
+    "browserCredentialExtraction": false,
+    "trackerWrites": 0,
+    "storageWrites": 0,
+    "calendarCalls": 0,
+    "modelCalls": 0,
+    "paidUpgrades": 0,
+    "holdoutAccess": false,
+    "runtimeFilesChanged": false
+  },
+  "references": [
+    "https://supabase.com/docs/reference/javascript/auth-signinwithpassword",
+    "https://supabase.com/docs/reference/javascript/auth-getuser",
+    "https://supabase.com/docs/reference/javascript/auth-signout",
+    "https://supabase.com/docs/guides/storage/security/access-control"
+  ]
+}

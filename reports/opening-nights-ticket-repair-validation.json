@@ -1,0 +1,69 @@
+{
+  "checkedAt": "2026-11-04T01:36:38.110Z",
+  "evidenceClass": "Local adapter tests and PostgreSQL/worker synthetic regressions; not deployed or scheduled recovery.",
+  "runtimeFiles": [
+    "lib/collection/official-tickets.ts"
+  ],
+  "runtimeSourceSha256": "5d93aaea5dd2129d009c45cdb18773ef601e72b1daf33740265481a6954133b9",
+  "testPath": "tests/official-tickets.test.ts",
+  "testSourceSha256": "ac5b075cc917d6f37fb06f85a872da035ea9a9f49ecc5dc03bdc10bfa902e0c8",
+  "validation": [
+    {
+      "command": "node --import tsx --test tests/official-tickets.test.ts",
+      "exitCode": 0,
+      "passed": 24,
+      "failed": 0,
+      "fixtures": "Synthetic HTML plus explicitly labeled reconstruction of observed live DOM action copy; not original current HTTP payload."
+    },
+    {
+      "command": "node --import tsx scripts/test-official-database.mjs",
+      "exitCode": 0,
+      "passed": 23,
+      "failed": 0,
+      "report": "reports/official-database-tests.json",
+      "reportSha256": "281b1f358701cf9937ed08a5ae681aef3e3a41cd2ab7a58441f62694873bb963",
+      "boundaries": "Actual local PostgreSQL migrations/roles/RLS and production dispatcher/ingestion on synthetic fixtures and in-memory Storage substitute; no hosted calls."
+    },
+    {
+      "command": "node --import tsx scripts/prove-opening-nights-ticket-repair.ts",
+      "exitCode": 0,
+      "report": "reports/opening-nights-ticket-repair.json",
+      "reportSha256": "15c3e667a5eab5d99de16627cbf25948687752323557637f8215a108b5e151b9",
+      "retainedRawReplay": {
+        "capturePath": "private/official-tickets-live/latest.json",
+        "captureSha256": "1ad191d18db282144981b31ac38b277b73c3962f9962a9ac37261f9a20dc2834",
+        "capturedAt": "2026-10-21T23:44:16.943Z",
+        "pages": 19,
+        "originalStatus": "success",
+        "repairedStatus": "success",
+        "opportunities": 18,
+        "occurrences": 18,
+        "milestones": 18,
+        "allNormalizedFactsAndNativeIdentitiesIdentical": true,
+        "evidenceItemsRevalidated": 54
+      },
+      "observedDomReconstruction": {
+        "before": "partial",
+        "after": "success",
+        "opportunityAndOccurrenceFactsUnchanged": true,
+        "noticeIdentityPreserved": true
+      }
+    },
+    {
+      "command": "./node_modules/.bin/tsc --noEmit",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "reportHistory": "reports/official-database-tests-history-87f72fb3c315981c.json",
+  "noCadenceOrRetryChanges": true,
+  "productionStatus": "Still partial until the patched adapter is deployed and completes the next eligible normal scheduled attempt. No source health, cursor, lease, quota or timestamp was manually reset.",
+  "productionWrites": 0,
+  "calendarCalls": 0,
+  "modelCalls": 0,
+  "paidUpgrades": 0,
+  "holdoutAccess": false
+}
